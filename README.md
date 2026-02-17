@@ -1,6 +1,7 @@
 # Optimized Prompt for GitHub Copilot & VS Code
 
-## 🚀 **START HERE**: [FINAL_PROMPT.md](./FINAL_PROMPT.md) ← **THE PROMPT YOU NEED**
+## 🚀 **[START_HERE.md](./START_HERE.md)** ← **Read This First!**
+## 🎯 **[FINAL_PROMPT.md](./FINAL_PROMPT.md)** ← **THE PROMPT YOU NEED**
 
 This repository contains an advanced, optimized prompt designed to transform GitHub Copilot into an expert learning assistant tailored for physician-researchers and verbal thinkers.
 
