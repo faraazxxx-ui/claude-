@@ -1,6 +1,15 @@
 # Optimized Prompt for GitHub Copilot & VS Code
 
+## 🚀 **START HERE**: [FINAL_PROMPT.md](./FINAL_PROMPT.md) ← **THE PROMPT YOU NEED**
+
 This repository contains an advanced, optimized prompt designed to transform GitHub Copilot into an expert learning assistant tailored for physician-researchers and verbal thinkers.
+
+**⚡ Quick Start:**
+1. Open [FINAL_PROMPT.md](./FINAL_PROMPT.md)
+2. Copy the prompt (clearly marked with START/END tags)
+3. Paste into GitHub Copilot, ChatGPT, or Claude
+4. Add your specific request
+5. Get tailored learning plans and step-by-step guidance!
 
 ## 🎯 Purpose
 
@@ -13,32 +22,47 @@ The prompt helps bridge the gap between natural language thinking and technical 
 
 ## 📁 Contents
 
-- **`copilot-optimized-prompt.md`** - The complete optimized prompt with:
-  - Advanced reasoning frameworks
-  - Data extraction protocols
-  - Gap analysis methodologies
-  - Tailored learning plan generation
-  - Tool-specific guidance (Google Cloud, GitHub, VS Code)
-  - Chain-of-thought reasoning templates
-  - Interactive PDF-ready output format
+### 🎯 **MAIN FILE - THE PROMPT YOU USE:**
+- **[FINAL_PROMPT.md](./FINAL_PROMPT.md)** ⭐ **← START HERE!**  
+  The complete, ready-to-use optimized prompt. Copy and paste this into any AI assistant.
+
+### 📚 Supporting Documentation:
+- **`copilot-optimized-prompt.md`** - Extended framework documentation (same content as FINAL_PROMPT but with more context)
+- **`.github/copilot-instructions.md`** - Auto-loaded by GitHub Copilot in VS Code (copy of the prompt)
+- **`README.md`** - This overview file
 
 ## 🚀 Quick Start
 
-### For GitHub Copilot Users
+### ⚡ **3-Step Process (Takes 2 Minutes):**
 
-1. **Copy the prompt** from `copilot-optimized-prompt.md`
-2. **Create** `.github/copilot-instructions.md` in your project
-3. **Paste** the optimized prompt content
-4. **Use in Copilot Chat**: `@workspace Use the learning assistant prompt to [your request]`
+1. **Open the prompt file**: [FINAL_PROMPT.md](./FINAL_PROMPT.md)
+2. **Copy everything** between the "START OF PROMPT" and "END OF PROMPT" markers
+3. **Paste into your AI assistant** (GitHub Copilot, ChatGPT, Claude, etc.) and add your request
 
 ### Example Usage
 
+**Step 1:** Copy the prompt from FINAL_PROMPT.md
+
+**Step 2:** Paste it, then add your specific request:
 ```
-@workspace Using the optimized prompt framework, analyze my learning style 
-and create a practical plan to master Google Cloud BigQuery for processing 
-genomics datasets. I'm a physician-researcher with strong verbal thinking 
-skills but limited SDK/GitHub experience.
+[The copied prompt goes here]
+
+---
+
+My background: I'm a physician-researcher working with genomics data.
+I need help: Setting up Google Cloud to process 500GB of VCF files automatically.
 ```
+
+**Step 3:** Get your tailored learning plan with exact steps!
+
+---
+
+### For GitHub Copilot Users (Alternative Method)
+
+1. **Copy** the prompt from [FINAL_PROMPT.md](./FINAL_PROMPT.md)
+2. **Create** `.github/copilot-instructions.md` in your project
+3. **Paste** the prompt content there
+4. **Use Copilot Chat**: `@workspace [your request]`
 
 ## 🎓 Key Features
 
