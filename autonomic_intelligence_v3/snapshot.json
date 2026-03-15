@@ -1,0 +1,51 @@
+{
+  "HRV": {
+    "today": 34.0,
+    "source": "physiological_cycles.csv",
+    "7d_avg": 28.9,
+    "baseline": 20.4,
+    "delta": 13.6
+  },
+  "RHR": {
+    "today": 88.0,
+    "source": "physiological_cycles.csv",
+    "7d_avg": 89.0,
+    "baseline": 84.1,
+    "delta": 3.9
+  },
+  "Recovery": {
+    "today": 12.0,
+    "source": "physiological_cycles.csv",
+    "7d_avg": 40.0,
+    "baseline": 36.0,
+    "delta": -24.0
+  },
+  "Sleep": {
+    "today": 1.2,
+    "source": "physiological_cycles.csv",
+    "7d_avg": 5.2,
+    "baseline": 5.0,
+    "delta": -3.8
+  },
+  "Visible_HRV": {
+    "today": 44.0,
+    "source": "Visible_Data_Export",
+    "7d_avg": "N/A",
+    "baseline": "N/A",
+    "delta": "N/A"
+  },
+  "Visible_RHR": {
+    "today": 100.0,
+    "source": "Visible_Data_Export",
+    "7d_avg": "N/A",
+    "baseline": "N/A",
+    "delta": "N/A"
+  },
+  "Stability": {
+    "today": 3.0,
+    "source": "Visible_Data_Export",
+    "7d_avg": "N/A",
+    "baseline": "N/A",
+    "delta": "N/A"
+  }
+}

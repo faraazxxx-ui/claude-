@@ -1,0 +1,44 @@
+{
+  "Propanolol": {
+    "march_adherence_pct": 20.0,
+    "march_taken": 2,
+    "march_total": 10,
+    "last_dose": "2026-03-14"
+  },
+  "Duloxetine": {
+    "march_adherence_pct": 100.0,
+    "march_taken": 10,
+    "march_total": 10,
+    "last_dose": "2026-03-14"
+  },
+  "Gabapentin": {
+    "march_adherence_pct": 10.0,
+    "march_taken": 1,
+    "march_total": 10,
+    "last_dose": "2026-03-05"
+  },
+  "Vyvanse": {
+    "march_adherence_pct": 0.0,
+    "march_taken": 0,
+    "march_total": 10,
+    "last_dose": "2026-02-20"
+  },
+  "Adderall": {
+    "march_adherence_pct": 0.0,
+    "march_taken": 0,
+    "march_total": 10,
+    "last_dose": "2026-02-28"
+  },
+  "Clonopine": {
+    "march_adherence_pct": 0.0,
+    "march_taken": 0,
+    "march_total": 10,
+    "last_dose": "2026-02-28"
+  },
+  "GLP": {
+    "march_adherence_pct": 10.0,
+    "march_taken": 1,
+    "march_total": 10,
+    "last_dose": "2026-03-01"
+  }
+}

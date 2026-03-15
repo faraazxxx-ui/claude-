@@ -1,0 +1,31 @@
+{
+  "propranolol_adherence_14d": {
+    "value": 20.0,
+    "threshold": 80,
+    "met": false
+  },
+  "no_crash_5d": {
+    "value": "3 crash days",
+    "threshold": 0,
+    "met": false
+  },
+  "rhr_7d_avg": {
+    "value": 89.0,
+    "threshold": 95,
+    "met": true
+  },
+  "hydration_protocol": {
+    "value": "Cannot verify from data",
+    "threshold": ">=2.5L + 3g NaCl",
+    "met": false
+  },
+  "duloxetine_qtc_baseline": {
+    "value": "Cannot verify from data",
+    "threshold": "Obtained",
+    "met": false
+  },
+  "summary": {
+    "criteria_met": "1/5",
+    "status": "Contraindicated"
+  }
+}

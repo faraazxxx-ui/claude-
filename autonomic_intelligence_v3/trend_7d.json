@@ -1,0 +1,76 @@
+[
+  {
+    "date": "2026-03-09",
+    "HRV_ms": 74.0,
+    "RHR_bpm": 81.0,
+    "Recovery_pct": 17.0,
+    "Sleep_min": 114.0,
+    "SWS_min": 23.0,
+    "REM_min": 7.0,
+    "Strain": 0.4,
+    "SpO2": NaN,
+    "Skin_temp": 30.56,
+    "note": " VAGAL SURGE DYSREGULATION (HRV > 60ms)"
+  },
+  {
+    "date": "2026-03-10",
+    "HRV_ms": 22.0,
+    "RHR_bpm": 98.0,
+    "Recovery_pct": 11.0,
+    "Sleep_min": 66.0,
+    "SWS_min": 24.0,
+    "REM_min": 0.0,
+    "Strain": 7.0,
+    "SpO2": NaN,
+    "Skin_temp": 32.6
+  },
+  {
+    "date": "2026-03-11",
+    "HRV_ms": 17.0,
+    "RHR_bpm": 84.0,
+    "Recovery_pct": 61.0,
+    "Sleep_min": 482.0,
+    "SWS_min": 113.0,
+    "REM_min": 130.0,
+    "Strain": 4.7,
+    "SpO2": 96.88,
+    "Skin_temp": 32.68
+  },
+  {
+    "date": "2026-03-12",
+    "HRV_ms": 19.0,
+    "RHR_bpm": 88.0,
+    "Recovery_pct": 68.0,
+    "Sleep_min": 578.0,
+    "SWS_min": 122.0,
+    "REM_min": 90.0,
+    "Strain": 5.9,
+    "SpO2": 94.67,
+    "Skin_temp": 34.65
+  },
+  {
+    "date": "2026-03-13",
+    "HRV_ms": 20.0,
+    "RHR_bpm": 87.0,
+    "Recovery_pct": 79.0,
+    "Sleep_min": 633.0,
+    "SWS_min": 108.0,
+    "REM_min": 123.0,
+    "Strain": 5.5,
+    "SpO2": 95.0,
+    "Skin_temp": 32.4
+  },
+  {
+    "date": "2026-03-14",
+    "HRV_ms": 34.0,
+    "RHR_bpm": 88.0,
+    "Recovery_pct": 12.0,
+    "Sleep_min": 70.0,
+    "SWS_min": 37.0,
+    "REM_min": 2.0,
+    "Strain": NaN,
+    "SpO2": NaN,
+    "Skin_temp": 30.34,
+    "note": "OPEN/INCOMPLETE CYCLE"
+  }
+]

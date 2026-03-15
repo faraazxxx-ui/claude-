@@ -1,0 +1,11 @@
+{
+  "mean_recovery": 47.4,
+  "mean_hrv": 16.8,
+  "mean_rhr": 91.8,
+  "green_pct": 26.7,
+  "red_pct": 38.3,
+  "mean_sleep_min": 382.4,
+  "n_days": 60,
+  "spo2_low_events": 3,
+  "crash_rate_pct": 41.4
+}
