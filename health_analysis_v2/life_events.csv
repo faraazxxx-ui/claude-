@@ -1,0 +1,10 @@
+date,event,category,severity
+2026-02-13,Engagement proposal stress,emotional,high
+2026-02-14,"Mother rushed to ER (possible stroke, 911 called)",emotional,critical
+2026-02-16,"Set up dual monitor system, spoke to Morgan",activity,low
+2026-02-17,RAMADAN BEGINS - First night of fasting,metabolic,critical
+2026-02-20,"Blood sugar crash during fast, had to break fast, crashed",metabolic,critical
+2026-02-21,Conflict with hotel staff and AT&T,emotional,moderate
+2026-02-26,Hassan left,emotional,moderate
+2026-03-10,Persistent dreams (sleep quality concern),sleep,moderate
+2026-03-14,Cleaning cat litter (physical exertion),activity,low

@@ -1,0 +1,42 @@
+{
+  "Adderall": {
+    "days_tracked": 19,
+    "days_taken": 10,
+    "adherence_pct": 52.6
+  },
+  "Vyvanse": {
+    "days_tracked": 19,
+    "days_taken": 6,
+    "adherence_pct": 31.6
+  },
+  "Duloxetine": {
+    "days_tracked": 19,
+    "days_taken": 18,
+    "adherence_pct": 94.7
+  },
+  "Gabapentin": {
+    "days_tracked": 16,
+    "days_taken": 8,
+    "adherence_pct": 50.0
+  },
+  "Propanolol": {
+    "days_tracked": 17,
+    "days_taken": 7,
+    "adherence_pct": 41.2
+  },
+  "Clonopine": {
+    "days_tracked": 19,
+    "days_taken": 10,
+    "adherence_pct": 52.6
+  },
+  "GLP": {
+    "days_tracked": 16,
+    "days_taken": 7,
+    "adherence_pct": 43.8
+  },
+  "Rease / M": {
+    "days_tracked": 7,
+    "days_taken": 4,
+    "adherence_pct": 57.1
+  }
+}

@@ -1,0 +1,7 @@
+Period,Days,HRV_mean,HRV_median,RHR_mean,Recovery_mean,Green_pct,Red_pct,Sleep_hours
+Full Period (409d),409,22.8,21.0,82.5,42.2,21.0,40.7,7.09
+Best Period (Oct-Nov 2024),47,24.0,21.0,84.5,34.1,8.6,51.4,6.48
+Pre-Ramadan Feb (Feb 1-16),16,14.0,14.0,93.7,58.5,46.7,26.7,8.27
+During Ramadan (Feb 17+),24,19.7,16.0,89.7,46.1,34.8,47.8,8.34
+Acute Crisis (Feb 13-28),14,12.8,13.0,93.0,43.1,28.6,42.9,7.66
+Last 7 Days,7,28.9,20.0,89.0,40.0,28.6,57.1,7.89

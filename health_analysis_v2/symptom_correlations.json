@@ -1,0 +1,18 @@
+{
+  "Fatigue vs Heart rate variability (ms)": 0.222,
+  "Fatigue vs Resting heart rate (bpm)": -0.194,
+  "Fatigue vs Recovery score %": 0.344,
+  "Fatigue vs sleep_hours": 0.11,
+  "Brain Fog vs Heart rate variability (ms)": 0.091,
+  "Brain Fog vs Resting heart rate (bpm)": -0.016,
+  "Brain Fog vs Recovery score %": 0.268,
+  "Brain Fog vs sleep_hours": 0.135,
+  "Anxiety vs Heart rate variability (ms)": -0.272,
+  "Anxiety vs Resting heart rate (bpm)": 0.154,
+  "Anxiety vs Recovery score %": -0.316,
+  "Anxiety vs sleep_hours": -0.253,
+  "Crash vs Heart rate variability (ms)": 0.117,
+  "Crash vs Resting heart rate (bpm)": -0.053,
+  "Crash vs Recovery score %": -0.177,
+  "Crash vs sleep_hours": -0.034
+}
