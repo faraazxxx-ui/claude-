@@ -1,0 +1,363 @@
+{
+  "validation": {
+    "physiological_cycles.csv": "OK \u2014 329 valid rows, 2024-04-06 to 2026-03-14",
+    "sleeps.csv": "OK \u2014 306 main sleep records",
+    "Visible_Data_Export": "OK \u2014 29 days, trackers: ['Adderall', 'Anxiety', 'Brain Fog', 'Breathing session minutes', 'Clonopine', 'Cooking a complicated meal from scratch approx. 1 hour of preparation', 'Crash', 'Depression', 'Derealization', 'Duloxetine', 'Emotionally stressful', 'Fatigue', 'Focusing on a task for approx. 10 minutes continuously', 'Focusing on a task for approx. 2 hours continuously', 'GLP', 'Gabapentin', 'Getting dressed in regular clothes', 'Going to a shop for groceries', 'HRV', 'Having a conversation for approx. 5 minutes', 'Heavier housework (washing floors vacuuming etc.) for approx. \u00bd hour continuously', 'Infection', 'Managing a full working day (non-physical work such as office work classes or lectures)', 'Mentally demanding', 'Note', 'PacePoints', 'Pacing Budget', 'Participating in a conversation with three people for approx. \u00bd hour', 'Participating in a dinner party party or family event', 'Participating in organized leisure activities such as classes sports etc.', 'Physical activity with increased heart rate for approx. 15 min', 'Physically active', 'Propanolol', 'Reading a short text such as a mobile phone text message', 'Reading and understanding a non-fiction text such as an official document one page long', 'Rease / M', 'Resting HR', 'Showering standing up', 'Sitting in an upright chair (dining chair) with feet on floor for approx. 2 hours', 'Sitting in bed for approx. \u00bd hour', 'Sleep', 'Socially demanding', 'Stability Score', 'Standing up for approx. 5 minutes e.g. while queuing or while cooking', 'Staying in a noisy environment (shopping mall caf\u00e9 or open plan office) for approx. 1 hour', 'Staying in a room with normal lighting without sunglasses for approx. 1 hour', 'Staying outdoors in daylight without sunglasses for approx. 2 hours', 'Stepping right outside your home', 'Using public transport (bus or train)', 'Using social media to stay in touch with others', 'Using the toilet (not bedpan or bedside commode)', 'Vyvanse', 'Walking a short distance indoors from one room to another', 'Walking between approx. 100m and 1km on level ground (length of 1 to 10 football fields)']",
+    "ring_data_*.csv": "OK \u2014 72 files, sample cols: ['timestamp_epoch', 'data_type', 'value']",
+    "workouts.csv": "OK \u2014 203 rows"
+  },
+  "autonomic": {
+    "hrv": {
+      "mean": 22.8,
+      "median": 21.0,
+      "7d_mean": 28.1,
+      "7d_slope": -0.87,
+      "7d_trend": "DETERIORATING",
+      "baseline": 20.4,
+      "delta_pct": 12.0
+    },
+    "rhr": {
+      "mean": 82.5,
+      "median": 82.0,
+      "7d_mean": 88.5,
+      "7d_slope": -0.26,
+      "7d_trend": "STABLE",
+      "baseline": 84.1,
+      "delta_pct": -1.9
+    },
+    "crisis_streaks": [
+      {
+        "start": "2025-12-29",
+        "end": "2026-01-01",
+        "days": 4
+      },
+      {
+        "start": "2026-02-10",
+        "end": "2026-02-12",
+        "days": 3
+      },
+      {
+        "start": "2026-02-15",
+        "end": "2026-02-19",
+        "days": 5
+      }
+    ],
+    "crisis_days_total": 43,
+    "crisis_pct": 13.1
+  },
+  "sleep": {
+    "total_sleep_h": {
+      "mean": 5.63,
+      "median": 4.9,
+      "baseline": 5.0,
+      "delta_pct": 12.6
+    },
+    "deep_sleep_min": {
+      "mean": 92.3,
+      "median": 86.0
+    },
+    "rem_sleep_min": {
+      "mean": 71.4,
+      "median": 55.0
+    },
+    "light_sleep_min": {
+      "mean": 174.0,
+      "median": 144.0
+    },
+    "sleep_efficiency": {
+      "mean": 79.5,
+      "median": 81.0
+    },
+    "sleep_onset_mean_hour": 1.5,
+    "sleep_onset_SD_hours": 4.54,
+    "baseline_onset_SD": 5.6,
+    "nights_below_4h": 133,
+    "nights_below_4h_pct": 40.4,
+    "nights_above_7h": 122,
+    "nights_above_7h_pct": 37.1
+  },
+  "pem": {
+    "recovery": {
+      "mean": 42.2,
+      "median": 41.0,
+      "baseline": 36.0,
+      "delta_pct": 17.1,
+      "green_pct": 21.0,
+      "yellow_pct": 38.3,
+      "red_pct": 40.7
+    },
+    "strain_recovery_correlation": {
+      "pearson_r": -0.113,
+      "p_value": 0.0404,
+      "interpretation": "Significant"
+    },
+    "mean_strain_before_red": 6.4,
+    "mean_strain_overall": 6.2,
+    "max_consecutive_red_days": 8
+  },
+  "correlations": {
+    "Rease / M \u2194 Heart rate variability (ms)": {
+      "r": 0.869,
+      "p": 0.0111,
+      "n": 7
+    },
+    "Adderall \u2194 Heart rate variability (ms)": {
+      "r": -0.719,
+      "p": 0.0008,
+      "n": 18
+    },
+    "Clonopine \u2194 Heart rate variability (ms)": {
+      "r": -0.719,
+      "p": 0.0008,
+      "n": 18
+    },
+    "Gabapentin \u2194 Heart rate variability (ms)": {
+      "r": -0.684,
+      "p": 0.0049,
+      "n": 15
+    },
+    "GLP \u2194 Heart rate variability (ms)": {
+      "r": -0.662,
+      "p": 0.0072,
+      "n": 15
+    },
+    "Infection \u2194 Resting heart rate (bpm)": {
+      "r": 0.586,
+      "p": 0.0217,
+      "n": 15
+    },
+    "Depression \u2194 Recovery score %": {
+      "r": 0.551,
+      "p": 0.0269,
+      "n": 16
+    },
+    "Vyvanse \u2194 Heart rate variability (ms)": {
+      "r": -0.536,
+      "p": 0.0218,
+      "n": 18
+    },
+    "Propanolol \u2194 Recovery score %": {
+      "r": -0.472,
+      "p": 0.0646,
+      "n": 16
+    },
+    "Emotionally stressful \u2194 Recovery score %": {
+      "r": -0.463,
+      "p": 0.0457,
+      "n": 19
+    }
+  },
+  "trends": {
+    "HRV": {
+      "current_period_mean": 18.8,
+      "full_period_mean": 22.8,
+      "baseline": 20.4,
+      "delta_vs_baseline": -1.6,
+      "delta_pct": -7.8,
+      "trend": "DETERIORATING"
+    },
+    "RHR": {
+      "current_period_mean": 90.8,
+      "full_period_mean": 82.5,
+      "baseline": 84.1,
+      "delta_vs_baseline": 6.7,
+      "delta_pct": 8.0,
+      "trend": "DETERIORATING"
+    },
+    "Sleep": {
+      "current_period_mean": 6.52,
+      "full_period_mean": 5.63,
+      "baseline": 5.0,
+      "delta_vs_baseline": 1.52,
+      "delta_pct": 30.5,
+      "trend": "IMPROVING"
+    },
+    "Recovery": {
+      "current_period_mean": 48.6,
+      "full_period_mean": 42.2,
+      "baseline": 36.0,
+      "delta_vs_baseline": 12.6,
+      "delta_pct": 34.9,
+      "trend": "IMPROVING"
+    }
+  },
+  "red_flags": [
+    "HRV < 10ms on 9 days \u2014 severe autonomic suppression",
+    "RHR > 100 bpm on 18 days \u2014 persistent tachycardia",
+    "Visible RHR > 120 bpm on 1 days \u2014 possible POTS episodes",
+    "SpO\u2082 < 93% on 6 days \u2014 hypoxemia",
+    "Sleep < 2 hours on 66 days \u2014 severe sleep deprivation",
+    "Maximum 8 consecutive Red recovery days \u2014 sustained PEM",
+    "3 crisis streaks (HRV<15 & RHR>90) totaling 12 days"
+  ],
+  "monthly": [
+    {
+      "Month": "2024-04",
+      "HRV_ms": 15.571428571428571,
+      "RHR_bpm": 83.14285714285714,
+      "Recovery_pct": 22.285714285714285,
+      "Sleep_min": 280.7142857142857,
+      "Sleep_h": 4.678571428571429
+    },
+    {
+      "Month": "2024-06",
+      "HRV_ms": 14.166666666666666,
+      "RHR_bpm": 88.66666666666667,
+      "Recovery_pct": 19.833333333333332,
+      "Sleep_min": 289.0,
+      "Sleep_h": 4.816666666666666
+    },
+    {
+      "Month": "2024-07",
+      "HRV_ms": 16.5,
+      "RHR_bpm": 89.25,
+      "Recovery_pct": 22.75,
+      "Sleep_min": 221.25,
+      "Sleep_h": 3.6875
+    },
+    {
+      "Month": "2024-10",
+      "HRV_ms": 28.923076923076923,
+      "RHR_bpm": 83.6923076923077,
+      "Recovery_pct": 29.615384615384617,
+      "Sleep_min": 203.92307692307693,
+      "Sleep_h": 3.398717948717949
+    },
+    {
+      "Month": "2024-11",
+      "HRV_ms": 21.09090909090909,
+      "RHR_bpm": 84.9090909090909,
+      "Recovery_pct": 36.81818181818182,
+      "Sleep_min": 266.04545454545456,
+      "Sleep_h": 4.4340909090909095
+    },
+    {
+      "Month": "2024-12",
+      "HRV_ms": 24.714285714285715,
+      "RHR_bpm": 83.14285714285714,
+      "Recovery_pct": 37.714285714285715,
+      "Sleep_min": 399.7142857142857,
+      "Sleep_h": 6.661904761904762
+    },
+    {
+      "Month": "2025-01",
+      "HRV_ms": 26.88888888888889,
+      "RHR_bpm": 83.0,
+      "Recovery_pct": 35.888888888888886,
+      "Sleep_min": 262.1666666666667,
+      "Sleep_h": 4.3694444444444445
+    },
+    {
+      "Month": "2025-02",
+      "HRV_ms": 18.0,
+      "RHR_bpm": 80.5,
+      "Recovery_pct": 21.166666666666668,
+      "Sleep_min": 304.3333333333333,
+      "Sleep_h": 5.072222222222222
+    },
+    {
+      "Month": "2025-03",
+      "HRV_ms": 17.333333333333332,
+      "RHR_bpm": 90.33333333333333,
+      "Recovery_pct": 6.0,
+      "Sleep_min": 87.33333333333333,
+      "Sleep_h": 1.4555555555555555
+    },
+    {
+      "Month": "2025-04",
+      "HRV_ms": 16.363636363636363,
+      "RHR_bpm": 84.63636363636364,
+      "Recovery_pct": 26.0,
+      "Sleep_min": 241.1818181818182,
+      "Sleep_h": 4.0196969696969695
+    },
+    {
+      "Month": "2025-05",
+      "HRV_ms": 20.0,
+      "RHR_bpm": 80.5,
+      "Recovery_pct": 15.5,
+      "Sleep_min": 107.0,
+      "Sleep_h": 1.7833333333333334
+    },
+    {
+      "Month": "2025-06",
+      "HRV_ms": 28.166666666666668,
+      "RHR_bpm": 78.91666666666667,
+      "Recovery_pct": 45.041666666666664,
+      "Sleep_min": 285.75,
+      "Sleep_h": 4.7625
+    },
+    {
+      "Month": "2025-07",
+      "HRV_ms": 29.571428571428573,
+      "RHR_bpm": 74.53571428571429,
+      "Recovery_pct": 54.0,
+      "Sleep_min": 389.85714285714283,
+      "Sleep_h": 6.497619047619048
+    },
+    {
+      "Month": "2025-08",
+      "HRV_ms": 29.76,
+      "RHR_bpm": 72.12,
+      "Recovery_pct": 57.32,
+      "Sleep_min": 469.0,
+      "Sleep_h": 7.816666666666666
+    },
+    {
+      "Month": "2025-09",
+      "HRV_ms": 25.916666666666668,
+      "RHR_bpm": 75.75,
+      "Recovery_pct": 38.0,
+      "Sleep_min": 309.4166666666667,
+      "Sleep_h": 5.156944444444445
+    },
+    {
+      "Month": "2025-10",
+      "HRV_ms": 26.0,
+      "RHR_bpm": 77.81481481481481,
+      "Recovery_pct": 51.074074074074076,
+      "Sleep_min": 366.3703703703704,
+      "Sleep_h": 6.106172839506173
+    },
+    {
+      "Month": "2025-11",
+      "HRV_ms": 22.233333333333334,
+      "RHR_bpm": 79.66666666666667,
+      "Recovery_pct": 46.8,
+      "Sleep_min": 369.3666666666667,
+      "Sleep_h": 6.1561111111111115
+    },
+    {
+      "Month": "2025-12",
+      "HRV_ms": 18.5,
+      "RHR_bpm": 87.54166666666667,
+      "Recovery_pct": 34.666666666666664,
+      "Sleep_min": 349.9583333333333,
+      "Sleep_h": 5.832638888888889
+    },
+    {
+      "Month": "2026-01",
+      "HRV_ms": 15.636363636363637,
+      "RHR_bpm": 92.86363636363636,
+      "Recovery_pct": 41.09090909090909,
+      "Sleep_min": 357.3181818181818,
+      "Sleep_h": 5.95530303030303
+    },
+    {
+      "Month": "2026-02",
+      "HRV_ms": 13.307692307692308,
+      "RHR_bpm": 92.88461538461539,
+      "Recovery_pct": 49.07692307692308,
+      "Sleep_min": 410.11538461538464,
+      "Sleep_h": 6.83525641025641
+    },
+    {
+      "Month": "2026-03",
+      "HRV_ms": 26.5,
+      "RHR_bpm": 87.66666666666667,
+      "Recovery_pct": 55.166666666666664,
+      "Sleep_min": 368.4166666666667,
+      "Sleep_h": 6.140277777777778
+    }
+  ]
+}
