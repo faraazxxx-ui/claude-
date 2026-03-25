@@ -1,0 +1,188 @@
+{
+  "results": [
+    {
+      "input": "Voice-first AI dictation tools 2025 2026 that go beyond simple transcription - tools that understand context, structure thoughts, and integrate with AI agents. Specifically look for: Wispr Flow alternatives, Superwhisper, Aqua Voice, Flow Voice AI, and any new voice-to-structured-text tools. Focus on Mac and iOS compatibility.",
+      "output": {
+        "domain": "Voice-First AI Dictation",
+        "tool_1_name": "Superwhisper",
+        "tool_1_description": "Superwhisper is an AI-powered dictation tool that transcribes voice to text in any application. It offers both local and cloud-based AI models for transcription, providing flexibility between speed and accuracy. For verbal thinkers, it allows for capturing thoughts as they come, with features like custom modes to format text for different contexts (e.g., emails, notes).",
+        "tool_1_platforms": "Mac, iOS, Windows",
+        "tool_1_url": "https://superwhisper.com/",
+        "tool_1_pricing": "Free tier, Pro: $9.99/mo or $84.99/yr, Lifetime: $849",
+        "tool_2_name": "Aqua Voice",
+        "tool_2_description": "Aqua Voice is a real-time voice dictation tool that focuses on turning spoken words into clear, formatted text. It's designed to work across various applications, from messaging apps to code editors. For verbal thinkers, it helps to quickly draft messages, emails, and other documents by speaking naturally, with the AI handling the formatting and style adjustments.",
+        "tool_2_platforms": "Mac, Windows",
+        "tool_2_url": "https://aquavoice.com/",
+        "tool_2_pricing": "Free tier (1,000 words), Pro: $8/mo (annual) or $10/mo (monthly)",
+        "tool_3_name": "Wispr Flow",
+        "tool_3_description": "Wispr Flow is a voice-to-text AI that turns speech into polished writing. It's designed to work in any app and is positioned as a tool to boost productivity. For verbal thinkers, it helps to overcome the blank page by allowing them to speak their thoughts and have them automatically structured and formatted. It also includes a \"Command mode\" for editing by voice.",
+        "tool_3_platforms": "Mac, iOS, Windows, Android",
+        "tool_3_url": "https://wisprflow.ai/",
+        "tool_3_pricing": "Free tier (weekly limit), Pro: $15/mo or $144/yr",
+        "key_insight": "The key trend in advanced voice dictation is the move from simple transcription to AI-powered text generation and formatting. These tools are no longer just about converting speech to text; they are about understanding the user's intent and context to produce polished, ready-to-use text in the appropriate format for any application."
+      },
+      "error": ""
+    },
+    {
+      "input": "Multi-model AI routers and orchestrators 2025 2026 - tools that let you route prompts to the best AI model automatically. Look for: OpenRouter, TypingMind, Msty, BoltAI, and any tool that acts as a unified interface to multiple LLMs (Claude, Gemini, Grok, Perplexity) without needing ChatGPT. Must work on Mac/iOS/Windows.",
+      "output": {
+        "domain": "Multi-model AI routers and orchestrators",
+        "tool_1_name": "OpenRouter",
+        "tool_1_description": "OpenRouter is a unified API and marketplace that gives developers and users access to hundreds of AI models from multiple providers through a single interface. For a verbal thinker, this means they can easily experiment with and switch between different models (like Claude, Gemini, and various open-source options) to find the one that best understands their style of thinking and expression, without managing multiple accounts or APIs. It simplifies the process of finding the \"right voice\" for their creative and analytical tasks.",
+        "tool_1_platforms": "Web, Mac, iOS, Windows (via API)",
+        "tool_1_url": "https://openrouter.ai/",
+        "tool_1_pricing": "Pay-as-you-go with a free tier",
+        "tool_2_name": "TypingMind",
+        "tool_2_description": "TypingMind is an advanced chat UI for various AI models, including ChatGPT, Gemini, and Claude. It acts as a centralized hub for all LLM chats. For a verbal thinker, it provides a clean, organized, and powerful interface to interact with their preferred AI models without the clutter of different web interfaces. It supports features like chat organization, comparing outputs from multiple models for the same prompt, and building a personal library of prompts and agents, which is ideal for a user who thinks and creates through dialogue.",
+        "tool_2_platforms": "Web, Mac, iOS, Windows",
+        "tool_2_url": "https://www.typingmind.com/",
+        "tool_2_pricing": "One-time payment for a lifetime license (starts at $99)",
+        "tool_3_name": "Msty",
+        "tool_3_description": "Msty Studio is a privacy-first AI studio that allows users to leverage both local and online AI models. For a verbal thinker who values privacy and control, Msty offers the ability to run powerful models offline, ensuring their thoughts and data remain on their device. It also allows connecting to online providers when needed, offering a hybrid approach. Its focus on building reusable prompts and workflows can help a verbal thinker streamline their creative and analytical processes.",
+        "tool_3_platforms": "Mac, Windows, Linux",
+        "tool_3_url": "https://msty.ai/",
+        "tool_3_pricing": "Free tier, with paid plans for advanced features ($149/year or $349 lifetime)",
+        "key_insight": "The key insight for a verbal thinker is that they no longer need to be locked into a single AI model's \"way of thinking.\" Multi-model routers and orchestrators empower them to dynamically choose the best AI \"brain\" for any given task, whether it's creative writing, technical analysis, or brainstorming, all from a single, unified interface. This flexibility allows them to match the AI's cognitive style to their own, moment by moment."
+      },
+      "error": ""
+    },
+    {
+      "input": "System-wide AI access layers for Mac and Windows 2025 2026 - tools that provide AI assistance anywhere on the desktop without switching apps. Look for: Raycast AI alternatives, Pieces for Developers, Rewind AI (now Limitless), Screen Context AI tools, and ambient AI assistants. Exclude Raycast itself since user already has it.",
+      "output": {
+        "domain": "System-wide AI access layers for Mac and Windows",
+        "tool_1_name": "Elephas",
+        "tool_1_description": "Elephas is a personal AI assistant for Mac, iPhone, and iPad that works across your entire system. For a verbal thinker, it's powerful because it can index your personal documents, notes, and web pages to provide contextual answers, summaries, and even generate content based on your own knowledge. This avoids generic responses and provides a personalized AI experience. It also features a \"Super Command\" to bring AI into any app with a keyboard shortcut.",
+        "tool_1_platforms": "Mac, iOS, iPadOS",
+        "tool_1_url": "https://elephas.app/",
+        "tool_1_pricing": "Free tier, paid plans from $9.99/mo",
+        "tool_2_name": "Alter",
+        "tool_2_description": "Alter is a native macOS AI assistant that understands your current work context and integrates with all your apps. For a verbal thinker, it's a powerful tool because it can auto-insert AI responses into any application, eliminating the need for copy-pasting. It also automatically selects the best AI model for the task and can chat with any website.",
+        "tool_2_platforms": "Mac",
+        "tool_2_url": "https://alterhq.com/",
+        "tool_2_pricing": "Free with own API keys, Pro plan at $240/year",
+        "tool_3_name": "PyGPT",
+        "tool_3_description": "PyGPT is a free and open-source desktop AI assistant for Windows, macOS, and Linux. For a verbal thinker, it's a versatile tool that supports a wide range of models (including local ones via Ollama) and modes of operation, from chat and vision to agents and computer control. It can execute system commands, run Python code, and access the web, offering a high degree of customizability and control.",
+        "tool_3_platforms": "Windows, macOS, Linux",
+        "tool_3_url": "https://pygpt.net/",
+        "tool_3_pricing": "Free and open-source",
+        "key_insight": "System-wide AI access layers are evolving from simple chatbots into personalized knowledge assistants that deeply integrate with the operating system and user's existing workflows. This provides significant productivity gains for verbal thinkers by offering contextual assistance within any application."
+      },
+      "error": ""
+    },
+    {
+      "input": "AI-powered audio processing and voice note tools 2025 2026 - tools that take voice memos/recordings and automatically structure them into actionable notes, tasks, or documents. Look for: AudioPen, Cleft Notes, Otter.ai alternatives, and any tool that converts rambling voice notes into structured output. Must work on iOS.",
+      "output": {
+        "domain": "AI-Powered Audio Processing and Voice Note Tools",
+        "tool_1_name": "Cleft Notes",
+        "tool_1_description": "Cleft is a privacy-focused, on-device AI scribe that excels at turning unstructured voice memos into organized notes, summaries, and checklists. It's designed for verbal thinkers and those with neurodiversity, allowing users to capture thoughts offline and sync across devices. Its ability to create structured content from rambling thoughts makes it a powerful tool for clarifying ideas.",
+        "tool_1_platforms": "Mac, iOS",
+        "tool_1_url": "https://www.cleftnotes.com/",
+        "tool_1_pricing": "Free Basic Plan; Paid Plus Plan for advanced features",
+        "tool_2_name": "AudioPen",
+        "tool_2_description": "AudioPen is a versatile tool that rewrites rambling voice notes into clear, coherent text in various styles. It's perfect for capturing ideas on the go and transforming them into polished content like emails, summaries, or blog posts. Its strength lies in its ability to not just transcribe, but to intelligently rephrase and structure spoken words into well-written text.",
+        "tool_2_platforms": "iOS, Android, Mac, Chrome",
+        "tool_2_url": "https://audiopen.ai/",
+        "tool_2_pricing": "Free tier; Prime from $8.25/mo (billed annually)",
+        "tool_3_name": "Jamie",
+        "tool_3_description": "Jamie is a bot-free AI meeting assistant that records, transcribes, and summarizes meetings on Mac, Windows, and iOS. It automatically generates notes, action items, and transcripts with speaker identification. For verbal thinkers, it's a great way to offload the task of note-taking during meetings and still have a detailed, searchable record of the conversation.",
+        "tool_3_platforms": "Mac, Windows, iOS",
+        "tool_3_url": "https://www.meetjamie.ai/",
+        "tool_3_pricing": "Free plan with limits; Paid plans from €25/month",
+        "key_insight": "The most significant trend in AI audio processing is the evolution from basic transcription to intelligent structuring. These tools now transform rambling, unstructured voice notes into organized, actionable text, making them ideal for verbal thinkers who need to capture and clarify their thoughts."
+      },
+      "error": ""
+    },
+    {
+      "input": "Workflow automation platforms that connect voice input to AI agent execution 2025 2026 - tools like Make.com, n8n, Shortcuts, Keyboard Maestro that can bridge voice capture to Manus/Claude/Grok execution. Look for no-code automation that a verbal thinker can trigger by speaking.",
+      "output": {
+        "domain": "Workflow automation platforms for voice-to-AI execution",
+        "tool_1_name": "Make",
+        "tool_1_description": "Make is a visual workflow automation platform that allows users to connect various applications and services. For a verbal thinker, Make can be used to create complex, multi-step automations that are triggered by voice commands through integrations with services like Google Assistant or Amazon Alexa. These automations can then interact with AI models from OpenAI, Anthropic, and others, enabling voice-driven execution of AI tasks. The visual interface helps in understanding and debugging the workflow.",
+        "tool_1_platforms": "Web, iOS, Android",
+        "tool_1_url": "https://www.make.com/",
+        "tool_1_pricing": "Free tier with 1,000 operations/month. Paid plans start at $10.59/month.",
+        "tool_2_name": "n8n.io",
+        "tool_2_description": "n8n is a powerful, open-source workflow automation tool that can be self-hosted or used via their cloud service. It's highly flexible and developer-friendly, allowing for custom code execution. For a verbal thinker, n8n can be configured to receive webhooks from voice assistants or other voice-capture tools. These webhooks can trigger complex workflows that interact with any AI API, including those from Manus, Claude, and Grok, providing a high degree of customization for voice-to-AI-agent pipelines.",
+        "tool_2_platforms": "Web, Self-hosted (Linux, macOS, Windows)",
+        "tool_2_url": "https://n8n.io/",
+        "tool_2_pricing": "Free community edition (self-hosted). Cloud plans start at €24/month.",
+        "tool_3_name": "Zapier",
+        "tool_3_description": "Zapier is a popular and easy-to-use workflow automation tool that connects over 8,000 applications. For a verbal thinker, Zapier offers a simple way to connect voice input from various sources to AI actions. For example, a new voice memo in a specific app could trigger a 'Zap' that sends the transcribed text to Claude for summarization or to a Grok agent for a specific task. Its user-friendly interface makes it easy to set up these voice-to-AI workflows without any code.",
+        "tool_3_platforms": "Web",
+        "tool_3_url": "https://zapier.com/",
+        "tool_3_pricing": "Free tier with 100 tasks/month. Paid plans start at $29.99/month.",
+        "key_insight": "The most powerful solutions for verbal thinkers are not dedicated voice-to-AI tools, but rather the major workflow automation platforms (Make, n8n, Zapier) that act as the essential 'glue' connecting voice capture with AI execution. These platforms empower users to build their own custom, voice-driven workflows that leverage their existing AI tools."
+      },
+      "error": ""
+    },
+    {
+      "input": "GitHub open source voice-to-text and speech processing tools 2025 2026 - search for battle-tested repos: whisper.cpp, faster-whisper, Vosk, SpeechRecognition, and any open source tool for real-time voice transcription that could run locally on Mac. Focus on repos with 1000+ stars.",
+      "output": {
+        "domain": "GitHub Open Source Voice-to-Text and Speech Processing Tools",
+        "tool_1_name": "whisper.cpp",
+        "tool_1_description": "A C/C++ port of OpenAI's Whisper model. It's highly optimized for performance and can run on a variety of hardware, including Apple Silicon. For a verbal thinker, this means fast, local, and private speech-to-text without relying on cloud services. It can be integrated into custom workflows.",
+        "tool_1_platforms": "Mac, iOS, Android, Linux, Windows, Raspberry Pi",
+        "tool_1_url": "https://github.com/ggml-org/whisper.cpp",
+        "tool_1_pricing": "Free (Open Source)",
+        "tool_2_name": "faster-whisper",
+        "tool_2_description": "A reimplementation of OpenAI's Whisper model using CTranslate2, a fast inference engine. It's significantly faster than the original Whisper model and uses less memory. This is ideal for verbal thinkers who need real-time transcription with high accuracy and efficiency.",
+        "tool_2_platforms": "Mac, Windows, Linux",
+        "tool_2_url": "https://github.com/SYSTRAN/faster-whisper",
+        "tool_2_pricing": "Free (Open Source)",
+        "tool_3_name": "Vosk",
+        "tool_3_description": "An offline, open-source speech recognition toolkit that supports over 20 languages. It's designed for low-latency, real-time transcription on devices like Raspberry Pi and smartphones. For a verbal thinker, Vosk offers a lightweight and versatile engine for building custom voice-enabled applications and workflows that work entirely offline.",
+        "tool_3_platforms": "Mac, Windows, Linux, Raspberry Pi, Android, iOS",
+        "tool_3_url": "https://alphacephei.com/vosk/",
+        "tool_3_pricing": "Free (Open Source)",
+        "key_insight": "The key insight is that powerful, open-source speech recognition is no longer confined to the cloud. Tools like whisper.cpp, faster-whisper, and Vosk empower verbal thinkers to build their own private, real-time transcription and voice control systems that run locally on their own hardware, offering greater speed, privacy, and customizability than commercial cloud services."
+      },
+      "error": ""
+    },
+    {
+      "input": "Emerging AI tools specifically designed for verbal thinkers and idea capture 2025 2026 - tools that help people who think out loud organize their thoughts. Look for: brainstorming AI tools, mind-mapping with voice, thought-to-structure converters, and any tool marketed specifically for verbal/auditory thinkers.",
+      "output": {
+        "domain": "Emerging AI tools for verbal thinkers and idea capture 2025-2026",
+        "tool_1_name": "Talknotes",
+        "tool_1_description": "Talknotes is an AI-powered tool that turns voice recordings into structured notes. It is designed for brainstorming, allowing users to speak freely and have their ideas automatically organized. It supports over 50 languages and can generate mind maps from recordings.",
+        "tool_1_platforms": "Web, iOS, Android",
+        "tool_1_url": "https://talknotes.io/",
+        "tool_1_pricing": "Free 7-day trial, then paid plans.",
+        "tool_2_name": "Ideamap.ai",
+        "tool_2_description": "Ideamap.ai is an AI-powered brainstorming and mind-mapping tool. It can turn various file types, including audio, into mind maps. It also features AI copilots to assist with brainstorming and idea generation.",
+        "tool_2_platforms": "Web",
+        "tool_2_url": "https://ideamap.ai/",
+        "tool_2_pricing": "Free trial or tier.",
+        "tool_3_name": "Mapify.so",
+        "tool_3_description": "Mapify.so is an AI mind map summarizer that can take various inputs like YouTube videos, PDFs, documents, URLs, podcasts, and audio recordings and convert them into mind maps. It is powered by GPT, Gemini, and other large language models. It also has a browser extension and is available on web and mobile.",
+        "tool_3_platforms": "Web, iOS, Android, Browser Extension",
+        "tool_3_url": "https://mapify.so/",
+        "tool_3_pricing": "Free to start, with paid plans available.",
+        "key_insight": "The emerging trend for verbal thinkers is the direct conversion of unstructured audio into structured, visual formats like mind maps, with AI handling the organization and summarization. This allows for a more seamless capture and development of ideas without the friction of manual transcription or organization."
+      },
+      "error": ""
+    },
+    {
+      "input": "AI meeting and conversation intelligence tools 2025 2026 beyond Granola and Otter - tools that capture spoken conversations and turn them into structured knowledge. Look for: Fireflies.ai, Fathom, Tactiq, Circleback, and any tool that creates searchable knowledge bases from voice. Must integrate with existing AI tools.",
+      "output": {
+        "domain": "AI Meeting and Conversation Intelligence Tools",
+        "tool_1_name": "Fireflies.ai",
+        "tool_1_description": "Fireflies.ai is an AI meeting assistant that automatically records, transcribes, and summarizes your meetings. For verbal thinkers, this means that every spoken word is captured and transformed into a searchable, structured knowledge base. You can ask its AI assistant, AskFred, questions about past conversations, and it will find the answers. It also allows you to create soundbites of important moments.",
+        "tool_1_platforms": "Web, iOS, Android, Chrome Extension, Desktop App",
+        "tool_1_url": "https://fireflies.ai/",
+        "tool_1_pricing": "Free tier available. Paid plans start at $10/user/month (billed annually).",
+        "tool_2_name": "Fathom",
+        "tool_2_description": "Fathom is an AI meeting assistant that records, transcribes, and summarizes your meetings. It's designed to help you focus on the conversation rather than taking notes. For verbal thinkers, Fathom provides instant access to call recordings, transcripts, and summaries, and allows you to search across all your conversations with 'Ask Fathom'. It also automatically generates and syncs action items to your other tools.",
+        "tool_2_platforms": "Web, Mac, Windows, iOS",
+        "tool_2_url": "https://fathom.video/",
+        "tool_2_pricing": "Free-forever plan available. Paid plans for teams.",
+        "tool_3_name": "Tactiq",
+        "tool_3_description": "Tactiq is a real-time transcription tool for Google Meet, Zoom, and MS Teams that doesn't require a bot to join the call. For verbal thinkers, this provides a less intrusive way to capture conversations. It offers live transcriptions, summaries, and the ability to ask the AI questions about the meeting. It also allows for the creation of reusable prompts and workflows to automate post-meeting tasks.",
+        "tool_3_platforms": "Chrome Extension, works with Google Meet, Zoom, and MS Teams",
+        "tool_3_url": "https://tactiq.io/",
+        "tool_3_pricing": "Free plan available. Paid plans start at $10/month.",
+        "key_insight": "The key insight for a verbal thinker is that these AI meeting tools are moving beyond simple transcription and summarization. They are becoming conversational knowledge bases that can be queried and integrated with other AI tools, turning spoken words into a structured and actionable asset."
+      },
+      "error": ""
+    }
+  ]
+}
