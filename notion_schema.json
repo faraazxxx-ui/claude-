@@ -1,0 +1,64 @@
+{
+  "database_name": "Personal Productivity",
+  "parent_type": "page",
+  "properties": {
+    "Name": {
+      "type": "title",
+      "title": {}
+    },
+    "Status": {
+      "type": "select",
+      "select": {
+        "options": [
+          { "name": "Not Started", "color": "red" },
+          { "name": "In Progress", "color": "yellow" },
+          { "name": "Done", "color": "green" }
+        ]
+      }
+    },
+    "Priority": {
+      "type": "select",
+      "select": {
+        "options": [
+          { "name": "High", "color": "red" },
+          { "name": "Medium", "color": "yellow" },
+          { "name": "Low", "color": "gray" }
+        ]
+      }
+    },
+    "Due Date": {
+      "type": "date",
+      "date": {}
+    },
+    "Tags": {
+      "type": "multi_select",
+      "multi_select": {
+        "options": [
+          { "name": "Work", "color": "blue" },
+          { "name": "Personal", "color": "green" },
+          { "name": "Health", "color": "orange" },
+          { "name": "Finance", "color": "purple" },
+          { "name": "Learning", "color": "pink" }
+        ]
+      }
+    },
+    "Notes": {
+      "type": "rich_text",
+      "rich_text": {}
+    },
+    "Completed": {
+      "type": "checkbox",
+      "checkbox": {}
+    },
+    "Effort": {
+      "type": "number",
+      "number": {
+        "format": "number"
+      }
+    },
+    "URL": {
+      "type": "url",
+      "url": {}
+    }
+  }
+}
