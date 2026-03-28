@@ -44,30 +44,38 @@ notebooklm_queued: false
 
 ## Capture Methods by Platform
 
+### Verified Chrome Extensions (AI → Notion)
+
+| Tool | Platforms Supported | Method | Auto-sync? |
+|------|-------------------|--------|------------|
+| **Pactify** (pactify.io) | ChatGPT, Claude, Gemini | Chrome extension, auto on visit | Yes — 540x faster than manual, 97%+ formatting accuracy |
+| **Chat to Notion** (open-source) | ChatGPT, Deepseek, Claude, Mistral | Chrome extension | ChatGPT auto-sync, others manual |
+| **AI Exporter Hub** | ChatGPT, Gemini, Claude, Perplexity, Grok | Chrome extensions | Varies |
+| **ClaudeAI to Notion** | Claude only | Chrome extension | Manual trigger |
+| **Save ChatGPT to Notion** | ChatGPT only | Chrome extension | Yes (1-24hr intervals) |
+
+**Recommended**: Install **Pactify** for broadest coverage + auto-sync. Fall back to **Chat to Notion** (open-source, no third-party data sharing) for privacy-sensitive conversations.
+
 ### Claude (claude.ai)
-- **Method**: Claude Projects API export OR browser extension (e.g., "Save My Chatbot" Chrome extension)
-- **Trigger**: Manual export or scheduled scrape via Puppeteer script
-- **Alternative**: Use Claude's conversation sharing feature → webhook → n8n
+- **Primary**: Pactify or ClaudeAI to Notion Chrome extension
+- **Alternative**: Claude conversation sharing → webhook → n8n
 
 ### Claude Code (CLI)
-- **Method**: Session logs are stored locally at `~/.claude/` — build a cron job or file watcher
-- **Script**: Watch `~/.claude/projects/` for new session files → extract → format → push to Notion API
-- **Trigger**: File system watcher (chokidar/watchman) or nightly cron
+- **Method**: Session logs stored locally at `~/.claude/projects/`
+- **Script**: File system watcher (chokidar/watchman) or nightly cron
+- **Pipeline**: Watch for new session files → extract → format with YAML → push to Notion API
 
 ### ChatGPT
-- **Method**: "ChatGPT to Notion" Chrome extension (official by Notion community)
-- **Trigger**: Click save button OR auto-save on conversation end
-- **Direct**: Uses Notion API to push structured data
+- **Primary**: Pactify (auto-sync on visit) or Chat to Notion (open-source)
+- **Alternative**: Save ChatGPT to Notion (1-24hr auto-sync intervals)
 
 ### Grok (x.ai)
-- **Method**: Manual export or Tampermonkey userscript to capture conversation DOM
-- **Trigger**: Custom script that runs on page unload
-- **Processing**: Send to n8n webhook
+- **Primary**: AI Exporter Hub Chrome extension (supports Grok)
+- **Fallback**: Tampermonkey userscript to capture conversation DOM → n8n webhook
 
 ### Gemini
-- **Method**: Google Takeout (bulk export) or browser extension
-- **Trigger**: Scheduled Google Takeout → Google Drive → Make.com → Notion
-- **Alternative**: Gemini API conversations can be logged programmatically
+- **Primary**: Pactify or AI Exporter Hub Chrome extension
+- **Alternative**: Google Takeout (bulk export) → Google Drive → Make.com → Notion
 
 ### Raycast AI
 - **Method**: Raycast stores conversation history locally
@@ -123,14 +131,19 @@ Node 7: NotebookLM Queue (Conditional)
 
 ## NotebookLM Integration
 
-### How It Works
+> **CRITICAL LIMITATION**: NotebookLM has **NO public API**. It cannot be triggered programmatically. All automation ends at pushing files to a Google Drive folder — you must manually open NotebookLM to generate Audio Overviews. This is a hard constraint from Google as of March 2026.
+
+### How It Works (Semi-Automated)
 1. A Google Drive folder called `AI-Digests/` is the NotebookLM source
-2. n8n pushes weekly digest documents to this folder every Sunday
-3. Digest contains: all AI conversations from the week, grouped by project
+2. n8n pushes weekly digest documents to this folder every Sunday (automated)
+3. You open NotebookLM once per week and click "Generate Audio Overview" (manual — ~30 seconds)
 4. NotebookLM generates:
-   - Audio overview (podcast-style summary)
-   - Key insights extraction
-   - Cross-conversation connections
+   - Audio overview (podcast-style summary with two AI hosts)
+   - Formats: Deep Dive, Brief, Critique, or Debate mode
+   - Interactive Audio: you can "raise hand" to interrupt and ask questions
+   - Also: Video Overviews, Infographics, Mind Maps (added 2025)
+   - Supports 80+ languages, up to 50 sources (free) or 300 (pro)
+5. **Weekly trigger reminder**: n8n sends you a Sunday notification: "Your AI digest is ready in NotebookLM — tap to generate audio"
 
 ### Weekly Digest Template
 ```markdown

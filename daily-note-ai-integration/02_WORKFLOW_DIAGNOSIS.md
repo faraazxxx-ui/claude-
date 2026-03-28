@@ -17,13 +17,15 @@ You have 9+ note-taking tools with no defined flow between them. Every tool is b
 
 ### Flaw 2: Bear Notes Are Chaotic
 **Symptom**: "Notes don't get organized into files and sections — they become a new note and everything is chaotic."
-**Root Cause**: Bear has no folder hierarchy enforcement. Its tag system requires discipline you've described not having.
-**Fix**: Demote Bear to **quick-capture only**. Use the Bear → Obsidian plugin or a Shortcuts automation that exports new Bear notes (tagged #inbox) to your Obsidian vault's `00-Inbox/` folder nightly. Bear becomes a scratchpad, not a filing cabinet.
+**Root Cause**: Bear has no folder hierarchy — only nested tags (e.g., `#work/meetings`). No databases or structured metadata. And critically: **Bear is Apple-only** (no Windows, no Android, no web) and has **no Zapier/Make/n8n integration** (no REST API or webhooks).
+**Fix**: Demote Bear to **quick-capture only on your iPhone**. Use Apple Shortcuts' "Export Note" action (supports Markdown format, preserves dates) to auto-export new Bear notes tagged `#inbox` to your Obsidian vault's `00-Inbox/` folder via iCloud nightly. Bear becomes a scratchpad, not a filing cabinet. Long-term: consider migrating to Obsidian Mobile for capture since you're primarily on Windows Surface.
 
 ### Flaw 3: Google Keep Is Disconnected
 **Symptom**: "Not integrated well enough... random all over the place."
-**Root Cause**: Google Keep has **no official API**. Integrations are hacky. It's designed for sticky notes, not a knowledge system.
-**Fix**: Keep it for mobile quick-capture only (grocery lists, voice memos, quick thoughts). Use **Make.com** (formerly Integromat) with the Google Keep module or IFTTT to push new Keep notes to Obsidian's inbox folder via Google Drive as intermediary. Alternatively, switch mobile capture to **Obsidian Mobile** directly.
+**Root Cause**: Google Keep API **exists but is enterprise-only** (Google Workspace admins only — personal accounts cannot use it). No Zapier integration exists. Make.com has a module but it requires enterprise credentials. This is the #1 automation blocker.
+**Fix**: Two options:
+1. **Keep it as dumb capture only**: Use IFTTT or Google Assistant routines to forward Keep notes to a Gmail label → Make.com watches that label → pushes to Obsidian inbox. Hacky but works.
+2. **Replace with Obsidian Mobile** (recommended): Obsidian Mobile works on Android/iOS, supports voice memos via plugins, and writes directly to your vault. No integration needed — it IS the hub.
 
 ### Flaw 4: NotePlan Knowledge Gap
 **Symptom**: "I like NotePlan but I don't understand it."
@@ -81,6 +83,24 @@ You have 9+ note-taking tools with no defined flow between them. Every tool is b
 | **SUNSET** | ~~Evernote~~ | Export to Obsidian, delete account |
 
 ---
+
+## Verified Automation Compatibility Matrix (March 2026)
+
+| Tool | Zapier | Make.com | n8n | Native API | Verdict |
+|------|--------|----------|-----|------------|---------|
+| Google Keep | **No** | Enterprise only | No | Enterprise only | Replace with Obsidian Mobile |
+| OneNote | **Yes** (+ MCP server) | Yes | Via HTTP | Microsoft Graph API | Strong — use Power Automate |
+| Obsidian | Via webhook plugin | Via webhook plugin | Via webhook plugin | None (local-first) | Hub — use plugins |
+| Bear | **No** | **No** | **No** | None (Apple Shortcuts only) | Capture-only via Shortcuts |
+| Evernote | Yes (limited) | Yes | Via HTTP | Aging, no Tasks endpoint | **Sunset it** |
+| Notion | **Best-in-class** | Yes | Yes | Full REST + Webhooks + MCP | Invisible backend |
+| Priority Matrix | **No** | **No** | **No** | Undocumented | Calendar sync only |
+| NotebookLM | **No** | **No** | **No** | **None** | Manual trigger only |
+| Remarkable | **No** | **No** | Community tools | Reverse-engineered | Use remarkable-mcp for Claude |
+
+**Key insight**: Notion is the only tool with complete automation coverage. This confirms it as the invisible backend. Obsidian is local-first by design — use the **Post Webhook plugin** to bridge it to automation flows.
+
+**Remarkable bonus**: A community **remarkable-mcp** server exists that lets Claude read, search, and OCR your entire Remarkable library directly. This is a direct "second brain" bridge.
 
 ## Architecture Diagram (text)
 
