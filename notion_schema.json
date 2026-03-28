@@ -1,0 +1,72 @@
+{
+  "database_name": "Personal Productivity Hub",
+  "description": "Central database for tracking tasks, goals, habits, and daily notes.",
+  "properties": {
+    "Name": {
+      "type": "title",
+      "description": "Title of the entry"
+    },
+    "Status": {
+      "type": "select",
+      "options": [
+        {"name": "Not Started", "color": "gray"},
+        {"name": "In Progress", "color": "blue"},
+        {"name": "Completed", "color": "green"},
+        {"name": "Blocked", "color": "red"},
+        {"name": "Archived", "color": "default"}
+      ]
+    },
+    "Priority": {
+      "type": "select",
+      "options": [
+        {"name": "P0 - Critical", "color": "red"},
+        {"name": "P1 - High", "color": "orange"},
+        {"name": "P2 - Medium", "color": "yellow"},
+        {"name": "P3 - Low", "color": "gray"}
+      ]
+    },
+    "Category": {
+      "type": "select",
+      "options": [
+        {"name": "Task", "color": "blue"},
+        {"name": "Goal", "color": "purple"},
+        {"name": "Habit", "color": "green"},
+        {"name": "Daily Note", "color": "yellow"},
+        {"name": "Reference", "color": "gray"}
+      ]
+    },
+    "Tags": {
+      "type": "multi_select",
+      "options": [
+        {"name": "work", "color": "blue"},
+        {"name": "personal", "color": "green"},
+        {"name": "health", "color": "red"},
+        {"name": "finance", "color": "yellow"},
+        {"name": "learning", "color": "purple"}
+      ]
+    },
+    "Due Date": {
+      "type": "date"
+    },
+    "Created": {
+      "type": "created_time"
+    },
+    "Last Edited": {
+      "type": "last_edited_time"
+    },
+    "Notes": {
+      "type": "rich_text"
+    },
+    "Energy Level": {
+      "type": "select",
+      "options": [
+        {"name": "High", "color": "green"},
+        {"name": "Medium", "color": "yellow"},
+        {"name": "Low", "color": "red"}
+      ]
+    },
+    "Done": {
+      "type": "checkbox"
+    }
+  }
+}
