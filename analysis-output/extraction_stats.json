@@ -1,0 +1,28 @@
+{
+  "total": 1004,
+  "success": 1003,
+  "error": 1,
+  "types": {
+    ".pdf": 326,
+    ".txt": 86,
+    ".md": 44,
+    ".docx": 109,
+    ".log": 1,
+    ".xml": 8,
+    ".png": 341,
+    ".jpeg": 42,
+    ".xlsx": 14,
+    "": 1,
+    ".csv": 6,
+    ".jpg": 4,
+    ".rtf": 16,
+    ".indexes": 1,
+    ".html": 1,
+    ".scrformat": 2,
+    ".plist": 1,
+    ".scrivx": 1
+  },
+  "total_lines": 191488,
+  "total_chars": 9576575,
+  "total_words": 1286629
+}

@@ -1,0 +1,582 @@
+[
+  {
+    "source_segment": "segment_001",
+    "source_domain": "Finance & Legal",
+    "reference": "All RLN-* files should be linked as part of a single legal strategy packet"
+  },
+  {
+    "source_segment": "segment_001",
+    "source_domain": "Finance & Legal",
+    "reference": "Financial documents (all_transactions.csv, Exhibit_A, Exhibit_B, family_support.csv) should be linked to the affidavit_of_financial_damages.md and RLN-FinancialHardshipLedger.md"
+  },
+  {
+    "source_segment": "segment_001",
+    "source_domain": "Finance & Legal",
+    "reference": "Audio transcripts should be linked to RLN-EvidenceIndex.md and RLN-MasterChronology.md"
+  },
+  {
+    "source_segment": "segment_001",
+    "source_domain": "Finance & Legal",
+    "reference": "Demand letters (to UHS, Sundas) should be linked to the Federal_Civil_Complaint_Draft.txt"
+  },
+  {
+    "source_segment": "segment_001",
+    "source_domain": "Finance & Legal",
+    "reference": "Immigration documents (J1, I-539) should be linked to RLN-LicensingImpactAnalysis.md and the overall employment dispute narrative."
+  },
+  {
+    "source_segment": "segment_002",
+    "source_domain": "Finance & Legal",
+    "reference": "retaliation-case/ (folder)"
+  },
+  {
+    "source_segment": "segment_002",
+    "source_domain": "Finance & Legal",
+    "reference": "housing-dispute/ (folder)"
+  },
+  {
+    "source_segment": "segment_002",
+    "source_domain": "Finance & Legal",
+    "reference": "tesla/ (folder)"
+  },
+  {
+    "source_segment": "segment_002",
+    "source_domain": "Finance & Legal",
+    "reference": "evidence-exhibits/ (folder)"
+  },
+  {
+    "source_segment": "segment_002",
+    "source_domain": "Finance & Legal",
+    "reference": "legal-packets/ (folder)"
+  },
+  {
+    "source_segment": "segment_002",
+    "source_domain": "Finance & Legal",
+    "reference": "_deadlines.md (file)"
+  },
+  {
+    "source_segment": "segment_002",
+    "source_domain": "Finance & Legal",
+    "reference": "10_archive/ (folder)"
+  },
+  {
+    "source_segment": "segment_002",
+    "source_domain": "Finance & Legal",
+    "reference": "5.pdf (file)"
+  },
+  {
+    "source_segment": "segment_002",
+    "source_domain": "Finance & Legal",
+    "reference": "Iqbal Amiruddin's Witness Testimony.pdf (file)"
+  },
+  {
+    "source_segment": "segment_002",
+    "source_domain": "Finance & Legal",
+    "reference": "iCloud Legal Notebook (external source)"
+  },
+  {
+    "source_segment": "segment_002",
+    "source_domain": "Finance & Legal",
+    "reference": "Google Drive (external source)"
+  },
+  {
+    "source_segment": "segment_002",
+    "source_domain": "Finance & Legal",
+    "reference": "ACGME filings (external document)"
+  },
+  {
+    "source_segment": "segment_002",
+    "source_domain": "Finance & Legal",
+    "reference": "EEOC charge (external document)"
+  },
+  {
+    "source_segment": "segment_002",
+    "source_domain": "Finance & Legal",
+    "reference": "HHS-OCR complaint (external document)"
+  },
+  {
+    "source_segment": "segment_003",
+    "source_domain": "Finance & Legal",
+    "reference": "The legal case documents ('People v. Rahman', case 24-15519) should be cross-referenced with all other legal documents in the corpus, including any other motions, discovery, or correspondence with legal counsel."
+  },
+  {
+    "source_segment": "segment_003",
+    "source_domain": "Finance & Legal",
+    "reference": "The employment contracts (Premier Health, residency agreement) should be linked to any performance reviews, HR communications, or other employment-related documents."
+  },
+  {
+    "source_segment": "segment_003",
+    "source_domain": "Finance & Legal",
+    "reference": "The FMLA documents should be cross-referenced with any medical records or communications with healthcare providers."
+  },
+  {
+    "source_segment": "segment_003",
+    "source_domain": "Finance & Legal",
+    "reference": "The personal texts and witness testimonies should be linked to any other documents that shed light on the personal relationships involved, such as emails, social media data, or other witness statements."
+  },
+  {
+    "source_segment": "segment_003",
+    "source_domain": "Finance & Legal",
+    "reference": "Dr. Rahman's CV and personal statement should be cross-referenced with his educational and professional records."
+  },
+  {
+    "source_segment": "segment_004",
+    "source_domain": "Finance & Legal",
+    "reference": "Legal documents to personal text messages"
+  },
+  {
+    "source_segment": "segment_004",
+    "source_domain": "Finance & Legal",
+    "reference": "Immigration documents to personal narratives"
+  },
+  {
+    "source_segment": "segment_004",
+    "source_domain": "Finance & Legal",
+    "reference": "Medical residency documents to personal identity"
+  },
+  {
+    "source_segment": "segment_004",
+    "source_domain": "Finance & Legal",
+    "reference": "Landlord-tenant documents to financial records"
+  },
+  {
+    "source_segment": "segment_005",
+    "source_domain": "Finance & Legal",
+    "reference": "UHS Residency Program"
+  },
+  {
+    "source_segment": "segment_005",
+    "source_domain": "Finance & Legal",
+    "reference": "Premier Health"
+  },
+  {
+    "source_segment": "segment_005",
+    "source_domain": "Finance & Legal",
+    "reference": "People v. Rahman case file"
+  },
+  {
+    "source_segment": "segment_005",
+    "source_domain": "Finance & Legal",
+    "reference": "Faraaz's immigration case"
+  },
+  {
+    "source_segment": "segment_006",
+    "source_domain": "Finance & Legal",
+    "reference": "The entire set of documents is highly interconnected, forming a case file on Mohammed Faraaz Rahman's employment and legal issues. The 'People v. Rahman' documents should be linked. The employment agreements, evaluations, and remediation files should be linked to provide a career timeline. The immigration documents should be cross-referenced with all employment and legal files, as they are likely interdependent."
+  },
+  {
+    "source_segment": "segment_007",
+    "source_domain": "Finance & Legal",
+    "reference": "Case 24-15519 (Forcible Touching) should be cross-referenced with all documents involving Mohammad F. Rahman and Sundas Rashid"
+  },
+  {
+    "source_segment": "segment_007",
+    "source_domain": "Finance & Legal",
+    "reference": "All FMLA, disability, and employment termination documents should be linked to the complaints filed with EEOC, HHS, and ACGME"
+  },
+  {
+    "source_segment": "segment_007",
+    "source_domain": "Finance & Legal",
+    "reference": "The financial damages documents (AFFIDAVIT, FINANCIAL IMPACT ANALYSIS) should be linked to the formal legal complaints and demand letters"
+  },
+  {
+    "source_segment": "segment_007",
+    "source_domain": "Finance & Legal",
+    "reference": "The 'Narrative to the Immigration Lawyer' should be cross-referenced with residency completion and employment termination documents."
+  },
+  {
+    "source_segment": "segment_008",
+    "source_domain": "Finance & Legal",
+    "reference": "Affidavit of Hardships (RLN20251014-FinancialLegalHardship)"
+  },
+  {
+    "source_segment": "segment_008",
+    "source_domain": "Finance & Legal",
+    "reference": "Financial Ledger"
+  },
+  {
+    "source_segment": "segment_008",
+    "source_domain": "Finance & Legal",
+    "reference": "Exhibits A-E mentioned in packets"
+  },
+  {
+    "source_segment": "segment_008",
+    "source_domain": "Finance & Legal",
+    "reference": "Other legal case files (Rahman v. UHS)"
+  },
+  {
+    "source_segment": "segment_008",
+    "source_domain": "Finance & Legal",
+    "reference": "Communication records with UHS staff and program directors"
+  },
+  {
+    "source_segment": "segment_008",
+    "source_domain": "Finance & Legal",
+    "reference": "Medical records from UHS Wilson and Guthrie Binghamton"
+  },
+  {
+    "source_segment": "segment_008",
+    "source_domain": "Finance & Legal",
+    "reference": "Police report and related legal documents for the false allegation case"
+  },
+  {
+    "source_segment": "segment_008",
+    "source_domain": "Finance & Legal",
+    "reference": "Employment and residency contracts"
+  },
+  {
+    "source_segment": "segment_009",
+    "source_domain": "Finance & Legal",
+    "reference": "The legal documents (affidavits, police complaints, statements) should be cross-referenced with the timelines and sequence of events documents to build a comprehensive narrative of the legal case."
+  },
+  {
+    "source_segment": "segment_009",
+    "source_domain": "Finance & Legal",
+    "reference": "The FMLA-related emails and letters should be linked to Dr. Rahman's medical records and the 'Affidavit of hardships' to provide a full picture of his health issues and their impact on his work."
+  },
+  {
+    "source_segment": "segment_009",
+    "source_domain": "Finance & Legal",
+    "reference": "The records of conversations with Sundas and her mother should be cross-referenced with the text message translations and body cam transcripts to identify consistencies or discrepancies in the accounts of the relationship and conflicts."
+  },
+  {
+    "source_segment": "segment_009",
+    "source_domain": "Finance & Legal",
+    "reference": "Dr. Rahman's CVs should be linked to his residency program documents and any performance reviews to establish his professional background and competence."
+  },
+  {
+    "source_segment": "segment_010",
+    "source_domain": "Finance & Legal",
+    "reference": "Legal case files (pleadings, motions, court orders)"
+  },
+  {
+    "source_segment": "segment_010",
+    "source_domain": "Finance & Legal",
+    "reference": "Communications with legal team (Doug, Chris, Norman Spencer)"
+  },
+  {
+    "source_segment": "segment_010",
+    "source_domain": "Finance & Legal",
+    "reference": "Employment records from UHS (contracts, performance reviews, probation documents)"
+  },
+  {
+    "source_segment": "segment_010",
+    "source_domain": "Finance & Legal",
+    "reference": "FMLA documentation and correspondence"
+  },
+  {
+    "source_segment": "segment_010",
+    "source_domain": "Finance & Legal",
+    "reference": "ECFMG correspondence and records"
+  },
+  {
+    "source_segment": "segment_010",
+    "source_domain": "Finance & Legal",
+    "reference": "Evidence files (CCTV footage, police reports, body cam videos)"
+  },
+  {
+    "source_segment": "segment_010",
+    "source_domain": "Finance & Legal",
+    "reference": "Financial records (legal fees, salary loss calculations)"
+  },
+  {
+    "source_segment": "segment_010",
+    "source_domain": "Finance & Legal",
+    "reference": "Medical records (Faraaz's heart surgery and recovery)"
+  },
+  {
+    "source_segment": "segment_010",
+    "source_domain": "Finance & Legal",
+    "reference": "Communications with Sundas Rashid and her family"
+  },
+  {
+    "source_segment": "segment_017",
+    "source_domain": "Career & Work",
+    "reference": "Residency performance reviews"
+  },
+  {
+    "source_segment": "segment_017",
+    "source_domain": "Career & Work",
+    "reference": "Legal case filings and dockets"
+  },
+  {
+    "source_segment": "segment_017",
+    "source_domain": "Career & Work",
+    "reference": "Communication records (emails, text messages)"
+  },
+  {
+    "source_segment": "segment_017",
+    "source_domain": "Career & Work",
+    "reference": "Financial statements from other institutions"
+  },
+  {
+    "source_segment": "segment_017",
+    "source_domain": "Career & Work",
+    "reference": "Employment contracts with UHS."
+  },
+  {
+    "source_segment": "segment_018",
+    "source_domain": "Finance & Legal",
+    "reference": "[[RLN20260217-LegalStrategyMaster]]"
+  },
+  {
+    "source_segment": "segment_018",
+    "source_domain": "Finance & Legal",
+    "reference": "[[RLN20260217-EvidenceIndex]]"
+  },
+  {
+    "source_segment": "segment_018",
+    "source_domain": "Finance & Legal",
+    "reference": "[[RLN20260217-MasterChronology]]"
+  },
+  {
+    "source_segment": "segment_018",
+    "source_domain": "Finance & Legal",
+    "reference": "Gmail repositories"
+  },
+  {
+    "source_segment": "segment_018",
+    "source_domain": "Finance & Legal",
+    "reference": "Google Drive repositories"
+  },
+  {
+    "source_segment": "segment_018",
+    "source_domain": "Finance & Legal",
+    "reference": "iCloud repositories"
+  },
+  {
+    "source_segment": "segment_019",
+    "source_domain": "Finance & Legal",
+    "reference": "RLN.txt (source document)"
+  },
+  {
+    "source_segment": "segment_019",
+    "source_domain": "Finance & Legal",
+    "reference": "Norman Spens.txt (source document)"
+  },
+  {
+    "source_segment": "segment_019",
+    "source_domain": "Finance & Legal",
+    "reference": "Affidavit_Summary.md (source document)"
+  },
+  {
+    "source_segment": "segment_019",
+    "source_domain": "Finance & Legal",
+    "reference": "prob.txt (source document)"
+  },
+  {
+    "source_segment": "segment_019",
+    "source_domain": "Finance & Legal",
+    "reference": "audio files.txt (source document)"
+  },
+  {
+    "source_segment": "segment_019",
+    "source_domain": "Finance & Legal",
+    "reference": "ChatGPT-RLN structure optimization.txt (source document)"
+  },
+  {
+    "source_segment": "segment_019",
+    "source_domain": "Finance & Legal",
+    "reference": "Gmail archives (external system)"
+  },
+  {
+    "source_segment": "segment_019",
+    "source_domain": "Finance & Legal",
+    "reference": "Google Drive archives (external system)"
+  },
+  {
+    "source_segment": "segment_019",
+    "source_domain": "Finance & Legal",
+    "reference": "iCloud repositories (external system)"
+  },
+  {
+    "source_segment": "segment_019",
+    "source_domain": "Finance & Legal",
+    "reference": "Exhibit A of Affidavit (missing document)"
+  },
+  {
+    "source_segment": "segment_020",
+    "source_domain": "Finance & Legal",
+    "reference": "Legal case files (People v. Rahman)"
+  },
+  {
+    "source_segment": "segment_020",
+    "source_domain": "Finance & Legal",
+    "reference": "Immigration documents"
+  },
+  {
+    "source_segment": "segment_020",
+    "source_domain": "Finance & Legal",
+    "reference": "Financial records (bank statements, pay stubs)"
+  },
+  {
+    "source_segment": "segment_020",
+    "source_domain": "Finance & Legal",
+    "reference": "Employment records"
+  },
+  {
+    "source_segment": "segment_020",
+    "source_domain": "Finance & Legal",
+    "reference": "Housing documents (lease, eviction)"
+  },
+  {
+    "source_segment": "segment_020",
+    "source_domain": "Finance & Legal",
+    "reference": "Personal correspondence (text messages, emails)"
+  },
+  {
+    "source_segment": "segment_021",
+    "source_domain": "Finance & Legal",
+    "reference": "Criminal case file (discovery, charge sheets, witness statements)"
+  },
+  {
+    "source_segment": "segment_021",
+    "source_domain": "Finance & Legal",
+    "reference": "Immigration records (J-1 visa, USCIS correspondence)"
+  },
+  {
+    "source_segment": "segment_021",
+    "source_domain": "Finance & Legal",
+    "reference": "Employment contracts and medical licensing documents"
+  },
+  {
+    "source_segment": "segment_021",
+    "source_domain": "Finance & Legal",
+    "reference": "Communications with the accuser"
+  },
+  {
+    "source_segment": "segment_021",
+    "source_domain": "Finance & Legal",
+    "reference": "The 'Rahman Response' document mentioned in the file list."
+  },
+  {
+    "source_segment": "segment_024",
+    "source_domain": "Finance & Legal",
+    "reference": "The 'CONSEQUENCES OF ARREST.docx' should be linked to all legal documents, including '4:23 police complaint.docx', 'Dr. Rahman's letter to the Judge.docx', and all witness statements"
+  },
+  {
+    "source_segment": "segment_024",
+    "source_domain": "Finance & Legal",
+    "reference": "'My conversations with Sundas.docx' and 'Conversations with Sundas's mother final.docx' should be cross-referenced with 'Faraaz's statement.docx' and 'Iqbal Amiruddin's Witness Testimony.docx' to compare narratives of the relationship and conflict"
+  },
+  {
+    "source_segment": "segment_024",
+    "source_domain": "Finance & Legal",
+    "reference": "'Rahman, Mohammed Faraaz. CV (final).docx' connects to 'ECFMG extention.docx' and 'INTERVIW FMLA.docx' as they all relate to his medical career and its interruption"
+  },
+  {
+    "source_segment": "segment_024",
+    "source_domain": "Finance & Legal",
+    "reference": "All documents mentioning specific dates like '19th.docx' and '19th-20th sequence .docx' should be linked to CCTV logs and witness testimonies for that period"
+  },
+  {
+    "source_segment": "segment_024",
+    "source_domain": "Finance & Legal",
+    "reference": "The 'Memoire.scriv' project likely synthesizes all other documents and should be considered a master summary."
+  },
+  {
+    "source_segment": "segment_025",
+    "source_domain": "Finance & Legal",
+    "reference": "Legal case files"
+  },
+  {
+    "source_segment": "segment_025",
+    "source_domain": "Finance & Legal",
+    "reference": "Medical records for Faraaz Rahman"
+  },
+  {
+    "source_segment": "segment_025",
+    "source_domain": "Finance & Legal",
+    "reference": "Employment records for Mubeena Iqbal and Faraaz Rahman"
+  },
+  {
+    "source_segment": "segment_025",
+    "source_domain": "Finance & Legal",
+    "reference": "Academic records from BITS Pilani, Osmania University, etc."
+  },
+  {
+    "source_segment": "segment_025",
+    "source_domain": "Finance & Legal",
+    "reference": "Correspondence with lawyers and legal authorities"
+  },
+  {
+    "source_segment": "segment_025",
+    "source_domain": "Finance & Legal",
+    "reference": "Evidence files (bodycam, CCTV)"
+  },
+  {
+    "source_segment": "segment_026",
+    "source_domain": "Finance & Legal",
+    "reference": "Temporary order of protection (Order No: 2024-000196)"
+  },
+  {
+    "source_segment": "segment_026",
+    "source_domain": "Finance & Legal",
+    "reference": "Lease Agreement Dated June 8, 2023"
+  },
+  {
+    "source_segment": "segment_026",
+    "source_domain": "Finance & Legal",
+    "reference": "CCTV footage from Ansco Lofts"
+  },
+  {
+    "source_segment": "segment_026",
+    "source_domain": "Finance & Legal",
+    "reference": "Police complaint"
+  },
+  {
+    "source_segment": "segment_026",
+    "source_domain": "Finance & Legal",
+    "reference": "Court case documents"
+  },
+  {
+    "source_segment": "segment_026",
+    "source_domain": "Finance & Legal",
+    "reference": "Communications with Chris Brown, Esq."
+  },
+  {
+    "source_segment": "segment_026",
+    "source_domain": "Finance & Legal",
+    "reference": "Medical records related to heart condition"
+  },
+  {
+    "source_segment": "segment_026",
+    "source_domain": "Finance & Legal",
+    "reference": "UHS employment records"
+  },
+  {
+    "source_segment": "segment_026",
+    "source_domain": "Finance & Legal",
+    "reference": "FMLA request documentation"
+  },
+  {
+    "source_segment": "segment_028",
+    "source_domain": "Finance & Legal",
+    "reference": "Internal document linking via backlinks (e.g., [[RLN20260217-LegalStrategyMaster]])"
+  },
+  {
+    "source_segment": "segment_028",
+    "source_domain": "Finance & Legal",
+    "reference": "Source evidence files (RLN.txt, Norman Spens.txt, Affidavit_Summary.md, prob.txt, audio files.txt)"
+  },
+  {
+    "source_segment": "segment_028",
+    "source_domain": "Finance & Legal",
+    "reference": "External data repositories (Gmail, Google Drive, iCloud)"
+  },
+  {
+    "source_segment": "segment_029",
+    "source_domain": "Relationships & Social",
+    "reference": "Communications logs (e.g., phone records, text messages) between Sundas, Faraaz, and their families"
+  },
+  {
+    "source_segment": "segment_029",
+    "source_domain": "Relationships & Social",
+    "reference": "Any documents or reports related to the 'alleged assault' mentioned on April 18th"
+  },
+  {
+    "source_segment": "segment_029",
+    "source_domain": "Relationships & Social",
+    "reference": "Calendars or travel records for the individuals involved"
+  }
+]

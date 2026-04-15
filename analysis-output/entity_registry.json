@@ -1,0 +1,4199 @@
+[
+  {
+    "name": "UHS",
+    "type": "organization",
+    "mentions": 13,
+    "segments": [
+      "segment_001",
+      "segment_002",
+      "segment_004",
+      "segment_005",
+      "segment_007",
+      "segment_010",
+      "segment_017",
+      "segment_018",
+      "segment_019",
+      "segment_020",
+      "segment_025",
+      "segment_026",
+      "segment_028"
+    ],
+    "domains": [
+      "Finance & Legal",
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "Sundas",
+    "type": "person",
+    "mentions": 10,
+    "segments": [
+      "segment_001",
+      "segment_002",
+      "segment_003",
+      "segment_004",
+      "segment_005",
+      "segment_009",
+      "segment_024",
+      "segment_025",
+      "segment_026",
+      "segment_029"
+    ],
+    "domains": [
+      "Finance & Legal",
+      "Relationships & Social"
+    ]
+  },
+  {
+    "name": "FMLA",
+    "type": "legal",
+    "mentions": 7,
+    "segments": [
+      "segment_001",
+      "segment_002",
+      "segment_009",
+      "segment_009",
+      "segment_010",
+      "segment_024",
+      "segment_028"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Doug",
+    "type": "person",
+    "mentions": 6,
+    "segments": [
+      "segment_001",
+      "segment_003",
+      "segment_004",
+      "segment_006",
+      "segment_017",
+      "segment_020"
+    ],
+    "domains": [
+      "Finance & Legal",
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "Mubeena Iqbal",
+    "type": "person",
+    "mentions": 5,
+    "segments": [
+      "segment_006",
+      "segment_010",
+      "segment_020",
+      "segment_025",
+      "segment_026"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Faraaz Rahman",
+    "type": "person",
+    "mentions": 5,
+    "segments": [
+      "segment_007",
+      "segment_010",
+      "segment_021",
+      "segment_024",
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Dr. Ali",
+    "type": "Program Director",
+    "mentions": 4,
+    "segments": [
+      "segment_002",
+      "segment_010",
+      "segment_024",
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "24-15519",
+    "type": "case number",
+    "mentions": 4,
+    "segments": [
+      "segment_003",
+      "segment_005",
+      "segment_007",
+      "segment_020"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "2022",
+    "type": "date",
+    "mentions": 4,
+    "segments": [
+      "segment_008",
+      "segment_009",
+      "segment_010",
+      "segment_020"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Chris",
+    "type": "person",
+    "mentions": 4,
+    "segments": [
+      "segment_009",
+      "segment_010",
+      "segment_024",
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Dubai",
+    "type": "location",
+    "mentions": 4,
+    "segments": [
+      "segment_009",
+      "segment_010",
+      "segment_020",
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Pakistan",
+    "type": "location",
+    "mentions": 4,
+    "segments": [
+      "segment_009",
+      "segment_010",
+      "segment_024",
+      "segment_029"
+    ],
+    "domains": [
+      "Finance & Legal",
+      "Relationships & Social"
+    ]
+  },
+  {
+    "name": "Guthrie",
+    "type": "organization",
+    "mentions": 4,
+    "segments": [
+      "segment_010",
+      "segment_024",
+      "segment_026",
+      "segment_029"
+    ],
+    "domains": [
+      "Finance & Legal",
+      "Relationships & Social"
+    ]
+  },
+  {
+    "name": "2026-02-17",
+    "type": "date",
+    "mentions": 3,
+    "segments": [
+      "segment_001",
+      "segment_018",
+      "segment_019"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "ACGME",
+    "type": "organization",
+    "mentions": 3,
+    "segments": [
+      "segment_002",
+      "segment_007",
+      "segment_008"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "People v. Rahman",
+    "type": "legal",
+    "mentions": 3,
+    "segments": [
+      "segment_003",
+      "segment_005",
+      "segment_006"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Mohammed Rahman",
+    "type": "person",
+    "mentions": 3,
+    "segments": [
+      "segment_004",
+      "segment_005",
+      "segment_020"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Richard Miller",
+    "type": "person",
+    "mentions": 3,
+    "segments": [
+      "segment_004",
+      "segment_005",
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Mohammed Iqbal Amiruddin",
+    "type": "person",
+    "mentions": 3,
+    "segments": [
+      "segment_005",
+      "segment_010",
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "BPD",
+    "type": "organization",
+    "mentions": 3,
+    "segments": [
+      "segment_005",
+      "segment_006",
+      "segment_020"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Sundas Rashid",
+    "type": "victim",
+    "mentions": 3,
+    "segments": [
+      "segment_007",
+      "segment_010",
+      "segment_020"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Binghamton",
+    "type": "location",
+    "mentions": 3,
+    "segments": [
+      "segment_008",
+      "segment_025",
+      "segment_029"
+    ],
+    "domains": [
+      "Finance & Legal",
+      "Relationships & Social"
+    ]
+  },
+  {
+    "name": "Dr. Rahman",
+    "type": "person",
+    "mentions": 3,
+    "segments": [
+      "segment_009",
+      "segment_020",
+      "segment_026"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "2021-2024",
+    "type": "date",
+    "mentions": 3,
+    "segments": [
+      "segment_009",
+      "segment_017",
+      "segment_018"
+    ],
+    "domains": [
+      "Finance & Legal",
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "ECFMG",
+    "type": "organization",
+    "mentions": 3,
+    "segments": [
+      "segment_010",
+      "segment_024",
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Dr. Mohammed Faraaz Rahman",
+    "type": "person",
+    "mentions": 3,
+    "segments": [
+      "segment_018",
+      "segment_019",
+      "segment_028"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Norman Spens",
+    "type": "person",
+    "mentions": 3,
+    "segments": [
+      "segment_018",
+      "segment_019",
+      "segment_028"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "February 2024",
+    "type": "date",
+    "mentions": 3,
+    "segments": [
+      "segment_018",
+      "segment_019",
+      "segment_028"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "October 24, 2024",
+    "type": "date",
+    "mentions": 3,
+    "segments": [
+      "segment_018",
+      "segment_019",
+      "segment_028"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "March 21, 2025",
+    "type": "date",
+    "mentions": 3,
+    "segments": [
+      "segment_018",
+      "segment_019",
+      "segment_028"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "RLN20260217-DataIntegrityCheck",
+    "type": "legal case reference",
+    "mentions": 3,
+    "segments": [
+      "segment_018",
+      "segment_019",
+      "segment_028"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "RLN20260217-LegalStrategyMaster",
+    "type": "legal case reference",
+    "mentions": 3,
+    "segments": [
+      "segment_018",
+      "segment_019",
+      "segment_028"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Iqbal Amiruddin",
+    "type": "Witness",
+    "mentions": 2,
+    "segments": [
+      "segment_002",
+      "segment_024"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "EEOC",
+    "type": "organization",
+    "mentions": 2,
+    "segments": [
+      "segment_002",
+      "segment_007"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Brugada syndrome",
+    "type": "medical",
+    "mentions": 2,
+    "segments": [
+      "segment_002",
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "PICC line",
+    "type": "medical",
+    "mentions": 2,
+    "segments": [
+      "segment_002",
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "sepsis",
+    "type": "medical",
+    "mentions": 2,
+    "segments": [
+      "segment_002",
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Mr. Iqbal",
+    "type": "person",
+    "mentions": 2,
+    "segments": [
+      "segment_003",
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Mr. Amiruddin",
+    "type": "person",
+    "mentions": 2,
+    "segments": [
+      "segment_003",
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Premier Health",
+    "type": "organization",
+    "mentions": 2,
+    "segments": [
+      "segment_003",
+      "segment_005"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Affidavit",
+    "type": "legal",
+    "mentions": 2,
+    "segments": [
+      "segment_003",
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Internal Medicine",
+    "type": "medical",
+    "mentions": 2,
+    "segments": [
+      "segment_003",
+      "segment_017"
+    ],
+    "domains": [
+      "Finance & Legal",
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "Ali.Hila",
+    "type": "person",
+    "mentions": 2,
+    "segments": [
+      "segment_004",
+      "segment_020"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Seema",
+    "type": "person",
+    "mentions": 2,
+    "segments": [
+      "segment_004",
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "New York",
+    "type": "location",
+    "mentions": 2,
+    "segments": [
+      "segment_004",
+      "segment_021"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Tesla",
+    "type": "organization",
+    "mentions": 2,
+    "segments": [
+      "segment_004",
+      "segment_020"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Gemini",
+    "type": "organization",
+    "mentions": 2,
+    "segments": [
+      "segment_004",
+      "segment_020"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "May",
+    "type": "date",
+    "mentions": 2,
+    "segments": [
+      "segment_004",
+      "segment_020"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "19th-20th",
+    "type": "date",
+    "mentions": 2,
+    "segments": [
+      "segment_004",
+      "segment_010"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "PGY-1",
+    "type": "event",
+    "mentions": 2,
+    "segments": [
+      "segment_004",
+      "segment_017"
+    ],
+    "domains": [
+      "Finance & Legal",
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "PGY-2",
+    "type": "event",
+    "mentions": 2,
+    "segments": [
+      "segment_004",
+      "segment_017"
+    ],
+    "domains": [
+      "Finance & Legal",
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "PGY-3",
+    "type": "event",
+    "mentions": 2,
+    "segments": [
+      "segment_004",
+      "segment_017"
+    ],
+    "domains": [
+      "Finance & Legal",
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "RN120333080",
+    "type": "identifier",
+    "mentions": 2,
+    "segments": [
+      "segment_004",
+      "segment_020"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Faraaz",
+    "type": "person",
+    "mentions": 2,
+    "segments": [
+      "segment_005",
+      "segment_029"
+    ],
+    "domains": [
+      "Finance & Legal",
+      "Relationships & Social"
+    ]
+  },
+  {
+    "name": "Mubeena",
+    "type": "person",
+    "mentions": 2,
+    "segments": [
+      "segment_005",
+      "segment_024"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Ahmed, K",
+    "type": "person",
+    "mentions": 2,
+    "segments": [
+      "segment_005",
+      "segment_017"
+    ],
+    "domains": [
+      "Finance & Legal",
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "Ali, W",
+    "type": "person",
+    "mentions": 2,
+    "segments": [
+      "segment_005",
+      "segment_017"
+    ],
+    "domains": [
+      "Finance & Legal",
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "Asghar, N",
+    "type": "person",
+    "mentions": 2,
+    "segments": [
+      "segment_005",
+      "segment_017"
+    ],
+    "domains": [
+      "Finance & Legal",
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "dwd@douglaswalterdrazen.com",
+    "type": "email",
+    "mentions": 2,
+    "segments": [
+      "segment_005",
+      "segment_006"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Dubai, UAE",
+    "type": "location",
+    "mentions": 2,
+    "segments": [
+      "segment_008",
+      "segment_024"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "2021",
+    "type": "date",
+    "mentions": 2,
+    "segments": [
+      "segment_008",
+      "segment_010"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Dr. Jones",
+    "type": "person",
+    "mentions": 2,
+    "segments": [
+      "segment_009",
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Sundas's mother",
+    "type": "person",
+    "mentions": 2,
+    "segments": [
+      "segment_009",
+      "segment_029"
+    ],
+    "domains": [
+      "Finance & Legal",
+      "Relationships & Social"
+    ]
+  },
+  {
+    "name": "Ali",
+    "type": "person",
+    "mentions": 2,
+    "segments": [
+      "segment_009",
+      "segment_026"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Hila",
+    "type": "person",
+    "mentions": 2,
+    "segments": [
+      "segment_009",
+      "segment_026"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Swedish Covenant Hospital",
+    "type": "organization",
+    "mentions": 2,
+    "segments": [
+      "segment_009",
+      "segment_024"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Jackson Park Hospital",
+    "type": "organization",
+    "mentions": 2,
+    "segments": [
+      "segment_009",
+      "segment_024"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Syracuse, NY",
+    "type": "location",
+    "mentions": 2,
+    "segments": [
+      "segment_009",
+      "segment_024"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Ansco lofts",
+    "type": "location",
+    "mentions": 2,
+    "segments": [
+      "segment_009",
+      "segment_026"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "probation",
+    "type": "legal",
+    "mentions": 2,
+    "segments": [
+      "segment_009",
+      "segment_010"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "April 7",
+    "type": "date",
+    "mentions": 2,
+    "segments": [
+      "segment_009",
+      "segment_029"
+    ],
+    "domains": [
+      "Finance & Legal",
+      "Relationships & Social"
+    ]
+  },
+  {
+    "name": "April 8",
+    "type": "date",
+    "mentions": 2,
+    "segments": [
+      "segment_009",
+      "segment_029"
+    ],
+    "domains": [
+      "Finance & Legal",
+      "Relationships & Social"
+    ]
+  },
+  {
+    "name": "April 10",
+    "type": "date",
+    "mentions": 2,
+    "segments": [
+      "segment_009",
+      "segment_029"
+    ],
+    "domains": [
+      "Finance & Legal",
+      "Relationships & Social"
+    ]
+  },
+  {
+    "name": "April 12",
+    "type": "date",
+    "mentions": 2,
+    "segments": [
+      "segment_009",
+      "segment_029"
+    ],
+    "domains": [
+      "Finance & Legal",
+      "Relationships & Social"
+    ]
+  },
+  {
+    "name": "April 16",
+    "type": "date",
+    "mentions": 2,
+    "segments": [
+      "segment_009",
+      "segment_029"
+    ],
+    "domains": [
+      "Finance & Legal",
+      "Relationships & Social"
+    ]
+  },
+  {
+    "name": "01-11-2023",
+    "type": "date",
+    "mentions": 2,
+    "segments": [
+      "segment_009",
+      "segment_010"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Norman Spencer",
+    "type": "person",
+    "mentions": 2,
+    "segments": [
+      "segment_010",
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Nana",
+    "type": "person",
+    "mentions": 2,
+    "segments": [
+      "segment_010",
+      "segment_026"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "ANSCO",
+    "type": "organization",
+    "mentions": 2,
+    "segments": [
+      "segment_010",
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Binghamton, NY",
+    "type": "location",
+    "mentions": 2,
+    "segments": [
+      "segment_010",
+      "segment_024"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "1996",
+    "type": "date",
+    "mentions": 2,
+    "segments": [
+      "segment_010",
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "$400,000",
+    "type": "financial",
+    "mentions": 2,
+    "segments": [
+      "segment_010",
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "$100,000",
+    "type": "financial",
+    "mentions": 2,
+    "segments": [
+      "segment_010",
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "$30,000",
+    "type": "financial",
+    "mentions": 2,
+    "segments": [
+      "segment_010",
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "$20,000",
+    "type": "financial",
+    "mentions": 2,
+    "segments": [
+      "segment_010",
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "$50,000",
+    "type": "financial",
+    "mentions": 2,
+    "segments": [
+      "segment_010",
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "iCloud",
+    "type": "service",
+    "mentions": 2,
+    "segments": [
+      "segment_018",
+      "segment_019"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Gmail",
+    "type": "service",
+    "mentions": 2,
+    "segments": [
+      "segment_018",
+      "segment_019"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Google Drive",
+    "type": "service",
+    "mentions": 2,
+    "segments": [
+      "segment_018",
+      "segment_019"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "2021 to 2024",
+    "type": "date range",
+    "mentions": 2,
+    "segments": [
+      "segment_019",
+      "segment_028"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "April 18 to April 23, 2024",
+    "type": "date range",
+    "mentions": 2,
+    "segments": [
+      "segment_019",
+      "segment_028"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "April 1, 2024 to October 21, 2025",
+    "type": "date range",
+    "mentions": 2,
+    "segments": [
+      "segment_019",
+      "segment_028"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "2024",
+    "type": "date",
+    "mentions": 2,
+    "segments": [
+      "segment_020",
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "USCIS",
+    "type": "organization",
+    "mentions": 2,
+    "segments": [
+      "segment_021",
+      "segment_024"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Rahman",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_001"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Swingside",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_001"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Jan 8, 2026",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_001"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "otter.ai",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_001"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "J1 Visa",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_001"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "I-539",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_001"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "NORI",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_001"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Ibrar",
+    "type": "Chief Resident",
+    "mentions": 1,
+    "segments": [
+      "segment_002"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "HHS-OCR",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_002"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Astoria West",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_002"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "April 18th",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_002"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Apex Doctrine",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_002"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Institutional Malice",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_002"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Personal Liability",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_002"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "deliberate indifference",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_002"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "medical coercion",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_002"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "due process",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_002"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "conspiracy",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_002"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Business Judgment Rule",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_002"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Medical Malpractice",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_002"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "reckless endangerment",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_002"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Cat's Paw Liability",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_002"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Aiding and Abetting Malicious Prosecution",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_002"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Mohammed Faraz Rahman, M.D.",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_003"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "ACGME (Accreditation Council for Graduate Medical Education)",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_003"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "ECFMG (Educational Commission for Foreign Medical Graduates)",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_003"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "BPD (likely a police department)",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_003"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "FMLA (Family and Medical Leave Act)",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_003"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Omnibus Motion",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_003"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Rahman vs. New York",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_003"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Witness Testimony",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_003"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Chain of Custody",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_003"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Discovery Package",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_003"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Court Charges",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_003"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Residency Program",
+    "type": "medical",
+    "mentions": 1,
+    "segments": [
+      "segment_003"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "04/10/2024",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_003"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "04/26/2024",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_003"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "05/20/2024",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_003"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "07/26/2024",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_003"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "2018",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_003"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "2019",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_003"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "4/18, 4/19, 4/20",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_003"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "4/22",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_004"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "4/23",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_004"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "5/7/24",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_004"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Matrix",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_005"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Mohammed Faraaz Rahman",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_006"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Sunda",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_006"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Salman Baig",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_006"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Mohammed Rahmen",
+    "type": "suspect",
+    "mentions": 1,
+    "segments": [
+      "segment_007"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Binghamton Police Department",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_007"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Kevin Nieves",
+    "type": "Case Officer",
+    "mentions": 1,
+    "segments": [
+      "segment_007"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Gary Laskowsky",
+    "type": "officer",
+    "mentions": 1,
+    "segments": [
+      "segment_007"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "John Eggleston",
+    "type": "officer",
+    "mentions": 1,
+    "segments": [
+      "segment_007"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "04/20/2024",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_007"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "16 Emma St",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_007"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "ABMS",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_007"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "HHS",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_007"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "JPMorgan Chase Bank, N.A.",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_007"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Dr. Mohammed Faraaz Rahman, MD",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_008"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "United Health Services Hospitals, Inc.",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_008"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "UHS Wilson",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_008"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Guthrie Binghamton",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_008"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Boston Scientific",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_008"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Dr. Wajhia",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_008"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Dr. Owais Ahmed",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_008"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Feb 2024",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_008"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Oct 2025",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_008"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Mar 2024",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_008"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Apr 22, 2024",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_008"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "RLN20251014-FinancialLegalHardship",
+    "type": "legal document reference",
+    "mentions": 1,
+    "segments": [
+      "segment_008"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Dr. [Program Director]",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Dr. Ibrar",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Dr. Diaz",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Dr. Mubeena Iqbal",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Dr. Rashid",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Ms. Sameena Rashid",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "HR",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "UHS (United Health Services)",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Dunkin Donuts",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Ras al Khaimah Medical and Health Sciences University",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Upstate Medical University",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "American Medical Association (AMA)",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "American College of Physicians (ACP)",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "USA",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Johnson City, NY",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Chicago, Il",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "16 Emma Street Apt 323, Binghamton NY 13905",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "quinidine",
+    "type": "medical",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "event monitor",
+    "type": "medical",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "heart rate",
+    "type": "medical",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "labile",
+    "type": "medical",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "fitness to work",
+    "type": "medical",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "hospitalization",
+    "type": "medical",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "hypothermia",
+    "type": "medical",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "myocardial infarction",
+    "type": "medical",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "percutaneous coronary intervention",
+    "type": "medical",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "direct oral anticoagulants",
+    "type": "medical",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "low molecular weight heparin",
+    "type": "medical",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "vitamin k antagonists",
+    "type": "medical",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "cancer-associated thrombosis",
+    "type": "medical",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "POCUS (Point of Care Ultrasound)",
+    "type": "medical",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "heart failure",
+    "type": "medical",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "diabetes",
+    "type": "medical",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "SGLT-2 inhibitors",
+    "type": "medical",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "insulin",
+    "type": "medical",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "central venous lines",
+    "type": "medical",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "temporary hemodialysis lines",
+    "type": "medical",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "arterial lines",
+    "type": "medical",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "thoracentesis",
+    "type": "medical",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "paracentesis",
+    "type": "medical",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "lumbar puncture",
+    "type": "medical",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "police complaint",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "trial",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "case docket",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "April 22, 2024",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "May 19, 2024",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "May 6",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "May 14",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "May 10",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "May 13",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "May 19",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "February 22 - March 7",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "March 5",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "2017",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "2019-2020",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "2018-2019",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "2011-2016",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "2016-2017",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "March 22-April 3 2024",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_009"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Syed Rashid Hussain",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_010"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Sameena Rashid",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_010"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Paul Battisti",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_010"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "BITS Pilani",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_010"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Amity University Dubai",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_010"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "FedEx",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_010"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Upstate New York",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_010"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "New York City",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_010"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Yonkers, New York",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_010"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "June 2024",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_010"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "March 2024",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_010"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "August 2019",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_010"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "February 2020",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_010"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "June 22",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_010"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "obstruction of breathing",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_010"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "forceful touching",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_010"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Ali, T",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "Amin, R",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "Atiq, I",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "Bajwa, K",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "Paul",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "El-Kassis",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "Ahmad",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "New Innovations",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "Chase",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "Wilson",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "BGH",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "ICU",
+    "type": "medical term",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "CCU",
+    "type": "medical term",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "GI",
+    "type": "medical term",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "Cardiology",
+    "type": "medical term",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "Pulmonology",
+    "type": "medical term",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "Neurology",
+    "type": "medical term",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "Infectious Disease",
+    "type": "medical term",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "Geriatrics",
+    "type": "medical term",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "Hem/Onc",
+    "type": "medical term",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "Nephrology",
+    "type": "medical term",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "Rheumatology",
+    "type": "medical term",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "Palliative",
+    "type": "medical term",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "Dermatology",
+    "type": "medical term",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "Ophthamology",
+    "type": "medical term",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "ENT",
+    "type": "medical term",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "Pathology",
+    "type": "medical term",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "POCUS",
+    "type": "medical term",
+    "mentions": 1,
+    "segments": [
+      "segment_017"
+    ],
+    "domains": [
+      "Career & Work"
+    ]
+  },
+  {
+    "name": "2026-02-16",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_018"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "April 18-23, 2024",
+    "type": "date range",
+    "mentions": 1,
+    "segments": [
+      "segment_018"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "April 1, 2024 - October 21, 2025",
+    "type": "date range",
+    "mentions": 1,
+    "segments": [
+      "segment_018"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "RLN20260217-EvidenceIndex",
+    "type": "legal case reference",
+    "mentions": 1,
+    "segments": [
+      "segment_018"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "RLN20260217-MasterChronology",
+    "type": "legal case reference",
+    "mentions": 1,
+    "segments": [
+      "segment_018"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Spencer",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_019"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "$223,800",
+    "type": "financial",
+    "mentions": 1,
+    "segments": [
+      "segment_019"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "$350,000",
+    "type": "financial",
+    "mentions": 1,
+    "segments": [
+      "segment_019"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "$650,000",
+    "type": "financial",
+    "mentions": 1,
+    "segments": [
+      "segment_019"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "$1,200,000",
+    "type": "financial",
+    "mentions": 1,
+    "segments": [
+      "segment_019"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "$140,000",
+    "type": "financial",
+    "mentions": 1,
+    "segments": [
+      "segment_019"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "$220,000",
+    "type": "financial",
+    "mentions": 1,
+    "segments": [
+      "segment_019"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Blanca-Iris-Santana",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_020"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "dmv.ny.gov",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_020"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Axon",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_020"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Astoria",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_020"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Brooklyn",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_020"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Vermont",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_020"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "4:23",
+    "type": "time",
+    "mentions": 1,
+    "segments": [
+      "segment_020"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "EID470",
+    "type": "ID",
+    "mentions": 1,
+    "segments": [
+      "segment_020"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "OID3009043",
+    "type": "ID",
+    "mentions": 1,
+    "segments": [
+      "segment_020"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "$15k",
+    "type": "financial amount",
+    "mentions": 1,
+    "segments": [
+      "segment_020"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Immigration Attorney",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_021"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Florida",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_021"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Macy's",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_021"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Sembly.ai",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_021"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Jul 12, 2024",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_021"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "5/16/24",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_021"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "J-1 visa",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_021"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "ACD (Adjournment in Contemplation of Dismissal)",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_021"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "criminal obstruction of breathing",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_021"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "sexual touching",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_021"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "state medical license",
+    "type": "document",
+    "mentions": 1,
+    "segments": [
+      "segment_021"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Cindy",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_024"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "UHS Binghamton",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_024"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Sanford Health",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_024"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "SUNY Upstate Medical University",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_024"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "RAKMHSU",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_024"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "April 2020",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_024"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "18th April",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_024"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "19th April",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_024"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "20th April",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_024"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "J-1 Waiver",
+    "type": "legal",
+    "mentions": 1,
+    "segments": [
+      "segment_024"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "BITS Pilani, Dubai Campus",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Indian High School",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Trinity College",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Osmania University",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Sri Krishnadevaraya University",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Purvanchal University",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "APTECH",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Harvard Medical College",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Guthrie PD",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "UAE",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "India",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Boston, Massachusetts",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Athens, Greece",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Fethiye, Turkey",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Aug 2004-Current",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Sept 1998-Aug 2004",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "2014",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "22 December 2013",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "2001",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "1997",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "1993",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "25-30 May 2014",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "10-13 June 2013",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "24-29 April 2012",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "29th",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "L6627013",
+    "type": "document identifier",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "FD-22",
+    "type": "case reference",
+    "mentions": 1,
+    "segments": [
+      "segment_025"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Mohammed F. Rahman, M.D.",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_026"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Fathima",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_026"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Chris Brown, Esq.",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_026"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Paulus Development Company, LLC",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_026"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "FA Master Tenant, LLC",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_026"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Binghamton, New York",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_026"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "NYC",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_026"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Hyderabad",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_026"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Mahindra Hills, Secunderabad",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_026"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "State Bank of India",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_026"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "April 30, 2024",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_026"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "June 8, 2023",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_026"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "April 23, 2024",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_026"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "April 20, 2024",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_026"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "April 21, 2025",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_026"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Order No: 2024-000196",
+    "type": "legal case reference",
+    "mentions": 1,
+    "segments": [
+      "segment_026"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "NRE Account 32483171445",
+    "type": "financial account",
+    "mentions": 1,
+    "segments": [
+      "segment_026"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "NRO Account 32483172799",
+    "type": "financial account",
+    "mentions": 1,
+    "segments": [
+      "segment_026"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Account Number: 54002811347",
+    "type": "financial account",
+    "mentions": 1,
+    "segments": [
+      "segment_026"
+    ],
+    "domains": [
+      "Finance & Legal"
+    ]
+  },
+  {
+    "name": "Sundas's father",
+    "type": "person",
+    "mentions": 1,
+    "segments": [
+      "segment_029"
+    ],
+    "domains": [
+      "Relationships & Social"
+    ]
+  },
+  {
+    "name": "DXB",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_029"
+    ],
+    "domains": [
+      "Relationships & Social"
+    ]
+  },
+  {
+    "name": "US",
+    "type": "location",
+    "mentions": 1,
+    "segments": [
+      "segment_029"
+    ],
+    "domains": [
+      "Relationships & Social"
+    ]
+  },
+  {
+    "name": "Dunkin' Donuts",
+    "type": "organization",
+    "mentions": 1,
+    "segments": [
+      "segment_029"
+    ],
+    "domains": [
+      "Relationships & Social"
+    ]
+  },
+  {
+    "name": "April 18",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_029"
+    ],
+    "domains": [
+      "Relationships & Social"
+    ]
+  },
+  {
+    "name": "April 19",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_029"
+    ],
+    "domains": [
+      "Relationships & Social"
+    ]
+  },
+  {
+    "name": "April 20",
+    "type": "date",
+    "mentions": 1,
+    "segments": [
+      "segment_029"
+    ],
+    "domains": [
+      "Relationships & Social"
+    ]
+  },
+  {
+    "name": "Ramadan",
+    "type": "event",
+    "mentions": 1,
+    "segments": [
+      "segment_029"
+    ],
+    "domains": [
+      "Relationships & Social"
+    ]
+  }
+]
