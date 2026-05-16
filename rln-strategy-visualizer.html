@@ -3,1152 +3,1828 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>RLN v2.0 — Strategic Cognitive Architecture</title>
+<title>RLN v2.0 — Strategic Cockpit</title>
 <style>
   :root {
-    --bg: #0c0e16;
-    --bg-soft: #141826;
-    --bg-card: #1a1f33;
-    --border: #2a3149;
-    --text: #e8ecf5;
-    --text-dim: #98a1bd;
+    --bg: #0a0d18;
+    --bg-soft: #11162a;
+    --bg-card: #171d36;
+    --bg-card-2: #1d2545;
+    --border: #283058;
+    --border-soft: #1f2647;
+    --text: #eaeef7;
+    --text-dim: #8d97b8;
+    --text-faint: #5a6386;
     --accent: #7c9eff;
+    --accent-glow: rgba(124, 158, 255, 0.18);
+
     --legal: #ff6b9d;
     --finance: #ffd166;
     --clinical: #06d6a0;
     --spiritual: #c084fc;
     --systems: #4cc9f0;
+
+    --legal-soft: rgba(255, 107, 157, 0.14);
+    --finance-soft: rgba(255, 209, 102, 0.14);
+    --clinical-soft: rgba(6, 214, 160, 0.14);
+    --spiritual-soft: rgba(192, 132, 252, 0.14);
+    --systems-soft: rgba(76, 201, 240, 0.14);
+
     --now: #ff4757;
-    --next: #ffa502;
+    --next: #ffa726;
     --later: #2ed573;
-    --shadow: 0 8px 28px rgba(0,0,0,0.45);
+
+    --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.35);
   }
+
   * { box-sizing: border-box; }
   html, body {
     margin: 0;
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", system-ui, sans-serif;
-    background: radial-gradient(ellipse at top, #1a1f3a 0%, var(--bg) 60%);
+    background:
+      radial-gradient(ellipse 90% 60% at 50% -10%, rgba(124, 158, 255, 0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 10% 100%, rgba(192, 132, 252, 0.08) 0%, transparent 60%),
+      var(--bg);
+    background-attachment: fixed;
     color: var(--text);
     min-height: 100vh;
-    line-height: 1.55;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
   }
+  body.dim-legal .domain-Legal, body.dim-legal [data-domain="Legal"],
+  body.dim-finance .domain-Finance, body.dim-finance [data-domain="Finance"],
+  body.dim-clinical .domain-Clinical, body.dim-clinical [data-domain="Clinical"],
+  body.dim-spiritual .domain-Spiritual, body.dim-spiritual [data-domain="Spiritual"],
+  body.dim-systems .domain-Systems, body.dim-systems [data-domain="Systems"] {
+    opacity: 1 !important;
+  }
+  body.filter-active [data-domain]:not(.match) {
+    opacity: 0.18;
+    filter: saturate(0.4);
+    transition: all 0.25s;
+  }
+  body.filter-active [data-domain].match {
+    transition: all 0.25s;
+  }
+
+  /* ───────── HEADER ───────── */
   header {
-    padding: 28px 32px 16px;
-    border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
-    background: rgba(12, 14, 22, 0.92);
-    backdrop-filter: blur(16px);
-    z-index: 100;
+    z-index: 80;
+    backdrop-filter: blur(18px);
+    background: rgba(10, 13, 24, 0.82);
+    border-bottom: 1px solid var(--border-soft);
+    padding: 14px 24px;
   }
-  header h1 {
-    margin: 0;
-    font-size: 22px;
-    letter-spacing: -0.02em;
-    font-weight: 700;
-  }
-  header .sub {
-    color: var(--text-dim);
-    font-size: 13px;
-    margin-top: 4px;
-  }
-  .tabs {
+  .head-row {
     display: flex;
-    gap: 4px;
-    margin-top: 16px;
+    align-items: center;
+    gap: 16px;
     flex-wrap: wrap;
   }
-  .tab {
-    padding: 8px 14px;
-    border-radius: 8px;
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
-    color: var(--text-dim);
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 500;
-    transition: all 0.18s;
-    user-select: none;
-  }
-  .tab:hover { color: var(--text); border-color: var(--accent); }
-  .tab.active {
-    background: var(--accent);
-    color: #0c0e16;
-    border-color: var(--accent);
-    font-weight: 600;
-  }
-  main { padding: 24px 32px 80px; max-width: 1400px; margin: 0 auto; }
-  .panel { display: none; }
-  .panel.active { display: block; animation: fadeIn 0.25s ease; }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* FOCUS PANEL */
-  .focus-hero {
-    background: linear-gradient(135deg, #ff4757 0%, #ff6b9d 100%);
-    border-radius: 16px;
-    padding: 28px;
-    box-shadow: var(--shadow);
-    margin-bottom: 20px;
-    position: relative;
-    overflow: hidden;
-  }
-  .focus-hero::before {
-    content: "";
-    position: absolute;
-    top: -50px; right: -50px;
-    width: 200px; height: 200px;
-    background: rgba(255,255,255,0.08);
-    border-radius: 50%;
-  }
-  .focus-tag {
-    display: inline-block;
-    background: rgba(0,0,0,0.3);
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 11px;
-    letter-spacing: 0.1em;
+  .head-title {
+    font-size: 17px;
     font-weight: 700;
-    text-transform: uppercase;
-  }
-  .focus-title {
-    font-size: 26px;
-    font-weight: 700;
-    margin: 10px 0 8px;
     letter-spacing: -0.01em;
+    margin: 0;
   }
-  .focus-blurb { font-size: 15px; opacity: 0.95; }
-  .focus-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 12px;
-    margin-top: 20px;
-  }
-  .focus-stat {
-    background: rgba(0,0,0,0.25);
-    padding: 12px 14px;
-    border-radius: 10px;
-  }
-  .focus-stat .lbl {
-    font-size: 11px;
-    opacity: 0.85;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-  .focus-stat .val { font-size: 20px; font-weight: 700; margin-top: 2px; }
-
-  /* STEPS */
-  .step-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 12px;
-    margin-top: 14px;
-  }
-  .step {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px;
-    position: relative;
-    transition: transform 0.18s, border-color 0.18s;
-    cursor: pointer;
-  }
-  .step:hover { transform: translateY(-2px); border-color: var(--accent); }
-  .step.done { opacity: 0.5; }
-  .step.done .step-title { text-decoration: line-through; }
-  .step-num {
-    width: 26px; height: 26px;
-    background: var(--accent);
-    color: var(--bg);
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 13px;
-    margin-bottom: 10px;
-  }
-  .step-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
-  .step-desc { font-size: 12px; color: var(--text-dim); }
-  .step .check {
-    position: absolute;
-    top: 12px; right: 12px;
-    width: 18px; height: 18px;
-    border: 2px solid var(--border);
-    border-radius: 4px;
-    transition: all 0.15s;
-  }
-  .step.done .check {
-    background: var(--clinical);
-    border-color: var(--clinical);
-  }
-  .step.done .check::after {
-    content: "✓"; color: var(--bg); font-size: 13px;
-    display: block; text-align: center; line-height: 14px; font-weight: 700;
-  }
-
-  /* MIND MAP */
-  .mindmap-wrap {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  .mindmap-svg {
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 12px;
-    height: 600px;
-  }
-  .mindmap-svg svg { width: 100%; height: 100%; cursor: grab; }
-  .map-node circle { transition: all 0.2s; cursor: pointer; }
-  .map-node text { fill: var(--text); font-size: 12px; font-weight: 600; pointer-events: none; user-select: none; }
-  .map-node:hover circle { stroke-width: 3; filter: brightness(1.3); }
-  .map-link { stroke: var(--border); stroke-width: 1.5; fill: none; }
-  .map-legend {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin-top: 4px;
-    font-size: 12px;
-    color: var(--text-dim);
-  }
-  .map-legend .dot {
-    display: inline-block;
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    margin-right: 6px;
-    vertical-align: middle;
-  }
-
-  /* KANBAN */
-  .kanban {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-  @media (max-width: 980px) { .kanban { grid-template-columns: 1fr; } }
-  .lane {
-    background: var(--bg-soft);
-    border-radius: 14px;
-    padding: 14px;
-    border-top: 4px solid var(--border);
-  }
-  .lane.now { border-color: var(--now); }
-  .lane.next { border-color: var(--next); }
-  .lane.later { border-color: var(--later); }
-  .lane h3 {
-    margin: 0 0 4px;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-  .lane .lane-sub {
-    color: var(--text-dim);
-    font-size: 12px;
-    margin-bottom: 12px;
-  }
-  .card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 12px;
-    margin-bottom: 10px;
-    border-left: 3px solid var(--accent);
-    cursor: pointer;
-    transition: transform 0.15s;
-  }
-  .card:hover { transform: translateX(2px); }
-  .card.domain-Legal { border-left-color: var(--legal); }
-  .card.domain-Finance { border-left-color: var(--finance); }
-  .card.domain-Clinical { border-left-color: var(--clinical); }
-  .card.domain-Spiritual { border-left-color: var(--spiritual); }
-  .card.domain-Systems { border-left-color: var(--systems); }
-  .card-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 6px;
-  }
-  .card-domain {
-    font-size: 10px;
-    padding: 2px 8px;
-    border-radius: 5px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-weight: 700;
-  }
-  .card.domain-Legal .card-domain { background: rgba(255,107,157,0.15); color: var(--legal); }
-  .card.domain-Finance .card-domain { background: rgba(255,209,102,0.15); color: var(--finance); }
-  .card.domain-Clinical .card-domain { background: rgba(6,214,160,0.15); color: var(--clinical); }
-  .card.domain-Spiritual .card-domain { background: rgba(192,132,252,0.15); color: var(--spiritual); }
-  .card.domain-Systems .card-domain { background: rgba(76,201,240,0.15); color: var(--systems); }
-  .card-score {
-    background: var(--bg);
-    color: var(--text);
-    padding: 2px 8px;
-    border-radius: 5px;
-    font-size: 11px;
-    font-weight: 700;
-  }
-  .card-score.s12, .card-score.s13 { background: var(--now); color: #fff; }
-  .card-score.s10, .card-score.s11 { background: var(--next); color: #fff; }
-  .card-score.s9 { background: #6d8eff; color: #fff; }
-  .card-score.s7, .card-score.s8 { background: var(--later); color: #fff; }
-  .card-title { font-weight: 600; font-size: 14px; line-height: 1.4; margin-bottom: 4px; }
-  .card-why { font-size: 12px; color: var(--text-dim); }
-
-  /* DOMAINS */
-  .domain-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 16px;
-  }
-  .domain {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 18px;
-    cursor: pointer;
-    transition: all 0.2s;
-    border-top: 4px solid;
-  }
-  .domain:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
-  .domain.legal { border-top-color: var(--legal); }
-  .domain.finance { border-top-color: var(--finance); }
-  .domain.clinical { border-top-color: var(--clinical); }
-  .domain.spiritual { border-top-color: var(--spiritual); }
-  .domain.systems { border-top-color: var(--systems); }
-  .domain-icon { font-size: 28px; margin-bottom: 8px; }
-  .domain h3 { margin: 0 0 6px; font-size: 17px; }
-  .domain .status {
-    font-size: 12px;
-    color: var(--text-dim);
-    margin-bottom: 12px;
-  }
-  .domain ul { margin: 0; padding-left: 18px; font-size: 13px; }
-  .domain li { margin-bottom: 4px; }
-
-  /* DETAIL */
-  .detail {
-    margin-top: 20px;
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 22px;
-    display: none;
-  }
-  .detail.active { display: block; animation: fadeIn 0.25s ease; }
-  .detail h2 { margin-top: 0; }
-  .detail .close {
-    float: right;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    color: var(--text-dim);
-    padding: 4px 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 12px;
-  }
-  .pillar {
-    background: var(--bg-card);
-    border-radius: 10px;
-    padding: 14px;
-    margin: 10px 0;
-    border-left: 3px solid var(--accent);
-  }
-  .pillar h4 { margin: 0 0 6px; font-size: 14px; }
-  .pillar p { margin: 0; font-size: 13px; color: var(--text-dim); }
-  .confidence-bar {
-    height: 6px;
-    background: var(--border);
-    border-radius: 3px;
-    margin-top: 6px;
-    overflow: hidden;
-  }
-  .confidence-bar > div {
-    height: 100%;
-    background: linear-gradient(90deg, var(--clinical), var(--accent));
-    border-radius: 3px;
-  }
-
-  /* PIPELINE */
-  .pipeline {
+  .head-title .accent { color: var(--accent); }
+  .head-spacer { flex: 1; min-width: 12px; }
+  .countdown {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-  }
-  .pipe-row {
-    display: grid;
-    grid-template-columns: 50px 1fr;
-    gap: 16px;
-    align-items: stretch;
-  }
-  .pipe-num {
-    background: var(--bg-card);
-    border: 2px solid var(--accent);
-    color: var(--accent);
-    border-radius: 50%;
-    width: 50px; height: 50px;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 18px;
-  }
-  .pipe-body {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 14px 16px;
+    border-radius: 10px;
+    padding: 6px 14px;
+    min-width: 88px;
   }
-  .pipe-body h4 { margin: 0 0 6px; font-size: 15px; }
-  .pipe-body p { margin: 0; font-size: 13px; color: var(--text-dim); }
-  .pipe-tags { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
-  .pipe-tags span {
-    background: var(--bg-soft);
+  .countdown.urgent {
+    border-color: var(--now);
+    background: linear-gradient(180deg, rgba(255, 71, 87, 0.10) 0%, var(--bg-card) 100%);
+    box-shadow: 0 0 16px rgba(255, 71, 87, 0.18);
+  }
+  .countdown.soon { border-color: var(--next); }
+  .countdown.calm { border-color: var(--clinical); }
+  .countdown .lbl {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    color: var(--text-dim);
+    font-weight: 600;
+  }
+  .countdown .val {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+  }
+  .countdown.urgent .val { color: var(--now); }
+  .countdown.soon .val { color: var(--next); }
+  .countdown.calm .val { color: var(--clinical); }
+  .countdown .sub {
+    font-size: 10px;
+    color: var(--text-faint);
+    margin-top: 1px;
+  }
+
+  /* ───────── FILTER STRIP ───────── */
+  .filter-strip {
+    display: flex;
+    gap: 6px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .filter-strip .label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    color: var(--text-faint);
+    margin-right: 4px;
+    font-weight: 600;
+  }
+  .chip {
+    background: var(--bg-card);
     border: 1px solid var(--border);
-    padding: 3px 8px;
-    border-radius: 5px;
+    color: var(--text-dim);
+    padding: 4px 11px;
+    border-radius: 14px;
     font-size: 11px;
-    color: var(--accent);
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.15s;
+    font-weight: 500;
+  }
+  .chip:hover { color: var(--text); }
+  .chip.Legal.on { background: var(--legal); color: #0a0d18; border-color: var(--legal); font-weight: 700; }
+  .chip.Finance.on { background: var(--finance); color: #0a0d18; border-color: var(--finance); font-weight: 700; }
+  .chip.Clinical.on { background: var(--clinical); color: #0a0d18; border-color: var(--clinical); font-weight: 700; }
+  .chip.Spiritual.on { background: var(--spiritual); color: #0a0d18; border-color: var(--spiritual); font-weight: 700; }
+  .chip.Systems.on { background: var(--systems); color: #0a0d18; border-color: var(--systems); font-weight: 700; }
+  .chip.All.on { background: var(--accent); color: #0a0d18; border-color: var(--accent); font-weight: 700; }
+  .hint {
+    margin-left: auto;
+    font-size: 11px;
+    color: var(--text-faint);
+  }
+  kbd {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-size: 10px;
+    color: var(--text-dim);
     font-family: ui-monospace, "SF Mono", monospace;
   }
 
-  /* TWO COL */
-  .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 14px;
+  /* ───────── MAIN LAYOUT ───────── */
+  main {
+    padding: 20px 24px 32px;
+    max-width: 1600px;
+    margin: 0 auto;
   }
-  @media (max-width: 800px) { .two-col { grid-template-columns: 1fr; } }
+  .hero {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 1100px) {
+    .hero { grid-template-columns: 1fr; }
+  }
 
-  /* TIER TABLE */
-  .tier-table {
+  /* ───────── APEX CARD ───────── */
+  .apex {
+    background: linear-gradient(140deg, #ff4757 0%, #ff6b9d 70%, #ffa726 100%);
+    border-radius: 18px;
+    padding: 22px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+  .apex::before, .apex::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+  }
+  .apex::before { top: -60px; right: -60px; width: 220px; height: 220px; }
+  .apex::after { bottom: -80px; left: -40px; width: 180px; height: 180px; background: rgba(0, 0, 0, 0.10); }
+  .apex-tag {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.32);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+  }
+  .apex h2 {
+    font-size: 22px;
+    font-weight: 800;
+    margin: 10px 0 6px;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    position: relative;
+  }
+  .apex .blurb {
+    font-size: 13px;
+    opacity: 0.95;
+    position: relative;
+    margin-bottom: 16px;
+  }
+  .apex .formula {
+    background: rgba(0, 0, 0, 0.32);
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 11px;
+    font-family: ui-monospace, "SF Mono", monospace;
+    position: relative;
+    margin-bottom: 14px;
+  }
+  .apex .formula b { font-size: 20px; vertical-align: middle; }
+  .apex-steps { position: relative; }
+  .apex-step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    padding: 8px 11px;
+    margin-bottom: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .apex-step:hover { background: rgba(0, 0, 0, 0.36); }
+  .apex-step.done { opacity: 0.55; }
+  .apex-step.done .apex-step-text { text-decoration: line-through; }
+  .apex-step .box {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 800;
+  }
+  .apex-step.done .box {
+    background: #fff;
+    color: #ff4757;
+  }
+  .apex-step.done .box::after { content: "✓"; }
+  .apex-step .num {
+    font-size: 11px;
+    font-family: ui-monospace, "SF Mono", monospace;
+    color: rgba(255, 255, 255, 0.6);
+    width: 14px;
+  }
+
+  /* ───────── GRAPH ───────── */
+  .graph-wrap {
+    background: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
+    border: 1px solid var(--border-soft);
+    border-radius: 18px;
+    padding: 14px;
+    position: relative;
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+  }
+  .graph-toolbar {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 10;
+    display: flex;
+    gap: 6px;
+  }
+  .graph-toolbar button {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+    transition: all 0.15s;
+  }
+  .graph-toolbar button:hover { color: var(--text); border-color: var(--accent); }
+  #neuralGraph {
+    width: 100%;
+    height: 480px;
+    cursor: grab;
+    display: block;
+  }
+  #neuralGraph:active { cursor: grabbing; }
+  .graph-legend {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 10px;
+    color: var(--text-faint);
+    background: rgba(10, 13, 24, 0.7);
+    backdrop-filter: blur(8px);
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border-soft);
+  }
+  .graph-legend .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .graph-legend .ln {
+    display: inline-block;
+    width: 16px;
+    height: 0;
+    border-top: 2px dashed var(--finance);
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+
+  /* ───────── SECTION HEADERS ───────── */
+  .section {
+    margin-top: 28px;
+  }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .section-head h3 {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    color: var(--text-dim);
+  }
+  .section-head .sep {
+    flex: 1;
+    height: 1px;
+    background: var(--border-soft);
+  }
+  .section-head .meta {
+    font-size: 11px;
+    color: var(--text-faint);
+  }
+
+  /* ───────── TIMELINE ───────── */
+  .timeline {
+    background: var(--bg-soft);
+    border: 1px solid var(--border-soft);
+    border-radius: 14px;
+    padding: 20px 24px 16px;
+    position: relative;
+    overflow-x: auto;
+  }
+  .timeline-track {
+    position: relative;
+    height: 110px;
+    min-width: 900px;
+  }
+  .timeline-line {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+      var(--border) 0%,
+      var(--accent) 50%,
+      var(--now) 100%);
+  }
+  .timeline-today {
+    position: absolute;
+    top: 25px;
+    height: 60px;
+    width: 2px;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+  }
+  .timeline-today::before {
+    content: "TODAY";
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: #0a0d18;
+    font-size: 9px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+  .tl-event {
+    position: absolute;
+    top: 55px;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 3px solid var(--bg-soft);
+    cursor: pointer;
+  }
+  .tl-event[data-domain="Legal"] { background: var(--legal); }
+  .tl-event[data-domain="Clinical"] { background: var(--clinical); }
+  .tl-event[data-domain="Finance"] { background: var(--finance); }
+  .tl-event[data-domain="Spiritual"] { background: var(--spiritual); }
+  .tl-event.future { background: transparent; border: 3px dashed; }
+  .tl-event[data-domain="Legal"].future { border-color: var(--legal); }
+  .tl-event[data-domain="Spiritual"].future { border-color: var(--spiritual); }
+  .tl-label {
+    position: absolute;
+    font-size: 10px;
+    color: var(--text-dim);
+    white-space: nowrap;
+    transform: translateX(-50%);
+    pointer-events: none;
+    line-height: 1.2;
+  }
+  .tl-label.top { top: 8px; }
+  .tl-label.bot { top: 78px; }
+  .tl-label b { color: var(--text); font-size: 11px; display: block; }
+  .tl-label .date { font-size: 9px; color: var(--text-faint); font-family: ui-monospace, monospace; }
+
+  /* ───────── KANBAN ───────── */
+  .kanban {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  @media (max-width: 900px) { .kanban { grid-template-columns: 1fr; } }
+  .lane {
+    background: var(--bg-soft);
+    border: 1px solid var(--border-soft);
+    border-radius: 14px;
+    padding: 14px;
+    border-top: 4px solid;
+  }
+  .lane.now { border-top-color: var(--now); }
+  .lane.next { border-top-color: var(--next); }
+  .lane.later { border-top-color: var(--later); }
+  .lane-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+  }
+  .lane-head h4 {
+    margin: 0;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    font-weight: 700;
+  }
+  .lane.now .lane-head h4 { color: var(--now); }
+  .lane.next .lane-head h4 { color: var(--next); }
+  .lane.later .lane-head h4 { color: var(--later); }
+  .lane-head .window {
+    font-size: 10px;
+    color: var(--text-faint);
+    font-family: ui-monospace, monospace;
+  }
+  .task {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-left: 3px solid var(--accent);
+    cursor: pointer;
+    transition: all 0.15s;
+    position: relative;
+  }
+  .task:hover {
+    transform: translateX(2px);
+    border-color: var(--accent);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  }
+  .task.domain-Legal { border-left-color: var(--legal); }
+  .task.domain-Finance { border-left-color: var(--finance); }
+  .task.domain-Clinical { border-left-color: var(--clinical); }
+  .task.domain-Spiritual { border-left-color: var(--spiritual); }
+  .task.domain-Systems { border-left-color: var(--systems); }
+  .task-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    margin-bottom: 6px;
+    align-items: center;
+  }
+  .domain-pill {
+    font-size: 9px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    font-weight: 700;
+  }
+  .task.domain-Legal .domain-pill { background: var(--legal-soft); color: var(--legal); }
+  .task.domain-Finance .domain-pill { background: var(--finance-soft); color: var(--finance); }
+  .task.domain-Clinical .domain-pill { background: var(--clinical-soft); color: var(--clinical); }
+  .task.domain-Spiritual .domain-pill { background: var(--spiritual-soft); color: var(--spiritual); }
+  .task.domain-Systems .domain-pill { background: var(--systems-soft); color: var(--systems); }
+  .sev {
+    background: var(--bg);
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 800;
+    font-family: ui-monospace, monospace;
+    border: 1px solid var(--border);
+  }
+  .sev.high { background: var(--now); color: #fff; border-color: var(--now); }
+  .sev.med { background: var(--next); color: #fff; border-color: var(--next); }
+  .sev.mod { background: #6d8eff; color: #fff; border-color: #6d8eff; }
+  .sev.low { background: var(--later); color: #fff; border-color: var(--later); }
+  .task-title {
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1.35;
+    margin-bottom: 4px;
+  }
+  .task-why {
+    font-size: 11px;
+    color: var(--text-dim);
+    line-height: 1.4;
+  }
+  .task-unlocks {
+    display: flex;
+    gap: 4px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+  .unlock-tag {
+    font-size: 9px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(124, 158, 255, 0.10);
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    border: 1px solid rgba(124, 158, 255, 0.20);
+  }
+
+  /* ───────── FOUNDATION (spiritual base) ───────── */
+  .foundation {
+    background: linear-gradient(180deg, var(--bg-soft) 0%, rgba(192, 132, 252, 0.04) 100%);
+    border: 1px solid var(--border-soft);
+    border-top: 3px solid var(--spiritual);
+    border-radius: 14px;
+    padding: 20px;
+    margin-top: 32px;
+  }
+  .found-tag {
+    display: inline-block;
+    background: var(--spiritual-soft);
+    color: var(--spiritual);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    padding: 3px 9px;
+    border-radius: 5px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .found-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    color: var(--text);
+  }
+  .found-sub {
+    color: var(--text-dim);
+    font-size: 12px;
+    margin-bottom: 18px;
+  }
+  .found-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 14px;
+  }
+  @media (max-width: 900px) { .found-grid { grid-template-columns: 1fr; } }
+
+  /* Huron cycle (radial) */
+  .huron-radial {
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 12px;
-    overflow: hidden;
-    margin-top: 10px;
+    padding: 14px;
   }
-  .tier-row {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr 1fr;
-    gap: 0;
-    border-bottom: 1px solid var(--border);
-  }
-  .tier-row:last-child { border-bottom: none; }
-  .tier-row > div { padding: 12px 14px; font-size: 13px; }
-  .tier-row.head { background: var(--bg-soft); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); }
-  .tier-row.a { border-left: 4px solid var(--clinical); }
-  .tier-row.b { border-left: 4px solid var(--next); }
-  .tier-row.c { border-left: 4px solid var(--legal); }
-  .pill {
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: 5px;
-    font-size: 10px;
-    font-weight: 700;
+  .huron-radial h5 {
+    margin: 0 0 8px;
+    font-size: 12px;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  .pill.high { background: rgba(6,214,160,0.18); color: var(--clinical); }
-  .pill.med { background: rgba(255,165,2,0.18); color: var(--next); }
-  .pill.low { background: rgba(255,107,157,0.18); color: var(--legal); }
-
-  /* HURON */
-  .huron {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    padding: 12px 0;
-  }
-  .huron-step {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 10px 14px;
-    font-size: 12px;
-    white-space: nowrap;
-    position: relative;
-  }
-  .huron-step::after {
-    content: "→";
-    color: var(--accent);
-    position: absolute;
-    right: -16px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 18px;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
     font-weight: 700;
   }
-  .huron-step:last-child::after { display: none; }
-
-  /* RIGHT-NOW FOCUS BUTTON */
-  .focus-cta {
-    background: rgba(0,0,0,0.3);
-    color: #fff;
-    border: 1px solid rgba(255,255,255,0.3);
-    padding: 10px 18px;
-    border-radius: 8px;
-    font-weight: 600;
+  .huron-svg {
+    width: 100%;
+    height: 220px;
+    display: block;
+  }
+  .huron-stage {
     cursor: pointer;
-    margin-top: 16px;
-    font-size: 14px;
   }
-
-  .deadline-tag {
-    background: rgba(255,71,87,0.18);
-    color: var(--now);
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 12px;
+  .huron-stage circle { transition: all 0.2s; }
+  .huron-stage:hover circle { r: 16; filter: brightness(1.3); }
+  .huron-stage text {
+    fill: var(--text);
+    font-size: 9px;
     font-weight: 600;
-    display: inline-block;
-    margin: 8px 0;
+    pointer-events: none;
+    text-anchor: middle;
+  }
+  .huron-mid {
+    text-align: center;
+    margin-top: -4px;
+  }
+  .huron-mid .src {
+    font-size: 10px;
+    color: var(--text-faint);
+    font-style: italic;
   }
 
-  .scqh-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  .scqh-cell {
+  /* Daily reset */
+  .reset-box {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 12px;
+    border-radius: 12px;
+    padding: 14px;
   }
-  .scqh-cell .ltr { font-size: 28px; font-weight: 800; color: var(--accent); }
-  .scqh-cell .ttl { font-size: 13px; font-weight: 600; margin: 2px 0 4px; }
-  .scqh-cell .desc { font-size: 12px; color: var(--text-dim); }
-
-  .oaths {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  .reset-box h5 {
+    margin: 0 0 8px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    font-weight: 700;
+  }
+  .reset-item {
+    display: flex;
+    align-items: center;
     gap: 10px;
-    margin-top: 10px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border-soft);
+    cursor: pointer;
+  }
+  .reset-item:last-child { border-bottom: none; }
+  .reset-item .box {
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: var(--bg);
+    font-weight: 700;
+  }
+  .reset-item.done .box {
+    background: var(--spiritual);
+    border-color: var(--spiritual);
+  }
+  .reset-item.done .box::after { content: "✓"; }
+  .reset-item.done .reset-text { text-decoration: line-through; opacity: 0.5; }
+  .reset-text {
+    font-size: 12px;
+    color: var(--text);
+  }
+  .reset-text small {
+    color: var(--text-faint);
+    font-size: 10px;
+    margin-left: 4px;
+  }
+
+  /* Oaths */
+  .oaths {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px;
+  }
+  .oaths h5 {
+    margin: 0 0 8px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    font-weight: 700;
   }
   .oath {
+    background: var(--bg-soft);
+    border: 1px solid var(--border-soft);
+    border-left: 3px solid var(--spiritual);
+    border-radius: 8px;
+    padding: 8px 10px;
+    margin-bottom: 6px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .oath:last-child { margin-bottom: 0; }
+  .oath .ic {
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  /* Severity formula */
+  .sev-formula {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-left: 3px solid var(--spiritual);
-    border-radius: 10px;
-    padding: 12px;
-    font-size: 13px;
-  }
-  .oath .icon { font-size: 20px; margin-right: 6px; }
-
-  .footer-note {
-    margin-top: 28px;
-    padding: 14px 18px;
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
-    border-radius: 10px;
+    border-radius: 12px;
+    padding: 14px;
+    margin-top: 14px;
+    font-family: ui-monospace, "SF Mono", monospace;
     font-size: 12px;
     color: var(--text-dim);
     text-align: center;
   }
-  .toggle-row {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 14px;
+  .sev-formula b { color: var(--text); }
+  .sev-formula .plus { color: var(--clinical); }
+  .sev-formula .minus { color: var(--legal); }
+
+  /* ───────── SIDE PANEL ───────── */
+  .side-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 440px;
+    max-width: 92vw;
+    background: var(--bg-soft);
+    border-left: 1px solid var(--border);
+    box-shadow: -20px 0 60px rgba(0, 0, 0, 0.5);
+    transform: translateX(100%);
+    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+    overflow-y: auto;
+    padding: 24px 22px;
   }
-  .filter-chip {
+  .side-panel.open { transform: translateX(0); }
+  .side-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
     background: var(--bg-card);
     border: 1px solid var(--border);
-    padding: 6px 12px;
-    border-radius: 18px;
-    font-size: 12px;
+    color: var(--text-dim);
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
     cursor: pointer;
-    user-select: none;
-    transition: all 0.15s;
+    font-size: 13px;
+    line-height: 1;
   }
-  .filter-chip:hover { border-color: var(--accent); }
-  .filter-chip.active.Legal { background: var(--legal); color: #0c0e16; border-color: var(--legal); }
-  .filter-chip.active.Finance { background: var(--finance); color: #0c0e16; border-color: var(--finance); }
-  .filter-chip.active.Clinical { background: var(--clinical); color: #0c0e16; border-color: var(--clinical); }
-  .filter-chip.active.Spiritual { background: var(--spiritual); color: #0c0e16; border-color: var(--spiritual); }
-  .filter-chip.active.Systems { background: var(--systems); color: #0c0e16; border-color: var(--systems); }
-  .filter-chip.active.All { background: var(--accent); color: #0c0e16; border-color: var(--accent); }
+  .side-domain {
+    display: inline-block;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .side-panel h3 {
+    margin: 0 0 12px;
+    font-size: 18px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+  .side-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .side-stat {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+  .side-stat b {
+    color: var(--text);
+    font-size: 14px;
+    margin-left: 4px;
+    font-variant-numeric: tabular-nums;
+  }
+  .side-section {
+    margin-top: 18px;
+  }
+  .side-section .sh {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    color: var(--text-faint);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .side-section p {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--text);
+    margin: 0 0 8px;
+  }
+  .side-section ul {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 13px;
+    color: var(--text);
+  }
+  .side-section li { margin-bottom: 4px; line-height: 1.5; }
+  .conf-bar {
+    height: 5px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 4px;
+  }
+  .conf-bar > div {
+    height: 100%;
+    background: linear-gradient(90deg, var(--clinical), var(--accent));
+    border-radius: 3px;
+  }
+  .backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 90;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+  }
+  .backdrop.open { opacity: 1; pointer-events: auto; }
+
+  /* Small responsive tweaks */
+  @media (max-width: 700px) {
+    main { padding: 14px 14px 32px; }
+    .countdown { min-width: 70px; padding: 5px 10px; }
+    .countdown .val { font-size: 15px; }
+    .apex { padding: 18px; }
+    .apex h2 { font-size: 19px; }
+    .head-title { font-size: 14px; }
+    #neuralGraph { height: 380px; }
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 5px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Recursive Living Notebook v2.0 — Strategic Cockpit</h1>
-  <div class="sub">Multi-domain operations across Legal · Finance · Clinical · Spiritual · Systems. Click anything.</div>
-  <div class="tabs">
-    <div class="tab active" data-tab="focus">🎯 Right Now</div>
-    <div class="tab" data-tab="triage">📋 Triage Board</div>
-    <div class="tab" data-tab="mindmap">🕸️ Mind Map</div>
-    <div class="tab" data-tab="domains">🧭 5 Domains</div>
-    <div class="tab" data-tab="pipeline">⚙️ Gemini Pipeline</div>
-    <div class="tab" data-tab="frameworks">🧠 Frameworks</div>
+  <div class="head-row">
+    <h1 class="head-title">Recursive Living Notebook <span class="accent">v2.0</span></h1>
+    <div class="head-spacer"></div>
+    <div class="countdown urgent" title="NY 1-year statute of limitations on malicious prosecution">
+      <span class="lbl">SoL Deadline</span>
+      <span class="val" id="solDays">—</span>
+      <span class="sub">Sept 2026</span>
+    </div>
+    <div class="countdown soon" title="Hajj 2026 registration target">
+      <span class="lbl">Hajj 2026</span>
+      <span class="val" id="hajjDays">—</span>
+      <span class="sub">June 2026</span>
+    </div>
+    <div class="countdown calm" title="Days since 'Not Guilty with Prejudice' acquittal">
+      <span class="lbl">Acquittal</span>
+      <span class="val" id="acquittalDays">—</span>
+      <span class="sub">days ago</span>
+    </div>
+    <div class="countdown" title="Stabilization-phase task completion. 80% required before expansion.">
+      <span class="lbl">Stabilization</span>
+      <span class="val" id="stabPct">0%</span>
+      <span class="sub">→ 80% gate</span>
+    </div>
+  </div>
+  <div class="filter-strip">
+    <span class="label">Focus</span>
+    <span class="chip All on" data-filter="all">All Domains</span>
+    <span class="chip Legal" data-filter="Legal">⚖️ Legal</span>
+    <span class="chip Finance" data-filter="Finance">💰 Finance</span>
+    <span class="chip Clinical" data-filter="Clinical">🩺 Clinical</span>
+    <span class="chip Spiritual" data-filter="Spiritual">☪️ Spiritual</span>
+    <span class="chip Systems" data-filter="Systems">🧬 Systems</span>
+    <span class="hint">Click a chip to dim other domains · Click any node, task, or event for detail</span>
   </div>
 </header>
 
 <main>
 
-<!-- ====== FOCUS / RIGHT NOW ====== -->
-<section class="panel active" id="panel-focus">
-  <div class="focus-hero">
-    <span class="focus-tag">⚡ Single Highest-Leverage Action</span>
-    <div class="focus-title">Build the Finance Wire Ledger → Exhibit F-Wires.pdf</div>
-    <div class="focus-blurb">38 wires from Dad totaling <b>$223,800</b>. This converts a vague anxiety into a weaponized legal asset, and resolves bottlenecks in <b>3 domains simultaneously</b> (Legal, Financial, Psychological).</div>
-    <div class="focus-grid">
-      <div class="focus-stat"><div class="lbl">Severity Score</div><div class="val">12</div></div>
-      <div class="focus-stat"><div class="lbl">Impact</div><div class="val">5 / 5</div></div>
-      <div class="focus-stat"><div class="lbl">Urgency</div><div class="val">4 / 5</div></div>
-      <div class="focus-stat"><div class="lbl">Risk if Skipped</div><div class="val">5 / 5</div></div>
-      <div class="focus-stat"><div class="lbl">Effort</div><div class="val">2 / 5</div></div>
-    </div>
-    <button class="focus-cta" onclick="document.querySelector('[data-tab=triage]').click()">See all triage tasks →</button>
-  </div>
-
-  <h3 style="margin-top:28px;">📐 The 5-step micro-plan (click to mark done)</h3>
-  <div class="step-row" id="steps">
-    <div class="step" data-i="1"><span class="check"></span><div class="step-num">1</div><div class="step-title">Log into Chase portal</div><div class="step-desc">Download full CSV export: April 2024 – October 2025.</div></div>
-    <div class="step" data-i="2"><span class="check"></span><div class="step-num">2</div><div class="step-title">Filter & tag wires</div><div class="step-desc">Isolate the 38 distinct wire transfers originating from Dad.</div></div>
-    <div class="step" data-i="3"><span class="check"></span><div class="step-num">3</div><div class="step-title">Sum & verify total</div><div class="step-desc">Confirm $223,800.00 — the restitution floor.</div></div>
-    <div class="step" data-i="4"><span class="check"></span><div class="step-num">4</div><div class="step-title">Export locked PDF</div><div class="step-desc">Save as "Exhibit F-Wires.pdf" with hashed chain of custody.</div></div>
-    <div class="step" data-i="5"><span class="check"></span><div class="step-num">5</div><div class="step-title">File into legal dossier</div><div class="step-desc">Attach as Exhibit A & B for the Branch B settlement strategy.</div></div>
-  </div>
-
-  <h3 style="margin-top:28px;">🌅 Daily Executive Reset (every morning, 10 min)</h3>
-  <div class="step-row">
-    <div class="step" style="cursor:default;"><div class="step-num" style="background:var(--spiritual);">F</div><div class="step-title">Fajr prayer</div><div class="step-desc">Psychological anchor of the waking cycle.</div></div>
-    <div class="step" style="cursor:default;"><div class="step-num" style="background:var(--clinical);">B</div><div class="step-title">Vagal-tone breathing</div><div class="step-desc">ANS resonance breathing for cardiac/cognitive stability.</div></div>
-    <div class="step" style="cursor:default;"><div class="step-num" style="background:var(--accent);">R</div><div class="step-title">Ruqyah + 99 Names</div><div class="step-desc">Spaced-repetition recall against memory drift.</div></div>
-    <div class="step" style="cursor:default;"><div class="step-num" style="background:var(--finance);">3</div><div class="step-title">Pick 3 micro-decisions</div><div class="step-desc">[verb + object + context + end-state] — break decision paralysis.</div></div>
-  </div>
-</section>
-
-<!-- ====== TRIAGE BOARD ====== -->
-<section class="panel" id="panel-triage">
-  <div class="toggle-row">
-    <div class="filter-chip active All" data-filter="all">All</div>
-    <div class="filter-chip Legal" data-filter="Legal">Legal</div>
-    <div class="filter-chip Finance" data-filter="Finance">Finance</div>
-    <div class="filter-chip Clinical" data-filter="Clinical">Clinical</div>
-    <div class="filter-chip Spiritual" data-filter="Spiritual">Spiritual</div>
-    <div class="filter-chip Systems" data-filter="Systems">Systems</div>
-  </div>
-
-  <div class="kanban">
-    <div class="lane now">
-      <h3 style="color:var(--now);">⚠️ Now</h3>
-      <div class="lane-sub">0–14 days · Legal preservation & financial proof</div>
-      <div class="card domain-Finance" onclick="showCardDetail(this)" data-detail="Pull Chase CSV May–Oct 2025. Filter 38 'Dad Wires' totaling $223,800. Sum totals, hash chain of custody. This is the apex priority — establishes irrefutable restitution floor for Branch B settlement.">
-        <div class="card-head"><span class="card-domain">Finance · Legal</span><span class="card-score s12">12</span></div>
-        <div class="card-title">Generate "Exhibit F-Wires.pdf"</div>
-        <div class="card-why">Restitution floor for civil settlement</div>
+  <!-- ───────── HERO: APEX + GRAPH ───────── -->
+  <section class="hero">
+    <div class="apex" data-domain="Finance">
+      <span class="apex-tag">⚡ Apex Action · Today</span>
+      <h2>Build the Wire Ledger →<br>Exhibit F-Wires.pdf</h2>
+      <div class="blurb">38 Dad wires totaling <b>$223,800</b>. Converts ambient anxiety into a weaponized legal asset. Resolves bottlenecks in <b>3 domains simultaneously</b>.</div>
+      <div class="formula">
+        Severity = Impact + Urgency + Risk − Effort<br>
+        = 5 + 4 + 5 − 2 = <b>12</b>
       </div>
-      <div class="card domain-Legal" onclick="showCardDetail(this)" data-detail="Retain New York civil litigation counsel. Beat the strict 1-year statute of limitations expiring Sept 2026. Leverages Sept 2025 'Not Guilty with Prejudice' acquittal — 92% confidence claim.">
-        <div class="card-head"><span class="card-domain">Legal</span><span class="card-score s13">13</span></div>
-        <div class="card-title">Draft Malicious Prosecution complaint</div>
-        <div class="card-why">SoL deadline Sept 2026 — non-negotiable</div>
-      </div>
-      <div class="card domain-Legal" onclick="showCardDetail(this)" data-detail="Serve formal litigation hold notices to UHS HR & IT. Secure court orders to freeze all 53 CCTV footage entries from Guthrie + ANSCO before automatic server retention windows purge data.">
-        <div class="card-head"><span class="card-domain">Legal</span><span class="card-score s13">13</span></div>
-        <div class="card-title">Secure evidentiary preservation locks</div>
-        <div class="card-why">53 CCTV entries before auto-purge</div>
-      </div>
-      <div class="card domain-Spiritual" onclick="showCardDetail(this)" data-detail="15-minute Morning AI Focus Routine paired with Fajr. Select exactly 3 micro-decisions formatted as [verb + object + context + end-state] to break decision paralysis.">
-        <div class="card-head"><span class="card-domain">Spiritual · Systems</span><span class="card-score s10">10</span></div>
-        <div class="card-title">Execute Daily Executive Reset</div>
-        <div class="card-why">Daily operational momentum</div>
+      <div class="apex-steps">
+        <div class="apex-step" data-step="1">
+          <span class="box"></span>
+          <span class="num">01</span>
+          <span class="apex-step-text">Log into Chase portal</span>
+        </div>
+        <div class="apex-step" data-step="2">
+          <span class="box"></span>
+          <span class="num">02</span>
+          <span class="apex-step-text">Export CSV: Apr 2024 – Oct 2025</span>
+        </div>
+        <div class="apex-step" data-step="3">
+          <span class="box"></span>
+          <span class="num">03</span>
+          <span class="apex-step-text">Filter & tag 38 Dad wires</span>
+        </div>
+        <div class="apex-step" data-step="4">
+          <span class="box"></span>
+          <span class="num">04</span>
+          <span class="apex-step-text">Verify total = $223,800.00</span>
+        </div>
+        <div class="apex-step" data-step="5">
+          <span class="box"></span>
+          <span class="num">05</span>
+          <span class="apex-step-text">Export locked PDF + hash chain</span>
+        </div>
       </div>
     </div>
 
-    <div class="lane next">
-      <h3 style="color:var(--next);">🟡 Next</h3>
-      <div class="lane-sub">15–45 days · Reactivate clinical revenue</div>
-      <div class="card domain-Clinical" onclick="showCardDetail(this)" data-detail="Compile certified criminal disposition, Norman Spencer's legal opinion, treating-physician fitness letters, and a transparent disclosure narrative. Preemptively clears medical board holds — unblocks clinical revenue.">
-        <div class="card-head"><span class="card-domain">Clinical</span><span class="card-score s12">12</span></div>
-        <div class="card-title">Submit Board Licensing Mitigation Packet</div>
-        <div class="card-why">Unblock clinical income stream</div>
+    <div class="graph-wrap">
+      <div class="graph-toolbar">
+        <button id="gZoomIn" title="Zoom in">+</button>
+        <button id="gZoomOut" title="Zoom out">−</button>
+        <button id="gReset" title="Reset view">⟲</button>
       </div>
-      <div class="card domain-Clinical" onclick="showCardDetail(this)" data-detail="Draft HIPAA compliance checklist. Formalize legal entity for NY-localized multi-state telehealth primary care practice using BAA-secured vendors: Doxy, Elation, AthenaOne, Stripe.">
-        <div class="card-head"><span class="card-domain">Clinical · Business</span><span class="card-score s10">10</span></div>
-        <div class="card-title">Initialize Telehealth Entity Compliance</div>
-        <div class="card-why">Self-pay 30-day micro-offer ready</div>
-      </div>
-      <div class="card domain-Finance" onclick="showCardDetail(this)" data-detail="Back-calculate and document family Zakat arrears dating to 2021. Formulate mechanics of the family Bayt al-Mal welfare treasury — strict Islamic ethical protocols.">
-        <div class="card-head"><span class="card-domain">Finance · Spiritual</span><span class="card-score s9">9</span></div>
-        <div class="card-title">Execute Zakat Audit & Ledger Reconciliation</div>
-        <div class="card-why">Ethical alignment + Bayt al-Mal setup</div>
+      <svg id="neuralGraph" viewBox="0 0 900 480"></svg>
+      <div class="graph-legend">
+        <span><span class="dot" style="background:var(--legal);"></span>Legal</span>
+        <span><span class="dot" style="background:var(--finance);"></span>Finance</span>
+        <span><span class="dot" style="background:var(--clinical);"></span>Clinical</span>
+        <span><span class="dot" style="background:var(--spiritual);"></span>Spiritual</span>
+        <span><span class="dot" style="background:var(--systems);"></span>Systems</span>
+        <span style="margin-left:8px;"><span class="ln"></span>cross-domain leverage</span>
+        <span style="margin-left:8px; color:var(--text-dim);">drag · scroll = zoom</span>
       </div>
     </div>
+  </section>
 
-    <div class="lane later">
-      <h3 style="color:var(--later);">🟢 Later</h3>
-      <div class="lane-sub">46+ days · Expansion phase (only after 80% stabilization)</div>
-      <div class="card domain-Clinical" onclick="showCardDetail(this)" data-detail="Build MVP startup stack: one-page problem statements, market map, investor packet. Secure immigration counsel alignment on E-2 or EB-5 visa pathways.">
-        <div class="card-head"><span class="card-domain">Business · Clinical</span><span class="card-score s8">8</span></div>
-        <div class="card-title">Develop Healthcare AI Startup</div>
-        <div class="card-why">Investor packet + visa pathway</div>
-      </div>
-      <div class="card domain-Spiritual" onclick="showCardDetail(this)" data-detail="Transition from financial survival into Tier-2 Pillars of Practice roadmap. Aggressively fund Hajj 2026 registration target.">
-        <div class="card-head"><span class="card-domain">Spiritual · Finance</span><span class="card-score s7">7</span></div>
-        <div class="card-title">Hajj 2026 Savings Execution</div>
-        <div class="card-why">Tier-2 Pillars of Practice</div>
-      </div>
+  <!-- ───────── TIMELINE ───────── -->
+  <section class="section">
+    <div class="section-head">
+      <h3>Chronological Pressure Map</h3>
+      <span class="sep"></span>
+      <span class="meta">Past anchors → today → forced deadlines</span>
     </div>
-  </div>
-
-  <div class="detail" id="card-detail">
-    <button class="close" onclick="document.getElementById('card-detail').classList.remove('active')">close ✕</button>
-    <h2 id="card-detail-title"></h2>
-    <p id="card-detail-body" style="color:var(--text-dim);"></p>
-  </div>
-
-  <div class="footer-note">
-    <b>Rule:</b> No expansion-phase commitments accepted until stabilization deliverables hit <b>80% completion</b>.
-  </div>
-</section>
-
-<!-- ====== MIND MAP ====== -->
-<section class="panel" id="panel-mindmap">
-  <div class="mindmap-wrap">
-    <div class="mindmap-svg">
-      <svg id="mindmap" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid meet"></svg>
-    </div>
-    <div class="map-legend">
-      <span><span class="dot" style="background:var(--legal);"></span>Legal</span>
-      <span><span class="dot" style="background:var(--finance);"></span>Finance</span>
-      <span><span class="dot" style="background:var(--clinical);"></span>Clinical</span>
-      <span><span class="dot" style="background:var(--spiritual);"></span>Spiritual</span>
-      <span><span class="dot" style="background:var(--systems);"></span>Systems</span>
-      <span style="margin-left:auto; color:var(--text-dim);">💡 Hover any node to focus.</span>
-    </div>
-  </div>
-  <div class="detail" id="node-detail" style="margin-top:20px;">
-    <button class="close" onclick="document.getElementById('node-detail').classList.remove('active')">close ✕</button>
-    <h2 id="node-title">Click a node</h2>
-    <p id="node-body" style="color:var(--text-dim);"></p>
-  </div>
-</section>
-
-<!-- ====== DOMAINS ====== -->
-<section class="panel" id="panel-domains">
-  <div class="domain-grid">
-    <div class="domain legal" onclick="showDomain('legal')">
-      <div class="domain-icon" style="color:var(--legal);">⚖️</div>
-      <h3>01 · Legal Strategy</h3>
-      <div class="status">Acquitted Sept 2025 · Civil offensive pending</div>
-      <ul>
-        <li>Malicious Prosecution (92% confidence)</li>
-        <li>FMLA Interference (90% confidence)</li>
-        <li>Forged probation "Smoking Gun"</li>
-      </ul>
-    </div>
-    <div class="domain finance" onclick="showDomain('finance')">
-      <div class="domain-icon" style="color:var(--finance);">💰</div>
-      <h3>02 · Financial Restitution</h3>
-      <div class="status">$223,800 floor · $693K drafted ceiling</div>
-      <ul>
-        <li>Tier 1A: 38 Dad wires (High conf.)</li>
-        <li>Tier 1B: Out-of-pocket (Med conf.)</li>
-        <li>Tier 2: Consequential damages</li>
-      </ul>
-    </div>
-    <div class="domain clinical" onclick="showDomain('clinical')">
-      <div class="domain-icon" style="color:var(--clinical);">🩺</div>
-      <h3>03 · Clinical Career</h3>
-      <div class="status">License held · Telehealth in formation</div>
-      <ul>
-        <li>Mitigation packet to medical board</li>
-        <li>30-day self-pay micro-offer</li>
-        <li>BAA-secured: Doxy, Elation, Stripe</li>
-      </ul>
-    </div>
-    <div class="domain spiritual" onclick="showDomain('spiritual')">
-      <div class="domain-icon" style="color:var(--spiritual);">☪️</div>
-      <h3>04 · Spiritual Discipline</h3>
-      <div class="status">System Power Source · Fajr-anchored</div>
-      <ul>
-        <li>Huron Inference Map active</li>
-        <li>Oaths tracked · Riba elimination</li>
-        <li>Hajj 2026 long-term anchor</li>
-      </ul>
-    </div>
-    <div class="domain systems" onclick="showDomain('systems')">
-      <div class="domain-icon" style="color:var(--systems);">🧬</div>
-      <h3>05 · Systems & PKM</h3>
-      <div class="status">11 tools → 5-tool stack · API-first</div>
-      <ul>
-        <li>Obsidian = neural graph</li>
-        <li>Notion = invisible backend</li>
-        <li>NotePlan = execution cockpit</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="detail" id="domain-detail"></div>
-</section>
-
-<!-- ====== PIPELINE ====== -->
-<section class="panel" id="panel-pipeline">
-  <h3 style="margin-top:0;">🎤 Voice → Vault Pipeline (Frictionless Apple Ecosystem)</h3>
-  <div class="pipeline">
-    <div class="pipe-row">
-      <div class="pipe-num">1</div>
-      <div class="pipe-body">
-        <h4>Capture</h4>
-        <p>Press Action Button on iPhone, or trigger WhisperShortcut on Mac. Voice is captured with high-fidelity local-first transcription. Handwriting from reMarkable / Surface flows through OCR (Azure AI or Tesseract).</p>
-        <div class="pipe-tags"><span>Action Button</span><span>WhisperShortcut</span><span>Apple Watch</span><span>OCR</span></div>
+    <div class="timeline">
+      <div class="timeline-track" id="tlTrack">
+        <div class="timeline-line"></div>
+        <div class="timeline-today" id="tlToday"></div>
+        <!-- events injected by JS -->
       </div>
     </div>
-    <div class="pipe-row">
-      <div class="pipe-num">2</div>
-      <div class="pipe-body">
-        <h4>Secure Endpoint</h4>
-        <p>Apple Shortcut "Get Contents of URL" → POST to a Hono on Cloudflare Workers endpoint. Bearer token gates access. Google AI Studio key lives server-side only — never inside a shareable Shortcut.</p>
-        <div class="pipe-tags"><span>Hono</span><span>Cloudflare Workers</span><span>Bearer Token</span><span>TypeScript</span></div>
+  </section>
+
+  <!-- ───────── TRIAGE KANBAN ───────── -->
+  <section class="section">
+    <div class="section-head">
+      <h3>Triage Phases</h3>
+      <span class="sep"></span>
+      <span class="meta">Rule: no expansion commitments until stabilization ≥ 80%</span>
+    </div>
+    <div class="kanban" id="kanban">
+      <div class="lane now">
+        <div class="lane-head">
+          <h4>Now</h4>
+          <span class="window">0–14 days</span>
+        </div>
+        <div id="lane-now"></div>
+      </div>
+      <div class="lane next">
+        <div class="lane-head">
+          <h4>Next</h4>
+          <span class="window">15–45 days</span>
+        </div>
+        <div id="lane-next"></div>
+      </div>
+      <div class="lane later">
+        <div class="lane-head">
+          <h4>Later</h4>
+          <span class="window">46+ days</span>
+        </div>
+        <div id="lane-later"></div>
       </div>
     </div>
-    <div class="pipe-row">
-      <div class="pipe-num">3</div>
-      <div class="pipe-body">
-        <h4>Reflection Parser (Gemini 2.0 Flash)</h4>
-        <p>System instruction forces Gemini to: apply SCQH + MECE frameworks, correct dictation homophones ("Germany" → "Gemini"), emit pure Markdown prepended with YAML frontmatter (source_ai, session_type, date, topic_primary, gem_target, RLN_ID).</p>
-        <div class="pipe-tags"><span>SCQH</span><span>MECE</span><span>Persona/Task/Context/Format</span><span>RLN_ID</span></div>
+    <div class="sev-formula">
+      <b>Severity</b> = Impact <span class="plus">+</span> Urgency <span class="plus">+</span> Risk <span class="minus">−</span> Effort
+    </div>
+  </section>
+
+  <!-- ───────── FOUNDATION: SPIRITUAL BASE ───────── -->
+  <section class="foundation" data-domain="Spiritual">
+    <span class="found-tag">☪ System Power Source</span>
+    <h2 class="found-title">Spiritual Foundation</h2>
+    <div class="found-sub">"Time is a coordinate within which existence is contextualized." Engineered against executive paralysis — not optional, infrastructural.</div>
+
+    <div class="found-grid">
+      <!-- Huron radial -->
+      <div class="huron-radial">
+        <h5>Huron Inference Cycle <span style="font-weight:400; text-transform:none; color:var(--text-faint); letter-spacing:0;">— Surah Al-Imran 3:153, 155, 165</span></h5>
+        <svg class="huron-svg" viewBox="0 0 280 220" id="huronSvg"></svg>
+        <div class="huron-mid">
+          <span class="src">Map chaos → structured reflection</span>
+        </div>
+      </div>
+
+      <!-- Daily reset -->
+      <div class="reset-box">
+        <h5>10-min Morning Reset (Fajr-anchored)</h5>
+        <div class="reset-item" data-r="1"><span class="box"></span><span class="reset-text">Fajr prayer <small>· anchor</small></span></div>
+        <div class="reset-item" data-r="2"><span class="box"></span><span class="reset-text">Vagal-tone breathing <small>· ANS</small></span></div>
+        <div class="reset-item" data-r="3"><span class="box"></span><span class="reset-text">Ruqyah + 99 Names <small>· spaced-rep</small></span></div>
+        <div class="reset-item" data-r="4"><span class="box"></span><span class="reset-text">Pick 3 micro-decisions <small>· verb+obj+ctx+end</small></span></div>
+      </div>
+
+      <!-- Oaths -->
+      <div class="oaths">
+        <h5>Oaths · Behavioral Guardrails</h5>
+        <div class="oath"><span class="ic">🚫</span><span>Absolute abstinence from alcohol</span></div>
+        <div class="oath"><span class="ic">🗣️</span><span>Refrain from cursing</span></div>
+        <div class="oath"><span class="ic">🌙</span><span>Make up 18 missed Ramadans</span></div>
+        <div class="oath"><span class="ic">💪</span><span>Actively reject despair</span></div>
       </div>
     </div>
-    <div class="pipe-row">
-      <div class="pipe-num">4</div>
-      <div class="pipe-body">
-        <h4>Silent Routing</h4>
-        <p>Shortcut hands the structured Markdown to a Make.com / Zapier webhook. Webhook injects the node into Notion (invisible backend — you never open it). Notion handles cross-AI deduplication.</p>
-        <div class="pipe-tags"><span>Make.com</span><span>Zapier</span><span>Notion API</span><span>YAML</span></div>
-      </div>
-    </div>
-    <div class="pipe-row">
-      <div class="pipe-num">5</div>
-      <div class="pipe-body">
-        <h4>Neural Graph + Cockpit</h4>
-        <p>Synced into Obsidian → bi-directional links build the searchable neural graph of self. NotePlan pulls tasks (-[ ] and -[>]) for the daily 3-Task Rule. NotebookLM serves the audio overview for dense legal/finance documents.</p>
-        <div class="pipe-tags"><span>Obsidian</span><span>NotePlan</span><span>NotebookLM</span><span>3-Task Rule</span></div>
-      </div>
-    </div>
-  </div>
-
-  <h3 style="margin-top:32px;">🔁 Data Continuity</h3>
-  <div class="pipe-body" style="background:var(--bg-soft);">
-    <p style="color:var(--text);"><b>Replace unauthorized scraping →</b> sanctioned Google Takeout extraction. Local Python script <code style="background:var(--bg);padding:2px 6px;border-radius:4px;color:var(--accent);">takeout_to_brain.py</code> ingests Gemini JSON, converts to Markdown + PDF, auto-injects YAML metadata, assigns timestamped <code style="background:var(--bg);padding:2px 6px;border-radius:4px;color:var(--accent);">RLN_ID</code> (e.g. <code style="background:var(--bg);padding:2px 6px;border-radius:4px;color:var(--accent);">RLN20251012-LivingNotebook</code>). Gemini transforms from passive chatbot → active archivist updating the Obsidian vault.</p>
-  </div>
-</section>
-
-<!-- ====== FRAMEWORKS ====== -->
-<section class="panel" id="panel-frameworks">
-  <h3 style="margin-top:0;">🧠 SCQH Framework — every voice dump gets parsed into this</h3>
-  <div class="scqh-grid">
-    <div class="scqh-cell"><div class="ltr">S</div><div class="ttl">Situation</div><div class="desc">Current operational state — facts only.</div></div>
-    <div class="scqh-cell"><div class="ltr">C</div><div class="ttl">Complication</div><div class="desc">What's blocking forward motion.</div></div>
-    <div class="scqh-cell"><div class="ltr">Q</div><div class="ttl">Question</div><div class="desc">The specific decision to be made.</div></div>
-    <div class="scqh-cell"><div class="ltr">H</div><div class="ttl">Hypothesis</div><div class="desc">Best-bet action with reasoning.</div></div>
-  </div>
-  <p style="color:var(--text-dim); font-size:13px; margin-top:14px;">Output is then enforced into <b>MECE</b> (Mutually Exclusive, Collectively Exhaustive) logic trees with computed Severity Score = Impact + Urgency + Risk − Effort.</p>
-
-  <h3 style="margin-top:28px;">🕊️ Huron Inference Map (Surah Al-Imran 3:153, 155, 165)</h3>
-  <p style="color:var(--text-dim); font-size:13px;">Maps chaotic psychological states into a rigorous Qur'anic recalibration loop — transforms despair into structured reflection.</p>
-  <div class="huron">
-    <div class="huron-step">Fault</div>
-    <div class="huron-step">Slippage</div>
-    <div class="huron-step">Distress</div>
-    <div class="huron-step">Refinement</div>
-    <div class="huron-step">Disaster</div>
-    <div class="huron-step">Recalibration</div>
-    <div class="huron-step" style="border-color:var(--clinical); color:var(--clinical);">Enlightenment</div>
-  </div>
-
-  <h3 style="margin-top:28px;">📊 Two-Tier Damages Model</h3>
-  <div class="tier-table">
-    <div class="tier-row head"><div>Tier</div><div>Amount (USD)</div><div>Confidence</div></div>
-    <div class="tier-row a"><div><b>Tier 1A</b> · Family Support Loan Principal<br><span style="color:var(--text-dim); font-size:12px;">38 wires, Apr 2024 – Oct 2025</span></div><div>$223,800</div><div><span class="pill high">High</span></div></div>
-    <div class="tier-row b"><div><b>Tier 1B</b> · Direct Out-of-Pocket<br><span style="color:var(--text-dim); font-size:12px;">Legal $35K · Meds $40K · Cornell $13K · Car $44K</span></div><div>TBD</div><div><span class="pill med">Medium</span></div></div>
-    <div class="tier-row c"><div><b>Tier 2</b> · Consequential & Opportunity<br><span style="color:var(--text-dim); font-size:12px;">Lost income $300K · Living $150K · Mother's salary $71K</span></div><div>$469,200+</div><div><span class="pill low">Low-Med</span></div></div>
-  </div>
-  <p style="color:var(--text-dim); font-size:12px; margin-top:10px;">⚠️ Never present the $693K ceiling as proven fact — invites credibility attack. Lead with the $223,800 verified floor.</p>
-
-  <h3 style="margin-top:28px;">🤝 Oaths (Non-Negotiable Behavioral Guardrails)</h3>
-  <div class="oaths">
-    <div class="oath"><span class="icon">🚫</span> Absolute abstinence from alcohol</div>
-    <div class="oath"><span class="icon">🗣️</span> Refrain from cursing</div>
-    <div class="oath"><span class="icon">🌙</span> Make up 18 missed Ramadans</div>
-    <div class="oath"><span class="icon">💪</span> Actively reject despair</div>
-  </div>
-
-  <h3 style="margin-top:28px;">⏳ Critical Deadlines</h3>
-  <div class="two-col">
-    <div class="pillar"><h4>Malicious Prosecution Statute of Limitations</h4><div class="deadline-tag">September 2026 — hard deadline</div><p>NY 1-year SoL on malicious prosecution actions. Window closes permanently.</p></div>
-    <div class="pillar"><h4>CCTV Server Retention</h4><div class="deadline-tag">Rolling — auto-purge</div><p>53 footage entries from Guthrie + ANSCO. Must serve litigation hold immediately.</p></div>
-  </div>
-</section>
+  </section>
 
 </main>
 
+<div class="backdrop" id="backdrop"></div>
+<aside class="side-panel" id="sidePanel">
+  <button class="side-close" id="sideClose">✕</button>
+  <div id="sideContent"></div>
+</aside>
+
 <script>
-/* TAB SWITCHING */
-document.querySelectorAll('.tab').forEach(t => {
-  t.addEventListener('click', () => {
-    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
-    document.querySelectorAll('.panel').forEach(x => x.classList.remove('active'));
-    t.classList.add('active');
-    document.getElementById('panel-' + t.dataset.tab).classList.add('active');
-  });
-});
+/* ───────── DATA ───────── */
+const TODAY = new Date('2026-05-16');
 
-/* STEPS */
-document.querySelectorAll('.step[data-i]').forEach(s => {
-  s.addEventListener('click', () => s.classList.toggle('done'));
-});
+const COUNTDOWNS = {
+  sol: new Date('2026-09-30'),
+  hajj: new Date('2026-06-16'),
+  acquittal: new Date('2025-09-15')
+};
 
-/* TRIAGE CARD DETAIL */
-function showCardDetail(el) {
-  const d = document.getElementById('card-detail');
-  document.getElementById('card-detail-title').textContent = el.querySelector('.card-title').textContent;
-  document.getElementById('card-detail-body').textContent = el.dataset.detail;
-  d.classList.add('active');
-  d.scrollIntoView({behavior:'smooth', block:'nearest'});
+const NODES = [
+  // domain hubs
+  { id: 'rln', label: 'RLN v2.0', kind: 'core', x: 450, y: 240, fixed: true, info: 'Hub of the cognitive architecture. One source of truth, multiple views. Decouples capture from organization via the Reflection Parser.' },
+  { id: 'legal', label: 'Legal', kind: 'hub', domain: 'Legal', x: 200, y: 110, info: 'Civil offensive against UHS Binghamton. Foundation: Sept 2025 "Not Guilty with Prejudice" acquittal.' },
+  { id: 'finance', label: 'Finance', kind: 'hub', domain: 'Finance', x: 700, y: 110, info: 'Two-tier damages model. Lead with $223,800 verified floor — never the $693K speculative ceiling.' },
+  { id: 'clinical', label: 'Clinical', kind: 'hub', domain: 'Clinical', x: 760, y: 370, info: 'Phased reactivation. Categorized as time-boxed "Experiment" to protect legal focus.' },
+  { id: 'spiritual', label: 'Spiritual', kind: 'hub', domain: 'Spiritual', x: 450, y: 410, info: 'System Power Source. Engineered countermeasure against executive paralysis.' },
+  { id: 'systems', label: 'Systems', kind: 'hub', domain: 'Systems', x: 140, y: 370, info: 'PKM stack reduction: 11 fragmented tools → 5-tool layered architecture.' },
+
+  // legal leaves
+  { id: 'malprosec', label: 'Malicious Prosecution', kind: 'leaf', domain: 'Legal', parent: 'legal', info: '92% confidence. NY 1-year SoL closes Sept 2026.', sev: 13 },
+  { id: 'fmla', label: 'FMLA Retaliation', kind: 'leaf', domain: 'Legal', parent: 'legal', info: '90% confidence. HR email chain documents 5-day contact violations + post-cardiac schedule failures.', sev: 11 },
+  { id: 'cctv', label: 'CCTV Hold (53)', kind: 'leaf', domain: 'Legal', parent: 'legal', info: 'Litigation hold to freeze 53 footage entries at Guthrie + ANSCO before server auto-purge.', sev: 13 },
+  { id: 'probation', label: 'Forged Probation', kind: 'leaf', domain: 'Legal', parent: 'legal', info: '"Smoking Gun" — exposes the probation-yet-graduation paradox. Proves institutional pretext.', sev: 10 },
+
+  // finance leaves
+  { id: 'wires', label: 'Exhibit F-Wires', kind: 'leaf', domain: 'Finance', parent: 'finance', info: '38 Dad wires = $223,800. Apex priority. Establishes restitution floor for Branch B settlement.', sev: 12 },
+  { id: 'tiers', label: 'Damages Tiers', kind: 'leaf', domain: 'Finance', parent: 'finance', info: 'Tier 1A: $223,800 (high). Tier 1B: TBD out-of-pocket (med). Tier 2: $469,200+ consequential (low-med).', sev: 9 },
+  { id: 'zakat', label: 'Zakat → 2021', kind: 'leaf', domain: 'Finance', parent: 'finance', info: 'Back-calculate arrears. Setup family Bayt al-Mal (welfare treasury).', sev: 9 },
+
+  // clinical leaves
+  { id: 'board', label: 'Board Packet', kind: 'leaf', domain: 'Clinical', parent: 'clinical', info: 'Spencer memo + fitness letters + disclosure narrative. Preemptively clears medical board holds.', sev: 12 },
+  { id: 'telehealth', label: 'Telehealth NY', kind: 'leaf', domain: 'Clinical', parent: 'clinical', info: 'BAA stack: Doxy · Elation · AthenaOne · Stripe. Launch 30-day self-pay micro-offer.', sev: 10 },
+  { id: 'startup', label: 'Healthcare AI', kind: 'leaf', domain: 'Clinical', parent: 'clinical', info: 'Investor packet + E-2 / EB-5 visa pathway alignment.', sev: 8 },
+
+  // spiritual leaves
+  { id: 'reset', label: 'Daily Reset', kind: 'leaf', domain: 'Spiritual', parent: 'spiritual', info: '10-min Fajr + vagal breath + Ruqyah + 99 Names (spaced-rep against memory drift).', sev: 10 },
+  { id: 'huron', label: 'Huron Map', kind: 'leaf', domain: 'Spiritual', parent: 'spiritual', info: 'Fault → Slippage → Distress → Refinement → Disaster → Recalibration → Enlightenment.', sev: 8 },
+  { id: 'hajj', label: 'Hajj 2026', kind: 'leaf', domain: 'Spiritual', parent: 'spiritual', info: 'Long-term anchor. Tier-2 Pillars of Practice savings roadmap.', sev: 7 },
+
+  // systems leaves
+  { id: 'parser', label: 'Reflection Parser', kind: 'leaf', domain: 'Systems', parent: 'systems', info: 'Gemini 2.0 Flash + Persona/Task/Context/Format prompts. Autonomously emits SCQH + MECE + YAML + RLN_ID.', sev: 9 },
+  { id: 'voice', label: 'Voice→Vault', kind: 'leaf', domain: 'Systems', parent: 'systems', info: 'Action Button → Hono on Cloudflare Workers → Make.com webhook → Notion (invisible) → Obsidian graph.', sev: 9 },
+  { id: 'stack', label: '5-Tool Stack', kind: 'leaf', domain: 'Systems', parent: 'systems', info: 'Obsidian (graph) · Notion (backend) · NotePlan (cockpit) · NotebookLM (audio) · Gemini (parser).', sev: 8 }
+];
+
+/* CROSS-DOMAIN LEVERAGE EDGES — the entire point of the document */
+const LEVERAGE_EDGES = [
+  { a: 'wires', b: 'malprosec', why: 'Wire ledger = monetary anchor for Branch B settlement.' },
+  { a: 'wires', b: 'tiers', why: 'Wires populate Tier 1A of the damages model.' },
+  { a: 'board', b: 'telehealth', why: 'Board clearance unlocks the telehealth revenue path.' },
+  { a: 'malprosec', b: 'board', why: 'Civil resolution removes the medical board hold permanently.' },
+  { a: 'reset', b: 'wires', why: 'Executive reset enables completion of finance triage.' },
+  { a: 'parser', b: 'huron', why: 'Reflection Parser routes emotional data through Huron framework.' },
+  { a: 'voice', b: 'reset', why: 'Voice capture preserves micro-decisions made at Fajr.' },
+  { a: 'telehealth', b: 'hajj', why: 'Telehealth cash flow funds Hajj 2026 registration.' },
+  { a: 'zakat', b: 'tiers', why: 'Zakat reconciliation clarifies which damages are restitution vs gift.' }
+];
+
+const TRIAGE = [
+  { id: 't1', lane: 'now', domain: 'Finance', title: 'Generate "Exhibit F-Wires.pdf"', sev: 12, why: '38 Dad wires = $223,800. Restitution floor.', unlocks: ['Branch B settlement', 'Tier 1A damages'], detail: 'Log into Chase, export CSV May–Oct 2025, filter 38 Dad wires, sum to $223,800, hash chain of custody. This is the apex of all triage — it converts a vague liability into a weaponized asset across Legal + Finance + Psychological simultaneously.' },
+  { id: 't2', lane: 'now', domain: 'Legal', title: 'Draft Malicious Prosecution complaint', sev: 13, why: 'NY 1-year SoL closes Sept 2026.', unlocks: ['Civil offensive', 'Damages claim'], detail: 'Retain NY civil litigation counsel. Leverage the Sept 2025 "Not Guilty with Prejudice" acquittal — 92% confidence claim. Hard SoL deadline cannot slip.' },
+  { id: 't3', lane: 'now', domain: 'Legal', title: 'Secure evidentiary preservation locks', sev: 13, why: '53 CCTV entries before auto-purge.', unlocks: ['Discovery integrity'], detail: 'Serve litigation hold notices to UHS HR + IT. Court orders to freeze 53 CCTV footage entries from Guthrie + ANSCO apartments before automatic server retention purges them.' },
+  { id: 't4', lane: 'now', domain: 'Spiritual', title: 'Execute Daily Executive Reset', sev: 10, why: 'Daily operational momentum.', unlocks: ['All other tasks'], detail: '15-min Morning AI Focus Routine paired with Fajr. Pick exactly 3 micro-decisions formatted as [verb + object + context + end-state]. Breaks decision paralysis.' },
+  { id: 't5', lane: 'next', domain: 'Clinical', title: 'Submit Board Licensing Mitigation Packet', sev: 12, why: 'Unblock clinical revenue stream.', unlocks: ['Telehealth launch', 'CV submissions'], detail: 'Compile certified criminal disposition + Norman Spencer legal memo + treating-physician fitness letters + transparent disclosure narrative. Preemptively clears medical board holds.' },
+  { id: 't6', lane: 'next', domain: 'Clinical', title: 'Initialize Telehealth Entity Compliance', sev: 10, why: 'Self-pay 30-day micro-offer ready.', unlocks: ['Cash flow', 'Hajj funding'], detail: 'Draft HIPAA compliance checklist. Formalize legal entity for NY-localized multi-state telehealth primary care. BAA-secured vendors: Doxy, Elation, AthenaOne, Stripe.' },
+  { id: 't7', lane: 'next', domain: 'Finance', title: 'Execute Zakat Audit + Bayt al-Mal', sev: 9, why: 'Ethical alignment + treasury setup.', unlocks: ['Riba-free baseline'], detail: 'Back-calculate family Zakat arrears dating to 2021. Formulate mechanics of the family Bayt al-Mal welfare treasury — strict Islamic ethical protocols.' },
+  { id: 't8', lane: 'later', domain: 'Clinical', title: 'Develop Healthcare AI Startup', sev: 8, why: 'Investor packet + visa pathway.', unlocks: ['E-2 / EB-5 path'], detail: 'Build MVP startup stack: one-page problem statements, market map, investor packet. Align immigration counsel on E-2 or EB-5 visa pathways. Only after 80% stabilization.' },
+  { id: 't9', lane: 'later', domain: 'Spiritual', title: 'Hajj 2026 Savings Execution', sev: 7, why: 'Tier-2 Pillars of Practice.', unlocks: ['Long-term anchor'], detail: 'Transition from financial survival into the Tier-2 roadmap. Aggressively fund Hajj 2026 registration target. Sync to settlement and telehealth revenue.' },
+  { id: 't10', lane: 'now', domain: 'Systems', title: 'Deploy Cloudflare/Hono Reflection Parser', sev: 9, why: 'End manual chat-paste loop.', unlocks: ['All voice capture', 'Cross-device flow'], detail: 'Self-hosted serverless endpoint accepts Apple Shortcut POSTs. Bearer-token auth. Forces SCQH + YAML output. Silent routing to Notion → Obsidian.' }
+];
+
+const TL_EVENTS = [
+  { date: '2024-02-15', label: 'Brugada surgery', domain: 'Clinical', past: true },
+  { date: '2024-04-20', label: 'Incident cluster', domain: 'Legal', past: true },
+  { date: '2024-04-22', label: 'Termination', domain: 'Legal', past: true },
+  { date: '2025-09-15', label: 'Acquittal', domain: 'Legal', past: true, big: true },
+  { date: '2026-05-16', label: '— today —', domain: null, today: true },
+  { date: '2026-06-16', label: 'Hajj 2026', domain: 'Spiritual', future: true },
+  { date: '2026-09-30', label: 'SoL hard close', domain: 'Legal', future: true, big: true }
+];
+
+const HURON_STAGES = [
+  { label: 'Fault', color: '#ff6b9d' },
+  { label: 'Slippage', color: '#ffa726' },
+  { label: 'Distress', color: '#ff4757' },
+  { label: 'Refinement', color: '#7c9eff' },
+  { label: 'Disaster', color: '#e94560' },
+  { label: 'Recalibration', color: '#c084fc' },
+  { label: 'Enlightenment', color: '#06d6a0' }
+];
+
+/* ───────── COUNTDOWNS ───────── */
+function diffDays(target) {
+  return Math.round((target - TODAY) / (1000 * 60 * 60 * 24));
 }
+document.getElementById('solDays').textContent = diffDays(COUNTDOWNS.sol) + 'd';
+document.getElementById('hajjDays').textContent = diffDays(COUNTDOWNS.hajj) + 'd';
+document.getElementById('acquittalDays').textContent = Math.abs(diffDays(COUNTDOWNS.acquittal));
 
-/* FILTERS */
-document.querySelectorAll('.filter-chip').forEach(c => {
-  c.addEventListener('click', () => {
-    document.querySelectorAll('.filter-chip').forEach(x => x.classList.remove('active'));
-    c.classList.add('active');
-    const f = c.dataset.filter;
-    document.querySelectorAll('.card').forEach(card => {
-      if (f === 'all' || card.classList.contains('domain-' + f)) card.style.display = '';
-      else card.style.display = 'none';
-    });
+/* ───────── KANBAN RENDER ───────── */
+function renderKanban() {
+  ['now', 'next', 'later'].forEach(lane => {
+    const el = document.getElementById('lane-' + lane);
+    el.innerHTML = '';
+    TRIAGE.filter(t => t.lane === lane)
+      .sort((a, b) => b.sev - a.sev)
+      .forEach(t => {
+        const div = document.createElement('div');
+        div.className = `task domain-${t.domain}`;
+        div.setAttribute('data-domain', t.domain);
+        const sevClass = t.sev >= 12 ? 'high' : t.sev >= 10 ? 'med' : t.sev >= 9 ? 'mod' : 'low';
+        div.innerHTML = `
+          <div class="task-head">
+            <span class="domain-pill">${t.domain}</span>
+            <span class="sev ${sevClass}">${t.sev}</span>
+          </div>
+          <div class="task-title">${t.title}</div>
+          <div class="task-why">${t.why}</div>
+          <div class="task-unlocks">
+            ${t.unlocks.map(u => `<span class="unlock-tag">→ ${u}</span>`).join('')}
+          </div>
+        `;
+        div.addEventListener('click', () => openTaskDetail(t));
+        el.appendChild(div);
+      });
   });
-});
+}
+renderKanban();
 
-/* DOMAIN DETAIL */
-const domainContent = {
-  legal: {
-    title: '⚖️ Legal Strategy & Litigation Execution',
-    body: `<p><b>Origin:</b> 2021–2024 residency conflict at UHS Binghamton, compounded by Brugada syndrome cardiac surgery (Feb 2024) and the April 18–22, 2024 incident cluster leading to police contact and termination. Acquittal "Not Guilty with Prejudice" in <b>September 2025</b>.</p>
-    <div class="pillar"><h4>Malicious Prosecution — 92% confidence</h4><p>Acquittal supplies the malice wedge. Strict NY 1-year SoL closes <b>Sept 2026</b>.</p><div class="confidence-bar"><div style="width:92%"></div></div></div>
-    <div class="pillar"><h4>FMLA Interference & Retaliation — 90% confidence</h4><p>Direct HR email evidence: 5-day contact violations, post-cardiac schedule failures, omitted wellness checks.</p><div class="confidence-bar"><div style="width:90%"></div></div></div>
-    <div class="pillar"><h4>"Smoking Gun" — Forged Probation Signature</h4><p>Exposes the probation-yet-graduation paradox. Proves institutional pretext.</p></div>
-    <div class="pillar"><h4>Branch B — Rapid Settlement Strategy</h4><p>Use $223,800 verified floor as concrete monetary anchor. <b>WATNA trigger:</b> walk away if UHS refuses (a) corrective institutional record + (b) neutral verification letter.</p></div>`
-  },
-  finance: {
-    title: '💰 Financial Restitution & Islamic Economic Alignment',
-    body: `<p>Bifurcated: retrospective damages computation (for lawsuit) + forward-looking restructuring (Islamic finance protocols).</p>
-    <div class="pillar"><h4>Wealth Narrative</h4><p>Explicit rejection of "rat-race scripts" and American-Dream-by-velocity. Principled prosperity over speed.</p></div>
-    <div class="pillar"><h4>Riba Elimination</h4><p>Immediate removal of all interest from personal & business transactions.</p></div>
-    <div class="pillar"><h4>Zakat Arrears (2021–present)</h4><p>Complex back-calculation required. Must be reconciled before next phase.</p></div>
-    <div class="pillar"><h4>Bayt al-Mal Family Treasury</h4><p>Centralized welfare treasury — secures inheritances, ensures intergenerational financial compliance.</p></div>`
-  },
-  clinical: {
-    title: '🩺 Clinical Career Reactivation & Telehealth',
-    body: `<p>Categorized as a time-boxed "Experiment" so it doesn't pull executive focus from the legal filings.</p>
-    <div class="pillar"><h4>Medical Board Mitigation Packet</h4><p>Certified acquittal + Norman Spencer legal memo + treating-physician fitness letters + unified disclosure narrative (candor + rehabilitation).</p></div>
-    <div class="pillar"><h4>Track A — Traditional Employment</h4><p>3 high-signal job applications with tailored CV.</p></div>
-    <div class="pillar"><h4>Track B — NY Telehealth Practice (higher leverage)</h4><p>BAA-secured stack: <b>Doxy</b>, <b>Elation</b>, <b>AthenaOne</b>, <b>Stripe</b>. 30-day self-pay micro-offer unlocks cash flow independent of legal timeline + insurance credentialing.</p></div>
-    <div class="pillar"><h4>Expansion — Healthcare AI Startup</h4><p>Investor packet + E-2 or EB-5 visa pathway alignment.</p></div>`
-  },
-  spiritual: {
-    title: '☪️ Spiritual Discipline — The System Power Source',
-    body: `<p>Not merely belief — engineered as the foundational power source against legal/health volatility.</p>
-    <div class="pillar"><h4>Physics of Space-Time</h4><p>"Time is a coordinate within which existence is contextualized." Fajr is the psychological anchor of the waking cycle.</p></div>
-    <div class="pillar"><h4>10-Minute Morning Reset</h4><p>Fajr · ANS vagal-tone resonance breathing · Ruqyah · spaced-repetition 99 Names of Allah.</p></div>
-    <div class="pillar"><h4>Huron Inference Map</h4><p>Surah Al-Imran 3:153, 155, 165 → Fault → Slippage → Distress → Refinement → Disaster → Recalibration → Enlightenment.</p></div>
-    <div class="pillar"><h4>Hajj 2026</h4><p>Long-term anchor. Tier-2 Pillars of Practice savings roadmap.</p></div>`
-  },
-  systems: {
-    title: '🧬 Systems Architecture — RLN v2.0',
-    body: `<p>Transition from <b>11 fragmented tools → 5-tool layered architecture</b>. Mandatory for visuospatial/verbal thinkers.</p>
-    <div class="pillar"><h4>Hub & Spoke: One Source of Truth, Multiple Views</h4></div>
-    <div class="pillar"><h4>Obsidian — Neural Graph</h4><p>Local-first. Bi-directional links visually map disparate thoughts. Searchable neural network of self.</p></div>
-    <div class="pillar"><h4>Notion — Invisible Backend</h4><p>Never opened manually. Receives API payloads, runs metadata schemas, handles cross-AI deduplication.</p></div>
-    <div class="pillar"><h4>NotePlan — Execution Cockpit</h4><p>Markdown shortcuts: -[ ] tasks, -[>] scheduling. <b>3-Task Rule:</b> 1 big thing + 2 supporters per day.</p></div>
-    <div class="pillar"><h4>NotebookLM — Audio Consumption</h4><p>Audio overviews of dense legal/finance packets. Reduces eye strain.</p></div>
-    <div class="pillar"><h4>Gemini API — Reflection Parser</h4><p>Driven by Persona/Task/Context/Format prompts. Outputs YAML + SCQH + MECE.</p></div>`
+/* ───────── TIMELINE RENDER ───────── */
+function renderTimeline() {
+  const track = document.getElementById('tlTrack');
+  const min = new Date('2024-01-01').getTime();
+  const max = new Date('2026-12-31').getTime();
+  const span = max - min;
+  const pad = 40;
+
+  function pct(d) {
+    const t = new Date(d).getTime();
+    return pad + ((t - min) / span) * (100 - 2 * pad / 9);
   }
-};
-function showDomain(key) {
-  const d = document.getElementById('domain-detail');
-  d.innerHTML = '<button class="close" onclick="document.getElementById(\'domain-detail\').classList.remove(\'active\')">close ✕</button><h2>' + domainContent[key].title + '</h2>' + domainContent[key].body;
-  d.classList.add('active');
-  d.scrollIntoView({behavior:'smooth', block:'start'});
+
+  // today line
+  const todayEl = document.getElementById('tlToday');
+  todayEl.style.left = pct(TODAY) + '%';
+
+  TL_EVENTS.forEach(ev => {
+    if (ev.today) return;
+    const e = document.createElement('div');
+    e.className = 'tl-event' + (ev.future ? ' future' : '');
+    e.setAttribute('data-domain', ev.domain);
+    e.style.left = pct(ev.date) + '%';
+    if (ev.big) {
+      e.style.width = '20px';
+      e.style.height = '20px';
+    }
+    e.title = ev.label + ' · ' + ev.date;
+    track.appendChild(e);
+
+    const lab = document.createElement('div');
+    lab.className = 'tl-label ' + (Math.random() > 0.5 ? 'top' : 'bot');
+    // alternate to reduce overlap
+    const idx = TL_EVENTS.indexOf(ev);
+    lab.className = 'tl-label ' + (idx % 2 ? 'top' : 'bot');
+    lab.style.left = pct(ev.date) + '%';
+    lab.innerHTML = `<b>${ev.label}</b><span class="date">${ev.date}</span>`;
+    track.appendChild(lab);
+  });
 }
+renderTimeline();
 
-/* MIND MAP */
-const mapData = {
-  center: { id: 'rln', label: 'RLN v2.0', x: 500, y: 300, color: '#7c9eff', r: 50 },
-  branches: [
-    { id: 'legal', label: '⚖️ Legal', x: 200, y: 130, color: 'var(--legal)', r: 42, info: 'Malicious Prosecution (92%) · FMLA (90%) · Forged probation · Sept 2026 SoL.' },
-    { id: 'finance', label: '💰 Finance', x: 820, y: 130, color: 'var(--finance)', r: 42, info: '$223,800 floor · $693K ceiling · Zakat arrears · Bayt al-Mal · Riba elimination.' },
-    { id: 'clinical', label: '🩺 Clinical', x: 870, y: 470, color: 'var(--clinical)', r: 42, info: 'Board mitigation packet · 30-day micro-offer · BAA stack · E-2/EB-5 path.' },
-    { id: 'spiritual', label: '☪️ Spiritual', x: 500, y: 540, color: 'var(--spiritual)', r: 42, info: 'Fajr anchor · Huron Map · Oaths · Hajj 2026 · 99 Names spaced repetition.' },
-    { id: 'systems', label: '🧬 Systems', x: 130, y: 470, color: 'var(--systems)', r: 42, info: 'Obsidian · Notion (invisible) · NotePlan · NotebookLM · Gemini Reflection Parser.' }
-  ],
-  leaves: [
-    { parent: 'legal', label: 'Malicious Prosec.', info: '92% confidence. SoL Sept 2026.' },
-    { parent: 'legal', label: 'FMLA Retaliation', info: '90% confidence. HR email evidence chain.' },
-    { parent: 'legal', label: 'CCTV Hold (53)', info: 'Litigation hold before server auto-purge.' },
-    { parent: 'finance', label: 'Exhibit F-Wires', info: '38 Dad wires = $223,800. Apex priority.' },
-    { parent: 'finance', label: 'Tier 1A/1B/2', info: 'Damages model. Lead with floor not ceiling.' },
-    { parent: 'finance', label: 'Zakat → 2021', info: 'Back-calculate arrears. Setup Bayt al-Mal.' },
-    { parent: 'clinical', label: 'Board Packet', info: 'Spencer memo + fitness letters + disclosure.' },
-    { parent: 'clinical', label: 'Telehealth NY', info: 'Doxy · Elation · AthenaOne · Stripe (BAA).' },
-    { parent: 'clinical', label: '3 Job Apps', info: 'Tailored CV. High-signal targets only.' },
-    { parent: 'spiritual', label: 'Daily Reset', info: '10-min: Fajr + vagal breath + Ruqyah + 99 Names.' },
-    { parent: 'spiritual', label: 'Huron Map', info: 'Fault→Slippage→Distress→Refinement→Disaster→Recal.→Enlight.' },
-    { parent: 'spiritual', label: 'Hajj 2026', info: 'Long-term anchor. Tier-2 savings roadmap.' },
-    { parent: 'systems', label: 'Gemini Parser', info: 'SCQH + MECE + YAML + RLN_ID auto-injection.' },
-    { parent: 'systems', label: 'Voice→Vault', info: 'Action Button → Cloudflare → Notion → Obsidian.' },
-    { parent: 'systems', label: '5-Tool Stack', info: 'Obsidian · Notion · NotePlan · NotebookLM · Gemini.' }
-  ]
-};
-
-(function renderMap() {
-  const svg = document.getElementById('mindmap');
+/* ───────── HURON RADIAL ───────── */
+function renderHuron() {
+  const svg = document.getElementById('huronSvg');
   const NS = 'http://www.w3.org/2000/svg';
-  const branchAngles = {};
-  // place leaves around each branch
-  const placedLeaves = mapData.leaves.map((leaf, i) => {
-    const parent = mapData.branches.find(b => b.id === leaf.parent);
-    if (!branchAngles[leaf.parent]) branchAngles[leaf.parent] = 0;
-    const sameParentLeaves = mapData.leaves.filter(l => l.parent === leaf.parent);
-    const idx = sameParentLeaves.indexOf(leaf);
-    // angle outward from center through parent
-    const dx = parent.x - mapData.center.x;
-    const dy = parent.y - mapData.center.y;
-    const baseAngle = Math.atan2(dy, dx);
-    const spread = 0.55;
-    const offset = (idx - (sameParentLeaves.length - 1) / 2) * spread;
-    const angle = baseAngle + offset;
-    const dist = 130;
-    return {
-      ...leaf,
-      x: parent.x + Math.cos(angle) * dist,
-      y: parent.y + Math.sin(angle) * dist,
-      color: parent.color,
-      parentRef: parent
-    };
+  const cx = 140, cy = 110, r = 80;
+  const n = HURON_STAGES.length;
+
+  // arrows connecting stages
+  HURON_STAGES.forEach((s, i) => {
+    const a1 = (-Math.PI / 2) + (i / n) * Math.PI * 2;
+    const a2 = (-Math.PI / 2) + ((i + 1) / n) * Math.PI * 2;
+    if (i === n - 1) return;
+    const x1 = cx + Math.cos(a1) * r;
+    const y1 = cy + Math.sin(a1) * r;
+    const x2 = cx + Math.cos(a2) * r;
+    const y2 = cy + Math.sin(a2) * r;
+    const path = document.createElementNS(NS, 'path');
+    const mx = (x1 + x2) / 2;
+    const my = (y1 + y2) / 2;
+    const cxp = cx + (mx - cx) * 1.18;
+    const cyp = cy + (my - cy) * 1.18;
+    path.setAttribute('d', `M${x1} ${y1} Q${cxp} ${cyp} ${x2} ${y2}`);
+    path.setAttribute('stroke', s.color);
+    path.setAttribute('stroke-width', '1.5');
+    path.setAttribute('fill', 'none');
+    path.setAttribute('opacity', '0.35');
+    svg.appendChild(path);
   });
 
-  // links: center → branches
-  mapData.branches.forEach(b => {
-    const line = document.createElementNS(NS, 'line');
-    line.setAttribute('x1', mapData.center.x);
-    line.setAttribute('y1', mapData.center.y);
-    line.setAttribute('x2', b.x);
-    line.setAttribute('y2', b.y);
-    line.setAttribute('class', 'map-link');
-    line.setAttribute('stroke', b.color);
-    line.setAttribute('stroke-width', '2');
-    line.setAttribute('opacity', '0.5');
-    svg.appendChild(line);
-  });
-
-  // links: branches → leaves
-  placedLeaves.forEach(l => {
-    const line = document.createElementNS(NS, 'line');
-    line.setAttribute('x1', l.parentRef.x);
-    line.setAttribute('y1', l.parentRef.y);
-    line.setAttribute('x2', l.x);
-    line.setAttribute('y2', l.y);
-    line.setAttribute('class', 'map-link');
-    line.setAttribute('stroke', l.color);
-    line.setAttribute('opacity', '0.35');
-    svg.appendChild(line);
-  });
-
-  // center node
-  const cg = document.createElementNS(NS, 'g');
-  cg.setAttribute('class', 'map-node');
-  const cc = document.createElementNS(NS, 'circle');
-  cc.setAttribute('cx', mapData.center.x);
-  cc.setAttribute('cy', mapData.center.y);
-  cc.setAttribute('r', mapData.center.r);
-  cc.setAttribute('fill', mapData.center.color);
-  cc.setAttribute('stroke', '#fff');
-  cc.setAttribute('stroke-width', '2');
-  cg.appendChild(cc);
-  const ct = document.createElementNS(NS, 'text');
-  ct.setAttribute('x', mapData.center.x);
-  ct.setAttribute('y', mapData.center.y + 5);
-  ct.setAttribute('text-anchor', 'middle');
-  ct.style.fontSize = '14px';
-  ct.style.fontWeight = '800';
-  ct.style.fill = '#0c0e16';
-  ct.textContent = mapData.center.label;
-  cg.appendChild(ct);
-  cg.addEventListener('click', () => showNodeDetail('Recursive Living Notebook v2.0', 'Hub of the architecture. One source of truth, multiple views. Decouples capture from organization via the Reflection Parser.'));
-  svg.appendChild(cg);
-
-  // branches
-  mapData.branches.forEach(b => {
+  // stages
+  HURON_STAGES.forEach((s, i) => {
+    const a = (-Math.PI / 2) + (i / n) * Math.PI * 2;
+    const x = cx + Math.cos(a) * r;
+    const y = cy + Math.sin(a) * r;
     const g = document.createElementNS(NS, 'g');
-    g.setAttribute('class', 'map-node');
+    g.setAttribute('class', 'huron-stage');
     const c = document.createElementNS(NS, 'circle');
-    c.setAttribute('cx', b.x);
-    c.setAttribute('cy', b.y);
-    c.setAttribute('r', b.r);
-    c.setAttribute('fill', b.color);
+    c.setAttribute('cx', x);
+    c.setAttribute('cy', y);
+    c.setAttribute('r', 12);
+    c.setAttribute('fill', s.color);
     c.setAttribute('stroke', '#fff');
     c.setAttribute('stroke-width', '1.5');
     g.appendChild(c);
+    // label outside
+    const lx = cx + Math.cos(a) * (r + 22);
+    const ly = cy + Math.sin(a) * (r + 22) + 3;
     const t = document.createElementNS(NS, 'text');
-    t.setAttribute('x', b.x);
-    t.setAttribute('y', b.y + 5);
-    t.setAttribute('text-anchor', 'middle');
-    t.style.fill = '#0c0e16';
-    t.style.fontSize = '13px';
-    t.style.fontWeight = '700';
-    t.textContent = b.label;
+    t.setAttribute('x', lx);
+    t.setAttribute('y', ly);
+    t.textContent = s.label;
     g.appendChild(t);
-    g.addEventListener('click', () => showNodeDetail(b.label, b.info));
+    g.addEventListener('click', () => {
+      openInfo({
+        title: s.label,
+        domain: 'Spiritual',
+        body: `Stage ${i + 1} of the Huron Inference Cycle (Surah Al-Imran 3:153, 155, 165). The cycle transforms emotional dysregulation into structured reflection, preventing executive paralysis.`
+      });
+    });
     svg.appendChild(g);
   });
 
-  // leaves
-  placedLeaves.forEach(l => {
-    const g = document.createElementNS(NS, 'g');
-    g.setAttribute('class', 'map-node');
-    const c = document.createElementNS(NS, 'circle');
-    c.setAttribute('cx', l.x);
-    c.setAttribute('cy', l.y);
-    c.setAttribute('r', 22);
-    c.setAttribute('fill', '#1a1f33');
-    c.setAttribute('stroke', l.color);
-    c.setAttribute('stroke-width', '2');
-    g.appendChild(c);
-    const t = document.createElementNS(NS, 'text');
-    t.setAttribute('x', l.x);
-    t.setAttribute('y', l.y + 38);
-    t.setAttribute('text-anchor', 'middle');
-    t.style.fill = '#e8ecf5';
-    t.style.fontSize = '11px';
-    t.style.fontWeight = '500';
-    t.textContent = l.label;
-    g.appendChild(t);
-    g.addEventListener('click', () => showNodeDetail(l.label, l.info));
-    svg.appendChild(g);
+  // center
+  const cc = document.createElementNS(NS, 'circle');
+  cc.setAttribute('cx', cx);
+  cc.setAttribute('cy', cy);
+  cc.setAttribute('r', 22);
+  cc.setAttribute('fill', 'var(--bg-soft)');
+  cc.setAttribute('stroke', 'var(--spiritual)');
+  cc.setAttribute('stroke-width', '2');
+  svg.appendChild(cc);
+  const ct = document.createElementNS(NS, 'text');
+  ct.setAttribute('x', cx);
+  ct.setAttribute('y', cy + 4);
+  ct.setAttribute('text-anchor', 'middle');
+  ct.setAttribute('fill', 'var(--text)');
+  ct.style.fontSize = '10px';
+  ct.style.fontWeight = '700';
+  ct.textContent = 'Self';
+  svg.appendChild(ct);
+}
+renderHuron();
+
+/* ───────── FORCE-DIRECTED NEURAL GRAPH ───────── */
+const graph = (function() {
+  const svg = document.getElementById('neuralGraph');
+  const NS = 'http://www.w3.org/2000/svg';
+  const W = 900, H = 480;
+
+  const nodeColor = (d) => {
+    if (!d) return 'var(--accent)';
+    return {
+      Legal: 'var(--legal)',
+      Finance: 'var(--finance)',
+      Clinical: 'var(--clinical)',
+      Spiritual: 'var(--spiritual)',
+      Systems: 'var(--systems)'
+    }[d] || 'var(--accent)';
+  };
+
+  // viewport state
+  let viewBox = { x: 0, y: 0, w: W, h: H };
+  function applyViewBox() {
+    svg.setAttribute('viewBox', `${viewBox.x} ${viewBox.y} ${viewBox.w} ${viewBox.h}`);
+  }
+  applyViewBox();
+
+  // node state
+  const nodes = NODES.map(n => ({
+    ...n,
+    vx: 0,
+    vy: 0,
+    r: n.kind === 'core' ? 36 : n.kind === 'hub' ? 28 : 14
+  }));
+  const nodeMap = Object.fromEntries(nodes.map(n => [n.id, n]));
+
+  // parent edges
+  const hierEdges = nodes
+    .filter(n => n.parent)
+    .map(n => ({ a: n.parent, b: n.id, kind: 'hier' }));
+  // hub-to-core edges
+  nodes.filter(n => n.kind === 'hub').forEach(n => {
+    hierEdges.push({ a: 'rln', b: n.id, kind: 'hier' });
   });
+  const leverageEdges = LEVERAGE_EDGES.map(e => ({ ...e, kind: 'leverage' }));
+  const allEdges = [...hierEdges, ...leverageEdges];
+
+  // render edges first
+  const edgeGroup = document.createElementNS(NS, 'g');
+  svg.appendChild(edgeGroup);
+  const edgeEls = allEdges.map(e => {
+    const ln = document.createElementNS(NS, 'line');
+    if (e.kind === 'hier') {
+      const child = nodeMap[e.b];
+      ln.setAttribute('stroke', nodeColor(child.domain));
+      ln.setAttribute('stroke-width', '1.5');
+      ln.setAttribute('opacity', '0.4');
+    } else {
+      ln.setAttribute('stroke', 'var(--finance)');
+      ln.setAttribute('stroke-width', '1.8');
+      ln.setAttribute('stroke-dasharray', '5 4');
+      ln.setAttribute('opacity', '0.7');
+    }
+    edgeGroup.appendChild(ln);
+    return ln;
+  });
+
+  // render nodes
+  const nodeGroup = document.createElementNS(NS, 'g');
+  svg.appendChild(nodeGroup);
+  const nodeEls = nodes.map(n => {
+    const g = document.createElementNS(NS, 'g');
+    g.style.cursor = 'pointer';
+
+    // glow on hubs/core
+    if (n.kind !== 'leaf') {
+      const halo = document.createElementNS(NS, 'circle');
+      halo.setAttribute('r', n.r + 8);
+      halo.setAttribute('fill', nodeColor(n.domain));
+      halo.setAttribute('opacity', '0.15');
+      g.appendChild(halo);
+    }
+
+    const c = document.createElementNS(NS, 'circle');
+    c.setAttribute('r', n.r);
+    c.setAttribute('fill', n.kind === 'leaf' ? 'var(--bg-card)' : nodeColor(n.domain));
+    c.setAttribute('stroke', n.kind === 'leaf' ? nodeColor(n.domain) : '#fff');
+    c.setAttribute('stroke-width', n.kind === 'leaf' ? '2' : '1.5');
+    g.appendChild(c);
+
+    const t = document.createElementNS(NS, 'text');
+    t.setAttribute('text-anchor', 'middle');
+    t.setAttribute('pointer-events', 'none');
+    t.setAttribute('y', n.kind === 'leaf' ? n.r + 14 : 4);
+    t.setAttribute('fill', n.kind === 'leaf' ? 'var(--text)' : '#0a0d18');
+    t.style.fontSize = n.kind === 'core' ? '13px' : n.kind === 'hub' ? '11px' : '10px';
+    t.style.fontWeight = n.kind === 'core' ? '800' : '700';
+    t.textContent = n.label;
+    g.appendChild(t);
+
+    g.addEventListener('click', (e) => {
+      if (g.__dragged) { g.__dragged = false; return; }
+      openInfo({ title: n.label, domain: n.domain || 'Systems', body: n.info, sev: n.sev });
+    });
+
+    // drag
+    let dragging = false, ox = 0, oy = 0;
+    g.addEventListener('mousedown', (e) => {
+      e.stopPropagation();
+      dragging = true;
+      const pt = clientToSvg(e.clientX, e.clientY);
+      ox = pt.x - n.x;
+      oy = pt.y - n.y;
+      n.fixed = true;
+    });
+    g.addEventListener('touchstart', (e) => {
+      e.stopPropagation();
+      dragging = true;
+      const pt = clientToSvg(e.touches[0].clientX, e.touches[0].clientY);
+      ox = pt.x - n.x;
+      oy = pt.y - n.y;
+      n.fixed = true;
+    }, { passive: false });
+    function onMove(cx, cy) {
+      if (!dragging) return;
+      const pt = clientToSvg(cx, cy);
+      n.x = pt.x - ox;
+      n.y = pt.y - oy;
+      g.__dragged = true;
+    }
+    document.addEventListener('mousemove', (e) => onMove(e.clientX, e.clientY));
+    document.addEventListener('touchmove', (e) => {
+      if (dragging && e.touches[0]) onMove(e.touches[0].clientX, e.touches[0].clientY);
+    }, { passive: false });
+    document.addEventListener('mouseup', () => { dragging = false; });
+    document.addEventListener('touchend', () => { dragging = false; });
+
+    nodeGroup.appendChild(g);
+    return { g, c, t, n };
+  });
+
+  function clientToSvg(cx, cy) {
+    const rect = svg.getBoundingClientRect();
+    const x = viewBox.x + ((cx - rect.left) / rect.width) * viewBox.w;
+    const y = viewBox.y + ((cy - rect.top) / rect.height) * viewBox.h;
+    return { x, y };
+  }
+
+  // pan
+  let panning = false, panStart = { x: 0, y: 0 }, vbStart = null;
+  svg.addEventListener('mousedown', (e) => {
+    if (e.target === svg || e.target === edgeGroup) {
+      panning = true;
+      panStart = { x: e.clientX, y: e.clientY };
+      vbStart = { ...viewBox };
+    }
+  });
+  document.addEventListener('mousemove', (e) => {
+    if (!panning) return;
+    const rect = svg.getBoundingClientRect();
+    const dx = ((e.clientX - panStart.x) / rect.width) * viewBox.w;
+    const dy = ((e.clientY - panStart.y) / rect.height) * viewBox.h;
+    viewBox.x = vbStart.x - dx;
+    viewBox.y = vbStart.y - dy;
+    applyViewBox();
+  });
+  document.addEventListener('mouseup', () => { panning = false; });
+
+  // zoom
+  svg.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    const factor = e.deltaY > 0 ? 1.12 : 0.89;
+    zoom(factor, e.clientX, e.clientY);
+  }, { passive: false });
+
+  function zoom(factor, cx, cy) {
+    const rect = svg.getBoundingClientRect();
+    const useX = cx !== undefined ? cx : rect.left + rect.width / 2;
+    const useY = cy !== undefined ? cy : rect.top + rect.height / 2;
+    const px = viewBox.x + ((useX - rect.left) / rect.width) * viewBox.w;
+    const py = viewBox.y + ((useY - rect.top) / rect.height) * viewBox.h;
+    viewBox.w *= factor;
+    viewBox.h *= factor;
+    viewBox.w = Math.max(150, Math.min(2400, viewBox.w));
+    viewBox.h = Math.max(80, Math.min(1280, viewBox.h));
+    viewBox.x = px - ((useX - rect.left) / rect.width) * viewBox.w;
+    viewBox.y = py - ((useY - rect.top) / rect.height) * viewBox.h;
+    applyViewBox();
+  }
+
+  document.getElementById('gZoomIn').addEventListener('click', () => zoom(0.85));
+  document.getElementById('gZoomOut').addEventListener('click', () => zoom(1.18));
+  document.getElementById('gReset').addEventListener('click', () => {
+    viewBox = { x: 0, y: 0, w: W, h: H };
+    applyViewBox();
+    // re-disperse leaves around hubs
+    initPositions();
+  });
+
+  // simulation
+  function initPositions() {
+    nodes.forEach(n => {
+      if (n.kind === 'leaf') {
+        const parent = nodeMap[n.parent];
+        const siblings = nodes.filter(x => x.parent === n.parent);
+        const idx = siblings.indexOf(n);
+        const baseAng = Math.atan2(parent.y - H / 2, parent.x - W / 2);
+        const spread = 0.6;
+        const ang = baseAng + (idx - (siblings.length - 1) / 2) * spread;
+        const dist = 90;
+        n.x = parent.x + Math.cos(ang) * dist;
+        n.y = parent.y + Math.sin(ang) * dist;
+        n.fixed = false;
+      } else if (n.id !== 'rln') {
+        n.fixed = false;
+      }
+      n.vx = 0;
+      n.vy = 0;
+    });
+  }
+  initPositions();
+
+  function tick() {
+    const REPEL = 1800;
+    const SPRING_HIER = 0.025;
+    const SPRING_LEV = 0.008;
+    const HIER_LEN = 110;
+    const LEV_LEN = 220;
+    const DAMP = 0.82;
+    const CENTER_PULL = 0.0009;
+
+    // repulsion
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const a = nodes[i], b = nodes[j];
+        const dx = b.x - a.x, dy = b.y - a.y;
+        const distSq = dx * dx + dy * dy + 1;
+        const dist = Math.sqrt(distSq);
+        const force = REPEL / distSq;
+        const fx = (dx / dist) * force;
+        const fy = (dy / dist) * force;
+        if (!a.fixed) { a.vx -= fx; a.vy -= fy; }
+        if (!b.fixed) { b.vx += fx; b.vy += fy; }
+      }
+    }
+    // spring (hier)
+    hierEdges.forEach(e => {
+      const a = nodeMap[e.a], b = nodeMap[e.b];
+      const dx = b.x - a.x, dy = b.y - a.y;
+      const dist = Math.sqrt(dx * dx + dy * dy) + 0.1;
+      const delta = (dist - HIER_LEN) * SPRING_HIER;
+      const fx = (dx / dist) * delta;
+      const fy = (dy / dist) * delta;
+      if (!a.fixed) { a.vx += fx; a.vy += fy; }
+      if (!b.fixed) { b.vx -= fx; b.vy -= fy; }
+    });
+    // spring (leverage)
+    leverageEdges.forEach(e => {
+      const a = nodeMap[e.a], b = nodeMap[e.b];
+      const dx = b.x - a.x, dy = b.y - a.y;
+      const dist = Math.sqrt(dx * dx + dy * dy) + 0.1;
+      const delta = (dist - LEV_LEN) * SPRING_LEV;
+      const fx = (dx / dist) * delta;
+      const fy = (dy / dist) * delta;
+      if (!a.fixed) { a.vx += fx; a.vy += fy; }
+      if (!b.fixed) { b.vx -= fx; b.vy -= fy; }
+    });
+    // center pull
+    nodes.forEach(n => {
+      if (n.fixed) return;
+      n.vx += (W / 2 - n.x) * CENTER_PULL;
+      n.vy += (H / 2 - n.y) * CENTER_PULL;
+    });
+    // integrate
+    nodes.forEach(n => {
+      if (n.fixed) { n.vx = 0; n.vy = 0; return; }
+      n.vx *= DAMP;
+      n.vy *= DAMP;
+      // clamp velocity
+      const vmax = 8;
+      if (n.vx > vmax) n.vx = vmax; if (n.vx < -vmax) n.vx = -vmax;
+      if (n.vy > vmax) n.vy = vmax; if (n.vy < -vmax) n.vy = -vmax;
+      n.x += n.vx;
+      n.y += n.vy;
+      // bounds
+      const pad = n.r + 4;
+      n.x = Math.max(pad, Math.min(W - pad, n.x));
+      n.y = Math.max(pad, Math.min(H - pad, n.y));
+    });
+
+    // update edges
+    allEdges.forEach((e, i) => {
+      const a = nodeMap[e.a], b = nodeMap[e.b];
+      edgeEls[i].setAttribute('x1', a.x);
+      edgeEls[i].setAttribute('y1', a.y);
+      edgeEls[i].setAttribute('x2', b.x);
+      edgeEls[i].setAttribute('y2', b.y);
+    });
+    // update nodes
+    nodeEls.forEach(({ g, n }) => {
+      g.setAttribute('transform', `translate(${n.x},${n.y})`);
+    });
+
+    requestAnimationFrame(tick);
+  }
+  tick();
+
+  return { applyFilter };
+
+  function applyFilter(domain) {
+    nodeEls.forEach(({ g, n }) => {
+      if (!domain || domain === 'all' || n.domain === domain || n.id === 'rln') {
+        g.style.opacity = '1';
+        g.style.filter = 'none';
+      } else {
+        g.style.opacity = '0.22';
+        g.style.filter = 'saturate(0.4)';
+      }
+    });
+    edgeEls.forEach((el, i) => {
+      const e = allEdges[i];
+      const a = nodeMap[e.a], b = nodeMap[e.b];
+      const matches = !domain || domain === 'all' || a.domain === domain || b.domain === domain || a.id === 'rln' || b.id === 'rln';
+      el.style.opacity = matches ? (e.kind === 'leverage' ? '0.7' : '0.4') : '0.06';
+    });
+  }
 })();
 
-function showNodeDetail(title, body) {
-  const d = document.getElementById('node-detail');
-  document.getElementById('node-title').textContent = title;
-  document.getElementById('node-body').textContent = body;
-  d.classList.add('active');
+/* ───────── SIDE PANEL ───────── */
+const sidePanel = document.getElementById('sidePanel');
+const sideContent = document.getElementById('sideContent');
+const backdrop = document.getElementById('backdrop');
+const domainPalette = {
+  Legal: 'var(--legal)', Finance: 'var(--finance)', Clinical: 'var(--clinical)',
+  Spiritual: 'var(--spiritual)', Systems: 'var(--systems)'
+};
+const domainSoft = {
+  Legal: 'var(--legal-soft)', Finance: 'var(--finance-soft)', Clinical: 'var(--clinical-soft)',
+  Spiritual: 'var(--spiritual-soft)', Systems: 'var(--systems-soft)'
+};
+
+function openSide() {
+  sidePanel.classList.add('open');
+  backdrop.classList.add('open');
 }
+function closeSide() {
+  sidePanel.classList.remove('open');
+  backdrop.classList.remove('open');
+}
+document.getElementById('sideClose').addEventListener('click', closeSide);
+backdrop.addEventListener('click', closeSide);
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeSide();
+});
+
+function openInfo({ title, domain, body, sev }) {
+  const color = domainPalette[domain] || 'var(--accent)';
+  const soft = domainSoft[domain] || 'rgba(124,158,255,0.15)';
+  // find connected leverage edges for this node
+  const node = NODES.find(n => n.label === title);
+  let connections = '';
+  if (node) {
+    const conn = LEVERAGE_EDGES.filter(e => e.a === node.id || e.b === node.id);
+    if (conn.length) {
+      connections = `<div class="side-section"><div class="sh">Cross-domain leverage</div><ul>` +
+        conn.map(e => {
+          const other = NODES.find(n => n.id === (e.a === node.id ? e.b : e.a));
+          return `<li><b>↔ ${other ? other.label : '?'}</b><br><span style="color:var(--text-dim); font-size:12px;">${e.why}</span></li>`;
+        }).join('') +
+        `</ul></div>`;
+    }
+  }
+  sideContent.innerHTML = `
+    <span class="side-domain" style="background:${soft}; color:${color};">${domain || 'Core'}</span>
+    <h3>${title}</h3>
+    ${sev ? `<div class="side-row"><span class="side-stat">Severity <b>${sev}</b></span></div>` : ''}
+    <div class="side-section"><div class="sh">Strategic context</div><p>${body}</p></div>
+    ${connections}
+  `;
+  openSide();
+}
+
+function openTaskDetail(t) {
+  const color = domainPalette[t.domain] || 'var(--accent)';
+  const soft = domainSoft[t.domain] || 'rgba(124,158,255,0.15)';
+  sideContent.innerHTML = `
+    <span class="side-domain" style="background:${soft}; color:${color};">${t.domain} · ${t.lane.toUpperCase()}</span>
+    <h3>${t.title}</h3>
+    <div class="side-row">
+      <span class="side-stat">Severity <b>${t.sev}</b></span>
+      <span class="side-stat">Window <b>${t.lane === 'now' ? '0–14d' : t.lane === 'next' ? '15–45d' : '46+d'}</b></span>
+    </div>
+    <div class="side-section">
+      <div class="sh">What & why</div>
+      <p>${t.detail}</p>
+    </div>
+    <div class="side-section">
+      <div class="sh">Unlocks</div>
+      <ul>${t.unlocks.map(u => `<li>${u}</li>`).join('')}</ul>
+    </div>
+  `;
+  openSide();
+}
+
+/* ───────── APEX STEPS PERSIST ───────── */
+const STORAGE_KEY = 'rln_state_v2';
+function loadState() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || { steps: {}, resets: {} }; }
+  catch { return { steps: {}, resets: {} }; }
+}
+function saveState(s) {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); } catch {}
+}
+const state = loadState();
+
+document.querySelectorAll('.apex-step').forEach(el => {
+  const k = el.dataset.step;
+  if (state.steps[k]) el.classList.add('done');
+  el.addEventListener('click', () => {
+    el.classList.toggle('done');
+    state.steps[k] = el.classList.contains('done');
+    saveState(state);
+    updateStabilization();
+  });
+});
+
+document.querySelectorAll('.reset-item').forEach(el => {
+  const k = el.dataset.r;
+  if (state.resets[k]) el.classList.add('done');
+  el.addEventListener('click', () => {
+    el.classList.toggle('done');
+    state.resets[k] = el.classList.contains('done');
+    saveState(state);
+  });
+});
+
+function updateStabilization() {
+  const total = 5;
+  const done = Object.values(state.steps).filter(Boolean).length;
+  document.getElementById('stabPct').textContent = Math.round((done / total) * 100) + '%';
+}
+updateStabilization();
+
+/* ───────── FILTER CHIPS ───────── */
+document.querySelectorAll('.chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('on'));
+    chip.classList.add('on');
+    const f = chip.dataset.filter;
+    if (f === 'all') {
+      document.body.classList.remove('filter-active');
+      document.querySelectorAll('[data-domain]').forEach(el => el.classList.remove('match'));
+    } else {
+      document.body.classList.add('filter-active');
+      document.querySelectorAll('[data-domain]').forEach(el => {
+        if (el.getAttribute('data-domain') === f) el.classList.add('match');
+        else el.classList.remove('match');
+      });
+    }
+    graph.applyFilter(f === 'all' ? null : f);
+  });
+});
+
+/* ───────── KEYBOARD ───────── */
+document.addEventListener('keydown', (e) => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  const map = { '1': 'Legal', '2': 'Finance', '3': 'Clinical', '4': 'Spiritual', '5': 'Systems', '0': 'all' };
+  if (map[e.key]) {
+    const target = document.querySelector(`.chip[data-filter="${map[e.key]}"]`);
+    if (target) target.click();
+  }
+});
 </script>
 
 </body>
