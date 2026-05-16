@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RLN v2.0 — Strategic Cognitive Architecture</title>
+<style>
+  :root {
+    --bg: #0c0e16;
+    --bg-soft: #141826;
+    --bg-card: #1a1f33;
+    --border: #2a3149;
+    --text: #e8ecf5;
+    --text-dim: #98a1bd;
+    --accent: #7c9eff;
+    --legal: #ff6b9d;
+    --finance: #ffd166;
+    --clinical: #06d6a0;
+    --spiritual: #c084fc;
+    --systems: #4cc9f0;
+    --now: #ff4757;
+    --next: #ffa502;
+    --later: #2ed573;
+    --shadow: 0 8px 28px rgba(0,0,0,0.45);
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", system-ui, sans-serif;
+    background: radial-gradient(ellipse at top, #1a1f3a 0%, var(--bg) 60%);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.55;
+  }
+  header {
+    padding: 28px 32px 16px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: rgba(12, 14, 22, 0.92);
+    backdrop-filter: blur(16px);
+    z-index: 100;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+  header .sub {
+    color: var(--text-dim);
+    font-size: 13px;
+    margin-top: 4px;
+  }
+  .tabs {
+    display: flex;
+    gap: 4px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+  .tab {
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.18s;
+    user-select: none;
+  }
+  .tab:hover { color: var(--text); border-color: var(--accent); }
+  .tab.active {
+    background: var(--accent);
+    color: #0c0e16;
+    border-color: var(--accent);
+    font-weight: 600;
+  }
+  main { padding: 24px 32px 80px; max-width: 1400px; margin: 0 auto; }
+  .panel { display: none; }
+  .panel.active { display: block; animation: fadeIn 0.25s ease; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* FOCUS PANEL */
+  .focus-hero {
+    background: linear-gradient(135deg, #ff4757 0%, #ff6b9d 100%);
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .focus-hero::before {
+    content: "";
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 200px; height: 200px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+  }
+  .focus-tag {
+    display: inline-block;
+    background: rgba(0,0,0,0.3);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .focus-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 10px 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .focus-blurb { font-size: 15px; opacity: 0.95; }
+  .focus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .focus-stat {
+    background: rgba(0,0,0,0.25);
+    padding: 12px 14px;
+    border-radius: 10px;
+  }
+  .focus-stat .lbl {
+    font-size: 11px;
+    opacity: 0.85;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .focus-stat .val { font-size: 20px; font-weight: 700; margin-top: 2px; }
+
+  /* STEPS */
+  .step-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+  }
+  .step {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    position: relative;
+    transition: transform 0.18s, border-color 0.18s;
+    cursor: pointer;
+  }
+  .step:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .step.done { opacity: 0.5; }
+  .step.done .step-title { text-decoration: line-through; }
+  .step-num {
+    width: 26px; height: 26px;
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .step-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+  .step-desc { font-size: 12px; color: var(--text-dim); }
+  .step .check {
+    position: absolute;
+    top: 12px; right: 12px;
+    width: 18px; height: 18px;
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    transition: all 0.15s;
+  }
+  .step.done .check {
+    background: var(--clinical);
+    border-color: var(--clinical);
+  }
+  .step.done .check::after {
+    content: "✓"; color: var(--bg); font-size: 13px;
+    display: block; text-align: center; line-height: 14px; font-weight: 700;
+  }
+
+  /* MIND MAP */
+  .mindmap-wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .mindmap-svg {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 12px;
+    height: 600px;
+  }
+  .mindmap-svg svg { width: 100%; height: 100%; cursor: grab; }
+  .map-node circle { transition: all 0.2s; cursor: pointer; }
+  .map-node text { fill: var(--text); font-size: 12px; font-weight: 600; pointer-events: none; user-select: none; }
+  .map-node:hover circle { stroke-width: 3; filter: brightness(1.3); }
+  .map-link { stroke: var(--border); stroke-width: 1.5; fill: none; }
+  .map-legend {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+  .map-legend .dot {
+    display: inline-block;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* KANBAN */
+  .kanban {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 980px) { .kanban { grid-template-columns: 1fr; } }
+  .lane {
+    background: var(--bg-soft);
+    border-radius: 14px;
+    padding: 14px;
+    border-top: 4px solid var(--border);
+  }
+  .lane.now { border-color: var(--now); }
+  .lane.next { border-color: var(--next); }
+  .lane.later { border-color: var(--later); }
+  .lane h3 {
+    margin: 0 0 4px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .lane .lane-sub {
+    color: var(--text-dim);
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-left: 3px solid var(--accent);
+    cursor: pointer;
+    transition: transform 0.15s;
+  }
+  .card:hover { transform: translateX(2px); }
+  .card.domain-Legal { border-left-color: var(--legal); }
+  .card.domain-Finance { border-left-color: var(--finance); }
+  .card.domain-Clinical { border-left-color: var(--clinical); }
+  .card.domain-Spiritual { border-left-color: var(--spiritual); }
+  .card.domain-Systems { border-left-color: var(--systems); }
+  .card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .card-domain {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+  }
+  .card.domain-Legal .card-domain { background: rgba(255,107,157,0.15); color: var(--legal); }
+  .card.domain-Finance .card-domain { background: rgba(255,209,102,0.15); color: var(--finance); }
+  .card.domain-Clinical .card-domain { background: rgba(6,214,160,0.15); color: var(--clinical); }
+  .card.domain-Spiritual .card-domain { background: rgba(192,132,252,0.15); color: var(--spiritual); }
+  .card.domain-Systems .card-domain { background: rgba(76,201,240,0.15); color: var(--systems); }
+  .card-score {
+    background: var(--bg);
+    color: var(--text);
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .card-score.s12, .card-score.s13 { background: var(--now); color: #fff; }
+  .card-score.s10, .card-score.s11 { background: var(--next); color: #fff; }
+  .card-score.s9 { background: #6d8eff; color: #fff; }
+  .card-score.s7, .card-score.s8 { background: var(--later); color: #fff; }
+  .card-title { font-weight: 600; font-size: 14px; line-height: 1.4; margin-bottom: 4px; }
+  .card-why { font-size: 12px; color: var(--text-dim); }
+
+  /* DOMAINS */
+  .domain-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .domain {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-top: 4px solid;
+  }
+  .domain:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+  .domain.legal { border-top-color: var(--legal); }
+  .domain.finance { border-top-color: var(--finance); }
+  .domain.clinical { border-top-color: var(--clinical); }
+  .domain.spiritual { border-top-color: var(--spiritual); }
+  .domain.systems { border-top-color: var(--systems); }
+  .domain-icon { font-size: 28px; margin-bottom: 8px; }
+  .domain h3 { margin: 0 0 6px; font-size: 17px; }
+  .domain .status {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+  .domain ul { margin: 0; padding-left: 18px; font-size: 13px; }
+  .domain li { margin-bottom: 4px; }
+
+  /* DETAIL */
+  .detail {
+    margin-top: 20px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    display: none;
+  }
+  .detail.active { display: block; animation: fadeIn 0.25s ease; }
+  .detail h2 { margin-top: 0; }
+  .detail .close {
+    float: right;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  .pillar {
+    background: var(--bg-card);
+    border-radius: 10px;
+    padding: 14px;
+    margin: 10px 0;
+    border-left: 3px solid var(--accent);
+  }
+  .pillar h4 { margin: 0 0 6px; font-size: 14px; }
+  .pillar p { margin: 0; font-size: 13px; color: var(--text-dim); }
+  .confidence-bar {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    margin-top: 6px;
+    overflow: hidden;
+  }
+  .confidence-bar > div {
+    height: 100%;
+    background: linear-gradient(90deg, var(--clinical), var(--accent));
+    border-radius: 3px;
+  }
+
+  /* PIPELINE */
+  .pipeline {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .pipe-row {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: 16px;
+    align-items: stretch;
+  }
+  .pipe-num {
+    background: var(--bg-card);
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    border-radius: 50%;
+    width: 50px; height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .pipe-body {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+  .pipe-body h4 { margin: 0 0 6px; font-size: 15px; }
+  .pipe-body p { margin: 0; font-size: 13px; color: var(--text-dim); }
+  .pipe-tags { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .pipe-tags span {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 11px;
+    color: var(--accent);
+    font-family: ui-monospace, "SF Mono", monospace;
+  }
+
+  /* TWO COL */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 14px;
+  }
+  @media (max-width: 800px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* TIER TABLE */
+  .tier-table {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  .tier-row {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .tier-row:last-child { border-bottom: none; }
+  .tier-row > div { padding: 12px 14px; font-size: 13px; }
+  .tier-row.head { background: var(--bg-soft); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); }
+  .tier-row.a { border-left: 4px solid var(--clinical); }
+  .tier-row.b { border-left: 4px solid var(--next); }
+  .tier-row.c { border-left: 4px solid var(--legal); }
+  .pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .pill.high { background: rgba(6,214,160,0.18); color: var(--clinical); }
+  .pill.med { background: rgba(255,165,2,0.18); color: var(--next); }
+  .pill.low { background: rgba(255,107,157,0.18); color: var(--legal); }
+
+  /* HURON */
+  .huron {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 12px 0;
+  }
+  .huron-step {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 12px;
+    white-space: nowrap;
+    position: relative;
+  }
+  .huron-step::after {
+    content: "→";
+    color: var(--accent);
+    position: absolute;
+    right: -16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .huron-step:last-child::after { display: none; }
+
+  /* RIGHT-NOW FOCUS BUTTON */
+  .focus-cta {
+    background: rgba(0,0,0,0.3);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 16px;
+    font-size: 14px;
+  }
+
+  .deadline-tag {
+    background: rgba(255,71,87,0.18);
+    color: var(--now);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+    margin: 8px 0;
+  }
+
+  .scqh-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .scqh-cell {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px;
+  }
+  .scqh-cell .ltr { font-size: 28px; font-weight: 800; color: var(--accent); }
+  .scqh-cell .ttl { font-size: 13px; font-weight: 600; margin: 2px 0 4px; }
+  .scqh-cell .desc { font-size: 12px; color: var(--text-dim); }
+
+  .oaths {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .oath {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--spiritual);
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 13px;
+  }
+  .oath .icon { font-size: 20px; margin-right: 6px; }
+
+  .footer-note {
+    margin-top: 28px;
+    padding: 14px 18px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 12px;
+    color: var(--text-dim);
+    text-align: center;
+  }
+  .toggle-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .filter-chip {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    border-radius: 18px;
+    font-size: 12px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.15s;
+  }
+  .filter-chip:hover { border-color: var(--accent); }
+  .filter-chip.active.Legal { background: var(--legal); color: #0c0e16; border-color: var(--legal); }
+  .filter-chip.active.Finance { background: var(--finance); color: #0c0e16; border-color: var(--finance); }
+  .filter-chip.active.Clinical { background: var(--clinical); color: #0c0e16; border-color: var(--clinical); }
+  .filter-chip.active.Spiritual { background: var(--spiritual); color: #0c0e16; border-color: var(--spiritual); }
+  .filter-chip.active.Systems { background: var(--systems); color: #0c0e16; border-color: var(--systems); }
+  .filter-chip.active.All { background: var(--accent); color: #0c0e16; border-color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Recursive Living Notebook v2.0 — Strategic Cockpit</h1>
+  <div class="sub">Multi-domain operations across Legal · Finance · Clinical · Spiritual · Systems. Click anything.</div>
+  <div class="tabs">
+    <div class="tab active" data-tab="focus">🎯 Right Now</div>
+    <div class="tab" data-tab="triage">📋 Triage Board</div>
+    <div class="tab" data-tab="mindmap">🕸️ Mind Map</div>
+    <div class="tab" data-tab="domains">🧭 5 Domains</div>
+    <div class="tab" data-tab="pipeline">⚙️ Gemini Pipeline</div>
+    <div class="tab" data-tab="frameworks">🧠 Frameworks</div>
+  </div>
+</header>
+
+<main>
+
+<!-- ====== FOCUS / RIGHT NOW ====== -->
+<section class="panel active" id="panel-focus">
+  <div class="focus-hero">
+    <span class="focus-tag">⚡ Single Highest-Leverage Action</span>
+    <div class="focus-title">Build the Finance Wire Ledger → Exhibit F-Wires.pdf</div>
+    <div class="focus-blurb">38 wires from Dad totaling <b>$223,800</b>. This converts a vague anxiety into a weaponized legal asset, and resolves bottlenecks in <b>3 domains simultaneously</b> (Legal, Financial, Psychological).</div>
+    <div class="focus-grid">
+      <div class="focus-stat"><div class="lbl">Severity Score</div><div class="val">12</div></div>
+      <div class="focus-stat"><div class="lbl">Impact</div><div class="val">5 / 5</div></div>
+      <div class="focus-stat"><div class="lbl">Urgency</div><div class="val">4 / 5</div></div>
+      <div class="focus-stat"><div class="lbl">Risk if Skipped</div><div class="val">5 / 5</div></div>
+      <div class="focus-stat"><div class="lbl">Effort</div><div class="val">2 / 5</div></div>
+    </div>
+    <button class="focus-cta" onclick="document.querySelector('[data-tab=triage]').click()">See all triage tasks →</button>
+  </div>
+
+  <h3 style="margin-top:28px;">📐 The 5-step micro-plan (click to mark done)</h3>
+  <div class="step-row" id="steps">
+    <div class="step" data-i="1"><span class="check"></span><div class="step-num">1</div><div class="step-title">Log into Chase portal</div><div class="step-desc">Download full CSV export: April 2024 – October 2025.</div></div>
+    <div class="step" data-i="2"><span class="check"></span><div class="step-num">2</div><div class="step-title">Filter & tag wires</div><div class="step-desc">Isolate the 38 distinct wire transfers originating from Dad.</div></div>
+    <div class="step" data-i="3"><span class="check"></span><div class="step-num">3</div><div class="step-title">Sum & verify total</div><div class="step-desc">Confirm $223,800.00 — the restitution floor.</div></div>
+    <div class="step" data-i="4"><span class="check"></span><div class="step-num">4</div><div class="step-title">Export locked PDF</div><div class="step-desc">Save as "Exhibit F-Wires.pdf" with hashed chain of custody.</div></div>
+    <div class="step" data-i="5"><span class="check"></span><div class="step-num">5</div><div class="step-title">File into legal dossier</div><div class="step-desc">Attach as Exhibit A & B for the Branch B settlement strategy.</div></div>
+  </div>
+
+  <h3 style="margin-top:28px;">🌅 Daily Executive Reset (every morning, 10 min)</h3>
+  <div class="step-row">
+    <div class="step" style="cursor:default;"><div class="step-num" style="background:var(--spiritual);">F</div><div class="step-title">Fajr prayer</div><div class="step-desc">Psychological anchor of the waking cycle.</div></div>
+    <div class="step" style="cursor:default;"><div class="step-num" style="background:var(--clinical);">B</div><div class="step-title">Vagal-tone breathing</div><div class="step-desc">ANS resonance breathing for cardiac/cognitive stability.</div></div>
+    <div class="step" style="cursor:default;"><div class="step-num" style="background:var(--accent);">R</div><div class="step-title">Ruqyah + 99 Names</div><div class="step-desc">Spaced-repetition recall against memory drift.</div></div>
+    <div class="step" style="cursor:default;"><div class="step-num" style="background:var(--finance);">3</div><div class="step-title">Pick 3 micro-decisions</div><div class="step-desc">[verb + object + context + end-state] — break decision paralysis.</div></div>
+  </div>
+</section>
+
+<!-- ====== TRIAGE BOARD ====== -->
+<section class="panel" id="panel-triage">
+  <div class="toggle-row">
+    <div class="filter-chip active All" data-filter="all">All</div>
+    <div class="filter-chip Legal" data-filter="Legal">Legal</div>
+    <div class="filter-chip Finance" data-filter="Finance">Finance</div>
+    <div class="filter-chip Clinical" data-filter="Clinical">Clinical</div>
+    <div class="filter-chip Spiritual" data-filter="Spiritual">Spiritual</div>
+    <div class="filter-chip Systems" data-filter="Systems">Systems</div>
+  </div>
+
+  <div class="kanban">
+    <div class="lane now">
+      <h3 style="color:var(--now);">⚠️ Now</h3>
+      <div class="lane-sub">0–14 days · Legal preservation & financial proof</div>
+      <div class="card domain-Finance" onclick="showCardDetail(this)" data-detail="Pull Chase CSV May–Oct 2025. Filter 38 'Dad Wires' totaling $223,800. Sum totals, hash chain of custody. This is the apex priority — establishes irrefutable restitution floor for Branch B settlement.">
+        <div class="card-head"><span class="card-domain">Finance · Legal</span><span class="card-score s12">12</span></div>
+        <div class="card-title">Generate "Exhibit F-Wires.pdf"</div>
+        <div class="card-why">Restitution floor for civil settlement</div>
+      </div>
+      <div class="card domain-Legal" onclick="showCardDetail(this)" data-detail="Retain New York civil litigation counsel. Beat the strict 1-year statute of limitations expiring Sept 2026. Leverages Sept 2025 'Not Guilty with Prejudice' acquittal — 92% confidence claim.">
+        <div class="card-head"><span class="card-domain">Legal</span><span class="card-score s13">13</span></div>
+        <div class="card-title">Draft Malicious Prosecution complaint</div>
+        <div class="card-why">SoL deadline Sept 2026 — non-negotiable</div>
+      </div>
+      <div class="card domain-Legal" onclick="showCardDetail(this)" data-detail="Serve formal litigation hold notices to UHS HR & IT. Secure court orders to freeze all 53 CCTV footage entries from Guthrie + ANSCO before automatic server retention windows purge data.">
+        <div class="card-head"><span class="card-domain">Legal</span><span class="card-score s13">13</span></div>
+        <div class="card-title">Secure evidentiary preservation locks</div>
+        <div class="card-why">53 CCTV entries before auto-purge</div>
+      </div>
+      <div class="card domain-Spiritual" onclick="showCardDetail(this)" data-detail="15-minute Morning AI Focus Routine paired with Fajr. Select exactly 3 micro-decisions formatted as [verb + object + context + end-state] to break decision paralysis.">
+        <div class="card-head"><span class="card-domain">Spiritual · Systems</span><span class="card-score s10">10</span></div>
+        <div class="card-title">Execute Daily Executive Reset</div>
+        <div class="card-why">Daily operational momentum</div>
+      </div>
+    </div>
+
+    <div class="lane next">
+      <h3 style="color:var(--next);">🟡 Next</h3>
+      <div class="lane-sub">15–45 days · Reactivate clinical revenue</div>
+      <div class="card domain-Clinical" onclick="showCardDetail(this)" data-detail="Compile certified criminal disposition, Norman Spencer's legal opinion, treating-physician fitness letters, and a transparent disclosure narrative. Preemptively clears medical board holds — unblocks clinical revenue.">
+        <div class="card-head"><span class="card-domain">Clinical</span><span class="card-score s12">12</span></div>
+        <div class="card-title">Submit Board Licensing Mitigation Packet</div>
+        <div class="card-why">Unblock clinical income stream</div>
+      </div>
+      <div class="card domain-Clinical" onclick="showCardDetail(this)" data-detail="Draft HIPAA compliance checklist. Formalize legal entity for NY-localized multi-state telehealth primary care practice using BAA-secured vendors: Doxy, Elation, AthenaOne, Stripe.">
+        <div class="card-head"><span class="card-domain">Clinical · Business</span><span class="card-score s10">10</span></div>
+        <div class="card-title">Initialize Telehealth Entity Compliance</div>
+        <div class="card-why">Self-pay 30-day micro-offer ready</div>
+      </div>
+      <div class="card domain-Finance" onclick="showCardDetail(this)" data-detail="Back-calculate and document family Zakat arrears dating to 2021. Formulate mechanics of the family Bayt al-Mal welfare treasury — strict Islamic ethical protocols.">
+        <div class="card-head"><span class="card-domain">Finance · Spiritual</span><span class="card-score s9">9</span></div>
+        <div class="card-title">Execute Zakat Audit & Ledger Reconciliation</div>
+        <div class="card-why">Ethical alignment + Bayt al-Mal setup</div>
+      </div>
+    </div>
+
+    <div class="lane later">
+      <h3 style="color:var(--later);">🟢 Later</h3>
+      <div class="lane-sub">46+ days · Expansion phase (only after 80% stabilization)</div>
+      <div class="card domain-Clinical" onclick="showCardDetail(this)" data-detail="Build MVP startup stack: one-page problem statements, market map, investor packet. Secure immigration counsel alignment on E-2 or EB-5 visa pathways.">
+        <div class="card-head"><span class="card-domain">Business · Clinical</span><span class="card-score s8">8</span></div>
+        <div class="card-title">Develop Healthcare AI Startup</div>
+        <div class="card-why">Investor packet + visa pathway</div>
+      </div>
+      <div class="card domain-Spiritual" onclick="showCardDetail(this)" data-detail="Transition from financial survival into Tier-2 Pillars of Practice roadmap. Aggressively fund Hajj 2026 registration target.">
+        <div class="card-head"><span class="card-domain">Spiritual · Finance</span><span class="card-score s7">7</span></div>
+        <div class="card-title">Hajj 2026 Savings Execution</div>
+        <div class="card-why">Tier-2 Pillars of Practice</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail" id="card-detail">
+    <button class="close" onclick="document.getElementById('card-detail').classList.remove('active')">close ✕</button>
+    <h2 id="card-detail-title"></h2>
+    <p id="card-detail-body" style="color:var(--text-dim);"></p>
+  </div>
+
+  <div class="footer-note">
+    <b>Rule:</b> No expansion-phase commitments accepted until stabilization deliverables hit <b>80% completion</b>.
+  </div>
+</section>
+
+<!-- ====== MIND MAP ====== -->
+<section class="panel" id="panel-mindmap">
+  <div class="mindmap-wrap">
+    <div class="mindmap-svg">
+      <svg id="mindmap" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid meet"></svg>
+    </div>
+    <div class="map-legend">
+      <span><span class="dot" style="background:var(--legal);"></span>Legal</span>
+      <span><span class="dot" style="background:var(--finance);"></span>Finance</span>
+      <span><span class="dot" style="background:var(--clinical);"></span>Clinical</span>
+      <span><span class="dot" style="background:var(--spiritual);"></span>Spiritual</span>
+      <span><span class="dot" style="background:var(--systems);"></span>Systems</span>
+      <span style="margin-left:auto; color:var(--text-dim);">💡 Hover any node to focus.</span>
+    </div>
+  </div>
+  <div class="detail" id="node-detail" style="margin-top:20px;">
+    <button class="close" onclick="document.getElementById('node-detail').classList.remove('active')">close ✕</button>
+    <h2 id="node-title">Click a node</h2>
+    <p id="node-body" style="color:var(--text-dim);"></p>
+  </div>
+</section>
+
+<!-- ====== DOMAINS ====== -->
+<section class="panel" id="panel-domains">
+  <div class="domain-grid">
+    <div class="domain legal" onclick="showDomain('legal')">
+      <div class="domain-icon" style="color:var(--legal);">⚖️</div>
+      <h3>01 · Legal Strategy</h3>
+      <div class="status">Acquitted Sept 2025 · Civil offensive pending</div>
+      <ul>
+        <li>Malicious Prosecution (92% confidence)</li>
+        <li>FMLA Interference (90% confidence)</li>
+        <li>Forged probation "Smoking Gun"</li>
+      </ul>
+    </div>
+    <div class="domain finance" onclick="showDomain('finance')">
+      <div class="domain-icon" style="color:var(--finance);">💰</div>
+      <h3>02 · Financial Restitution</h3>
+      <div class="status">$223,800 floor · $693K drafted ceiling</div>
+      <ul>
+        <li>Tier 1A: 38 Dad wires (High conf.)</li>
+        <li>Tier 1B: Out-of-pocket (Med conf.)</li>
+        <li>Tier 2: Consequential damages</li>
+      </ul>
+    </div>
+    <div class="domain clinical" onclick="showDomain('clinical')">
+      <div class="domain-icon" style="color:var(--clinical);">🩺</div>
+      <h3>03 · Clinical Career</h3>
+      <div class="status">License held · Telehealth in formation</div>
+      <ul>
+        <li>Mitigation packet to medical board</li>
+        <li>30-day self-pay micro-offer</li>
+        <li>BAA-secured: Doxy, Elation, Stripe</li>
+      </ul>
+    </div>
+    <div class="domain spiritual" onclick="showDomain('spiritual')">
+      <div class="domain-icon" style="color:var(--spiritual);">☪️</div>
+      <h3>04 · Spiritual Discipline</h3>
+      <div class="status">System Power Source · Fajr-anchored</div>
+      <ul>
+        <li>Huron Inference Map active</li>
+        <li>Oaths tracked · Riba elimination</li>
+        <li>Hajj 2026 long-term anchor</li>
+      </ul>
+    </div>
+    <div class="domain systems" onclick="showDomain('systems')">
+      <div class="domain-icon" style="color:var(--systems);">🧬</div>
+      <h3>05 · Systems & PKM</h3>
+      <div class="status">11 tools → 5-tool stack · API-first</div>
+      <ul>
+        <li>Obsidian = neural graph</li>
+        <li>Notion = invisible backend</li>
+        <li>NotePlan = execution cockpit</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="detail" id="domain-detail"></div>
+</section>
+
+<!-- ====== PIPELINE ====== -->
+<section class="panel" id="panel-pipeline">
+  <h3 style="margin-top:0;">🎤 Voice → Vault Pipeline (Frictionless Apple Ecosystem)</h3>
+  <div class="pipeline">
+    <div class="pipe-row">
+      <div class="pipe-num">1</div>
+      <div class="pipe-body">
+        <h4>Capture</h4>
+        <p>Press Action Button on iPhone, or trigger WhisperShortcut on Mac. Voice is captured with high-fidelity local-first transcription. Handwriting from reMarkable / Surface flows through OCR (Azure AI or Tesseract).</p>
+        <div class="pipe-tags"><span>Action Button</span><span>WhisperShortcut</span><span>Apple Watch</span><span>OCR</span></div>
+      </div>
+    </div>
+    <div class="pipe-row">
+      <div class="pipe-num">2</div>
+      <div class="pipe-body">
+        <h4>Secure Endpoint</h4>
+        <p>Apple Shortcut "Get Contents of URL" → POST to a Hono on Cloudflare Workers endpoint. Bearer token gates access. Google AI Studio key lives server-side only — never inside a shareable Shortcut.</p>
+        <div class="pipe-tags"><span>Hono</span><span>Cloudflare Workers</span><span>Bearer Token</span><span>TypeScript</span></div>
+      </div>
+    </div>
+    <div class="pipe-row">
+      <div class="pipe-num">3</div>
+      <div class="pipe-body">
+        <h4>Reflection Parser (Gemini 2.0 Flash)</h4>
+        <p>System instruction forces Gemini to: apply SCQH + MECE frameworks, correct dictation homophones ("Germany" → "Gemini"), emit pure Markdown prepended with YAML frontmatter (source_ai, session_type, date, topic_primary, gem_target, RLN_ID).</p>
+        <div class="pipe-tags"><span>SCQH</span><span>MECE</span><span>Persona/Task/Context/Format</span><span>RLN_ID</span></div>
+      </div>
+    </div>
+    <div class="pipe-row">
+      <div class="pipe-num">4</div>
+      <div class="pipe-body">
+        <h4>Silent Routing</h4>
+        <p>Shortcut hands the structured Markdown to a Make.com / Zapier webhook. Webhook injects the node into Notion (invisible backend — you never open it). Notion handles cross-AI deduplication.</p>
+        <div class="pipe-tags"><span>Make.com</span><span>Zapier</span><span>Notion API</span><span>YAML</span></div>
+      </div>
+    </div>
+    <div class="pipe-row">
+      <div class="pipe-num">5</div>
+      <div class="pipe-body">
+        <h4>Neural Graph + Cockpit</h4>
+        <p>Synced into Obsidian → bi-directional links build the searchable neural graph of self. NotePlan pulls tasks (-[ ] and -[>]) for the daily 3-Task Rule. NotebookLM serves the audio overview for dense legal/finance documents.</p>
+        <div class="pipe-tags"><span>Obsidian</span><span>NotePlan</span><span>NotebookLM</span><span>3-Task Rule</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:32px;">🔁 Data Continuity</h3>
+  <div class="pipe-body" style="background:var(--bg-soft);">
+    <p style="color:var(--text);"><b>Replace unauthorized scraping →</b> sanctioned Google Takeout extraction. Local Python script <code style="background:var(--bg);padding:2px 6px;border-radius:4px;color:var(--accent);">takeout_to_brain.py</code> ingests Gemini JSON, converts to Markdown + PDF, auto-injects YAML metadata, assigns timestamped <code style="background:var(--bg);padding:2px 6px;border-radius:4px;color:var(--accent);">RLN_ID</code> (e.g. <code style="background:var(--bg);padding:2px 6px;border-radius:4px;color:var(--accent);">RLN20251012-LivingNotebook</code>). Gemini transforms from passive chatbot → active archivist updating the Obsidian vault.</p>
+  </div>
+</section>
+
+<!-- ====== FRAMEWORKS ====== -->
+<section class="panel" id="panel-frameworks">
+  <h3 style="margin-top:0;">🧠 SCQH Framework — every voice dump gets parsed into this</h3>
+  <div class="scqh-grid">
+    <div class="scqh-cell"><div class="ltr">S</div><div class="ttl">Situation</div><div class="desc">Current operational state — facts only.</div></div>
+    <div class="scqh-cell"><div class="ltr">C</div><div class="ttl">Complication</div><div class="desc">What's blocking forward motion.</div></div>
+    <div class="scqh-cell"><div class="ltr">Q</div><div class="ttl">Question</div><div class="desc">The specific decision to be made.</div></div>
+    <div class="scqh-cell"><div class="ltr">H</div><div class="ttl">Hypothesis</div><div class="desc">Best-bet action with reasoning.</div></div>
+  </div>
+  <p style="color:var(--text-dim); font-size:13px; margin-top:14px;">Output is then enforced into <b>MECE</b> (Mutually Exclusive, Collectively Exhaustive) logic trees with computed Severity Score = Impact + Urgency + Risk − Effort.</p>
+
+  <h3 style="margin-top:28px;">🕊️ Huron Inference Map (Surah Al-Imran 3:153, 155, 165)</h3>
+  <p style="color:var(--text-dim); font-size:13px;">Maps chaotic psychological states into a rigorous Qur'anic recalibration loop — transforms despair into structured reflection.</p>
+  <div class="huron">
+    <div class="huron-step">Fault</div>
+    <div class="huron-step">Slippage</div>
+    <div class="huron-step">Distress</div>
+    <div class="huron-step">Refinement</div>
+    <div class="huron-step">Disaster</div>
+    <div class="huron-step">Recalibration</div>
+    <div class="huron-step" style="border-color:var(--clinical); color:var(--clinical);">Enlightenment</div>
+  </div>
+
+  <h3 style="margin-top:28px;">📊 Two-Tier Damages Model</h3>
+  <div class="tier-table">
+    <div class="tier-row head"><div>Tier</div><div>Amount (USD)</div><div>Confidence</div></div>
+    <div class="tier-row a"><div><b>Tier 1A</b> · Family Support Loan Principal<br><span style="color:var(--text-dim); font-size:12px;">38 wires, Apr 2024 – Oct 2025</span></div><div>$223,800</div><div><span class="pill high">High</span></div></div>
+    <div class="tier-row b"><div><b>Tier 1B</b> · Direct Out-of-Pocket<br><span style="color:var(--text-dim); font-size:12px;">Legal $35K · Meds $40K · Cornell $13K · Car $44K</span></div><div>TBD</div><div><span class="pill med">Medium</span></div></div>
+    <div class="tier-row c"><div><b>Tier 2</b> · Consequential & Opportunity<br><span style="color:var(--text-dim); font-size:12px;">Lost income $300K · Living $150K · Mother's salary $71K</span></div><div>$469,200+</div><div><span class="pill low">Low-Med</span></div></div>
+  </div>
+  <p style="color:var(--text-dim); font-size:12px; margin-top:10px;">⚠️ Never present the $693K ceiling as proven fact — invites credibility attack. Lead with the $223,800 verified floor.</p>
+
+  <h3 style="margin-top:28px;">🤝 Oaths (Non-Negotiable Behavioral Guardrails)</h3>
+  <div class="oaths">
+    <div class="oath"><span class="icon">🚫</span> Absolute abstinence from alcohol</div>
+    <div class="oath"><span class="icon">🗣️</span> Refrain from cursing</div>
+    <div class="oath"><span class="icon">🌙</span> Make up 18 missed Ramadans</div>
+    <div class="oath"><span class="icon">💪</span> Actively reject despair</div>
+  </div>
+
+  <h3 style="margin-top:28px;">⏳ Critical Deadlines</h3>
+  <div class="two-col">
+    <div class="pillar"><h4>Malicious Prosecution Statute of Limitations</h4><div class="deadline-tag">September 2026 — hard deadline</div><p>NY 1-year SoL on malicious prosecution actions. Window closes permanently.</p></div>
+    <div class="pillar"><h4>CCTV Server Retention</h4><div class="deadline-tag">Rolling — auto-purge</div><p>53 footage entries from Guthrie + ANSCO. Must serve litigation hold immediately.</p></div>
+  </div>
+</section>
+
+</main>
+
+<script>
+/* TAB SWITCHING */
+document.querySelectorAll('.tab').forEach(t => {
+  t.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById('panel-' + t.dataset.tab).classList.add('active');
+  });
+});
+
+/* STEPS */
+document.querySelectorAll('.step[data-i]').forEach(s => {
+  s.addEventListener('click', () => s.classList.toggle('done'));
+});
+
+/* TRIAGE CARD DETAIL */
+function showCardDetail(el) {
+  const d = document.getElementById('card-detail');
+  document.getElementById('card-detail-title').textContent = el.querySelector('.card-title').textContent;
+  document.getElementById('card-detail-body').textContent = el.dataset.detail;
+  d.classList.add('active');
+  d.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+/* FILTERS */
+document.querySelectorAll('.filter-chip').forEach(c => {
+  c.addEventListener('click', () => {
+    document.querySelectorAll('.filter-chip').forEach(x => x.classList.remove('active'));
+    c.classList.add('active');
+    const f = c.dataset.filter;
+    document.querySelectorAll('.card').forEach(card => {
+      if (f === 'all' || card.classList.contains('domain-' + f)) card.style.display = '';
+      else card.style.display = 'none';
+    });
+  });
+});
+
+/* DOMAIN DETAIL */
+const domainContent = {
+  legal: {
+    title: '⚖️ Legal Strategy & Litigation Execution',
+    body: `<p><b>Origin:</b> 2021–2024 residency conflict at UHS Binghamton, compounded by Brugada syndrome cardiac surgery (Feb 2024) and the April 18–22, 2024 incident cluster leading to police contact and termination. Acquittal "Not Guilty with Prejudice" in <b>September 2025</b>.</p>
+    <div class="pillar"><h4>Malicious Prosecution — 92% confidence</h4><p>Acquittal supplies the malice wedge. Strict NY 1-year SoL closes <b>Sept 2026</b>.</p><div class="confidence-bar"><div style="width:92%"></div></div></div>
+    <div class="pillar"><h4>FMLA Interference & Retaliation — 90% confidence</h4><p>Direct HR email evidence: 5-day contact violations, post-cardiac schedule failures, omitted wellness checks.</p><div class="confidence-bar"><div style="width:90%"></div></div></div>
+    <div class="pillar"><h4>"Smoking Gun" — Forged Probation Signature</h4><p>Exposes the probation-yet-graduation paradox. Proves institutional pretext.</p></div>
+    <div class="pillar"><h4>Branch B — Rapid Settlement Strategy</h4><p>Use $223,800 verified floor as concrete monetary anchor. <b>WATNA trigger:</b> walk away if UHS refuses (a) corrective institutional record + (b) neutral verification letter.</p></div>`
+  },
+  finance: {
+    title: '💰 Financial Restitution & Islamic Economic Alignment',
+    body: `<p>Bifurcated: retrospective damages computation (for lawsuit) + forward-looking restructuring (Islamic finance protocols).</p>
+    <div class="pillar"><h4>Wealth Narrative</h4><p>Explicit rejection of "rat-race scripts" and American-Dream-by-velocity. Principled prosperity over speed.</p></div>
+    <div class="pillar"><h4>Riba Elimination</h4><p>Immediate removal of all interest from personal & business transactions.</p></div>
+    <div class="pillar"><h4>Zakat Arrears (2021–present)</h4><p>Complex back-calculation required. Must be reconciled before next phase.</p></div>
+    <div class="pillar"><h4>Bayt al-Mal Family Treasury</h4><p>Centralized welfare treasury — secures inheritances, ensures intergenerational financial compliance.</p></div>`
+  },
+  clinical: {
+    title: '🩺 Clinical Career Reactivation & Telehealth',
+    body: `<p>Categorized as a time-boxed "Experiment" so it doesn't pull executive focus from the legal filings.</p>
+    <div class="pillar"><h4>Medical Board Mitigation Packet</h4><p>Certified acquittal + Norman Spencer legal memo + treating-physician fitness letters + unified disclosure narrative (candor + rehabilitation).</p></div>
+    <div class="pillar"><h4>Track A — Traditional Employment</h4><p>3 high-signal job applications with tailored CV.</p></div>
+    <div class="pillar"><h4>Track B — NY Telehealth Practice (higher leverage)</h4><p>BAA-secured stack: <b>Doxy</b>, <b>Elation</b>, <b>AthenaOne</b>, <b>Stripe</b>. 30-day self-pay micro-offer unlocks cash flow independent of legal timeline + insurance credentialing.</p></div>
+    <div class="pillar"><h4>Expansion — Healthcare AI Startup</h4><p>Investor packet + E-2 or EB-5 visa pathway alignment.</p></div>`
+  },
+  spiritual: {
+    title: '☪️ Spiritual Discipline — The System Power Source',
+    body: `<p>Not merely belief — engineered as the foundational power source against legal/health volatility.</p>
+    <div class="pillar"><h4>Physics of Space-Time</h4><p>"Time is a coordinate within which existence is contextualized." Fajr is the psychological anchor of the waking cycle.</p></div>
+    <div class="pillar"><h4>10-Minute Morning Reset</h4><p>Fajr · ANS vagal-tone resonance breathing · Ruqyah · spaced-repetition 99 Names of Allah.</p></div>
+    <div class="pillar"><h4>Huron Inference Map</h4><p>Surah Al-Imran 3:153, 155, 165 → Fault → Slippage → Distress → Refinement → Disaster → Recalibration → Enlightenment.</p></div>
+    <div class="pillar"><h4>Hajj 2026</h4><p>Long-term anchor. Tier-2 Pillars of Practice savings roadmap.</p></div>`
+  },
+  systems: {
+    title: '🧬 Systems Architecture — RLN v2.0',
+    body: `<p>Transition from <b>11 fragmented tools → 5-tool layered architecture</b>. Mandatory for visuospatial/verbal thinkers.</p>
+    <div class="pillar"><h4>Hub & Spoke: One Source of Truth, Multiple Views</h4></div>
+    <div class="pillar"><h4>Obsidian — Neural Graph</h4><p>Local-first. Bi-directional links visually map disparate thoughts. Searchable neural network of self.</p></div>
+    <div class="pillar"><h4>Notion — Invisible Backend</h4><p>Never opened manually. Receives API payloads, runs metadata schemas, handles cross-AI deduplication.</p></div>
+    <div class="pillar"><h4>NotePlan — Execution Cockpit</h4><p>Markdown shortcuts: -[ ] tasks, -[>] scheduling. <b>3-Task Rule:</b> 1 big thing + 2 supporters per day.</p></div>
+    <div class="pillar"><h4>NotebookLM — Audio Consumption</h4><p>Audio overviews of dense legal/finance packets. Reduces eye strain.</p></div>
+    <div class="pillar"><h4>Gemini API — Reflection Parser</h4><p>Driven by Persona/Task/Context/Format prompts. Outputs YAML + SCQH + MECE.</p></div>`
+  }
+};
+function showDomain(key) {
+  const d = document.getElementById('domain-detail');
+  d.innerHTML = '<button class="close" onclick="document.getElementById(\'domain-detail\').classList.remove(\'active\')">close ✕</button><h2>' + domainContent[key].title + '</h2>' + domainContent[key].body;
+  d.classList.add('active');
+  d.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+/* MIND MAP */
+const mapData = {
+  center: { id: 'rln', label: 'RLN v2.0', x: 500, y: 300, color: '#7c9eff', r: 50 },
+  branches: [
+    { id: 'legal', label: '⚖️ Legal', x: 200, y: 130, color: 'var(--legal)', r: 42, info: 'Malicious Prosecution (92%) · FMLA (90%) · Forged probation · Sept 2026 SoL.' },
+    { id: 'finance', label: '💰 Finance', x: 820, y: 130, color: 'var(--finance)', r: 42, info: '$223,800 floor · $693K ceiling · Zakat arrears · Bayt al-Mal · Riba elimination.' },
+    { id: 'clinical', label: '🩺 Clinical', x: 870, y: 470, color: 'var(--clinical)', r: 42, info: 'Board mitigation packet · 30-day micro-offer · BAA stack · E-2/EB-5 path.' },
+    { id: 'spiritual', label: '☪️ Spiritual', x: 500, y: 540, color: 'var(--spiritual)', r: 42, info: 'Fajr anchor · Huron Map · Oaths · Hajj 2026 · 99 Names spaced repetition.' },
+    { id: 'systems', label: '🧬 Systems', x: 130, y: 470, color: 'var(--systems)', r: 42, info: 'Obsidian · Notion (invisible) · NotePlan · NotebookLM · Gemini Reflection Parser.' }
+  ],
+  leaves: [
+    { parent: 'legal', label: 'Malicious Prosec.', info: '92% confidence. SoL Sept 2026.' },
+    { parent: 'legal', label: 'FMLA Retaliation', info: '90% confidence. HR email evidence chain.' },
+    { parent: 'legal', label: 'CCTV Hold (53)', info: 'Litigation hold before server auto-purge.' },
+    { parent: 'finance', label: 'Exhibit F-Wires', info: '38 Dad wires = $223,800. Apex priority.' },
+    { parent: 'finance', label: 'Tier 1A/1B/2', info: 'Damages model. Lead with floor not ceiling.' },
+    { parent: 'finance', label: 'Zakat → 2021', info: 'Back-calculate arrears. Setup Bayt al-Mal.' },
+    { parent: 'clinical', label: 'Board Packet', info: 'Spencer memo + fitness letters + disclosure.' },
+    { parent: 'clinical', label: 'Telehealth NY', info: 'Doxy · Elation · AthenaOne · Stripe (BAA).' },
+    { parent: 'clinical', label: '3 Job Apps', info: 'Tailored CV. High-signal targets only.' },
+    { parent: 'spiritual', label: 'Daily Reset', info: '10-min: Fajr + vagal breath + Ruqyah + 99 Names.' },
+    { parent: 'spiritual', label: 'Huron Map', info: 'Fault→Slippage→Distress→Refinement→Disaster→Recal.→Enlight.' },
+    { parent: 'spiritual', label: 'Hajj 2026', info: 'Long-term anchor. Tier-2 savings roadmap.' },
+    { parent: 'systems', label: 'Gemini Parser', info: 'SCQH + MECE + YAML + RLN_ID auto-injection.' },
+    { parent: 'systems', label: 'Voice→Vault', info: 'Action Button → Cloudflare → Notion → Obsidian.' },
+    { parent: 'systems', label: '5-Tool Stack', info: 'Obsidian · Notion · NotePlan · NotebookLM · Gemini.' }
+  ]
+};
+
+(function renderMap() {
+  const svg = document.getElementById('mindmap');
+  const NS = 'http://www.w3.org/2000/svg';
+  const branchAngles = {};
+  // place leaves around each branch
+  const placedLeaves = mapData.leaves.map((leaf, i) => {
+    const parent = mapData.branches.find(b => b.id === leaf.parent);
+    if (!branchAngles[leaf.parent]) branchAngles[leaf.parent] = 0;
+    const sameParentLeaves = mapData.leaves.filter(l => l.parent === leaf.parent);
+    const idx = sameParentLeaves.indexOf(leaf);
+    // angle outward from center through parent
+    const dx = parent.x - mapData.center.x;
+    const dy = parent.y - mapData.center.y;
+    const baseAngle = Math.atan2(dy, dx);
+    const spread = 0.55;
+    const offset = (idx - (sameParentLeaves.length - 1) / 2) * spread;
+    const angle = baseAngle + offset;
+    const dist = 130;
+    return {
+      ...leaf,
+      x: parent.x + Math.cos(angle) * dist,
+      y: parent.y + Math.sin(angle) * dist,
+      color: parent.color,
+      parentRef: parent
+    };
+  });
+
+  // links: center → branches
+  mapData.branches.forEach(b => {
+    const line = document.createElementNS(NS, 'line');
+    line.setAttribute('x1', mapData.center.x);
+    line.setAttribute('y1', mapData.center.y);
+    line.setAttribute('x2', b.x);
+    line.setAttribute('y2', b.y);
+    line.setAttribute('class', 'map-link');
+    line.setAttribute('stroke', b.color);
+    line.setAttribute('stroke-width', '2');
+    line.setAttribute('opacity', '0.5');
+    svg.appendChild(line);
+  });
+
+  // links: branches → leaves
+  placedLeaves.forEach(l => {
+    const line = document.createElementNS(NS, 'line');
+    line.setAttribute('x1', l.parentRef.x);
+    line.setAttribute('y1', l.parentRef.y);
+    line.setAttribute('x2', l.x);
+    line.setAttribute('y2', l.y);
+    line.setAttribute('class', 'map-link');
+    line.setAttribute('stroke', l.color);
+    line.setAttribute('opacity', '0.35');
+    svg.appendChild(line);
+  });
+
+  // center node
+  const cg = document.createElementNS(NS, 'g');
+  cg.setAttribute('class', 'map-node');
+  const cc = document.createElementNS(NS, 'circle');
+  cc.setAttribute('cx', mapData.center.x);
+  cc.setAttribute('cy', mapData.center.y);
+  cc.setAttribute('r', mapData.center.r);
+  cc.setAttribute('fill', mapData.center.color);
+  cc.setAttribute('stroke', '#fff');
+  cc.setAttribute('stroke-width', '2');
+  cg.appendChild(cc);
+  const ct = document.createElementNS(NS, 'text');
+  ct.setAttribute('x', mapData.center.x);
+  ct.setAttribute('y', mapData.center.y + 5);
+  ct.setAttribute('text-anchor', 'middle');
+  ct.style.fontSize = '14px';
+  ct.style.fontWeight = '800';
+  ct.style.fill = '#0c0e16';
+  ct.textContent = mapData.center.label;
+  cg.appendChild(ct);
+  cg.addEventListener('click', () => showNodeDetail('Recursive Living Notebook v2.0', 'Hub of the architecture. One source of truth, multiple views. Decouples capture from organization via the Reflection Parser.'));
+  svg.appendChild(cg);
+
+  // branches
+  mapData.branches.forEach(b => {
+    const g = document.createElementNS(NS, 'g');
+    g.setAttribute('class', 'map-node');
+    const c = document.createElementNS(NS, 'circle');
+    c.setAttribute('cx', b.x);
+    c.setAttribute('cy', b.y);
+    c.setAttribute('r', b.r);
+    c.setAttribute('fill', b.color);
+    c.setAttribute('stroke', '#fff');
+    c.setAttribute('stroke-width', '1.5');
+    g.appendChild(c);
+    const t = document.createElementNS(NS, 'text');
+    t.setAttribute('x', b.x);
+    t.setAttribute('y', b.y + 5);
+    t.setAttribute('text-anchor', 'middle');
+    t.style.fill = '#0c0e16';
+    t.style.fontSize = '13px';
+    t.style.fontWeight = '700';
+    t.textContent = b.label;
+    g.appendChild(t);
+    g.addEventListener('click', () => showNodeDetail(b.label, b.info));
+    svg.appendChild(g);
+  });
+
+  // leaves
+  placedLeaves.forEach(l => {
+    const g = document.createElementNS(NS, 'g');
+    g.setAttribute('class', 'map-node');
+    const c = document.createElementNS(NS, 'circle');
+    c.setAttribute('cx', l.x);
+    c.setAttribute('cy', l.y);
+    c.setAttribute('r', 22);
+    c.setAttribute('fill', '#1a1f33');
+    c.setAttribute('stroke', l.color);
+    c.setAttribute('stroke-width', '2');
+    g.appendChild(c);
+    const t = document.createElementNS(NS, 'text');
+    t.setAttribute('x', l.x);
+    t.setAttribute('y', l.y + 38);
+    t.setAttribute('text-anchor', 'middle');
+    t.style.fill = '#e8ecf5';
+    t.style.fontSize = '11px';
+    t.style.fontWeight = '500';
+    t.textContent = l.label;
+    g.appendChild(t);
+    g.addEventListener('click', () => showNodeDetail(l.label, l.info));
+    svg.appendChild(g);
+  });
+})();
+
+function showNodeDetail(title, body) {
+  const d = document.getElementById('node-detail');
+  document.getElementById('node-title').textContent = title;
+  document.getElementById('node-body').textContent = body;
+  d.classList.add('active');
+}
+</script>
+
+</body>
+</html>
