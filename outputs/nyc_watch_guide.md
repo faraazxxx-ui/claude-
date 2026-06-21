@@ -135,6 +135,53 @@ _Standings & bracket retrieved 2026-06-21. Sources: https://en.wikipedia.org/wik
 - **Third place** (M103): Loser Match 101 vs Loser Match 102 — Sat Jul 18, 5:00 PM ET, Hard Rock Stadium, Miami
 - **Final** (M104): Winner Match 101 vs Winner Match 102 — Sun Jul 19, 3:00 PM ET, MetLife Stadium, New York/New Jersey
 
+## Where to Watch — Non-Drinker Friendly, On/Near the UES
+
+### Jones Wood Foundry — Upper East Side / Lenox Hill — 401 E 76th St (1st & York)
+- **Why it fits a non-drinker:** Full-service British gastropub (fish & chips, Sunday roasts), not a standing bar — take a table, order food + soft drinks/tea, and watch comfortably. A food-first room where not drinking is completely normal; garden seating.
+- **Best matches to watch here:** England matches (a Three Lions hangout); confirmed showing USA vs Australia and Scotland vs Morocco. Good for any marquee group or knockout game.
+- _Soccer-showing CONFIRMED — posts specific WC2026 viewing listings with Resy reservations. The most clearly confirmed UES soccer spot._
+
+### Persepolis — Upper East Side — 1407 2nd Ave (near E 73rd St)
+- **Why it fits a non-drinker:** White-tablecloth Persian restaurant (~35 yrs on the UES) — a full sit-down dining experience (kubideh kebabs, ghormeh sabzi, saffron chicken). You're here to eat, so a non-drinker fits perfectly. Founded by a former Persepolis FC goalkeeper.
+- **Best matches to watch here:** Iran matches are the natural draw. Great for a sit-down meal during any match.
+- _Soccer-showing INFERRED (featured as the Iran spot in The Infatuation's WC guide) — call ahead to confirm they'll have your specific match on._
+
+### Kaia Wine Bar — Upper East Side / Yorkville — 1446 1st Ave (near E 75th St)
+- **Why it fits a non-drinker:** Despite the name, a sit-down South African restaurant with a real food menu (the free bread with dukkah, full plates). Low-key, table service — you can eat and order non-alcoholic drinks without it being odd.
+- **Best matches to watch here:** South Africa matches; a solid neighborhood fallback for any afternoon group game.
+- _Soccer-showing INFERRED (Infatuation's South Africa spot). Alcohol is part of its identity but the food/atmosphere carry a non-drinker; confirm screens by phone._
+
+### Reichenbach Hall — Murray Hill border — 5 W 37th St (~15 min from UES on the Lexington line)
+- **Why it fits a non-drinker:** German beer hall but explicitly family-friendly (under-21s admitted) with a strong FOOD identity — giant pretzels, schnitzel, communal tables — and a full non-beer drink lineup (sodas). Join a boisterous match crowd over pretzels and a soft drink.
+- **Best matches to watch here:** Germany matches; great energy for any big knockout or the Final.
+- _Soccer-showing CONFIRMED — listed in NYC Tourism's official WC soccer-bar roundup; big-screen sports is standard._
+
+### The Jeffrey — Upper East Side / Lenox Hill edge — 311 E 60th St (near the tram)
+- **Why it fits a non-drinker:** Hybrid space with a genuine craft espresso bar serving Café Grumpy coffee + pastries by day, plus a small kitchen. The espresso program is the non-drinker hook; you can come solo to watch a game over coffee.
+- **Best matches to watch here:** Daytime/afternoon USA and big group-stage matches over a coffee; casual solo viewing.
+- _Soccer-showing INFERRED. HONEST FLAG: full name is 'Craft Beer & Bites' and it leans bar in the evening — best for daytime matches._
+
+### Football Factory at Legends — Herald Square — 6 W 33rd St (~20 min direct subway from UES)
+- **Why it fits a non-drinker:** Manhattan's premier soccer destination: ~50 screens across three levels, every WC match with sound, 30+ supporters' clubs — but it functions as a full restaurant (extensive menu, brunch), so you can sit, eat, and order soft drinks. The best place to feel a real match-day crowd without drinking.
+- **Best matches to watch here:** Everything — USA matches, the Final (Jul 19), and every marquee draw. Reserve/arrive early for big games.
+- _Soccer-showing CONFIRMED, definitively — a dedicated soccer venue. Top pick for guaranteed atmosphere._
+
+### Banter — Kips Bay / Murray Hill — 201 E 31st St (Midtown East-adjacent)
+- **Why it fits a non-drinker:** Beloved Australian-owned cafe — outstanding specialty coffee, healthy brunch, friendly vibe. The strongest pure 'coffee + food' non-drinker fit on the list; ideal for a daytime match over a flat white.
+- **Best matches to watch here:** Australia (Socceroos) matches; daytime group games.
+- _HONEST FLAG: soccer viewing at the Manhattan CAFE is UNCONFIRMED (the confirmed Banter soccer bar is in Brooklyn). Call ahead before relying on it for a match._
+
+### Sylla — East Harlem (short ride up the Lexington line from the UES)
+- **Why it fits a non-drinker:** Understated East Harlem restaurant where the food carries the visit, so non-drinking is fine. Good neighborhood/cultural energy.
+- **Best matches to watch here:** West African nations (e.g., Senegal) and general group games.
+- _Soccer-showing INFERRED (named in the Infatuation WC guide as an East Harlem watch spot); confirm screens by phone._
+
 ## Official FIFA Fan Festival / Public Screenings
 
-Official NY/NJ Host Committee hub: https://nynjfwc26.com/fan-events/ (check for the live, confirmed list). The originally announced FIFA Fan Festival at Liberty State Park (Jersey City) was reportedly scaled back; the region pivoted toward an indoor viewing operation at American Dream Mall (East Rutherford, NJ, next to MetLife) plus ~21-county NJ fan zones. Confirm the final Manhattan/NYC public-screening sites against the official hub and FIFA.com before traveling.
+**Confirmed Manhattan public screenings (closest to the UES):**
+- **Central Park — Great Lawn World Cup Final Watch Party (Jul 19):** free, ~50,000 capacity, three giant LED screens, for the Final. FREE but **lottery-ticketed** — registration opened Jun 11, lottery closes Jul 16. Great Lawn is ~79th–85th St, walkable from the UES. (governor.ny.gov; globalcitizen.org; centralparknyc.org)
+- **Rockefeller Center Fan Village (Jul 6–19):** official NY/NJ Host Committee + Telemundo; the Rink becomes a pitch, large screens carry every Round-of-16, QF, SF and the Final, free walk-up. Short ride from the UES. (nynjfwc26.com; fifa.com)
+- **UES/Yorkville neighborhood watch parties:** NYC's 100+ free walk-up parties incl. NYPL Yorkville (222 E 79th St) and Asphalt Green 'Big Kick' (555 E 90th St, Jul 18). (edc.nyc; 6sqft.com)
+
+**NJ side:** the originally announced FIFA Fan Festival at Liberty State Park was reportedly scaled back, with a pivot toward indoor viewing at American Dream Mall (East Rutherford, next to MetLife) plus ~21-county NJ fan zones. Official hub: https://nynjfwc26.com/fan-events/ — confirm details before traveling.
