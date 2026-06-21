@@ -1,0 +1,830 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Rahman//WC2026 Watch System//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:FIFA World Cup 2026
+BEGIN:VTIMEZONE
+TZID:America/New_York
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0400
+TZNAME:EDT
+DTSTART:19700308T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+TZNAME:EST
+DTSTART:19701101T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:wc2026-m036@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260621T000000
+DTEND;TZID=America/New_York:20260621T020000
+SUMMARY:🏆 Group F — Tunisia vs Japan @ Monterrey
+DESCRIPTION:Stadium: Estadio BBVA\, Monterrey\nET window: 12:00 AM ET – 2
+ :00 AM ET (Sun Jun 21)\nGroup F standings: Netherlands 4pts (1-1-0\, GD 
+ +4)\; Sweden 3pts (1-0-1\, GD -1)\; Japan 1pts (0-1-0\, GD +0)\; Tunisia
+  0pts (0-0-1\, GD -4)\n[WC2026-M036]
+LOCATION:Estadio BBVA\, Monterrey
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m037@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260621T150000
+DTEND;TZID=America/New_York:20260621T170000
+SUMMARY:🏆 Group G — Belgium vs Iran @ Los Angeles
+DESCRIPTION:Stadium: SoFi Stadium\, Los Angeles\nET window: 3:00 PM ET – 
+ 5:00 PM ET (Sun Jun 21)\nGroup G standings: Iran 1pts (0-1-0\, GD +0)\; 
+ New Zealand 1pts (0-1-0\, GD +0)\; Belgium 1pts (0-1-0\, GD +0)\; Egypt 
+ 1pts (0-1-0\, GD +0)\n[WC2026-M037]
+LOCATION:SoFi Stadium\, Los Angeles
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m038@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260621T210000
+DTEND;TZID=America/New_York:20260621T230000
+SUMMARY:🏆 Group G — New Zealand vs Egypt @ Vancouver
+DESCRIPTION:Stadium: BC Place\, Vancouver\nET window: 9:00 PM ET – 11:00 
+ PM ET (Sun Jun 21)\nGroup G standings: Iran 1pts (0-1-0\, GD +0)\; New Z
+ ealand 1pts (0-1-0\, GD +0)\; Belgium 1pts (0-1-0\, GD +0)\; Egypt 1pts 
+ (0-1-0\, GD +0)\n[WC2026-M038]
+LOCATION:BC Place\, Vancouver
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m039@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260621T120000
+DTEND;TZID=America/New_York:20260621T140000
+SUMMARY:🏆 Group H — Spain vs Saudi Arabia @ Atlanta
+DESCRIPTION:Stadium: Mercedes-Benz Stadium\, Atlanta\nET window: 12:00 PM
+  ET – 2:00 PM ET (Sun Jun 21)\nGroup H standings: Saudi Arabia 1pts (0-1
+ -0\, GD +0)\; Uruguay 1pts (0-1-0\, GD +0)\; Spain 1pts (0-1-0\, GD +0)\
+ ; Cape Verde 1pts (0-1-0\, GD +0)\n[WC2026-M039]
+LOCATION:Mercedes-Benz Stadium\, Atlanta
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m040@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260621T180000
+DTEND;TZID=America/New_York:20260621T200000
+SUMMARY:🏆 Group H — Uruguay vs Cape Verde @ Miami
+DESCRIPTION:Stadium: Hard Rock Stadium\, Miami\nET window: 6:00 PM ET – 8
+ :00 PM ET (Sun Jun 21)\nGroup H standings: Saudi Arabia 1pts (0-1-0\, GD
+  +0)\; Uruguay 1pts (0-1-0\, GD +0)\; Spain 1pts (0-1-0\, GD +0)\; Cape 
+ Verde 1pts (0-1-0\, GD +0)\n[WC2026-M040]
+LOCATION:Hard Rock Stadium\, Miami
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m041@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260622T170000
+DTEND;TZID=America/New_York:20260622T190000
+SUMMARY:🏆 Group I — France vs Iraq @ Philadelphia
+DESCRIPTION:Stadium: Lincoln Financial Field\, Philadelphia\nET window: 5
+ :00 PM ET – 7:00 PM ET (Mon Jun 22)\nGroup I standings: Norway 3pts (1-0
+ -0\, GD +3)\; France 3pts (1-0-0\, GD +2)\; Senegal 0pts (0-0-1\, GD -2)
+ \; Iraq 0pts (0-0-1\, GD -3)\n[WC2026-M041]
+LOCATION:Lincoln Financial Field\, Philadelphia
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m042@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260622T200000
+DTEND;TZID=America/New_York:20260622T220000
+SUMMARY:🏆 Group I — Norway vs Senegal @ New York/New Jersey
+DESCRIPTION:Stadium: MetLife Stadium\, New York/New Jersey\nET window: 8:
+ 00 PM ET – 10:00 PM ET (Mon Jun 22)\nGroup I standings: Norway 3pts (1-0
+ -0\, GD +3)\; France 3pts (1-0-0\, GD +2)\; Senegal 0pts (0-0-1\, GD -2)
+ \; Iraq 0pts (0-0-1\, GD -3)\n📍 Local to you (NY/NJ).\n[WC2026-M042]
+LOCATION:MetLife Stadium\, New York/New Jersey
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m043@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260622T130000
+DTEND;TZID=America/New_York:20260622T150000
+SUMMARY:🏆 Group J — Argentina vs Austria @ Dallas
+DESCRIPTION:Stadium: AT&T Stadium\, Dallas\nET window: 1:00 PM ET – 3:00 
+ PM ET (Mon Jun 22)\nGroup J standings: Argentina 3pts (1-0-0\, GD +3)\; 
+ Austria 3pts (1-0-0\, GD +2)\; Jordan 0pts (0-0-1\, GD -2)\; Algeria 0pt
+ s (0-0-1\, GD -3)\n[WC2026-M043]
+LOCATION:AT&T Stadium\, Dallas
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m044@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260622T230000
+DTEND;TZID=America/New_York:20260623T010000
+SUMMARY:🏆 Group J — Jordan vs Algeria @ San Francisco Bay
+DESCRIPTION:Stadium: Levi's Stadium\, San Francisco Bay\nET window: 11:00
+  PM ET – 1:00 AM ET (Mon Jun 22)\nGroup J standings: Argentina 3pts (1-0
+ -0\, GD +3)\; Austria 3pts (1-0-0\, GD +2)\; Jordan 0pts (0-0-1\, GD -2)
+ \; Algeria 0pts (0-0-1\, GD -3)\n[WC2026-M044]
+LOCATION:Levi's Stadium\, San Francisco Bay
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m045@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260623T130000
+DTEND;TZID=America/New_York:20260623T150000
+SUMMARY:🏆 Group K — Portugal vs Uzbekistan @ Houston
+DESCRIPTION:Stadium: NRG Stadium\, Houston\nET window: 1:00 PM ET – 3:00 
+ PM ET (Tue Jun 23)\nGroup K standings: Colombia 3pts (1-0-0\, GD +2)\; P
+ ortugal 1pts (0-1-0\, GD +0)\; DR Congo 1pts (0-1-0\, GD +0)\; Uzbekista
+ n 0pts (0-0-1\, GD -2)\n[WC2026-M045]
+LOCATION:NRG Stadium\, Houston
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m046@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260623T220000
+DTEND;TZID=America/New_York:20260624T000000
+SUMMARY:🏆 Group K — Colombia vs DR Congo @ Guadalajara
+DESCRIPTION:Stadium: Estadio Akron\, Guadalajara\nET window: 10:00 PM ET 
+ – 12:00 AM ET (Tue Jun 23)\nGroup K standings: Colombia 3pts (1-0-0\, GD
+  +2)\; Portugal 1pts (0-1-0\, GD +0)\; DR Congo 1pts (0-1-0\, GD +0)\; U
+ zbekistan 0pts (0-0-1\, GD -2)\n[WC2026-M046]
+LOCATION:Estadio Akron\, Guadalajara
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m047@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260623T160000
+DTEND;TZID=America/New_York:20260623T180000
+SUMMARY:🏆 Group L — England vs Ghana @ Boston
+DESCRIPTION:Stadium: Gillette Stadium\, Boston\nET window: 4:00 PM ET – 6
+ :00 PM ET (Tue Jun 23)\nGroup L standings: England 3pts (1-0-0\, GD +2)\
+ ; Ghana 3pts (1-0-0\, GD +1)\; Croatia 0pts (0-0-1\, GD -2)\; Panama 0pt
+ s (0-0-1\, GD -1)\n[WC2026-M047]
+LOCATION:Gillette Stadium\, Boston
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m048@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260623T190000
+DTEND;TZID=America/New_York:20260623T210000
+SUMMARY:🏆 Group L — Panama vs Croatia @ Toronto
+DESCRIPTION:Stadium: BMO Field\, Toronto\nET window: 7:00 PM ET – 9:00 PM
+  ET (Tue Jun 23)\nGroup L standings: England 3pts (1-0-0\, GD +2)\; Ghan
+ a 3pts (1-0-0\, GD +1)\; Croatia 0pts (0-0-1\, GD -2)\; Panama 0pts (0-0
+ -1\, GD -1)\n[WC2026-M048]
+LOCATION:BMO Field\, Toronto
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m049@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260624T210000
+DTEND;TZID=America/New_York:20260624T230000
+SUMMARY:🏆 Group A — Czechia vs Mexico @ Mexico City
+DESCRIPTION:Stadium: Estadio Azteca\, Mexico City\nET window: 9:00 PM ET 
+ – 11:00 PM ET (Wed Jun 24)\nGroup A standings: Mexico 6pts (2-0-0\, GD +
+ 3)\; South Korea 3pts (1-0-1\, GD +0)\; Czechia 1pts (0-1-1\, GD -1)\; S
+ outh Africa 1pts (0-1-1\, GD -2)\n[WC2026-M049]
+LOCATION:Estadio Azteca\, Mexico City
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m050@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260624T210000
+DTEND;TZID=America/New_York:20260624T230000
+SUMMARY:🏆 Group A — South Africa vs South Korea @ Monterrey
+DESCRIPTION:Stadium: Estadio BBVA\, Monterrey\nET window: 9:00 PM ET – 11
+ :00 PM ET (Wed Jun 24)\nGroup A standings: Mexico 6pts (2-0-0\, GD +3)\;
+  South Korea 3pts (1-0-1\, GD +0)\; Czechia 1pts (0-1-1\, GD -1)\; South
+  Africa 1pts (0-1-1\, GD -2)\n[WC2026-M050]
+LOCATION:Estadio BBVA\, Monterrey
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m051@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260624T150000
+DTEND;TZID=America/New_York:20260624T170000
+SUMMARY:🏆 Group B — Switzerland vs Canada @ Vancouver
+DESCRIPTION:Stadium: BC Place\, Vancouver\nET window: 3:00 PM ET – 5:00 P
+ M ET (Wed Jun 24)\nGroup B standings: Canada 4pts (1-1-0\, GD +6)\; Swit
+ zerland 4pts (1-1-0\, GD +3)\; Qatar 1pts (0-1-1\, GD -6)\; Bosnia and H
+ erzegovina 1pts (0-1-1\, GD -3)\n[WC2026-M051]
+LOCATION:BC Place\, Vancouver
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m052@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260624T150000
+DTEND;TZID=America/New_York:20260624T170000
+SUMMARY:🏆 Group B — Bosnia and Herzegovina vs Qatar @ Seattle
+DESCRIPTION:Stadium: Lumen Field\, Seattle\nET window: 3:00 PM ET – 5:00 
+ PM ET (Wed Jun 24)\nGroup B standings: Canada 4pts (1-1-0\, GD +6)\; Swi
+ tzerland 4pts (1-1-0\, GD +3)\; Qatar 1pts (0-1-1\, GD -6)\; Bosnia and 
+ Herzegovina 1pts (0-1-1\, GD -3)\n[WC2026-M052]
+LOCATION:Lumen Field\, Seattle
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m053@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260625T160000
+DTEND;TZID=America/New_York:20260625T180000
+SUMMARY:🏆 Group E — Ecuador vs Germany @ New York/New Jersey
+DESCRIPTION:Stadium: MetLife Stadium\, New York/New Jersey\nET window: 4:
+ 00 PM ET – 6:00 PM ET (Thu Jun 25)\nGroup E standings: Germany 6pts (2-0
+ -0\, GD +7)\; Ivory Coast 3pts (1-0-1\, GD +0)\; Ecuador 1pts (0-1-1\, G
+ D -1)\; Curaçao 1pts (0-1-1\, GD -6)\n📍 Local to you (NY/NJ).\n[WC2026-M
+ 053]
+LOCATION:MetLife Stadium\, New York/New Jersey
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m054@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260625T160000
+DTEND;TZID=America/New_York:20260625T180000
+SUMMARY:🏆 Group E — Curaçao vs Ivory Coast @ Philadelphia
+DESCRIPTION:Stadium: Lincoln Financial Field\, Philadelphia\nET window: 4
+ :00 PM ET – 6:00 PM ET (Thu Jun 25)\nGroup E standings: Germany 6pts (2-
+ 0-0\, GD +7)\; Ivory Coast 3pts (1-0-1\, GD +0)\; Ecuador 1pts (0-1-1\, 
+ GD -1)\; Curaçao 1pts (0-1-1\, GD -6)\n[WC2026-M054]
+LOCATION:Lincoln Financial Field\, Philadelphia
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m055@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260625T190000
+DTEND;TZID=America/New_York:20260625T210000
+SUMMARY:🏆 Group F — Japan vs Sweden @ Dallas
+DESCRIPTION:Stadium: AT&T Stadium\, Dallas\nET window: 7:00 PM ET – 9:00 
+ PM ET (Thu Jun 25)\nGroup F standings: Netherlands 4pts (1-1-0\, GD +4)\
+ ; Sweden 3pts (1-0-1\, GD -1)\; Japan 1pts (0-1-0\, GD +0)\; Tunisia 0pt
+ s (0-0-1\, GD -4)\n[WC2026-M055]
+LOCATION:AT&T Stadium\, Dallas
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m056@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260625T190000
+DTEND;TZID=America/New_York:20260625T210000
+SUMMARY:🏆 Group F — Tunisia vs Netherlands @ Kansas City
+DESCRIPTION:Stadium: Arrowhead Stadium\, Kansas City\nET window: 7:00 PM 
+ ET – 9:00 PM ET (Thu Jun 25)\nGroup F standings: Netherlands 4pts (1-1-0
+ \, GD +4)\; Sweden 3pts (1-0-1\, GD -1)\; Japan 1pts (0-1-0\, GD +0)\; T
+ unisia 0pts (0-0-1\, GD -4)\n[WC2026-M056]
+LOCATION:Arrowhead Stadium\, Kansas City
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m057@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260625T220000
+DTEND;TZID=America/New_York:20260626T000000
+SUMMARY:🏆 Group D — Türkiye vs United States @ Los Angeles
+DESCRIPTION:Stadium: SoFi Stadium\, Los Angeles\nET window: 10:00 PM ET –
+  12:00 AM ET (Thu Jun 25)\nGroup D standings: United States 6pts (2-0-0\
+ , GD +5)\; Australia 3pts (1-0-1\, GD +0)\; Paraguay 3pts (1-0-1\, GD -2
+ )\; Türkiye 0pts (0-0-2\, GD -3)\n[WC2026-M057]
+LOCATION:SoFi Stadium\, Los Angeles
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m058@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260625T220000
+DTEND;TZID=America/New_York:20260626T000000
+SUMMARY:🏆 Group D — Paraguay vs Australia @ San Francisco Bay
+DESCRIPTION:Stadium: Levi's Stadium\, San Francisco Bay\nET window: 10:00
+  PM ET – 12:00 AM ET (Thu Jun 25)\nGroup D standings: United States 6pts
+  (2-0-0\, GD +5)\; Australia 3pts (1-0-1\, GD +0)\; Paraguay 3pts (1-0-1
+ \, GD -2)\; Türkiye 0pts (0-0-2\, GD -3)\n[WC2026-M058]
+LOCATION:Levi's Stadium\, San Francisco Bay
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m059@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260626T230000
+DTEND;TZID=America/New_York:20260627T010000
+SUMMARY:🏆 Group G — Egypt vs Iran @ Seattle
+DESCRIPTION:Stadium: Lumen Field\, Seattle\nET window: 11:00 PM ET – 1:00
+  AM ET (Fri Jun 26)\nGroup G standings: Iran 1pts (0-1-0\, GD +0)\; New 
+ Zealand 1pts (0-1-0\, GD +0)\; Belgium 1pts (0-1-0\, GD +0)\; Egypt 1pts
+  (0-1-0\, GD +0)\n[WC2026-M059]
+LOCATION:Lumen Field\, Seattle
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m060@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260626T230000
+DTEND;TZID=America/New_York:20260627T010000
+SUMMARY:🏆 Group G — New Zealand vs Belgium @ Vancouver
+DESCRIPTION:Stadium: BC Place\, Vancouver\nET window: 11:00 PM ET – 1:00 
+ AM ET (Fri Jun 26)\nGroup G standings: Iran 1pts (0-1-0\, GD +0)\; New Z
+ ealand 1pts (0-1-0\, GD +0)\; Belgium 1pts (0-1-0\, GD +0)\; Egypt 1pts 
+ (0-1-0\, GD +0)\n[WC2026-M060]
+LOCATION:BC Place\, Vancouver
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m061@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260626T200000
+DTEND;TZID=America/New_York:20260626T220000
+SUMMARY:🏆 Group H — Cape Verde vs Saudi Arabia @ Houston
+DESCRIPTION:Stadium: NRG Stadium\, Houston\nET window: 8:00 PM ET – 10:00
+  PM ET (Fri Jun 26)\nGroup H standings: Saudi Arabia 1pts (0-1-0\, GD +0
+ )\; Uruguay 1pts (0-1-0\, GD +0)\; Spain 1pts (0-1-0\, GD +0)\; Cape Ver
+ de 1pts (0-1-0\, GD +0)\n[WC2026-M061]
+LOCATION:NRG Stadium\, Houston
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m062@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260626T200000
+DTEND;TZID=America/New_York:20260626T220000
+SUMMARY:🏆 Group H — Uruguay vs Spain @ Guadalajara
+DESCRIPTION:Stadium: Estadio Akron\, Guadalajara\nET window: 8:00 PM ET –
+  10:00 PM ET (Fri Jun 26)\nGroup H standings: Saudi Arabia 1pts (0-1-0\,
+  GD +0)\; Uruguay 1pts (0-1-0\, GD +0)\; Spain 1pts (0-1-0\, GD +0)\; Ca
+ pe Verde 1pts (0-1-0\, GD +0)\n[WC2026-M062]
+LOCATION:Estadio Akron\, Guadalajara
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m063@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260626T150000
+DTEND;TZID=America/New_York:20260626T170000
+SUMMARY:🏆 Group I — Norway vs France @ Boston
+DESCRIPTION:Stadium: Gillette Stadium\, Boston\nET window: 3:00 PM ET – 5
+ :00 PM ET (Fri Jun 26)\nGroup I standings: Norway 3pts (1-0-0\, GD +3)\;
+  France 3pts (1-0-0\, GD +2)\; Senegal 0pts (0-0-1\, GD -2)\; Iraq 0pts 
+ (0-0-1\, GD -3)\n[WC2026-M063]
+LOCATION:Gillette Stadium\, Boston
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m064@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260626T150000
+DTEND;TZID=America/New_York:20260626T170000
+SUMMARY:🏆 Group I — Senegal vs Iraq @ Toronto
+DESCRIPTION:Stadium: BMO Field\, Toronto\nET window: 3:00 PM ET – 5:00 PM
+  ET (Fri Jun 26)\nGroup I standings: Norway 3pts (1-0-0\, GD +3)\; Franc
+ e 3pts (1-0-0\, GD +2)\; Senegal 0pts (0-0-1\, GD -2)\; Iraq 0pts (0-0-1
+ \, GD -3)\n[WC2026-M064]
+LOCATION:BMO Field\, Toronto
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m065@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260627T193000
+DTEND;TZID=America/New_York:20260627T213000
+SUMMARY:🏆 Group K — Colombia vs Portugal @ Miami
+DESCRIPTION:Stadium: Hard Rock Stadium\, Miami\nET window: 7:30 PM ET – 9
+ :30 PM ET (Sat Jun 27)\nGroup K standings: Colombia 3pts (1-0-0\, GD +2)
+ \; Portugal 1pts (0-1-0\, GD +0)\; DR Congo 1pts (0-1-0\, GD +0)\; Uzbek
+ istan 0pts (0-0-1\, GD -2)\n[WC2026-M065]
+LOCATION:Hard Rock Stadium\, Miami
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m066@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260627T193000
+DTEND;TZID=America/New_York:20260627T213000
+SUMMARY:🏆 Group K — DR Congo vs Uzbekistan @ Atlanta
+DESCRIPTION:Stadium: Mercedes-Benz Stadium\, Atlanta\nET window: 7:30 PM 
+ ET – 9:30 PM ET (Sat Jun 27)\nGroup K standings: Colombia 3pts (1-0-0\, 
+ GD +2)\; Portugal 1pts (0-1-0\, GD +0)\; DR Congo 1pts (0-1-0\, GD +0)\;
+  Uzbekistan 0pts (0-0-1\, GD -2)\n[WC2026-M066]
+LOCATION:Mercedes-Benz Stadium\, Atlanta
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m067@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260627T170000
+DTEND;TZID=America/New_York:20260627T190000
+SUMMARY:🏆 Group L — Panama vs England @ New York/New Jersey
+DESCRIPTION:Stadium: MetLife Stadium\, New York/New Jersey\nET window: 5:
+ 00 PM ET – 7:00 PM ET (Sat Jun 27)\nGroup L standings: England 3pts (1-0
+ -0\, GD +2)\; Ghana 3pts (1-0-0\, GD +1)\; Croatia 0pts (0-0-1\, GD -2)\
+ ; Panama 0pts (0-0-1\, GD -1)\n📍 Local to you (NY/NJ).\n[WC2026-M067]
+LOCATION:MetLife Stadium\, New York/New Jersey
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m068@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260627T170000
+DTEND;TZID=America/New_York:20260627T190000
+SUMMARY:🏆 Group L — Croatia vs Ghana @ Philadelphia
+DESCRIPTION:Stadium: Lincoln Financial Field\, Philadelphia\nET window: 5
+ :00 PM ET – 7:00 PM ET (Sat Jun 27)\nGroup L standings: England 3pts (1-
+ 0-0\, GD +2)\; Ghana 3pts (1-0-0\, GD +1)\; Croatia 0pts (0-0-1\, GD -2)
+ \; Panama 0pts (0-0-1\, GD -1)\n[WC2026-M068]
+LOCATION:Lincoln Financial Field\, Philadelphia
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m069@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260627T220000
+DTEND;TZID=America/New_York:20260628T000000
+SUMMARY:🏆 Group J — Algeria vs Austria @ Kansas City
+DESCRIPTION:Stadium: Arrowhead Stadium\, Kansas City\nET window: 10:00 PM
+  ET – 12:00 AM ET (Sat Jun 27)\nGroup J standings: Argentina 3pts (1-0-0
+ \, GD +3)\; Austria 3pts (1-0-0\, GD +2)\; Jordan 0pts (0-0-1\, GD -2)\;
+  Algeria 0pts (0-0-1\, GD -3)\n[WC2026-M069]
+LOCATION:Arrowhead Stadium\, Kansas City
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m070@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260627T220000
+DTEND;TZID=America/New_York:20260628T000000
+SUMMARY:🏆 Group J — Jordan vs Argentina @ Dallas
+DESCRIPTION:Stadium: AT&T Stadium\, Dallas\nET window: 10:00 PM ET – 12:0
+ 0 AM ET (Sat Jun 27)\nGroup J standings: Argentina 3pts (1-0-0\, GD +3)\
+ ; Austria 3pts (1-0-0\, GD +2)\; Jordan 0pts (0-0-1\, GD -2)\; Algeria 0
+ pts (0-0-1\, GD -3)\n[WC2026-M070]
+LOCATION:AT&T Stadium\, Dallas
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m071@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260624T180000
+DTEND;TZID=America/New_York:20260624T200000
+SUMMARY:🏆 Group C — Scotland vs Brazil @ Miami
+DESCRIPTION:Stadium: Hard Rock Stadium\, Miami\nET window: 6:00 PM ET – 8
+ :00 PM ET (Wed Jun 24)\nGroup C standings: Brazil 4pts (1-1-0\, GD +3)\;
+  Morocco 4pts (1-1-0\, GD +1)\; Scotland 3pts (1-0-1\, GD +0)\; Haiti 0p
+ ts (0-0-2\, GD -4)\n[WC2026-M071]
+LOCATION:Hard Rock Stadium\, Miami
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m072@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260624T180000
+DTEND;TZID=America/New_York:20260624T200000
+SUMMARY:🏆 Group C — Morocco vs Haiti @ Atlanta
+DESCRIPTION:Stadium: Mercedes-Benz Stadium\, Atlanta\nET window: 6:00 PM 
+ ET – 8:00 PM ET (Wed Jun 24)\nGroup C standings: Brazil 4pts (1-1-0\, GD
+  +3)\; Morocco 4pts (1-1-0\, GD +1)\; Scotland 3pts (1-0-1\, GD +0)\; Ha
+ iti 0pts (0-0-2\, GD -4)\n[WC2026-M072]
+LOCATION:Mercedes-Benz Stadium\, Atlanta
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m073@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260628T150000
+DTEND;TZID=America/New_York:20260628T173000
+SUMMARY:🏆 Round of 32 — Runner-up Group A vs Runner-up Group B @ Los Ange
+ les
+DESCRIPTION:Stadium: SoFi Stadium\, Los Angeles\nET window: 3:00 PM ET – 
+ 5:30 PM ET (Sun Jun 28)\nKnockout stage — teams set once group/previous-
+ round results are in.\n[WC2026-M073]
+LOCATION:SoFi Stadium\, Los Angeles
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m074@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260629T163000
+DTEND;TZID=America/New_York:20260629T190000
+SUMMARY:🏆 Round of 32 — Winner Group E vs 3rd Group A/B/C/D/F @ Boston
+DESCRIPTION:Stadium: Gillette Stadium\, Boston\nET window: 4:30 PM ET – 7
+ :00 PM ET (Mon Jun 29)\nKnockout stage — teams set once group/previous-r
+ ound results are in.\n[WC2026-M074]
+LOCATION:Gillette Stadium\, Boston
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m075@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260629T210000
+DTEND;TZID=America/New_York:20260629T233000
+SUMMARY:🏆 Round of 32 — Winner Group F vs Runner-up Group C @ Monterrey
+DESCRIPTION:Stadium: Estadio BBVA\, Monterrey\nET window: 9:00 PM ET – 11
+ :30 PM ET (Mon Jun 29)\nKnockout stage — teams set once group/previous-r
+ ound results are in.\n[WC2026-M075]
+LOCATION:Estadio BBVA\, Monterrey
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m076@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260629T130000
+DTEND;TZID=America/New_York:20260629T153000
+SUMMARY:🏆 Round of 32 — Winner Group C vs Runner-up Group F @ Houston
+DESCRIPTION:Stadium: NRG Stadium\, Houston\nET window: 1:00 PM ET – 3:30 
+ PM ET (Mon Jun 29)\nKnockout stage — teams set once group/previous-round
+  results are in.\n[WC2026-M076]
+LOCATION:NRG Stadium\, Houston
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m077@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260630T170000
+DTEND;TZID=America/New_York:20260630T193000
+SUMMARY:🏆 Round of 32 — Winner Group I vs 3rd Group C/D/F/G/H @ New York/
+ New Jersey
+DESCRIPTION:Stadium: MetLife Stadium\, New York/New Jersey\nET window: 5:
+ 00 PM ET – 7:30 PM ET (Tue Jun 30)\nKnockout stage — teams set once grou
+ p/previous-round results are in.\n📍 Local to you (NY/NJ).\n[WC2026-M077]
+LOCATION:MetLife Stadium\, New York/New Jersey
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m078@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260630T130000
+DTEND;TZID=America/New_York:20260630T153000
+SUMMARY:🏆 Round of 32 — Runner-up Group E vs Runner-up Group I @ Dallas
+DESCRIPTION:Stadium: AT&T Stadium\, Dallas\nET window: 1:00 PM ET – 3:30 
+ PM ET (Tue Jun 30)\nKnockout stage — teams set once group/previous-round
+  results are in.\n[WC2026-M078]
+LOCATION:AT&T Stadium\, Dallas
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m079@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260630T210000
+DTEND;TZID=America/New_York:20260630T233000
+SUMMARY:🏆 Round of 32 — Winner Group A vs 3rd Group C/E/F/H/I @ Mexico Ci
+ ty
+DESCRIPTION:Stadium: Estadio Azteca\, Mexico City\nET window: 9:00 PM ET 
+ – 11:30 PM ET (Tue Jun 30)\nKnockout stage — teams set once group/previo
+ us-round results are in.\n[WC2026-M079]
+LOCATION:Estadio Azteca\, Mexico City
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m080@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260701T120000
+DTEND;TZID=America/New_York:20260701T143000
+SUMMARY:🏆 Round of 32 — Winner Group L vs 3rd Group E/H/I/J/K @ Atlanta
+DESCRIPTION:Stadium: Mercedes-Benz Stadium\, Atlanta\nET window: 12:00 PM
+  ET – 2:30 PM ET (Wed Jul 1)\nKnockout stage — teams set once group/prev
+ ious-round results are in.\n[WC2026-M080]
+LOCATION:Mercedes-Benz Stadium\, Atlanta
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m081@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260701T200000
+DTEND;TZID=America/New_York:20260701T223000
+SUMMARY:🏆 Round of 32 — Winner Group D vs 3rd Group B/E/F/I/J @ San Franc
+ isco Bay
+DESCRIPTION:Stadium: Levi's Stadium\, San Francisco Bay\nET window: 8:00 
+ PM ET – 10:30 PM ET (Wed Jul 1)\nKnockout stage — teams set once group/p
+ revious-round results are in.\n[WC2026-M081]
+LOCATION:Levi's Stadium\, San Francisco Bay
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m082@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260701T160000
+DTEND;TZID=America/New_York:20260701T183000
+SUMMARY:🏆 Round of 32 — Winner Group G vs 3rd Group A/E/H/I/J @ Seattle
+DESCRIPTION:Stadium: Lumen Field\, Seattle\nET window: 4:00 PM ET – 6:30 
+ PM ET (Wed Jul 1)\nKnockout stage — teams set once group/previous-round 
+ results are in.\n[WC2026-M082]
+LOCATION:Lumen Field\, Seattle
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m083@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260702T190000
+DTEND;TZID=America/New_York:20260702T213000
+SUMMARY:🏆 Round of 32 — Runner-up Group K vs Runner-up Group L @ Toronto
+DESCRIPTION:Stadium: BMO Field\, Toronto\nET window: 7:00 PM ET – 9:30 PM
+  ET (Thu Jul 2)\nKnockout stage — teams set once group/previous-round re
+ sults are in.\n[WC2026-M083]
+LOCATION:BMO Field\, Toronto
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m084@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260702T150000
+DTEND;TZID=America/New_York:20260702T173000
+SUMMARY:🏆 Round of 32 — Winner Group H vs Runner-up Group J @ Los Angeles
+DESCRIPTION:Stadium: SoFi Stadium\, Los Angeles\nET window: 3:00 PM ET – 
+ 5:30 PM ET (Thu Jul 2)\nKnockout stage — teams set once group/previous-r
+ ound results are in.\n[WC2026-M084]
+LOCATION:SoFi Stadium\, Los Angeles
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m085@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260702T230000
+DTEND;TZID=America/New_York:20260703T013000
+SUMMARY:🏆 Round of 32 — Winner Group B vs 3rd Group E/F/G/I/J @ Vancouver
+DESCRIPTION:Stadium: BC Place\, Vancouver\nET window: 11:00 PM ET – 1:30 
+ AM ET (Thu Jul 2)\nKnockout stage — teams set once group/previous-round 
+ results are in.\n[WC2026-M085]
+LOCATION:BC Place\, Vancouver
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m086@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260703T180000
+DTEND;TZID=America/New_York:20260703T203000
+SUMMARY:🏆 Round of 32 — Winner Group J vs Runner-up Group H @ Miami
+DESCRIPTION:Stadium: Hard Rock Stadium\, Miami\nET window: 6:00 PM ET – 8
+ :30 PM ET (Fri Jul 3)\nKnockout stage — teams set once group/previous-ro
+ und results are in.\n[WC2026-M086]
+LOCATION:Hard Rock Stadium\, Miami
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m087@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260703T213000
+DTEND;TZID=America/New_York:20260704T000000
+SUMMARY:🏆 Round of 32 — Winner Group K vs 3rd Group D/E/I/J/L @ Kansas Ci
+ ty
+DESCRIPTION:Stadium: Arrowhead Stadium\, Kansas City\nET window: 9:30 PM 
+ ET – 12:00 AM ET (Fri Jul 3)\nKnockout stage — teams set once group/prev
+ ious-round results are in.\n[WC2026-M087]
+LOCATION:Arrowhead Stadium\, Kansas City
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m088@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260703T140000
+DTEND;TZID=America/New_York:20260703T163000
+SUMMARY:🏆 Round of 32 — Runner-up Group D vs Runner-up Group G @ Dallas
+DESCRIPTION:Stadium: AT&T Stadium\, Dallas\nET window: 2:00 PM ET – 4:30 
+ PM ET (Fri Jul 3)\nKnockout stage — teams set once group/previous-round 
+ results are in.\n[WC2026-M088]
+LOCATION:AT&T Stadium\, Dallas
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m089@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260704T170000
+DTEND;TZID=America/New_York:20260704T193000
+SUMMARY:🏆 Round of 16 — Winner Match 74 vs Winner Match 77 @ Philadelphia
+DESCRIPTION:Stadium: Lincoln Financial Field\, Philadelphia\nET window: 5
+ :00 PM ET – 7:30 PM ET (Sat Jul 4)\nKnockout stage — teams set once grou
+ p/previous-round results are in.\n[WC2026-M089]
+LOCATION:Lincoln Financial Field\, Philadelphia
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m090@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260704T130000
+DTEND;TZID=America/New_York:20260704T153000
+SUMMARY:🏆 Round of 16 — Winner Match 73 vs Winner Match 75 @ Houston
+DESCRIPTION:Stadium: NRG Stadium\, Houston\nET window: 1:00 PM ET – 3:30 
+ PM ET (Sat Jul 4)\nKnockout stage — teams set once group/previous-round 
+ results are in.\n[WC2026-M090]
+LOCATION:NRG Stadium\, Houston
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m091@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260705T160000
+DTEND;TZID=America/New_York:20260705T183000
+SUMMARY:🏆 Round of 16 — Winner Match 76 vs Winner Match 78 @ New York/New
+  Jersey
+DESCRIPTION:Stadium: MetLife Stadium\, New York/New Jersey\nET window: 4:
+ 00 PM ET – 6:30 PM ET (Sun Jul 5)\nKnockout stage — teams set once group
+ /previous-round results are in.\n📍 Local to you (NY/NJ).\n[WC2026-M091]
+LOCATION:MetLife Stadium\, New York/New Jersey
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m092@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260705T200000
+DTEND;TZID=America/New_York:20260705T223000
+SUMMARY:🏆 Round of 16 — Winner Match 79 vs Winner Match 80 @ Mexico City
+DESCRIPTION:Stadium: Estadio Azteca\, Mexico City\nET window: 8:00 PM ET 
+ – 10:30 PM ET (Sun Jul 5)\nKnockout stage — teams set once group/previou
+ s-round results are in.\n[WC2026-M092]
+LOCATION:Estadio Azteca\, Mexico City
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m093@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260706T150000
+DTEND;TZID=America/New_York:20260706T173000
+SUMMARY:🏆 Round of 16 — Winner Match 83 vs Winner Match 84 @ Dallas
+DESCRIPTION:Stadium: AT&T Stadium\, Dallas\nET window: 3:00 PM ET – 5:30 
+ PM ET (Mon Jul 6)\nKnockout stage — teams set once group/previous-round 
+ results are in.\n[WC2026-M093]
+LOCATION:AT&T Stadium\, Dallas
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m094@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260706T200000
+DTEND;TZID=America/New_York:20260706T223000
+SUMMARY:🏆 Round of 16 — Winner Match 81 vs Winner Match 82 @ Seattle
+DESCRIPTION:Stadium: Lumen Field\, Seattle\nET window: 8:00 PM ET – 10:30
+  PM ET (Mon Jul 6)\nKnockout stage — teams set once group/previous-round
+  results are in.\n[WC2026-M094]
+LOCATION:Lumen Field\, Seattle
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m095@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260707T120000
+DTEND;TZID=America/New_York:20260707T143000
+SUMMARY:🏆 Round of 16 — Winner Match 86 vs Winner Match 88 @ Atlanta
+DESCRIPTION:Stadium: Mercedes-Benz Stadium\, Atlanta\nET window: 12:00 PM
+  ET – 2:30 PM ET (Tue Jul 7)\nKnockout stage — teams set once group/prev
+ ious-round results are in.\n[WC2026-M095]
+LOCATION:Mercedes-Benz Stadium\, Atlanta
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m096@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260707T160000
+DTEND;TZID=America/New_York:20260707T183000
+SUMMARY:🏆 Round of 16 — Winner Match 85 vs Winner Match 87 @ Vancouver
+DESCRIPTION:Stadium: BC Place\, Vancouver\nET window: 4:00 PM ET – 6:30 P
+ M ET (Tue Jul 7)\nKnockout stage — teams set once group/previous-round r
+ esults are in.\n[WC2026-M096]
+LOCATION:BC Place\, Vancouver
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m097@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260709T160000
+DTEND;TZID=America/New_York:20260709T183000
+SUMMARY:🏆 Quarter-final — Winner Match 89 vs Winner Match 90 @ Boston
+DESCRIPTION:Stadium: Gillette Stadium\, Boston\nET window: 4:00 PM ET – 6
+ :30 PM ET (Thu Jul 9)\nKnockout stage — teams set once group/previous-ro
+ und results are in.\n[WC2026-M097]
+LOCATION:Gillette Stadium\, Boston
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m098@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260710T150000
+DTEND;TZID=America/New_York:20260710T173000
+SUMMARY:🏆 Quarter-final — Winner Match 93 vs Winner Match 94 @ Los Angele
+ s
+DESCRIPTION:Stadium: SoFi Stadium\, Los Angeles\nET window: 3:00 PM ET – 
+ 5:30 PM ET (Fri Jul 10)\nKnockout stage — teams set once group/previous-
+ round results are in.\n[WC2026-M098]
+LOCATION:SoFi Stadium\, Los Angeles
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m099@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260711T170000
+DTEND;TZID=America/New_York:20260711T193000
+SUMMARY:🏆 Quarter-final — Winner Match 91 vs Winner Match 92 @ Miami
+DESCRIPTION:Stadium: Hard Rock Stadium\, Miami\nET window: 5:00 PM ET – 7
+ :30 PM ET (Sat Jul 11)\nKnockout stage — teams set once group/previous-r
+ ound results are in.\n[WC2026-M099]
+LOCATION:Hard Rock Stadium\, Miami
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m100@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260711T210000
+DTEND;TZID=America/New_York:20260711T233000
+SUMMARY:🏆 Quarter-final — Winner Match 95 vs Winner Match 96 @ Kansas Cit
+ y
+DESCRIPTION:Stadium: Arrowhead Stadium\, Kansas City\nET window: 9:00 PM 
+ ET – 11:30 PM ET (Sat Jul 11)\nKnockout stage — teams set once group/pre
+ vious-round results are in.\n[WC2026-M100]
+LOCATION:Arrowhead Stadium\, Kansas City
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m101@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260714T150000
+DTEND;TZID=America/New_York:20260714T173000
+SUMMARY:🏆 Semi-final — Winner Match 97 vs Winner Match 98 @ Dallas
+DESCRIPTION:Stadium: AT&T Stadium\, Dallas\nET window: 3:00 PM ET – 5:30 
+ PM ET (Tue Jul 14)\nKnockout stage — teams set once group/previous-round
+  results are in.\n[WC2026-M101]
+LOCATION:AT&T Stadium\, Dallas
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m102@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260715T150000
+DTEND;TZID=America/New_York:20260715T173000
+SUMMARY:🏆 Semi-final — Winner Match 99 vs Winner Match 100 @ Atlanta
+DESCRIPTION:Stadium: Mercedes-Benz Stadium\, Atlanta\nET window: 3:00 PM 
+ ET – 5:30 PM ET (Wed Jul 15)\nKnockout stage — teams set once group/prev
+ ious-round results are in.\n[WC2026-M102]
+LOCATION:Mercedes-Benz Stadium\, Atlanta
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m103@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260718T170000
+DTEND;TZID=America/New_York:20260718T193000
+SUMMARY:🏆 Third place — Loser Match 101 vs Loser Match 102 @ Miami
+DESCRIPTION:Stadium: Hard Rock Stadium\, Miami\nET window: 5:00 PM ET – 7
+ :30 PM ET (Sat Jul 18)\nKnockout stage — teams set once group/previous-r
+ ound results are in.\n[WC2026-M103]
+LOCATION:Hard Rock Stadium\, Miami
+END:VEVENT
+BEGIN:VEVENT
+UID:wc2026-m104@rahman
+DTSTAMP:20260621T040000Z
+DTSTART;TZID=America/New_York:20260719T150000
+DTEND;TZID=America/New_York:20260719T173000
+SUMMARY:🏆 Final — Winner Match 101 vs Winner Match 102 @ New York/New Jer
+ sey
+DESCRIPTION:Stadium: MetLife Stadium\, New York/New Jersey\nET window: 3:
+ 00 PM ET – 5:30 PM ET (Sun Jul 19)\nKnockout stage — teams set once grou
+ p/previous-round results are in.\n📍 Local to you (NY/NJ).\n[WC2026-M104]
+LOCATION:MetLife Stadium\, New York/New Jersey
+END:VEVENT
+END:VCALENDAR
