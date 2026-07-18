@@ -38,6 +38,50 @@ If you finished residency in 2024, the single biggest shift is that **the incret
 
 ---
 
+## Concept map — how the pieces connect
+
+*Reading guide: the top cluster is the single idea most of this update hangs on — the heart, kidney, liver, sleep, and vasculature behave as one **cardiorenal-metabolic organ**, so drugs that correct the shared upstream drivers (incretins, SGLT2 inhibitors, finerenone) protect all of them at once. The bottom cluster holds the other recurring conceptual **hubs** you'll see cross-referenced throughout the domain sections. This renders as a diagram on GitHub / in the pull request; a plain phone markdown viewer may show it as code.*
+
+```mermaid
+flowchart TB
+  subgraph CRM["The cardiorenal-metabolic unit — treat one axis, protect many organs"]
+    direction TB
+    OB["Obesity as a set-point disease"]
+    INFL["Systemic microvascular inflammation"]
+    NH["Neurohormonal / aldosterone (MR) activation"]
+    OB --> INFL
+    NH --> INFL
+  end
+
+  INCRETIN["Incretins: GLP-1 / GIP-GLP-1"]
+  SGLT2["SGLT2 inhibitors"]
+  FIN["Finerenone (nonsteroidal MRA)"]
+
+  INCRETIN -->|resets set-point, anti-inflammatory| OB
+  FIN -->|anti-fibrotic MR blockade| NH
+  SGLT2 -->|metabolic + hemodynamic| INFL
+
+  INFL --> HEART["Heart: HFpEF, ASCVD"]
+  INFL --> KIDNEY["Kidney: CKD"]
+  INFL --> LIVER["Liver: MASH"]
+  INFL --> SLEEP["Sleep: OSA"]
+  INFL --> VASC["Vessels: PAD"]
+
+  subgraph HUBS["Recurring conceptual hubs (cross-referenced across the domains)"]
+    direction TB
+    HEMO["Hemostasis vs thrombosis: factor XI blocks pathologic clot but spares bleeding"]
+    SURR["Surrogates are IOUs: histology, albuminuria, AHI, LDL/Lp(a) = accelerated-approval bets"]
+    AMY["Amyloid: association to modest causation; ARIA (edema/microbleed, APOE e4) is the cost"]
+    DX["Diagnostics move from anatomy to molecules; Bayes / pretest probability governs value"]
+    LESS["'Less is more' has a clock: time-to-benefit vs life expectancy"]
+  end
+
+  INFL -. shared logic .-> SURR
+  DX -.-> AMY
+```
+
+---
+
 ## 1. High-yield practice update list (ranked)
 
 Each: topic — one-line bottom line — why it matters — confidence — immediate action/caution.
