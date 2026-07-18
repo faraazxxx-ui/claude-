@@ -4,6 +4,10 @@
 **Task type:** Evidence synthesis / literature review (not code)
 **Optimized:** 2026-07-18
 
+> **Recommended version:** a compressed, red-teamed **v2** now lives at the bottom of this file under
+> "Compressed ideal prompt (v2 — recommended)." It supersedes the v1 below for general Claude Code use
+> while keeping the iOS-friendly output rules. The v1 prompt and its rationale are kept for provenance.
+
 ---
 
 ## How to use this
@@ -108,3 +112,71 @@ DONE CONDITIONS (self-check before you finish)
 | 11 | **"Comprehensive but not exhaustive" boundary** moved to top of file with named limits | Buried in style rules | Sets honest scope up front and tells the agent to declare any unavailable connector rather than silently skipping it |
 
 **One caveat:** the quality of the run depends on the connectors actually being enabled in your iOS workspace. If PubMed/ClinicalTrials/Scite are not connected, the prompt tells the agent to say so and fall back to web search — but you will get a stronger, better-cited review if you confirm those connectors are on before you start.
+
+---
+
+# Compressed ideal prompt (v2 — recommended)
+
+This version was produced by red-teaming both the original prompt and v1 above, then compressing. It is
+roughly half the length of the original, loses no required deliverable, and adds the four things that
+actually determine output quality on Claude Code: real tool use, real-and-un-retracted citations,
+autonomous completion, and output that survives both the response limit and a phone screen.
+
+**Before running:** if PubMed / Scite / ClinicalTrials.gov are not authorized in your workspace, authorize
+them first (claude.ai connector settings) or the agent will fall back to web search and the citations will
+be thinner.
+
+```
+ROLE: Internal-medicine evidence synthesist + red-team reviewer, running as an autonomous Claude Code agent.
+
+GOAL: A practical, well-cited internal-medicine update for Jan 1 2024 - Jul 18 2026, for a 2024 residency grad and a mixed-expertise clinical audience. CME/awareness only, not patient advice. Depth between an NEJM review and StatPearls - rigorous but readable and listenable.
+
+RUN AUTONOMOUSLY: Don't stop to ask me. Show your plan first, then execute the loop and keep a visible task list: SCOPE -> SEARCH -> TRIAGE -> MAP -> SYNTHESIZE -> RED-TEAM -> REVISE.
+
+EVIDENCE RULES (non-negotiable):
+- Tools, not memory. Every fact, number, date, and citation must come from a source you retrieve THIS session. If you can't retrieve it, write "not retrieved" - never invent effect sizes, CIs, or IDs.
+- Best connector per source: PubMed for primary literature (capture PMID+DOI); ClinicalTrials.gov for trial design/endpoints (NCT id); Scite to confirm each citation is real AND check for retractions/corrections before relying on it; web search+fetch for guidelines/regulators/journals (AHA/ACC, ADA, KDIGO, GOLD, ATS/IDSA, ACG/AGA, USPSTF, ACP, CDC, FDA, WHO; NEJM/JAMA/Lancet/BMJ/Annals). If a connector is missing or unauthorized, say so and fall back to web search.
+- Label every item: source type (RCT/meta-analysis/observational/guideline/consensus/regulatory/review/safety-signal/emerging); confidence (high/mod/low + one-line reason); hard outcome vs surrogate; guideline change vs single study. When evidence conflicts, say so and give the practical takeaway. Flag preliminary/industry-funded/preprint items. State "comprehensive but not exhaustive" and name the boundary.
+
+TRIAGE by: bedside impact, breadth for general IM, evidence strength, guideline endorsement, safety, encounter frequency, effect magnitude, controversy. Drop noise and narrow-subspecialty items.
+
+OUTPUT: write the full report to internal_medicine_update.md; print sections 0-1 inline so I can read them on my phone. Order:
+0. Executive summary: biggest practice-changing themes; what to update first; genuinely new vs better-emphasized; what's still uncertain.
+1. High-yield updates, ranked - each: topic / one-line bottom line / why it matters / confidence / immediate action or caution.
+2. Ideation map (nested bullets by clinical force, not chronology): cardiorenal-metabolic; prevention/screening/vaccines; hospital medicine & transitions; ID & stewardship; pulm/critical-care/sleep; GI/hepatology; heme-onc for GIM; rheum/immunology; neurology for the internist; geriatrics/palliative/deprescribing; pharmacology/safety/high-value care; digital health/AI/diagnostics.
+3. Domain reviews - for each branch above, 4 tight lines: Bottom line / What changed (with citations) / Evidence snapshot (type, population, outcome, key limitation) / Action-caution + confidence.
+4. Cross-domain patterns - each: pattern / domains / evidence basis / practical meaning / overinterpretation risk.
+5. Forward hypotheses (table): hypothesis / support / counter-evidence / what would change it / implication if true.
+6. Buckets: practice-changing now / reinforcing / promising-not-ready / controversial / watch list / don't overinterpret.
+7. Spoken briefing: a 2-3 minute read-aloud summary of ONLY the top ~10 items - conversational, no new uncited claims. NOT a re-narration of the whole report.
+8. Self red-team: likely omissions, overemphasis, weakest evidence, guideline-vs-trial gaps, surrogate overuse, industry/US-centric bias, missing harms/cost/access/equity, and whether it is genuinely listenable.
+9. Evidence table (very bottom of file): Domain / Topic / Source-Year / Type / Population / Key finding / Effect-outcome (or "not retrieved") / Implication / Confidence / Limitation / PMID-DOI-link.
+
+STYLE: rigorous but plain; synthesis over bibliography; short paragraphs; no hidden reasoning; include harms/cost/access/equity where relevant. If the report is long, keep writing to the file across turns until 0-9 are complete, then confirm done and give the filename.
+```
+
+## Red-team: original vs v1 vs v2
+
+| Failure axis | Original | iOS-optimized v1 | Fixed in v2 |
+|---|---|---|---|
+| Instruction bloat | Severe — rules restated 3× across evidence/style/done-conditions | Reduced, still long | One "Evidence rules" block; ~40% shorter |
+| Output-volume / truncation | Unmanaged — 14 domains × 7 subheads + full listening re-narration + 3 wide tables overflows one response and truncates silently | Partly mitigated (file output) | File output + explicit "keep writing across turns until complete" |
+| Listening-version waste | Re-narrates the entire review → ~doubles output | Same flaw kept | Cut to top-10 spoken briefing, not a re-narration |
+| Redundant tables | Tables B and C duplicate the buckets and red-team sections | Kept all three | Folded B/C into §6 and §8; one evidence table remains |
+| Tool orchestration | Absent — risks memory-only answers | Added | Retained, tightened |
+| Real-citation / retraction check | Not enforced (hallucinated DOIs) | Retraction check added | + "confirm each citation is real" |
+| Autonomy / plan-first | Absent | Added | Retained |
+| Graceful connector fallback | None | Added | Retained |
+| Vague "11 readers" | Unactionable noise | Preserved | Dropped → "mixed-expertise audience" |
+| Per-domain depth | 7 subheads × 14 domains | Preserved | 4 tight lines/domain; "explain out loud" merged into §7 |
+| Mobile readability | Not considered; 11-col tables scroll off-screen | Handled | Retained |
+
+## What compression removed, and why it is safe
+
+| Removed / merged | Rationale |
+|---|---|
+| Duplicate rule blocks | Pure repetition; one statement follows better than three |
+| Full audio re-narration | Doubled length; a top-10 spoken briefing serves the verbal-thinker goal without duplicating the doc |
+| Tables B and C | Their content already lives in the buckets (§6) and self-red-team (§8) |
+| Per-domain "Why it matters" + "How I'd explain out loud" | Merged into the bottom line and the single spoken briefing |
+| "11 readers" | Unactionable; replaced with a real audience descriptor |
