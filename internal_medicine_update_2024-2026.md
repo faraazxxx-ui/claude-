@@ -152,89 +152,80 @@ Each: topic — one-line bottom line — why it matters — confidence — immed
 
 ### 3.1 Cardiovascular
 
-**Bottom line.** Metabolic drugs are now cardiovascular drugs; a new BP guideline modernizes risk-based treatment; and two "anti-inflammatory" bets (colchicine, spironolactone) failed after MI.
+**Bottom line.** Metabolic drugs are now cardiovascular drugs; a new BP guideline makes risk-calculator-driven treatment official; and two "anti-inflammatory" bets (colchicine, spironolactone) failed after MI.
 
-**What changed.** SELECT proved a GLP-1 RA prevents MACE in obesity *without* diabetes. SUMMIT and FINEARTS-HF brought tirzepatide and finerenone into HFpEF/HFmrEF. The **2025 AHA/ACC hypertension guideline** replaced the 2017 version: <130/80 target retained (with **encouragement to reach SBP <120**), **PREVENT** risk equations introduced (replacing the pooled cohort equations and **recalibrating the high-risk treatment threshold from 10% to ≥7.5%**), SBP <130 endorsed to lower dementia risk, single-pill combinations and home BP emphasized, plus new guidance on resistant HTN and renal denervation. Baxdrostat (aldosterone synthase inhibitor) lowered BP in resistant HTN. Bempedoic acid's benefit per unit LDL matched statins. Colchicine and spironolactone each failed after MI (CLEAR SYNERGY/OASIS-9).
+**The concept.** Start with one idea and most of this section falls out of it: *the heart is a downstream organ of a systemic metabolic-inflammatory axis* — the cardiovascular-kidney-metabolic (CKM) unit (`established`; AHA advisory, Ndumele 2023, PMID 37807924). Visceral and epicardial fat aren't inert padding; they're an endocrine-inflammatory organ that raises IL-6/TNF, activates the mineralocorticoid receptor, and inflames the coronary microvasculature. That reframes HFpEF: in the obese phenotype it's less a "pump" problem than **systemic microvascular inflammation → less endothelial nitric oxide → low myocardial cGMP/PKG → titin stays stiff → a ventricle that won't relax** (`established/mechanistic`; Paulus–Tschöpe, PMID 23684677). Once you see that, three headlines become the *same* story attacked at different nodes: tirzepatide unloads the inflamed adipose driver (→ §3.2), finerenone blocks the mineralocorticoid-receptor fibro-inflammatory arm (→ §3.3), and both land in HFpEF for the same reason SGLT2 inhibitors do. GLP-1 receptor agonists then protect the heart through genuinely *pleiotropic* actions — weight loss **plus** direct anti-inflammatory, endothelial, blood-pressure and probably natriuretic effects — not through glucose (`established`; the exact weight-*independent* share is still `plausible-proposed`; Ussher & Drucker, PMID 36977782).
 
-**Why it matters.** The internist's cardiovascular toolkit expands "upstream" (obesity, inflammation pathways that did/didn't pan out) and the hypertension workflow is formally risk-calculator-driven.
+Now the counter-current, because it's just as instructive: inflammation is real but **pathway- and context-specific**. IL-1β→IL-6→CRP is a validated causal axis (CANTOS proved blocking IL-1β cuts events independent of lipids; `established`, PMID 28845751), yet colchicine's *broad* anti-inflammatory effect failed after acute MI — CRP fell but events didn't. Hold that contradiction; it's the seed of a hub you'll meet again in rheumatology (§3.8): *inflammation is a target, not a magic word — you have to hit the right node.* And bempedoic acid quietly re-confirms the oldest axiom: benefit tracks the *magnitude* of LDL lowering, not the molecule (per-mmol/L reduction ≈ statins) — LDL is the rare surrogate that has fully paid its IOU (contrast the surrogates that haven't, §3.6/§3.13).
 
-**Evidence snapshot.**
-- SELECT: RCT, 17,604 with ASCVD + overweight/obesity, no diabetes; MACE 6.5% vs 8.0%, **HR 0.80 (0.72–0.90)**; limitation: 16.6% discontinued semaglutide for AEs. (Lincoff, *NEJM* 2023; PMID 37952131; DOI 10.1056/NEJMoa2307563.)
-- FINEARTS-HF: RCT, 6,001 HF with LVEF ≥40%; total worsening-HF + CV death **RR 0.84 (0.74–0.95)**; more hyperkalemia. (Solomon, *NEJM* 2024; PMID 39225278; DOI 10.1056/NEJMoa2407107.)
-- SUMMIT: RCT, 731 obese HFpEF; composite **HR 0.62 (0.41–0.95)**; small/short. *Caveat (2nd-pass audit):* the composite was driven by the worsening-HF component (incl. outpatient diuretic intensification); CV death alone numerically favored placebo (HR 1.58) — a symptom/HF-event benefit, not a mortality signal. (Packer, *NEJM* 2024; PMID 39555826; DOI 10.1056/NEJMoa2410027.)
-- CLEAR SYNERGY/OASIS-9 colchicine: RCT, 7,062 post-MI; primary composite **9.1% vs 9.3%, HR 0.99 (0.85–1.16)**; more diarrhea; CRP fell (surrogate) but no clinical benefit. Spironolactone arm also null. (Jolly, *NEJM* 2024; PMID 39555823 / 39555814; DOI 10.1056/NEJMoa2405922 / 10.1056/NEJMoa2405923.)
-- BaxHTN: RCT, 796 uncontrolled/resistant HTN; placebo-corrected SBP **−9.8 mm Hg** (2 mg); K⁺ >6.0 in ~3%. (*NEJM* 2025; PMID 40888730; DOI 10.1056/NEJMoa2507109.)
-- Bempedoic (CLEAR Outcomes analysis): major vascular events **HR 0.85 (0.77–0.94)**; per-1-mmol/L LDL HR ~0.75, comparable to statins. (*JACC* 2024; PMID 38960508; DOI 10.1016/j.jacc.2024.04.048.)
+**What changed & the evidence.**
+- SELECT — GLP-1 RA prevents MACE in obesity *without* diabetes: RCT, 17,604 with ASCVD + overweight/obesity, no diabetes; MACE 6.5% vs 8.0%, **HR 0.80 (0.72–0.90)**; 16.6% discontinued semaglutide for AEs. (*NEJM* 2023; PMID 37952131.)
+- FINEARTS-HF — finerenone into HFmrEF/HFpEF: RCT, 6,001, LVEF ≥40%; worsening-HF + CV death **RR 0.84 (0.74–0.95)**; more hyperkalemia. (*NEJM* 2024; PMID 39225278.)
+- SUMMIT — tirzepatide in obese HFpEF: RCT, 731; composite **HR 0.62 (0.41–0.95)**. *Caveat:* driven by the worsening-HF component (incl. outpatient diuretic intensification); CV death numerically favored placebo (HR 1.58) — a symptom/HF-event benefit, not a mortality signal. (*NEJM* 2024; PMID 39555826.)
+- 2025 AHA/ACC hypertension guideline: <130/80 (encourages SBP <120), **PREVENT** replaces the pooled cohort equations (high-risk threshold recalibrated 10%→≥7.5%), SBP <130 for dementia risk, single-pill combos, resistant-HTN/renal-denervation guidance. (DOI 10.1161/HYP.0000000000000249.)
+- CLEAR SYNERGY/OASIS-9 — colchicine null post-MI: RCT, 7,062; composite **9.1% vs 9.3%, HR 0.99 (0.85–1.16)**; CRP fell but no benefit; spironolactone arm also null. (*NEJM* 2024; PMID 39555823 / 39555814.)
+- BaxHTN — baxdrostat (aldosterone synthase inhibitor) in resistant HTN: placebo-corrected SBP **−9.8 mm Hg**; K⁺ >6.0 in ~3%. (*NEJM* 2025; PMID 40888730.)
+- Bempedoic acid (CLEAR Outcomes analysis): major vascular events **HR 0.85 (0.77–0.94)**; per-1-mmol/L LDL ≈ statins. (*JACC* 2024; PMID 38960508.)
 
-**How I would explain this out loud.** "We used to reach for these weight and diabetes drugs to move a number. Now they move outcomes — fewer heart attacks, fewer heart-failure hospitalizations — even in people without diabetes. And the flip side: the trendy anti-inflammatory pill after a heart attack, colchicine, just didn't pan out in the big trial."
+**Clinical action or caution.** Adopt PREVENT-based BP decisions; match GLP-1/GIP and finerenone to the cardiac phenotype (obese HFpEF, ASCVD); watch potassium with finerenone; **stop reflexively adding colchicine after MI.**
 
-**Clinical action or caution.** Adopt PREVENT-based BP decisions; consider GLP-1/GIP and finerenone for the right cardiac phenotypes; watch potassium with finerenone; **stop reflexively adding colchicine after MI.**
-
-**Confidence.** High across the flagship trials and the guideline.
+**Confidence.** High across the flagship trials and the guideline; the CKM/HFpEF mechanistic framing is well-supported but still maturing.
 
 ---
 
 ### 3.2 Endocrine – diabetes – obesity
 
-**Bottom line.** Incretin therapy is the center of gravity; ADA now recommends organ-protective agents earlier; obesity is framed as a chronic disease with real trade-offs (muscle loss, regain, cost).
+**Bottom line.** Incretins are the center of gravity; ADA now sequences by organ risk, not A1c; and obesity is finally treated as the chronic, relapsing, biologically-defended disease it is.
 
-**What changed.** Oral semaglutide showed CV benefit (SOUL). Tirzepatide beat semaglutide for weight loss head-to-head (SURMOUNT-5). ADA **Standards of Care 2025/2026** push GLP-1/SGLT2 for cardiorenal indications and MASLD, integrate finerenone, and (2026) favor earlier GLP-1/SGLT2 from diagnosis. Teplizumab data matured (delays/limits type 1 progression). Safety/quality nuances: ~25–34% of incretin weight loss is lean mass, ~10% regain within a year off-drug, and a hypothesis-generating **semaglutide–NAION** ocular signal appeared.
+**The concept.** The unlock is **obesity as a set-point disorder.** The hypothalamus defends a fat-mass "set-point," and conscious calorie restriction triggers counter-regulation — hunger up, energy expenditure down — that drags weight back to the defended level (`established`; Endocrine Society statement, Schwartz/Seeley, PMID 28898979). That single idea explains the whole incretin phenomenon. These drugs work *at the control system* — GLP-1/GIP signaling lowers the defended set-point instead of relying on willpower — which is why the effect is so large. It also predicts the two big caveats, so they stop being surprises: **stop the drug and the set-point reasserts itself**, so ~two-thirds of the weight returns (STEP-1 extension; `established`, PMID 35441470) → this is chronic therapy, not a course; and because you're shrinking a defended body, ~25–34% of the loss is lean mass (obligatory with any large weight loss; blunted by protein + resistance training) (`established/plausible`; Tinsley & Heymsfield, PMID 39372917).
 
-**Why it matters.** Sequencing now starts with "does this patient need organ protection?" rather than "what's the A1c?"
+Everything else here is this class *spilling over its banks* into the CKM axis (§3.1, §3.3): oral semaglutide now has a CV-outcome win (SOUL), the class improves PAD walking (STRIDE) and liver histology (§3.6), and ADA's 2025/2026 Standards formally sequence by comorbidity — "does this patient need organ protection?" precedes the glucose number. Teplizumab is the conceptual outlier worth keeping: an anti-CD3 antibody that *delays* type 1 diabetes by blunting the autoimmune β-cell attack — proof that immunomodulation can bend a disease's natural history (its new-onset data are only surrogate, C-peptide).
 
-**Evidence snapshot.**
-- SOUL: RCT, 9,650 high-risk T2D; MACE 12.0% vs 13.8%, **HR 0.86 (0.77–0.96)**. (*NEJM* 2025; PMID 40162642; DOI 10.1056/NEJMoa2501006.)
-- SURMOUNT-5 (head-to-head; via US cost-effectiveness modeling): tirzepatide produced greater weight loss and was cost-saving vs semaglutide — industry-funded model, surrogate/economic. (*J Med Econ* 2026; PMID 42012820; DOI 10.1080/13696998.2026.2646078.)
-- STRIDE (PAD): RCT, 792 with PAD + T2D; max walking distance ratio **1.13 (1.06–1.21)** — functional surrogate. (*Lancet* 2025; PMID 40169145; DOI 10.1016/S0140-6736(25)00509-4.)
-- Teplizumab PROTECT (new-onset T1D): RCT, 328; C-peptide preserved (surrogate); secondary clinical endpoints not significant. (*NEJM* 2023; PMID 37861217; DOI 10.1056/NEJMoa2308743.)
-- Muscle/regain: STEP/SURMOUNT body-composition analyses (lean-mass fraction of loss ~25–34%; function preserved); ~10% regain/yr after stopping (secondary web sources; observational).
-- NAION signal: retrospective matched cohort, single center; T2D **HR 4.28 (1.62–11.29)** — referral bias, causality unproven. (*JAMA Ophthalmol* 2024; PMID 38958939; DOI 10.1001/jamaophthalmol.2024.2296.)
+**What changed & the evidence.**
+- SOUL — oral semaglutide CV benefit: RCT, 9,650 high-risk T2D; MACE 12.0% vs 13.8%, **HR 0.86 (0.77–0.96)**. (*NEJM* 2025; PMID 40162642.)
+- SURMOUNT-5 — tirzepatide > semaglutide for weight loss (head-to-head; here via a US cost-effectiveness model — industry-funded/surrogate). (*J Med Econ* 2026; PMID 42012820.)
+- STRIDE — semaglutide improves PAD walking distance, ratio **1.13 (1.06–1.21)** (functional surrogate). (*Lancet* 2025; PMID 40169145.)
+- Teplizumab PROTECT (new-onset T1D): C-peptide preserved (surrogate); clinical secondaries NS. (*NEJM* 2023; PMID 37861217.) *(The stage-2 delay indication rests on the earlier Herold trial.)*
+- Mechanistic grounding: set-point (PMID 28898979), regain (PMID 35441470), lean-mass loss (PMID 39372917).
+- Semaglutide–NAION: single-center retrospective cohort, **HR 4.28 (1.62–11.29)** in T2D — referral bias, causality unproven (`speculative`). (*JAMA Ophthalmol* 2024; PMID 38958939.)
 
-**How I would explain this out loud.** "These drugs are now first-line for protecting the heart and kidneys, not an afterthought once sugars are high. But they're not free lunch — you lose some muscle, the weight tends to come back if you stop, and there are cost and supply headaches."
+**Clinical action or caution.** Choose by comorbidity (CKD, ASCVD, HFpEF, MASLD); protect muscle with protein + resistance training; frame it as chronic therapy and pre-empt the regain conversation; keep the (unconfirmed) NAION signal in mind for sudden vision loss.
 
-**Clinical action or caution.** Choose the agent by comorbidity (CKD, ASCVD, HFpEF, MASLD); pair with resistance exercise/protein; counsel on chronic-therapy expectation and regain; note the (unconfirmed) NAION signal if a patient reports sudden vision loss.
-
-**Confidence.** High for outcome trials; Moderate for economic/head-to-head modeling; Low–Moderate for NAION.
+**Confidence.** High for outcome trials; Moderate for head-to-head/economic modeling; Low–Moderate for NAION.
 
 ---
 
 ### 3.3 Nephrology (and cardiorenal-metabolic convergence)
 
-**Bottom line.** Diabetic kidney disease now has overlapping pillars — RAS blockade + SGLT2i + GLP-1 RA + finerenone — and KDIGO 2024 operationalizes them.
+**Bottom line.** Diabetic kidney disease now has four overlapping, additive pillars — RAS blockade + SGLT2i + GLP-1 RA + finerenone — and KDIGO 2024 makes starting them the internist's job.
 
-**What changed.** FLOW established semaglutide's kidney and mortality benefit in T2D CKD. CONFIDENCE showed finerenone + empagliflozin started together reduces albuminuria more than either alone. **KDIGO 2024** recommends SGLT2i for T2D+CKD down to eGFR ≥20 (continue below), emphasizes cystatin-C-augmented eGFR, statins, and point-of-care albumin/creatinine to close access gaps.
+**The concept.** The kidney is the clearest proof that these drugs share **final common pathways**, so their benefits stack rather than duplicate. RAS blockade drops intraglomerular pressure; SGLT2 inhibitors restore tubuloglomerular feedback (which is *why* both cause an early, benign eGFR "dip" — hemodynamic and reversible, not injury); GLP-1 RAs add anti-inflammatory, anti-atherosclerotic and probably natriuretic effects (→ §3.2); and finerenone blocks the mineralocorticoid receptor's **inflammatory and pro-fibrotic** program in kidney and heart. That last point is the conceptual key to why a *nonsteroidal* MRA earns a seat beside the others: it targets the MR's tissue fibro-inflammatory arm more than aldosterone's classic salt-and-water role, with a different tissue distribution and a more favorable hyperkalemia profile than spironolactone (`established/mechanistic`; Agarwal & Kolkhof, PMID 33099609). Four drugs, four mechanisms, one organ — the CKM axis (§3.1) seen from the nephron.
 
-**Why it matters.** "Kidney protection" is now a multi-drug, additive strategy an internist can start — not a nephrology-only decision.
+The 2024–2026 news is mostly that framework getting *operationalized*: FLOW gave the GLP-1 pillar a hard-outcome kidney trial (and even lowered mortality); CONFIDENCE showed you can start finerenone + SGLT2 *together* (their potassium effects partly cancel); KDIGO 2024 pushed SGLT2 initiation down to eGFR ≥20 and leaned on cystatin-C-based eGFR for decisions. The trap to name out loud: albuminuria is a **surrogate** — an excellent one, but still an IOU (§3.6/§3.13) — so CONFIDENCE's UACR win is a strong signal, not yet a hard-outcome guarantee.
 
-**Evidence snapshot.**
-- FLOW: RCT, 3,533 T2D+CKD; major kidney events **HR 0.76 (0.66–0.88)**; all-cause death **HR 0.80 (0.67–0.95)**; stopped early for efficacy. (*NEJM* 2024; PMID 38785209; DOI 10.1056/NEJMoa2403347.)
-- CONFIDENCE: RCT, ~800 T2D+CKD+albuminuria; UACR reduction 29–32% greater with combination — **surrogate** (albuminuria), 180-day. (*NEJM* 2025; PMID 40470996; DOI 10.1056/NEJMoa2410659.)
-- KDIGO 2024 guideline (SGLT2i eGFR ≥20; cystatin C; statins). (kdigo.org/wp-content/uploads/2024/03/KDIGO-2024-CKD-Guideline.pdf)
+**What changed & the evidence.**
+- FLOW — semaglutide in T2D CKD: RCT, 3,533; major kidney events **HR 0.76 (0.66–0.88)**; all-cause death **HR 0.80 (0.67–0.95)**; stopped early for efficacy. (*NEJM* 2024; PMID 38785209.)
+- CONFIDENCE — finerenone + empagliflozin started together: UACR reduction 29–32% greater than either alone (**surrogate**, 180-day). (*NEJM* 2025; PMID 40470996.)
+- KDIGO 2024 — SGLT2i to eGFR ≥20, cystatin-C-augmented eGFR, statins, point-of-care ACR. (kdigo.org 2024 CKD guideline.)
 
-**How I would explain this out loud.** "For diabetic kidney disease we now stack protections — the ACE inhibitor, the SGLT2, a GLP-1, and finerenone — each one shaving off risk. Expect an early, harmless dip in eGFR when you start them; that's the drug working, not failing."
+**Clinical action or caution.** Layer the pillars; warn patients (and yourself) that the initial eGFR dip is the drug working; monitor potassium with finerenone; use cystatin C when a creatinine-only eGFR is decision-borderline.
 
-**Clinical action or caution.** Layer agents; anticipate the initial eGFR "dip"; monitor potassium with finerenone; use cystatin C when creatinine eGFR is borderline for decisions.
-
-**Confidence.** High (FLOW, KDIGO); Moderate for combination (surrogate endpoint).
+**Confidence.** High (FLOW, KDIGO); Moderate for the combination (surrogate endpoint).
 
 ---
 
 ### 3.4 Pulmonary – critical care – sleep
 
-**Bottom line.** COPD got its first biologic and a more inflammation-guided GOLD; OSA got a drug; critical-care steroid/fluid practice consolidated.
+**Bottom line.** COPD got its first biologic (and a more inflammation-guided GOLD), OSA got a drug, and both are the "treat the underlying biology" theme reaching the lung.
 
-**What changed.** Dupilumab reduced exacerbations in COPD with type-2 inflammation (eos ≥300) — BOREAS/NOTUS — and **GOLD 2025** adds dupilumab to triple therapy for that phenotype, formalizes eosinophil-guided escalation (ICS if eos ≥100), and adds a cardiovascular-risk section (high CV/death risk in the week after an exacerbation). Tirzepatide reduced apnea-hypopnea index in obese OSA (SURMOUNT-OSA; FDA-approved for OSA Dec 2024). Corticosteroids for severe CAP (CAPE-COD, 2023) remain reinforcing context.
+**The concept.** COPD is finally being split by **endotype**, the way asthma was two decades ago. A subset of COPD is driven by type-2 (eosinophilic) inflammation, and in *that* subset — not COPD at large — blocking IL-4/IL-13 signaling with dupilumab cuts exacerbations. The blood eosinophil count is the readout that says "this patient's inflammation is corticosteroid/biologic-responsive," which is exactly why GOLD now escalates to inhaled steroids around eos ≥100 and reserves the biologic for eos ≥300 with chronic bronchitis (`established`, phenotype-directed therapy). OSA teaches the same lesson from a different door: in the obese patient, apnea is substantially a *mechanical consequence of adiposity* (peripharyngeal fat, reduced lung volume, blunted ventilatory drive), so unloading the adipose driver with tirzepatide (→ §3.2) lowers the apnea count — obesity medicine spilling into sleep medicine. Keep the honest ceiling in view: AHI is a **surrogate** (§3.6 hub), and this is an adjunct to, not a replacement for, PAP. On the critical-care side, the throughline is *modulate the host response without overshooting* — steroids help in severe CAP by damping a harmful inflammatory surge, but the field keeps relearning that more (fluid, oxygen) isn't better.
 
-**Why it matters.** COPD management becomes phenotype-driven (eosinophils, chronic bronchitis), and obesity treatment is now part of OSA care.
+**What changed & the evidence.**
+- Dupilumab in eosinophilic COPD (pooled BOREAS+NOTUS): RCT, 1,874, eos ≥300 on triple therapy; exacerbation in **36.0% vs 42.1%** of patients, annualized rate ↓ ~30%; GOLD 2025 incorporates it. (*Lancet Respir Med* 2025; PMID 39900091.)
+- SURMOUNT-OSA — tirzepatide in obese OSA: two RCTs; AHI **−20 to −24 events/hr vs placebo** (surrogate); FDA-approved for OSA Dec 20, 2024. (*NEJM* 2024; PMID 38912654.)
+- Context: severe-CAP corticosteroids (CAPE-COD, 2023) reinforce host-modulation.
 
-**Evidence snapshot.**
-- Dupilumab COPD (pooled BOREAS+NOTUS): RCT, 1,874 with eos ≥300 on triple therapy; moderate/severe exacerbation in **36.0% vs 42.1%** of patients, annualized rate significantly reduced (~30%). (*Lancet Respir Med* 2025; PMID 39900091; DOI 10.1016/S2213-2600(24)00409-0.)
-- SURMOUNT-OSA: two RCTs, obese moderate-severe OSA; AHI change **−20 to −24 events/hr vs placebo** (P<0.001) — surrogate (AHI), 52 wk. (*NEJM* 2024; PMID 38912654; DOI 10.1056/NEJMoa2404881.)
-- GOLD 2025 report (goldcopd.org key-changes).
-
-**How I would explain this out loud.** "If your COPD patient keeps flaring despite the three inhalers and their eosinophils are up, there's now a biologic. And for sleep apnea in someone with obesity, the weight drug meaningfully lowers the apnea count — sometimes enough to change the conversation about CPAP."
-
-**Clinical action or caution.** Check blood eosinophils to guide escalation; consider dupilumab in the right phenotype; consider tirzepatide as adjunct (not replacement for PAP) in obese OSA; treat CV risk aggressively after COPD exacerbations.
+**Clinical action or caution.** Use blood eosinophils to guide COPD escalation; reserve dupilumab for the eosinophilic/chronic-bronchitis phenotype; offer tirzepatide as an OSA *adjunct*, not a PAP substitute; treat CV risk hard in the days after a COPD exacerbation.
 
 **Confidence.** High (COPD, OSA trials and GOLD adoption).
 
@@ -242,20 +233,16 @@ Each: topic — one-line bottom line — why it matters — confidence — immed
 
 ### 3.5 Infectious diseases
 
-**Bottom line.** Prevention leapt forward — twice-yearly injectable PrEP and doxy-PEP — while stewardship keeps favoring shorter/simpler.
+**Bottom line.** Prevention leapt — twice-yearly injectable PrEP that essentially eliminates HIV acquisition, plus doxy-PEP — while stewardship keeps proving shorter/simpler is enough.
 
-**What changed.** Lenacapavir (twice-yearly subcutaneous) gave near-complete HIV protection in cisgender women (PURPOSE 1: zero infections) and in men/gender-diverse persons (PURPOSE 2), FDA-approved 2025 (Yeztugo). Doxycycline post-exposure prophylaxis (doxy-PEP) entered CDC guidance for bacterial STI prevention in high-risk MSM/transgender women. Severe-CAP steroids remain supported.
+**The concept.** The organizing idea is **pharmacology defeating adherence.** Daily oral PrEP works only as well as daily pill-taking, and the people at highest risk are often those for whom a daily pill is hardest — so real-world efficacy leaks out through missed doses. Lenacapavir, a long-acting capsid inhibitor dosed *twice a year*, collapses that variable: if protective drug is present for six months, "did you take it today?" stops mattering. That's why PURPOSE 1 recorded **zero** infections — not so much a better molecule as a better *delivery of certainty*. Doxy-PEP is the same maneuver in the bacterial-STI world (a single post-exposure dose), and it carries the counter-current every anti-infective does: **selection pressure** — you trade incident infections now against antimicrobial resistance later, which is why it's targeted, not universal. That "targeted, mechanism-aware subtraction" is the same instinct behind modern stewardship (shorter courses, oral-not-IV, host-modulation-not-more-drug) that recurs in critical care (§3.4) and geriatrics (§3.10).
 
-**Why it matters.** A durable, adherence-proof PrEP option can change population HIV incidence; doxy-PEP is a new counseling/prescribing point.
+**What changed & the evidence.**
+- PURPOSE 1 — lenacapavir PrEP in cisgender women: RCT; **0 infections** vs background 2.41/100 PY. (*NEJM* 2024; PMID 39046157.)
+- PURPOSE 2 — men/gender-diverse persons: 0.10 vs 2.37/100 PY (~96% protection); injection-site reactions common. (*NEJM* 2024; PMID 39602624.) FDA-approved (Yeztugo) June 18, 2025, ≥35 kg.
+- doxy-PEP — CDC guidance (2024) for bacterial STI prevention in high-risk MSM/transgender women; resistance surveillance is the caveat.
 
-**Evidence snapshot.**
-- PURPOSE 1: RCT, adolescent girls/young women; **0 infections** with lenacapavir vs background 2.41/100 PY (IRR ~0.00). (*NEJM* 2024; PMID 39046157; DOI 10.1056/NEJMoa2407001.)
-- PURPOSE 2: RCT; lenacapavir 0.10/100 PY vs background 2.37 (IRR 0.04); injection-site reactions common. (*NEJM* 2024; PMID 39602624; DOI 10.1056/NEJMoa2411858.)
-- doxy-PEP: CDC clinical guidelines (2024); antimicrobial-resistance surveillance is the key caveat.
-
-**How I would explain this out loud.** "PrEP is no longer a daily-pill adherence problem for everyone — a shot twice a year prevented essentially all infections. And for patients with recurrent bacterial STIs, a single doxycycline dose after sex cuts the rate — with the asterisk that we're watching resistance."
-
-**Clinical action or caution.** Offer lenacapavir as a PrEP option; discuss doxy-PEP in appropriate patients while monitoring resistance; keep steroid use for severe CAP.
+**Clinical action or caution.** Offer long-acting lenacapavir as an adherence-proof PrEP option; use doxy-PEP selectively with resistance monitoring; keep steroids for severe CAP.
 
 **Confidence.** High (PrEP RCTs); Moderate for doxy-PEP durability/resistance.
 
@@ -263,45 +250,42 @@ Each: topic — one-line bottom line — why it matters — confidence — immed
 
 ### 3.6 GI & hepatology
 
-**Bottom line.** Fatty-liver disease became prescribable (resmetirom, semaglutide), the nomenclature changed (MASLD/MASH), and colorectal screening/staging diversified (blood, next-gen stool, ctDNA).
+**Bottom line.** Fatty-liver disease became prescribable (resmetirom, semaglutide), got renamed (MASLD/MASH), and colorectal screening/staging fragmented into blood, next-gen stool, and ctDNA.
 
-**What changed.** Resmetirom (Rezdiffra), a THR-β agonist, became the **first FDA-approved MASH drug (March 2024)** for noncirrhotic F2–F3 fibrosis (accelerated approval on histology). Semaglutide improved MASH histology (ESSENCE). Blood-based CRC screening (Shield/ECLIPSE) and next-generation stool DNA (Cologuard Plus/BLUE-C) gained FDA approval; ctDNA prognostication matured (DYNAMIC-III), though ctDNA-guided *management* isn't standard. The 2024 multisociety **GLP-1 perioperative** guidance shifted from "hold" to risk-stratified continuation.
+**The concept.** Two hubs meet here. First, **MASH is the liver's chapter of the CKM story** (§3.1–§3.3): the same insulin-resistant, inflamed, lipotoxic milieu that stiffens the heart and scars the kidney also drives steatosis → steatohepatitis → fibrosis. So it's no coincidence that a thyroid-hormone-receptor-β agonist that revs hepatic fat metabolism (resmetirom) *and* a GLP-1 that fixes the upstream metabolic driver (semaglutide) both improve the biopsy — they're hitting one disease from the liver side. Second, and this is the lens to keep whenever a shiny therapy or test appears: **surrogates are IOUs.** A surrogate pays out only if it sits on the true causal path to the outcome; when it doesn't, you get CRP-lowering-without-benefit (colchicine, §3.1) or drugs approved on a marker that later disappoint (`established`; Fleming & Powers, PMID 22711298 — and empirically, fewer than half of accelerated approvals later confirm a hard-outcome benefit, Liu/Kesselheim, PMID 38583175). Resmetirom is precisely that bet: approved on **histology** under accelerated approval, with the hard outcomes (decompensation, transplant, death) still owed.
 
-**Why it matters.** Internists now diagnose and treat (or refer with a plan for) MASH and have more — and more variable — CRC screening tools to counsel on.
+The screening story is a **Bayesian** one (→ §3.14). The Shield blood test detects established cancer well (~83%) but is poor at advanced precancer (~13%), so it's a good rule-in for someone who'd otherwise get *no* screening — yet a weak *cancer-prevention* tool, because prevention means catching the adenoma, not the carcinoma. A test's value is inseparable from what you're using it for and the pretest probability of the person in front of you: the same 83% sensitivity is reassuring in a symptomatic patient and misleading as a population preventive.
 
-**Evidence snapshot.**
-- Resmetirom MAESTRO-NASH: phase 3 RCT; both histologic co-primary endpoints (NASH resolution; ≥1-stage fibrosis improvement) met vs placebo at 52 wk — **surrogate/histology**; exact percentages not retrieved this session. (Harrison, *NEJM* 2024; DOI 10.1056/NEJMoa2309000; FDA approval 3/14/2024.)
-- ESSENCE (semaglutide MASH): RCT interim (n=800 of 1,197); steatohepatitis resolution **62.9% vs 34.3%**; fibrosis improvement **36.8% vs 22.4%** — surrogate/histology. (*NEJM* 2025; PMID 40305708; DOI 10.1056/NEJMoa2413258.)
-- Shield cfDNA (ECLIPSE): prospective accuracy, 7,861 average-risk; CRC sensitivity **83%**, advanced-precancer sensitivity only **13%**, specificity ~90% — **test-performance, not mortality**; FDA-approved 7/2024. (*NEJM* 2024; PMID 38477985; DOI 10.1056/NEJMoa2304714.)
-- Cologuard Plus (BLUE-C): CRC sensitivity **94%** vs FIT 67%, lower specificity than FIT; FDA-approved 10/2024. (*NEJM* 2024; PMID 38477986; DOI 10.1056/NEJMoa2310336.)
-- DYNAMIC-III: phase 2/3 RCT, 968 stage III colon; ctDNA strongly prognostic (3-yr RFS 87% vs 49%), but de-escalation did **not** meet noninferiority and escalation didn't help — not yet standard. (*Nat Med* 2025; PMID 41115959; DOI 10.1038/s41591-025-04030-w.)
-- GLP-1 periop guidance (multisociety 2024). (PMID 39480373 / 39482213.)
+**What changed & the evidence.**
+- Resmetirom (Rezdiffra) — first FDA-approved MASH drug (accelerated, March 14, 2024) for noncirrhotic F2–F3; MAESTRO-NASH met both histologic co-primaries at 52 wk (**surrogate/histology**). (Harrison, *NEJM* 2024; DOI 10.1056/NEJMoa2309000.)
+- ESSENCE — semaglutide MASH: interim (n=800/1,197); steatohepatitis resolution **62.9% vs 34.3%**; fibrosis improvement **36.8% vs 22.4%** (surrogate). (*NEJM* 2025; PMID 40305708.)
+- Shield cfDNA (ECLIPSE): CRC sensitivity **83%**, advanced-precancer only **13%**, specificity ~90% (test-performance, not mortality); FDA July 26, 2024. (*NEJM* 2024; PMID 38477985.)
+- Cologuard Plus (BLUE-C): CRC sensitivity **94%** vs FIT 67%, lower specificity than FIT; FDA Oct 4, 2024. (*NEJM* 2024; PMID 38477986.) *(2nd-pass note: exact BLUE-C figures rest on this NEJM primary; not re-confirmed from the regulatory source.)*
+- DYNAMIC-III — ctDNA strongly prognostic (3-yr RFS 87% vs 49%) but ctDNA-*guided* management not yet standard (de-escalation missed noninferiority; escalation didn't help). (*Nat Med* 2025; PMID 41115959.)
+- GLP-1 perioperative guidance (multisociety 2024): "hold" → risk-stratified continuation. (PMID 39480373 / 39482213.)
 
-**How I would explain this out loud.** "Fatty liver used to be 'lose weight, good luck.' Now there's an approved pill for the scarring stage, and the weight drugs clear inflammation on biopsy. On screening, the blood test is great for catching cancer but poor at catching pre-cancers — so it's a good option for someone who'd otherwise skip screening, not a colonoscopy replacement."
+**Clinical action or caution.** Non-invasively stage MASLD and treat/refer F2–F3; present resmetirom's benefit as histologic (hard outcomes pending); frame blood-based CRC screening as an adherence option, not a colonoscopy equivalent; usually continue GLP-1s perioperatively (risk-stratified).
 
-**Clinical action or caution.** Stage MASLD (non-invasive fibrosis scores) and treat/refer F2–F3; frame blood-based CRC screening as an adherence option; individualize (usually continue) GLP-1s perioperatively.
-
-**Confidence.** High for approvals/screening performance; Moderate for MASH clinical (surrogate) and ctDNA-guided management.
+**Confidence.** High for approvals/screening performance; Moderate for MASH clinical benefit (surrogate) and ctDNA-guided management.
 
 ---
 
 ### 3.7 Heme/onc for the general internist
 
-**Bottom line.** IV iron helps HF hospitalizations, transfusion practice split (liberal in MI), cancer-VTE anticoagulation can be de-escalated, and CHIP/MGUS refine risk.
+**Bottom line.** IV iron keeps HF patients out of hospital, transfusion practice split (liberal in MI), cancer-VTE anticoagulation can be de-escalated, and the factor XI class taught a deep lesson about clotting.
 
-**What changed.** A large IPD meta-analysis showed IV iron reduces HF hospitalization in HF with iron deficiency (mortality not significantly changed). MINT plus the **2025 AABB guideline** now favor a **liberal** transfusion threshold (Hb <10) in acute MI, carving it out of the general restrictive rule. API-CAT showed reduced-dose apixaban (2.5 mg BID) is noninferior with less bleeding for extended cancer-associated VTE. The **factor XI/XIa class** split: asundexian was worse than apixaban in AF (OCEANIC-AF) but positive as an antiplatelet add-on after stroke (OCEANIC-STROKE); abelacimab's cancer-VTE trials were halted. CHIP emerged as an independent CV/mortality risk marker (especially with inflammation); iStopMM redefined light-chain MGUS (82% fewer diagnoses).
+**The concept.** The centerpiece is **hemostasis ≠ thrombosis.** We treat clotting as one dial, so every anticoagulant trades thrombosis protection against bleeding. But factor XI (the contact/intrinsic pathway) breaks that assumption: seven decades of people with congenital factor XI deficiency show they're *protected from pathologic thrombosis yet barely bleed* — because factor XI mainly *amplifies* clot growth on injured/artificial surfaces, while primary hemostasis (the tissue-factor→thrombin burst that stops a real bleed) runs largely without it (`established`; Gailani & Gruber, PMID 38142404). So factor XI inhibition promised "anticoagulation without bleeding." The 2024–2026 trials then delivered a beautifully instructive **split**: *replacing* a proven factor Xa inhibitor in AF, asundexian was **worse** (you removed Xa's protection and factor XI blockade couldn't cover the gap) — but layered *on top of* antiplatelets after atherothrombotic stroke, it **helped** (you're adding protection, not substituting it) (`established` from the trials; the mechanistic read is `plausible`; De Caterina, PMID 36263776). The take-home generalizes: **mechanism sets the ceiling; trial context decides whether you reach it.**
 
-**Why it matters.** Everyday decisions — when to transfuse, how long/what dose to anticoagulate, how to read an incidental clone or CHIP — all shifted.
+The rest of the section is pragmatic recalibration, each an exception carved out of a general rule by physiology. IV iron treats a genuine functional deficiency that impairs myocardial energetics (helps HF hospitalizations, not clearly mortality). MINT/AABB carve acute MI out of the universal restrictive-transfusion rule — an *ischemic* myocardium is oxygen-supply-limited, so anemia that's tolerable elsewhere may not be here (→ §3.12). And API-CAT shows that six months in, residual clot risk has fallen enough that the bleed-vs-clot balance tips toward low-dose apixaban. CHIP and the MGUS redefinition round it out as *risk-stratification* refinements — read the incidental clone in context, don't reflexively over-work-up.
 
-**Evidence snapshot.**
-- IV iron in HF (IPD meta-analysis, 7,175): HF hospitalization/CV death **RR 0.72 (0.55–0.89)** at 12 mo; mortality not significant. (*Nat Med* 2025; PMID 40159279; DOI 10.1038/s41591-025-03671-1.)
-- MINT: RCT, 3,504 MI + anemia; composite MI/death 16.9% (restrictive) vs 14.5% (liberal), **RR 1.15 (0.99–1.34)** — favors liberal, not significant. (*NEJM* 2023; PMID 37952133; DOI 10.1056/NEJMoa2307983.) AABB 2025 guideline now suggests liberal in AMI (conditional, low certainty). (*Ann Intern Med* 2025; PMID 40825204; DOI 10.7326/ANNALS-25-00706.)
-- API-CAT: RCT, 1,766; recurrent VTE 2.1% vs 2.8% (noninferior); clinically relevant bleeding **12.1% vs 15.6% (SHR 0.75)**. (*NEJM* 2025; PMID 40162636; DOI 10.1056/NEJMoa2416112.)
-- OCEANIC-AF: RCT, 14,810; asundexian stroke/SE **HR 3.79 (2.46–5.83)** worse than apixaban, less bleeding; stopped early. (*NEJM* 2024; PMID 39225267; DOI 10.1056/NEJMoa2407105.) OCEANIC-STROKE: add-on to antiplatelet cut recurrent ischemic stroke **HR 0.74**. (*NEJM* 2026; PMID 41985132; DOI 10.1056/NEJMoa2513880.)
+**What changed & the evidence.**
+- IV iron in HF (IPD meta-analysis, 7,175): HF hospitalization/CV death **RR 0.72 (0.55–0.89)** at 12 mo; mortality not significant. (*Nat Med* 2025; PMID 40159279.)
+- MINT + AABB 2025 — liberal transfusion (Hb <10) in acute MI: composite MI/death 16.9% (restrictive) vs 14.5% (liberal), **RR 1.15 (0.99–1.34)** (favors liberal, NS); AABB now conditionally suggests liberal in AMI. (*NEJM* 2023, PMID 37952133; *Ann Intern Med* 2025, PMID 40825204.)
+- API-CAT — reduced-dose apixaban for extended cancer VTE: recurrent VTE 2.1% vs 2.8% (noninferior); clinically relevant bleeding **12.1% vs 15.6% (SHR 0.75)**. (*NEJM* 2025; PMID 40162636.)
+- Factor XI split: OCEANIC-AF asundexian vs apixaban **HR 3.79 (2.46–5.83)** (worse), stopped early (*NEJM* 2024; PMID 39225267); OCEANIC-STROKE add-on **HR 0.74** (*NEJM* 2026; PMID 41985132); abelacimab cancer-VTE trials halted.
+- Incidental clones: CHIP is an independent CV/mortality risk marker (esp. with inflammation); iStopMM refined light-chain MGUS (fewer overdiagnoses).
 
-**How I would explain this out loud.** "Three practical shifts: give IV iron to your iron-deficient heart-failure patients to keep them out of the hospital; in an active MI, lean toward transfusing to a higher hemoglobin than you would otherwise; and after six months of clot treatment in a cancer patient, you can often drop to the lower apixaban dose."
-
-**Clinical action or caution.** Screen/treat iron deficiency in HF; use liberal transfusion in AMI; de-escalate apixaban after 6 months in cancer VTE; don't expect factor XI inhibitors to replace DOACs; contextualize CHIP/MGUS findings, avoid overdiagnosis.
+**Clinical action or caution.** Screen/treat iron deficiency in HF; transfuse liberally in AMI; de-escalate apixaban after 6 months in cancer VTE; **do not treat factor XI inhibitors as drop-in DOAC replacements**; contextualize CHIP/MGUS to avoid overdiagnosis.
 
 **Confidence.** High (MINT/API-CAT/OCEANIC-AF/IV-iron); Moderate for AABB (conditional) and CHIP causality.
 
@@ -309,18 +293,15 @@ Each: topic — one-line bottom line — why it matters — confidence — immed
 
 ### 3.8 Rheumatology & immunology
 
-**Bottom line.** IL-6 blockade helps steroid-sparing in PMR; "inflammation-as-target" scored a win (PMR) and a loss (colchicine post-MI).
+**Bottom line.** IL-6 blockade is a real steroid-sparing tool in PMR — and rheumatology is where you see most clearly that "inflammation" is many specific pathways, not one.
 
-**What changed.** Sarilumab achieved sustained remission and cut cumulative glucocorticoid exposure in relapsing PMR (SAPHYR) — a steroid-sparing option for a common internist problem. Broadly, JAK-inhibitor safety caution (from ORAL Surveillance) persists, and CAR-T for refractory autoimmune disease is an emerging watch-list item (not retrieved in depth this session).
+**The concept.** Polymyalgia rheumatica is an **IL-6-driven** disease, so blocking the IL-6 receptor with sarilumab does two things prednisone can't: it targets the actual cytokine, and it lets you taper steroids far faster, sparing months of glucocorticoid toxicity. That's the constructive half of a hub running through this whole document: **inflammation is a target only when you hit the right node.** The IL-1β→IL-6→CRP axis is causal in atherosclerosis (CANTOS, §3.1; mechanistic map in Ridker & Rane, PMID 33998272), and in PMR IL-6 blockade works — yet colchicine's *nonspecific* anti-inflammatory action failed post-MI (§3.1). Same word, different molecules, opposite results. The practical corollary is the JAK inhibitors: powerful precisely because they hit many immune pathways at once, but ORAL Surveillance flagged CV, thrombosis, and malignancy signals in older at-risk patients — potency and off-target risk are two faces of the same broad mechanism (`established`). CAR-T that ablates the pathogenic B-cell clone sits on the horizon as the ultimate "reset the autoimmune driver" idea (`speculative` for general practice).
 
-**Why it matters.** PMR is bread-and-butter internal medicine; a validated steroid-sparing biologic changes long taper conversations.
+**What changed & the evidence.**
+- SAPHYR — sarilumab in relapsing PMR: RCT, 118; sustained remission **28% vs 10%** (diff 18 pts, P=0.02); much lower cumulative glucocorticoid (777 vs 2,044 mg); neutropenia. (*NEJM* 2023; PMID 37792612.)
+- Mechanism/context: IL-6 signaling in CV disease (PMID 33998272); JAK-inhibitor caution (ORAL Surveillance) persists.
 
-**Evidence snapshot.**
-- SAPHYR: RCT, 118 relapsing PMR; sustained remission **28% vs 10%** (diff 18 pts, P=0.02); glucocorticoid 777 vs 2,044 mg; neutropenia with sarilumab. (*NEJM* 2023; PMID 37792612; DOI 10.1056/NEJMoa2303452.)
-
-**How I would explain this out loud.** "For the polymyalgia patient who flares every time you taper steroids, there's now a shot that gets more of them into remission on far less prednisone."
-
-**Clinical action or caution.** Consider IL-6 blockade for glucocorticoid-dependent/relapsing PMR; monitor neutropenia/lipids; maintain JAK-inhibitor caution in older/CV-risk patients.
+**Clinical action or caution.** Consider IL-6 blockade for glucocorticoid-dependent/relapsing PMR; monitor neutrophils/lipids; keep JAK-inhibitor caution in older/CV-risk patients.
 
 **Confidence.** Moderate–High (single, modest-size PMR RCT).
 
@@ -328,64 +309,53 @@ Each: topic — one-line bottom line — why it matters — confidence — immed
 
 ### 3.9 Neurology for the internist
 
-**Bottom line.** Alzheimer's is now a "test-and-treat" disease for selected patients (anti-amyloid antibodies + a blood test), and tenecteplase is a practical alteplase alternative.
+**Bottom line.** Alzheimer's became a "confirm-and-treat" disease for selected patients — amyloid antibodies plus the first blood test — with a real, monitoring-heavy cost (ARIA); and tenecteplase is the practical alteplase.
 
-**What changed.** Donanemab (Kisunla) was FDA-approved July 2024 for early symptomatic AD (joining lecanemab); the **first FDA-cleared Alzheimer's blood test** (plasma p-tau217/Aβ42 ratio, Fujirebio Lumipulse) cleared May 2025 as an aid to identify amyloid pathology. Tenecteplase was noninferior to alteplase for acute ischemic stroke (single-bolus convenience).
+**The concept.** The amyloid hypothesis holds that Aβ accumulation (a production/clearance imbalance; APOE ε4 impairs clearance) is an *upstream driver* of Alzheimer's (`established as a hypothesis`; its causal weight has been debated for 30 years; Selkoe & Hardy, PMID 27025652). The anti-amyloid antibodies are that hypothesis's first real human test: they *do* clear plaque and *do* slow decline — but only **modestly**, which itself is the lesson: amyloid is necessary-but-not-sufficient once disease is established, because tangles, neuroinflammation, and neurodegeneration have their own momentum. The cost is mechanistically inseparable from the mechanism: pulling amyloid out of vessel walls destabilizes them → **ARIA** — edema (ARIA-E) and microhemorrhage (ARIA-H), concentrated in APOE ε4 carriers. Sit with that: *the same allele that predisposes to the disease predisposes to the treatment's harm* (`established`; Filippi, PMID 35099507). That's why this is MRI-monitored, genotype-informed, specialist-shared care — not a prescription you start and forget.
 
-**Why it matters.** Internists will field questions about amyloid antibodies, order/interpret blood biomarkers, and encounter ARIA monitoring; stroke systems increasingly use tenecteplase.
+The blood test is a **Bayesian triage** advance (§3.6/§3.14). Plasma p-tau217/Aβ ratio shows superb concordance with amyloid PET in *enriched, symptomatic* populations — the FDA-cited 91.7%/97.3% are PPV/NPV in that setting, **not** sensitivity/specificity and **not** screening numbers — so a positive still needs confirmation, and it is emphatically not a population screen (`established`; Palmqvist, PMID 32722745; Ashton, PMID 38252443). Tenecteplase, by contrast, is a clean, orthogonal win: a more fibrin-specific, longer-half-life plasminogen activator you give as a *single bolus* — same efficacy as alteplase, far better logistics.
 
-**Evidence snapshot.**
-- Donanemab TRAILBLAZER-ALZ 2 → FDA approval 7/2/2024; benefit is a *slowing* of decline with **ARIA (edema/hemorrhage)** risk, higher with APOE ε4 homozygotes. (FDA/manufacturer; magnitude modest.)
-- Plasma p-tau217/Aβ42 ratio (Lumipulse): FDA-cleared 5/16/2025; strong concordance with amyloid status (AUC ~0.9 in studies) — a **triage** test, positives need confirmation. (FDA/Fujirebio; PMID 40582836.)
-- Tenecteplase (ORIGINAL): RCT, 1,465; mRS 0–1 at 90 d **72.7% vs 70.3%, RR 1.03 (noninferior)**; sICH 1.2% both. (*JAMA* 2024; PMID 39264623; DOI 10.1001/jama.2024.14721.)
+**What changed & the evidence.**
+- Donanemab (Kisunla) FDA-approved July 2, 2024 (joining lecanemab): slows decline; **ARIA** risk, higher in APOE ε4 homozygotes; benefit modest. (FDA/manufacturer; TRAILBLAZER-ALZ 2 basis.)
+- Plasma p-tau217/Aβ42 (Lumipulse): first FDA-cleared AD blood test, May 16, 2025; PPV 91.7% / NPV 97.3% in an enriched symptomatic cohort (a triage aid, not a screen). (FDA/Fujirebio; PMID 40582836.)
+- Tenecteplase (ORIGINAL): RCT, 1,465; mRS 0–1 at 90 d **72.7% vs 70.3%, RR 1.03 (noninferior)**; sICH 1.2% both. (*JAMA* 2024; PMID 39264623.)
 
-**How I would explain this out loud.** "We can now, for the right early-Alzheimer's patient, confirm amyloid with a blood test and offer an antibody that modestly slows decline — but it requires MRI monitoring for brain swelling and bleeding, and the benefit is real but small. For stroke, the newer clot-buster is a single push instead of an hour-long drip, and it works just as well."
+**Clinical action or caution.** Know referral criteria + ARIA/APOE caveats before endorsing anti-amyloid therapy; treat a positive blood biomarker as a step toward confirmation, not a diagnosis; support single-bolus tenecteplase pathways.
 
-**Clinical action or caution.** Know referral criteria and ARIA/APOE caveats before endorsing anti-amyloid therapy; treat a positive blood biomarker as a step toward confirmation, not a diagnosis; support tenecteplase pathways.
-
-**Confidence.** High for approvals/tenecteplase; Moderate for clinical magnitude of anti-amyloid benefit.
+**Confidence.** High for approvals/tenecteplase; Moderate for the clinical magnitude of anti-amyloid benefit.
 
 ---
 
 ### 3.10 Geriatrics & palliative / deprescribing
 
-**Bottom line.** The deprescribing toolkit was refreshed (Beers 2023, STOPP/START v3), falls prevention favors exercise, and stopping statins at end of life appears safe.
+**Bottom line.** The deprescribing tools were refreshed (Beers 2023, STOPP/START v3), exercise is the best-evidenced fall preventive, and stopping statins near the end of life is safe.
 
-**What changed.** AGS **Beers 2023** and **STOPP/START v3** updated potentially-inappropriate-medication and prescribing-omission criteria. USPSTF (2024) gave **exercise a B** for fall prevention and multifactorial interventions a C. A systematic review supported that statin discontinuation near end of life doesn't worsen short-term mortality (observational data are confounded).
+**The concept.** The unifying idea is **time-to-benefit vs. time-remaining.** Every preventive drug has a *lag* before it pays off — a statin for primary prevention takes on the order of ~2.5 years to prevent one event (`established`; Yourman/Lee, PMID 33196766). If a patient's life expectancy is shorter than the drug's time-to-benefit, you are locking in the harms (cost, side effects, interactions, pill burden) while the benefit *cannot arrive in time*. So deprescribing isn't "giving up" — it's arithmetic (`established` framework; Holmes, PMID 23749475; Thompson & McDonald, PMID 37729029). That one lens organizes the whole domain: Beers/STOPP-START are structured lists of drugs whose harm-now outweighs benefit-later in older bodies; exercise beats most drugs for falls because it treats the *multifactorial substrate* (strength, balance, confidence) rather than one pathway; and stopping the statin in someone's last months removes a burden that no longer has runway to help. It's the same "less is more — for a mechanistic reason" logic as antimicrobial stewardship (§3.5) and restrictive transfusion (§3.7): **subtraction as an evidence-based act, not an omission.**
 
-**Why it matters.** Polypharmacy management is a daily task; these give defensible, current anchors.
+**What changed & the evidence.**
+- Beers 2023 (*JAGS*; PMID 37139824) and STOPP/START v3 (190 criteria; *Eur Geriatr Med* 2023; PMID 37256475) updated PIM/omission criteria.
+- USPSTF falls (2024): exercise **B**, multifactorial **C**. (*JAMA*; PMID 38833246.)
+- Statin deprescribing: end-of-life RCT — no 60-day mortality difference; observational discontinuation confounded. (*JAGS* 2024; PMID 39051828.) Time-to-benefit grounding: PMID 33196766.
 
-**Evidence snapshot.**
-- Beers 2023 (*JAGS* 2023; PMID 37139824; DOI 10.1111/jgs.18372); STOPP/START v3 (190 criteria) (*Eur Geriatr Med* 2023; PMID 37256475).
-- USPSTF falls: exercise **B**, multifactorial **C**. (*JAMA* 2024; PMID 38833246; DOI 10.1001/jama.2024.8481.)
-- Statin deprescribing SR: EOL RCT no 60-day mortality difference; observational discontinuation associated with higher mortality (confounded). (*JAGS* 2024; PMID 39051828; DOI 10.1111/jgs.19093.)
+**Clinical action or caution.** Review meds against Beers/STOPP-START at least yearly; prescribe structured exercise for fall risk; individualize statin (and other preventive) continuation by prognosis and time-to-benefit.
 
-**How I would explain this out loud.** "Two practical habits: run the med list against the current Beers/STOPP criteria at least yearly, and prescribe exercise as fall prevention — it's the intervention with the best evidence. And it's OK to stop the statin when someone's in their last months."
-
-**Clinical action or caution.** Deprescribe using updated criteria; recommend structured exercise for fall-risk elders; individualize statin continuation by prognosis/goals.
-
-**Confidence.** High for guidance; Moderate for statin-deprescribing generalizability.
+**Confidence.** High for the guidance/framework; Moderate for statin-deprescribing generalizability.
 
 ---
 
 ### 3.11 Preventive medicine / screening / vaccines
 
-**Bottom line.** Screening starts earlier (breast at 40) and vaccination expands (pneumococcal at 50, RSV for older adults, PCV21, updated COVID) — amid shifting COVID policy.
+**Bottom line.** Screening starts earlier (breast at 40), vaccination expands (pneumococcal at 50, RSV for older adults, PCV21), and COVID policy is fragmenting toward risk-based decisions.
 
-**What changed.** USPSTF: **breast screening biennial from age 40** (B, 2024); **osteoporosis screening** reaffirmed (women ≥65; high-risk postmenopausal <65; men = insufficient, 2025). ACIP: **PCV for all PCV-naïve adults ≥50** (PCV20 or PCV21, or PCV15+PPSV23); **RSV** for all ≥75 and high-risk 60–74 (real-world VE ~80% vs hospitalization); COVID guidance moved from universal toward **risk-based/shared decision-making** with a JN.1-lineage formulation. USPSTF **statin** primary-prevention guidance remains the **2022** version (no in-window final update located).
+**The concept.** Two forces are pulling thresholds *earlier and broader*. On screening, it's **rising incidence plus equity**: breast cancer is climbing in women in their 40s and mortality is disproportionately high in Black women, so the risk-benefit math for starting at 40 flipped from "individualize" to "recommend." On vaccines, it's **disease burden + immunosenescence + better products**: dropping pneumococcal to 50 and adding universal RSV for ≥75 reflects that serious disease burden extends below 65 and that new conjugate/RSV products widen coverage — a prevention-first posture. But hold the counter-hub in view (§3.6/§3.14): every earlier, broader screen also **multiplies false positives, overdiagnosis, and downstream procedures**, and only earns its place if it moves a hard outcome. Notice the discipline the USPSTF models by *not* moving: it left the 2022 statin recommendation standing and calls dense-breast supplemental imaging "insufficient evidence" rather than reflexively expanding — restraint is part of the method. COVID policy is the live experiment in the opposite direction — universal → individualized/shared decisions — which is as much a values-and-access question as a data one.
 
-**Why it matters.** These reset standing orders, quality metrics, and thousands of routine conversations.
+**What changed & the evidence.**
+- USPSTF breast: biennial from **age 40** (B, 2024). (*JAMA*; PMID 38687503.)
+- USPSTF osteoporosis (2025): women ≥65 and high-risk postmenopausal <65 (B); men insufficient. (*JAMA*; PMID 39808425.)
+- ACIP: PCV for PCV-naïve adults **≥50** (PCV20/PCV21 or PCV15+PPSV23) (*MMWR* 2025; PMID 39773952); **RSV** for all ≥75 and high-risk 60–74, real-world hospitalization VE **80% (71–85)** (*MMWR* 2024, PMID 39146277; Payne *Lancet* 2024, PMID 39426837).
+- USPSTF **statin** primary-prevention guidance remains the **2022** version (no in-window update); COVID moved toward risk-based/shared decisions.
 
-**Evidence snapshot.**
-- Breast: USPSTF *JAMA* 2024;331(22):1918–1930; PMID 38687503; DOI 10.1001/jama.2024.5534.
-- Osteoporosis: USPSTF *JAMA* 2025;333(6):498–508; PMID 39808425; DOI 10.1001/jama.2024.27154.
-- RSV ACIP: *MMWR* 2024; PMID 39146277; DOI 10.15585/mmwr.mm7332e1; VE (Payne, *Lancet* 2024) hospitalization VE **80% (71–85)**; PMID 39426837.
-- PCV ≥50: *MMWR* 2025;74(1):1–8; PMID 39773952; DOI 10.15585/mmwr.mm7401a1.
-- COVID: *MMWR* 2024 (mm7349a2) + 2025 ACIP/FDA policy shift.
-
-**How I would explain this out loud.** "Three quick standing-order changes: start mammograms at 40, give the pneumococcal shot at 50 now, and get the RSV vaccine into your 75-and-up patients — it cut hospitalizations by about 80% in the real world. COVID vaccination is becoming more of a personalized, risk-based decision."
-
-**Clinical action or caution.** Update templates/standing orders; note dense-breast supplemental imaging remains "insufficient evidence"; track evolving COVID coverage/access implications.
+**Clinical action or caution.** Update standing orders (mammography at 40; PCV at 50; RSV for ≥75 and high-risk 60–74); counsel on the false-positive/overdiagnosis trade-off; track evolving COVID access implications.
 
 **Confidence.** High (USPSTF/ACIP); Moderate for the still-settling COVID policy.
 
@@ -393,17 +363,16 @@ Each: topic — one-line bottom line — why it matters — confidence — immed
 
 ### 3.12 Hospital medicine & transitions
 
-**Bottom line.** Transfuse more liberally in MI, individualize (usually continue) GLP-1s perioperatively, and de-escalate cancer-VTE anticoagulation after 6 months.
+**Bottom line.** Transfuse more liberally in acute MI, usually continue GLP-1s perioperatively, and de-escalate cancer-VTE anticoagulation at 6 months — three defaults that just moved.
 
-**What changed.** MINT + AABB 2025 → **liberal transfusion (Hb <10) in acute MI**. Multisociety 2024 guidance → **continue GLP-1s** perioperatively in most, risk-stratified (liquid diet/gastric ultrasound in higher-risk). API-CAT → reduced-dose apixaban for extended cancer VTE. (See 3.1/3.6/3.7 for effect sizes.)
+**The concept.** Inpatient medicine is where the year's mechanisms become **bedside defaults**, and each of these is a *context-specific exception to a general rule* — which is exactly the reasoning skill worth internalizing. The universal restrictive-transfusion rule (Hb 7) was built largely on stable and septic patients; an *ischemic myocardium* is oxygen-supply-limited, so the same anemia that's fine elsewhere can be harmful in acute MI — hence liberal-to-Hb-10 there (→ §3.7). The GLP-1 perioperative reversal is a recalibration of **actual aspiration risk**: these drugs genuinely delay gastric emptying, but the measured aspiration event rate is low, so a blanket "hold" traded real metabolic/glycemic control for little safety gain — replaced by risk-stratification (symptoms, dose-escalation phase, a liquid-diet or gastric-ultrasound hedge in higher-risk cases). And extended cancer-VTE dosing (§3.7) reflects that thrombotic risk *decays* after the acute period, tipping the clot-vs-bleed balance toward the lower dose. The transferable move: know *why* a default exists, so you can spot the patient in whom it's wrong.
 
-**Why it matters.** These are common inpatient decision points where the default just moved.
+**What changed & the evidence.**
+- Liberal transfusion in AMI (MINT + AABB 2025): see §3.7. (PMID 37952133; PMID 40825204.)
+- GLP-1 perioperative: multisociety 2024 guidance → risk-stratified continuation, not routine hold. (PMID 39480373.)
+- Reduced-dose apixaban for extended cancer VTE (API-CAT): see §3.7. (PMID 40162636.)
 
-**Evidence snapshot.** MINT (PMID 37952133) / AABB (PMID 40825204); GLP-1 periop (PMID 39480373); API-CAT (PMID 40162636). All peer-reviewed, retraction-checked.
-
-**How I would explain this out loud.** "On the wards: in an MI with anemia, don't be shy about transfusing; you usually don't need to stop the weight/diabetes shot before a procedure; and after six months you can lower the clot-drug dose in cancer patients."
-
-**Clinical action or caution.** Apply AMI-specific transfusion threshold; individualize GLP-1 holds; reassess anticoagulation dose/duration at transitions.
+**Clinical action or caution.** Apply the AMI-specific transfusion threshold; individualize (usually continue) GLP-1s before procedures; reassess anticoagulation dose/duration at every transition.
 
 **Confidence.** Moderate–High.
 
@@ -411,17 +380,17 @@ Each: topic — one-line bottom line — why it matters — confidence — immed
 
 ### 3.13 Pharmacology / medication safety / deprescribing / high-value care
 
-**Bottom line.** Two "reversals" (colchicine after MI failed; clozapine's REMS was removed) and one watch-list safety signal (semaglutide–NAION) define the safety/high-value story.
+**Bottom line.** Two instructive reversals (colchicine post-MI failed; clozapine's REMS was removed) and a watch-list safety signal (semaglutide–NAION) — all lessons in *how we decide what to believe*.
 
-**What changed.** CLEAR SYNERGY/OASIS-9 → **stop routine post-MI colchicine** (and spironolactone arm null). FDA **removed the clozapine REMS** (2025) — but ANC monitoring per labeling still applies. A single-center cohort raised a **semaglutide–NAION** ocular signal (hypothesis-generating). Beers/STOPP-START anchor deprescribing. High-value-care theme: beware treating **surrogates** (CRP, albuminuria, LDL, AHI, histology) as if they were outcomes.
+**The concept.** This domain is really about **epistemics at the bedside** — matching the strength (and *type*) of your action to the strength and type of the evidence. Colchicine post-MI is the cleanest cautionary tale of the surrogate hub (§3.6): CRP fell, so the *mechanism* looked engaged, but the hard outcome didn't budge — a moving biomarker is a hypothesis, not a result. Clozapine's REMS removal is a **base-rate** lesson: decades of data showed the severe-neutropenia risk was lower and more predictable than the mandatory-monitoring apparatus implied, so the regulatory burden was recalibrated to the true risk — but the underlying biology didn't change, so you still check the ANC. The semaglutide–NAION signal is a **causation-vs-association** exercise: a striking hazard ratio from a single-center, referral-enriched cohort is exactly the setup where confounding-by-indication and selection masquerade as effect — so it earns "keep in mind," not "change practice" (`speculative`). Three developments, three different evidentiary species — surrogate, base rate, observational signal — each handled on its own terms. That triage *is* high-value care.
 
-**Why it matters.** Prevents low-value prescribing and keeps monitoring appropriate as guardrails loosen.
+**What changed & the evidence.**
+- Colchicine post-MI null: HR 0.99 — CRP fell without clinical benefit (the surrogate lesson). (*NEJM* 2024; PMID 39555823.)
+- Clozapine REMS removed (FDA, 2025) — continue ANC monitoring per labeling.
+- Semaglutide–NAION: single-center retrospective cohort, HR 4.28 (observational; causality unproven). (*JAMA Ophthalmol* 2024; PMID 38958939.)
+- Framework grounding: surrogate epistemics (PMID 22711298); accelerated-approval track record (PMID 38583175).
 
-**Evidence snapshot.** Colchicine (PMID 39555823, HR 0.99); clozapine REMS removal (FDA Drug Safety Communication, 2025); NAION (PMID 38958939, HR 4.28, observational).
-
-**How I would explain this out loud.** "Drop the reflex colchicine after MI. Clozapine got easier to prescribe, but keep checking the blood counts. And if a patient on semaglutide reports sudden painless vision loss, keep that rare optic-nerve signal in mind — it's not proven, but worth knowing."
-
-**Clinical action or caution.** Deprescribe/avoid low-value adds; continue clinically indicated monitoring despite REMS removal; report/consider the NAION signal without overreacting.
+**Clinical action or caution.** Avoid low-value adds (routine post-MI colchicine); keep clinically indicated monitoring even as REMS loosens; weigh the NAION signal without overreacting.
 
 **Confidence.** High (colchicine, REMS); Low–Moderate (NAION).
 
@@ -429,25 +398,24 @@ Each: topic — one-line bottom line — why it matters — confidence — immed
 
 ### 3.14 Digital health / AI / diagnostics / care delivery
 
-**Bottom line.** AI demonstrably helps in trials (reasoning support, adenoma detection, an FDA-cleared Alzheimer's blood test) but raises deskilling, equity, and validation concerns.
+**Bottom line.** AI genuinely helps in trials (reasoning support, more adenomas, an FDA-cleared AD blood test) — but the evidence is mostly process/surrogate, and deskilling and equity are unsettled.
 
-**What changed.** A randomized study found LLM assistance improved physician **management reasoning** (and GPT-4 alone ≈ augmented physicians) — but the primary report is a **preprint (medRxiv, not peer-reviewed)**. Real-world **computer-aided detection (CADe)** raised colonoscopy adenoma detection rates, though a cancer-outcome and **deskilling** question remains open. The first FDA-cleared AD blood test (see 3.9) exemplifies AI/assay-driven diagnostics reaching clinic.
+**The concept.** The frame that keeps you out of trouble: **AI tools are moving process and surrogate metrics faster than proven patient outcomes** — the same surrogate-vs-hard tension as the drugs (§3.6/§3.13), now in the diagnostic and cognitive layer. An LLM raising physicians' reasoning scores on vignettes, or computer-aided detection (CADe) raising the adenoma detection *rate*, are real signals — but ADR is a surrogate for what matters (fewer interval cancers and deaths), and vignette performance is a surrogate for real judgment under uncertainty and time pressure. Two mechanistic worries follow directly. **Deskilling**: if the machine flags the polyps, does the endoscopist's unaided eye atrophy, so the tool quietly becomes load-bearing rather than additive? **Distributional bias / automation bias**: models inherit their training distribution, so performance can silently degrade in under-represented populations, and a *confident* wrong answer is more dangerous than an obvious gap because it invites trust. The internist's job is the appraisal stance itself — use AI as augmentation you verify, and demand outcome-level, bias-audited, peer-reviewed evidence (not preprints and simulations) before letting it become the default.
 
-**Why it matters.** These tools are arriving in documentation, triage, and endoscopy; internists need a critical-appraisal stance.
+**What changed & the evidence.**
+- LLM management-reasoning RCT: 92 physicians; LLM arm **+6.5% (2.7–10.2)**; **PREPRINT — NOT peer-reviewed.** (Goh, *medRxiv* 2024; PMID 39148822.)
+- CADe colonoscopy (VA cluster study): ADR **+4.2 points** (OR 1.22); deskilling/cancer-outcome impact undetermined. (*Gastroenterology* 2026; PMID 42250891.)
+- The first FDA-cleared AD blood test (see §3.9) exemplifies assay/AI diagnostics reaching clinic — and the Bayesian caveats that come with them.
 
-**Evidence snapshot.**
-- LLM management-reasoning RCT: 92 physicians; LLM arm scored **+6.5% (2.7–10.2)**; **PREPRINT — NOT peer-reviewed.** (Goh, *medRxiv* 2024; PMID 39148822; DOI 10.1101/2024.08.05.24311485; NCT06208423.)
-- CADe colonoscopy (VA cluster study): ADR rose **+4.2 percentage points** (OR 1.22); deskilling/cancer impact undetermined. (Dominitz, *Gastroenterology* 2026; PMID 42250891; DOI 10.1053/j.gastro.2026.05.018.)
-
-**How I would explain this out loud.** "AI can genuinely make us better reasoners and catch more polyps — but a lot of the flashy evidence is still preprints and simulations, and we don't yet know whether leaning on it dulls our own skills or works equally well for every patient population."
-
-**Clinical action or caution.** Use AI as augmentation with verification; demand peer-reviewed, outcome-level, bias-audited evidence before over-relying; watch deskilling and equity.
+**Clinical action or caution.** Use AI as verified augmentation; insist on outcome-level, bias-audited, peer-reviewed evidence before over-relying; actively watch for deskilling and inequitable performance.
 
 **Confidence.** Moderate (CADe peer-reviewed); Low–Moderate for LLM clinical impact (preprint/simulation).
 
 ---
 
 ## 4. Cross-domain pattern synthesis
+
+*These are the recurring **hubs** from the concept map above, restated as cross-cutting patterns — the associative through-lines. Each domain in §3 was written to point back to them, so a mechanism you grasp once (the cardiorenal-metabolic unit; hemostasis ≠ thrombosis; "surrogates are IOUs"; inflammation as a **specific** target; Bayes-governed diagnostics; time-to-benefit) keeps paying off across sections.*
 
 1. **Cardiorenal-metabolic convergence.** *Pattern:* one drug class (incretins) + finerenone + SGLT2i protect heart, kidney, liver, and airway/sleep. *Domains:* CV, endo, nephro, hepatology, pulmonary. *Evidence:* SELECT/FLOW/SUMMIT/ESSENCE/SURMOUNT-OSA/FINEARTS/CONFIDENCE. *Practical meaning:* pick therapy by comorbidity cluster, not single organ. *Overinterpretation risk:* several endpoints are surrogates; effects may not fully stack additively; cost/access gate real-world benefit.
 
