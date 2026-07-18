@@ -431,6 +431,102 @@ The blood test is a **Bayesian triage** advance (§3.6/§3.14). Plasma p-tau217/
 
 ---
 
+## Teaching modules — the concepts, developed
+
+*Deeper than the domain summaries: each module takes one hub, builds the mechanism at physician level, then follows the associative cascade — the links that make one idea unlock several others — and ends at where the concept bends. Read them in any order; they cross-reference each other on purpose. Mechanism confidence is tagged `established` / `plausible` / `uncertain`; the trials keep their identifiers in §3 and the tables.*
+
+### M1 · The cardiorenal-metabolic unit — stop drawing organ borders
+
+**Seed.** Heart, kidney, liver, and adipose aren't separate clients of separate specialists; they're one network with shared plumbing and a shared inflammatory tone.
+
+**Mechanism.** Visceral and especially *epicardial* fat sit on the myocardium and coronary microvessels with no fascial barrier, secreting IL-6, TNF-α, leptin, and mineralocorticoid-stimulating signals — a chronic, low-grade inflammatory drive delivered both paracrine and systemic. That inflamed endothelium is the common lesion: in the coronary microcirculation it stiffens the ventricle (see M3), in the glomerulus it drives hyperfiltration and MR-mediated fibrosis, in the hepatic sinusoid it fuels steatohepatitis. The AHA formalized this as cardiovascular-kidney-metabolic (CKM) staging (`established`; Ndumele, PMID 37807924).
+
+**Cascade.** One driver → many organs → *a drug that fixes the driver protects many organs at once.* GLP-1/GIP unloads the adipose-inflammatory source and adds direct vascular effects (Ussher & Drucker, PMID 36977782); SGLT2 inhibitors act hemodynamically and metabolically; finerenone blocks the mineralocorticoid receptor's fibro-inflammatory arm (Agarwal & Kolkhof, PMID 33099609). Different nodes, same network — so the benefits *stack* rather than duplicate, and SELECT/FLOW/SUMMIT/ESSENCE stop looking like five findings and start looking like one. The bedside translation: replace "which organ is failing?" with "this patient is on the CKM axis — layer the protections."
+
+**Where it bends.** Not all HFpEF (or CKD) is the obese-inflammatory phenotype (M3); full additive stacking on *hard* outcomes is assumed more than proven; cost and access gate the "just layer them" ideal. (`established` framework; complete additivity `plausible`.)
+
+### M2 · Obesity as a defended set-point — the thermostat is set too high
+
+**Seed.** The body defends a fat-mass "set-point" the way it defends temperature; dieting fights the thermostat, and the thermostat wins.
+
+**Mechanism.** Hypothalamic melanocortin circuits (POMC/AgRP) defend adiposity; weight loss triggers adaptive thermogenesis plus an orexigenic shift (ghrelin up; leptin, PYY, endogenous GLP-1 down) that restores weight — the biology of why willpower diets relapse. Incretins act partly *centrally* (hindbrain/hypothalamic GLP-1 receptors) to lower appetite and food reward — they move the set-point rather than out-muscle it (`established`; Schwartz/Seeley, PMID 28898979).
+
+**Cascade.** This one idea predicts the whole clinical picture and de-moralizes it: large dose-dependent loss (you're lowering the set-point); ~two-thirds regain on stopping because the set-point reasserts (Wilding, PMID 35441470) → chronic-disease framing → lifelong therapy; ~¼–⅓ of any large loss is lean mass (mitigate with protein + resistance training; Tinsley & Heymsfield, PMID 39372917); and less adipose load feeds straight back into M1's organ benefits. Relapse is physiology, not failure — which changes how you counsel.
+
+**Where it bends.** Set-point can be partially reset (bariatric surgery, sustained pharmacotherapy); lean-mass loss matters more in the older/sarcopenic; access defines whether "chronic therapy" is real. (`established`.)
+
+### M3 · HFpEF as systemic inflammation — the stiff heart is a whole-body symptom
+
+**Seed.** HFpEF (obese phenotype) is an "outside-in" microvascular disease, not an "inside-out" pump failure.
+
+**Mechanism.** Paulus–Tschöpe: comorbidities → systemic inflammation → coronary microvascular endothelial reactive oxygen species → less nitric oxide → low cardiomyocyte cGMP/PKG → titin stays hypophosphorylated (stiff) with concentric remodeling → diastolic dysfunction (`established/mechanistic`; PMID 23684677). Contrast HFrEF, where the primary lesion is cardiomyocyte loss.
+
+**Cascade.** If the lesion is inflamed endothelium and stiff titin, then attacking obesity/inflammation (tirzepatide, SUMMIT), the MR fibro-inflammatory arm (finerenone, FINEARTS), and the SGLT2 axis should all help in the LVEF-≥40% zone — and all did. It also explains the *prior decade of failure*: classic HFrEF neurohormonal drugs kept missing in HFpEF because they targeted the wrong lesion. Links directly to M1 (same axis) and M5 (inflammation as target).
+
+**Where it bends.** HFpEF is heterogeneous (amyloid, hypertrophic, hypertensive); the obese-inflammatory slice is large but not the whole; SUMMIT's benefit was HF-event-driven, with CV death numerically favoring placebo. (`established` for the phenotype; hard-outcome mortality effect `uncertain`.)
+
+### M4 · Hemostasis ≠ thrombosis — clotting is two partly-separable jobs
+
+**Seed.** "Anticoagulation" treats one dial, but stopping a bleed and preventing a pathologic clot are not the same circuit.
+
+**Mechanism.** Primary hemostasis = tissue factor → FVIIa → thrombin burst → platelet/fibrin plug (extrinsic/common path). Pathologic thrombosis on diseased/artificial surfaces is *amplified* by the contact pathway (FXII→FXI→FIX). Factor XI mostly amplifies thrombin generation but is largely dispensable for stopping real-world bleeding — the natural experiment is congenital FXI deficiency: thrombosis-protected, minimal spontaneous bleeding (`established`; Gailani & Gruber, PMID 38142404).
+
+**Cascade.** So FXI blockade should deliver anticoagulation with less bleeding — and the 2024–2026 trials taught the deeper lesson through their *split*: you can't **replace** a proven factor Xa inhibitor in AF (asundexian worse, OCEANIC-AF — you subtracted protection FXI can't fully cover), but you can **add** FXI blockade onto antiplatelets in atherothrombosis (OCEANIC-STROKE positive). Same molecule, opposite verdicts by trial architecture — which is the concrete case of M9's rule: *mechanism sets the ceiling; context decides whether you reach it* (De Caterina, PMID 36263776).
+
+**Where it bends.** The AF failure may be partly dose/target-level rather than class death; milvexian (LIBREXIA program) will adjudicate; the real-world bleeding advantage still needs proving. (`established` biology; class verdict `plausible/evolving`.)
+
+### M5 · Inflammation as a *specific* target — "anti-inflammatory" is not a mechanism
+
+**Seed.** The question is never "does inflammation matter?" but "which node, in which disease, at which stage?"
+
+**Mechanism.** The NLRP3 inflammasome → IL-1β → IL-6 → hepatic CRP axis is the causal residual-inflammatory-risk pathway in atherosclerosis; CANTOS (anti-IL-1β canakinumab) proved cutting it reduces MACE independent of LDL — human proof of causality (Ridker & Rane, PMID 33998272; CANTOS, PMID 28845751). IL-6-receptor blockade (sarilumab) treats the IL-6-driven disease PMR. But colchicine is a *broad* agent, and post-MI (CLEAR SYNERGY) it lowered CRP without moving events.
+
+**Cascade.** So the failure of colchicine post-MI isn't "inflammation is irrelevant" — it's node/disease/stage specificity, and (M6) CRP-falling was a surrogate that didn't pay. The same logic explains JAK inhibitors: broad potency buys broad off-target CV/malignancy risk. And it loops back to M3 (HFpEF is an inflammatory disease that responded to the *right* levers). The internist's rule: demand disease- and node-specific evidence before extrapolating any "anti-inflammatory" win.
+
+**Where it bends.** Colchicine's earlier chronic-CAD signals (LoDoCo2/COLCOT) vs the post-MI null may reflect timing/population rather than clean refutation; canakinumab wasn't pursued for CV (cost, infection risk). (`established` axis; colchicine's niche `uncertain`.)
+
+### M6 · Surrogates are IOUs — a promise the disease will follow the marker
+
+**Seed.** A surrogate is a loan against a future hard outcome; some loans default.
+
+**Mechanism.** A trustworthy surrogate must lie on the causal path *and* capture the intervention's net effect. LDL qualifies — Mendelian randomization plus trial concordance across unrelated mechanisms (statins, ezetimibe, PCSK9, bempedoic acid). Many don't: CRP fell with colchicine but events didn't; oncologic response often misses overall survival. Fleming & Powers formalize the "context-of-use" trap (PMID 22711298); empirically, fewer than half of accelerated approvals later confirm a hard-outcome benefit (Liu & Kesselheim, PMID 38583175).
+
+**Cascade.** This re-sorts half the year's headlines into *bets ranked by how tightly the surrogate sits on the causal path*: albuminuria (CONFIDENCE) is a strong surrogate, histology (resmetirom) moderate and under accelerated approval, AHI (SURMOUNT-OSA) weaker for hard CV outcomes, diagnostic accuracy (M8) weakest of all for *outcome* benefit. It connects to M5 (CRP), M7 (does "amyloid cleared" equal "life better"? partly), and to honest patient counseling ("approved, benefit likely, outcomes not yet proven").
+
+**Where it bends.** Surrogates are how we act in time within slow diseases — the answer is calibrated confidence plus insisting on confirmatory trials, not nihilism. (`established` epistemics.)
+
+### M7 · Amyloid — modest causation, ARIA as the price of proof
+
+**Seed.** Proving a hypothesis and curing a disease are different bars, and the treatment's harm rides the same biology as the disease.
+
+**Mechanism.** Amyloid hypothesis: an Aβ production/clearance imbalance (APOE ε4 impairs clearance) seeds downstream tau, neuroinflammation, and neurodegeneration (Selkoe & Hardy, PMID 27025652). Antibodies clear plaque and slow decline *modestly* because, by the symptomatic stage, the downstream cascade has its own momentum. ARIA: stripping amyloid from vessel walls (where cerebral amyloid angiopathy lives) transiently weakens them → edema (ARIA-E) and microhemorrhage (ARIA-H); APOE ε4 — which drives both parenchymal and vascular amyloid — is the dominant risk factor (`established`; Filippi, PMID 35099507). The disease allele is the harm allele.
+
+**Cascade.** That single fact dictates the care model: genotype (APOE) before treating, serial MRI monitoring, select early-stage patients, and counsel small-benefit/real-risk honestly. It links to M8 (blood biomarkers to select and confirm candidates) and M6 (plaque clearance as a partial surrogate for meaningful benefit).
+
+**Where it bends.** Whether pre-symptomatic treatment yields larger benefit is being tested; the hypothesis's completeness (tau and inflammation as co-targets) is still debated. (`established` as hypothesis + ARIA mechanism; benefit magnitude `moderate/uncertain`.)
+
+### M8 · Diagnostics move to molecules — a result is a probability update, not a fact
+
+**Seed.** As tests shift from anatomy to molecules, Bayes stops being optional.
+
+**Mechanism.** Sensitivity/specificity are properties of the *test*; PPV/NPV — what you actually act on — depend on *pretest probability*. Shield's 83% cancer sensitivity but 13% advanced-adenoma sensitivity means a good rule-in but poor prevention (you catch the cancer, miss the precursor). Plasma p-tau217's 91.7%/97.3% are PPV/NPV in an *enriched symptomatic* memory clinic (Palmqvist, PMID 32722745; Ashton, PMID 38252443); drop the same test into a low-prevalence well population and PPV collapses.
+
+**Cascade.** So "is this a good test?" is unanswerable without "for whom, and to do what?" It ties to M6 (diagnostic accuracy is itself a surrogate for outcome benefit — neither Shield nor the AD blood test has shown a mortality/decision benefit yet), to M7 (biomarker-guided candidate selection), and to AI (M-adjacent: models trained on one population mis-estimate probability in another → automation bias). Practical rule: use molecular tests as pretest-probability shifters and triage; confirm before any irreversible action.
+
+**Where it bends.** For the patient who would otherwise refuse screening, a mediocre test beats no test — value is contextual, not absolute. (`established` reasoning.)
+
+### M9 · "Less is more" has a clock — time-to-benefit vs. time remaining
+
+**Seed.** Every preventive drug has a delay before it helps; compare that delay to how long the patient actually has.
+
+**Mechanism.** Time-to-benefit (TTB) is the lag until an intervention prevents one event — ~2.5 years for a primary-prevention statin, longer for intensive glycemic control, years for cancer screening (Yourman, PMID 33196766; concept origin Holmes, PMID 23749475). If life expectancy < TTB, the patient absorbs all the harms (adverse effects, interactions, burden, cost) and cannot reach the benefit. Deprescribing becomes arithmetic, not a vibe (Thompson & McDonald, PMID 37729029).
+
+**Cascade.** One framework unifies scattered "subtraction" moves: deprescribe per Beers/STOPP when TTB exceeds remaining life; prescribe exercise for falls (immediate benefit, no lag); read restrictive-vs-liberal transfusion and antibiotic/monitoring de-escalation the same way. It connects to M6 (don't chase surrogates in patients who can't live long enough to benefit) and to goals-of-care. It inverts the default: adding is not automatically caring; subtraction is often the higher-value act.
+
+**Where it bends.** TTB estimates are population averages with wide intervals, and patient values (some will accept burden for a small, late benefit) must weight the arithmetic. (`established` framework; individual TTB `uncertain`.)
+
+---
+
 ## 5. Hypotheses to carry forward
 
 | Hypothesis | Supporting evidence | Counter-evidence | What would change it | Practical implication if correct |
