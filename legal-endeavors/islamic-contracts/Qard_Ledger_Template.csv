@@ -1,0 +1,2 @@
+seq,date_sent,date_received,amount_usd,method,bank_reference,memo_code,direction,spend_category,running_principal_usd,notes,prev_entry_sha256,entry_sha256
+1,2026-08-01,2026-08-01,0.00,wire,EXAMPLE-REF-0001,QARD-001,advance,living,0.00,example row - replace with real data,GENESIS,
