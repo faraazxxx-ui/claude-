@@ -1,0 +1,113 @@
+{
+  "mode": "files",
+  "root": ".",
+  "total_files": 259,
+  "finality_claims": {
+    "count": 29,
+    "pct_of_corpus": 11.2,
+    "paths": [
+      "AI_Platform_Master_Reference_FULL.md",
+      "CYB003_Optimized_Prompts.md",
+      "FINAL_DELIVERABLE_Rahman_Risk_Assessment.md",
+      "FINAL_Perfected_Prompt_v2.md",
+      "Optimized_Prompt_Manus.md",
+      "PERFECTED_PROMPT_Red_Team_Edition.md",
+      "analysis-output/master_report.md",
+      "analysis-output/perfected/PERFECTED_MASTER_REPORT.md",
+      "analysis-output/perfected/red_team_analysis.json",
+      "autonomic_intelligence_v3/AUTONOMIC_INTELLIGENCE_REPORT_v3.md",
+      "autonomic_intelligence_v3/execute_master_prompt.py",
+      "autonomic_intelligence_v3/medication_adherence_v3.json",
+      "clinical_report_v4/CLINICAL_REPORT_v4.md",
+      "clinical_report_v4/master_analysis.py",
+      "daily-note-ai-integration/RED_TEAM_ANALYSIS.md",
+      "daily-workflow-optimizer/FINAL_COMPARATIVE_ANALYSIS_AND_PERFECTED_PROMPT.md",
+      "daily-workflow-optimizer/PERFECTED_PROMPTS.md",
+      "ghusoon-project/Ghusoon_Optimized_Mega_Prompt.md",
+      "ghusoon-project/parallel-outputs/0_it14lw6ctWCXFZanaO1Eiz_1775374616820_na1fn_L2hvbWUvdWJ1bnR1L3Byb21wdF9vcHRpbWl6ZXJfb3V0cHV0.md",
+      "ghusoon-project/parallel-outputs/1_urwgl60d2c0gwCdZUk61AS_1775374629240_na1fn_L2hvbWUvdWJ1bnR1L3Byb21wdF9vcHRpbWl6ZXJfb3V0cHV0.md",
+      "health_analysis_v2/PERFECTED_REPORT.md",
+      "health_analysis_v2/red_team_analysis.md",
+      "optimized-prompts/Ghusoon_Optimized_Prompts_Final.md",
+      "optimized-prompts/Ghusoon_Perfected_Prompts_v2.md",
+      "optimized-prompts/red_team_analysis.md",
+      "prompts/FINAL_OPTIMIZED_PROMPTS.md",
+      "prompts/PERFECTED_PROMPTS.md",
+      "prompts/red_team_analysis.md",
+      "red_team_prompt_analysis.csv"
+    ]
+  },
+  "byte_identical_duplicates": {
+    "groups": 3,
+    "detail": [
+      {
+        "paths": [
+          "health_analysis_v2/red_team_analysis.md",
+          "prompts/red_team_analysis.md"
+        ]
+      },
+      {
+        "paths": [
+          "skill/health-data-analyst/references/compass_artifact.md",
+          "skill/references/compass_artifact.md"
+        ]
+      },
+      {
+        "paths": [
+          "skill/health-data-analyst/references/unified_model.md",
+          "skill/references/unified_model.md"
+        ]
+      }
+    ]
+  },
+  "version_families": {
+    "count": 5,
+    "files_involved": 14,
+    "top": [
+      {
+        "canonical": "red_team_analysis.md",
+        "count": 4,
+        "paths": [
+          "daily-note-ai-integration/RED_TEAM_ANALYSIS.md",
+          "health_analysis_v2/red_team_analysis.md",
+          "optimized-prompts/red_team_analysis.md",
+          "prompts/red_team_analysis.md"
+        ]
+      },
+      {
+        "canonical": "report.md",
+        "count": 3,
+        "paths": [
+          "analysis-output/master_report.md",
+          "analysis-output/perfected/PERFECTED_MASTER_REPORT.md",
+          "health_analysis_v2/PERFECTED_REPORT.md"
+        ]
+      },
+      {
+        "canonical": "prompts.md",
+        "count": 3,
+        "paths": [
+          "daily-workflow-optimizer/PERFECTED_PROMPTS.md",
+          "prompts/FINAL_OPTIMIZED_PROMPTS.md",
+          "prompts/PERFECTED_PROMPTS.md"
+        ]
+      },
+      {
+        "canonical": "medication_adherence.json",
+        "count": 2,
+        "paths": [
+          "autonomic_intelligence_v3/medication_adherence_v3.json",
+          "health_analysis_v2/medication_adherence.json"
+        ]
+      },
+      {
+        "canonical": "ghusoon_prompts.md",
+        "count": 2,
+        "paths": [
+          "optimized-prompts/Ghusoon_Optimized_Prompts_Final.md",
+          "optimized-prompts/Ghusoon_Perfected_Prompts_v2.md"
+        ]
+      }
+    ]
+  }
+}

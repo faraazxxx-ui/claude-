@@ -1,0 +1,8 @@
+# Raw exports and data dumps — staging only, never the corpus itself
+ingest/*
+!ingest/README.md
+
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
