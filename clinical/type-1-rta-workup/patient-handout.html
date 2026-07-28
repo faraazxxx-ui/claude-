@@ -1,0 +1,510 @@
+<title>Renal Tubular Acidosis — Patient Handout</title>
+
+<style>
+  :root {
+    --ground: #FBFCFB;
+    --surface: #FFFFFF;
+    --ink: #17242A;
+    --ink-soft: #55676F;
+    --ink-faint: #7E8E94;
+    --accent: #1C6B66;
+    --accent-soft: #E8F1F0;
+    --accent-line: #A8CBC7;
+    --rule: #DBE3E3;
+    --alert: #9C3A2C;
+    --alert-soft: #FBF0ED;
+    --alert-line: #E0B6AC;
+
+    --display: "Palatino Linotype", "Iowan Old Style", Palatino, "URW Palladio L", "Book Antiqua", Georgia, serif;
+    --body: "Lato", "Segoe UI", Frutiger, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    --measure: 68ch;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #101A1D;
+      --surface: #162327;
+      --ink: #E6EEEC;
+      --ink-soft: #9FB1B2;
+      --ink-faint: #7C8F90;
+      --accent: #62BDB4;
+      --accent-soft: #17302E;
+      --accent-line: #2E5A56;
+      --rule: #26353A;
+      --alert: #E89383;
+      --alert-soft: #2B1A17;
+      --alert-line: #5C332B;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #101A1D;
+    --surface: #162327;
+    --ink: #E6EEEC;
+    --ink-soft: #9FB1B2;
+    --ink-faint: #7C8F90;
+    --accent: #62BDB4;
+    --accent-soft: #17302E;
+    --accent-line: #2E5A56;
+    --rule: #26353A;
+    --alert: #E89383;
+    --alert-soft: #2B1A17;
+    --alert-line: #5C332B;
+  }
+
+  :root[data-theme="light"] {
+    --ground: #FBFCFB;
+    --surface: #FFFFFF;
+    --ink: #17242A;
+    --ink-soft: #55676F;
+    --ink-faint: #7E8E94;
+    --accent: #1C6B66;
+    --accent-soft: #E8F1F0;
+    --accent-line: #A8CBC7;
+    --rule: #DBE3E3;
+    --alert: #9C3A2C;
+    --alert-soft: #FBF0ED;
+    --alert-line: #E0B6AC;
+  }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sheet {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 40px 28px 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  /* ---- masthead ---- */
+
+  .masthead {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 14px;
+  }
+
+  .eyebrow {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-size: 30px;
+    line-height: 1.15;
+    font-weight: 700;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+
+  .standfirst {
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    text-wrap: pretty;
+  }
+
+  /* ---- sections ---- */
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+
+  h2 {
+    font-family: var(--display);
+    font-size: 18.5px;
+    font-weight: 700;
+    line-height: 1.25;
+    text-wrap: balance;
+  }
+
+  p { text-wrap: pretty; }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  li {
+    padding-left: 20px;
+    position: relative;
+  }
+
+  li::before {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 0.62em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-line);
+  }
+
+  strong { font-weight: 700; }
+  em { font-style: italic; }
+
+  /* ---- the causal chain: a real sequence, so arrows are earned ---- */
+
+  .chain {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 2px 0;
+  }
+
+  .link {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-line);
+    padding: 12px 11px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+  }
+
+  .link-label {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .link-text {
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--ink);
+  }
+
+  .link:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    width: 8px;
+    height: 1.5px;
+    background: var(--accent-line);
+    z-index: 1;
+  }
+
+  @media (max-width: 620px) {
+    .chain { grid-template-columns: 1fr; }
+    .link:not(:last-child)::after {
+      right: auto;
+      left: 50%;
+      top: auto;
+      bottom: -8px;
+      width: 1.5px;
+      height: 8px;
+    }
+  }
+
+  /* ---- pull statement ---- */
+
+  .thesis {
+    font-family: var(--display);
+    font-size: 16.5px;
+    line-height: 1.45;
+    border-left: 3px solid var(--accent);
+    padding: 4px 0 4px 16px;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+
+  /* ---- schedule table ---- */
+
+  .table-wrap { overflow-x: auto; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+
+  th {
+    text-align: left;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    padding: 0 12px 7px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  th:last-child, td:last-child { padding-right: 0; }
+
+  td {
+    padding: 9px 12px 9px 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.45;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+
+  td:first-child {
+    font-weight: 700;
+    white-space: nowrap;
+    color: var(--accent);
+  }
+
+  /* ---- callouts ---- */
+
+  .callout {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-line);
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .callout-title {
+    font-family: var(--display);
+    font-size: 15.5px;
+    font-weight: 700;
+  }
+
+  .callout p { font-size: 13.5px; }
+
+  .alertbox {
+    background: var(--alert-soft);
+    border: 1px solid var(--alert-line);
+    border-left: 3px solid var(--alert);
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    break-inside: avoid;
+  }
+
+  .alertbox h2 { color: var(--alert); font-size: 16px; }
+  .alertbox li::before { background: var(--alert); }
+  .alertbox ul { gap: 5px; font-size: 13.5px; }
+
+  /* ---- footer ---- */
+
+  .footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .disclaimer {
+    font-size: 12px;
+    color: var(--ink-faint);
+    line-height: 1.5;
+    text-wrap: pretty;
+  }
+
+  .fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 10px 22px;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .field span {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .field i {
+    display: block;
+    border-bottom: 1px solid var(--rule);
+    height: 20px;
+  }
+
+  /* ---- print: one clean sheet ---- */
+
+  @page { margin: 0.5in; }
+
+  @media print {
+    :root {
+      --ground: #FFFFFF;
+      --surface: #FFFFFF;
+      --ink: #000000;
+      --ink-soft: #333333;
+      --ink-faint: #555555;
+      --accent: #14544F;
+      --accent-soft: #EFF5F4;
+      --accent-line: #9DBFBB;
+      --rule: #C9D3D3;
+      --alert: #8A2F22;
+      --alert-soft: #FAF1EF;
+      --alert-line: #D8AFA5;
+    }
+    body {
+      background: #FFFFFF;
+      font-size: 9.6pt;
+      line-height: 1.38;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+    .sheet {
+      max-width: none;
+      padding: 0;
+      gap: 12px;
+    }
+    h1 { font-size: 19pt; }
+    h2 { font-size: 12pt; }
+    .standfirst { font-size: 9.4pt; }
+    .thesis { font-size: 10.4pt; }
+    .link-text, td, .callout p, .alertbox ul { font-size: 9pt; }
+    section { gap: 6px; }
+    ul { gap: 3px; }
+    td { padding: 5px 10px 5px 0; }
+    .callout, .alertbox { padding: 9px 12px; }
+    .footer { padding-top: 10px; }
+    section, .alertbox, .callout, .chain, table { break-inside: avoid; }
+  }
+</style>
+
+<div class="sheet">
+
+  <header class="masthead">
+    <div class="eyebrow">Understanding your kidney test results</div>
+    <h1>Renal Tubular Acidosis</h1>
+    <p class="standfirst">Your recent blood and urine tests point to a kidney condition called renal tubular acidosis, or RTA. This sheet explains what that means, why it causes kidney stones and blood in your urine, and what happens next.</p>
+  </header>
+
+  <section>
+    <h2>What we found</h2>
+    <ul>
+      <li><strong>Slightly too much acid in your blood.</strong> A substance called bicarbonate soaks up acid the way a sponge soaks up water. Yours is a little low.</li>
+      <li><strong>Your urine is not acidic enough.</strong> Healthy kidneys push spare acid out into the urine. Yours are not doing that as well as they should.</li>
+      <li><strong>A small kidney stone, with blood in your urine and pain in your side.</strong></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>What RTA is</h2>
+    <p>Picture your kidneys as millions of tiny drains. Each one pulls back what your body needs and pushes waste — including acid — out into your urine. In RTA, the last part of the drain has trouble pushing the acid out.</p>
+
+    <div class="chain">
+      <div class="link">
+        <div class="link-label">Starts here</div>
+        <div class="link-text">The drain cannot push out enough acid</div>
+      </div>
+      <div class="link">
+        <div class="link-label">So</div>
+        <div class="link-text">Acid builds up in your blood</div>
+      </div>
+      <div class="link">
+        <div class="link-label">So</div>
+        <div class="link-text">Your bones release calcium to neutralize it</div>
+      </div>
+      <div class="link">
+        <div class="link-label">Result</div>
+        <div class="link-text">Calcium forms stones — causing pain and bleeding</div>
+      </div>
+    </div>
+
+    <p class="thesis">These are not four separate problems. They are one chain — which is good news, because fixing the first link improves all of them.</p>
+  </section>
+
+  <section>
+    <h2>Why it happened</h2>
+    <p>Finding the cause is part of what we are doing now. The three we check for most often:</p>
+    <ul>
+      <li><strong>An autoimmune condition</strong>, where the immune system mistakenly targets healthy tissue. The most common one here also causes <strong>dry eyes and a dry mouth</strong> — please tell us if you have either.</li>
+      <li><strong>A medicine you are taking.</strong> Some seizure and migraine medicines cause exactly this. <strong>Bring every medicine, vitamin, and supplement to your next visit</strong>, including anything you buy without a prescription.</li>
+      <li><strong>The way your kidneys are built.</strong> Some people are born with a variation that produces this pattern.</li>
+    </ul>
+    <p>Your bladder infection has been treated and cured. It is <em>not</em> the cause of the acid problem — but infections and stones do feed each other, so we take both seriously.</p>
+  </section>
+
+  <section>
+    <h2>What happens next</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th scope="col">When</th><th scope="col">What it involves</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>This week</td><td>Blood tests to confirm the acid level and check your potassium — a mineral this condition can lower</td></tr>
+          <tr><td>This week</td><td>A <strong>first-morning urine sample</strong>, collected fresh, to measure how acidic your urine really is</td></tr>
+          <tr><td>Soon</td><td>A CT scan to look closely at your kidneys and the stone</td></tr>
+          <tr><td>In about a month</td><td><strong>Two 24-hour urine collections</strong> — you save all your urine for a full day, twice. This shows exactly why stones are forming.</td></tr>
+          <tr><td>2–4 weeks</td><td>Kidney specialist (nephrologist), and a bladder specialist (urologist) at the same time for the bleeding</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="callout">
+    <div class="callout-title">Please strain your urine — every time</div>
+    <p>We will give you a small strainer. Use it at every visit to the toilet and bring us anything you catch, <strong>even a speck</strong>. Testing what a stone is made of tells us more than almost any other test we can run. It is quick, it costs nothing, and it can change your whole treatment.</p>
+  </div>
+
+  <section>
+    <h2>How it is treated</h2>
+    <p>The main treatment is a medicine called <strong>potassium citrate</strong>. It does two jobs at once: it neutralizes the extra acid, and the citrate coats calcium in your urine so it cannot clump into stones. Alongside it:</p>
+    <ul>
+      <li><strong>Drink enough to pass about 2.5 litres of urine a day.</strong> Spread it across the day, including some before bed.</li>
+      <li><strong>Cut back on salt.</strong> Salt pulls calcium into your urine and makes stones more likely.</li>
+      <li><strong>Go easy on large amounts of meat and protein.</strong></li>
+      <li><strong>Keep eating normal amounts of dairy with your meals.</strong> This surprises people — but calcium <em>in food</em> actually <strong>protects</strong> you, because it traps stone-forming material in your gut before it ever reaches your kidneys. Do not cut out dairy.</li>
+      <li><strong>Avoid calcium pills between meals</strong> unless we prescribe them. They work differently from calcium in food and can make stones worse.</li>
+      <li><strong>Use only pasteurized milk and cheese.</strong> Cheese made from raw milk can carry the kind of bacteria that caused your infection.</li>
+    </ul>
+  </section>
+
+  <div class="alertbox">
+    <h2>Call us the same day if you have</h2>
+    <ul>
+      <li>Muscle weakness, or trouble lifting your arms or standing up from a chair</li>
+      <li>A fast, pounding, or irregular heartbeat</li>
+      <li>Fever with chills, along with back or side pain</li>
+      <li>Passing no urine, or far less than usual</li>
+      <li>Severe pain your medicine will not control, or heavy bleeding and clots</li>
+    </ul>
+  </div>
+
+  <section>
+    <h2>The bottom line</h2>
+    <p><strong>This is a manageable condition.</strong> Once the acid level is corrected, stones usually slow down or stop, the bleeding and pain settle, and your bones are protected. Most people do well on one daily medicine and a few changes to what they drink and eat.</p>
+  </section>
+
+  <footer class="footer">
+    <p class="disclaimer">This sheet explains your condition in general terms. Your own care plan comes from your doctors — ask us anything, no question is too small. Bring to your next visit: all medicines and supplements, any stone you catch, and a note of whether you have dry eyes or a dry mouth.</p>
+    <div class="fields">
+      <label class="field"><span>Your care team</span><i></i></label>
+      <label class="field"><span>Phone</span><i></i></label>
+      <label class="field"><span>Next appointment</span><i></i></label>
+    </div>
+  </footer>
+
+</div>
