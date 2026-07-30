@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Complaint Architecture &amp; Counsel Mandate — Rahman</title>
+<style>
+  @page {
+    size: Letter;
+    margin: 20mm 18mm 18mm 18mm;
+    @bottom-center { content: counter(page); }
+  }
+  @page :first { margin: 0; }
+
+  :root {
+    --ink:      #1a1a18;
+    --ink-soft: #4a4a46;
+    --ink-mute: #6e6e68;
+    --rule:     #d2cfc7;
+    --rule-hi:  #a8a49a;
+    --primary:  #14403c;
+    --primary-l:#e8efed;
+    --amber:    #8a5d0e;
+    --amber-l:  #fbf4e6;
+    --red:      #8a2b2b;
+    --red-l:    #faeeee;
+    --paper:    #fdfcfa;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { font-size: 10.2pt; }
+
+  body {
+    font-family: "Liberation Serif", "DejaVu Serif", Georgia, serif;
+    color: var(--ink);
+    background: #fff;
+    line-height: 1.44;
+    margin: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ---------- COVER ---------- */
+  .cover {
+    height: 279mm;
+    padding: 26mm 24mm 15mm 24mm;
+    display: flex;
+    flex-direction: column;
+    background: var(--primary);
+    color: #f4f1e9;
+    page-break-after: always;
+  }
+  .cover .kicker {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 8.4pt; letter-spacing: .22em; text-transform: uppercase;
+    color: #9dbdb5; margin-bottom: 5mm;
+  }
+  .cover h1 {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 33pt; line-height: 1.1; font-weight: 700;
+    margin: 0 0 6mm 0; letter-spacing: -.015em; color: #fff;
+  }
+  .cover .sub {
+    font-size: 13.5pt; line-height: 1.45; color: #cfe0db;
+    max-width: 122mm; margin: 0 0 auto 0;
+  }
+  .cover .sub em { color: #f0e3c0; font-style: italic; }
+  .cover .rule { height: 2px; background: #4d7a72; margin: 9mm 0; width: 46mm; }
+  .cover-meta {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6mm 10mm;
+    border-top: 1px solid #3c6a62; padding-top: 7mm; margin-top: 8mm;
+  }
+  .cover-meta div { font-size: 9.4pt; line-height: 1.5; }
+  .cover-meta .lbl {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 7.6pt; letter-spacing: .15em; text-transform: uppercase;
+    color: #8fb2aa; display: block; margin-bottom: 1.5mm;
+  }
+  .cover-conf {
+    margin-top: 7mm; padding: 4mm 5mm; border: 1px solid #3c6a62;
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 8pt; line-height: 1.5; color: #cfe0db;
+  }
+
+  /* ---------- HEADINGS ---------- */
+  h2, h3, h4 { font-family: "Liberation Sans", Helvetica, sans-serif; }
+
+  h2 {
+    font-size: 15.5pt; font-weight: 700; color: var(--primary);
+    margin: 0 0 5mm 0; padding-bottom: 2.4mm;
+    border-bottom: 1.6px solid var(--primary);
+    letter-spacing: -.01em;
+  }
+  h2 .pt {
+    display: block;
+    font-size: 7.8pt; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 400; margin-bottom: 1.6mm;
+  }
+  h3 {
+    font-size: 11.4pt; font-weight: 700; color: var(--ink);
+    margin: 7mm 0 2.6mm 0;
+  }
+  h3.sec::before {
+    content: attr(data-n);
+    color: var(--primary); font-weight: 700;
+    margin-right: 2.4mm;
+  }
+  h4 {
+    font-size: 9.6pt; font-weight: 700; margin: 5mm 0 1.8mm 0;
+    color: var(--ink-soft); letter-spacing: .02em;
+  }
+  section { page-break-before: always; }
+  section.cont { page-break-before: auto; }
+
+  p { margin: 0 0 3mm 0; }
+  strong { color: #000; }
+  em.q { font-style: italic; }
+
+  /* ---------- LEAD ---------- */
+  .lead {
+    font-size: 11.2pt; line-height: 1.5; color: var(--ink-soft);
+    margin-bottom: 5mm;
+  }
+  .lead strong { color: var(--ink); }
+
+  /* ---------- TABLES ---------- */
+  table {
+    width: 100%; border-collapse: collapse;
+    margin: 3mm 0 5mm 0; font-size: 8.9pt;
+    page-break-inside: avoid;
+  }
+  thead { display: table-header-group; }
+  th {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 7.8pt; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .07em; text-align: left; color: var(--primary);
+    border-bottom: 1.4px solid var(--rule-hi);
+    padding: 2.2mm 2.4mm 1.8mm 0; vertical-align: bottom;
+  }
+  td {
+    padding: 2.1mm 2.4mm 2.1mm 0; vertical-align: top;
+    border-bottom: .6px solid var(--rule); line-height: 1.36;
+  }
+  tbody tr:last-child td { border-bottom: 1.2px solid var(--rule-hi); }
+  td:last-child, th:last-child { padding-right: 0; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tr.total td { font-weight: 700; background: var(--primary-l); }
+  tr.total td.num { color: var(--primary); }
+  table.tight td, table.tight th { font-size: 8.4pt; }
+  .neg { color: var(--red); }
+
+  /* ---------- CALLOUTS ---------- */
+  .box {
+    border-left: 2.6px solid var(--primary);
+    background: var(--primary-l);
+    padding: 3.6mm 4.4mm; margin: 4mm 0;
+    page-break-inside: avoid; font-size: 9.2pt;
+  }
+  .box > :last-child { margin-bottom: 0; }
+  .box .hd {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 7.6pt; letter-spacing: .16em; text-transform: uppercase;
+    font-weight: 700; color: var(--primary); margin-bottom: 2mm;
+  }
+  .box.warn  { border-left-color: var(--amber); background: var(--amber-l); }
+  .box.warn .hd { color: var(--amber); }
+  .box.stop  { border-left-color: var(--red); background: var(--red-l); }
+  .box.stop .hd { color: var(--red); }
+  .box.plain { border-left-color: var(--rule-hi); background: #f6f5f1; }
+  .box.plain .hd { color: var(--ink-mute); }
+
+  /* ---------- PULL ---------- */
+  .pull {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 12.4pt; line-height: 1.36; font-weight: 700;
+    color: var(--primary); border-top: 1.4px solid var(--primary);
+    border-bottom: 1.4px solid var(--primary);
+    padding: 4.6mm 0; margin: 6mm 0; page-break-inside: avoid;
+  }
+
+  /* ---------- GATE DIAGRAM ---------- */
+  .gates { margin: 4mm 0 5mm 0; page-break-inside: avoid; }
+  .gate {
+    display: flex; align-items: stretch; margin-bottom: 0;
+  }
+  .gate-id {
+    flex: 0 0 15mm;
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 9.4pt; font-weight: 700; color: #fff;
+    background: var(--primary); display: flex; align-items: center;
+    justify-content: center; border-radius: 1mm;
+  }
+  .gate-body {
+    flex: 1; padding: 2.6mm 0 2.6mm 4mm;
+  }
+  .gate-body .t {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-weight: 700; font-size: 9.6pt; margin-bottom: .8mm;
+  }
+  .gate-body .d { font-size: 8.7pt; color: var(--ink-soft); line-height: 1.38; }
+  .gate-arrow {
+    margin-left: 7mm; padding: 1mm 0 1mm 4mm;
+    border-left: 2px solid var(--rule-hi);
+    font-size: 8pt; font-style: italic; color: var(--ink-mute);
+  }
+  .gate-fan {
+    margin-left: 7mm; padding-left: 4mm; border-left: 2px solid var(--rule-hi);
+  }
+  .fan-row { display: flex; gap: 4mm; margin: 2mm 0; }
+  .fan-item {
+    flex: 1; border: .8px solid var(--rule-hi); border-top: 2.2px solid var(--primary);
+    padding: 2.6mm 3mm; font-size: 8.4pt; line-height: 1.34; background: var(--paper);
+  }
+  .fan-item b { font-family: "Liberation Sans", Helvetica, sans-serif; font-size: 8.6pt; display: block; margin-bottom: .9mm; }
+
+  /* ---------- ENTITY MAP ---------- */
+  .emap { margin: 4mm 0 5mm; page-break-inside: avoid; }
+  .ent {
+    border: .9px solid var(--rule-hi); border-top: 3px solid var(--primary);
+    padding: 3.2mm 3.6mm; background: var(--paper); margin-bottom: 2.5mm;
+  }
+  .ent.charity { border-top-color: var(--amber); }
+  .ent .en {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-weight: 700; font-size: 10pt; margin-bottom: .6mm;
+  }
+  .ent .ef {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 7.6pt; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--ink-mute); margin-bottom: 2mm;
+  }
+  .ent .ed { font-size: 8.7pt; line-height: 1.4; }
+  .ent-link {
+    text-align: center; font-size: 8pt; font-style: italic;
+    color: var(--ink-mute); margin: 1.5mm 0 2.5mm;
+  }
+
+  /* ---------- LISTS ---------- */
+  ul, ol { margin: 0 0 3.5mm 0; padding-left: 5.5mm; }
+  li { margin-bottom: 1.5mm; line-height: 1.42; }
+  ul.clean { list-style: none; padding-left: 0; }
+  ul.clean li {
+    padding-left: 5mm; position: relative; margin-bottom: 2mm;
+  }
+  ul.clean li::before {
+    content: "—"; position: absolute; left: 0; color: var(--primary); font-weight: 700;
+  }
+
+  /* ---------- TOC ---------- */
+  .toc { columns: 2; column-gap: 12mm; font-size: 9.2pt; }
+  .toc-i {
+    display: flex; justify-content: space-between; gap: 3mm;
+    padding: 1.5mm 0; border-bottom: .5px dotted var(--rule);
+    break-inside: avoid;
+  }
+  .toc-i .n { color: var(--primary); font-weight: 700; flex: 0 0 8mm; font-family: "Liberation Sans", sans-serif; font-size: 8.4pt; }
+  .toc-i .t { flex: 1; }
+  .toc-h {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 7.6pt; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--ink-mute); margin: 4mm 0 2mm; break-after: avoid;
+  }
+  .toc-h:first-child { margin-top: 0; }
+
+  /* ---------- MISC ---------- */
+  .src { font-size: 7.8pt; color: var(--ink-mute); font-style: italic; }
+  .flag {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 6.9pt; font-weight: 700; letter-spacing: .06em;
+    padding: .5mm 1.4mm; border-radius: .8mm; vertical-align: 1px;
+    white-space: nowrap;
+  }
+  .flag.asm { background: #ece9e0; color: #5c584c; }
+  .flag.unv { background: var(--amber-l); color: var(--amber); border: .5px solid #ddc79a; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin: 4mm 0 5mm; }
+  .kpi {
+    border-top: 2.2px solid var(--primary); padding: 2.4mm 0 0;
+  }
+  .kpi .v {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 15pt; font-weight: 700; color: var(--primary); line-height: 1.1;
+  }
+  .kpi .l { font-size: 8pt; color: var(--ink-soft); line-height: 1.3; margin-top: 1mm; }
+  .avoid { page-break-inside: avoid; }
+  .footer-note {
+    margin-top: 8mm; padding-top: 3mm; border-top: .8px solid var(--rule);
+    font-size: 8pt; color: var(--ink-mute); line-height: 1.45;
+  }
+</style>
+</head>
+<body>
+<!-- ================= COVER ================= -->
+<div class="cover">
+  <div class="kicker">Complaint Architecture &amp; Counsel Mandate &middot; Privileged</div>
+  <h1>The Finding<br>Is The Remedy</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    Draft count architecture for a § 1983 action arising from the Binghamton prosecution — including the <em>fabrication of evidence</em> count against prosecutorial investigative conduct — built around a declaratory objective rather than a compensatory one.
+  </div>
+
+  <div class="cover-meta">
+    <div><span class="lbl">Prepared for</span>Mohammed Faraaz Rahman, MD<br>and prospective counsel</div>
+    <div><span class="lbl">Date</span>30 July 2026</div>
+    <div><span class="lbl">Predicate</span>Acquittal at trial, Binghamton City Court,<br>August 2025 — client-confirmed</div>
+    <div><span class="lbl">Venue</span>N.D.N.Y. (Broome County)</div>
+  </div>
+
+  <div class="cover-conf">
+    <strong style="color:#f0e3c0">Draft language for counsel's review — not a pleading.</strong> The count language below is client-side work product prepared with analytical assistance to communicate intent to retained counsel. It has not been drafted by a lawyer, has not been verified against current Second Circuit authority, and must be redrafted by admitted counsel before any filing. Bracketed items require factual confirmation. Nothing here creates an attorney-client relationship.
+  </div>
+</div>
+
+<!-- ================= PART 1 ================= -->
+<section class="cont">
+<h2><span class="pt">Part 1</span>The Objective, Restated Correctly</h2>
+
+<p class="lead">This is the part that must be conveyed to counsel first, because it inverts how a civil rights case is normally valued and therefore how it should be litigated.</p>
+
+<div class="box">
+  <div class="hd">What the client is actually buying</div>
+  <p>Not damages. <strong>A judicial finding that the prosecution was malicious in its origin.</strong> Three consequences follow, and each is worth more than the money:</p>
+  <table style="margin:2mm 0 0 0">
+  <tbody>
+  <tr>
+    <td style="width:22%"><strong>Immigration</strong></td>
+    <td>An arrest and prosecution appear in the immigration record regardless of outcome. "Acquitted" still reads as "was charged." A civil finding that the charge was fabricated <strong>recharacterises the event itself</strong> — from a defendant who prevailed into a victim of bad-faith actors. That distinction is material before USCIS, and the client's status turned on employment the prosecution made unobtainable.</td>
+  </tr>
+  <tr>
+    <td><strong>The three-year gap</strong></td>
+    <td>Every credentialing application, licensing board, and hiring committee asks what he was doing. <strong>"I was on trial" is damaging whatever the verdict.</strong> "I was the target of a malicious prosecution, I sued, and a court so found" is a different answer to the same question. The claim is a <em>reputational instrument</em> before it is a damages claim.</td>
+  </tr>
+  <tr>
+    <td><strong>Conspiracy</strong></td>
+    <td>A malicious prosecution finding converts the criminal case from unrelated misfortune into <strong>an act within the retaliation campaign</strong> already pleaded in <em>Rahman v. UHS</em>. That is the single most valuable thing this action can do for the employment case — and see Count III, which supplies the doctrinal bridge.</td>
+  </tr>
+  </tbody>
+  </table>
+</div>
+
+<div class="box stop">
+  <div class="hd">The correction that matters, and it works in your favour</div>
+  <p><strong>§ 1983 fabrication of evidence and § 1983 malicious prosecution are different claims with different elements, and only one of them produces the word you need.</strong> A fabrication verdict establishes that evidence was manufactured. It does not, of itself, establish "malicious prosecution."</p>
+  <p style="margin-bottom:0">So the fabrication count against the District Attorney — which you asked for and which appears below as <strong>Count II</strong> — is <em>not</em> the count that delivers your objective. <strong>Count I delivers it</strong>, and it runs against the officers, not the prosecutor. You can have both. But if only one survives, you want Count I. Plead them together and do not let counsel drop Count I as duplicative.</p>
+</div>
+
+<h3 class="sec" data-n="1.2">The one factual question that decides whether the DA count exists</h3>
+
+<p>Your statement video reportedly shows the complainant being coached twice — by the officer present, and <strong>by a person on the telephone during the statement.</strong></p>
+
+<div class="box warn">
+  <div class="hd">Identify the voice on the telephone</div>
+  <p style="margin-bottom:0"><strong>That identity determines the entire defendant structure.</strong> If it was a prosecutor or a District Attorney's investigator directing the content of a complainant's statement <em>before probable cause existed</em>, that is squarely <em>Zahrey</em> and <em>Buckley</em> territory and Count II is live. If it was a family member or a UHS physician, there is no DA count — but Count III becomes far stronger, because a private party directing a police statement is a private actor jointly engaged with state officials. <strong>Either answer is useful. The video already contains it.</strong> This is the first thing to put in front of counsel.</p>
+</div>
+</section>
+
+<!-- ================= PART 2 ================= -->
+<section>
+<h2><span class="pt">Part 2</span>Count Architecture</h2>
+
+<table>
+<thead><tr><th style="width:6%">#</th><th style="width:26%">Count</th><th style="width:22%">Against</th><th>What it delivers</th></tr></thead>
+<tbody>
+<tr><td><strong>I</strong></td><td><strong>§ 1983 malicious prosecution</strong><br><span class="src">Fourth Amendment</span></td><td>Binghamton police officer(s)</td><td><strong>THE OBJECTIVE.</strong> A federal finding of malicious prosecution. Do not let this be dropped.</td></tr>
+<tr><td><strong>II</strong></td><td><strong>§ 1983 fabrication of evidence / denial of a fair trial</strong></td><td>Officer(s); <strong>and prosecutorial actors for investigative conduct only</strong></td><td>The count you asked for. Reaches the DA's office <em>if</em> the telephone voice was prosecutorial. <em>Zahrey</em>, <em>Ricciuti</em>.</td></tr>
+<tr><td><strong>III</strong></td><td><strong>§ 1983 conspiracy</strong></td><td>Officers <strong>+ the complainant + the UHS physicians</strong></td><td><strong>The bridge.</strong> Private parties who conspire with state actors act under colour of law — <em>Dennis v. Sparks</em>. This is how the criminal case becomes part of the retaliation campaign.</td></tr>
+<tr><td><strong>IV</strong></td><td><strong>§ 1985(3) conspiracy</strong><br><span class="src">class-based animus</span></td><td>All conspirators</td><td>National-origin animus. Harder — requires class-based invidious intent. Plead in the alternative; do not lead with it.</td></tr>
+<tr><td><strong>V</strong></td><td><strong>State-law malicious prosecution</strong><br><span class="src">and defamation per se</span></td><td>The complainant</td><td><strong style="color:#8a2b2b">THE AUGUST 2026 FILING.</strong> No immunity, no notice of claim. Files alone if necessary.</td></tr>
+<tr><td><strong>VI</strong></td><td><strong><em>Monell</em></strong></td><td>City of Binghamton</td><td>Policy, custom, or failure to train. Adds institutional depth and a solvent defendant.</td></tr>
+<tr><td><strong>VII</strong></td><td><strong>Declaratory relief</strong><br><span class="src">28 U.S.C. §§ 2201–2202</span></td><td>All</td><td><strong>Ask counsel about this expressly.</strong> A declaration that the prosecution was instituted without probable cause and in bad faith is the document you actually need for USCIS and credentialing. Damages are secondary.</td></tr>
+</tbody>
+</table>
+
+<div class="box plain">
+  <div class="hd">Not pleaded, deliberately</div>
+  <p style="margin-bottom:0"><strong>Malicious prosecution against the District Attorney for charging or trial conduct.</strong> Absolutely immune — <em>Imbler v. Pachtman</em>, 424 U.S. 409 (1976). Pleading it invites an immunity dismissal that costs credibility on the counts that work. The client understands and accepts this.</p>
+</div>
+</section>
+
+<!-- ================= PART 3 ================= -->
+<section>
+<h2><span class="pt">Part 3</span>Draft Count Language</h2>
+
+<p class="lead">For counsel to redraft. Bracketed items require factual confirmation. Paragraph numbering assumes a general-allegations section precedes.</p>
+
+<h3 class="sec" data-n="I.">§ 1983 Malicious Prosecution — the count that delivers the objective</h3>
+
+<div class="box">
+<p style="margin-bottom:2mm"><strong>COUNT I — DEPRIVATION OF LIBERTY WITHOUT PROBABLE CAUSE (MALICIOUS PROSECUTION), 42 U.S.C. § 1983, FOURTH AND FOURTEENTH AMENDMENTS</strong><br><span class="src">Against Defendants [Officer 1], [Officer 2], and John Does 1–5</span></p>
+<p style="font-size:8.8pt">1. Defendants, acting under colour of state law, initiated and continued a criminal proceeding against Plaintiff, a licensed physician then completing residency training, by procuring and forwarding to the prosecuting authority a complainant's statement they knew to be false.</p>
+<p style="font-size:8.8pt">2. Defendants lacked probable cause. The statement on which the charge rested was not the complainant's independent account. It was <strong>shaped in real time by Defendants and by [the person on the telephone]</strong>, as the recorded statement itself demonstrates.</p>
+<p style="font-size:8.8pt">3. Defendants acted with actual malice. Defendants knew or recklessly disregarded that the complaint was filed the day after the complainant's parents learned of her relationship with Plaintiff; that the complainant had been voluntarily present at Plaintiff's residence [the following day, as photographic evidence establishes]; and that a witness present the preceding evening would contradict the account.</p>
+<p style="font-size:8.8pt">4. The criminal proceeding terminated in Plaintiff's favour. On [DATE] August 2025, after trial, Plaintiff was found <strong>NOT GUILTY</strong> in Binghamton City Court. Under <em>Thompson v. Clark</em>, 596 U.S. 36 (2022), a plaintiff need show only that the prosecution ended without a conviction; <strong>an acquittal at trial is the strongest available form of favourable termination.</strong></p>
+<p style="font-size:8.8pt">5. Plaintiff suffered a deprivation of liberty consequent on the legal process — arrest, arraignment, conditions of release, and compelled appearance over approximately seventeen months.</p>
+<p style="font-size:8.8pt; margin-bottom:0">6. As a direct and proximate result, Plaintiff lost a contracted position at $300,000 per annum, was unable to obtain licensure or employment for the duration of the prosecution, suffered injury to his professional reputation and to his immigration position, and incurred defence costs and medical expense — all while carrying an implanted cardiac defibrillator placed in February 2024.</p>
+</div>
+
+<h3 class="sec" data-n="II.">§ 1983 Fabrication of Evidence — the count against prosecutorial investigative conduct</h3>
+
+<div class="box">
+<p style="margin-bottom:2mm"><strong>COUNT II — FABRICATION OF EVIDENCE AND DENIAL OF THE RIGHT TO A FAIR TRIAL, 42 U.S.C. § 1983</strong><br><span class="src">Against Defendants [Officer 1], [Officer 2], and [Prosecutorial Actor], the latter solely in respect of conduct performed in an investigative capacity</span></p>
+<p style="font-size:8.8pt">7. Plaintiff has a clearly established constitutional right not to be deprived of liberty on the basis of evidence fabricated by a government official. <em>Zahrey v. Coffey</em>, 221 F.3d 342 (2d Cir. 2000); <em>Ricciuti v. N.Y.C. Transit Auth.</em>, 124 F.3d 123 (2d Cir. 1997).</p>
+<p style="font-size:8.8pt">8. Defendants created false evidence — a complainant's statement whose content they supplied, directed, or materially altered — and forwarded it to the prosecuting authority, where it was likely to influence and did influence the decision to charge and the conduct of the proceeding.</p>
+<p style="font-size:8.8pt">9. <strong>The conduct alleged against [Prosecutorial Actor] was investigative, not advocative.</strong> It occurred before any charging decision had been made and consisted of searching for and manufacturing corroboration that might supply probable cause. Such conduct is not protected by absolute immunity. <em>Buckley v. Fitzsimmons</em>, 509 U.S. 259, 273 (1993) (a prosecutor "searching for the clues and corroboration that might give him probable cause to recommend that a suspect be arrested" performs a function no different from that of a detective); <em>Zahrey</em>, 221 F.3d at 349–57.</p>
+<p style="font-size:8.8pt">10. <strong>Plaintiff expressly does not challenge, and asserts no claim arising from, any decision to initiate or maintain the prosecution, or any conduct in the presentation of the State's case.</strong> Plaintiff acknowledges that such conduct is absolutely immune under <em>Imbler v. Pachtman</em>, 424 U.S. 409 (1976), and pleads no count in respect of it.</p>
+<p style="font-size:8.8pt; margin-bottom:0">11. This claim did not accrue until the criminal proceeding terminated in Plaintiff's favour in August 2025. <em>McDonough v. Smith</em>, 588 U.S. 109 (2019).</p>
+</div>
+
+<p class="src"><strong>Note on paragraph 10.</strong> It is doing real work. It tells the court, on the face of the pleading, that counsel knows where the immunity line sits and has drawn the claim on the correct side of it. That is the difference between a fabrication claim that survives and one that reads as a disguised attack on charging discretion.</p>
+
+<h3 class="sec" data-n="III.">§ 1983 Conspiracy — the bridge to the employment case</h3>
+
+<div class="box">
+<p style="margin-bottom:2mm"><strong>COUNT III — CONSPIRACY TO DEPRIVE PLAINTIFF OF CONSTITUTIONAL RIGHTS, 42 U.S.C. § 1983</strong><br><span class="src">Against all Defendants, including the private Defendants</span></p>
+<p style="font-size:8.8pt">12. Defendants, state and private, reached an agreement to procure Plaintiff's arrest and prosecution on a charge they knew to be false, and committed overt acts in furtherance of it, resulting in the deprivations alleged above.</p>
+<p style="font-size:8.8pt">13. <strong>The private Defendants acted under colour of state law.</strong> A private party who is a willing participant in joint action with state officials acts under colour of law for § 1983 purposes. <em>Dennis v. Sparks</em>, 449 U.S. 24, 27–28 (1980); <em>Adickes v. S.H. Kress &amp; Co.</em>, 398 U.S. 144 (1970).</p>
+<p style="font-size:8.8pt">14. The agreement is evidenced by, among other things: [the recorded admission that the accusation was false and that Plaintiff had been framed]; the direction of the complainant's statement by a person on the telephone during its taking; body-camera references to contacting physicians at United Health Services; the disclosure of Plaintiff's protected medical and academic information to the complainant's family; and the timing of the complaint, filed the day after that family learned of the relationship.</p>
+<p style="font-size:8.8pt; margin-bottom:0">15. The conspiracy was a continuation of, and in furtherance of, the campaign of retaliation pleaded in <em>Rahman v. United Health Services Hospitals, Inc.</em>, No. 3:26-cv-00197 (N.D.N.Y.).</p>
+</div>
+
+<h3 class="sec" data-n="VII.">Declaratory relief — the part that serves the actual objective</h3>
+
+<div class="box">
+<p style="margin-bottom:2mm"><strong>COUNT VII — DECLARATORY JUDGMENT, 28 U.S.C. §§ 2201–2202</strong></p>
+<p style="font-size:8.8pt; margin-bottom:0">16. Plaintiff seeks a declaration that the criminal proceeding commenced against him in April 2024 was instituted and maintained <strong>without probable cause and with actual malice</strong>, and that the evidence on which it rested was fabricated. Plaintiff's professional licensure, hospital credentialing, and immigration position each require him to account for the proceeding; a declaration is necessary to prevent its continued use against him and constitutes relief distinct from, and not redressable by, damages.</p>
+</div>
+
+<p class="src"><strong>Ask counsel candidly whether Count VII is viable</strong> — declaratory relief as to past conduct is sometimes held redundant of the damages claim. If it will not stand as a count, the same objective can be secured through requested findings of fact, a special verdict form, or settlement recitals. What matters is that the maliciousness ends up <em>on the record in a document you can hand to a credentialing committee</em>, by whichever mechanism survives.</p>
+</section>
+
+<!-- ================= PART 4 ================= -->
+<section>
+<h2><span class="pt">Part 4</span>Authorities</h2>
+
+<table>
+<thead><tr><th style="width:30%">Authority</th><th>Proposition</th></tr></thead>
+<tbody>
+<tr><td><strong><em>Zahrey v. Coffey</em></strong><br>221 F.3d 342 (2d Cir. 2000)</td><td><strong>The keystone for Count II.</strong> A prosecutor acting in an investigative capacity who fabricates evidence is not entitled to absolute immunity, and there is a clearly established constitutional right not to be deprived of liberty as a result of an official's fabrication of evidence. <strong>Binding in the Second Circuit, which includes N.D.N.Y.</strong></td></tr>
+<tr><td><strong><em>Ricciuti v. N.Y.C. Transit Auth.</em></strong><br>124 F.3d 123 (2d Cir. 1997)</td><td>An officer who creates false information likely to influence a jury and forwards it to prosecutors violates the accused's right to a fair trial. The fabrication claim as applied to police.</td></tr>
+<tr><td><strong><em>Thompson v. Clark</em></strong><br>596 U.S. 36 (2022)</td><td>Favourable termination requires only that the prosecution ended without a conviction — no affirmative indication of innocence needed. <strong>An acquittal exceeds the standard comfortably.</strong></td></tr>
+<tr><td><strong><em>McDonough v. Smith</em></strong><br>588 U.S. 109 (2019)</td><td>Accrual at favourable termination. Arose in N.D.N.Y.; defendant was a prosecutor; the fabrication claim proceeded. <strong>Read it first.</strong></td></tr>
+<tr><td><strong><em>Buckley v. Fitzsimmons</em></strong><br>509 U.S. 259 (1993)</td><td>Qualified, not absolute, immunity for investigative acts aimed at establishing probable cause, and for statements to the press.</td></tr>
+<tr><td><strong><em>Dennis v. Sparks</em></strong><br>449 U.S. 24 (1980)</td><td>Private parties conspiring with state officials act under colour of law. <strong>The doctrinal bridge in Count III.</strong></td></tr>
+<tr><td><strong><em>Imbler v. Pachtman</em></strong><br>424 U.S. 409 (1976)</td><td>Absolute immunity for charging and trial advocacy. Cited in the pleading to show the line is understood, not to be litigated.</td></tr>
+<tr><td><strong>CPLR § 215(3) &middot; § 214(5)</strong></td><td>One year for state malicious prosecution — <strong>expiring August 2026</strong>. Three years for § 1983 — August 2028.</td></tr>
+<tr><td><strong>GML §§ 50-e, 50-i &middot; <em>Felder v. Casey</em></strong><br>487 U.S. 131 (1988)</td><td>Notice of claim required for state-law municipal claims within 90 days, late-notice relief within one year and ninety days; <strong>§ 1983 claims exempt.</strong></td></tr>
+</tbody>
+</table>
+
+<p class="src">Cited from analysis, not from a verified reporter check. <strong>Counsel must confirm every citation, its current status, and its treatment in the Second Circuit before filing.</strong> Parallel citations and pinpoint pages have not been verified.</p>
+</section>
+
+<!-- ================= PART 5 ================= -->
+<section>
+<h2><span class="pt">Part 5</span>The Mandate To Counsel</h2>
+
+<p class="lead">This is the section to read aloud on the first call. It is what distinguishes this engagement from an ordinary contingency case, and a lawyer who does not accept it is the wrong lawyer however good they are.</p>
+
+<div class="box stop">
+  <div class="hd">"I will trade dollars for findings"</div>
+  <p>A contingency practice is structured to maximise settlement value. <strong>That incentive is misaligned with this client's objective.</strong> A quiet six-figure settlement with a confidentiality clause and a non-admission provision would pay the firm and <em>destroy the thing the client came for</em> — because he cannot hand a confidential non-admission to a credentialing committee or to USCIS.</p>
+  <p style="margin-bottom:0"><strong>State this at the outset, in the engagement letter:</strong></p>
+  <ul style="margin:2mm 0 0 0">
+    <li><strong>No confidentiality clause covering the facts.</strong> The client must remain free to describe the prosecution as fabricated.</li>
+    <li><strong>No non-admission clause as to maliciousness</strong> — or, if unavoidable, settlement recitals that state the absence of probable cause as agreed fact.</li>
+    <li><strong>Willingness to try the case.</strong> If the finding is the remedy, a case that always settles never delivers it. Ask directly: <em>"When did you last try a § 1983 case to verdict?"</em></li>
+    <li><strong>Count I is not to be dropped as duplicative of Count II.</strong> It is the count that produces the word.</li>
+  </ul>
+</div>
+
+<h3 class="sec" data-n="5.1">Revised attorney criteria</h3>
+
+<p>The four screening questions in the companion approach memorandum still apply. Add three.</p>
+
+<table>
+<thead><tr><th style="width:6%">#</th><th style="width:44%">Question</th><th>What you are testing</th></tr></thead>
+<tbody>
+<tr><td><strong>5</strong></td><td>"My objective is a finding that the prosecution was malicious, not the largest cheque. Does that change how you'd run it?"</td><td><strong>The decisive question now.</strong> A lawyer who says "the money is the vindication" has not understood the brief. A lawyer who starts talking about verdict forms, findings, and settlement recitals has.</td></tr>
+<tr><td><strong>6</strong></td><td>"Do you know <em>Zahrey v. Coffey</em>, and does it get me to the DA's office on these facts?"</td><td>Second Circuit fabrication law specifically. Anyone doing this work in New York knows <em>Zahrey</em>.</td></tr>
+<tr><td><strong>7</strong></td><td>"When did you last take a § 1983 case to verdict?"</td><td>Whether the threat of trial is credible. If they have never tried one, the defence knows it, and every settlement offer will be discounted accordingly.</td></tr>
+</tbody>
+</table>
+
+<h3 class="sec" data-n="5.2">What to send, and to whom</h3>
+<p>Send <strong>three documents together</strong> to the four Tier 1 firms simultaneously: the <em>Case Summary for Prospective Counsel</em>, this architecture memorandum, and a one-line covering note stating the August 2026 limitation date. The architecture memorandum is what will get the case read rather than queued — it demonstrates that the client understands the immunity landscape and is not asking anyone to plead a barred claim.</p>
+</section>
+
+<!-- ================= PART 6 ================= -->
+<section>
+<h2><span class="pt">Part 6</span>Risks, Stated Plainly</h2>
+
+<table>
+<thead><tr><th style="width:28%">Risk</th><th style="width:10%">Level</th><th>Reasoning</th></tr></thead>
+<tbody>
+<tr><td><strong>The telephone voice was not prosecutorial</strong></td><td><strong>Medium–High</strong></td><td>Then Count II does not reach the DA's office at all. <em>Not a loss</em> — Count III gets stronger, and Counts I and V still deliver the finding. But it means the DA may simply not be a defendant, and the client should be prepared for that answer.</td></tr>
+<tr><td><strong>Absolute immunity swallows Count II anyway</strong></td><td><strong>Medium</strong></td><td>The investigative/advocative line is fact-bound and courts resolve doubt toward immunity. Paragraph 10 mitigates by conceding the immune conduct expressly. Counsel should expect to brief this and should price the risk.</td></tr>
+<tr><td><strong>The finding never issues because the case settles</strong></td><td><strong>High</strong></td><td><strong>The central risk to the actual objective.</strong> Most § 1983 cases settle, and defendants will pay specifically to avoid a finding. Mitigation is entirely front-loaded: engagement-letter terms, no confidentiality, settlement recitals, and counsel who will try it.</td></tr>
+<tr><td><strong>Declaratory count dismissed as redundant</strong></td><td><strong>Medium</strong></td><td>Courts often hold declaratory relief duplicative of damages for past conduct. Fall back to special verdict findings or settlement recitals — the mechanism is negotiable, the record is not.</td></tr>
+<tr><td><strong>The August 2026 date passes</strong></td><td><strong>High</strong></td><td>Count V dies permanently. Counts I–IV and VI survive to 2028. <strong>File Count V protectively even if the rest is not ready.</strong></td></tr>
+<tr><td><strong>§ 1985(3) fails on class-based animus</strong></td><td><strong>Medium–High</strong></td><td>A demanding standard. Pleaded in the alternative only; its failure should not be allowed to colour the surviving counts.</td></tr>
+<tr><td><strong>Settlement in one case releases the other</strong></td><td><strong>Medium</strong></td><td>Shared defendants and facts with <em>Rahman v. UHS</em>. Requires a written coordination protocol with Mr. Drazen before either matter mediates — and note the UHS case is already under a court-ordered mediation referral.</td></tr>
+</tbody>
+</table>
+
+<div class="box">
+  <div class="hd">The honest summary</div>
+  <p style="margin-bottom:0">The count you asked for is <strong>real, viable, and supported by binding Second Circuit authority</strong> — <em>Zahrey</em> is directly on point and I underweighted it in earlier analysis. But it is the hardest count in the complaint, it depends on a fact you have not yet confirmed, and <strong>it is not the count that gives you the word "malicious."</strong> Count I does that, against the officers, on an acquittal that satisfies <em>Thompson v. Clark</em> comfortably. Plead them together, lead with Count I, and hold the engagement terms in Part 5 — because the way this objective is most likely to be lost is not a dismissal. It is a quiet settlement that pays you and says nothing.</p>
+</div>
+
+<div class="footer-note">
+  <strong>Preparation and limits.</strong> Draft count language prepared by the client with analytical assistance, for redrafting by admitted counsel. Not a pleading and not legal advice. No citation has been verified against a reporter; all authority, its current status, and its Second Circuit treatment require counsel's independent confirmation. Bracketed items require factual confirmation, including the identity of the person on the telephone during the complainant's statement and the exact verdict date, which is being obtained from Binghamton City Court under CPL § 160.50 by the accused. Nothing here creates an attorney-client relationship.
+</div>
+</section>
+
+</body>
+</html>
