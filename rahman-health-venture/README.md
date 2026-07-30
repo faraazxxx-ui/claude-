@@ -37,9 +37,24 @@ Three load-bearing premises required correction, each documented with authority 
 - **Foreign-trained physicians cannot practice in New York** without U.S. residency. The exchange program must sit in FL / NC / IL / MO / TN / VA / WA.
 - **Pure home-visit delivery loses ~$83K per physician.** The hybrid model — home visit to establish, remote to sustain — is the only version that clears cost, and the founder's own never-met, four-year phone relationship with his physician is the proof.
 
-## Open item
+## Litigation coupling
 
-The recipient's name and firm are missing — the dictation cuts off at "His name is..." mid-sentence at 32:18. Placeholders are marked `[ASSOCIATE NAME — TO BE SUPPLIED]` and must be filled before the brief is sent.
+`04_APEX_Strategic_Reassessment.md` runs both deliverables against the active federal matter, grounded on the real docket (CourtListener/RECAP; PACER case ID 152363; Judge Brindisi, Magistrate Judge Lovric). Three findings are folded into the plan and brief:
+
+- **Doc 17, 10 Apr 2026 — Uniform Pretrial Scheduling Order.** That order, not the CPLR limitation period, fixes the controlling deadline for joinder and amendment. If passed, Rule 16(b)(4) good cause displaces Rule 15(a)(2) liberality.
+- **Doc 18, 10 Apr 2026 — mandatory mediation referral.** Mediation is court-ordered, so it cannot be deferred to build leverage; the amendment must land before the session.
+- **Two filings, not one.** Sundas Rashid is a new party, so *Krupski v. Costa Crociere* forecloses Rule 15(c) relation back. The malicious prosecution claim needs a separate protective action alongside the federal amendment.
+
+Also recommends NYSHRL Exec. Law § 296 and § 296(6) as the primary discrimination vehicle, because 42 U.S.C. § 2000d-3 limits Title VI employment claims to cases where employment is a primary objective of the federal funding — and UHS's funding is Medicare and Medicaid reimbursement.
+
+**Two capital assumptions now flow from the litigation into the plan** (§7.5): settle in 2026 before the practice earns, since income offsets the lost-earnings claim; and buy records before dollars, because $500K more in settlement retains ~$250K after tax while record expungement is the precondition for licensure, the practice, and the physician NIW.
+
+## Open items
+
+- **The recipient's name and firm.** The dictation cuts off at "His name is…" mid-sentence at 32:18; both audio files stop at the same point. Marked `[ASSOCIATE NAME — TO BE SUPPLIED]` and must be filled before the brief is sent.
+- **The acquittal date.** Three of four case documents date it to August 2025, one to September. Binghamton City Court is a state municipal court and therefore absent from PACER and RECAP, so it must come from the court or criminal defence counsel. This is action item one.
+- **New York licence status.** Unverified, and terminal to the venture if it fails.
+- **A 2.6× discrepancy in the family wire-transfer figure** ($84,747.92 vs $223,800) on a hash-chained exhibit, to be reconciled before initial disclosures.
 
 ---
 
