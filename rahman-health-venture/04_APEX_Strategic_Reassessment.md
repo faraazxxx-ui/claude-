@@ -23,6 +23,31 @@
 
 ---
 
+## PART 0 — DOCKET-VERIFIED FINDINGS (supersedes where inconsistent)
+
+Retrieved from CourtListener/RECAP, 30 July 2026. Docket ID 72249300, PACER case ID **152363**.
+
+| Verified fact | Detail | Strategic consequence |
+|---|---|---|
+| **Case is live** | Federal docketing **6 Feb 2026**. No termination date. Last filing **8 Jul 2026** | Active. Prior "filed January 2026" refers to the state filing |
+| **Bench** | Judge **Anthony J. Brindisi**; Magistrate Judge **Miroslav Lovric** | Confirms the (AJB/ML) caption |
+| **Doc 17 — Uniform Pretrial Scheduling Order, 10 Apr 2026** | NDNY UPSO **has issued** | **This, not the CPLR limitation period, is the controlling amendment deadline.** The UPSO fixes the date for joinder of parties and amendment of pleadings. If it has passed, amendment requires **Rule 16(b)(4) good cause**, not Rule 15(a)(2) liberality |
+| **Doc 18 — Order Referring Case to Mandatory Mediation, 10 Apr 2026** | Mediation is **court-ordered** | Cannot be declined or deferred at will. The leverage sequencing in Part 6.3 must work *inside* the court's schedule |
+| **Doc 14 — "Remand", 23 Mar 2026** | A remand document exists. Whether granted, denied, or partial is **not** determinable from RECAP | If any part was remanded to Broome County Supreme Court, there may be a live state track — which is where the malicious prosecution claim naturally belongs |
+| **Docs 4, 6, 8 + orders** | Repeated "Letter Request/Motion" entries with orders, through 8 Jul 2026 | Consistent with ongoing discovery or extension disputes |
+
+**Document images are not available on RECAP** (`is_available: false` throughout). Counsel can pull all of them instantly from PACER using case ID 152363.
+
+> **Correction to my own prior analysis, in three parts.**
+>
+> **1. "Don't mediate yet, build leverage first" was wrong.** Mediation is compelled by Doc 18. The correct instruction is narrower: **get the amendment on file before the mediation session**, and read the UPSO for the session deadline.
+>
+> **2. "One filing, four payoffs" was wrong as to the malicious prosecution claim.** Sundas Rashid is a **new party**, not a misnamed existing one. Rule 15(c)(1)(C) permits relation back for changing a party only where the newcomer knew the action would have been brought against her *but for a mistake concerning identity* — *Krupski v. Costa Crociere* (2010). Simply not having sued her before is not such a mistake. **If the limitation period runs before filing, relation back will not save it.** File a **separate action against Sundas** — in state court if the Doc 14 remand created a live state track — and amend the federal complaint separately. Two filings.
+>
+> **3. The acquittal date cannot be verified through this channel.** Binghamton City Court is a New York municipal court; RECAP and CourtListener cover federal PACER only. **The verdict date must be obtained directly from Binghamton City Court or from criminal defence counsel's file.** It remains action item one.
+
+---
+
 ## PART 1 — THE THREE INVERSIONS
 
 What the APEX lens changes about the plan already delivered.
@@ -207,9 +232,13 @@ LEVERAGE
                                                the witnesses said)
 ```
 
-**Mediating now is mediating at the bottom of the curve.** Four pleaded counts, no depositions noticed, the audio recording not yet deployed in a transcript. Defendants' rational move is to settle *before* Ali testifies and before the recording is authenticated on the record — which means the plaintiff's leverage peaks after the amendment lands and the notices issue, and decays once testimony exists.
+**Mediating with four counts is mediating at the bottom of the curve.** No depositions noticed, the audio recording not yet in any transcript. Defendants' rational move is to settle *before* Ali testifies and before the recording is authenticated on the record — so leverage peaks after the amendment lands and the notices issue, and decays once testimony exists.
 
-**Recommendation:** if mediation is already calendared, get the amendment filed first. If it can be sequenced, notice the Ali and 30(b)(6) depositions before the session. Do not enter the room holding four counts.
+**Revised recommendation, given Doc 18.** Mediation is court-ordered, so the question is not *whether* but *with what*. Three moves, all available inside the court's schedule:
+
+1. **File the amendment before the session.** Nine counts price differently from four. This is the whole ballgame.
+2. **Serve the deposition notices for Ali and the 30(b)(6) designee before the session**, even if the depositions occur afterward. A noticed deposition of the Program Director, with the FMLA email already defeating any apex objection, is leverage whether or not it has happened yet.
+3. **If the amendment cannot be filed in time**, ask Magistrate Judge Lovric to adjourn the mediation until after the amended pleading is on file — a routine request, and far better than mediating the wrong case.
 
 ---
 
@@ -217,7 +246,9 @@ LEVERAGE
 
 | Risk | Likelihood | Impact | Reasoning | Mitigation |
 |---|---|---|---|---|
-| **Malicious prosecution claim expires unfiled** | **Medium** | **Terminal to that claim** | Sources conflict on the acquittal date; if August 2025, days remain | Pin the verdict date from the court record **today**; file protectively on the earlier assumption |
+| **Malicious prosecution claim expires unfiled** | **Medium** | **Terminal to that claim** | Sources conflict on the acquittal date; if August 2025, days remain | Pin the verdict date from Binghamton City Court **today**; file a **separate action** protectively on the earlier assumption |
+| **Amendment barred by the UPSO deadline** | **Medium–High** | **High** | Doc 17 issued 10 Apr 2026. NDNY UPSOs set joinder and amendment deadlines early; if passed, Rule 16(b)(4) good cause displaces Rule 15(a)(2) liberality | Read Doc 17 today. Good cause here is genuinely strong — the tax and limitation grounds are new and diligence is demonstrable — but it must be briefed, not assumed |
+| **Relation back fails as to Sundas Rashid** | **High if attempted by amendment** | **Terminal to that claim** | She is a new party, not a misnamed one. *Krupski* forecloses the mistake-of-identity prong | Separate action, not amendment. State court if Doc 14 created a live track |
 | **Settlement executed without tax allocation** | **High** | **~$1M+** | It is the default outcome unless someone raises it before signing; nobody has yet | Allocation matrix into Drazen's hands before the mediation session |
 | **Title VI employment count fails at summary judgment** | **Medium** | **High** | § 2000d-3 limits employment claims where employment is not a primary objective of the funding; authority is not uniform | Add NYSHRL § 296 now — three-year SOL, no exhaustion, individual liability |
 | **Title VII / ADA already time-barred** | **Medium–High** | **High** | 300-day deferral window from a July 2024 last act closed ~May 2025. The choice to plead Title VI rather than Title VII is itself a signal | Resolve conflict #3 immediately; if barred, NYSHRL carries the discrimination theory |
@@ -234,11 +265,13 @@ LEVERAGE
 
 | # | Action | Owner | Deadline |
 |---|---|---|---|
-| 1 | **Pull the criminal docket and pin the exact acquittal date.** Everything else is sequenced off this | Drazen / founder | **Immediately** |
-| 2 | **Confirm EEOC charge status and whether a right-to-sue letter issued** — with dates | Drazen | **Immediately** |
-| 3 | **Instruct counsel to prepare the comprehensive amended complaint** per Part 5.2, filing protectively on the August-2025 assumption | Drazen | **This week** |
-| 4 | **Reconcile the wire-transfer figure** to a single number with a single verified hash chain | Founder | Before Rule 26(a)(1) |
-| 5 | Resolve whether "M. Farhan Nadeem" and "Nadeem Choudery" are the same person | Drazen | Before the amendment is filed |
+| 1 | **Pull Doc 17 (UPSO) and Doc 18 from PACER — case ID 152363 — and read the joinder/amendment deadline and the mediation deadline.** Every other step is sequenced off these two dates | Drazen | **Today** |
+| 2 | **Pin the exact acquittal date from Binghamton City Court** — a state court, so not on PACER. Obtain from the court or criminal defence counsel's file | Drazen / founder | **Today** |
+| 3 | **Read Doc 14 ("Remand") and determine whether a live Broome County track exists** — it governs where the Sundas claim is filed | Drazen | **Today** |
+| 4 | **Confirm EEOC charge status and whether a right-to-sue letter issued** — with dates | Drazen | **Immediately** |
+| 5 | **Prepare two filings:** the federal amended complaint per Part 5.2, and a **separate action against Sundas Rashid** filed protectively on the August-2025 assumption | Drazen | **This week** |
+| 6 | **Reconcile the wire-transfer figure** to a single number with a single verified hash chain | Founder | Before Rule 26(a)(1) |
+| 7 | Resolve whether "M. Farhan Nadeem" and "Nadeem Choudery" are the same person — RECAP's party index for this docket is empty, so this must come from the pleadings | Drazen | Before the amendment is filed |
 
 ### Next 30 days
 
