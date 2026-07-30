@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Business Plan — Zakat-Aligned Continuity Health</title>
+<style>
+  @page {
+    size: Letter;
+    margin: 20mm 18mm 18mm 18mm;
+    @bottom-center { content: counter(page); }
+  }
+  @page :first { margin: 0; }
+
+  :root {
+    --ink:      #1a1a18;
+    --ink-soft: #4a4a46;
+    --ink-mute: #6e6e68;
+    --rule:     #d2cfc7;
+    --rule-hi:  #a8a49a;
+    --primary:  #14403c;
+    --primary-l:#e8efed;
+    --amber:    #8a5d0e;
+    --amber-l:  #fbf4e6;
+    --red:      #8a2b2b;
+    --red-l:    #faeeee;
+    --paper:    #fdfcfa;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { font-size: 10.2pt; }
+
+  body {
+    font-family: "Liberation Serif", "DejaVu Serif", Georgia, serif;
+    color: var(--ink);
+    background: #fff;
+    line-height: 1.44;
+    margin: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ---------- COVER ---------- */
+  .cover {
+    height: 279mm;
+    padding: 26mm 24mm 15mm 24mm;
+    display: flex;
+    flex-direction: column;
+    background: var(--primary);
+    color: #f4f1e9;
+    page-break-after: always;
+  }
+  .cover .kicker {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 8.4pt; letter-spacing: .22em; text-transform: uppercase;
+    color: #9dbdb5; margin-bottom: 5mm;
+  }
+  .cover h1 {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 33pt; line-height: 1.1; font-weight: 700;
+    margin: 0 0 6mm 0; letter-spacing: -.015em; color: #fff;
+  }
+  .cover .sub {
+    font-size: 13.5pt; line-height: 1.45; color: #cfe0db;
+    max-width: 122mm; margin: 0 0 auto 0;
+  }
+  .cover .sub em { color: #f0e3c0; font-style: italic; }
+  .cover .rule { height: 2px; background: #4d7a72; margin: 9mm 0; width: 46mm; }
+  .cover-meta {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6mm 10mm;
+    border-top: 1px solid #3c6a62; padding-top: 7mm; margin-top: 8mm;
+  }
+  .cover-meta div { font-size: 9.4pt; line-height: 1.5; }
+  .cover-meta .lbl {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 7.6pt; letter-spacing: .15em; text-transform: uppercase;
+    color: #8fb2aa; display: block; margin-bottom: 1.5mm;
+  }
+  .cover-conf {
+    margin-top: 7mm; padding: 4mm 5mm; border: 1px solid #3c6a62;
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 8pt; line-height: 1.5; color: #cfe0db;
+  }
+
+  /* ---------- HEADINGS ---------- */
+  h2, h3, h4 { font-family: "Liberation Sans", Helvetica, sans-serif; }
+
+  h2 {
+    font-size: 15.5pt; font-weight: 700; color: var(--primary);
+    margin: 0 0 5mm 0; padding-bottom: 2.4mm;
+    border-bottom: 1.6px solid var(--primary);
+    letter-spacing: -.01em;
+  }
+  h2 .pt {
+    display: block;
+    font-size: 7.8pt; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 400; margin-bottom: 1.6mm;
+  }
+  h3 {
+    font-size: 11.4pt; font-weight: 700; color: var(--ink);
+    margin: 7mm 0 2.6mm 0;
+  }
+  h3.sec::before {
+    content: attr(data-n);
+    color: var(--primary); font-weight: 700;
+    margin-right: 2.4mm;
+  }
+  h4 {
+    font-size: 9.6pt; font-weight: 700; margin: 5mm 0 1.8mm 0;
+    color: var(--ink-soft); letter-spacing: .02em;
+  }
+  section { page-break-before: always; }
+  section.cont { page-break-before: auto; }
+
+  p { margin: 0 0 3mm 0; }
+  strong { color: #000; }
+  em.q { font-style: italic; }
+
+  /* ---------- LEAD ---------- */
+  .lead {
+    font-size: 11.2pt; line-height: 1.5; color: var(--ink-soft);
+    margin-bottom: 5mm;
+  }
+  .lead strong { color: var(--ink); }
+
+  /* ---------- TABLES ---------- */
+  table {
+    width: 100%; border-collapse: collapse;
+    margin: 3mm 0 5mm 0; font-size: 8.9pt;
+    page-break-inside: avoid;
+  }
+  thead { display: table-header-group; }
+  th {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 7.8pt; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .07em; text-align: left; color: var(--primary);
+    border-bottom: 1.4px solid var(--rule-hi);
+    padding: 2.2mm 2.4mm 1.8mm 0; vertical-align: bottom;
+  }
+  td {
+    padding: 2.1mm 2.4mm 2.1mm 0; vertical-align: top;
+    border-bottom: .6px solid var(--rule); line-height: 1.36;
+  }
+  tbody tr:last-child td { border-bottom: 1.2px solid var(--rule-hi); }
+  td:last-child, th:last-child { padding-right: 0; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tr.total td { font-weight: 700; background: var(--primary-l); }
+  tr.total td.num { color: var(--primary); }
+  table.tight td, table.tight th { font-size: 8.4pt; }
+  .neg { color: var(--red); }
+
+  /* ---------- CALLOUTS ---------- */
+  .box {
+    border-left: 2.6px solid var(--primary);
+    background: var(--primary-l);
+    padding: 3.6mm 4.4mm; margin: 4mm 0;
+    page-break-inside: avoid; font-size: 9.2pt;
+  }
+  .box > :last-child { margin-bottom: 0; }
+  .box .hd {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 7.6pt; letter-spacing: .16em; text-transform: uppercase;
+    font-weight: 700; color: var(--primary); margin-bottom: 2mm;
+  }
+  .box.warn  { border-left-color: var(--amber); background: var(--amber-l); }
+  .box.warn .hd { color: var(--amber); }
+  .box.stop  { border-left-color: var(--red); background: var(--red-l); }
+  .box.stop .hd { color: var(--red); }
+  .box.plain { border-left-color: var(--rule-hi); background: #f6f5f1; }
+  .box.plain .hd { color: var(--ink-mute); }
+
+  /* ---------- PULL ---------- */
+  .pull {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 12.4pt; line-height: 1.36; font-weight: 700;
+    color: var(--primary); border-top: 1.4px solid var(--primary);
+    border-bottom: 1.4px solid var(--primary);
+    padding: 4.6mm 0; margin: 6mm 0; page-break-inside: avoid;
+  }
+
+  /* ---------- GATE DIAGRAM ---------- */
+  .gates { margin: 4mm 0 5mm 0; page-break-inside: avoid; }
+  .gate {
+    display: flex; align-items: stretch; margin-bottom: 0;
+  }
+  .gate-id {
+    flex: 0 0 15mm;
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 9.4pt; font-weight: 700; color: #fff;
+    background: var(--primary); display: flex; align-items: center;
+    justify-content: center; border-radius: 1mm;
+  }
+  .gate-body {
+    flex: 1; padding: 2.6mm 0 2.6mm 4mm;
+  }
+  .gate-body .t {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-weight: 700; font-size: 9.6pt; margin-bottom: .8mm;
+  }
+  .gate-body .d { font-size: 8.7pt; color: var(--ink-soft); line-height: 1.38; }
+  .gate-arrow {
+    margin-left: 7mm; padding: 1mm 0 1mm 4mm;
+    border-left: 2px solid var(--rule-hi);
+    font-size: 8pt; font-style: italic; color: var(--ink-mute);
+  }
+  .gate-fan {
+    margin-left: 7mm; padding-left: 4mm; border-left: 2px solid var(--rule-hi);
+  }
+  .fan-row { display: flex; gap: 4mm; margin: 2mm 0; }
+  .fan-item {
+    flex: 1; border: .8px solid var(--rule-hi); border-top: 2.2px solid var(--primary);
+    padding: 2.6mm 3mm; font-size: 8.4pt; line-height: 1.34; background: var(--paper);
+  }
+  .fan-item b { font-family: "Liberation Sans", Helvetica, sans-serif; font-size: 8.6pt; display: block; margin-bottom: .9mm; }
+
+  /* ---------- ENTITY MAP ---------- */
+  .emap { margin: 4mm 0 5mm; page-break-inside: avoid; }
+  .ent {
+    border: .9px solid var(--rule-hi); border-top: 3px solid var(--primary);
+    padding: 3.2mm 3.6mm; background: var(--paper); margin-bottom: 2.5mm;
+  }
+  .ent.charity { border-top-color: var(--amber); }
+  .ent .en {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-weight: 700; font-size: 10pt; margin-bottom: .6mm;
+  }
+  .ent .ef {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 7.6pt; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--ink-mute); margin-bottom: 2mm;
+  }
+  .ent .ed { font-size: 8.7pt; line-height: 1.4; }
+  .ent-link {
+    text-align: center; font-size: 8pt; font-style: italic;
+    color: var(--ink-mute); margin: 1.5mm 0 2.5mm;
+  }
+
+  /* ---------- LISTS ---------- */
+  ul, ol { margin: 0 0 3.5mm 0; padding-left: 5.5mm; }
+  li { margin-bottom: 1.5mm; line-height: 1.42; }
+  ul.clean { list-style: none; padding-left: 0; }
+  ul.clean li {
+    padding-left: 5mm; position: relative; margin-bottom: 2mm;
+  }
+  ul.clean li::before {
+    content: "—"; position: absolute; left: 0; color: var(--primary); font-weight: 700;
+  }
+
+  /* ---------- TOC ---------- */
+  .toc { columns: 2; column-gap: 12mm; font-size: 9.2pt; }
+  .toc-i {
+    display: flex; justify-content: space-between; gap: 3mm;
+    padding: 1.5mm 0; border-bottom: .5px dotted var(--rule);
+    break-inside: avoid;
+  }
+  .toc-i .n { color: var(--primary); font-weight: 700; flex: 0 0 8mm; font-family: "Liberation Sans", sans-serif; font-size: 8.4pt; }
+  .toc-i .t { flex: 1; }
+  .toc-h {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 7.6pt; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--ink-mute); margin: 4mm 0 2mm; break-after: avoid;
+  }
+  .toc-h:first-child { margin-top: 0; }
+
+  /* ---------- MISC ---------- */
+  .src { font-size: 7.8pt; color: var(--ink-mute); font-style: italic; }
+  .flag {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 6.9pt; font-weight: 700; letter-spacing: .06em;
+    padding: .5mm 1.4mm; border-radius: .8mm; vertical-align: 1px;
+    white-space: nowrap;
+  }
+  .flag.asm { background: #ece9e0; color: #5c584c; }
+  .flag.unv { background: var(--amber-l); color: var(--amber); border: .5px solid #ddc79a; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin: 4mm 0 5mm; }
+  .kpi {
+    border-top: 2.2px solid var(--primary); padding: 2.4mm 0 0;
+  }
+  .kpi .v {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 15pt; font-weight: 700; color: var(--primary); line-height: 1.1;
+  }
+  .kpi .l { font-size: 8pt; color: var(--ink-soft); line-height: 1.3; margin-top: 1mm; }
+  .avoid { page-break-inside: avoid; }
+  .footer-note {
+    margin-top: 8mm; padding-top: 3mm; border-top: .8px solid var(--rule);
+    font-size: 8pt; color: var(--ink-mute); line-height: 1.45;
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= COVER ================= -->
+<div class="cover">
+  <div class="kicker">Pre-Formation Business Plan &middot; Confidential</div>
+  <h1>Zakat-Aligned<br>Continuity Health</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    A physician-owned New York primary care venture that sells <em>continuity</em> rather than volume — paired with a domestic charitable fund that organises the neighbourhood's own zakat to care for the neighbourhood's own people first.
+    <br><br>
+    Roadmap Q1 2026 through Year 6, with the legal architecture, unit economics, and the five deadlines that govern all of it.
+  </div>
+
+  <div class="cover-meta">
+    <div><span class="lbl">Founder</span>Mohammed Faraaz Rahman, MD<br>Internal Medicine · Manhattan, New York</div>
+    <div><span class="lbl">Document</span>Business Plan, version 2<br>Supersedes drafts of 28 May &amp; 30 July 2026</div>
+    <div><span class="lbl">Date</span>30 July 2026</div>
+    <div><span class="lbl">Companion</span>Preliminary Legal Brief<br>(multi-matter corporate engagement)</div>
+  </div>
+
+  <div class="cover-conf">
+    <strong style="color:#f0e3c0">Confidential.</strong> Prepared for the founder, prospective corporate counsel, and named partners. Contains information about pending federal litigation and immigration status. Not legal, tax, immigration, or investment advice. Financial figures are planning models built on stated assumptions, not forecasts. Every legal proposition requires independent verification by licensed counsel.
+  </div>
+</div>
+
+<!-- ================= CONTENTS ================= -->
+<section class="cont">
+<h2><span class="pt">Navigation</span>Contents</h2>
+
+<div class="toc">
+  <div class="toc-h">Start here</div>
+  <div class="toc-i"><span class="n">0.1</span><span class="t">Four premises corrected</span></div>
+  <div class="toc-i"><span class="n">0.2</span><span class="t">The five clocks</span></div>
+  <div class="toc-i"><span class="n">0.3</span><span class="t">The plan in one paragraph</span></div>
+
+  <div class="toc-h">The case</div>
+  <div class="toc-i"><span class="n">1</span><span class="t">Executive summary</span></div>
+  <div class="toc-i"><span class="n">2</span><span class="t">Gating logic — what blocks what</span></div>
+  <div class="toc-i"><span class="n">3</span><span class="t">Market evidence</span></div>
+
+  <div class="toc-h">The economics</div>
+  <div class="toc-i"><span class="n">4</span><span class="t">Revenue architecture — the $700,000 question</span></div>
+  <div class="toc-i"><span class="n">5</span><span class="t">Service lines</span></div>
+  <div class="toc-i"><span class="n">6</span><span class="t">Entity architecture</span></div>
+  <div class="toc-i"><span class="n">7</span><span class="t">Capital plan &amp; settlement sequence</span></div>
+
+  <div class="toc-h">Execution</div>
+  <div class="toc-i"><span class="n">8</span><span class="t">Roadmap: Q1 → Year 6</span></div>
+  <div class="toc-i"><span class="n">9</span><span class="t">Risk register</span></div>
+  <div class="toc-i"><span class="n">10</span><span class="t">KPI dashboard</span></div>
+  <div class="toc-i"><span class="n">11</span><span class="t">First 90 days</span></div>
+
+  <div class="toc-h">Appendices</div>
+  <div class="toc-i"><span class="n">A</span><span class="t">Islamic principle → legal mechanism</span></div>
+  <div class="toc-i"><span class="n">B</span><span class="t">Glossaries</span></div>
+  <div class="toc-i"><span class="n">C</span><span class="t">Open questions &amp; unverified items</span></div>
+</div>
+
+<div class="box plain" style="margin-top:8mm">
+  <div class="hd">How to read this document</div>
+  <p><strong>Part 0 is the whole document compressed.</strong> If you read nothing else, read the four corrections and the five clocks. Everything after Part 0 is the evidence and the execution detail behind them.</p>
+  <p style="margin-bottom:0">Two flags recur. <span class="flag asm">ASSUMPTION</span> marks an internally generated projection with no external source. <span class="flag unv">UNVERIFIED</span> marks a claim from a single or secondary source that must be confirmed before anyone relies on it. Neither flag has been removed to make the plan read better.</p>
+</div>
+</section>
+
+<!-- ================= PART 0 ================= -->
+<section>
+<h2><span class="pt">Part 0 · Start here</span>What Changed, and What Is About to Expire</h2>
+
+<h3 class="sec" data-n="0.1">Four premises corrected</h3>
+
+<p class="lead">The venture as originally conceived rested on four load-bearing assumptions. Each is wrong, and each is wrong in a way that changes what to do. Two of the corrections open opportunities larger than the assumptions they replace.</p>
+
+<table>
+<thead><tr><th style="width:20%">Premise</th><th style="width:32%">What was assumed</th><th style="width:48%">What is actually true, and what it means</th></tr></thead>
+<tbody>
+<tr>
+  <td><strong>Settlement tax</strong></td>
+  <td>Directing the settlement into the company rather than taking it as a paycheck means paying only capital gains tax.</td>
+  <td>Employment recoveries are <strong>ordinary income</strong> — up to 37% federal, plus New York State (which taxes capital gains as ordinary income, top 10.9%) and New York City (to 3.876%), plus 3.8% NIIT. <strong>No pre-tax conduit into a business exists</strong>; assignment-of-income and constructive-receipt doctrine tax the plaintiff on receipt. The sequence is receipt → tax → invest. <em>But the larger prize was being reached past:</em> §104(a)(2) excludes damages for personal physical injury or sickness entirely — 0%, not a preferential rate. See §0.2, clock one.</td>
+</tr>
+<tr>
+  <td><strong>Immigration</strong></td>
+  <td>Reinvesting into Manhattan property supports EB-2 visas so that mother and sister can settle.</td>
+  <td>Two independent errors. <strong>Passive real estate confers no immigration benefit under any category</strong> — investment is EB-5, requiring $800,000 (targeted employment area) or $1,050,000, at risk in an enterprise creating <strong>ten full-time jobs</strong>. And derivative status extends only to a spouse and unmarried children under 21: <strong>parents and siblings never derive</strong>. A mother requires a <em>citizen</em> petitioner (IR-5); a sibling likewise (F4, multi-year India backlog). The real route is the physician National Interest Waiver, and an independent EB-5 for the mother.</td>
+</tr>
+<tr>
+  <td><strong>Foundation domicile</strong></td>
+  <td>Incorporate the Rahman Foundation in Ireland rather than the United States.</td>
+  <td>§170 allows a deduction only for organisations created in the United States; the treaty exceptions are Canada, Mexico and Israel. <strong>Ireland is not among them</strong> — US donors would get nothing, defeating an entity whose purpose is collecting zakat from American physicians. Worse, Irish domicile imports the full US reporting stack: Form 5471 (CFC), 8621 (PFIC), FBAR, 8938, and Forms 3520/3520-A, whose penalty is the greater of $10,000 or <strong>35% of transfers</strong>. Irish law separately demands a company limited by guarantee with three unrelated trustees, a majority Irish-resident.</td>
+</tr>
+<tr>
+  <td><strong>The pharmaceutical thesis</strong></td>
+  <td>Import cheap Indian generics — insulin, metformin — to relieve the Medicaid burden.</td>
+  <td>Two problems. <strong>It is a federal crime as described:</strong> foreign-labelled product is an unapproved, misbranded new drug in US commerce; §804 importation is Canada-only; personal importation is enforcement discretion, not a channel. <strong>And the arbitrage no longer exists:</strong> metformin is $4 per month at Walmart and insulin is capped at $35 for Medicare. The commodity-generic saving has already been captured. The instinct about Indian pharmaceutical capacity is right; the target must move up the price curve to branded and specialty exposure, and the vehicle must be transparency, not import margin.</td>
+</tr>
+</tbody>
+</table>
+
+<div class="box stop">
+  <div class="hd">The correction that is worth the most, and is expiring</div>
+  <p>The tax analysis and the litigation calendar intersect, and nobody has yet acted on the intersection.</p>
+  <p>The §104(a)(2) physical-injury exclusion requires that the <em>claim</em> sound in physical injury — under the origin-of-the-claim doctrine the IRS looks to what the payment replaced. The documented injury record is unusually strong: Brugada Syndrome, a six-hour cardiac procedure with ICD implantation in February 2024, post-operative infection requiring a PICC line and intravenous vancomycin <em>while being required to continue working</em>, and loss of consciousness at work with ICU admission.</p>
+  <p style="margin-bottom:0"><strong>But the filed counts plead no physical-injury tort</strong> — Title VI disparate treatment, tortious interference, breach of contract, injunctive relief. That is weak scaffolding for the allocation. The fix is an amendment, and an amendment is <em>already</em> required on a different ground: the malicious prosecution limitation period runs approximately <strong>September 2026</strong>, one year from the August 2025 acquittal. <strong>One filing preserves the malicious prosecution claim and builds the tax foundation simultaneously.</strong> Miss it and both are gone.</p>
+</div>
+
+<h3 class="sec" data-n="0.2">The five clocks</h3>
+
+<p class="lead">Almost everything in this plan can wait. These cannot. They are ordered by how soon they close.</p>
+
+<table>
+<thead><tr><th style="width:16%">Closes</th><th style="width:30%">What must happen</th><th style="width:54%">Consequence of missing it</th></tr></thead>
+<tbody>
+<tr>
+  <td><strong>≈ Sept 2026</strong><br><span class="src">~6 weeks</span></td>
+  <td>Amend the federal complaint — preserve malicious prosecution <em>and</em> add the physical-injury counts.</td>
+  <td>The malicious prosecution claim is time-barred permanently, and the settlement's character is fixed as fully taxable ordinary income with no exclusion available. The largest single dollar item in this plan.</td>
+</tr>
+<tr>
+  <td><strong>Before signing</strong><br><span class="src">mediation-driven</span></td>
+  <td>Allocation and characterisation language negotiated into the settlement agreement, with §62(a)(20) attorney-fee treatment preserved.</td>
+  <td>Unfixable once executed. The IRS generally follows the agreement's stated allocation, so the language <em>is</em> the tax outcome. Absent §62(a)(20), the plaintiff is taxed on the gross including fees (<em>Commissioner v. Banks</em>).</td>
+</tr>
+<tr>
+  <td><strong>1 Jan 2027</strong><br><span class="src">5 months</span></td>
+  <td>EB-5 petition filed, if the mother is to be the principal investor.</td>
+  <td>Thresholds inflation-adjust; industry expectation is roughly $900,000 for a targeted employment area. Approximately <strong>$100,000</strong> of additional required capital. A 30 September 2026 statutory date also warrants diligence.</td>
+</tr>
+<tr>
+  <td><strong>31 Mar 2027</strong><br><span class="src">8 months</span></td>
+  <td>Social Care Network contracting for the neighbourhood needs census, under New York's $7.5B NYHER waiver.</td>
+  <td>The waiver expires. New York currently <em>reimburses</em> health-related-social-needs screening and navigation — the exact activity the Baitul Mal census requires. After expiry the census still has value, but it stops paying for itself. Treat as a time-boxed bridge, never a permanent revenue line.</td>
+</tr>
+<tr>
+  <td><strong>1 Aug 2028</strong><br><span class="src">2 years</span></td>
+  <td>Decision on any pharmaceutical import bridge.</td>
+  <td>Generics currently sit outside the §232 pharmaceutical tariffs, but face a mandatory one-year Commerce review, and a phased tariff — 0% for two years from August 2026, 100% from 2028, 200% thereafter — has been reported. <span class="flag unv">UNVERIFIED</span> single secondary source; confirm against the Federal Register. Read the schedule for what it is: an onshoring mandate.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="sec" data-n="0.3">The plan in one paragraph</h3>
+
+<div class="pull">
+American primary care is failing on access, not on medicine, and it fails worst for households that can actually afford to pay. This venture sells unhurried physician time directly to those households — established in the home, sustained remotely — at a fraction of what they already spend on insurance they cannot effectively use. It is capitalised without interest-bearing debt, structured so that non-physicians never control clinical decisions, and paired with a domestic charitable fund that extends the same care to those who cannot pay, financed by the zakat of physicians who have wanted a credible place to send it. It is not a charity and it is not concierge medicine for the wealthy. It is a wager that the relationship between a physician and a family is the most underpriced asset in American healthcare — and the founder's own physician, whom he has never met in person after four years of telephone contact, is the evidence.
+</div>
+</section>
+
+<!-- ================= PART 1 ================= -->
+<section>
+<h2><span class="pt">Part 1</span>Executive Summary</h2>
+
+<div class="kpi-grid">
+  <div class="kpi"><div class="v">$2.0M</div><div class="l">Planning-basis after-tax settlement capital <span class="flag asm">ASSUMPTION</span></div></div>
+  <div class="kpi"><div class="v">400</div><div class="l">Panel cap per physician — versus 2,000+ in insurance-driven practice</div></div>
+  <div class="kpi"><div class="v">$3,165</div><div class="l">Annual Medicare saving per beneficiary, home-based primary care (IAH)</div></div>
+  <div class="kpi"><div class="v">$6.0M</div><div class="l">Year 6 revenue target <span class="flag asm">ASSUMPTION</span></div></div>
+</div>
+
+<h4>The business</h4>
+<p>Three interlocking entities: a physician-owned <strong>Professional Corporation</strong> holding all clinical revenue; a <strong>Management Services Organisation</strong> holding the administrative, technology and international operations, and open to outside capital; and a domestic <strong>501(c)(3) Zakat Care Fund</strong> that maps neighbourhood need census-first and pays for care in the immediate neighbourhood before widening.</p>
+
+<h4>The wedge</h4>
+<p>A New York household earning $120,000–250,000 is not short of money. It is short of <strong>access</strong>. Insurance networks ration primary care by panel availability, not by price, so that household is receiving worse care than it can afford. It will pay directly for an unhurried hour, at home, outside working hours, from a physician who knows its history. Positioning sits deliberately in open space: above mainstream memberships — MDVIP $1,800–$4,500 per year, averaging about $2,500; Parsley Health $125–$150 per month; One Medical $199 per year — and well below Manhattan's luxury tier at $10,000–$25,000 and beyond.</p>
+
+<h4>Why now</h4>
+<ul class="clean">
+  <li><strong>Federal policy just paid for continuity.</strong> The G2211 longitudinal-care add-on was extended to home-and-residence visit codes effective 1 January 2026 — direct reimbursement recognition of the model's central claim.</li>
+  <li><strong>New York is briefly paying for the census.</strong> The $7.5B NYHER waiver reimburses health-related-social-needs screening and navigation through nine Social Care Networks — structurally the same activity as the Baitul Mal census. It expires 31 March 2027.</li>
+  <li><strong>The capital event is now.</strong> The settlement, structured correctly at mediation, is the seed. No external equity is required in Year 1.</li>
+  <li><strong>The shortage is structural.</strong> AAMC projects a primary care shortfall of 20,200–40,400 by 2036; HRSA projects 87,150 full-time-equivalent primary care physicians short by 2037. Demand will not be the problem.</li>
+</ul>
+
+<h4>Financial shape</h4>
+<table>
+<thead><tr><th>Measure</th><th class="num">Year 1</th><th class="num">Year 2</th><th class="num">Year 3</th><th class="num">Year 5</th><th class="num">Year 6</th></tr></thead>
+<tbody>
+<tr><td>Continuity members</td><td class="num">25</td><td class="num">150</td><td class="num">320</td><td class="num">900</td><td class="num">1,500</td></tr>
+<tr><td>Physician FTE-equivalents</td><td class="num">1.0</td><td class="num">1.3</td><td class="num">2.5</td><td class="num">6.0</td><td class="num">9.0</td></tr>
+<tr><td>Practice-side revenue</td><td class="num">$190K</td><td class="num">$1.15M</td><td class="num">$1.9M</td><td class="num">$4.2M</td><td class="num">$6.0M</td></tr>
+<tr><td>Practice-side EBITDA margin</td><td class="num neg">(negative)</td><td class="num">~breakeven</td><td class="num">10–13%</td><td class="num">17–20%</td><td class="num">20–23%</td></tr>
+<tr><td>Zakat Care Fund raised <span class="src">(separate entity)</span></td><td class="num">$150K</td><td class="num">$400K</td><td class="num">$700K</td><td class="num">$1.5M</td><td class="num">$2.0M</td></tr>
+<tr class="total"><td>Cumulative capital required</td><td class="num">$2.0M</td><td class="num">$2.0M</td><td class="num">$2.0M</td><td class="num">—</td><td class="num">—</td></tr>
+</tbody>
+</table>
+<p class="src">All figures <span class="flag asm">ASSUMPTION</span> except where sourced in Part 3. Year 1 runs August 2026 – July 2027. Deliberately unlevered and deliberately slow: a practice that grows by relationship cannot outpace the rate at which trust compounds, and the founder's own residency panel took six months to stabilise.</p>
+
+<div class="box warn">
+  <div class="hd">Year 1 is not a healthcare business</div>
+  <p style="margin-bottom:0">It is a legal, tax, immigration and licensure remediation project with a small clinical pilot attached. Two of the four quarters produce no revenue at all, by design. Anyone reading this plan expecting Q1 revenue has misread the sequencing — and the reason is Part 2.</p>
+</div>
+</section>
+
+<!-- ================= PART 2 ================= -->
+<section>
+<h2><span class="pt">Part 2</span>Gating Logic — What Blocks What</h2>
+
+<p class="lead">Read top to bottom. <strong>Nothing below a gate can begin until that gate clears.</strong> This is the single most important page in the plan, because three of these gates are outside the founder's control and one of them can end the venture outright.</p>
+
+<div class="gates">
+
+  <div class="gate">
+    <div class="gate-id">G1</div>
+    <div class="gate-body">
+      <div class="t">New York medical licence — active and unrestricted</div>
+      <div class="d">Plus a clean NPDB self-query and no pending OPMC action arising from the 2024 residency dispute or criminal charge. New York permits <em>only</em> licensed physicians to own a medical practice.</div>
+    </div>
+  </div>
+  <div class="gate-arrow">If this fails there is no venture. Not a delayed venture — no venture. Answer in writing before anything else.</div>
+
+  <div class="gate">
+    <div class="gate-id">G2</div>
+    <div class="gate-body">
+      <div class="t">Academic records released or expunged</div>
+      <div class="d">UHS blocked email access and withheld academic records from July 2024. These are the subject of <strong>Count Four</strong> (injunctive relief) in the federal case.</div>
+    </div>
+  </div>
+  <div class="gate-arrow">Every credentialing application, payor enrolment and immigration petition requires verifiable residency documentation. <strong>Count Four is not a throwaway remedy — it is the gating asset for the entire business.</strong> Litigation counsel should be told so explicitly.</div>
+
+  <div class="gate">
+    <div class="gate-id">G3</div>
+    <div class="gate-body">
+      <div class="t">J-1 §212(e) obligation resolved, or a waiver path identified</div>
+      <div class="d">A ~$300,000 Florida position carrying a J-1 waiver became unattainable in July 2024 when the records were withheld. If the two-year foreign residence requirement is unsatisfied and unwaived, adjustment of status and H-1B or immigrant visa issuance are statutorily barred.</div>
+    </div>
+  </div>
+  <div class="gate-arrow">This — not property — is the real bottleneck on the immigration plan. Note that Conrad 30 slots are scarce: 19 states exhausted all 30 in FFY2024, and New York's are taken within days of opening.</div>
+
+  <div class="gate">
+    <div class="gate-id">G4</div>
+    <div class="gate-body">
+      <div class="t">Settlement allocation locked before any release is signed</div>
+      <div class="d">Coordinated with litigation counsel, informed by the amendment in §0.2. Determines whether the capital in Part 7 is $2.0M or materially less.</div>
+    </div>
+  </div>
+
+  <div class="gate-fan">
+    <div class="fan-row">
+      <div class="fan-item"><b>Entities formed</b>PC → SED certificate → Department of State. MSO C-corp. Fixed fair-market-value management agreement.</div>
+      <div class="fan-item"><b>Insurance-law clearance</b>Department of Financial Services position on the membership architecture, <em>before</em> a price is quoted. See Part 4.</div>
+      <div class="fan-item"><b>Charitable vehicle</b>Domestic 501(c)(3), fiscal sponsorship in Year 1. Ireland abandoned.</div>
+    </div>
+    <div class="fan-row">
+      <div class="fan-item"><b>→ Pilot launch, Q3</b>One physician. One catchment. Twenty-five members. Instrumented against the gate in Part 8.</div>
+      <div class="fan-item"><b>→ Severable ventures</b>Cosmetics acquisition, shipping re-flag, pharmaceutical line. Deferred on purpose — see below.</div>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <div class="hd">The discipline that matters most</div>
+  <p style="margin-bottom:0">Everything in the bottom row is <strong>severable, and must stay severable</strong>. The founder is one person with nine matters. The cosmetics acquisition and the shipping re-flag are genuinely good opportunities that will destroy this plan if they consume Q1–Q3 attention. They are scheduled late deliberately, held in a separate family-office structure, and firewalled from the medical entities — both to protect the clinical entities' regulatory posture and to keep the MSO's qualified-small-business-stock analysis clean.</p>
+</div>
+</section>
+
+<!-- ================= PART 3 ================= -->
+<section>
+<h2><span class="pt">Part 3</span>Market Evidence</h2>
+
+<p class="lead">Everything in this part is externally sourced and dated. Where an estimate is contested, the range is shown rather than the flattering end of it.</p>
+
+<h3 class="sec" data-n="3.1">The primary care shortage is structural and deepening</h3>
+<table class="tight">
+<tbody>
+<tr><td style="width:66%">Total physician shortage by 2036, including <strong>20,200–40,400 in primary care</strong></td><td class="num">13,500–86,000</td><td class="src" style="width:20%">AAMC, Mar 2024</td></tr>
+<tr><td>Full-time-equivalent physician shortfall by 2037 (124,180 by 2027), of which <strong>87,150 primary care</strong></td><td class="num">187,130</td><td class="src">HRSA NCHWA, Dec 2025</td></tr>
+<tr><td>Designated primary medical HPSAs, covering 86.9 million people; 14,929 practitioners needed to remove designations</td><td class="num">8,207</td><td class="src">HRSA, Sept 2025</td></tr>
+<tr><td>Active primary care physicians — under one third of the workforce; grew 8.1% 2016–2023 versus 16.8% for other specialties</td><td class="num">340,319</td><td class="src">AMA / HRSA, Nov 2024</td></tr>
+<tr><td>Rural primary care demand projected met by 2037 (73% nationally)</td><td class="num">68%</td><td class="src">HRSA via AJMC, May 2026</td></tr>
+<tr><td>MGMA median primary care physician compensation, +4.44% year over year</td><td class="num">$312,427</td><td class="src">MGMA 2024 report</td></tr>
+</tbody>
+</table>
+
+<h3 class="sec" data-n="3.2">The premium continuity market is real, and priced</h3>
+<table class="tight">
+<thead><tr><th style="width:34%">Comparable</th><th style="width:28%">Price</th><th>Structure</th></tr></thead>
+<tbody>
+<tr><td><strong>MDVIP</strong> — 450,000 members, 1,400 physicians, 46 states</td><td>$1,800–$4,500/yr<br><span class="src">avg ≈ $2,500</span></td><td>Retainer for access and amenities <em>plus</em> insurance billing for covered services. Panel cap ≈ 600. <strong>Operates in New York.</strong></td></tr>
+<tr><td><strong>Parsley Health</strong> — NYC and LA</td><td>$125–$150/mo</td><td>In-network nationwide since April 2026; program fee layered on insurance-billed visits.</td></tr>
+<tr><td><strong>One Medical</strong> (Amazon)</td><td>$199/yr</td><td>Membership for access; visits billed to insurance. ~220 clinics, 29 metros.</td></tr>
+<tr><td>Manhattan luxury tier</td><td>$10,000–$25,000+/yr<br><span class="src">to $50,000 reported</span></td><td>Small panels, full concierge. <span class="flag unv">UNVERIFIED</span> in primary sources.</td></tr>
+<tr><td>Market size and growth</td><td>$6.55B (2025) →<br>$12.75B (2035)</td><td>~6.9% CAGR; practices grew 83.1% and clinicians 78.4% between 2018 and 2023; ~25,000 US physicians now in membership models.</td></tr>
+<tr><td>Panel and overhead economics</td><td>400–500 panel<br>40–55% overhead</td><td>Versus 2,000+ panel and 60–70% overhead in insurance-driven fee-for-service.</td></tr>
+</tbody>
+</table>
+<p class="src">Sources: Managed Healthcare Executive, Jun 2026; Parsley Health / Business Wire, Apr 2026; Amazon / One Medical, Nov 2023; STAT News, Nov 2024; Precedence Research, Jun 2026; Grand View Research, 2025; Johns Hopkins via Mordor Intelligence, Jan 2026; JMCO / Benefique, Dec 2025–Mar 2026.</p>
+
+<h3 class="sec" data-n="3.3">Home-based care has proven economics — and cheap rails</h3>
+<table class="tight">
+<tbody>
+<tr><td style="width:66%">Independence at Home demonstration: total Medicare cost reduction <strong>per beneficiary per year</strong>; net CMS savings exceeded $148M after shared-savings payments</td><td class="num">$3,165</td><td class="src" style="width:20%">JAMA Health Forum, 2024</td></tr>
+<tr><td>Home-and-residence visit codes CPT 99341–99350, Medicare non-facility, per visit</td><td class="num">$44–$210</td><td class="src">CMS PFS via PALTmed</td></tr>
+<tr><td><strong>G2211</strong> longitudinal-care add-on, extended to home-visit codes effective 1 Jan 2026</td><td class="num">≈ $15.53</td><td class="src">CMS CY2026 PFS Final Rule</td></tr>
+<tr><td>Mobile phlebotomy convenience fee (Getlabs, partnered with Labcorp and Quest), 50 markets</td><td class="num">≈ $35</td><td class="src">Labcorp, 2024</td></tr>
+<tr><td>IAH-qualified beneficiaries: 6% of traditional Medicare but 29% of spending</td><td class="num">29%</td><td class="src">JAMA Health Forum, 2024</td></tr>
+</tbody>
+</table>
+<div class="box plain">
+  <p style="margin-bottom:0"><strong>The pricing consequence.</strong> Medicare pays $44–$210 for a home visit. A $200–$300 hourly cash model is 1.5–4× the top Medicare rate, so it must be justified on <em>time and access</em> — never on coding. This is also the answer to the "reduce the Medicare burden" argument: IAH is the federal government's own demonstration that home-based primary care saves it $3,165 per beneficiary per year. That is the evidence to bring to Albany, not an assertion.</p>
+</div>
+
+<h3 class="sec" data-n="3.4">Loneliness is a quantified clinical problem</h3>
+<p>The founder's instinct about nursing homes and visitation is supported by harder numbers than he realised. The Surgeon General's 2023 advisory attributes a <strong>26% increase in premature mortality risk to loneliness and 29% to isolation</strong> — comparable to smoking up to fifteen cigarettes a day — alongside <strong>$6.7B per year in excess Medicare spending</strong> from social isolation among older adults. A third of adults aged 50–80 report loneliness. A 2024 meta-analysis of more than 600,000 participants found loneliness independently raises all-cause dementia risk by 31%.</p>
+<p class="src">Sources: HHS / Office of the Surgeon General, May 2023; JAMA National Poll on Healthy Aging, Dec 2024; NIA / <em>Nature Mental Health</em>, 2024.</p>
+
+<h3 class="sec" data-n="3.5">The zakat donor pool and the operating template both exist</h3>
+<table class="tight">
+<tbody>
+<tr><td style="width:66%">Muslims in New York City — roughly 22.3% of all US Muslims; 285 mosques across five boroughs</td><td class="num">≈ 768,000</td><td class="src" style="width:20%">ISPU, 2018</td></tr>
+<tr><td>American Muslim physicians, roughly 5% of the US physician workforce <span class="src">— note: the widely repeated "10% of doctors" claim is not supported</span></td><td class="num">≈ 50,000</td><td class="src">Padela / MCW, Jan 2023</td></tr>
+<tr><td><strong>UK National Zakat Foundation</strong> — local collection, local distribution, scholar-certified policy, caseworker assessment. <strong>The operating template.</strong></td><td class="num">£39M+<br><span class="src">135,000+ recipients</span></td><td class="src">NZF Annual Report 2023</td></tr>
+<tr><td>Zakat Foundation of America revenue, FY2024 — 87% program ratio, CharityWatch A-rated</td><td class="num">$37.8M</td><td class="src">ZFA audited financials</td></tr>
+</tbody>
+</table>
+<div class="box">
+  <div class="hd">The authority that makes the model religiously valid</div>
+  <p style="margin-bottom:0"><strong>Islamic Relief USA's zakat policy explicitly permits zakat funding of health clinics</strong> as communal welfare assets under the <em>fī sabīlillāh</em> category, subject to a documented community-need assessment. That is not an analogy — it is a considered institutional position from a mainstream US zakat administrator, and it happens to require exactly the census the classical Baitul Mal rules require. Precedent for the delivery model exists too: HUDA Clinic in Detroit (mosque-founded, 2004, sixty volunteer professionals, free pharmacy), UMMA Clinic in South Los Angeles, and the Al-Shifa network. A zakat-pooled <em>primary care</em> practice in Manhattan was not found. <span class="flag unv">UNVERIFIED</span> — absence of evidence, not proof of absence.</p>
+</div>
+
+<h3 class="sec" data-n="3.6">India: the supply chain is real; the physician pipeline needs correcting</h3>
+<table class="tight">
+<tbody>
+<tr><td style="width:66%">Share of US generic prescriptions filled by Indian companies in 2022 (≈40% of <em>all</em> prescriptions); US savings of $219B in 2022 alone</td><td class="num">47%</td><td class="src" style="width:20%">IQVIA Institute, Apr 2024</td></tr>
+<tr><td>Share of US original ANDA approvals held by Indian firms — <strong>the lawful channel already exists at scale</strong></td><td class="num">≈ 40%</td><td class="src">FDA data via BioSpectrum</td></tr>
+<tr><td>International medical graduates as a share of 1,082,187 licensed US physicians; ~50,173 Indian-educated</td><td class="num">23%</td><td class="src">FSMB, Aug 2025</td></tr>
+<tr><td>Conrad 30 waivers nationally, FFY2024 (238 rural). <strong>19 states exhausted all 30 slots</strong>; Arkansas filled 30/30, all rural</td><td class="num">1,010</td><td class="src">3RNET via NRHA, 2025</td></tr>
+<tr><td>Metformin cash price, 30-day supply, Walmart — and insulin capped at $35/month for Medicare</td><td class="num">$4</td><td class="src">FormBlends, Jul 2026; KFF</td></tr>
+</tbody>
+</table>
+<div class="box warn">
+  <div class="hd">Two corrections to the India thesis</div>
+  <p><strong>The rural-service premise is not accurate.</strong> India has <em>no</em> uniform national rural-service mandate for physicians. Bonds are state-by-state and are strictest at postgraduate level — Himachal Pradesh imposes a two-year government-service bond with a penalty around ₹40 lakh; Punjab's 2025–26 undergraduate surety-bond demand was stayed by the High Court. The cultural observation about Indian medical altruism stands on its own — Aravind Eye Care's rural outreach is real — but it should be presented as the founder's thesis, not as a statutory fact. <strong>Bond and no-objection-certificate screening must be built into any recruitment pipeline.</strong></p>
+  <p style="margin-bottom:0"><strong>New York cannot host the exchange.</strong> Foreign-trained physicians cannot practise in New York without US residency, and New York has enacted no alternative pathway. Several states have: Florida (2024 — foreign licence, four years recent practice, ECFMG certification, and a Florida position held at least two years), North Carolina (Internationally-Trained Physician Employee licence effective 1 January 2026, oriented to rural service), plus Illinois, Missouri, Tennessee, Virginia and Washington. Separately, <strong>ABIM Special Consideration Pathway E</strong>, finalised September 2025, lets internationally trained internists who complete an ACGME fellowship sit the boards without repeating residency — more than 150 physicians were eligible as of March 2026. <em>The exchange line must therefore be a geographically separate entity from the New York practice.</em></p>
+</div>
+</section>
+
+<!-- ================= PART 4 ================= -->
+<section>
+<h2><span class="pt">Part 4</span>Revenue Architecture — The $700,000 Question</h2>
+
+<p class="lead">This part contains the most consequential unresolved question in the venture, and an answer to it. Both prior drafts treated the membership-versus-hourly choice as a compliance footnote. <strong>It is worth roughly $700,000 per physician per year.</strong></p>
+
+<h3 class="sec" data-n="4.1">Three revenue models, costed honestly</h3>
+
+<table>
+<thead><tr><th style="width:31%">Model</th><th class="num" style="width:15%">Revenue / physician</th><th style="width:54%">Why it does or does not work</th></tr></thead>
+<tbody>
+<tr>
+  <td><strong>A · Pure home visits, hourly</strong><br><span class="src">4.5 billable hr/day × 4 days × 46 wks = 828 hr @ $250</span></td>
+  <td class="num">$207,000</td>
+  <td>Travel destroys billable density. Against a loaded employed-physician cost near <strong>$385,000</strong> (MGMA median $312,427 plus benefits and malpractice), this <strong class="neg">loses roughly $178,000 per physician</strong>. It can carry the founder alone on a reduced draw. <strong>It cannot scale on employed physicians.</strong> This is the model as originally conceived.</td>
+</tr>
+<tr>
+  <td><strong>B · Hybrid delivery, hourly</strong><br><span class="src">30% home @ $350 / 70% remote @ $200; ~1,141 hr @ blended $245</span></td>
+  <td class="num">$280,000</td>
+  <td>Removing travel from most encounters nearly doubles daily capacity. Still short of a loaded salary — but it works decisively on <strong>1099 marginal labour</strong>: dual-certified specialists at $150–$175 per hour yield $70–$95 per hour of contribution with no fixed cost and no idle time. <strong>This is the Year 1–2 bridge.</strong></td>
+</tr>
+<tr>
+  <td><strong>C · Membership + insurance billing</strong><br><span class="src">350 panel × $2,800 retainer, plus covered services billed separately</span></td>
+  <td class="num">$980,000<br><span class="src">+ billing</span></td>
+  <td>Roughly <strong>3.5× model B</strong>. This is why every concierge practice in the country uses a membership: MDVIP's 450,000 members across 1,400 physicians is about 321 members each, at an average $2,500. <strong>It is also the model that raises the New York insurance-law question.</strong> The gap between B and C is the $700,000.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="sec" data-n="4.2">The legal fork — and why two bodies of law converge on the same answer</h3>
+
+<p><strong>New York has enacted no direct-primary-care safe harbour.</strong> Roughly thirty states have; New York has not. A flat recurring fee paid in advance in exchange for an undefined future quantity of care is exposed to characterisation by the Department of Financial Services as <strong>the doing of an insurance business</strong> under N.Y. Insurance Law §1102 — because the practice would be accepting morbidity risk for a fixed premium. That is unauthorised insurance, and it is not a technical foot-fault.</p>
+
+<div class="box">
+  <div class="hd">The resolution neither prior draft reached</div>
+  <p><strong>MDVIP operates in forty-six states, New York among them.</strong> The mechanism is the distinction that resolves this whole question: the retainer must buy <em>defined non-covered amenities and access</em> — extended appointment length, direct physician availability, care coordination, annual planning — and <strong>not</strong> a prepaid entitlement to unlimited clinical care. Covered clinical services are billed separately, to insurance or per encounter. Structured that way the practice accepts <strong>no morbidity risk</strong>, and §1102 is not engaged.</p>
+  <p style="margin-bottom:0"><strong>The same structure satisfies <em>gharar</em>.</strong> The Islamic prohibition on excessive contractual uncertainty forbids selling an undefined future quantity for a fixed present price — for its own reasons, entirely independent of New York insurance law. Define the consideration precisely and both objections dissolve together. <em>A religious constraint doing regulatory work is the most persuasive single argument available to put in front of a sceptical partner,</em> and it should lead the conversation.</p>
+</div>
+
+<h4>What counsel must deliver, and in what order</h4>
+<ol>
+  <li><strong>A written DFS position on the membership agreement</strong> before any price is quoted. This is the highest-value legal question in the venture. Ask it first.</li>
+  <li><strong>The Medicare fork.</strong> Whether the PC opts out under §1802(b) — affidavit on a two-year cycle plus compliant private contracts — stays enrolled and bills POS-12 house calls, or runs a hybrid. Balance-billing a beneficiary without a valid opt-out is a serious violation.</li>
+  <li><strong>Membership agreement drafting</strong> that itemises amenity consideration and expressly disclaims prepayment for covered clinical services.</li>
+</ol>
+
+<div class="box stop">
+  <div class="hd">The trap that looks like generosity</div>
+  <p style="margin-bottom:0"><strong>Routine waiver of copays or deductibles can itself violate the Anti-Kickback Statute and the civil monetary penalty on beneficiary inducement</strong> (§1128A(a)(5)) absent a documented financial-assistance policy. And forgiving a bill is not a deduction — §170 requires a transfer to a qualified organisation, so uncollected revenue is simply uncollected revenue. Charity care therefore runs two ways only: through a <em>written, uniformly applied hardship policy</em>, or through the 501(c)(3) purchasing care from the practice at fair market value. Never as discretionary generosity at the point of service.</p>
+</div>
+
+<h3 class="sec" data-n="4.3">Phasing decision</h3>
+<p>Launch on <strong>model B</strong> — hourly fee-for-service, which raises no §1102 question at all — while the DFS analysis runs. Convert to <strong>model C</strong> once counsel clears the membership agreement, targeted at Q4 of Year 1. This sequence earns revenue during the regulatory review instead of waiting on it, and it means an adverse DFS answer costs a pricing change rather than the business.</p>
+</section>
+
+<!-- ================= PART 5 ================= -->
+<section>
+<h2><span class="pt">Part 5</span>Service Lines</h2>
+
+<h3 class="sec" data-n="S1">Continuity primary care</h3>
+<p><strong>Offering.</strong> Same-physician primary care for a defined panel, with a six-month minimum continuity commitment, 45–60 minute visits, direct physician access, and in-home diagnostics coordinated through partners at roughly $35 per draw. Two lanes: an annual membership covering defined access and amenities, and hourly cash consults for non-members.</p>
+<p><strong>Customer.</strong> Manhattan middle-income households with demanding schedules; professionals aged 30–65 who will pay for trust and access.</p>
+<p><strong>Pricing.</strong> Membership $2,400–$3,600 per year <span class="flag asm">ASSUMPTION</span>, benchmarked between MDVIP and Parsley. Cash consults $200–$300 per hour. <strong>Panel cap 400</strong> — the cap is the product, not a constraint on it.</p>
+
+<h3 class="sec" data-n="S2">Home visits and the sick-visiting programme</h3>
+<p><strong>Offering.</strong> Physician home visits for members and homebound-leaning Medicare patients — restoring the traditional role, and measuring in the home where the reading is not distorted by the clinic. Plus a structured nursing-home and homebound <em>visitation</em> programme rooted in the sunnah of visiting the sick: trained, vetted visitors on a scheduled cadence, coordinated with the clinical team.</p>
+<p><strong>Pricing.</strong> Medicare billed at CPT 99341–99350, place of service 12, plus the G2211 add-on ($44–$210 per visit). Cash home visits $250–$350 <span class="flag asm">ASSUMPTION</span>. Visitation subscription $150–$250 per month <span class="flag asm">ASSUMPTION</span>.</p>
+
+<div class="box plain">
+  <div class="hd">Structural rule for the visitation programme</div>
+  <p style="margin-bottom:0">The programme is <strong>owned and operated by the MSO/PC as a non-clinical companionship service</strong>. The Fund does not run it — the Fund <em>purchases subsidised slots at fair market value</em> under a written agreement for screened recipients. That keeps it a Fund distribution expense rather than practice-side discounting, which is what preserves both the charitable deduction and the fraud-and-abuse posture. No designated-health-service referrals flow through it; if any home-health agency relationship ever forms, it is papered to a Stark exception and an AKS safe harbour at fair market value first.</p>
+</div>
+
+<p><strong>Honesty note on the clinical claim.</strong> White-coat hypertension is the accepted case of a measurement corrupted by its setting, and home blood-pressure literature supports the direction of the argument. The broader framing — that a calm physician presence in the home carries a therapeutic effect that American empirical medicine has not studied — is <em>the founder's clinical thesis</em>. It is a genuinely interesting research question for a practice that will hold hundreds of longitudinal panels, and it should be pursued with an academic partner and an IRB. It should not be presented as an established outcome.</p>
+
+<h3 class="sec" data-n="S3">Zakat Care Fund and the neighbourhood census</h3>
+<p><strong>Offering.</strong> The modern Baitul Mal. A neighbourhood health-needs census of one Manhattan ZIP code — who lives there, what they need, who is falling through — mirroring the classical census-first rule and mapped onto the AHC health-related-social-needs screening instrument already mandated for New York Medicaid members. Then a 501(c)(3), operating in Year 1 under fiscal sponsorship, that pools zakat and general donations and pays for care for the neighbourhood's neediest: subsidised memberships, home visits, medications, navigation. <strong>Local collection, local distribution; widen only when the neighbourhood is served.</strong></p>
+<p>One ZIP remains the pilot catchment, deliberately, to keep cognitive load low. Binghamton is the candidate second catchment in Year 1.5–2, honouring the founder's residency roots.</p>
+<p><strong>Pricing.</strong> Fundraising target $150,000–$250,000 in Year 1 <span class="flag asm">ASSUMPTION</span>; distribution cadence modelled on the National Zakat Foundation's caseworker assessment.</p>
+<p><strong>Classification risk.</strong> A family-funded 501(c)(3) defaults to <em>private foundation</em> status — roughly 1.39% net-investment-income excise tax, §4941 self-dealing bars, mandatory ~5% distributions, excess-business-holdings rules. Avoiding that requires broad public support under §509(a) from the outset, which is a fundraising design decision made in Year 1, not a fix applied later.</p>
+
+<h3 class="sec" data-n="S4">International lines</h3>
+<p><strong>Partners.</strong> Two named relationships anchor these lines, <strong>neither yet under written agreement</strong> <span class="flag unv">UNVERIFIED</span>. A Dubai-based founder of a pharmaceutical billing-transparency platform is the technology partner for S4(a). A school friend now at the World Bank — whose spouse is at the United Nations and whose father runs a medical consulting firm — serves in an advisory and multilateral-access capacity for S4(b), with the father's firm a potential India-side implementation partner. <strong>Both roles require written scope before any reliance.</strong> Note that under New York's corporate practice doctrine neither partner can hold equity in the PC; both sit in the MSO.</p>
+
+<h4>S4(a) · Pharmaceutical transparency and cost reduction</h4>
+<p>The defensible version of this line is <strong>transparency, not import margin</strong>: a layer showing US patients and employers exactly where each pharmaceutical dollar goes, combined with sourcing of <em>US-labelled</em> product from FDA-registered Indian manufacturers holding approved applications — ANDAs for small molecules, and a <strong>biologics licence for insulin</strong>, which since 23 March 2020 is regulated under PHS Act §351 and cannot come through an ANDA at all. Distribution requires Authorized Trading Partner status, state wholesale licensure and serialised DSCSA data exchange; wholesale-distributor enforcement discretion expired 27 August 2025.</p>
+<p><strong>Target the branded and specialty price curve, not commodity generics.</strong> Metformin at $4 and insulin capped at $35 have already surrendered that margin.</p>
+
+<h4>S4(b) · India–US physician exchange</h4>
+<p>A recruiting and placement channel on proven statutory rails: J-1 via ECFMG → Conrad 30 waiver (three years of HPSA/MUA service) → cap-exempt H-1B, potentially sponsored by a nonprofit entity created for the purpose under INA §214(g)(5)(C) → EB-2 or physician NIW. Revenue is placement and programme fees paid by host sites <span class="flag asm">ASSUMPTION</span> — never charged to the physicians in ways that implicate fee-shifting or trafficking rules. Sited in the alternative-pathway states identified in §3.6, not New York. No formal bilateral India–US exchange programme exists; this is white space built on existing channels, and should be described that way rather than as an existing programme.</p>
+</section>
+
+<!-- ================= PART 6 ================= -->
+<section>
+<h2><span class="pt">Part 6</span>Entity Architecture</h2>
+
+<p class="lead">Three entities, three jobs, and one rule that governs all of them: <strong>clinical revenue and clinical control stay with licensed physicians; outside capital is paid from a services margin, never from a share of medicine.</strong></p>
+
+<div class="emap">
+  <div class="ent">
+    <div class="en">Rahman Medical PC</div>
+    <div class="ef">New York Professional Corporation · BCL Article 15 · Dr Rahman, sole shareholder</div>
+    <div class="ed">Holds all clinical revenue. Employs and engages clinicians. PECOS (CMS-855I) and eMedNY enrolment. Malpractice. <strong>All clinical governance.</strong><br><span class="src">Every shareholder, director and officer must be licensed, certified by the State Education Department, and recertified triennially — BCL §1503(a)–(b), §1514(a).</span></div>
+  </div>
+
+  <div class="ent-link">↕ &nbsp; Management Services Agreement — fixed or cost-plus, fair market value, set in advance &nbsp; ↕</div>
+
+  <div class="ent">
+    <div class="en">MSO</div>
+    <div class="ef">Delaware or New York C-corporation · founder plus partners · investable</div>
+    <div class="ed">Billing, human resources, technology, real estate, marketing. Transparency-platform US operations. Exchange-programme administration. Visitation-programme operations as non-clinical companionship.<br><span class="src">C-corp form chosen deliberately for §1202 qualified-small-business-stock eligibility — see Part 7.</span></div>
+  </div>
+
+  <div class="ent-link">↓ &nbsp; Charitable contributions (deductible) · Fund purchases care at fair market value &nbsp; ↓</div>
+
+  <div class="ent charity">
+    <div class="en">Zakat Care Fund</div>
+    <div class="ef">New York nonprofit → 501(c)(3) · fiscal sponsorship in Year 1 · board majority non-Rahman</div>
+    <div class="ed">Neighbourhood census. Fundraising and zakat receipt. Subsidised care. Purchases visitation slots at fair market value under written agreement. New York Charities Bureau Article 7-A registration and CHAR500 filings.<br><span class="src"><strong>Domestic, not Irish.</strong> §170(c)(2)(A) permits no deduction for gifts to a foreign organisation absent a treaty provision, and the US–Ireland treaty has none.</span></div>
+  </div>
+</div>
+
+<h4>Hard compliance rules — no exceptions, no drift</h4>
+<table class="tight">
+<tbody>
+<tr><td style="width:30%"><strong>MSO fee</strong></td><td>Fixed or cost-plus, set in advance, at fair market value, in a written agreement. <strong>Never a percentage of practice revenue.</strong> Percentage compensation is fee-splitting misconduct under Education Law §6530(19); the AKS personal-services safe harbour likewise requires compensation set in advance with no volume or value linkage.</td></tr>
+<tr><td><strong>Clinical governance</strong></td><td>The MSO never directs clinical judgment, clinician hiring, or patient-flow decisions. Recent New York legislation extended physician control requirements to majority board control and all voting shares, and bars non-physician management entities from exercising governance over the professional entity.</td></tr>
+<tr><td><strong>Referrals</strong></td><td>No consideration for patient referrals — Education Law §6530(18). Any relationship touching a designated health service (laboratory, imaging, durable medical equipment, home health) fits a Stark exception exactly, before it begins.</td></tr>
+<tr><td><strong>Charity care</strong></td><td>Written, uniformly applied hardship policy, or Fund purchase at fair market value. No routine copay or deductible waivers. No "write-offs" characterised as deductions.</td></tr>
+<tr><td><strong>Severable ventures</strong></td><td>Cosmetics acquisition and the Dubai shipping re-flag are held in a family-office structure entirely outside the PC, MSO and Fund. A private foundation holding a controlling business stake would implicate excess-business-holdings rules; and shared corporate parentage would let sanctions, FCPA or FDA exposure in one leg reach the clinical entities.</td></tr>
+<tr><td><strong>Calendar</strong></td><td>PC triennial licensure certification; Fund annual filings; §232 Federal Register watch; annual independent fair-market-value refresh of the MSO fee.</td></tr>
+</tbody>
+</table>
+</section>
+
+<!-- ================= PART 7 ================= -->
+<section>
+<h2><span class="pt">Part 7</span>Capital Plan and Settlement Sequence</h2>
+
+<p class="lead">The lawful sequence is <strong>receipt → tax reserve → entity capitalisation</strong>. There is no pre-tax conduit. Anyone offering one is selling a promoter scheme.</p>
+
+<h3 class="sec" data-n="7.1">Two actions at mediation, before any release is signed</h3>
+<ol>
+  <li><strong>Allocation language</strong> documenting any personal-physical-injury or sickness component, excludable under §104(a)(2) — supported by the amendment described in §0.2, without which the allocation lacks a pleaded foundation.</li>
+  <li><strong>Preservation of the §62(a)(20) above-the-line attorney-fee deduction</strong> through claim framing. Absent it, the plaintiff is taxed on the gross <em>including</em> fees.</li>
+</ol>
+<p>Two mechanisms are worth counsel's attention and are commonly misunderstood. A <strong>§130 structured settlement</strong> preserves tax-free treatment only for damages already excludable under §104 — a discrimination settlement is "non-qualified", and periodic payments are taxable when received. A <strong>§468B qualified settlement fund</strong> can, by contrast, defer the <em>timing</em> of taxable receipt while structuring is arranged.</p>
+
+<h3 class="sec" data-n="7.2">After-tax scenarios</h3>
+<table>
+<thead><tr><th>Scenario</th><th class="num">Gross</th><th class="num">Tax + fees</th><th class="num">Investable</th><th style="width:34%">Posture</th></tr></thead>
+<tbody>
+<tr><td><strong>Conservative</strong> <span class="src">(planning basis)</span></td><td class="num">$4.2M</td><td class="num">~52%</td><td class="num"><strong>$2.0M</strong></td><td>Fund PC and MSO for Year 1. The charitable Fund is seeded by the founder's post-tax personal giving, not by entity capitalisation.</td></tr>
+<tr><td>Base</td><td class="num">$5.5M</td><td class="num">~51%</td><td class="num">$2.7M</td><td>Adds an upstate-site reserve, and an EB-5 tranche if that track is chosen.</td></tr>
+<tr><td>Upside</td><td class="num">$6.8M</td><td class="num">~50%</td><td class="num">$3.4M</td><td>Adds endowment-style reserve for the Fund, and Manhattan property — <strong>as family security only, with no visa value.</strong></td></tr>
+</tbody>
+</table>
+<p class="src">All figures <span class="flag asm">ASSUMPTION</span>. Blended effective rate reflects federal ordinary rates plus New York State (capital gains taxed as ordinary income, top 10.9%), New York City to 3.876%, and the 3.8% net investment income tax. A successful §104(a)(2) allocation would materially improve every row — which is precisely why §0.2 is the first clock.</p>
+
+<h3 class="sec" data-n="7.3">Deployment of the conservative $2.0M</h3>
+<table class="tight">
+<tbody>
+<tr><td style="width:52%">MSO — staff, technology, transparency-platform integration</td><td class="num">$600,000</td></tr>
+<tr><td>Reserve — 18 months of PC runway</td><td class="num">$400,000</td></tr>
+<tr><td>Immigration and legal execution (NIW or EB-5)</td><td class="num">$300,000</td></tr>
+<tr><td>Founder draw replacement, Year 1 — below market</td><td class="num">$300,000</td></tr>
+<tr><td>PC working capital — leased exam space, EHR, malpractice</td><td class="num">$250,000</td></tr>
+<tr><td>Founder's personal philanthropic contribution to the Fund <span class="src">— a donation, not entity capitalisation, and not practice burn</span></td><td class="num">$150,000</td></tr>
+<tr class="total"><td>Total</td><td class="num">$2,000,000</td></tr>
+</tbody>
+</table>
+
+<div class="box">
+  <div class="hd">The post-tax shelter that actually works — and its catch</div>
+  <p><strong>Qualified small business stock under §1202</strong>, as amended by the OBBBA (Pub. L. 119-21, signed 4 July 2025), is the real reinvestment shelter. For C-corporation stock issued after 4 July 2025: tiered exclusion of 50% at three years, 75% at four, and <strong>100% at five</strong>; per-issuer cap raised to the greater of $15M or ten times basis; gross-asset ceiling raised to $75M.</p>
+  <p style="margin-bottom:0"><strong>The catch is decisive for structure.</strong> §1202(e)(3) excludes businesses performing services in <em>health</em> — so the medical PC will almost certainly never qualify. <strong>The MSO or technology entity might.</strong> That is a substantive reason to form the MSO as a C-corporation from the outset rather than an LLC, and to have tax counsel produce a qualified-trade memorandum early. New York conformity is <span class="flag unv">UNVERIFIED</span> and must be confirmed. Separately, <strong>Opportunity Zones 2.0</strong> — made permanent, with designations effective 1 January 2027 and a 30% basis step-up for qualified rural funds — is a candidate shelter for upstate site real estate, though it defers <em>capital</em> gains and so does not reach ordinary settlement income.</p>
+</div>
+
+<h3 class="sec" data-n="7.4">Year 1 revenue and cost</h3>
+<table>
+<thead><tr><th style="width:44%">Stream</th><th class="num">Y1 volume</th><th class="num">Y1 revenue</th><th class="num">Y2 revenue</th></tr></thead>
+<tbody>
+<tr><td>Memberships — $3,000/yr average, launching Q4</td><td class="num">25</td><td class="num">$25,000</td><td class="num">$450,000</td></tr>
+<tr><td>Hourly cash consults — $250/hr</td><td class="num">~190 hr</td><td class="num">$47,500</td><td class="num">$100,000</td></tr>
+<tr><td>Home visits, Medicare — ~$165/visit incl. G2211</td><td class="num">300</td><td class="num">$49,500</td><td class="num">$198,000</td></tr>
+<tr><td>Home visits, cash — $300/visit</td><td class="num">60</td><td class="num">$18,000</td><td class="num">$72,000</td></tr>
+<tr><td>Visitation subscriptions <span class="src">(MSO-operated; Fund buys slots at FMV)</span></td><td class="num">25</td><td class="num">$24,000</td><td class="num">$240,000</td></tr>
+<tr><td>Moonlighting panel — fixed MSO administrative fee</td><td class="num">—</td><td class="num">$0</td><td class="num">$12,000</td></tr>
+<tr><td>MSO platform and transparency fees</td><td class="num">—</td><td class="num">$0</td><td class="num">$50,000</td></tr>
+<tr><td>Exchange placement fees — $15,000 each</td><td class="num">—</td><td class="num">$0</td><td class="num">$30,000</td></tr>
+<tr class="total"><td>Practice-side total</td><td class="num"></td><td class="num">$164,000</td><td class="num">$1,152,000</td></tr>
+</tbody>
+</table>
+<p><strong>Year 1 cost side</strong> <span class="flag asm">ASSUMPTION</span>: founder compensation $220,000; MSO staff — practice manager plus part-time biller — $140,000; legal and compliance retainer $75,000; leased exam space $60,000; EHR, billing and IT $30,000; malpractice $18,000–$25,000. Practice-side operating cost ≈ <strong>$545,000</strong>, against $164,000 of revenue: net burn roughly <strong>$380,000</strong>, covered by the capitalisation above. Breakeven is modelled mid-Year 2 at 120–150 members.</p>
+<p class="src">The census pilot (~$60,000) and fiscal-sponsor fees are <strong>not</strong> practice burn. They are charged to the Fund's donation budget, financed by the founder's personal contribution — which is what keeps charitable cost legally and financially separate from the practice.</p>
+</section>
+
+<!-- ================= PART 8 ================= -->
+<section>
+<h2><span class="pt">Part 8</span>Roadmap: Q1 through Year 6</h2>
+
+<h3 class="sec" data-n="Q1">August – October 2026 · Triage</h3>
+<p class="src">Revenue: $0. This quarter is entirely legal and diagnostic. Resist every temptation to begin clinical work.</p>
+<table class="tight">
+<thead><tr><th style="width:52%">Milestone</th><th style="width:20%">Depends on</th><th>Success condition</th></tr></thead>
+<tbody>
+<tr><td><strong>Amend the federal complaint</strong> — malicious prosecution before the ~September limitation, plus physical-injury counts</td><td>Litigation counsel</td><td>Filed. Both objectives in one amendment.</td></tr>
+<tr><td>Retain New York general counsel with healthcare corporate and tax capability</td><td>—</td><td>Engagement letter by 31 Aug 2026</td></tr>
+<tr><td>Allocation strategy and §62(a)(20) framing briefed to litigation counsel</td><td>GC retained</td><td>Written strategy before any term sheet</td></tr>
+<tr><td>Gating diagnosis: licence status, NPDB self-query, OPMC check; press Count Four</td><td>Founder + counsel</td><td>Documented status, or a remediation plan</td></tr>
+<tr><td>Engage immigration counsel; §212(e) status and waiver inventory; choose NIW versus EB-5</td><td>GC referral</td><td>Decision memo by 15 Oct 2026</td></tr>
+<tr><td>Form the PC — BCL Art. 15, SED licensure certificate attached</td><td>G1 clear</td><td>Certificate filed; triennial calendar set</td></tr>
+<tr><td>Fiscal-sponsor term sheet for the Fund; MoU with the Dubai transparency partner</td><td>Sponsor identified</td><td>Sponsor selected; MoU signed with US scope defined</td></tr>
+<tr><td>Request Indian consulate introduction through existing contacts</td><td>MoU</td><td>Introduction requested</td></tr>
+</tbody>
+</table>
+
+<div class="box stop">
+  <div class="hd">Q1 gate — an explicit stop condition</div>
+  <p style="margin-bottom:0"><strong>Do G1, G2 and G3 clear?</strong> If licensure or §212(e) is unresolved: <strong>stop.</strong> Do not form the MSO, do not deploy capital, do not recruit, do not sign a lease. Convert the quarter into remediation and re-gate in Q2. The PC formation is low-cost and may proceed; nothing else may.</p>
+</div>
+
+<h3 class="sec" data-n="Q2">November 2026 – January 2027 · Formation</h3>
+<table class="tight">
+<thead><tr><th style="width:52%">Milestone</th><th style="width:20%">Depends on</th><th>Success condition</th></tr></thead>
+<tbody>
+<tr><td>Form the MSO C-corp; execute the management agreement at fixed FMV</td><td>PC formed</td><td>Agreement executed; QSBS memo from tax counsel</td></tr>
+<tr><td><strong>DFS / insurance-law position on the membership architecture</strong></td><td>GC</td><td>Written position <em>before</em> any price is quoted</td></tr>
+<tr><td>Medicare opt-in versus opt-out decision</td><td>Entity formation</td><td>Signed decision memo before PECOS submission</td></tr>
+<tr><td>PECOS (CMS-855I) plus eMedNY application; bind malpractice</td><td>PC formed</td><td>PECOS submitted by 31 Dec 2026; policy in force before first patient</td></tr>
+<tr><td><strong>Settlement received; tax reserve segregated immediately</strong></td><td>Mediation</td><td>Reserve in escrow within 5 business days of receipt</td></tr>
+<tr><td>EB-5 filed if that track chosen — <strong>before the 1 Jan 2027 adjustment</strong></td><td>Q1 decision memo</td><td>I-526E filed by 31 Dec 2026</td></tr>
+<tr><td>Census instrument mapped to the AHC HRSN tool; approach the Manhattan Social Care Network lead</td><td>Sponsor signed</td><td>Instrument final; SCN meeting held</td></tr>
+</tbody>
+</table>
+
+<h3 class="sec" data-n="Q3">February – April 2027 · Pilot</h3>
+<p class="src">First revenue. Deliberately small. One geography — density is the entire economic argument, and a patient outside the route destroys the margin that made the model work.</p>
+<table class="tight">
+<thead><tr><th style="width:52%">Milestone</th><th style="width:20%">Depends on</th><th>Success condition</th></tr></thead>
+<tbody>
+<tr><td>Practice opens; first continuity members enrolled from personal and community networks — no paid acquisition</td><td>PECOS active; space leased</td><td>25 members by 30 Apr 2027</td></tr>
+<tr><td>Census pilot fielded in the pilot ZIP</td><td>Instrument final</td><td>≥300 households screened <span class="flag asm">ASSUMPTION</span></td></tr>
+<tr><td>Indian consulate meeting — ANDA/BLA channel plus exchange concept</td><td>Q1 introduction</td><td>Meeting held; working group named</td></tr>
+<tr><td>Form 1023 prepared for the Fund</td><td>Census data showing community need</td><td>1023 drafted</td></tr>
+</tbody>
+</table>
+
+<div class="box warn">
+  <div class="hd">Q3 gate — the real one, and it is numeric</div>
+  <p style="margin-bottom:0">Do the instrumented economics match the model? Specifically: <strong>billable hours per day ≥ 5.5</strong> and <strong>realised blended rate ≥ $230</strong>. If both hold, scale. If density is the miss, fix routing and the home-versus-remote mix <em>before</em> adding physicians. If rate is the miss, the market has spoken about price and the plan is re-cut. Do not add a second physician against an unvalidated unit economic.</p>
+</div>
+
+<h3 class="sec" data-n="Q4">May – July 2027 · Validate</h3>
+<table class="tight">
+<thead><tr><th style="width:52%">Milestone</th><th style="width:20%">Depends on</th><th>Success condition</th></tr></thead>
+<tbody>
+<tr><td>Home-visit line soft launch — POS-12 workflows, G2211 in charge capture</td><td>PECOS active</td><td>First 50 home visits billed clean</td></tr>
+<tr><td>Membership lane converts to model C if DFS cleared</td><td>Q2 DFS position</td><td>Membership agreement executed</td></tr>
+<tr><td>Visitation pilot — 10 vetted visitors, one partner facility</td><td>Written Fund slot-purchase agreement</td><td>15 subscribers plus 10 Fund-subsidised slots</td></tr>
+<tr><td>Fund's first distributions in the pilot ZIP; file Form 1023</td><td>Census data</td><td>≥$25,000 distributed with caseworker documentation; 1023 filed by 31 Jul 2027</td></tr>
+<tr><td><strong>Six-month retention cohort analysis</strong></td><td>Q3 cohort</td><td>The single most important number in the business</td></tr>
+<tr><td><strong>Written go/no-go on the pharmaceutical, cosmetics and shipping lines</strong></td><td>Founder + counsel</td><td>Each formally proceeding or shelved — ambiguity here is what kills founder-led ventures</td></tr>
+</tbody>
+</table>
+
+<h3 class="sec" data-n="Y1.5">Late 2027 – early 2028 · Scale the core</h3>
+<ul class="clean">
+  <li>501(c)(3) determination letter received; fiscal sponsorship unwound; public-support test on track.</li>
+  <li>Panel at 150 members. First moonlighting specialist panel live — 3–5 dual-certified internists paid market <em>hourly</em> rates through the PC, never a percentage.</li>
+  <li>Home-visit line fully live at 100+ visits per month; visitation at 60 subscribers plus 40 Fund-purchased slots.</li>
+  <li><strong>Publish outcomes data</strong> — continuity, home blood pressure, readmissions — to support New York State and Medicare cost-reduction discussions and malpractice underwriting. Two audiences, one dataset.</li>
+  <li>Immigration: NIW I-140 filed if not EB-5; upstate physician-NIW service site identified if that route.</li>
+  <li>Pharmaceutical decision point, inside the tariff window, if proceeding at all.</li>
+</ul>
+
+<h3 class="sec" data-n="Y5">2031 · Network</h3>
+<ul class="clean">
+  <li>Manhattan flagship plus an underserved upstate site honouring the Binghamton roots. ~900 members, ~6 physician FTE-equivalents, ~$4.2M revenue.</li>
+  <li>Exchange pilot cohort: 5–10 physicians placed via Conrad 30 into cap-exempt H-1B, in alternative-pathway states, with bond and no-objection screening documented.</li>
+  <li>Fund distributing on a National-Zakat-Foundation cadence: quarterly caseworker-assessed distributions, scholar-advisory certification, annual public audit, ≥$500,000 cumulative distributed.</li>
+  <li>MSO serving outside practices at fair market value — three or more external clients — which is where non-physician partners' equity actually appreciates.</li>
+</ul>
+
+<h3 class="sec" data-n="Y6">2032 · Steady state and optionality</h3>
+<ul class="clean">
+  <li>Three or more sites, 1,500+ members, revenue $6M+ <span class="flag asm">ASSUMPTION</span>.</li>
+  <li><strong>Waqf-style endowment</strong> — a board-designated endowment inside the 501(c)(3), with Islamic-law advisory review.</li>
+  <li>Replication playbook: license the model — census, panel-based continuity, home-visit logistics — to physician groups in other states. First licensee term sheet.</li>
+  <li>Evaluate payer contracts, employer-sponsored memberships and health-system joint ventures. Note that employer-paid arrangements can resemble a group health plan and pull in ERISA and ACA implications; counsel before piloting.</li>
+  <li>Benefit-corporation conversion option to mission-lock the community-reinvestment governance.</li>
+  <li><strong>Three assets with independent value:</strong> the PC (physician-owned, so succession must be to physicians and it is not saleable to outside capital), the MSO (saleable, and the vehicle for any liquidity event), and the Fund (permanent, not saleable, and the reason the rest was built). Structure so all three options remain open in Year 6 rather than betting on one in Year 2.</li>
+</ul>
+</section>
+
+<!-- ================= PART 9 ================= -->
+<section>
+<h2><span class="pt">Part 9</span>Risk Register</h2>
+
+<p class="lead">Ranked by the product of likelihood and consequence, with the mitigation built into the plan rather than appended as a caveat.</p>
+
+<table>
+<thead><tr><th style="width:26%">Risk</th><th style="width:9%">Likely</th><th style="width:9%">Impact</th><th>Mitigation, and where it lives in this plan</th></tr></thead>
+<tbody>
+<tr><td><strong>Licensure or §212(e) blocks everything</strong></td><td>Medium</td><td>Terminal</td><td>Q1 is entirely triage; explicit stop condition; zero capital deployed before the gate clears. Part 2, Part 8.</td></tr>
+<tr><td><strong>Settlement taxed fully as ordinary income, no exclusion</strong></td><td>Medium</td><td>High</td><td>The amendment is Q1 priority one; allocation strategy briefed before any term sheet; tax reserve segregated within five days of receipt. §0.2, §7.1.</td></tr>
+<tr><td><strong>DFS treats the membership as unauthorised insurance</strong></td><td>Medium</td><td>High</td><td>Launch on hourly fee-for-service, which raises no §1102 question; written DFS position before any price is quoted; retainer consideration defined as amenities and access only. Part 4.</td></tr>
+<tr><td><strong>Travel destroys the margin</strong></td><td>Medium</td><td>High</td><td>Hybrid delivery from day one; enforced geographic density; numeric Q3 gate at 5.5 billable hours and $230 realised rate. §4.1, Part 8.</td></tr>
+<tr><td><strong>Nine matters consume one founder</strong></td><td>High</td><td>High</td><td>Lines S4, cosmetics and shipping formally deferred with a written Q4 go/no-go; family-office quarantine; severability enforced in the gating diagram. Part 2, Part 6.</td></tr>
+<tr><td><strong>CPOM or fee-splitting drift</strong> — MSO economics tend toward percentage of revenue over time</td><td>Medium</td><td>High</td><td>Fixed FMV agreement; annual independent valuation refresh; counsel audit each fiscal year. Part 6.</td></tr>
+<tr><td><strong>AKS / Stark / beneficiary-inducement exposure</strong> via charity flows or copay waivers</td><td>Medium</td><td>High</td><td>Written hardship policy; Fund contracts at FMV; no routine waivers; Stark exception memo before any designated-health-service relationship. §4.2, Part 6.</td></tr>
+<tr><td><strong>NIW denial</strong> — roughly 42% in 2024, mostly on the third <em>Dhanasar</em> prong</td><td>Medium</td><td>High</td><td>Evidence dossier built in Q1; statutory physician NIW with upstate service as the fallback; EB-5 as the independent third track. Part 8.</td></tr>
+<tr><td><strong>Cannot recruit physicians</strong> — the binding growth constraint from Year 1.5</td><td>Medium</td><td>Medium</td><td>Recruit on the nature of the work, the cheapest advantage available; dual-certified specialists selling marginal hours; engine built before it is needed. §4.1, Y1.5.</td></tr>
+<tr><td><strong>Conrad 30 slots exhaust</strong> — 19 states filled all 30 in FFY2024; New York within days</td><td>High</td><td>Medium</td><td>Multi-state strategy; the HHS waiver channel (~500 per year, year-round); ABIM Pathway E widens the eligible pool. §3.6.</td></tr>
+<tr><td><strong>Zakat channel does not materialise</strong> — the Fund's funding thesis is assumed, not measured</td><td>Medium</td><td>Medium</td><td>Q3 census tests it early and cheaply. <strong>The practice must stand alone economically; the Fund is additive, never load-bearing.</strong> Part 7.</td></tr>
+<tr><td><strong>Pharmaceutical line becomes criminal exposure</strong></td><td>Low</td><td>Terminal</td><td>ANDA and BLA holders only; state wholesale licensure; DSCSA compliance; counsel instructed to refuse the non-compliant version outright. §5 S4(a).</td></tr>
+<tr><td><strong>Reputational</strong> — zakat framing read as sectarian or fear-based</td><td>Low</td><td>High</td><td>Open enrolment to all faiths; the Fund serves screened need regardless of faith, with zakat-specific rules administered by a scholar-advisory board; promotion-and-<em>barakah</em> voice only, never guilt; annual public reporting.</td></tr>
+<tr><td><strong>Policy volatility</strong> — NYHER ends 31 Mar 2027; Making Care Primary terminated 2025</td><td>High</td><td>Low–Med</td><td>SCN revenue treated as a time-boxed bridge only. The census has standalone value independent of reimbursement. §0.2, S3.</td></tr>
+<tr><td><strong>Partner concentration</strong> — both international lines rest on two unsigned relationships</td><td>Medium</td><td>Medium</td><td>MoU and advisory letters with defined scope and exit before any reliance; platform integration by API, not exclusivity; second vendor identified by Year 2. §5 S4.</td></tr>
+</tbody>
+</table>
+</section>
+
+<!-- ================= PART 10 ================= -->
+<section>
+<h2><span class="pt">Part 10</span>KPI Dashboard</h2>
+
+<table>
+<thead><tr><th style="width:14%">Domain</th><th style="width:38%">Metric</th><th class="num">Year 1</th><th class="num">Year 2</th><th style="width:18%">Source of truth</th></tr></thead>
+<tbody>
+<tr><td rowspan="3"><strong>The thesis</strong></td><td><strong>Six-month member retention</strong> — churn refutes the whole model</td><td class="num">≥85%</td><td class="num">≥90%</td><td>EHR / billing</td></tr>
+<tr><td>Continuity rate — members seeing their own physician</td><td class="num">≥90%</td><td class="num">≥92%</td><td>EHR scheduling</td></tr>
+<tr><td>Referral rate — members who refer someone</td><td class="num">≥25%</td><td class="num">≥40%</td><td>Intake source coding</td></tr>
+<tr><td rowspan="4"><strong>Economics</strong></td><td><strong>Billable hours per physician per day</strong> — the binding constraint</td><td class="num">≥5.5</td><td class="num">≥6.2</td><td>Time capture</td></tr>
+<tr><td><strong>Realised blended rate</strong></td><td class="num">≥$230</td><td class="num">≥$260</td><td>General ledger</td></tr>
+<tr><td>Travel minutes per home encounter — proxy for routing quality</td><td class="num">≤25</td><td class="num">≤20</td><td>Scheduling logs</td></tr>
+<tr><td>Practice-side breakeven</td><td class="num">—</td><td class="num">mid-Y2</td><td>General ledger</td></tr>
+<tr><td rowspan="3"><strong>Clinical</strong></td><td>Panel size against the 400 cap</td><td class="num">25</td><td class="num">150</td><td>EHR</td></tr>
+<tr><td>Home visits per month</td><td class="num">25 by Q4</td><td class="num">100</td><td>Billing</td></tr>
+<tr><td>Malpractice claims per 1,000 member-years — validates continuity as risk control</td><td class="num">0</td><td class="num">&lt;1</td><td>Carrier records</td></tr>
+<tr><td rowspan="4"><strong>Community</strong></td><td>Households screened in the census</td><td class="num">300</td><td class="num">1,200</td><td>Census platform</td></tr>
+<tr><td>Fund raised / distributed</td><td class="num">$150K / $25K</td><td class="num">$400K / $200K</td><td>Fund ledger</td></tr>
+<tr><td><strong>Share of distributions inside the pilot ZIP</strong> — the locality-first rule, measured</td><td class="num">100%</td><td class="num">≥80%</td><td>Fund ledger</td></tr>
+<tr><td>Visitation subscribers plus Fund-purchased slots</td><td class="num">25</td><td class="num">100</td><td>Programme records</td></tr>
+<tr><td rowspan="3"><strong>Governance</strong></td><td>MSO fee fair-market-value audit</td><td class="num">pass</td><td class="num">pass</td><td>Independent valuation</td></tr>
+<tr><td>Tax reserve intact until filed</td><td class="num">100%</td><td class="num">n/a</td><td>Escrow statement</td></tr>
+<tr><td>Immigration filings on deadline</td><td class="num">per track</td><td class="num">per track</td><td>Counsel docket</td></tr>
+</tbody>
+</table>
+</section>
+
+<!-- ================= PART 11 ================= -->
+<section>
+<h2><span class="pt">Part 11</span>First 90 Days — from 1 August 2026</h2>
+
+<div class="box stop">
+  <div class="hd">Week one, before anything else</div>
+  <p style="margin-bottom:0"><strong>Call litigation counsel about the amendment.</strong> The malicious prosecution limitation period is roughly six weeks out, and the same filing carries the physical-injury counts that the §104(a)(2) allocation depends on. Everything else on this list can slip by a week without loss. This cannot.</p>
+</div>
+
+<h4>Weeks 1–2</h4>
+<ol>
+  <li><strong>Amendment call with litigation counsel</strong> — malicious prosecution plus physical-injury counts, one filing.</li>
+  <li>Retain New York general counsel; sign the engagement letter; obtain conflicts clearance against UHS, Barclay Damon and Hancock Estabrook, and a written Rule 1.18 position on pre-engagement disclosures already made.</li>
+  <li>Joint call: general counsel and litigation counsel on mediation allocation strategy and §62(a)(20) framing.</li>
+  <li>Engage immigration counsel; open the §212(e) diagnosis and the NIW-versus-EB-5 file with 1 January 2027 circled.</li>
+  <li>Confirm licence status in writing; run the NPDB self-query.</li>
+</ol>
+
+<h4>Weeks 3–6</h4>
+<ol start="6">
+  <li>File the PC certificate with the State Education Department licensure certificate attached.</li>
+  <li>Select the fiscal sponsor for the Fund; sign the term sheet.</li>
+  <li>Sign the MoU with the Dubai transparency partner, with US-market scope defined.</li>
+  <li>Bind malpractice quotes; shortlist leased exam space in the target ZIP — chosen for route density, not prestige.</li>
+  <li>Draft the management agreement term sheet at fixed fair market value; commission the valuation.</li>
+  <li><strong>Ask counsel the DFS question in writing.</strong> It is the highest-value legal question in the venture.</li>
+</ol>
+
+<h4>Weeks 7–10</h4>
+<ol start="12">
+  <li>Submit PECOS (CMS-855I); begin the eMedNY application.</li>
+  <li>Finalise the census instrument mapped to the AHC HRSN tool; request a meeting with the Manhattan Social Care Network lead — the waiver clock ends 31 March 2027.</li>
+  <li>Draft the written financial-hardship policy and the membership agreement, both under insurance-law review.</li>
+  <li>Request the Indian consulate introduction through existing contacts.</li>
+</ol>
+
+<h4>Weeks 11–13</h4>
+<ol start="16">
+  <li>Execute the management agreement; form the MSO C-corp; obtain the QSBS memorandum from tax counsel.</li>
+  <li>Open scheduling for the first 25 continuity members from personal and community networks.</li>
+  <li>Adopt the KPI dashboard; lock the financial model to the conservative capital scenario.</li>
+  <li><strong>90-day review with counsel:</strong> mediation status, entity stack, and the compliance calendar — PC triennial certification, Fund filings, §232 Federal Register watch.</li>
+</ol>
+</section>
+
+<!-- ================= APPENDIX A ================= -->
+<section>
+<h2><span class="pt">Appendix A</span>Islamic Principle → Legal Mechanism</h2>
+
+<p class="lead">The purpose of this table is narrow and practical. The associate receiving the companion brief will recognise the left column. <strong>The partners reviewing it will read the left column as religious particularity and the right column as ordinary commercial structuring — and the right column is a faithful statement of the same content.</strong> Nothing is being disguised; each right-hand entry is the doctrine's operative consequence.</p>
+
+<table>
+<thead><tr><th style="width:20%">Principle</th><th style="width:26%">Operative content</th><th>Legal and commercial form</th></tr></thead>
+<tbody>
+<tr><td><strong>Zakāt</strong><br><span class="src">obligatory annual almsgiving, 2.5% of qualifying wealth</span></td><td>Non-discretionary, formula-based, recurring transfer</td><td><strong>Covenanted charitable commitment</strong> — a fixed-percentage pledge of profits or qualifying assets to a restricted charitable fund. Structurally identical to a 1%-for-the-Planet pledge or a benefit-corporation commitment, and enforceable the same way. Partner-facing register: <em>"community reinvestment obligation."</em></td></tr>
+<tr><td><strong>Bayt al-Māl</strong><br><span class="src">the treasury that collected and disbursed zakat</span></td><td>Pooled fund, defined beneficiary class, fiduciary administration, published accounts</td><td><strong>Domestic 501(c)(3) restricted fund</strong> with a written eligibility policy, an independent board, and Charities Bureau reporting. Live precedent: the UK National Zakat Foundation's caseworker model. Recognised secular cousins: the community development financial institution.</td></tr>
+<tr><td><strong>The census requirement</strong><br><span class="src">no disbursement until need is enumerated</span></td><td>Evidence before expenditure; never disbursement on assumption</td><td><strong>Community Health Needs Assessment</strong> — not a novelty, but what §501(r) already requires of nonprofit hospitals, and what New York <em>currently reimburses</em> through Social Care Network health-related-social-needs screening. A compliance asset, not a religious import.</td></tr>
+<tr><td><strong>Locality-first rule</strong><br><span class="src">the neighbourhood before anywhere else</span></td><td>Mandatory geographic prioritisation</td><td><strong>Defined catchment area.</strong> Maps directly onto HRSA shortage-area designation — which is also the currency of the physician NIW and Conrad 30. <em>The religious rule and the immigration statute want the same behaviour.</em></td></tr>
+<tr><td><strong>Ribā</strong><br><span class="src">prohibition on interest</span></td><td>No interest-bearing debt on either side of the balance sheet</td><td><strong>Equity, revenue-share, lease and cost-plus only.</strong> Reads to a partner as a conservative, covenant-light balance sheet. <em>Murābaḥa</em> is cost-plus instalment sale; <em>ijāra</em> is a lease; <em>mushāraka</em> is a joint venture. All three have exact conventional analogues.</td></tr>
+<tr><td><strong>Gharar</strong><br><span class="src">prohibition on excessive contractual uncertainty</span></td><td>You may not sell an undefined future quantity for a fixed present price</td><td><strong>The strongest argument in this document.</strong> It independently forbids precisely the flat-fee-for-unlimited-care structure that N.Y. Insurance Law §1102 would treat as unauthorised insurance. Shariah and the Department of Financial Services reach the same answer: <strong>price per encounter, not per period.</strong> A religious constraint doing regulatory work is the most persuasive thing that can be put in front of a sceptical partner.</td></tr>
+<tr><td><strong>Ziyārat al-marīḍ</strong><br><span class="src">the practice of visiting the sick</span></td><td>Physical presence is itself part of the treatment</td><td><strong>Home-based primary care</strong> — reimbursable under CPT 99341–99350 with the G2211 continuity add-on, and independently justified by measurement quality. The isolation evidence is hard: smoking-equivalent mortality risk, $6.7B in excess Medicare spending.</td></tr>
+<tr><td><strong>Iḥsān</strong><br><span class="src">excellence beyond the minimum owed</span></td><td>Duty of care exceeding the enforceable floor</td><td><strong>Continuity as risk management.</strong> A physician the patient trusts is sued less. This is an underwriting and malpractice-premium argument before it is an ethical one — and it should be taken to underwriters as such.</td></tr>
+<tr><td><strong>Amānah</strong><br><span class="src">trusteeship, stewardship</span></td><td>Holding others' money and welfare as a sacred trust</td><td><strong>Fiduciary governance</strong> — independent board members, a conflict-of-interest policy, and documented fair market value on every inter-entity contract. Partner-facing register: <em>"mission-locked governance."</em></td></tr>
+<tr><td><strong>Three noble professions</strong><br><span class="src">teaching, law, medicine</span></td><td>Professional duty is not exhausted by the fee</td><td><strong>Deliberate market positioning.</strong> Teachers teach underpaid; lawyers take pro bono work as a professional norm; medicine has drifted. The venture reclaims that norm as a <em>market position</em> — the practice that sells the relationship other practices cannot afford to offer.</td></tr>
+</tbody>
+</table>
+
+<div class="box">
+  <div class="hd">The line to hold if a partner pushes</div>
+  <p style="margin-bottom:0">None of this asks the firm to accept a religious premise. It asks the firm to notice that a religious-ethical system produced a set of commercial constraints — no interest, no risk-bearing without defined consideration, no spending without needs evidence, local before distant, service as status — that a conservative structuring lawyer would largely recommend anyway. <strong>The doctrine is the source of the constraints, not a substitute for the legal analysis.</strong> The legal analysis is what counsel is being retained to do.</p>
+</div>
+</section>
+
+<!-- ================= APPENDIX B ================= -->
+<section>
+<h2><span class="pt">Appendix B</span>Glossaries</h2>
+
+<h3>For the partners — Islamic terms</h3>
+<table class="tight">
+<tbody>
+<tr><td style="width:22%"><strong>Zakāt</strong></td><td>Obligatory annual almsgiving, classically 2.5% of qualifying wealth; one of the five pillars of Islam. Not discretionary charity — a calculated liability.</td></tr>
+<tr><td><strong>Bayt al-Māl</strong></td><td>The classical "house of wealth" — the community treasury that distributed zakat by assessed need. Its rules require a local census and prioritise the immediate locality.</td></tr>
+<tr><td><strong>Sunnah</strong></td><td>The practice and example of the Prophet Muhammad. Visiting the sick is a well-known sunnah, and the devotional basis for the home-visit line.</td></tr>
+<tr><td><strong>Amānah</strong></td><td>Trusteeship — the ethic of holding another's money or welfare as a sacred trust. The founder's framing for board duties.</td></tr>
+<tr><td><strong>Ribā / Gharar</strong></td><td>Prohibitions on interest and on excessive contractual uncertainty respectively. Together they shape the capital stack and the pricing architecture — see Part 4.</td></tr>
+<tr><td><strong>Fī sabīlillāh</strong></td><td>The zakat category under which Islamic Relief USA permits funding of health clinics as communal welfare assets, subject to documented community-need assessment.</td></tr>
+<tr><td><strong>Waqf</strong></td><td>A perpetual charitable endowment — the classical analogue of a board-designated endowment, contemplated for Year 6.</td></tr>
+<tr><td><strong>Barakah</strong></td><td>Divine increase or blessing. Relevant here as a communications discipline: the Fund speaks of gains created, never of guilt or fear.</td></tr>
+</tbody>
+</table>
+
+<h3>For the founder — legal terms of art</h3>
+<table class="tight">
+<tbody>
+<tr><td style="width:22%"><strong>CPOM</strong></td><td>Corporate practice of medicine — the New York doctrine barring ordinary business entities from practising medicine or employing physicians to render medical services.</td></tr>
+<tr><td><strong>PC / PLLC / MSO</strong></td><td>Physician-owned professional corporation or professional LLC; management services organisation — the investor-ownable administrative entity paid a fixed fair-market-value fee.</td></tr>
+<tr><td><strong>Fee-splitting</strong></td><td>Sharing professional fees with an unlicensed person or entity. Professional misconduct under Education Law §6530(19), and the reason the MSO fee can never be a percentage of revenue.</td></tr>
+<tr><td><strong>§104(a)(2) / §62(a)(20)</strong></td><td>The exclusion for damages on account of personal physical injury or sickness; and the above-the-line attorney-fee deduction available in qualifying discrimination claims.</td></tr>
+<tr><td><strong>Origin of the claim</strong></td><td>The doctrine under which the tax character of a recovery follows the nature of the claim settled — which is why the pleadings, not just the injuries, determine the allocation.</td></tr>
+<tr><td><strong>QSBS / §1202</strong></td><td>Qualified small business stock: a capital-gains exclusion on qualifying C-corporation stock. §1202(e)(3) excludes health services, so the MSO is the candidate, never the PC.</td></tr>
+<tr><td><strong>§1102</strong></td><td>The New York Insurance Law provision defining the doing of an insurance business — the risk a flat prepaid care membership runs.</td></tr>
+<tr><td><strong>AKS / Stark / CMP</strong></td><td>Criminal anti-kickback statute; strict-liability physician self-referral prohibition; civil monetary penalties including the beneficiary-inducement rule that makes routine copay waivers dangerous.</td></tr>
+<tr><td><strong>POS 12 / G2211</strong></td><td>Place of service code for a private residence; and the longitudinal-care complexity add-on extended to home-visit codes from 1 January 2026.</td></tr>
+<tr><td><strong>DSCSA / ANDA / BLA</strong></td><td>Drug Supply Chain Security Act track-and-trace and licensure regime; abbreviated new drug application (generics); biologics licence application (insulin's channel since March 2020).</td></tr>
+<tr><td><strong>§212(e) / Conrad 30</strong></td><td>The two-year foreign residence requirement attaching to J-1 exchange visitors; and the state-sponsored waiver — 30 slots per state per year, three years of underserved service.</td></tr>
+<tr><td><strong>NIW / <em>Dhanasar</em></strong></td><td>National interest waiver of the job-offer and labour-certification requirements; and the three-prong test governing discretionary NIW petitions. The physician NIW is a separate statutory route.</td></tr>
+<tr><td><strong>CFC / PFIC / 5471 / 3520</strong></td><td>The US anti-deferral and reporting stack applying to owners of foreign entities and trusts — the real cost of Irish domicile.</td></tr>
+</tbody>
+</table>
+</section>
+
+<!-- ================= APPENDIX C ================= -->
+<section>
+<h2><span class="pt">Appendix C</span>Open Questions and Unverified Items</h2>
+
+<p class="lead">Nothing in this appendix has been resolved. It is here so that no reader mistakes an assumption for a finding — and so that a future session does not re-derive what was already known to be open.</p>
+
+<h3>Must be answered before capital moves</h3>
+<table class="tight">
+<tbody>
+<tr><td style="width:34%"><strong>New York licence status</strong></td><td>Active and unrestricted? Any pending OPMC or reportable action? <strong>Not verified in preparing this plan.</strong> Gate G1 — terminal if it fails.</td></tr>
+<tr><td><strong>J-1 §212(e) posture</strong></td><td>Satisfied, waived, or outstanding? Determines whether any immigration path is currently open. Gate G3.</td></tr>
+<tr><td><strong>The recipient's name and firm</strong></td><td>The dictation cuts off mid-sentence at 32:18 — "His name is…". Both audio files stop at the same point. The companion brief cannot be sent until this is supplied.</td></tr>
+<tr><td><strong>Whether the pleadings support §104(a)(2)</strong></td><td>A question for tax and litigation counsel jointly. Drives the amendment in §0.2 and the capital in Part 7.</td></tr>
+</tbody>
+</table>
+
+<h3>Flagged unverified in the underlying research</h3>
+<table class="tight">
+<tbody>
+<tr><td style="width:34%">July 2026 phased generic tariff</td><td>0% for two years from August 2026, then 100%, then 200%. <strong>Single secondary source.</strong> Verify against the Federal Register before any supply commitment. Governs clock five.</td></tr>
+<tr><td>New York conformity to §1202</td><td>Federal QSBS treatment is clear; New York conformity is not confirmed, and New York taxes capital gains as ordinary income. Confirm with New York tax counsel.</td></tr>
+<tr><td>Insulin BLA citation</td><td>The March 2020 transition of insulins to biologics licensure is established framework; the specific current citation needs refreshing before it appears in a filing.</td></tr>
+<tr><td>Indian state service bonds</td><td>State-by-state, sourced to secondary Indian education press. Moderate confidence. Verify per state before recruiting from it.</td></tr>
+<tr><td>Manhattan luxury concierge pricing</td><td>The $10,000–$25,000 range is consistent across industry surveys but not confirmed in primary sources. Directional only.</td></tr>
+<tr><td>Absence of a Manhattan zakat primary-care practice</td><td>None found. Absence of evidence, not proof of absence — do not claim the niche is empty in any investor-facing document.</td></tr>
+<tr><td>No bilateral India–US physician exchange</td><td>None found. The line is white space built on existing immigration channels, and must be described that way rather than as an existing programme.</td></tr>
+<tr><td>Partner commitments</td><td>Neither international-line partner has signed anything. Both roles require written scope before any reliance or external representation.</td></tr>
+<tr><td>"Pumbas pattern" at 11:23</td><td>Unresolvable from context in the dictation. Flagged for the founder to clarify before the brief reaches counsel's partners.</td></tr>
+</tbody>
+</table>
+
+<h3>Dictation corrections applied</h3>
+<table class="tight">
+<tbody>
+<tr><td style="width:34%">"Alvanta" (24:25)</td><td>Read as <strong>Aravind Eye Care</strong> — the Indian ophthalmology system described.</td></tr>
+<tr><td>"mental mash" (31:21)</td><td>Read as <strong>mental map</strong>.</td></tr>
+<tr><td>"American art company" (30:31)</td><td>Read as <strong>American arm</strong> — a US subsidiary or affiliate. There is no art business.</td></tr>
+<tr><td>"recertify / re-stratify the settlement"</td><td>Read as <strong>recharacterise</strong> — which, as Part 0 explains, is not available in the form intended.</td></tr>
+</tbody>
+</table>
+
+<div class="footer-note">
+  <strong>Provenance.</strong> This plan merges three sources: the founder's dictated memorandum of 28 May 2026 (32:27, with transcript); a legal-regulatory and market research digest dated 30 July 2026 with dated citations throughout; and a prior lean draft of the same deliverables. Where the sources conflicted, the more conservative and better-sourced position was taken and the conflict noted rather than smoothed over. Four premises from the original memorandum were corrected against verified authority, and are set out as corrections in Part 0 rather than quietly worked around.
+  <br><br>
+  <strong>Standing caveat.</strong> Not legal, tax, immigration, or investment advice. Prepared with analytical assistance. Financial figures are planning models built on stated assumptions, not forecasts or projections of expected performance. Every legal proposition requires independent verification by licensed counsel before it is relied upon.
+</div>
+</section>
+
+</body>
+</html>

@@ -4,8 +4,19 @@ Deliverables produced from a 32-minute dictated voice memo (May 28, 2026) reques
 
 | Document | Contents |
 |---|---|
-| [`01_Preliminary_Legal_Brief.md`](01_Preliminary_Legal_Brief.md) | Scope-of-engagement memorandum for prospective corporate counsel. Five gating facts, eight workstreams, three corrected premises, engagement mechanics, and a zakat→secular-legal translation table (Appendix A). |
-| [`02_Business_Plan_Q1_to_Year6.md`](02_Business_Plan_Q1_to_Year6.md) | Phased roadmap Q1 2026 → Year 6 (2032). Gating logic, unit economics, capital plan, metrics, failure modes, entity map. |
+| **[`Business_Plan_Zakat_Aligned_Continuity_Health.pdf`](Business_Plan_Zakat_Aligned_Continuity_Health.pdf)** | **Current version.** 36-page typeset business plan, Q1 2026 → Year 6. Merges the two earlier draft sets plus their legal and market research digests. Source: `03_Business_Plan_v2.html`. |
+| [`01_Preliminary_Legal_Brief.md`](01_Preliminary_Legal_Brief.md) | Scope-of-engagement memorandum for prospective corporate counsel. Five gating facts, eight workstreams, corrected premises, engagement mechanics, and a zakat→secular-legal translation table. |
+| [`02_Business_Plan_Q1_to_Year6.md`](02_Business_Plan_Q1_to_Year6.md) | First-pass plan. Superseded by the PDF above; retained for the diff. |
+
+## Provenance of the current version
+
+The PDF merges three sources and keeps the more conservative position wherever they conflicted:
+
+1. This session's first-pass brief and plan (litigation timing, insurance-law analysis, honest unit economics).
+2. A parallel deliverable set with a legal-regulatory and market research digest carrying dated citations — substantially stronger on tax structuring, market benchmarks, and reimbursement mechanics.
+3. The founder's original dictated memorandum.
+
+Two corrections ran **against** this session's first pass: insulin is regulated as a biologic under PHS Act § 351 and cannot come through an ANDA at all; and India has no uniform national rural-service mandate for physicians, so that premise was passed through uncritically the first time.
 
 ## What the source memo got wrong
 
@@ -14,6 +25,8 @@ Three load-bearing premises required correction, each documented with authority 
 1. **Settlement tax** — employment recoveries are ordinary income, not capital gains, and reinvesting proceeds defers nothing. The larger prize is the **§ 104(a)(2) physical-injury exclusion** (0%, not a preferential rate), which the current pleadings may not support. Fixable only by amendment, and the malicious-prosecution SOL forces that amendment anyway.
 2. **Immigration** — Manhattan property produces no EB-2 (investment is EB-5, requiring 10 FTE job creation), and **parents and siblings can never derive** from an employment-based petition. The real routes are the physician NIW under 8 C.F.R. § 204.12 for the founder, and an independent EB-5 with the mother as principal.
 3. **Foundation domicile** — an Irish entity gives U.S. donors **no** charitable deduction under § 170(c)(2)(A); Ireland is not among the Canada/Mexico/Israel treaty exceptions. A domestic 501(c)(3) is required for zakat solicitation.
+
+4. **The pharmaceutical arbitrage no longer exists.** Metformin is $4/month at Walmart and insulin is capped at $35 for Medicare — the commodity-generic saving has already been captured. The target has to move up the price curve to branded and specialty exposure, and the vehicle is transparency, not import margin.
 
 ## What the memo didn't know
 
