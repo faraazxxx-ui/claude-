@@ -1,0 +1,174 @@
+<title>Action Tracker</title>
+<style>
+:root{--paper:#FBFAF7;--ink:#23262B;--ink2:#565B63;--line:#DDD8CC;--card:#FFF;
+ --navy:#1F3A5F;--maroon:#8E2C2C;--maroon-soft:#F6E9E7;
+ --s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s4:#eda100;--s5:#e87ba4;--s7:#4a3aa7;
+ --good:#008300;--warn:#c07000;--crit:#e34948;}
+@media (prefers-color-scheme: dark){:root:where(:not([data-theme="light"])){
+ --paper:#15171B;--ink:#E6E3DA;--ink2:#A9ADB6;--line:#33373E;--card:#1C1F25;
+ --navy:#8FB0D8;--maroon:#D98A80;--maroon-soft:#3A2422;
+ --s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--s7:#9085e9;
+ --good:#4fae4f;--warn:#d89a3d;--crit:#e66767;}}
+:root[data-theme="dark"]{
+ --paper:#15171B;--ink:#E6E3DA;--ink2:#A9ADB6;--line:#33373E;--card:#1C1F25;
+ --navy:#8FB0D8;--maroon:#D98A80;--maroon-soft:#3A2422;
+ --s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--s7:#9085e9;
+ --good:#4fae4f;--warn:#d89a3d;--crit:#e66767;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:14.5px/1.5 "Segoe UI",system-ui,sans-serif}
+h1{font-family:"Palatino Linotype",Palatino,Georgia,serif;color:var(--navy);font-size:21px;margin:0 0 2px;text-wrap:balance}
+.sub{color:var(--ink2);font-size:12.5px;max-width:90ch}
+.banner{background:var(--maroon);color:#FBF6F0;text-align:center;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px}
+.wrap{max-width:1060px;margin:0 auto;padding:18px 20px 70px}
+.num{font-family:ui-monospace,Consolas,monospace;font-variant-numeric:tabular-nums}
+.chip{display:inline-block;border:1px solid var(--c,var(--ink2));color:var(--c,var(--ink2));border-radius:11px;padding:0 9px;font-size:11px;max-width:100%;overflow-wrap:break-word}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 15px;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:12.5px;margin:8px 0}
+th{background:var(--navy);color:var(--paper);text-align:left;padding:6px 8px}
+td{border:1px solid var(--line);padding:5px 8px;vertical-align:top}
+.tbox{overflow-x:auto}
+#tip{position:fixed;pointer-events:none;background:var(--card);border:1px solid var(--navy);border-radius:6px;
+ padding:8px 11px;font-size:12px;max-width:330px;opacity:0;transition:opacity .12s;z-index:9;box-shadow:0 3px 14px rgba(0,0,0,.18)}
+.toggle{background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:4px 12px;font-size:12px;cursor:pointer}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink2);margin:8px 0}
+.sw{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+
+.controls{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:10px 0}
+.fchip{border:1px solid var(--navy);color:var(--navy);background:transparent;border-radius:14px;padding:2px 12px;font-size:12px;cursor:pointer}
+.fchip.on{background:var(--navy);color:var(--paper)}
+#q{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:5px 9px;font-size:13px;min-width:150px}
+.item{display:flex;gap:9px;align-items:baseline;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:7px 11px;margin:5px 0;font-size:13px}
+.item .wk{width:78px;font-size:11px;font-weight:700;color:var(--navy);flex-shrink:0}
+.item .id{color:var(--ink2);font-size:11px;flex-shrink:0}
+.item .txt{flex:1;min-width:220px}
+.hidden{display:none}
+</style>
+<div class="banner">Attorney Work Product — Privileged &amp; Confidential</div>
+<div class="wrap">
+<h1>Action Tracker — Rahman v. UHSH et al., 3:26-cv-00197 (N.D.N.Y.)</h1>
+<p class="sub">Attorney Work Product — Privileged &amp; Confidential | All 16 action items from the Aug 2, 2026 attorney meeting (data/action_items.json), week-paced per mediation/action-schedule.md; no court deadline exists for any item except the November 2026 mediation completion (DZ-03); DZ-01 also carries an unspecified scheduling-order deadline (confirm with counsel). <span class="num">· updated 2026-08-02</span></p>
+
+<div class="legend"><span class="chip" style="--c:var(--crit)">SoL-critical</span>
+<span class="chip" style="--c:var(--warn)">high (W3–W6)</span>
+<span class="chip" style="--c:var(--s1)">normal</span>
+<span class="chip" style="--c:var(--good)">✓ done</span>
+<span style="margin-left:auto">pacing: ≤2 substantive Faraaz tasks/week · retrieval batched</span></div>
+<div class="controls"><button class="fchip" data-f="Drazen">Drazen</button><button class="fchip" data-f="Family">Family</button><button class="fchip" data-f="Faraaz">Faraaz</button><button class="fchip" data-f="Haseeb">Haseeb</button><button class="fchip" data-f="Shared">Shared</button><input id="q" type="search" placeholder="search…"><span id="n" class="sub"></span></div>
+<div id="list"><div class="item" data-o="Faraaz" data-u="crit" data-t="fr-04send drazen a list of the official complaints filed against dr. awais ahmed as a resident in 2021 and 2022 (sent from the uhs hospital email account)."
+ onmousemove='showTip(event,"<b>FR-04</b> Send Drazen a list of the official complaints filed against Dr. Awais Ahmed as a resident in 2021 and 2022 (sent from the UHS hospital email account).<br><b>Owner:</b> Dr. Faraaz Rahman (client)<br><b>Deadline:</b> not stated<br><i>Part of the SoL-critical retrieval batch, one sitting (pacing rule 1: SoL-critical inputs first regardless of load).</i>")' onmouseleave="hideTip()">
+<span class="wk num">W1 (Aug 3-9)</span>
+<span class="chip" style="--c:var(--crit)">SoL-critical</span>
+<span class="chip" style="--c:var(--navy)">Faraaz</span>
+<span class="id num">FR-04</span>
+<span class="txt">Send Drazen a list of the official complaints filed against Dr. Awais Ahmed as a resident in 2021 and 2022 (sent from the UHS hospital email account).</span></div><div class="item" data-o="Faraaz" data-u="crit" data-t="fr-05track down and print the text messages from the senior resident asking him not to complain about dr. ahmed (&#x27;i want to match into cardiology&#x27;); believed recoverable in imessage despite phone-number change."
+ onmousemove='showTip(event,"<b>FR-05</b> Track down and print the text messages from the senior resident asking him not to complain about Dr. Ahmed (&#x27;I want to match into cardiology&#x27;); believed recoverable in iMessage despite phone-number change.<br><b>Owner:</b> Dr. Faraaz Rahman (client)<br><b>Deadline:</b> not stated<br><i>Part of the W1 SoL-critical retrieval batch (single sitting with FR-04 and SH-01).</i>")' onmouseleave="hideTip()">
+<span class="wk num">W1 (Aug 3-9)</span>
+<span class="chip" style="--c:var(--crit)">SoL-critical</span>
+<span class="chip" style="--c:var(--navy)">Faraaz</span>
+<span class="id num">FR-05</span>
+<span class="txt">Track down and print the text messages from the senior resident asking him not to complain about Dr. Ahmed (&#x27;I want to match into cardiology&#x27;); believ…</span></div><div class="item" data-o="Shared" data-u="crit" data-t="sh-01identify and track down the two doctors who filed the complaint on behalf of the indian women the family housed, and the two fired indian physicians; provide the names to drazen. mother (dr. mubeena iqbal) has been in contact with them and called them once."
+ onmousemove='showTip(event,"<b>SH-01</b> Identify and track down the two doctors who filed the complaint on behalf of the Indian women the family housed, and the two fired Indian physicians; provide the names to Drazen. Mother (Dr. Mubeena Iqbal) has been in contact with them and called them once.<br><b>Owner:</b> Shared: Dr. Faraaz Rahman with Dr. Mubeena Iqbal (mother&#x27;s contacts); deliverable to Douglas Walter Drazen<br><b>Deadline:</b> not stated<br><i>Part of the W1 SoL-critical retrieval batch, with Dr. Mubeena Iqbal&#x27;s contacts; matches the Gemini notes&#x27; shared &#x27;identify doctors&#x27; item.</i>")' onmouseleave="hideTip()">
+<span class="wk num">W1 (Aug 3-9)</span>
+<span class="chip" style="--c:var(--crit)">SoL-critical</span>
+<span class="chip" style="--c:var(--navy)">Shared</span>
+<span class="id num">SH-01</span>
+<span class="txt">Identify and track down the two doctors who filed the complaint on behalf of the Indian women the family housed, and the two fired Indian physicians; …</span></div><div class="item" data-o="Drazen" data-u="crit" data-t="dz-02evaluate the viability and timeliness (statute of limitations) of a malicious-prosecution claim against the arresting police officers and ancillary prosecution-team members (da immune); drazen is openly skeptical but agreed to review."
+ onmousemove='showTip(event,"<b>DZ-02</b> Evaluate the viability and timeliness (statute of limitations) of a malicious-prosecution claim against the arresting police officers and ancillary prosecution-team members (DA immune); Drazen is openly skeptical but agreed to review.<br><b>Owner:</b> Douglas Walter Drazen (attorney)<br><b>Deadline:</b> not stated (urgent \u2014 &#x27;the timeliness of of it now may be in question&#x27; given the Sept 2025 acquittal; MP state-tort rail runs ~Sept 2026)<br><i>Begin review in W1 alongside confirming the exact acquittal date and charging instrument; conclude in W3 feeding the omnibus amendment, filed by W5 to beat the ~Sept 2026 rail.</i>")' onmouseleave="hideTip()">
+<span class="wk num">W1-W3 (begin Aug 3-9, conclude Aug 17-23)</span>
+<span class="chip" style="--c:var(--crit)">SoL-critical</span>
+<span class="chip" style="--c:var(--navy)">Drazen</span>
+<span class="id num">DZ-02</span>
+<span class="txt">Evaluate the viability and timeliness (statute of limitations) of a malicious-prosecution claim against the arresting police officers and ancillary pr…</span></div><div class="item" data-o="Haseeb" data-u="norm" data-t="hb-01collect and send drazen &#x27;all that information&#x27; — the documents/information referenced earlier in the meeting (ties to the family bank/financial records and exhibit materials, e.g., &#x27;43 of the forgery&#x27; haseeb flagged at 00:38:32)."
+ onmousemove='showTip(event,"<b>HB-01</b> Collect and send Drazen &#x27;all that information&#x27; \u2014 the documents/information referenced earlier in the meeting (ties to the family bank/financial records and exhibit materials, e.g., &#x27;43 of the forgery&#x27; Haseeb flagged at 00:38:32).<br><b>Owner:</b> Haseeb Rahman (father)<br><b>Deadline:</b> not stated<br><i>Family information-collection channel (pacing rule 4): open the channel and courier rhythm in W1, courier FR-01 output in W2, close-out pass in W4 before the amendment files; second courier pass W10.</i>")' onmouseleave="hideTip()">
+<span class="wk num">W1-W4 (open Aug 3-9; close-out Aug 24-30)</span>
+<span class="chip" style="--c:var(--s1)">normal</span>
+<span class="chip" style="--c:var(--navy)">Haseeb</span>
+<span class="id num">HB-01</span>
+<span class="txt">Collect and send Drazen &#x27;all that information&#x27; — the documents/information referenced earlier in the meeting (ties to the family bank/financial record…</span></div><div class="item" data-o="Drazen" data-u="norm" data-t="dz-03sequence the case so mediation is held only after defendants&#x27; discovery responses are received; court-ordered mediation must be completed by november 2026."
+ onmousemove='showTip(event,"<b>DZ-03</b> Sequence the case so mediation is held only after defendants&#x27; discovery responses are received; court-ordered mediation must be completed by November 2026.<br><b>Owner:</b> Douglas Walter Drazen (attorney)<br><b>Deadline:</b> mediation completion deadline: November 2026 (stated: &#x27;the mediation has to be completed by November&#x27;)<br><i>Mediator selection W11; pre-mediation gate check W14 (amendment granted, discovery responses in hand, spoliation record assembled); mediation sessions W15-16. The governing sequencing principle \u2014 Drazen will not mediate without the responses.</i>")' onmouseleave="hideTip()">
+<span class="wk num">W11-W16 (Oct 12-Nov 22)</span>
+<span class="chip" style="--c:var(--s1)">normal</span>
+<span class="chip" style="--c:var(--navy)">Drazen</span>
+<span class="id num">DZ-03</span>
+<span class="txt">Sequence the case so mediation is held only after defendants&#x27; discovery responses are received; court-ordered mediation must be completed by November …</span></div><div class="item" data-o="Drazen" data-u="crit" data-t="dz-01finish drafting and serve plaintiff&#x27;s discovery demands, incorporating everything discussed in this meeting — academic record first (demand #1), then the ~14 consolidated demands (medical record, work-email access, comparator complaints, da communications, guthrie apr 1-30 communications, subpoena copy, leave directives, ahmed departure records, nadeem texts, etc.)."
+ onmousemove='showTip(event,"<b>DZ-01</b> Finish drafting and serve plaintiff&#x27;s discovery demands, incorporating everything discussed in this meeting \u2014 academic record first (demand #1), then the ~14 consolidated demands (medical record, work-email access, comparator complaints, DA communications, Guthrie Apr 1-30 communications, subpoena copy, leave directives, Ahmed departure records, Nadeem texts, etc.).<br><b>Owner:</b> Douglas Walter Drazen (attorney)<br><b>Deadline:</b> no set time; a schedule deadline exists but was not stated on the call<br><i>Finalize and serve in W2 \u2014 responses must land before the November mediation; consolidates ~14 individual discovery-demand commitments (see action_items.json).</i>")' onmouseleave="hideTip()">
+<span class="wk num">W2 (Aug 10-16)</span>
+<span class="chip" style="--c:var(--crit)">SoL-critical</span>
+<span class="chip" style="--c:var(--navy)">Drazen</span>
+<span class="id num">DZ-01</span>
+<span class="txt">Finish drafting and serve plaintiff&#x27;s discovery demands, incorporating everything discussed in this meeting — academic record first (demand #1), then …</span></div><div class="item" data-o="Drazen" data-u="norm" data-t="dz-04follow-up attorney-client call with the family."
+ onmousemove='showTip(event,"<b>DZ-04</b> Follow-up attorney-client call with the family.<br><b>Owner:</b> Douglas Walter Drazen (attorney), with the Rahman family<br><b>Deadline:</b> not stated (&#x27;soon&#x27;)<br><i>Via the Verizon phone per FAM-01; the FR-09 referent is clarified on this call. Closing commitment rather than a discrete work item; likely not counted in the Gemini notes&#x27; 12.</i>")' onmouseleave="hideTip()">
+<span class="wk num">W2 (Aug 10-16)</span>
+<span class="chip" style="--c:var(--s1)">normal</span>
+<span class="chip" style="--c:var(--navy)">Drazen</span>
+<span class="id num">DZ-04</span>
+<span class="txt">Follow-up attorney-client call with the family.</span></div><div class="item" data-o="Faraaz" data-u="norm" data-t="fr-01gather actual bank records documenting family expenditures and financial hardship (father&#x27;s ~$300k/yr transfers structured as a loan, dubai cash medical payments, living expenses) and send to counsel; client has already run bank records through ai analysis."
+ onmousemove='showTip(event,"<b>FR-01</b> Gather actual bank records documenting family expenditures and financial hardship (father&#x27;s ~$300k/yr transfers structured as a loan, Dubai cash medical payments, living expenses) and send to counsel; client has already run bank records through AI analysis.<br><b>Owner:</b> Dr. Faraaz Rahman (client)<br><b>Deadline:</b> not stated<br><i>One financial-records sitting; locate the executed Florida contract in the same sitting (Substantive 1 of 2). Haseeb couriers output to Drazen (HB-01).</i>")' onmouseleave="hideTip()">
+<span class="wk num">W2 (Aug 10-16)</span>
+<span class="chip" style="--c:var(--s1)">normal</span>
+<span class="chip" style="--c:var(--navy)">Faraaz</span>
+<span class="id num">FR-01</span>
+<span class="txt">Gather actual bank records documenting family expenditures and financial hardship (father&#x27;s ~$300k/yr transfers structured as a loan, Dubai cash medic…</span></div><div class="item" data-o="Faraaz" data-u="norm" data-t="fr-09check whether &#x27;a document for 100 million with a base of 10&#x27; is in the file — asked off-line while drazen was momentarily away; referent never clarified on the record."
+ onmousemove='showTip(event,"<b>FR-09</b> Check whether &#x27;a document for 100 million with a base of 10&#x27; is in the file \u2014 asked off-line while Drazen was momentarily away; referent never clarified on the record.<br><b>Owner:</b> Dr. Faraaz Rahman (requestor; addressee unclear)<br><b>Deadline:</b> not stated<br><i>Not scheduled as work; referent to be clarified on the W2 DZ-04 family call. Possibly ties to the $100M NEGOTIATION-POSTURE figure \u2014 never pleadable, Rule 11 caveat.</i>")' onmouseleave="hideTip()">
+<span class="wk num">W2 (Aug 10-16) — clarification only</span>
+<span class="chip" style="--c:var(--s1)">normal</span>
+<span class="chip" style="--c:var(--navy)">Faraaz</span>
+<span class="id num">FR-09</span>
+<span class="txt">Check whether &#x27;a document for 100 million with a base of 10&#x27; is in the file — asked off-line while Drazen was momentarily away; referent never clarifi…</span></div><div class="item" data-o="Faraaz" data-u="norm" data-t="fr-02preliminarily review the academic records already in hand; mark every entry that is unfair, inaccurate, or damaging and send the markup to drazen to frame the removal/correction demand."
+ onmousemove='showTip(event,"<b>FR-02</b> Preliminarily review the academic records already in hand; mark every entry that is unfair, inaccurate, or damaging and send the markup to Drazen to frame the removal/correction demand.<br><b>Owner:</b> Dr. Faraaz Rahman (client)<br><b>Deadline:</b> not stated<br><i>Heavy-emotional \u2014 scheduled alone, nothing else this week (pacing rule 3); feeds the record-correction relief and the omnibus amendment.</i>")' onmouseleave="hideTip()">
+<span class="wk num">W3 (Aug 17-23)</span>
+<span class="chip" style="--c:var(--s1)">normal</span>
+<span class="chip" style="--c:var(--navy)">Faraaz</span>
+<span class="id num">FR-02</span>
+<span class="txt">Preliminarily review the academic records already in hand; mark every entry that is unfair, inaccurate, or damaging and send the markup to Drazen to f…</span></div><div class="item" data-o="Faraaz" data-u="norm" data-t="fr-03locate and send drazen the 2022 ten-page line-by-line rebuttal email (sent to the entire gme from the uhs work email; client to search for a personal copy)."
+ onmousemove='showTip(event,"<b>FR-03</b> Locate and send Drazen the 2022 ten-page line-by-line rebuttal email (sent to the entire GME from the UHS work email; client to search for a personal copy).<br><b>Owner:</b> Dr. Faraaz Rahman (client)<br><b>Deadline:</b> not stated<br><i>Only task in the mandatory light recovery week after FR-02; the DZ-01 work-email demand is the fallback if no personal copy is found.</i>")' onmouseleave="hideTip()">
+<span class="wk num">W4 (Aug 24-30)</span>
+<span class="chip" style="--c:var(--s1)">normal</span>
+<span class="chip" style="--c:var(--navy)">Faraaz</span>
+<span class="id num">FR-03</span>
+<span class="txt">Locate and send Drazen the 2022 ten-page line-by-line rebuttal email (sent to the entire GME from the UHS work email; client to search for a personal …</span></div><div class="item" data-o="Faraaz" data-u="norm" data-t="fr-06go through the ~4,000 pages of saved documents, annotate significant items, and deliver the compiled document he is developing to drazen (client spent the prior two nights on this)."
+ onmousemove='showTip(event,"<b>FR-06</b> Go through the ~4,000 pages of saved documents, annotate significant items, and deliver the compiled document he is developing to Drazen (client spent the prior two nights on this).<br><b>Owner:</b> Dr. Faraaz Rahman (client)<br><b>Deadline:</b> not stated<br><i>Deliberately split across two weeks (part 1 in W5, part 2 + delivery in W6); never in the same week as FR-02.</i>")' onmouseleave="hideTip()">
+<span class="wk num">W5-W6 (Aug 31-Sep 13)</span>
+<span class="chip" style="--c:var(--s1)">normal</span>
+<span class="chip" style="--c:var(--navy)">Faraaz</span>
+<span class="id num">FR-06</span>
+<span class="txt">Go through the ~4,000 pages of saved documents, annotate significant items, and deliver the compiled document he is developing to Drazen (client spent…</span></div><div class="item" data-o="Faraaz" data-u="norm" data-t="fr-07initiate an acgme complaint to bring acgme to the table from plaintiff&#x27;s side (parallel-track leverage; drazen: &#x27;that&#x27;s fine&#x27;)."
+ onmousemove='showTip(event,"<b>FR-07</b> Initiate an ACGME complaint to bring ACGME to the table from plaintiff&#x27;s side (parallel-track leverage; Drazen: &#x27;that&#x27;s fine&#x27;).<br><b>Owner:</b> Dr. Faraaz Rahman (client)<br><b>Deadline:</b> not stated<br><i>Paired with FR-06 part 2 at the 2-substantive-tasks-per-week cap; administrative leverage, not emotionally heavy, so no heavy-on-heavy stack.</i>")' onmouseleave="hideTip()">
+<span class="wk num">W6 (Sep 7-13)</span>
+<span class="chip" style="--c:var(--s1)">normal</span>
+<span class="chip" style="--c:var(--navy)">Faraaz</span>
+<span class="id num">FR-07</span>
+<span class="txt">Initiate an ACGME complaint to bring ACGME to the table from plaintiff&#x27;s side (parallel-track leverage; Drazen: &#x27;that&#x27;s fine&#x27;).</span></div><div class="item" data-o="Faraaz" data-u="done" data-t="fr-08find and send drazen the circulated cctv &#x27;poster&#x27; image (defamation exhibit; a uhs nurse messaged him asking &#x27;is this you&#x27;)."
+ onmousemove='showTip(event,"<b>FR-08</b> Find and send Drazen the circulated CCTV &#x27;poster&#x27; image (defamation exhibit; a UHS nurse messaged him asking &#x27;is this you&#x27;).<br><b>Owner:</b> Dr. Faraaz Rahman (client)<br><b>Deadline:</b> not stated<br><i>Emailed to Drazen during the Aug 2 call at 01:10:28 (&#x27;I just uh emailed you the picture&#x27;); not scheduled.</i>")' onmouseleave="hideTip()">
+<span class="wk num">none (completed)</span>
+<span class="chip" style="--c:var(--good)">✓ done</span>
+<span class="chip" style="--c:var(--navy)">Faraaz</span>
+<span class="id num">FR-08</span>
+<span class="txt">Find and send Drazen the circulated CCTV &#x27;poster&#x27; image (defamation exhibit; a UHS nurse messaged him asking &#x27;is this you&#x27;).</span></div><div class="item" data-o="Family" data-u="crit" data-t="fam-01call drazen from the family&#x27;s verizon phone next time (his verizon line cannot receive audio from at&amp;t/t-mobile callers until his maintenance ticket is resolved)."
+ onmousemove='showTip(event,"<b>FAM-01</b> Call Drazen from the family&#x27;s Verizon phone next time (his Verizon line cannot receive audio from AT&amp;T/T-Mobile callers until his maintenance ticket is resolved).<br><b>Owner:</b> Rahman family<br><b>Deadline:</b> not stated<br><i>Standing logistics, not a scheduled slot; use the Verizon phone for all calls to Drazen. Not in the Gemini notes&#x27; 12-item count.</i>")' onmouseleave="hideTip()">
+<span class="wk num">standing (from W1)</span>
+<span class="chip" style="--c:var(--crit)">SoL-critical</span>
+<span class="chip" style="--c:var(--navy)">Family</span>
+<span class="id num">FAM-01</span>
+<span class="txt">Call Drazen from the family&#x27;s Verizon phone next time (his Verizon line cannot receive audio from AT&amp;T/T-Mobile callers until his maintenance ticket i…</span></div></div>
+<button class="toggle" onclick="tbl('atable')">table view</button>
+<div id="atable" hidden class="tbox"><table><tr><th>ID</th><th>Week</th><th>Owner</th><th>Item</th><th>Deadline</th><th>Status</th></tr><tr><td class='num'>FR-01</td><td>W2 (Aug 10-16)</td><td>Dr. Faraaz Rahman (client)</td><td>Gather actual bank records documenting family expenditures and financial hardship (father&#x27;s ~$300k/yr transfers structured as a loan, Dubai cash medical payments, living expenses) and send to counsel; client has already run bank records through AI analysis.</td><td>not stated</td><td>open</td></tr><tr><td class='num'>FR-02</td><td>W3 (Aug 17-23)</td><td>Dr. Faraaz Rahman (client)</td><td>Preliminarily review the academic records already in hand; mark every entry that is unfair, inaccurate, or damaging and send the markup to Drazen to frame the removal/correction demand.</td><td>not stated</td><td>open</td></tr><tr><td class='num'>FR-03</td><td>W4 (Aug 24-30)</td><td>Dr. Faraaz Rahman (client)</td><td>Locate and send Drazen the 2022 ten-page line-by-line rebuttal email (sent to the entire GME from the UHS work email; client to search for a personal copy).</td><td>not stated</td><td>open</td></tr><tr><td class='num'>FR-04</td><td>W1 (Aug 3-9)</td><td>Dr. Faraaz Rahman (client)</td><td>Send Drazen a list of the official complaints filed against Dr. Awais Ahmed as a resident in 2021 and 2022 (sent from the UHS hospital email account).</td><td>not stated</td><td>open</td></tr><tr><td class='num'>FR-05</td><td>W1 (Aug 3-9)</td><td>Dr. Faraaz Rahman (client)</td><td>Track down and print the text messages from the senior resident asking him not to complain about Dr. Ahmed (&#x27;I want to match into cardiology&#x27;); believed recoverable in iMessage despite phone-number change.</td><td>not stated</td><td>open</td></tr><tr><td class='num'>FR-06</td><td>W5-W6 (Aug 31-Sep 13)</td><td>Dr. Faraaz Rahman (client)</td><td>Go through the ~4,000 pages of saved documents, annotate significant items, and deliver the compiled document he is developing to Drazen (client spent the prior two nights on this).</td><td>not stated</td><td>open</td></tr><tr><td class='num'>FR-07</td><td>W6 (Sep 7-13)</td><td>Dr. Faraaz Rahman (client)</td><td>Initiate an ACGME complaint to bring ACGME to the table from plaintiff&#x27;s side (parallel-track leverage; Drazen: &#x27;that&#x27;s fine&#x27;).</td><td>not stated</td><td>open</td></tr><tr><td class='num'>FR-08</td><td>none (completed)</td><td>Dr. Faraaz Rahman (client)</td><td>Find and send Drazen the circulated CCTV &#x27;poster&#x27; image (defamation exhibit; a UHS nurse messaged him asking &#x27;is this you&#x27;).</td><td>not stated</td><td>completed_during_call</td></tr><tr><td class='num'>FR-09</td><td>W2 (Aug 10-16) — clarification only</td><td>Dr. Faraaz Rahman (requestor; addressee unclear)</td><td>Check whether &#x27;a document for 100 million with a base of 10&#x27; is in the file — asked off-line while Drazen was momentarily away; referent never clarified on the record.</td><td>not stated</td><td>unclear_referent</td></tr><tr><td class='num'>SH-01</td><td>W1 (Aug 3-9)</td><td>Shared: Dr. Faraaz Rahman with Dr. Mubeena Iqbal (mother&#x27;s contacts); deliverable to Douglas Walter Drazen</td><td>Identify and track down the two doctors who filed the complaint on behalf of the Indian women the family housed, and the two fired Indian physicians; provide the names to Drazen. Mother (Dr. Mubeena Iqbal) has been in contact with them and called them once.</td><td>not stated</td><td>open</td></tr><tr><td class='num'>DZ-01</td><td>W2 (Aug 10-16)</td><td>Douglas Walter Drazen (attorney)</td><td>Finish drafting and serve plaintiff&#x27;s discovery demands, incorporating everything discussed in this meeting — academic record first (demand #1), then the ~14 consolidated demands (medical record, work-email access, comparator complaints, DA communications, Guthrie Apr 1-30 communications, subpoena copy, leave directives, Ahmed departure records, Nadeem texts, etc.).</td><td>no set time; a schedule deadline exists but was not stated on the call</td><td>open</td></tr><tr><td class='num'>DZ-02</td><td>W1-W3 (begin Aug 3-9, conclude Aug 17-23)</td><td>Douglas Walter Drazen (attorney)</td><td>Evaluate the viability and timeliness (statute of limitations) of a malicious-prosecution claim against the arresting police officers and ancillary prosecution-team members (DA immune); Drazen is openly skeptical but agreed to review.</td><td>not stated (urgent — &#x27;the timeliness of of it now may be in question&#x27; given the Sept 2025 acquittal; MP state-tort rail runs ~Sept 2026)</td><td>open</td></tr><tr><td class='num'>DZ-03</td><td>W11-W16 (Oct 12-Nov 22)</td><td>Douglas Walter Drazen (attorney)</td><td>Sequence the case so mediation is held only after defendants&#x27; discovery responses are received; court-ordered mediation must be completed by November 2026.</td><td>mediation completion deadline: November 2026 (stated: &#x27;the mediation has to be completed by November&#x27;)</td><td>open</td></tr><tr><td class='num'>DZ-04</td><td>W2 (Aug 10-16)</td><td>Douglas Walter Drazen (attorney), with the Rahman family</td><td>Follow-up attorney-client call with the family.</td><td>not stated (&#x27;soon&#x27;)</td><td>open</td></tr><tr><td class='num'>HB-01</td><td>W1-W4 (open Aug 3-9; close-out Aug 24-30)</td><td>Haseeb Rahman (father)</td><td>Collect and send Drazen &#x27;all that information&#x27; — the documents/information referenced earlier in the meeting (ties to the family bank/financial records and exhibit materials, e.g., &#x27;43 of the forgery&#x27; Haseeb flagged at 00:38:32).</td><td>not stated</td><td>open</td></tr><tr><td class='num'>FAM-01</td><td>standing (from W1)</td><td>Rahman family</td><td>Call Drazen from the family&#x27;s Verizon phone next time (his Verizon line cannot receive audio from AT&amp;T/T-Mobile callers until his maintenance ticket is resolved).</td><td>not stated</td><td>minor_logistics</td></tr></table></div>
+</div><div id="tip"></div>
+<script>
+const tip=document.getElementById('tip');
+function showTip(e,html){tip.innerHTML=html;tip.style.opacity=1;
+ let x=e.clientX+14,y=e.clientY+12;
+ if(x+340>innerWidth)x=e.clientX-345;if(y+120>innerHeight)y=e.clientY-110;
+ tip.style.left=x+'px';tip.style.top=y+'px';}
+function hideTip(){tip.style.opacity=0}
+function tbl(id){const t=document.getElementById(id);t.hidden=!t.hidden}
+
+const items=[...document.querySelectorAll('.item')],fchips=[...document.querySelectorAll('.fchip')],
+q=document.getElementById('q'),n=document.getElementById('n');let act=new Set();
+function ap(){const s=q.value.toLowerCase();let v=0;
+ items.forEach(i=>{let ok=(!act.size||act.has(i.dataset.o));if(s&&!i.dataset.t.includes(s))ok=false;
+ i.classList.toggle('hidden',!ok);if(ok)v++});n.textContent=v+' / '+items.length;}
+fchips.forEach(c=>c.onclick=()=>{c.classList.toggle('on');const f=c.dataset.f;act.has(f)?act.delete(f):act.add(f);ap()});
+q.oninput=ap;ap();
+</script>

@@ -4,9 +4,10 @@
   "done": [
     "gate-0 + WF1 transcript forensics (fidelity PASS 32/32; canon: 80 blocks, 85 facts, 16 action items)",
     "WF2 + Gate 2: summary + annotated transcript built, verified, shipped (pdf/docx + 2 artifacts published)",
-    "WF3 + Gate 3: research 51/71 VERIFIED (two-rail SoL locked; UHSH identity EIN 16-1165049 $1.16B; Barnes/Cummings adverse authority in matrix), red-team PASS r2, master plan shipped (pdf/docx/artifact)"
+    "WF3 + Gate 3: research 51/71 VERIFIED (two-rail SoL locked; UHSH identity EIN 16-1165049 $1.16B; Barnes/Cummings adverse authority in matrix), red-team PASS r2, master plan shipped (pdf/docx/artifact)",
+    "WF4 (recovered) + Gate 4: mediation kit + 4 interactive visuals shipped; consistency PASS; apex v2 + 2 new skills installed"
   ],
-  "in_progress": "WF4 mediation + visuals",
+  "in_progress": "final report + user decision on repo visibility (PUBLIC -> pushes held)",
   "decisions": [
     "docx is canonical source",
     "raw transcript gitignored",
@@ -30,7 +31,9 @@
     "exact acquittal date + charging instrument"
   ],
   "next_actions": [
-    "WF1 transcript forensics"
+    "user: flip repo private OR keep public",
+    "on private: push branch + draft PR",
+    "refresh win-probability on first discovery production"
   ],
   "critical_deadlines": {
     "malicious_prosecution_SoL": "~Sept 2026 (1yr from Sept 2025 acquittal)",

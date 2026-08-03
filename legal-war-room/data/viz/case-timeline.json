@@ -1,0 +1,81 @@
+{
+  "title": "Case Timeline — Rahman v. UHSH et al., 3:26-cv-00197 (N.D.N.Y.)",
+  "subtitle": "Attorney Work Product — Privileged & Confidential | Operative sequence from the Aug 2, 2026 attorney meeting canon; operative-year (2022 vs 2024) UNRESOLVED — no April/May event is assigned to a single year",
+  "updated": "2026-08-02",
+  "data": [
+    {
+      "id": "fl-contract",
+      "date": "April 1",
+      "year": "UNRESOLVED (2022 per facts_extraction context vs Mar–Apr 2024 per r3/r4 research)",
+      "event": "Florida (Tampa) employment contract stated as signed — before the probation, so probation could not block that job ($350,000 salary + $70,000 bonus, three-year term).",
+      "status": "ASSERTED — CONTRADICTION FLAGGED",
+      "flags": [
+        "UNRESOLVED contradiction: 'my contract was signed on April 1st' (00:13:03) vs. 'had the offer but had never signed it and no one knew about it' (00:14:21, day of arrest). The executed-instrument question must be locked down with counsel before any demand uses the figure (handoff-state Flag 4)."
+      ],
+      "sources": [
+        "facts_extraction.json 00:13:03 ('my contract was signed on April 1st')",
+        "facts_extraction.json 00:14:21 ('the day I was arrested. I was supposed to fly down')"
+      ]
+    },
+    {
+      "id": "probation-fmla",
+      "date": "April 14",
+      "year": "UNRESOLVED (2022 per facts_extraction context vs Mar–Apr 2024 per r3/r4 research)",
+      "event": "Probation imposed without notice; FMLA filed the same day (client's belief — filed before the arrest); administrative leave opened via Guthrie-lawyers-to-UHS-lawyers call, reversed within ~24 hours of the arrest.",
+      "status": "ASSERTED — temporal-proximity spine of the FMLA retaliation claim",
+      "flags": [
+        "UNRESOLVED operative-year discrepancy: drives back-pay start date, FMLA 2/3-yr and NYSHRL 3-yr limitations, and the willfulness window (damages_model.json inconsistency_flag). Do not assign a year until locked down with counsel."
+      ],
+      "sources": [
+        "facts_extraction.json 00:14:21 ('put on probation on the 14th of April')",
+        "facts_extraction.json 00:43:40 ('I filed my FMLA before I was arrested officially')",
+        "facts_extraction.json 00:42:37 ('the lawyers of Guthri called the lawyers of UHS')"
+      ]
+    },
+    {
+      "id": "vermont-withdrawal",
+      "date": "May",
+      "year": "UNRESOLVED (2022 per facts_extraction context vs Mar–Apr 2024 per r3/r4 research)",
+      "event": "Vermont job offer withdrawn — the offer came in May and was taken away; the period in which plaintiff was on probation without his knowledge.",
+      "status": "ASSERTED — lost-opportunity / tortious-interference damages",
+      "flags": [
+        "Same UNRESOLVED operative-year discrepancy as April events."
+      ],
+      "sources": [
+        "facts_extraction.json 00:13:03 ('the Vermont job was t taken away')"
+      ]
+    },
+    {
+      "id": "acquittal",
+      "date": "September 2025",
+      "year": "2025",
+      "event": "NOT GUILTY — acquittal; prosecution terminated in plaintiff's favor (favorable-termination element of malicious prosecution).",
+      "status": "DOCUMENTED",
+      "flags": [
+        "Exact acquittal date + charging instrument still an open question (handoff-state open_questions).",
+        "Malicious-prosecution SoL runs ~Sept 2026 (1 yr from acquittal) per handoff-state critical_deadlines."
+      ],
+      "sources": [
+        "facts_extraction.json 01:02:46 ('terminated in your favor')",
+        "handoff-state.json critical_deadlines"
+      ]
+    },
+    {
+      "id": "mediation-deadline",
+      "date": "November 2026",
+      "year": "2026",
+      "event": "Court-ordered mediation must be COMPLETED by November 2026 — a deadline, not an earliest date. Drazen will not mediate before receiving defendants' discovery responses.",
+      "status": "DOCUMENTED (court order per counsel)",
+      "flags": [],
+      "sources": [
+        "facts_extraction.json 00:04:20 ('the mediation has to be completed by November')",
+        "facts_extraction.json 00:05:23 ('do a mediation without having their discovery responses')"
+      ]
+    }
+  ],
+  "notes": [
+    "OPERATIVE-YEAR DISCREPANCY — UNRESOLVED: facts_extraction places the April 14 probation in a 2022 context, while r3/r4 research files reference Mar–Apr 2024 operative conduct and a Feb 2024 ICD implant. No April/May event in this timeline is assigned to a single year; lock down with counsel before any demand is served (damages_model.json inconsistency_flag; handoff-state Update Trigger 1).",
+    "FLORIDA CONTRACT — UNRESOLVED CONTRADICTION: signed April 1 (00:13:03) vs never signed / no one knew (00:14:21). Both anchors retained; do not present either version as established.",
+    "Prepared from /legal-war-room canon (facts_extraction.json, damages_model.json, handoff-state.json, viz/pressure-map.json key_dates) dated 2026-08-02."
+  ]
+}

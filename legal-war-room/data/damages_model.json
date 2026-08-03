@@ -1,5 +1,5 @@
 {
-  "_classification": "Attorney Work Product — Privileged & Confidential. Prepared for counsel (S. Drazen) in anticipation of litigation and the court-ordered mediation (deadline: November 2026). Not for filing. Not legal advice.",
+  "_classification": "Attorney Work Product — Privileged & Confidential. Prepared for counsel (Douglas Walter Drazen) in anticipation of litigation and the court-ordered mediation (deadline: November 2026). Not for filing. Not legal advice.",
   "case": "Rahman v. UHSH et al., 3:26-cv-00197 (NDNY)",
   "prepared": "2026-08-02",
   "honesty_rules": {
@@ -171,7 +171,7 @@
           "category": "back_pay",
           "amount_low": 1120000,
           "amount_high": 1470000,
-          "evidence_label": "ESTIMABLE (contract terms DOCUMENTED; duration is an assumption)",
+          "evidence_label": "ESTIMABLE (contract terms DOCUMENTED-PENDING (Flag 4); duration is an assumption)",
           "evidence_ref": "Baseline = $350,000 salary + $70,000 bonus contract. Low = 3 yrs to date (3 x 350,000 + 70,000 = 1,120,000); high = ~4 yrs to a late-2027 verdict (4 x 350,000 + 70,000 = 1,470,000). Mitigation offset risk: defense will press failure-to-mitigate; licensure blockage is the answer but must be proven.",
           "statute_basis": "Title VI pecuniary (Cummings-safe, cluster_id 6463720 VERIFIED); tortious interference (Lama Holding, cluster_id 2038313 VERIFIED); FMLA lost compensation 29 U.S.C. §2617(a)(1) (statute text official-source, UNVERIFIED_WEB per audit — confirm with counsel); NYSHRL if amended."
         },

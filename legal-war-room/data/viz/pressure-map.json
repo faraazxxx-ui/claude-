@@ -1,0 +1,194 @@
+{
+  "title": "Pressure-Point Map — Rahman v. UHSH et al., 3:26-cv-00197 (N.D.N.Y.)",
+  "subtitle": "Attorney Work Product — Privileged & Confidential | Per-defendant leverage: nodes = parties/targets, edges = discovery instruments; keystones = CCTV, Nadeem texts, DA file",
+  "classification": "Attorney Work Product — Privileged & Confidential",
+  "updated": "2026-08-02",
+  "rating_note": "exposure_rating (1-5) is derived from the pressure-point memo's settlement-pressure ratings: 9/10 -> 5, 8/10 -> 4, 7/10 -> 4, 5/10 -> 3; plaintiff carries a 2 as a vulnerability (not pressure) rating. All ratings are probabilistic judgments, not predictions; no outcome is guaranteed.",
+  "data": [
+    {
+      "id": "uhsh",
+      "name": "United Health Services Hospitals, Inc. (UHSH)",
+      "role": "Institutional defendant — Binghamton 501(c)(3), EIN 16-1165049 (NOT Universal Health Services, NOT UnitedHealth Group)",
+      "exposure_rating": 5,
+      "top_fear": "A discovery record showing corporate legal/CEO-level involvement in the April 14 administrative leave and its ~24-hour reversal — the institution behaving as if it knew the accusation would not hold, yet cooperating with the prosecution.",
+      "key_contradiction": "Its own Answer pleads AF 6 ('legitimate, non-discriminatory' business decisions) AND AF 8 (individual conduct 'outside the course and scope... not authorized or condoned') about the same acts — both cannot be true; either resolution loses something."
+    },
+    {
+      "id": "ahmed",
+      "name": "Dr. Awais Ahmed",
+      "role": "Individual defendant — separately represented (Hancock Estabrook); reportedly fired by UHSH for disciplinary reasons arising from plaintiff's HR complaint (ASSERTED — personnel file demanded)",
+      "exposure_rating": 4,
+      "top_fear": "Un-indemnified, uninsured individual punitive exposure after AF 8 abandonment — plus a public record connecting his firing to verbal abuse of a resident he then retaliated against.",
+      "key_contradiction": "Answer ¶2 denies any 'position of authority and/or influence over Plaintiff' — falsifiable by rotation schedules (DOCUMENTED), evaluations he signed, and the zero-patients week (normal ~10 — ASSERTED, corroborable by census records)."
+    },
+    {
+      "id": "nadeem",
+      "name": "Dr. Nadeem",
+      "role": "Individual defendant — the conduit; not in academia, named because he is 'the link to the girl' (the complainant)",
+      "exposure_rating": 4,
+      "top_fear": "His phone: constant text contact with the complainant and her brother ('best friends' — ASSERTED, testable) — the identified keystone of the conspiracy/instigation theory.",
+      "key_contradiction": "The criminal theory ('he lied about a job offer because probation blocked it') presupposes knowledge of a probation that even plaintiff and Dr. Jones did not have — the only mapped channel to the complainant runs through Nadeem, fed by Rehman."
+    },
+    {
+      "id": "rehman",
+      "name": "Dr. Rehman",
+      "role": "Individual defendant — head of GME (UHS and SUNY Upstate) while simultaneously plaintiff's own electrophysiologist",
+      "exposure_rating": 4,
+      "top_fear": "The EHR audit trail substantiating the alleged effort to keep a post-operative infection off plaintiff's file (ASSERTED — audit trail will confirm or refute): record manipulation with OPMC/licensure consequences far beyond this lawsuit.",
+      "key_contradiction": "His own UHS-wide step-down email admits the conflict-of-interest standard (son-in-law entering the fellowship) — the same standard UHSH refused to honor when plaintiff repeatedly asked not to work under Ahmed and was told 'no, you still have to.'"
+    },
+    {
+      "id": "ali",
+      "name": "Dr. Muhammad Imran Ali",
+      "role": "Individual defendant — program director / assistant program director (~20 years); made to step down",
+      "exposure_rating": 4,
+      "top_fear": "Forensic examination of the allegedly forged signature on the probation document (ASSERTED — handwriting/ESI exam will resolve; the DA's '43 of the forgery' document corroborates the question was live) — a binary risk that either clears him or ends his defense.",
+      "key_contradiction": "He cannot simultaneously be (a) 'only the messenger' (his account), (b) the legitimate academic decision-maker (AF 6), and (c) an unauthorized actor (AF 8); the unilateral signature plus the forgery allegation forces UHSH to choose: authorized or rogue."
+    },
+    {
+      "id": "guthrie",
+      "name": "Guthrie (hospital)",
+      "role": "Non-party — Rule 45 target and potential future defendant; complainant's employer; source of the police call and the 'wanted' posters",
+      "exposure_rating": 4,
+      "top_fear": "Being pulled from witness to co-conspirator — the instigation element of malicious prosecution can rest on who summoned the police and on what basis; its CCTV/security file sits inside the spoliation perimeter.",
+      "key_contradiction": "The 'independent third party called the cops' framing vs. its lawyers calling UHS's lawyers to open the April 14 investigation and Guthrie stopping its own investigation within the same ~24-hour window."
+    },
+    {
+      "id": "da_office",
+      "name": "Broome County District Attorney's Office",
+      "role": "Non-party — records source and narrative witness, not a damages target (prosecutors absolutely immune for advocacy functions; counsel skeptical of any prosecution-side claim)",
+      "exposure_rating": 3,
+      "top_fear": "Not applicable — no pressure tactics on a prosecutor's office; records requests only, by the book. Its value in the map is corroboration, not fear.",
+      "key_contradiction": "The prosecution 'knew otherwise' about the probation while the defense argued no probation existed — whoever gave them that fact is a discovery thread back into UHSH/Nadeem/Rehman."
+    },
+    {
+      "id": "plaintiff",
+      "name": "Dr. Faraaz Rahman",
+      "role": "Plaintiff — acquitted (NOT GUILTY, Sept 2025 — DOCUMENTED); first-order objective is non-monetary: clean academic record, unobstructed licensure path, USCIS-safe narrative",
+      "exposure_rating": 2,
+      "top_fear": "The defense reading the criminal trial record and his own recorded words about the Florida contract back to the mediator.",
+      "key_contradiction": "UNRESOLVED: 'my contract was signed on April 1st' (00:13:03) vs. 'had the offer but had never signed it and no one knew about it' (00:14:21) — the executed-contract question must be locked down with counsel before any demand uses the figure."
+    }
+  ],
+  "edges": [
+    {
+      "from": "plaintiff",
+      "to": "uhsh",
+      "instrument": "30b6",
+      "what_it_exposes": "Records retention and CCTV custody/viewing/disposition — the ANSCO footage both institutions' lawyers viewed before dropping everything was never produced (Rule 37(e) adverse-inference exposure).",
+      "keystone": true
+    },
+    {
+      "from": "plaintiff",
+      "to": "uhsh",
+      "instrument": "interrogatory",
+      "what_it_exposes": "Act-by-act reconciliation of AF 6 vs. AF 8, plus the identity of every participant in the April 14 leave decision and its ~24-hour reversal.",
+      "keystone": false
+    },
+    {
+      "from": "plaintiff",
+      "to": "uhsh",
+      "instrument": "deposition",
+      "what_it_exposes": "GC-office custodian(s) and the CEO-level decision-maker the 'straight from their legal team' call implies — corporate control of the leave, the 10-feet/police warning, and the DA records handover.",
+      "keystone": false
+    },
+    {
+      "from": "plaintiff",
+      "to": "ahmed",
+      "instrument": "deposition",
+      "what_it_exposes": "Built around rotation schedules (DOCUMENTED) and evaluations he signed — collapses the 'no authority and/or influence over Plaintiff' denial (zero-patients week, normal ~10).",
+      "keystone": false
+    },
+    {
+      "from": "plaintiff",
+      "to": "ahmed",
+      "instrument": "interrogatory",
+      "what_it_exposes": "The factual basis (or abandonment) of boilerplate AF 4 personal-jurisdiction and AF 5 improper-service defenses — an early, cheap credibility hit.",
+      "keystone": false
+    },
+    {
+      "from": "plaintiff",
+      "to": "nadeem",
+      "instrument": "subpoena",
+      "what_it_exposes": "Phone-carrier backstop for his texts with the complainant and her brother — the identified keystone of the conspiracy/instigation theory (spoliation letter to him personally, now).",
+      "keystone": true
+    },
+    {
+      "from": "plaintiff",
+      "to": "rehman",
+      "instrument": "interrogatory",
+      "what_it_exposes": "Every disclosure of plaintiff's academic information to anyone outside GME — the overt act connecting the academic file to the criminal complaint (the DA and plaintiff's mother can attest — ASSERTED).",
+      "keystone": false
+    },
+    {
+      "from": "plaintiff",
+      "to": "rehman",
+      "instrument": "deposition",
+      "what_it_exposes": "Email-first sequence: the conflict-of-interest step-down admission, then the EHR audit trail (access logs, amendments, deletions), then the disclosure to Nadeem.",
+      "keystone": false
+    },
+    {
+      "from": "plaintiff",
+      "to": "ali",
+      "instrument": "interrogatory",
+      "what_it_exposes": "Identify every person who authorized, drafted, signed, or transmitted the probation — the document was signed by the program director only (DOCUMENTED — evidence inventory).",
+      "keystone": false
+    },
+    {
+      "from": "plaintiff",
+      "to": "ali",
+      "instrument": "deposition",
+      "what_it_exposes": "Pairs the 'I guess a fiancée is considered family' slip with the FMLA file and the probation chronology (April 14 probation; FMLA filed the same day; Vermont offer withdrawn in May).",
+      "keystone": false
+    },
+    {
+      "from": "plaintiff",
+      "to": "guthrie",
+      "instrument": "subpoena",
+      "what_it_exposes": "Rule 45: the police-call record and caller identity, the poster creation/approval chain, the complainant's file (kept narrow), Guthrie–UHS legal-team communications, and CCTV/security-desk logs.",
+      "keystone": true
+    },
+    {
+      "from": "plaintiff",
+      "to": "da_office",
+      "instrument": "subpoena",
+      "what_it_exposes": "FOIL/court application for the closed file: the grand-jury subpoena for the academic records, the '43 of the forgery' document, the trial transcript — and the completeness delta vs. UHSH's civil production ('especially what happened with Dr. Ahmed').",
+      "keystone": true
+    }
+  ],
+  "markers": [
+    {
+      "figure": "$100,000,000",
+      "label": "NEGOTIATION POSTURE — anchor (ASSERTED)",
+      "caveat": "Rule 11 / mediator-credibility caveat: never pled, never in a filing or mediation statement as a verdict expectation; lives only in negotiation dynamics, framed (if at all) as total-relations exposure."
+    },
+    {
+      "figure": "$40,000,000",
+      "label": "NEGOTIATION POSTURE — acceptance threshold, per client directive (ASSERTED)",
+      "caveat": "Same Rule 11 / mediator-credibility caveat. Honesty flag from damages_model.json: ~2.4x the top of the verified Tier-2 range; a mediator will price the case off Tier 2, not off this number."
+    },
+    {
+      "figure": "$4,342,000–$16,565,500",
+      "label": "ESTIMABLE — Tier 2 realistic trial range (verified-law arithmetic; probabilistic, not guaranteed)",
+      "caveat": "Compensatory $2,092,000–$6,695,500 + FMLA liquidated $0–$1,120,000 (count not yet pled) + punitive $2,000,000–$8,000,000 (2d Cir. ratio discipline) + statutory fees $250,000–$750,000."
+    },
+    {
+      "figure": "$1,222,000–$1,595,500",
+      "label": "Tier 1 documented core — settlement floor (DOCUMENTED/ESTIMABLE mix per line item)",
+      "caveat": "Do not accept below the documented core absent non-monetary relief of equivalent value to the client's first-order objectives (record correction, exculpatory letter, licensure/USCIS cooperation)."
+    }
+  ],
+  "key_dates": [
+    {"date": "April 1", "event": "Florida (Tampa) contract stated as signed — pre-probation (00:13:03; UNRESOLVED inconsistency vs. 00:14:21 'never signed it')"},
+    {"date": "April 14", "event": "Probation imposed without notice; FMLA filed the same day (client's belief); administrative leave opened via Guthrie-lawyers-to-UHS-lawyers call"},
+    {"date": "May", "event": "Vermont job offer withdrawn"},
+    {"date": "Sept 2025", "event": "NOT GUILTY — favorable termination (DOCUMENTED)"},
+    {"date": "November 2026", "event": "Court-ordered mediation completion deadline (Drazen: no mediation before defendants' discovery responses)"}
+  ],
+  "notes": [
+    "Every dollar figure carries its evidence label (DOCUMENTED / ESTIMABLE / ASSERTED) from damages_model.json; NEGOTIATION POSTURE figures are not damages calculations.",
+    "Operative-year discrepancy flagged UNRESOLVED in damages_model.json (April 14 probation: 2022 per facts_extraction vs. Mar–Apr 2024 per r3/r4) — lock down with counsel before any demand.",
+    "Keystone evidence per map: CCTV chain of custody, Nadeem's texts, and the DA file.",
+    "All settlement-pressure ratings are probabilistic judgments, not predictions. No outcome is guaranteed. Prepared from /legal-war-room sources dated 2026-08-02."
+  ]
+}

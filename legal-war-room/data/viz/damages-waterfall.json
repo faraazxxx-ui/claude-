@@ -1,0 +1,353 @@
+{
+  "title": "Damages Waterfall — Rahman v. UHSH et al., 3:26-cv-00197 (N.D.N.Y.)",
+  "subtitle": "Attorney Work Product — Privileged & Confidential | Tier build-up: documented core (Tier 1) → verified-law trial range (Tier 2) → posture ceiling (Tier 3). Every dollar figure traces to data/damages_model.json with its evidence label (DOCUMENTED / ESTIMABLE / ASSERTED). Probabilistic estimates, never guarantees.",
+  "classification": "Attorney Work Product — Privileged & Confidential",
+  "updated": "2026-08-02",
+  "source": "data/damages_model.json (prepared 2026-08-02); narrative canon: strategy/damages-architecture.md",
+  "data": [
+    {
+      "id": "t1_lost_salary_florida_contract_3yr",
+      "tier": 1,
+      "type": "step",
+      "in_totals": true,
+      "label": "Lost Florida (Tampa) contract — 3 yr, $350K salary + $70K bonus",
+      "amount_low": 1050000,
+      "amount_high": 1120000,
+      "evidence_label": "DOCUMENTED-PENDING",
+      "trace": "damages_model.json tiers[0].line_items lost_salary_florida_contract_3yr (damages_mentions 00:28:43; facts_extraction 00:13:03)",
+      "caveat": "UNRESOLVED (Flag 4): 00:13:03 'signed April 1st' vs 00:14:21 'never signed it and no one knew about it'. Upgrade to DOCUMENTED only when the executed instrument is physically in counsel's hands; lock down before any demand uses this figure."
+    },
+    {
+      "id": "t1_uninsured_medical",
+      "tier": 1,
+      "type": "step",
+      "in_totals": true,
+      "label": "Uninsured medical bills",
+      "amount_low": 40000,
+      "amount_high": 40000,
+      "evidence_label": "DOCUMENTED",
+      "trace": "damages_model.json tiers[0].line_items uninsured_medical (apex substrate medical bills)"
+    },
+    {
+      "id": "t1_cornell_medical_bills",
+      "tier": 1,
+      "type": "step",
+      "in_totals": true,
+      "label": "Cornell medical bills",
+      "amount_low": 13000,
+      "amount_high": 13000,
+      "evidence_label": "DOCUMENTED",
+      "trace": "damages_model.json tiers[0].line_items cornell_medical_bills (hospital billing)"
+    },
+    {
+      "id": "t1_car_debt",
+      "tier": 1,
+      "type": "step",
+      "in_totals": true,
+      "label": "Car debt",
+      "amount_low": 44000,
+      "amount_high": 44000,
+      "evidence_label": "DOCUMENTED",
+      "trace": "damages_model.json tiers[0].line_items car_debt (Tesla Financial records)"
+    },
+    {
+      "id": "t1_civil_legal_expenses",
+      "tier": 1,
+      "type": "step",
+      "in_totals": true,
+      "label": "Civil legal expenses",
+      "amount_low": 35000,
+      "amount_high": 35000,
+      "evidence_label": "DOCUMENTED",
+      "trace": "damages_model.json tiers[0].line_items civil_legal_expenses (attorney invoices)",
+      "caveat": "Statutory fee-shifting is modeled separately in Tier 2 — no double count."
+    },
+    {
+      "id": "t1_travel_dubai_us",
+      "tier": 1,
+      "type": "step",
+      "in_totals": true,
+      "label": "Travel (Dubai–US)",
+      "amount_low": 40000,
+      "amount_high": 40000,
+      "evidence_label": "ESTIMABLE",
+      "trace": "damages_model.json tiers[0].line_items travel_dubai_us (airline records)"
+    },
+    {
+      "id": "t1_medications",
+      "tier": 1,
+      "type": "step",
+      "in_totals": true,
+      "label": "Medications ($4,000/$600/$400 per bottle; high = $5,000/mo x 36 mo)",
+      "amount_low": 0,
+      "amount_high": 180000,
+      "evidence_label": "ESTIMABLE",
+      "trace": "damages_model.json tiers[0].line_items medications (damages_mentions 00:27:22)",
+      "caveat": "Low set to $0 pending segregation from the documented $40K uninsured-medical line to avoid double count; pharmacy records needed."
+    },
+    {
+      "id": "t1_cardiac_device_monitoring_gap",
+      "tier": 1,
+      "type": "step",
+      "in_totals": true,
+      "label": "Cardiac-device (ICD) monitoring gap — ~9 missed checks / 3 yr",
+      "amount_low": 0,
+      "amount_high": 50000,
+      "evidence_label": "ESTIMABLE — cardiology expert required",
+      "trace": "damages_model.json tiers[0].line_items cardiac_device_monitoring_gap (damages_mentions 00:32:39)",
+      "caveat": "High is a catch-up-care placeholder; the real value is injury/urgency expert testimony. Not recoverable as distress under Title VI post-Cummings."
+    },
+    {
+      "id": "t1_mothers_lost_salary_dubai",
+      "tier": 1,
+      "type": "step",
+      "in_totals": true,
+      "label": "Mother's lost salary (Dubai)",
+      "amount_low": 0,
+      "amount_high": 71000,
+      "evidence_label": "ESTIMABLE — standing caveat",
+      "trace": "damages_model.json tiers[0].line_items mothers_lost_salary_dubai (apex substrate)",
+      "caveat": "Third-party loss; recoverability by this plaintiff doubtful. High only."
+    },
+    {
+      "id": "t1_board_exam_fee",
+      "tier": 1,
+      "type": "step",
+      "in_totals": true,
+      "label": "Board exam fee (UHS was to pay, did not)",
+      "amount_low": 0,
+      "amount_high": 2500,
+      "evidence_label": "ESTIMABLE",
+      "trace": "damages_model.json tiers[0].line_items board_exam_fee (damages_mentions 01:11:15)"
+    },
+    {
+      "id": "t1_criminal_defense_fees",
+      "tier": 1,
+      "type": "step",
+      "in_totals": true,
+      "label": "Criminal-defense fees (unquantified — invoices to be collected)",
+      "amount_low": 0,
+      "amount_high": 0,
+      "evidence_label": "ESTIMABLE — unquantified",
+      "trace": "damages_model.json tiers[0].line_items criminal_defense_fees (damages_mentions 01:07:48)",
+      "caveat": "Malicious-prosecution special damages; count viability under counsel review (facts_extraction 01:06:49). Carried at $0 until invoices in hand."
+    },
+    {
+      "id": "t1_property_store_sales_father",
+      "tier": 1,
+      "type": "step",
+      "in_totals": true,
+      "label": "Father's property/store sales (unquantified)",
+      "amount_low": 0,
+      "amount_high": 0,
+      "evidence_label": "ESTIMABLE — unquantified; standing caveat",
+      "trace": "damages_model.json tiers[0].line_items property_store_sales_father (damages_mentions 00:31:12)",
+      "caveat": "Third-party loss; carried at $0 in totals; hardship narrative and proof the loans were real."
+    },
+    {
+      "id": "t1_total",
+      "tier": 1,
+      "type": "milestone",
+      "label": "TIER 1 TOTAL — Documented core (settlement floor / credibility anchor)",
+      "amount_low": 1222000,
+      "amount_high": 1595500,
+      "evidence_label": "DOCUMENTED/ESTIMABLE mix per line item",
+      "trace": "damages_model.json tiers[0].total_low/total_high; arithmetic in tiers[0].totals_arithmetic",
+      "caveat": "Floor/BATNA: do not accept below the documented core absent non-monetary relief of equivalent value (record correction, board-safe letters, USCIS-usable stipulation, reference protocol, institutional reform)."
+    },
+    {
+      "id": "excluded_family_loans_paternal",
+      "tier": 1,
+      "type": "excluded_corroboration",
+      "in_totals": false,
+      "label": "Paternal loans ~$300K/yr x ~3 yr (~$900K) — EXCLUDED from totals",
+      "amount_low": 223800,
+      "amount_high": 900000,
+      "evidence_label": "DOCUMENTED ($223,800: 38 wires, ledger + SHA-256 chain) / DOCUMENTED-PENDING remainder (bank-records collection, Drazen action item 01:29:03)",
+      "trace": "damages_model.json tiers[0].line_items family_loans_paternal (in_totals=false; damages_mentions 00:28:43)",
+      "caveat": "ANTI-DOUBLE-COUNT: NOT additive with lost salary — the loans are the proxy financing of the same lost income. Corroboration and hardship proof only; stacking it would be caught by the defense and mediator in minutes."
+    },
+    {
+      "id": "excluded_living_expenses",
+      "tier": 1,
+      "type": "excluded_corroboration",
+      "in_totals": false,
+      "label": "Living expenses ~$1M / 3 yr — EXCLUDED from totals",
+      "amount_low": 150000,
+      "amount_high": 1000000,
+      "evidence_label": "ESTIMABLE",
+      "trace": "damages_model.json tiers[0].line_items living_expenses (in_totals=false; damages_mentions 00:32:39)",
+      "caveat": "ANTI-DOUBLE-COUNT: same dollars as the lost-income gap the Florida contract measures; overlaps the paternal loans. Corroboration and hardship narrative only."
+    },
+    {
+      "id": "t2_back_pay",
+      "tier": 2,
+      "type": "step",
+      "in_totals": true,
+      "label": "Back pay (3 yrs to date → ~4 yrs to late-2027 verdict, on $350K + $70K contract)",
+      "amount_low": 1120000,
+      "amount_high": 1470000,
+      "evidence_label": "ESTIMABLE (contract terms DOCUMENTED-PENDING — Flag 4; duration assumed)",
+      "trace": "damages_model.json tiers[1].line_items back_pay",
+      "caveat": "Cummings-safe Title VI pecuniary (CL 6463720 VERIFIED); Lama Holding tortious interference (CL 2038313 VERIFIED). Mitigation-offset risk; licensure blockage is the answer but must be proven."
+    },
+    {
+      "id": "t2_front_pay_lost_earning_capacity",
+      "tier": 2,
+      "type": "step",
+      "in_totals": true,
+      "label": "Front pay / lost earning capacity (2 yrs → ~10-yr differential)",
+      "amount_low": 700000,
+      "amount_high": 3500000,
+      "evidence_label": "ESTIMABLE — vocational/economic expert REQUIRED",
+      "trace": "damages_model.json tiers[1].line_items front_pay_lost_earning_capacity",
+      "caveat": "ADVERSE AUTHORITY: Tarpley (CL 4680173 VERIFIED) zeroes lost-earnings awards not proven with documentation + expert. This line does not exist at trial without the expert. Walker v. Ascension ~$10M comparator is unverified — confirm with counsel."
+    },
+    {
+      "id": "t2_out_of_pocket_consequentials",
+      "tier": 2,
+      "type": "step",
+      "in_totals": true,
+      "label": "Out-of-pocket consequentials (= Tier 1 totals minus lost-salary line)",
+      "amount_low": 172000,
+      "amount_high": 475500,
+      "evidence_label": "MIXED — DOCUMENTED core $132,000 (car 44K + medical 40K + Cornell 13K + legal 35K) + ESTIMABLE items",
+      "trace": "damages_model.json tiers[1].line_items out_of_pocket_consequentials (1,222,000 - 1,050,000 = 172,000 low; 1,595,500 - 1,120,000 = 475,500 high)",
+      "caveat": "Overlapping loans/living-expense corroboration excluded per the Tier 1 anti-double-count rule."
+    },
+    {
+      "id": "t2_emotional_distress",
+      "tier": 2,
+      "type": "step",
+      "in_totals": true,
+      "label": "Emotional distress — NYSHRL + NY torts ONLY (post-Cummings channeling)",
+      "amount_low": 100000,
+      "amount_high": 1250000,
+      "evidence_label": "ESTIMABLE — psychiatric/medical corroboration REQUIRED to leave the garden-variety band",
+      "trace": "damages_model.json tiers[1].line_items emotional_distress",
+      "caveat": "NOT recoverable under Title VI/Rehab Act (Cummings, CL 6463720 VERIFIED) or FMLA (§2617 economic-only). Rides only on NYSHRL (NOT YET PLED — amendment required) and NY torts. Pizarro $1.725M ceiling comparator unverified — confirm with counsel."
+    },
+    {
+      "id": "t2_fmla_liquidated_doubling",
+      "tier": 2,
+      "type": "step",
+      "in_totals": true,
+      "label": "FMLA liquidated doubling (conditional x3: amend, attribute, defeat good-faith defense)",
+      "amount_low": 0,
+      "amount_high": 1120000,
+      "evidence_label": "ESTIMABLE — CONDITIONAL (count not currently pled)",
+      "trace": "damages_model.json tiers[1].line_items fmla_liquidated_doubling",
+      "caveat": "29 U.S.C. §2617(a)(1)(A)(iii) (official-source text, unverified — confirm with counsel); DaPrato (CL 4626349 VERIFIED). High deliberately doubles the 3-yr back-pay LOW ($1,120,000), not the 4-yr high — do not raise to $1,470,000 without counsel sign-off."
+    },
+    {
+      "id": "t2_punitive_damages",
+      "tier": 2,
+      "type": "step",
+      "in_totals": true,
+      "label": "Punitive damages at verified-lawful ratios (~1:1 low → ~2:1 on mid compensatory base)",
+      "amount_low": 2000000,
+      "amount_high": 8000000,
+      "evidence_label": "ESTIMABLE — conditional on Chauca/Ross-level culpability proof",
+      "trace": "damages_model.json tiers[1].line_items punitive_damages",
+      "caveat": "Vehicles: NYSHRL §297(9) (amendment required; Chauca CL 7170278/8439840 VERIFIED) + NY torts (Walker v. Sheldon CL 5672186; Ross CL 2032322 VERIFIED). NEVER under Title VI (Barnes, CL 121152 VERIFIED) or FMLA. Ratio discipline: State Farm CL 127910; Turley CL 8442054; Payne CL 820691 (all VERIFIED). Disclose (per strategy/damages-architecture.md): the band ratios TOTAL compensatory, but only NYSHRL/tort dollars can lawfully anchor the ratio — recompute or disclose before external use."
+    },
+    {
+      "id": "t2_attorneys_fees_statutory",
+      "tier": 2,
+      "type": "step",
+      "in_totals": true,
+      "label": "Statutory attorneys' fees (lodestar through trial)",
+      "amount_low": 250000,
+      "amount_high": 750000,
+      "evidence_label": "ESTIMABLE — conditional on prevailing on a fee-shifting count",
+      "trace": "damages_model.json tiers[1].line_items attorneys_fees_statutory",
+      "caveat": "42 U.S.C. §1988(b); 29 U.S.C. §2617(a)(3) mandatory if FMLA added and won; NYSHRL §297(10) (all official-source texts, unverified — confirm with counsel). Tort/contract counts carry no fees (American Rule)."
+    },
+    {
+      "id": "t2_total",
+      "tier": 2,
+      "type": "milestone",
+      "label": "TIER 2 TOTAL — Realistic trial range (verified-law arithmetic; probabilistic, not guaranteed)",
+      "amount_low": 4342000,
+      "amount_high": 16565500,
+      "evidence_label": "ESTIMABLE",
+      "trace": "damages_model.json tiers[1].total_low/total_high; compensatory 2,092,000–6,695,500 + FMLA liquidated 0–1,120,000 + punitives 2,000,000–8,000,000 + fees 250,000–750,000",
+      "caveat": "High assumes NYSHRL and FMLA counts ADDED BY AMENDMENT (neither currently pled — check NDNY amendment deadline). Liability kill risks: Horowitz/Ewing academic deference, HCQIA/Poliner (a $33M judgment reversed to zero), Tarpley, Rocanova, Payne/Turley. A mediator will price the case off this tier. Independent r4 cross-check: ~$5M–$15M before fees."
+    },
+    {
+      "id": "t3_max_compensatory_runaway",
+      "tier": 3,
+      "type": "step",
+      "in_totals": true,
+      "label": "Max compensatory, runaway-jury construction (25 yr x $400K undiscounted + egregious-tier distress + consequentials)",
+      "amount_low": 12500000,
+      "amount_high": 12500000,
+      "evidence_label": "ASSERTED / NEGOTIATION POSTURE",
+      "trace": "damages_model.json tiers[2].line_items max_compensatory_runaway",
+      "caveat": "Every load-bearing number is ASSERTED/POSTURE — undiscounted, zero mitigation. Walker v. Ascension ~$10M comparator unverified — confirm with counsel."
+    },
+    {
+      "id": "t3_max_punitive_runaway",
+      "tier": 3,
+      "type": "step",
+      "in_totals": true,
+      "label": "Max punitive, 7:1 on max compensatory (Zhang, 9th Cir — persuasive only)",
+      "amount_low": 87500000,
+      "amount_high": 87500000,
+      "evidence_label": "ASSERTED / NEGOTIATION POSTURE",
+      "trace": "damages_model.json tiers[2].line_items max_punitive_runaway (Zhang CL 783131 VERIFIED — highest ratio in the verified file)",
+      "caveat": "2d Cir practice (Turley CL 8442054; Payne CL 820691, VERIFIED) compresses to ~2:1 and would cut this ~70–85% on review."
+    },
+    {
+      "id": "t3_fees_costs_through_appeal",
+      "tier": 3,
+      "type": "step",
+      "in_totals": true,
+      "label": "Fees/costs through appeal",
+      "amount_low": 1500000,
+      "amount_high": 1500000,
+      "evidence_label": "ESTIMABLE",
+      "trace": "damages_model.json tiers[2].line_items fees_costs_through_appeal (§1988(b); §2617(a)(3); §297(10))"
+    },
+    {
+      "id": "t3_total",
+      "tier": 3,
+      "type": "milestone",
+      "label": "TIER 3 — Exposure-ceiling posture (~$100M): NEGOTIATION POSTURE / ASSERTED, not a forecast",
+      "amount_low": 100000000,
+      "amount_high": 101500000,
+      "evidence_label": "ASSERTED / NEGOTIATION POSTURE",
+      "trace": "damages_model.json tiers[2].totals_arithmetic (12,500,000 x 7 = 87,500,000 punitive + 12,500,000 compensatory + 1,500,000 fees = 101,500,000 ≈ ~$100M anchor)",
+      "caveat": "RULE 11 / MEDIATOR-CREDIBILITY CAVEAT: the ~$100M figure is negotiation posture, not a damages calculation. NEVER pled, never in a filing, demand letter, or mediation statement as computed damages or an expected outcome — asserting it as computed damages risks Rule 11 exposure and destroys mediator credibility. Requires ALL seven Tier-3 assumptions in damages_model.json to break plaintiff's way, including no remittitur — historically the least likely of all."
+    }
+  ],
+  "posture_markers": [
+    {
+      "figure": "$100,000,000",
+      "label": "NEGOTIATION POSTURE — exposure-ceiling anchor (ASSERTED)",
+      "trace": "damages_model.json posture.ceiling_framing + tiers[2]",
+      "caveat": "RULE 11 / MEDIATOR-CREDIBILITY CAVEAT: negotiation posture, not a damages calculation. Communicated only as the runaway-jury exposure a self-insured/carrier-advised defendant must weight by probability, constructed transparently from the Tier-3 arithmetic. Never pled, never in any filing or mediation statement as computed damages; any figure placed in a pleading or demand must trace to the Tier-1/Tier-2 evidence-labeled arithmetic."
+    },
+    {
+      "figure": "$40,000,000",
+      "label": "NEGOTIATION POSTURE — acceptance threshold, per client directive (ASSERTED)",
+      "trace": "damages_model.json posture.acceptance_threshold",
+      "caveat": "Same RULE 11 / MEDIATOR-CREDIBILITY CAVEAT. HONESTY FLAG: ~2.4x the top of the verified-law Tier-2 range ($16.57M) and ~9x its floor — a client-instructed negotiating position, not a number the model supports as a probable verdict; a mediator will price the case off Tier 2, not off this number. Counsel must own the gap explicitly."
+    },
+    {
+      "figure": "$1,222,000–$1,595,500",
+      "label": "Floor / BATNA — Tier 1 documented core",
+      "trace": "damages_model.json posture.floor_batna",
+      "caveat": "Do not accept below the documented core absent non-monetary relief of equivalent value to the client's first-order objectives (clean academic record, board-safe verification letters, USCIS-usable stipulation, reference protocol, institutional reform). BATNA below the floor: litigate to verdict — fee-shifting compounds defendants' cost of delay toward the November 2026 mediation deadline."
+    }
+  ],
+  "notes": [
+    "Evidence labels per damages_model.json honesty_rules: DOCUMENTED (record in hand or hash-chained), ESTIMABLE (methodology + records identified, computation pending), ASSERTED (client statement or posture figure without independent support).",
+    "ANTI-DOUBLE-COUNT: paternal loans (~$900K) and living expenses (~$1M) are excluded from all tier totals (in_totals=false) — they are the same dollars as the lost-income gap the Florida contract measures; corroboration and hardship narrative only.",
+    "Single-recovery rule: the same lost-income dollars cannot be recovered under multiple counts; the multi-count structure widens liability paths, not the compensatory pot. Tier 2 replaces the Tier-1 lost-salary line with back pay and carries the remaining Tier-1 items as out_of_pocket_consequentials — the tiers are alternative framings, never additive.",
+    "Remedy channeling (post-Cummings): emotional distress never under Title VI/Rehab/FMLA (Cummings CL 6463720); punitives never under Title VI (Barnes CL 121152) or FMLA. NYSHRL and FMLA counts are NOT YET PLED — amendment required.",
+    "UNRESOLVED flags carried from damages_model.json: (1) operative-year discrepancy (April 14 probation: 2022 per facts_extraction vs Mar–Apr 2024 per r3/r4) — drives limitations and back-pay start; (2) Florida executed-contract question (00:13:03 vs 00:14:21) — lock down with counsel before any demand.",
+    "UNVERIFIED_WEB comparators (Walker v. Ascension $10M; Pizarro $1.725M; Walsh/Su v. Tara $650K) usable in mediation atmospherics ONLY with the explicit flag: unverified — confirm with counsel.",
+    "No win guarantees; probabilistic language only. Prepared from /legal-war-room canon dated 2026-08-02 for counsel (Douglas Walter Drazen) ahead of the November 2026 court-ordered mediation deadline. Not for filing. Not legal advice."
+  ]
+}
