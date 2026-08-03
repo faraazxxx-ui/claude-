@@ -1,0 +1,182 @@
+[
+  {
+    "question": "R2-1: Walker v. Ascension Genesys Hospital — does it support a ~$10M physician-resident FMLA retaliation / pregnancy discrimination verdict with a lifetime-earnings model?",
+    "claim": "Jury awarded ~$10M to physician-resident for FMLA retaliation + pregnancy discrimination using a lifetime-earnings model.",
+    "authority": {
+      "type": "case",
+      "name": "Walker v. Ascension Genesys Hospital (Nicole Walker, D.O. v. Ascension Genesys Hospital)",
+      "citation": "Genesee County (Mich.) Circuit Court jury verdict, $10,034,951 (verdict reported Dec. 2025)",
+      "court": "Genesee County Circuit Court, Michigan (state trial court)",
+      "year": 2025,
+      "courtlistener_id": null,
+      "verification": "UNVERIFIED_WEB",
+      "source_url": "https://www.medscape.com/viewarticle/former-ob-gyn-resident-wins-10m-maternity-leave-lawsuit-2026a10008l2"
+    },
+    "holding_or_text": "Jury verdict (not an opinion): $10,034,951 to Dr. Nicole Walker, a 2nd-year OB/GYN resident terminated April 16, 2021 after being required to take the COMLEX Level 3 exam while on FMLA maternity leave. Claims: FMLA interference/retaliation and pregnancy disparate treatment under Michigan civil rights law (ELCRA). Damages covered future lost earnings as a physician plus pain and suffering; evidence of disparate treatment was that non-pregnant residents who failed the exam got probation/remediation and she did not.",
+    "relevance": "Closest factual comparator on the list: physician-resident, FMLA retaliation, termination framed as academic failure, lifetime physician-earnings damages model. Substantively supports the claimed proposition.",
+    "cuts_against_us": false,
+    "notes": "NOT retrievable on CourtListener: state trial court verdict, no opinion exists. Tried: CourtListener opinion search 'Walker v. Ascension' (0 results), full-text 'Ascension Genesys' (only unrelated Leiendecker v. Ascension Genesys, Mich. Ct. App. 2026-01-13, cluster 10778387), RECAP search 'Ascension Genesys' (only unrelated federal dockets: Buford, Anderson, Capar, Follen). Corroborated by multiple independent news sources (Medscape, ABC12, Fox2 Detroit, ExpertInstitute). CAVEAT: trial verdict only — subject to post-trial motions, remittitur, and appeal; Michigan state verdict has no precedential force in NDNY; usable only as a settlement-valuation comparator, and opposing counsel will note it is fresh and unreviewed."
+  },
+  {
+    "question": "R2-2: Tarpley v. New York City Transit Authority (2019) — did it affirm ~$10M in lost earnings for a career-ending injury?",
+    "claim": "~$10M lost earnings, career-ending injury, affirmed on appeal.",
+    "authority": {
+      "type": "case",
+      "name": "Tarpley v. New York City Transit Authority",
+      "citation": "2019 NY Slip Op 08440, 177 A.D.3d 929 (2d Dep't Nov. 20, 2019)",
+      "court": "N.Y. App. Div., Second Department",
+      "year": 2019,
+      "courtlistener_id": "cluster_id 4680173; opinion_id 4457426",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/4680173/tarpley-v-new-york-city-tr-auth/"
+    },
+    "holding_or_text": "Full opinion retrieved. Bus-accident personal-injury case (cervical/lumbar herniations, fusion surgery). Jury: $3M past pain & suffering, $92,950 past lost earnings, $7M future pain & suffering, $301,600 future lost earnings, $250K future medical; $13.9M total judgment incl. spousal loss of services. Second Department ordered remittitur: pain & suffering reduced from $10M to $3M ($1M past + $2M future), future medical cut to $100K, loss of services cut to $150K, and the lost-earnings awards were ELIMINATED as speculative — 'A party claiming lost earnings has the burden of proving the amount of actual past earnings with reasonable certainty, by means of tax returns or other documentation'; award could not exceed what W-2s supported absent documentation/expert proof of income growth, and collateral-source offsets consumed the supportable amounts.",
+    "relevance": "The inherited proposition is FALSE. This was never a $10M lost-earnings case — lost earnings were under $400K and were zeroed out on appeal. The $10M figure was pain and suffering, and it was slashed 70% by the Appellate Division.",
+    "cuts_against_us": true,
+    "notes": "MISATTRIBUTED — kill this citation as used. If anything, Tarpley is an obstacle-matrix case FOR THE DEFENSE: (1) NY appellate courts aggressively remit awards under CPLR 5501(c) 'deviates materially' review; (2) lost-earnings/lifetime-earnings models fail without tax returns, documentation, and expert testimony that income would rise. If our damages model projects physician earnings growth, Tarpley is the case the defense cites."
+  },
+  {
+    "question": "R2-3: Pizarro v. Quezada (2d Cir. 2025) — was a $1.725M emotional distress award affirmed?",
+    "claim": "$1.725M emotional distress award affirmed by the Second Circuit in 2025.",
+    "authority": {
+      "type": "case",
+      "name": "Pizarro v. Quezada (CourtListener docket caption: Pizarro v. Euros El Tina Restaurant Lounge and Billiards Corp.)",
+      "citation": "No. 24-2422, 2025 WL 2865251 (2d Cir. Oct. 9, 2025) (summary order)",
+      "court": "U.S. Court of Appeals for the Second Circuit",
+      "year": 2025,
+      "courtlistener_id": "docket_id 69513975 (ca2 No. 24-2422, filed 2024-09-16); no opinion_id/cluster_id — summary order not in CourtListener opinion index",
+      "verification": "UNVERIFIED_WEB",
+      "source_url": "https://pospislaw.com/blog/2025/10/17/2nd-circuit-upholds-1-75-million-emotional-distress-award-to-sexual-harassment-plaintiff/"
+    },
+    "holding_or_text": "Second Circuit summary order affirming denial of remittitur of a $1.725M compensatory (emotional distress) award to a sexual-harassment plaintiff. Facts were extreme: years of groping (~3x/month), exposure, masturbation in front of plaintiff, attempted rape; distress evidence included a suicide attempt, psychiatric treatment for depression, PTSD, recurring nightmares. The court applied the garden-variety / significant / egregious emotional-distress taxonomy and held the award not excessive given 'egregious' category proof.",
+    "relevance": "Case is real and the proposition matches ($1.725M emotional distress affirmed, 2d Cir. 2025). Useful ceiling authority for emotional-distress damages in this Circuit.",
+    "cuts_against_us": false,
+    "notes": "Existence and caption CONFIRMED via CourtListener docket (ca2 24-2422, docket_id 69513975), but the order text itself was not retrievable on CourtListener, so strict-rule classification is UNVERIFIED_WEB (holding corroborated by Westlaw cite 2025 WL 2865251 and practitioner commentary). Two caveats before citing: (1) it is a NONPRECEDENTIAL summary order (FRAP 32.1 / 2d Cir. Local Rule 32.1.1 — citable but not binding); (2) the award was sustained only because the proof was in the 'egregious' tier (suicide attempt, PTSD treatment records). Without comparable medical/psychiatric corroboration, defense will argue garden-variety distress caps in the $30K-$125K range under 2d Cir. case law."
+  },
+  {
+    "question": "R2-4: Breest v. Haggis (NY 2023) — does it support $10M in emotional distress damages?",
+    "claim": "$10M emotional distress award, New York, 2023.",
+    "authority": {
+      "type": "case",
+      "name": "Breest v. Haggis",
+      "citation": "178 A.D.3d 626, 2019 NY Slip Op 09398 (1st Dep't Dec. 26, 2019) (the retrieved opinion); jury verdict Nov. 10-14, 2022, Sup. Ct. N.Y. County, Index No. 161137/2017",
+      "court": "N.Y. App. Div., First Department (opinion); Supreme Court, New York County (verdict)",
+      "year": 2019,
+      "courtlistener_id": "cluster_id 4690547; opinion_id 4467800",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/4690547/breest-v-haggis/"
+    },
+    "holding_or_text": "Retrieved opinion (2019, pleading stage): under NYC's Victims of Gender-Motivated Violence Protection Law (Admin. Code § 10-1101 et seq.), allegations of rape/sexual assault alone suffice to plead gender-based animus — no extrinsic proof of hatred of women required; Jane Doe propensity allegations stricken. The $10M figure is the November 2022 Manhattan jury verdict: $7.5M compensatory + $2.5M punitive for rape, under the NYC VGM law.",
+    "relevance": "Case is real but the proposition is wrong in every particular that matters: (1) verdict was Nov. 2022, not 2023; (2) $10M was compensatory PLUS punitive, not '$10M emotional distress'; (3) it is a rape case under a NYC-only statute, not an employment discrimination case; (4) per 2026 reporting (Variety/Hollywood Reporter), Haggis settled with Breest for approximately $2M while appeal was pending — the $10M was never collected or appellate-tested.",
+    "cuts_against_us": true,
+    "notes": "The 2019 First Department opinion is VERIFIED on CourtListener; the verdict details and the ~$2M 2026 settlement are UNVERIFIED_WEB (CNN, Deadline, NBC, Variety). As a damages comparator for an upstate employment case this citation is nearly worthless and invites a credibility hit: NYC VGM statute has no application in Broome County, the tort was rape (not workplace discrimination/retaliation), and the headline number was settled down ~80%. Kill it from any brief; at most usable in mediation atmospherics with full caveats."
+  },
+  {
+    "question": "R2-5: Reynaud v. Technicolor (2020) — does it support $2.9M including immigration-related retaliation?",
+    "claim": "$2.9M award including immigration-related retaliation.",
+    "authority": {
+      "type": "case",
+      "name": "Reynaud v. Technicolor Creative Services USA, Inc.",
+      "citation": "46 Cal. App. 5th 1007 (Cal. Ct. App., 2d Dist., Mar. 24, 2020) (No. B290836)",
+      "court": "California Court of Appeal, Second District",
+      "year": 2020,
+      "courtlistener_id": "cluster_id 4738808; opinion_id 4519155",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/4738808/reynaud-v-technicolor-creative-services-usa/"
+    },
+    "holding_or_text": "Court of Appeal affirmed a $2,887,758.30 judgment ($803,838.30 economic + $2,083,920 emotional distress) for British-citizen employee Michael Reynaud and his wife on a NEGLIGENCE theory: Technicolor agreed to sponsor his green card, botched/delayed the process through its outside counsel, his visa expired, and the family was forced to leave the U.S. Held: substantial evidence supported the verdict, and workers' compensation exclusivity did not bar emotional-distress damages because the injury did not arise from job duties.",
+    "relevance": "Case is real, amount is right, year is right — but the legal theory is MISATTRIBUTED. This is a negligence case about a bungled green-card sponsorship, not retaliation of any kind, let alone immigration-related retaliation.",
+    "cuts_against_us": true,
+    "notes": "CourtListener record verified (Cal. Ct. App. 2020-03-24); holding corroborated via Justia/FindLaw/Proskauer (published at 46 Cal. App. 5th 1007). If cited for 'immigration-related retaliation,' it will be exposed as mischaracterized on the first defense response. It remains marginally useful for a different point: employer mishandling of an employee's immigration status can generate multi-million-dollar emotional-distress liability. California authority — persuasive only in NDNY."
+  },
+  {
+    "question": "R2-6: Walsh v. Tara Construction (2022) — $650K for using immigration status as a retaliation tool?",
+    "claim": "$650K award where employer weaponized employee's immigration status as retaliation.",
+    "authority": {
+      "type": "case",
+      "name": "Walsh v. Tara Construction, Inc. (later Su v. Tara Construction, Inc. on appeal)",
+      "citation": "No. 1:19-cv-10369 (D. Mass.), jury verdict June 21, 2022; appeal: Su v. Tara Construction, Inc., No. 23-1563 (1st Cir.)",
+      "court": "U.S. District Court, D. Massachusetts",
+      "year": 2022,
+      "courtlistener_id": "docket_id 14632157 (D. Mass. 1:19-cv-10369); appellate docket_id 71655843 (1st Cir. 23-1563); no opinion_id/cluster_id retrieved",
+      "verification": "UNVERIFIED_WEB",
+      "source_url": "https://www.osha.gov/news/newsreleases/national/06222022"
+    },
+    "holding_or_text": "DOL (Secretary of Labor) enforcement action under FLSA § 15(a)(3). After employee Jose Martin Paz Flores broke his leg on the job (employer lacked workers' comp coverage), CEO Pedro Pirez had police run his identity, leading to his arrest by ICE. Jury found unlawful retaliation and awarded $650,000: $400K punitive against Pirez individually, $200K punitive against Tara Construction, $50K emotional distress.",
+    "relevance": "Proposition MATCHES: federal jury treated an employer's triggering of immigration enforcement against a worker who exercised workplace rights as actionable retaliation with punitive damages, and immigration status was no defense. Directly supports a retaliation-by-proxy / report-to-authorities theory.",
+    "cuts_against_us": false,
+    "notes": "Docket VERIFIED on CourtListener (D. Mass. 1:19-cv-10369 and 1st Cir. appeal 23-1563 captioned Su v. Tara Construction), but no opinion with the verdict is in the CourtListener opinion index, so strict-rule classification is UNVERIFIED_WEB; verdict corroborated by official OSHA/DOL June 22, 2022 news release and Boston Globe. Note the punitive damages ($600K of the $650K) were the bulk of the award; also note the 1st Cir. appeal (23-1563, docketed 2023) — final disposition of the appeal should be confirmed before citing the number as final."
+  },
+  {
+    "question": "R2-7: Zhang v. American Gem Seafoods (9th Cir. 2003) — was a 7:1 punitive ratio upheld in a discrimination case?",
+    "claim": "7:1 punitive-to-compensatory ratio upheld in a discrimination case.",
+    "authority": {
+      "type": "case",
+      "name": "Zhang v. American Gem Seafoods, Inc.",
+      "citation": "339 F.3d 1020 (9th Cir. 2003), cert. denied, 541 U.S. 902 (2004)",
+      "court": "U.S. Court of Appeals for the Ninth Circuit",
+      "year": 2003,
+      "courtlistener_id": "cluster_id 783131; opinion_id 783131 (cert. denial: cluster_id 134768)",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/783131/wei-zhang-v-american-gem-seafoods-inc-delaware-corporation-mcmi-food/"
+    },
+    "holding_or_text": "Ninth Circuit affirmed a $2.6M punitive award against $360K compensatory (ratio ~7.2:1) for intentional race/national-origin discrimination (§ 1981) in the termination of a Chinese-American executive, holding the ratio constitutional under BMW v. Gore / State Farm given the reprehensibility of intentional discrimination; also affirmed $2.2M contract damages. Cert. denied 2004.",
+    "relevance": "Proposition MATCHES. Standard citation for the point that single-digit punitive ratios well above 1:1 survive due-process review where intentional discrimination shows high reprehensibility. Supports an uncapped § 1981 punitive theory.",
+    "cuts_against_us": false,
+    "notes": "Ninth Circuit authority — persuasive, not binding, in the Second Circuit; 2d Cir. remittitur practice (e.g., Payne v. Jones line) trends toward lower ratios, and Title VII punitives are capped at $300K by 42 U.S.C. § 1981a(b)(3) regardless of ratio — the ratio argument matters only for uncapped claims (§ 1981, NYSHRL post-2019). Decided a few months after State Farm (2003) and expressly sustained ~7:1, which helps rebut any 'State Farm caps ratios at 4:1' argument."
+  },
+  {
+    "question": "R2-8: Chauca v. Abraham (N.Y. 2017) — punitive damages standard; is it NYCHRL-only, and does it apply in Broome County?",
+    "claim": "Sets the punitive damages standard for the discrimination claims (cited without jurisdictional qualification).",
+    "authority": {
+      "type": "case",
+      "name": "Chauca v. Abraham",
+      "citation": "30 N.Y.3d 325, 67 N.Y.S.3d 85, 89 N.E.3d 475 (N.Y. 2017); on certified question from 885 F.3d 122 (2d Cir. 2018)",
+      "court": "New York Court of Appeals",
+      "year": 2017,
+      "courtlistener_id": "cluster_id 7170278; opinion_id 7080600 (companion CL record cluster_id 4444618; 2d Cir. application: cluster_id 8439840, 885 F.3d 122)",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/7170278/chauca-v-abraham/"
+    },
+    "holding_or_text": "Answering a certified question from the Second Circuit, the N.Y. Court of Appeals held that punitive damages under the NEW YORK CITY Human Rights Law (Admin. Code § 8-502) are governed by the common-law Home Insurance standard — conduct showing willful or wanton negligence, recklessness, or a conscious disregard of others' rights — a LOWER bar than the federal Kolstad malice/reckless-indifference standard; plaintiff need not separately prove malice.",
+    "relevance": "FLAG CONFIRMED: Chauca construes the NYCHRL, a New York City ordinance with no force outside the five boroughs. A Broome County (Binghamton/NDNY) employment case cannot plead NYCHRL claims, so Chauca does not directly supply the punitive standard.",
+    "cuts_against_us": true,
+    "notes": "As inherited, the citation is jurisdictionally MISAPPLIED — mandatory obstacle-matrix entry. Two rescue paths: (1) NYSHRL, Exec. Law § 297(9), as amended effective Oct. 11, 2019 (S.6577/A.8421), now authorizes punitive damages against private employers in employment discrimination cases STATEWIDE (statute text at nysenate.gov/FindLaw — UNVERIFIED_WEB, official-source corroborated), and post-2019 courts frequently borrow Chauca's common-law standard for NYSHRL punitives; (2) federal claims: Title VII punitives use the Kolstad standard with the § 1981a $300K cap; § 1981 punitives are uncapped; FMLA provides NO punitive damages (liquidated damages instead). Any brief must cite Chauca only via path (1) with the statutory hook, never as directly governing."
+  },
+  {
+    "question": "R2-9: Saint Mary's Health Network v. UHS of Delaware (2025) — $500M punitive verdict against UHS?",
+    "claim": "$500M punitive damages verdict against UHS (offered as evidence of jury willingness to punish UHS entities).",
+    "authority": {
+      "type": "case",
+      "name": "Saint Mary's Health Network (Prime Healthcare affiliate) v. UHS of Delaware, Inc., et al.",
+      "citation": "Second Judicial District Court, Washoe County, Nevada — jury verdict concluded Sept. 26, 2025: ~$4.7M compensatory + $500M punitive vs. UHS of Delaware (total >$510M with awards vs. co-defendants)",
+      "court": "Second Judicial District Court, Washoe County, Nevada (state trial court)",
+      "year": 2025,
+      "courtlistener_id": null,
+      "verification": "UNVERIFIED_WEB",
+      "source_url": "https://www.fiercehealthcare.com/providers/jury-delivers-500m-plus-verdict-against-universal-health-services-over-illegal-poaching"
+    },
+    "holding_or_text": "Nevada state jury found UHS of Delaware, Inc. and affiliates liable for fraud, malice, and oppression in a scheme (from 2019) to cripple competitor Saint Mary's Health Network by poaching physicians and senior leaders, stealing trade secrets, and triggering mass resignations. Verdict: ~$4.7M compensatory; $500M punitive against UHS of Delaware plus smaller punitive awards against co-defendants (>$510M total). UHS is appealing; per its FY2025 Form 10-K, UHS expects the punitive award to be reduced to a maximum of ~$14M under Nevada's statutory punitive cap (NRS 42.005, 3x compensatory), possibly lower under recent Nevada Supreme Court precedent.",
+    "relevance": "The verdict is real and is against the same corporate family (UHS of Delaware, Inc. — a defendant in our caption). It shows a jury finding of fraud/malice/oppression in UHS corporate conduct. But it is a business-tort case (poaching/trade secrets between hospital systems), not employment discrimination, and the $500M figure is headed for a ~97% statutory reduction.",
+    "cuts_against_us": false,
+    "notes": "NOT in CourtListener (Nevada state court; RECAP search for 'Saint Mary's' + 'UHS of Delaware' returned nothing relevant). Corroborated by Fierce Healthcare, Becker's, Business Wire, KOLO, and UHS's own SEC Form 10-K (sec.gov) — the 10-K is the strongest source and is quotable. USE WITH EXTREME CARE: citing '$500M punitive vs UHS' without the Nevada-cap reduction (~$14M expected) and pending appeal would be misleading and easily punctured; the durable use is narrative (a jury found UHS-family management engaged in fraud/malice/oppression) and impeachment/pattern context, not damages modeling. Monitor the appeal."
+  },
+  {
+    "question": "R2-10: DaPrato v. Massachusetts Water Resources Authority (2019) — $1.3M FMLA verdict with liquidated damages?",
+    "claim": "$1.3M FMLA retaliation award including liquidated damages.",
+    "authority": {
+      "type": "case",
+      "name": "DaPrato v. Massachusetts Water Resources Authority",
+      "citation": "482 Mass. 375, 123 N.E.3d 737 (Mass. June 5, 2019) (SJC-12651)",
+      "court": "Massachusetts Supreme Judicial Court",
+      "year": 2019,
+      "courtlistener_id": "cluster_id 4626349; opinion_id 4403602",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/4626349/daprato-v-massachusetts-water-resources-authority/"
+    },
+    "holding_or_text": "SJC affirmed judgment (~$1.33M total) for an IT manager fired for taking a Mexico vacation during FMLA leave for foot surgery: jury awarded $200K emotional distress and $715,385 punitive damages (G.L. c. 151B), trial judge added $208,443 FMLA liquidated damages and $605,690 fees/costs. Held: employer may not presume vacation during FMLA leave is leave misuse; the FMLA 'good faith / honest belief' defense goes only to avoiding liquidated damages, not to excusing retaliation; liquidated damages properly awarded where retaliation was not in good faith.",
+    "relevance": "Proposition SUBSTANTIALLY MATCHES (~$1.3M FMLA retaliation judgment affirmed with liquidated damages). Good authority that FMLA liquidated damages are near-automatic absent employer good faith, and that 'we honestly believed she was abusing leave' fails as a merits defense.",
+    "cuts_against_us": false,
+    "notes": "Verified on CourtListener; amounts corroborated by Justia/FindLaw/counsel announcements. Precision caveats before reuse: the $715K punitive component came under Massachusetts G.L. c. 151B, not the FMLA (FMLA has no punitives — its analogue is the liquidated-damages doubling of back pay under 29 U.S.C. § 2617(a)(1)(A)(iii)); Massachusetts SJC decision is persuasive only in NDNY, though its liquidated-damages reasoning tracks the federal standard."
+  }
+]

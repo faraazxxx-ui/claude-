@@ -1,0 +1,326 @@
+[
+  {
+    "question": "Q1a: State-law malicious prosecution against private instigators — limitations period and deadline",
+    "claim": "NY CPLR 215(3) imposes a ONE-YEAR statute of limitations on malicious prosecution actions, accruing at favorable termination of the criminal proceeding. Favorable termination here = acquittal Sept 2025, so the state-law rail against the private instigators (UHS physicians; Guthrie if joined) expires approximately SEPTEMBER 2026 — roughly 6-8 weeks from today (Aug 2, 2026). This is the single most urgent deadline in the case: the malicious prosecution claim is NOT in the current complaint and must be added by amendment (or new action) before the anniversary of the acquittal date.",
+    "authority": {
+      "type": "statute",
+      "name": "N.Y. CPLR 215(3) — Actions to be commenced within one year",
+      "citation": "CPLR § 215(3)",
+      "court": null,
+      "year": null,
+      "courtlistener_id": null,
+      "verification": "UNVERIFIED_WEB",
+      "source_url": "https://www.nysenate.gov/legislation/laws/CVP/215"
+    },
+    "holding_or_text": "CPLR 215(3): the following actions shall be commenced within one year: 'an action to recover damages for assault, battery, false imprisonment, malicious prosecution, libel, slander...'. Under NY law the malicious prosecution cause of action accrues when the criminal proceeding terminates favorably to the accused.",
+    "relevance": "Sets the drop-dead date for the state-law tort against Ahmed, Nadeem, Rehman, Ali, UHSH (respondeat superior), and Guthrie. Exact acquittal date must be confirmed from the criminal court record to compute the precise deadline; treat early September 2026 as the working outer bound and move to amend well before it.",
+    "cuts_against_us": true,
+    "notes": "Cuts against only in the sense of urgency: if the amendment is not filed within the year, the state rail dies. Relation-back under CPLR 203(f)/FRCP 15(c) to the Jan-2026 complaint is uncertain because the claim had not yet been asserted; do not rely on relation-back — file within the year."
+  },
+  {
+    "question": "Q1b: §1983 Fourth Amendment malicious prosecution against state actors — limitations period and accrual",
+    "claim": "A §1983 malicious prosecution claim borrows New York's 3-year general personal-injury statute (CPLR 214(5)) per Owens v. Okure, and accrues only at favorable termination per McDonough v. Smith; Thompson v. Clark holds favorable termination requires only that the prosecution ended without a conviction (an acquittal easily qualifies). Deadline against state actors (police, county actors in an investigative capacity, and private parties who conspired with them) is approximately SEPTEMBER 2028. The federal rail is comfortably open.",
+    "authority": {
+      "type": "case",
+      "name": "Owens v. Okure",
+      "citation": "488 U.S. 235",
+      "court": "Supreme Court of the United States",
+      "year": 1989,
+      "courtlistener_id": "cluster_id 112166 / opinion_id 112166",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/112166/owens-v-okure/"
+    },
+    "holding_or_text": "Where state law provides multiple statutes of limitations for personal injury actions, §1983 claims borrow the general or residual personal-injury statute — in New York, the 3-year period of CPLR 214(5), not the 1-year intentional-tort period of CPLR 215. (Owens arose from New York and settled this exact question.)",
+    "relevance": "Even if the 1-year state rail is missed, a §1983 Fourth Amendment malicious prosecution claim remains timely until ~Sept 2028 — but it requires state action (see Dennis v. Sparks finding for the conspiracy pathway against the private defendants).",
+    "cuts_against_us": false,
+    "notes": "CPLR 214(5) text verified via nysenate.gov (https://www.nysenate.gov/legislation/laws/CVP/214): personal-injury actions must be commenced within three years."
+  },
+  {
+    "question": "Q1b: §1983 accrual rule — favorable termination",
+    "claim": "The §1983 claim did not accrue at arrest or charging; it accrued at favorable termination (Sept 2025 acquittal), so the 3-year clock runs from the acquittal, not from the April 2024 arrest.",
+    "authority": {
+      "type": "case",
+      "name": "McDonough v. Smith",
+      "citation": "588 U.S. 109; 139 S. Ct. 2149",
+      "court": "Supreme Court of the United States",
+      "year": 2019,
+      "courtlistener_id": "cluster_id 4631414 / opinion_id 4408667",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/4408667/mcdonough-v-smith/"
+    },
+    "holding_or_text": "A §1983 claim based on fabricated evidence used in criminal proceedings does not accrue — and the limitations period does not begin to run — until the criminal proceedings against the plaintiff terminate in his favor, by analogy to the common-law tort of malicious prosecution (applying Heck v. Humphrey's favorable-termination principle to accrual).",
+    "relevance": "Confirms the federal clock starts Sept 2025. Also directly useful on the merits: McDonough itself involved fabricated evidence fed into a prosecution — analogous to the alleged false complaint/coordination here.",
+    "cuts_against_us": false,
+    "notes": "Notably, McDonough is a Second Circuit (NDNY-adjacent, Troy NY) fact pattern."
+  },
+  {
+    "question": "Q1b: Favorable-termination element satisfied by acquittal",
+    "claim": "Thompson v. Clark holds a Fourth Amendment malicious prosecution plaintiff need only show the prosecution ended without a conviction; no affirmative indication of innocence is required. A full acquittal after trial (Sept 2025) satisfies the element beyond argument on both the federal and state claims.",
+    "authority": {
+      "type": "case",
+      "name": "Thompson v. Clark",
+      "citation": "596 U.S. 36",
+      "court": "Supreme Court of the United States",
+      "year": 2022,
+      "courtlistener_id": "opinion_id 6329458",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/6329458/thompson-v-clark/"
+    },
+    "holding_or_text": "To demonstrate a favorable termination of a criminal prosecution for purposes of the Fourth Amendment claim under §1983 for malicious prosecution, a plaintiff need only show that his prosecution ended without a conviction.",
+    "relevance": "Element (2) of both rails is locked. An acquittal is the strongest possible form of favorable termination — stronger than the dismissal that sufficed in Thompson.",
+    "cuts_against_us": false,
+    "notes": "Verification supplied by the orchestrator (opinion_id 6329458); consistent with this researcher's knowledge of the holding."
+  },
+  {
+    "question": "Q2: Notice-of-claim trap — state tort claims against county/municipal actors (police, DA staff)",
+    "claim": "GML §50-e requires a sworn notice of claim served within 90 days after the claim arises as a condition precedent to any state tort action against a public corporation or its officers/employees; §50-i bars the action unless notice was served and imposes a 1-year-90-day limitations period. County Law §52 extends this to counties (Broome County / DA's office personnel; also any city or town police entity). The malicious prosecution claim vs public actors arose at the Sept 2025 acquittal, so the 90-day window closed ~December 2025 — ALREADY MISSED unless a notice was served (nothing in the facts canon suggests one was).",
+    "authority": {
+      "type": "statute",
+      "name": "N.Y. Gen. Mun. Law §§ 50-e, 50-i; County Law § 52",
+      "citation": "GML §§ 50-e, 50-i",
+      "court": null,
+      "year": null,
+      "courtlistener_id": null,
+      "verification": "UNVERIFIED_WEB",
+      "source_url": "https://www.nysenate.gov/legislation/laws/GMU/50-E"
+    },
+    "holding_or_text": "GML 50-e(1)(a): 'In any case founded upon tort where a notice of claim is required by law as a condition precedent to the commencement of an action ... against a public corporation ... or any officer, appointee or employee thereof, the notice of claim shall ... be served ... within ninety days after the claim arises.' GML 50-i (https://www.nysenate.gov/legislation/laws/GMU/50-I): no action shall be maintained against a city, county, town, village etc. for personal injury from the wrongful act of the entity or its officers/employees unless a 50-e notice was served, and the action must be commenced within one year and ninety days.",
+    "relevance": "The STATE-LAW malicious prosecution rail against public actors (arresting officers, DA investigators acting outside prosecutorial function) is presumptively foreclosed. Two partial escape hatches: (1) GML 50-e(5) permits a court, in its discretion, to grant leave to serve a LATE notice of claim, but the application must be made within the 50-i limitations period — i.e., by ~December 2026; factors include actual knowledge by the municipality (strong here: the DA's office ran the prosecution) and prejudice. (2) The 90-day trap does not apply to the §1983 claim at all (see Felder v. Casey finding).",
+    "cuts_against_us": true,
+    "notes": "Also note GML 50-e(1)(b): service on the individual officer/employee is not a condition precedent unless indemnification applies, but the county must still get notice for claims it must indemnify. If a late-notice motion is worth pursuing against public actors it must be filed before ~Dec 2026. Practical read: against public actors, ride the §1983 rail; against private instigators, ride both."
+  },
+  {
+    "question": "Q2: Notice of claim NOT required for §1983 claims",
+    "claim": "State notice-of-claim statutes cannot be applied to §1983 claims, even when brought in state court — a fortiori not in federal court. The missed GML 50-e window therefore does NOT touch the federal malicious prosecution claim against police/county actors.",
+    "authority": {
+      "type": "case",
+      "name": "Felder v. Casey",
+      "citation": "487 U.S. 131",
+      "court": "Supreme Court of the United States",
+      "year": 1988,
+      "courtlistener_id": "cluster_id 112121 / opinion_id 9431388",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/9431388/felder-v-casey/"
+    },
+    "holding_or_text": "Wisconsin's notice-of-claim statute is preempted by federal law when applied to §1983 actions; enforcement of such notice provisions would frustrate the remedial objectives of §1983 and produce different outcomes based solely on whether the claim is asserted in state or federal court.",
+    "relevance": "Preserves the federal rail against public actors notwithstanding the blown 90-day notice window.",
+    "cuts_against_us": false,
+    "notes": null
+  },
+  {
+    "question": "Q2: Private instigators need no notice of claim",
+    "claim": "GML 50-e by its terms applies only to actions 'against a public corporation ... or any officer, appointee or employee thereof.' UHSH is a private not-for-profit hospital system; the four physician defendants are private employees; Guthrie is a private health system. No notice of claim is required as to any of them, and the only clock on the state-law claim against them is CPLR 215(3).",
+    "authority": {
+      "type": "statute",
+      "name": "N.Y. Gen. Mun. Law § 50-e(1)(a) (scope limited to public corporations and their officers/employees)",
+      "citation": "GML § 50-e(1)(a)",
+      "court": null,
+      "year": null,
+      "courtlistener_id": null,
+      "verification": "UNVERIFIED_WEB",
+      "source_url": "https://www.nysenate.gov/legislation/laws/GMU/50-E"
+    },
+    "holding_or_text": "Statutory text limits the condition precedent to claims against a 'public corporation, as defined in the general construction law, or any officer, appointee or employee thereof.'",
+    "relevance": "Confirms the private-defendant state rail is clean of the notice trap — the ONLY constraint is the ~Sept 2026 CPLR 215(3) deadline.",
+    "cuts_against_us": false,
+    "notes": "Factual predicate (UHSH and Guthrie are private entities) should be confirmed, but both are private health systems, not public benefit corporations."
+  },
+  {
+    "question": "Q3: Elements of malicious prosecution under New York law",
+    "claim": "The four elements are: (1) commencement or continuation of a criminal proceeding by the defendant against the plaintiff; (2) termination of the proceeding in favor of the accused; (3) absence of probable cause; and (4) actual malice. Broughton v. State is the leading New York Court of Appeals authority.",
+    "authority": {
+      "type": "case",
+      "name": "Broughton v. State of New York",
+      "citation": "37 N.Y.2d 451; 335 N.E.2d 310; 373 N.Y.S.2d 87",
+      "court": "New York Court of Appeals",
+      "year": 1975,
+      "courtlistener_id": "cluster_id 5681499 / opinion_id 5529909",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/5529909/broughton-v-state/"
+    },
+    "holding_or_text": "Broughton distinguishes false imprisonment from malicious prosecution and states the classic four-element formulation for malicious prosecution (initiation/continuation, favorable termination, no probable cause, actual malice); malice does not require spite but means commencing the proceeding due to a wrong or improper motive, something other than a desire to see the ends of justice served.",
+    "relevance": "Framework for the amended claim. Elements (1) and (2) are strongly supported by the facts canon (instigation evidence; acquittal). Elements (3) and (4) are the battleground.",
+    "cuts_against_us": false,
+    "notes": "Second Circuit restates the same elements when applying NY law: Manganiello v. City of New York, 612 F.3d 149 (2d Cir. 2010), VERIFIED cluster_id 2522805 — also holds that a §1983 malicious prosecution claim requires a post-arraignment liberty restraint (Fourth Amendment seizure); arrest plus prosecution through trial satisfies this."
+  },
+  {
+    "question": "Q3: What counts as 'initiation' by a civilian complainant/instigator",
+    "claim": "A civilian who merely furnishes information to law enforcement, who then exercise independent judgment, has NOT initiated the prosecution; but a civilian defendant DOES initiate where he plays an active role — importuning or encouraging the authorities to act, or knowingly providing false information / withholding exculpatory information that induces the prosecution. Present v. Avon Products (1st Dept) is the standard NY citation; Rothstein v. Carriere (2d Cir, applying NY law) adopts the same rule.",
+    "authority": {
+      "type": "case",
+      "name": "Present v. Avon Products, Inc.",
+      "citation": "253 A.D.2d 183; 687 N.Y.S.2d 330",
+      "court": "N.Y. App. Div., 1st Dept",
+      "year": 1999,
+      "courtlistener_id": "cluster_id 6162502 / opinion_id 6028200",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/6028200/present-v-avon-products-inc/"
+    },
+    "holding_or_text": "For a civilian complainant to be liable for malicious prosecution, it is not enough to have furnished information to law enforcement; the defendant must have played an active role in the prosecution, such as giving advice and encouragement or importuning the authorities to act, or knowingly providing false information. Accord Rothstein v. Carriere, 373 F.3d 275 (2d Cir. 2004) (VERIFIED cluster_id 786706): 'The defendant must have played an active role in the prosecution, such as giving advice and encouragement or importuning the authorities to act,' and knowingly giving false statements to police can constitute initiation.",
+    "relevance": "Maps directly onto the instigation evidence: wanted-poster circulation, Nadeem texts coordinating with the complainant's family, the alleged pipeline from UHS personnel to the Broome County DA, the never-produced CCTV, and the fact that Guthrie (the complainant's employer, not UHS) placed the police call. Discovery should target who supplied what information to police/DA, and whether known-false statements (e.g., the probation narrative the prosecution used while plaintiff was told he was never on probation) were passed along.",
+    "cuts_against_us": false,
+    "notes": "Flip side recorded as a separate cuts-against finding: if defendants show they merely reported and police/DA exercised independent judgment, initiation fails. The intervening independent judgment of prosecutor/grand jury is the defense's chain-breaking argument."
+  },
+  {
+    "question": "Q3/Q5 (cuts against): Presumption of probable cause from a grand jury indictment",
+    "claim": "If the criminal case proceeded on a grand jury indictment, Colon v. City of New York creates a presumption of probable cause rebuttable only by evidence that the indictment was procured by fraud, perjury, suppression of evidence, or other bad-faith police/complainant conduct. Savino (2d Cir) puts the burden squarely on plaintiff to rebut with competent evidence, not speculation.",
+    "authority": {
+      "type": "case",
+      "name": "Colon v. City of New York",
+      "citation": "60 N.Y.2d 78; 455 N.E.2d 1248",
+      "court": "New York Court of Appeals",
+      "year": 1983,
+      "courtlistener_id": "cluster_id 5686686 / opinion_id 5535756",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/5535756/colon-v-city-of-new-york/"
+    },
+    "holding_or_text": "Once a suspect has been indicted, the grand jury action creates a presumption of probable cause; the presumption may be overcome only by evidence establishing that the police witnesses have not made a complete and full statement of facts either to the grand jury or the DA, that they have misrepresented or falsified evidence, withheld evidence, or otherwise acted in bad faith. Accord Savino v. City of New York, 331 F.3d 63 (2d Cir. 2003) (VERIFIED cluster_id 782199): plaintiff bears the burden of rebutting the presumption with specific, competent evidence.",
+    "relevance": "MAJOR OBSTACLE if there was an indictment (need to confirm whether the charge was prosecuted by indictment or by information — a misdemeanor information triggers no Colon presumption). Rebuttal ammunition already in the facts canon: the never-produced CCTV held by a third party, the allegedly falsified/unilateral probation record used by the prosecution, the incomplete academic record produced in criminal discovery, and the UHS-DA coordination allegations. Rothstein also holds the plaintiff cannot use the civil suit to obtain grand jury minutes without a showing — plan for a CPL 190.25(4) unsealing motion.",
+    "cuts_against_us": true,
+    "notes": "Action item: confirm charging instrument. If prosecuted by information (likely for a low-level charge arising from a workplace complaint), the Colon presumption never attaches and this obstacle largely disappears."
+  },
+  {
+    "question": "Q3/Q5 (cuts against): Acquittal does not itself prove absence of probable cause",
+    "claim": "Probable cause is measured at the time the prosecution was initiated (and as it continued); a subsequent acquittal — even a swift one — is not evidence that probable cause was lacking at initiation. Plaintiff must independently prove the no-probable-cause element.",
+    "authority": {
+      "type": "case",
+      "name": "Rothstein v. Carriere",
+      "citation": "373 F.3d 275",
+      "court": "Court of Appeals for the Second Circuit",
+      "year": 2004,
+      "courtlistener_id": "cluster_id 786706 / opinion_id 786706",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/786706/rothstein-v-carriere/"
+    },
+    "holding_or_text": "Rothstein (applying NY law): favorable termination and absence of probable cause are separate elements; the ultimate collapse or dismissal of the criminal case does not establish that probable cause was absent when the prosecution was commenced. Probable cause is assessed in light of the facts known or reasonably believed at the time the prosecution was initiated.",
+    "relevance": "Prevents over-reliance on the not-guilty verdict. The no-probable-cause showing must be built from initiation-time facts: what the complainant and UHS personnel actually knew and told police, the unviewed/never-produced CCTV, the 24-hour reversal of the administrative leave and arrest, and all investigations being dropped.",
+    "cuts_against_us": true,
+    "notes": "The 24-hour reversals are initiation-adjacent facts and thus far more probative on this element than the Sept 2025 acquittal."
+  },
+  {
+    "question": "Q4: Absolute prosecutorial immunity — scope",
+    "claim": "The Broome County DA and line prosecutors are absolutely immune from §1983 damages liability for initiating a prosecution and presenting the State's case — including allegedly malicious or bad-faith charging decisions. Naming the DA's office as a damages defendant on the prosecution itself is a dead end.",
+    "authority": {
+      "type": "case",
+      "name": "Imbler v. Pachtman",
+      "citation": "424 U.S. 409",
+      "court": "Supreme Court of the United States",
+      "year": 1976,
+      "courtlistener_id": "cluster_id 109387 / opinion_id 9426281",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/9426281/imbler-v-pachtman/"
+    },
+    "holding_or_text": "A state prosecutor acting within the scope of his duties in initiating and pursuing a criminal prosecution and presenting the State's case is absolutely immune from a civil suit for damages under §1983.",
+    "relevance": "Shapes defendant selection: the coordination-with-the-DA evidence should be used to prove the private defendants' instigation and conspiracy, not to sue the prosecutors for prosecuting.",
+    "cuts_against_us": true,
+    "notes": "Immunity is personal to the prosecutor; it does not shield the private parties who allegedly fed the DA false information (see Dennis v. Sparks finding)."
+  },
+  {
+    "question": "Q4: Limit on prosecutorial immunity — investigative/administrative acts",
+    "claim": "Absolute immunity is functional, not categorical: prosecutors get only qualified immunity for investigative acts performed before probable cause exists (e.g., participating in evidence-gathering, fabricating evidence during the investigation, making public statements). If DA personnel participated in the pre-arrest coordination alleged here (before any charging decision), that conduct falls outside Imbler.",
+    "authority": {
+      "type": "case",
+      "name": "Buckley v. Fitzsimmons",
+      "citation": "509 U.S. 259",
+      "court": "Supreme Court of the United States",
+      "year": 1993,
+      "courtlistener_id": "cluster_id 112894 / opinion_id 9432862",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/9432862/buckley-v-fitzsimmons/"
+    },
+    "holding_or_text": "Prosecutors are not entitled to absolute immunity for administrative or investigative functions — including allegedly fabricating evidence during the preliminary investigation of a crime before probable cause to arrest exists, and making statements to the press; for those functions only qualified immunity is available.",
+    "relevance": "The wanted-poster circulation and any pre-arrest DA-office involvement in the UHS/complainant-family coordination (Nadeem texts) are investigative-phase conduct. Discovery should pin down WHEN DA personnel became involved relative to the arrest and charging.",
+    "cuts_against_us": false,
+    "notes": "Realistically, prosecutors remain hard targets even under Buckley; primary value is keeping discovery into the DA coordination alive rather than adding prosecutor defendants."
+  },
+  {
+    "question": "Q4: Police qualified immunity — arguable probable cause",
+    "claim": "Arresting/investigating officers sued under §1983 receive qualified immunity if 'arguable probable cause' existed — i.e., if officers of reasonable competence could disagree on whether probable cause existed. This is the operative shield for any police defendants; it does not protect officers who rely on information they know is false.",
+    "authority": {
+      "type": "case",
+      "name": "Escalera v. Lunn",
+      "citation": "361 F.3d 737",
+      "court": "Court of Appeals for the Second Circuit",
+      "year": 2004,
+      "courtlistener_id": "cluster_id 785475 / opinion_id 785475",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/785475/escalera-v-lunn/"
+    },
+    "holding_or_text": "An officer is entitled to qualified immunity on false arrest/malicious prosecution claims if there was 'arguable probable cause' — if either it was objectively reasonable for the officer to believe probable cause existed, or officers of reasonable competence could disagree on whether the probable cause test was met.",
+    "relevance": "If police acted on a facially plausible complaint from Guthrie/the complainant, QI likely protects them even if the complaint was false — UNLESS plaintiff shows the officers ignored obviously exculpatory evidence (e.g., declined to view available CCTV) or knew of the private coordination. This again channels the case toward the private instigators.",
+    "cuts_against_us": true,
+    "notes": "The reversal of the arrest within ~24 hours may itself suggest police quickly recognized the absence of probable cause — useful on the merits against the instigators, but it also shows police corrected course, weakening a deliberate-misconduct narrative against them."
+  },
+  {
+    "question": "Q4: No immunity for private instigators",
+    "claim": "Private defendants have no qualified immunity under §1983 (Wyatt v. Cole), and private parties who conspire or act jointly with state officials act 'under color of state law' and are themselves suable under §1983 even when the state officials they conspired with are immune (Dennis v. Sparks). On the state-law tort, private instigators enjoy no governmental immunity at all.",
+    "authority": {
+      "type": "case",
+      "name": "Wyatt v. Cole",
+      "citation": "504 U.S. 158",
+      "court": "Supreme Court of the United States",
+      "year": 1992,
+      "courtlistener_id": "cluster_id 112733 / opinion_id 9432538",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/9432538/wyatt-v-cole/"
+    },
+    "holding_or_text": "Wyatt: qualified immunity is not available to private defendants charged with §1983 liability (there, for invoking state replevin procedures). Dennis v. Sparks, 449 U.S. 24 (1980) (VERIFIED cluster_id 110353 / opinion_id 110353): private persons who are willful participants in joint action with the State or its agents act under color of law and may be liable under §1983, even where the immune state actor (there, a judge) cannot be sued.",
+    "relevance": "The physicians, UHSH, and Guthrie are the cleanest targets on both rails: no notice of claim, no QI, no prosecutorial immunity. The Nadeem texts + DA coordination evidence, if proven, supply the joint-action predicate for §1983 state action against them, which matters because the §1983 rail stays open until ~Sept 2028 even if the 1-year state rail is missed.",
+    "cuts_against_us": false,
+    "notes": "Caveat: Wyatt left open a good-faith defense for private defendants (later recognized by several circuits); and proving joint action/conspiracy is a demanding factual showing — conclusory allegations of coordination will not survive Rule 12/56 without the texts, call records, and DA-file evidence."
+  },
+  {
+    "question": "Q5: How the 24-hour internal exoneration and dropped investigations bear on malice and probable cause",
+    "claim": "Malice under NY law means a wrong or improper motive — something other than a desire to see the ends of justice served — and a jury may infer malice from the absence of probable cause. Evidence that the defendants' OWN institution reversed the administrative leave within ~24 hours, that the arrest was undone within ~24 hours, and that every internal investigation was dropped is powerful circumstantial proof that the individuals who instigated the complaint did not honestly believe in guilt at the time, supporting both the no-probable-cause and malice elements. Coupled with the retaliation timeline (FMLA request filed BEFORE the arrest; unilateral probation weeks earlier), it supplies the improper-motive narrative.",
+    "authority": {
+      "type": "case",
+      "name": "Lowth v. Town of Cheektowaga",
+      "citation": "82 F.3d 563",
+      "court": "Court of Appeals for the Second Circuit",
+      "year": 1996,
+      "courtlistener_id": "cluster_id 717472 / opinion_id 717472",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/717472/lowth-v-town-of-cheektowaga/"
+    },
+    "holding_or_text": "Lowth (applying NY law): malice means the defendant commenced the criminal proceeding due to a wrong or improper motive, something other than a desire to see the ends of justice served; a lack of probable cause generally creates an inference of malice, and probable cause that existed at arrest can dissipate as exculpatory facts emerge (the 'continuation' theory). Accord Manganiello v. City of New York, 612 F.3d 149 (2d Cir. 2010) (VERIFIED cluster_id 2522805): malice may be inferred from lack of probable cause and from evidence the defendant misrepresented or withheld evidence.",
+    "relevance": "Litigation use: (a) the 24-hour reversals are near-contemporaneous admissions that the accusation did not withstand even a day of scrutiny — probative of what the instigators knew at initiation; (b) Lowth's dissipation principle supports a CONTINUATION theory — even if a facially valid complaint created initial probable cause, defendants who kept feeding the prosecution (through the Sept 2025 trial) after their own institution exonerated plaintiff continued the proceeding without probable cause; (c) the pre-arrest FMLA request and the unilateral probation give the jury the improper motive Lowth requires.",
+    "cuts_against_us": false,
+    "notes": "NO directly on-point verified authority was found holding that an employer's rapid internal exoneration is itself sufficient to establish malice — this is an inference argument, not a rule of law. Searches tried: CourtListener queries around Lowth/Manganiello malice language. Recorded honestly as argument-by-inference. Also note the counter-reading recorded under the Escalera finding: the swift reversals can be spun by defendants as the system working."
+  },
+  {
+    "question": "Q5 (cuts against): Continuation theory limits — defendants must have had power over the prosecution",
+    "claim": "For 'continuation' liability, post-initiation conduct counts only if the defendant actively continued the prosecution (e.g., pressing charges, supplying continuing false statements, testifying falsely — though in-court testimony is itself absolutely privileged under Briscoe-type witness immunity). Mere failure by UHS personnel to retract the complaint after the internal exoneration may not suffice; and any claim built on their trial testimony alone is barred by witness immunity.",
+    "authority": {
+      "type": "case",
+      "name": "Rothstein v. Carriere (initiation/continuation analysis under NY law)",
+      "citation": "373 F.3d 275",
+      "court": "Court of Appeals for the Second Circuit",
+      "year": 2004,
+      "courtlistener_id": "cluster_id 786706 / opinion_id 786706",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/786706/rothstein-v-carriere/"
+    },
+    "holding_or_text": "Rothstein: the initiation element requires active instigation; a defendant's cooperation with an ongoing prosecution, without importuning or falsehood, does not make him the proximate initiator where the prosecuting authorities exercise independent judgment.",
+    "relevance": "Obstacle-matrix entry: the DA's independent decision to take the case to trial (through Sept 2025) is the defense's superseding-cause argument. Rebuttal must show the prosecution's continuing reliance on defendant-supplied false material (the probation record, withheld CCTV, coordinated witness accounts).",
+    "cuts_against_us": true,
+    "notes": "Witness absolute immunity for trial testimony (Briscoe v. LaHue, 460 U.S. 325) was NOT separately retrieved from CourtListener in this session — treat that specific citation as NOT_FOUND/knowledge-based until verified; the Rothstein independent-judgment point is the verified anchor here."
+  },
+  {
+    "question": "Q1 synthesis: the two rails and their dates",
+    "claim": "RAIL A (state tort, private instigators — physicians, UHSH, Guthrie): CPLR 215(3), 1 year from Sept 2025 acquittal, expires ~SEPT 2026 (weeks away); no notice of claim needed. RAIL B (§1983 Fourth Amendment, state actors + private co-conspirators via Dennis v. Sparks): CPLR 214(5) 3 years per Owens v. Okure, accrual at favorable termination per McDonough/Thompson, expires ~SEPT 2028; Felder v. Casey removes the notice-of-claim trap. RAIL A-public (state tort vs police/county): presumptively dead — 90-day GML 50-e notice window closed ~Dec 2025; discretionary late-notice motion possible only until ~Dec 2026.",
+    "authority": {
+      "type": "factual",
+      "name": "Synthesis of verified authorities above against the facts canon (acquittal Sept 2025; suit filed Jan 2026 without a malicious prosecution count)",
+      "citation": null,
+      "court": null,
+      "year": 2026,
+      "courtlistener_id": null,
+      "verification": "VERIFIED",
+      "source_url": null
+    },
+    "holding_or_text": "Immediate action items: (1) confirm exact acquittal date from the criminal court record and calendar the CPLR 215(3) date with a safety margin; (2) move to amend the NDNY complaint to add state-law malicious prosecution against the private defendants (supplemental jurisdiction, 28 U.S.C. 1367) and a §1983 malicious prosecution count on a joint-action theory, BEFORE the 1-year date — do not rely on relation-back; (3) confirm the criminal charging instrument (indictment vs information) to know whether the Colon presumption applies; (4) decide by ~Nov 2026 whether a GML 50-e(5) late-notice motion against any public actor is worth the candle; (5) preserve/subpoena the third-party CCTV and the Nadeem texts now — they are the Colon-rebuttal and initiation evidence.",
+    "relevance": "This is the deadline answer the orchestrator flagged as most important. The viability verdict: the claim is viable and strong on favorable termination and initiation, contestable on probable cause/malice, and time-critical only on Rail A.",
+    "cuts_against_us": false,
+    "notes": "Mediation deadline Nov 2026 post-dates the Rail A deadline — the malicious prosecution count must be in the case BEFORE mediation to have settlement value."
+  }
+]

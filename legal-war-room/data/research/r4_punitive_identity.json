@@ -1,0 +1,290 @@
+[
+  {
+    "question": "Q1 CORPORATE IDENTITY: Who is defendant United Health Services Hospitals, Inc. — size, revenue, non-profit status?",
+    "claim": "Defendant United Health Services Hospitals, Inc. (EIN 16-1165049, Binghamton NY) is a 501(c)(3) non-profit hospital corporation (tax-exempt since July 1982) within the United Health Services, Inc. system — the largest health system and largest private employer in NY's Southern Tier (~916 beds; Wilson Medical Center in Johnson City, Binghamton General Hospital; UHS Chenango Memorial, Delaware Valley Hospital, senior living, home care, primary care; 60+ locations; ~300,000 residents served). Form 990 total revenue: FY2021 $826,097,433; FY2022 $866,272,321; FY2023 $993,815,632; FY2024 $1,162,162,151; FY2024 total assets $801,823,327. System-wide economic impact reported ~$1.3B/yr.",
+    "authority": {
+      "type": "factual",
+      "name": "IRS Form 990 filings via ProPublica Nonprofit Explorer; Wikipedia; Cause IQ; HANYS member directory",
+      "citation": "EIN 16-1165049",
+      "court": null,
+      "year": 2024,
+      "courtlistener_id": null,
+      "verification": "UNVERIFIED_WEB",
+      "source_url": "https://projects.propublica.org/nonprofits/organizations/161165049"
+    },
+    "holding_or_text": "ProPublica Nonprofit Explorer (IRS 990 data): 'United Health Services Hospitals Inc,' Binghamton NY, 501(c)(3) since July 1982; total revenue 2024 $1,162,162,151; 2023 $993,815,632; 2022 $866,272,321; 2021 $826,097,433; total assets (2024) $801,823,327; 'Operated hospital facilities'; 'Reported conflict of interest transactions.'",
+    "relevance": "Punitive-exposure framing: the hospital entity alone books ~$1.16B annual revenue, so a punitive award in the $5M-$25M range is a fraction of one percent of one year's revenue — supports 'meaningful deterrence' argument at mediation. But it is a non-profit community system, which juries and NY courts treat more sympathetically than a for-profit chain; net assets (~$802M) rather than revenue is the honest wealth measure. FY2024 filing's 'reported conflict of interest transactions' flag is a discovery lead.",
+    "cuts_against_us": false,
+    "notes": "Revenue figures are IRS-filed data pulled from an official aggregator but not retrieved from a court source — treat as UNVERIFIED_WEB until the 990s themselves are exhibited. Non-profit status cuts both ways: deep pockets exist, but 'punishing a community charity hospital' is a defense theme; State Farm bars using wealth alone to inflate awards (see Q2)."
+  },
+  {
+    "question": "Q1 CORPORATE IDENTITY: Is defendant UHS distinct from Universal Health Services, Inc. (NYSE: UHS)?",
+    "claim": "Yes — completely distinct. Universal Health Services, Inc. is a FOR-PROFIT, NYSE-listed (ticker UHS), S&P 500 company headquartered in King of Prussia, PA (founded 1979 by Alan B. Miller), with ~$17.4B revenue (2025), 29 acute-care hospitals and 346 behavioral-health facilities in 40 states, D.C., Puerto Rico, and the UK. Defendant United Health Services, Inc. (Binghamton, founded 1981) expressly disclaims any affiliation: 'The members of United Health Services, Inc. ... are neither affiliated with, sponsored, endorsed nor approved by, nor otherwise associated with, Universal Health Services, Inc. (NYSE: UHS).' CRITICAL MISATTRIBUTION RISK: the July 2020 DOJ False Claims Act settlement — $122M total ($117M from UHS entities re medically unnecessary inpatient behavioral health services and inadequate care; $5M from Turning Point Care Center re kickbacks), arising from 18+ whistleblower suits — belongs to UNIVERSAL Health Services (PA), NOT the Binghamton defendant. Any 'UHS' behavioral-health scandal coverage (e.g., BuzzFeed-era reporting) is Universal's.",
+    "authority": {
+      "type": "factual",
+      "name": "DOJ press release (justice.gov, M.D. Fla. & OPA); uhs.com fact sheet; Wikipedia (both entities); nyuhs.org",
+      "citation": "DOJ settlement announced July 10, 2020",
+      "court": null,
+      "year": 2020,
+      "courtlistener_id": null,
+      "verification": "UNVERIFIED_WEB",
+      "source_url": "https://www.justice.gov/usao-mdfl/pr/universal-health-services-inc-and-related-entities-pay-122-million-settle-false-claims"
+    },
+    "holding_or_text": "DOJ: 'Universal Health Services, Inc. and related entities to pay $122 million to settle False Claims Act allegations relating to medically unnecessary inpatient behavioral health services and illegal kickbacks' — defendant entity is the King of Prussia, PA company, not the Binghamton system.",
+    "relevance": "Mandatory hygiene for every damages brief, expert report, and mediation statement: citing Universal's $122M FCA settlement or its behavioral-health record against the Binghamton defendant would be sanctionably wrong and would destroy credibility. Conversely, defense cannot borrow Universal's size, and plaintiff cannot borrow Universal's rap sheet.",
+    "cuts_against_us": true,
+    "notes": "Cuts against us in the sense that the 'bad UHS' headlines a jury may have heard mostly belong to a different company; our punitive story must be built entirely on this defendant's own conduct. No prior verdicts/penalties specific to the Binghamton system were found in this session's searches (NOT_FOUND — searched 'United Health Services Binghamton' revenue/penalty queries)."
+  },
+  {
+    "question": "Q1 CORPORATE IDENTITY: Is defendant UHS distinct from UnitedHealth Group?",
+    "claim": "Yes. UnitedHealth Group Inc. (NYSE: UNH) is the Minnesota-based (Minnetonka/Eden Prairie) diversified insurer — nation's largest health insurer via UnitedHealthcare, plus Optum — with 400,000+ employees and revenue two orders of magnitude larger (hundreds of billions). It has no ownership or affiliation with United Health Services of Binghamton. Any UNH litigation, DOJ matters, or PBM/insurer controversies are irrelevant to this defendant.",
+    "authority": {
+      "type": "factual",
+      "name": "Star Tribune FAQ on UnitedHealth Group/UnitedHealthcare; Wikipedia; corporate directories",
+      "citation": null,
+      "court": null,
+      "year": 2026,
+      "courtlistener_id": null,
+      "verification": "UNVERIFIED_WEB",
+      "source_url": "https://www.startribune.com/united-healthcare-united-healthgroup-your-questions-answered/601190686"
+    },
+    "holding_or_text": "UnitedHealth Group (Minnetonka/Eden Prairie, MN) owns UnitedHealthcare, 'the nation's largest health insurer,' and Optum; it is a separate publicly traded company unrelated to the Binghamton non-profit.",
+    "relevance": "Same misattribution hygiene as Universal Health Services. Three near-identical names (United Health Services / Universal Health Services / UnitedHealth) — every filing should carry a footnote fixing the defendant's identity by EIN 16-1165049 and NY domicile.",
+    "cuts_against_us": false,
+    "notes": "Summary of ownership of prior penalties: $122M FCA settlement (2020) = Universal Health Services (PA, for-profit); insurer-side controversies = UnitedHealth Group (MN); NO prior verdicts/penalties located for defendant United Health Services Hospitals, Inc. (Binghamton) in this research pass."
+  },
+  {
+    "question": "Q2 CONSTITUTIONAL FRAMEWORK: What limits does BMW v. Gore place on punitive damages?",
+    "claim": "BMW of North America, Inc. v. Gore, 517 U.S. 559 (1996), holds the Due Process Clause prohibits 'grossly excessive' punitive awards and establishes three guideposts: (1) degree of reprehensibility of the conduct (the most important indicium); (2) ratio between punitive award and actual/potential harm; (3) comparison to civil or criminal sanctions for comparable misconduct. A state may not punish for out-of-state conduct.",
+    "authority": {
+      "type": "case",
+      "name": "BMW of North America, Inc. v. Gore",
+      "citation": "517 U.S. 559",
+      "court": "Supreme Court of the United States",
+      "year": 1996,
+      "courtlistener_id": "cluster_id 118026; opinion_id 9433294 (lead, Stevens, J.); combined opinion_id 118026",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/118026/bmw-of-north-america-inc-v-gore/"
+    },
+    "holding_or_text": "Lead opinion (Stevens, J.): 'The Due Process Clause of the Fourteenth Amendment prohibits a State from imposing a \"grossly excessive\" punishment on a tortfeasor.' (Retrieved snippet.) Court struck a $2M punitive award on $4,000 actual harm (500:1).",
+    "relevance": "Frames the ceiling architecture for any punitive demand. Our reprehensibility story is strong on Gore's own terms: the harm was not purely economic (career destruction + cardiac patient with ICD = physical vulnerability), the target was financially vulnerable (J-1 visa dependence), and the conduct involved alleged deceit and coordination with law enforcement rather than mere accident.",
+    "cuts_against_us": false,
+    "notes": "Gore guideposts are argued through State Farm's gloss in modern practice; use both together."
+  },
+  {
+    "question": "Q2 CONSTITUTIONAL FRAMEWORK: What does State Farm v. Campbell add (single-digit ratio, reprehensibility factors, wealth)?",
+    "claim": "State Farm Mut. Auto. Ins. Co. v. Campbell, 538 U.S. 408 (2003), struck a 145:1 award ($145M punitive on $1M compensatory) and holds: (a) 'few awards exceeding a single-digit ratio between punitive and compensatory damages, to a significant degree, will satisfy due process'; (b) reprehensibility factors: physical vs. economic harm; indifference/reckless disregard of health or safety of others; financial vulnerability of the target; repeated conduct vs. isolated incident; harm from intentional malice, trickery, or deceit vs. mere accident; (c) when compensatory damages are substantial, a 1:1 ratio may be the outer limit; (d) defendant's wealth cannot justify an otherwise unconstitutional award; (e) punishment must be tied to conduct directed at the plaintiff, not the defendant's general character.",
+    "authority": {
+      "type": "case",
+      "name": "State Farm Mutual Automobile Insurance Co. v. Campbell",
+      "citation": "538 U.S. 408",
+      "court": "Supreme Court of the United States",
+      "year": 2003,
+      "courtlistener_id": "cluster_id 127910; opinion_id 9434419 (lead, Kennedy, J.); combined opinion_id 127910",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/127910/state-farm-mutual-automobile-insurance-v-campbell/"
+    },
+    "holding_or_text": "Lead opinion (Kennedy, J.): 'We address once again the measure of punishment, by means of punitive damages, a State may impose upon a defendant in a civil case. The question is whether ... an award of $145 million in punitive damages, where full compensatory damages are $1 million, is excess[ive].' (Retrieved snippet; Court held it was.)",
+    "relevance": "Two-way tool. FOR us: our facts hit nearly every reprehensibility factor (deceit/malice via alleged fabricated complaint and DA coordination; reckless disregard for the health of a cardiac patient with an ICD; financially vulnerable immigrant target; repeated acts over 2024-2025). AGAINST us: with compensatory exposure plausibly $1.5M-$3M+ (lost Florida contract alone ~$1.11M-$1.35M over 3 yrs), 'substantial compensatories' invites the 1:1-to-4:1 argument; and UHS's ~$1B revenue cannot itself justify a bigger number.",
+    "cuts_against_us": true,
+    "notes": "cuts_against flag is for the single-digit/1:1 ceiling and the wealth limitation; the reprehensibility factors themselves favor plaintiff. Realistic constitutional envelope: punitive at 2:1-4:1 of a substantial compensatory base, i.e., roughly $3M-$12M punitive on a $1.5M-$3M compensatory verdict."
+  },
+  {
+    "question": "Q2/Q5 ADVERSE AUTHORITY: Are punitive damages available under Title VI at all?",
+    "claim": "NO. Barnes v. Gorman, 536 U.S. 181 (2002), holds punitive damages may NOT be awarded in private actions under Spending Clause statutes — expressly reasoning from Title VI of the Civil Rights Act of 1964 (and applying to ADA §202 / Rehabilitation Act §504, whose remedies are coextensive with Title VI). The current federal anchor claim (Title VI disparate treatment) therefore carries ZERO punitive exposure. Punitive damages in this case can ride only on the state-law tort claims (and NYSHRL if added).",
+    "authority": {
+      "type": "case",
+      "name": "Barnes v. Gorman",
+      "citation": "536 U.S. 181",
+      "court": "Supreme Court of the United States",
+      "year": 2002,
+      "courtlistener_id": "cluster_id 121152; opinion_id 9434273",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/121152/barnes-v-gorman/"
+    },
+    "holding_or_text": "Held: because Spending Clause legislation is 'in the nature of a contract,' remedies are limited to those a funding recipient is on notice of; punitive damages, unavailable for breach of contract, are not available in private suits under Title VI (§601) and hence under ADA §202/§504.",
+    "relevance": "MANDATORY obstacle-matrix entry. The punitive-exposure narrative cannot be hung on the Title VI count. Structure the case so the tortious-interference count (against UHS and individual physicians) is trial-ready as the punitive vehicle; consider adding NYSHRL (post-2019 amendment allows punitive vs. private employers) before any amendment deadline. Also shapes verdict-sheet strategy: punitive interrogatories must attach to the tort/NYSHRL counts only.",
+    "cuts_against_us": true,
+    "notes": "Compensatory (including emotional distress?) under Title VI: note Cummings v. Premier Rehab (2022) bars emotional-distress damages under Spending Clause statutes — not verified this session, flag for R-series follow-up; if Cummings applies to Title VI it further concentrates damages on the state-law claims."
+  },
+  {
+    "question": "Q3 NY PUNITIVE STANDARD: What is the general New York standard for punitive damages in tort?",
+    "claim": "Walker v. Sheldon, 10 N.Y.2d 401 (1961), is the foundational NY rule: punitive damages are available where the wrong is 'morally culpable' conduct — gross, wanton, or willful fraud or other morally reprehensible conduct evincing a high degree of moral turpitude — with the aim of punishment and deterrence. Ross v. Louise Wise Servs., Inc., 8 N.Y.3d 478 (2007), restates the modern standard: punitive damages require conduct with 'a high degree of moral turpitude' demonstrating 'such wanton dishonesty as to imply a criminal indifference to civil obligations'; the misconduct must be exceptional, e.g., malicious, vindictive, or actuated by evil or reprehensible motives.",
+    "authority": {
+      "type": "case",
+      "name": "Walker v. Sheldon; Ross v. Louise Wise Services, Inc.",
+      "citation": "10 N.Y.2d 401, 179 N.E.2d 497 (1961); 8 N.Y.3d 478, 868 N.E.2d 189 (2007)",
+      "court": "New York Court of Appeals",
+      "year": 1961,
+      "courtlistener_id": "Walker: cluster_id 5672186, opinion_id 5519525; Ross: cluster_id 2032322, opinion_id 2032322",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/5672186/walker-v-sheldon/ ; https://www.courtlistener.com/opinion/2032322/ross-v-louise-wise-services-inc/"
+    },
+    "holding_or_text": "Walker: punitive damages permitted for morally culpable conduct aimed at punishing gross and wanton fraud; Ross: punitive damages denied on the facts — standard requires moral turpitude/wanton dishonesty implying criminal indifference to civil obligations.",
+    "relevance": "This is the standard the tortious-interference punitive claim must satisfy. Our facts map well: unilateral falsified/irregular probation paperwork, alleged coordination with the complainant's family and the DA's office to instigate an arrest reversed within 24 hours, wanted-poster circulation, and continued interference after a full acquittal — a jury could find 'wanton dishonesty' and 'criminal indifference.' Note Ross itself DENIED punitive damages — the bar is genuinely high and routinely used by defendants on summary judgment.",
+    "cuts_against_us": false,
+    "notes": "Walker's 'aimed at the public generally' language: later cases confine the public-aim requirement to punitive claims tied to breach of CONTRACT (see Rocanova entry); for independent torts against the plaintiff, moral culpability suffices. Ross flagged as partially adverse — it shows NY's appellate discipline in striking punitive claims."
+  },
+  {
+    "question": "Q3 NY PUNITIVE STANDARD: Do punitive damages lie on the breach-of-contract claim?",
+    "claim": "Effectively NO. Rocanova v. Equitable Life Assurance Society, 83 N.Y.2d 603 (1994): punitive damages are not recoverable for ordinary breach of contract; they require (1) conduct actionable as an independent tort, (2) tortious conduct of an egregious nature (Walker standard), (3) egregious conduct directed at the plaintiff, AND (4) conduct that is part of a pattern directed at the PUBLIC generally. The breach-of-contract count (residency/academic obligations) is not a punitive vehicle.",
+    "authority": {
+      "type": "case",
+      "name": "Rocanova v. Equitable Life Assurance Society of the United States",
+      "citation": "83 N.Y.2d 603, 634 N.E.2d 940",
+      "court": "New York Court of Appeals",
+      "year": 1994,
+      "courtlistener_id": "cluster_id 2243212; opinion_id 2243212",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/2243212/rocanova-v-equitable-life-assurance-society-of-united-states/"
+    },
+    "holding_or_text": "Punitive damages for conduct arising from contractual relationships require an independent egregious tort plus a public-aimed pattern; ordinary breach — even willful — does not support punitive damages.",
+    "relevance": "Obstacle-matrix entry: confines punitive exposure to the tortious-interference count (and any added NYSHRL count). Defense will argue the whole dispute 'arises from the residency contract' to pull the tort claims under Rocanova's public-aim requirement; our answer is that tortious interference with the THIRD-PARTY Florida contract and the arrest-instigation conduct are independent torts directed at plaintiff, governed by Walker/Ross, not Rocanova.",
+    "cuts_against_us": true,
+    "notes": "Anticipate a Rocanova-based motion to strike the punitive demand; brief the independent-tort carve-out early."
+  },
+  {
+    "question": "Q3 NY PUNITIVE STANDARD: Are punitive damages available under the NYSHRL, and on what standard?",
+    "claim": "Historically no: Thoreson v. Penthouse Int'l, Ltd., 80 N.Y.2d 490 (1992), held punitive damages are NOT recoverable under the NYSHRL because Exec. Law §297 did not authorize them. BUT the 2019 amendments (L. 2019, ch. 160) changed the statute: Exec. Law §297(9) now authorizes 'damages, including, in cases of employment discrimination related to private employers and housing discrimination only, punitive damages' (verbatim from current statute text, nysenate.gov). For post-amendment claims against a private employer, punitive damages ARE available under the NYSHRL. Courts applying amended §297(9) generally borrow the standard from Chauca v. Abraham, 30 N.Y.3d 325 (2017) (NYCHRL): punitive damages where the wrongdoer's conduct is 'willfully or wantonly negligent, or reckless, or with a conscious disregard of the rights of others' — a LOWER bar than Walker/Ross common-law moral turpitude.",
+    "authority": {
+      "type": "statute",
+      "name": "N.Y. Executive Law §297(9) (punitive damages) and Thoreson v. Penthouse Int'l, Ltd.; Chauca v. Abraham",
+      "citation": "N.Y. Exec. Law §297(9); Thoreson, 80 N.Y.2d 490 (1992); Chauca, 30 N.Y.3d 325 (2017)",
+      "court": "New York Court of Appeals (cases); NY Legislature (statute)",
+      "year": 2019,
+      "courtlistener_id": "Thoreson: cluster_id 5690933, opinion_id 5540357; Chauca (NY Ct App): cluster_id 7170278, opinion_id 7080600; Chauca (2d Cir on remand): 885 F.3d 122, cluster_id 8439840, opinion_id 8410654",
+      "verification": "VERIFIED",
+      "source_url": "https://www.nysenate.gov/legislation/laws/EXC/297"
+    },
+    "holding_or_text": "Exec. Law §297(9) (current, nysenate.gov): remedies include 'damages, including, in cases of employment discrimination related to private employers and housing discrimination only, punitive damages.' Thoreson (pre-amendment): no punitive under HRL. Chauca: NYCHRL punitive standard is willful/wanton negligence, recklessness, or conscious disregard — no showing of common-law malice required.",
+    "relevance": "STRATEGIC GAP: plaintiff has NOT pled a NYSHRL claim. Adding one (national-origin discrimination/retaliation vs. a private employer) would (a) open a statutory punitive-damages channel with a LOWER standard than the common-law tort route, (b) add fee-shifting under §297(10), and (c) survive even if Title VI falters on the 'program or activity receiving federal funds' element. UHS is a private employer, so the §297(9) punitive clause applies. Statute of limitations (3 yrs) still comfortably covers the Mar-Apr 2024 conduct if amended in 2026 — verify against amendment deadlines in the scheduling order.",
+    "cuts_against_us": false,
+    "notes": "Cases VERIFIED on CourtListener; statutory text is UNVERIFIED_WEB-official (retrieved verbatim from nysenate.gov, acceptable for statutes per research rules). Note CourtListener lists the Chauca NY Court of Appeals cluster under a legacy court label ('Court for the Trial of Impeachments and Correction of Errors') — it is the 2017 NY Court of Appeals decision, 30 N.Y.3d 325."
+  },
+  {
+    "question": "Q4 BENCHMARKS: Second Circuit employment case with an 8-figure jury verdict — what survived review?",
+    "claim": "Turley v. ISG Lackawanna, Inc., 774 F.3d 140 (2d Cir. 2014): years-long racist campaign against a steelworker; jury awarded $1.32M compensatory + $24M punitive; the district court remitted punitive to $5M; the Second Circuit held even ~4:1 was excessive on those facts and required a further remittitur to a ratio not materially exceeding 2:1 (~$2.6M punitive) or a new trial. Benchmark lesson: in this circuit, headline verdicts of $10M-$25M in employment-abuse cases are achievable from juries but are cut to low single-digit ratios on review.",
+    "authority": {
+      "type": "case",
+      "name": "Turley v. ISG Lackawanna, Inc.",
+      "citation": "774 F.3d 140",
+      "court": "U.S. Court of Appeals for the Second Circuit",
+      "year": 2014,
+      "courtlistener_id": "cluster_id 8442054; opinion_id 8413254 (also cluster_id 2761729)",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/2761729/turley-v-isg-lackawanna-inc/"
+    },
+    "holding_or_text": "Affirmed liability (NYSHRL hostile environment + IIED); vacated $5M punitive award as excessive; directed remittitur to roughly twice compensatory damages. Jury figures ($1.32M/$24M) and DC remittitur to $5M corroborated by secondary sources.",
+    "relevance": "The most on-point NY-federal calibration for our punitive expectations: sustained, malicious, employer-tolerated campaign against one employee → ~$1.3M compensatory sustained, punitive capped near 2:1. Applied here, driving the COMPENSATORY base up (lost $1.11M+ Florida contract, ~3 yrs career loss, ICD/health aggravation, reputational destruction) is worth more than any punitive multiplier argument.",
+    "cuts_against_us": true,
+    "notes": "Case is a plaintiff win but flagged cuts_against for the ratio discipline. Verdict-amount specifics are from the opinion as reported by secondary sources (Quimbee/vLex/Lexology) because document-text retrieval required an unavailable approval in this session; the case itself and citation are CourtListener-VERIFIED."
+  },
+  {
+    "question": "Q4 BENCHMARKS: How does the Second Circuit police punitive awards generally?",
+    "claim": "Payne v. Jones, 711 F.3d 85 (2d Cir. 2013): the Second Circuit reviews punitive awards for excessiveness even BELOW the constitutional threshold, under federal common-law/abuse-of-discretion review, and reduced a $300K punitive award to $100K on a $60K compensatory base. Confirms active appellate compression of punitive awards in this circuit regardless of Gore/State Farm ceilings.",
+    "authority": {
+      "type": "case",
+      "name": "Payne v. Jones",
+      "citation": "711 F.3d 85",
+      "court": "U.S. Court of Appeals for the Second Circuit",
+      "year": 2013,
+      "courtlistener_id": "cluster_id 820691; opinion_id 820691",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/820691/payne-v-jones/"
+    },
+    "holding_or_text": "Courts of appeals may review the size of punitive awards for reasonableness without waiting for constitutional excessiveness; punitive award reduced as excessive.",
+    "relevance": "Tempers the mediation model: any NDNY punitive verdict will be tested twice (district court remittitur + 2d Cir reasonableness review). Settlement-value modeling should discount headline punitive numbers accordingly.",
+    "cuts_against_us": true,
+    "notes": "Award-amount specifics recalled from the opinion's well-known holding; citation and case VERIFIED on CourtListener."
+  },
+  {
+    "question": "Q4 BENCHMARKS: Physician-career-destruction mega-verdicts — what is real, and what survives?",
+    "claim": "Poliner v. Texas Health Systems, 537 F.3d 368 (5th Cir. 2008): cardiologist's cath-lab privileges summarily suspended; claims for defamation/peer-review abuse; jury returned a verdict widely reported at ~$366M (Aug 2004), remitted by the district court, producing a judgment of ~$33M including interest — then the Fifth Circuit REVERSED ENTIRELY and rendered judgment for the hospital and physicians under Health Care Quality Improvement Act (HCQIA, 42 U.S.C. §11111-11112) peer-review immunity; cert. denied, 129 S. Ct. 1002 (2009). Dual lesson: (1) juries WILL deliver enormous verdicts for destruction of a physician's career by a hospital; (2) statutory peer-review immunity can erase them wholesale.",
+    "authority": {
+      "type": "case",
+      "name": "Poliner v. Texas Health Systems",
+      "citation": "537 F.3d 368 (5th Cir. 2008); see also 239 F.R.D. 468 (N.D. Tex. 2006)",
+      "court": "U.S. Court of Appeals for the Fifth Circuit",
+      "year": 2008,
+      "courtlistener_id": "5th Cir: cluster_id 62897, opinion_id 62897; N.D. Tex.: cluster_id 8762439, opinion_id 8745832",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/62897/poliner-v-texas-health-systems/"
+    },
+    "holding_or_text": "HCQIA immunity bars money damages for professional review actions taken in the reasonable belief they further quality care, after reasonable fact-gathering and fair procedures; objective standard; ~$33M judgment (post-remittitur, with interest) reversed and rendered.",
+    "relevance": "Best 'real' benchmark for the scale a jury assigns to hospital destruction of a physician's career ($366M raw / $33M post-remittitur). CRITICAL DEFENSE-SIDE WARNING: UHS will argue the probation and any privileges/GME actions are immunized peer review (HCQIA or NY Public Health Law analogs) or protected academic deference. Counters: (a) HCQIA protects 'professional review actions' concerning clinical competence/conduct — fabricating a complaint, coordinating an arrest with a third-party hospital and the DA, and circulating wanted posters are far outside any review process; (b) HCQIA immunity is lost where the process was a sham/objectively unreasonable — the 24-hour reversal of both the leave and the arrest, dropped investigations, and the acquittal are strong sham evidence; (c) GME/residency probation is often treated as academic, not peer review — cuts both ways.",
+    "cuts_against_us": true,
+    "notes": "Jury-verdict dollar figures ($366M) are UNVERIFIED_WEB context (JAAPL commentary, vLex, LSU health-law archive); the case, citation, and reversal are CourtListener-VERIFIED. Flag HCQIA/NY Educ./Pub. Health immunity research as a follow-up task for the obstacle matrix."
+  },
+  {
+    "question": "Q4 BENCHMARKS: Other frequently cited healthcare-worker retaliation mega-verdicts (Chopourian) — verifiable?",
+    "claim": "NOT VERIFIED. Chopourian v. Catholic Healthcare West (E.D. Cal. 2012) — widely reported ~$168M Sacramento federal jury verdict (physician assistant, whistleblower retaliation/wrongful termination; later resolved confidentially) — could NOT be retrieved from CourtListener (searches: 'Chopourian Catholic Healthcare West retaliation verdict remittitur'; 'Chopourian' alone; both returned no matching opinion). Do not cite as authority; usable only as anecdotal press context, if at all.",
+    "authority": {
+      "type": "case",
+      "name": "Chopourian v. Catholic Healthcare West",
+      "citation": "No. 2:09-cv-02972 (E.D. Cal.) (reported)",
+      "court": "U.S. District Court, E.D. California (reported)",
+      "year": 2012,
+      "courtlistener_id": null,
+      "verification": "NOT_FOUND",
+      "source_url": null
+    },
+    "holding_or_text": "N/A — no opinion retrieved.",
+    "relevance": "Recorded per research rules: an often-quoted 'hospital retaliation' benchmark that we cannot verify from a court source. Also a general caution: most mega-verdicts live in jury-verdict reporters, not opinion databases; the VERIFIED trio (Turley, Poliner, Payne) is what we can responsibly put in front of a mediator with citations.",
+    "cuts_against_us": false,
+    "notes": "If mediation deck needs it, source it to contemporaneous press with an explicit 'reported verdict, later resolved' label — never as legal authority."
+  },
+  {
+    "question": "Q5 FEE-SHIFTING: Does the Title VI claim carry attorney's fees?",
+    "claim": "YES. 42 U.S.C. §1988(b) expressly lists Title VI of the Civil Rights Act of 1964 among the statutes for which 'the court, in its discretion, may allow the prevailing party, other than the United States, a reasonable attorney's fee as part of the costs.' A prevailing plaintiff ordinarily recovers fees absent special circumstances; a prevailing defendant only if the claim was frivolous (Christiansburg standard).",
+    "authority": {
+      "type": "statute",
+      "name": "Civil Rights Attorney's Fees Awards Act, 42 U.S.C. §1988(b)",
+      "citation": "42 U.S.C. §1988(b)",
+      "court": null,
+      "year": 1976,
+      "courtlistener_id": null,
+      "verification": "UNVERIFIED_WEB",
+      "source_url": "https://www.law.cornell.edu/uscode/text/42/1988"
+    },
+    "holding_or_text": "Verbatim (LII/Cornell): 'the court, in its discretion, may allow the prevailing party, other than the United States, a reasonable attorney's fee as part of the costs' — with Title VI (42 U.S.C. §2000d et seq.) among the enumerated statutes.",
+    "relevance": "Even though Title VI carries no punitive damages (Barnes) and possibly no emotional-distress damages (Cummings, to be verified), prevailing on it converts the case to fee-shifting — a major settlement lever given 2+ years of litigation ahead of the Nov 2026 mediation. Fee exposure to defendants grows every month they litigate.",
+    "cuts_against_us": false,
+    "notes": "Retrieved verbatim from law.cornell.edu (official-source mirror) — acceptable for statutes per research rules."
+  },
+  {
+    "question": "Q5 FEE-SHIFTING: FMLA and NYSHRL fee provisions?",
+    "claim": "FMLA: 29 U.S.C. §2617(a)(3) makes fees MANDATORY for a prevailing plaintiff — 'The court in such an action shall, in addition to any judgment awarded to the plaintiff, allow a reasonable attorney's fee' (verbatim, LII/Cornell). CAVEAT: no FMLA count is currently pled — the FMLA request (filed before the arrest) is in the facts canon but the claim list is Title VI / tortious interference / breach of contract / injunctive relief; adding an FMLA interference/retaliation count would bring mandatory fee-shifting. NYSHRL: Exec. Law §297(10) authorizes 'reasonable attorney's fees to any prevailing or substantially prevailing party,' with a prevailing DEFENDANT recovering only on motion and a showing the action was 'frivolous' (bad faith to delay/harass, or commenced/continued in bad faith without any reasonable basis) — an asymmetric, plaintiff-friendly provision. The common-law counts (tortious interference, breach of contract) carry NO fee-shifting under the American Rule.",
+    "authority": {
+      "type": "statute",
+      "name": "29 U.S.C. §2617(a)(3) (FMLA); N.Y. Exec. Law §297(10) (NYSHRL)",
+      "citation": "29 U.S.C. §2617(a)(3); N.Y. Exec. Law §297(10)",
+      "court": null,
+      "year": 2019,
+      "courtlistener_id": null,
+      "verification": "UNVERIFIED_WEB",
+      "source_url": "https://www.law.cornell.edu/uscode/text/29/2617 ; https://www.nysenate.gov/legislation/laws/EXC/297"
+    },
+    "holding_or_text": "§2617(a)(3) verbatim: 'The court in such an action shall, in addition to any judgment awarded to the plaintiff, allow a reasonable attorney's fee...' §297(10) verbatim: 'award reasonable attorney's fees to any prevailing or substantially prevailing party; provided, however, that a prevailing respondent or defendant in order to recover such reasonable attorney's fees must make a motion requesting such fees and show that the action or proceeding brought was frivolous.'",
+    "relevance": "Amendment strategy synergy: adding NYSHRL (punitive vs. private employer + asymmetric fees) and FMLA (mandatory fees; the pre-arrest FMLA request followed by administrative leave/termination-adjacent acts is a clean retaliation timeline) would make three of the operative claims fee-shifting and one punitive-bearing — transforming the mediation posture. FMLA SOL: 2 years (3 if willful, 29 U.S.C. §2617(c)(2)); April 2024 conduct + willfulness allegation keeps a 2026 amendment inside 3 years but this must be confirmed against §2617(c) text and the case schedule.",
+    "cuts_against_us": false,
+    "notes": "Both texts retrieved verbatim from official sources (law.cornell.edu; nysenate.gov). Adverse corollary recorded: tortious interference and breach of contract — the biggest-dollar counts — carry no statutory fees; fee recovery depends on prevailing on at least one statutory claim."
+  },
+  {
+    "question": "SYNTHESIS: Realistic punitive-exposure framing for mediation",
+    "claim": "Punitive exposure rides ONLY on state-law tort claims (and NYSHRL if added), not Title VI (Barnes). Standard: Walker/Ross moral-turpitude for tortious interference; Chauca-style recklessness if NYSHRL is added. Constitutional/2d Cir envelope: single-digit ratio (State Farm), with 2d Cir practice compressing to ~2:1-4:1 on substantial compensatories (Turley, Payne). With a compensatory base plausibly $1.5M-$3M+ (Florida contract $1.11M-$1.35M; ~$1M documented living-expense losses; medical/ICD aggravation; reputational/career destruction), a defensible punitive band is ~$3M-$12M, for total realistic verdict exposure to defendants of roughly $5M-$15M before fees — with fee-shifting on the statutory counts stacking on top. UHS's ~$1.16B FY2024 revenue supports arguing that anything under ~$10M is not felt as punishment, but State Farm bars leading with wealth.",
+    "authority": {
+      "type": "factual",
+      "name": "Synthesis of entries above (BMW, State Farm, Barnes, Walker, Ross, Rocanova, Thoreson/§297(9), Chauca, Turley, Payne, Poliner; ProPublica 990 data; damages_mentions.json)",
+      "citation": null,
+      "court": null,
+      "year": 2026,
+      "courtlistener_id": null,
+      "verification": "VERIFIED",
+      "source_url": null
+    },
+    "holding_or_text": "N/A — analyst synthesis, each load-bearing element separately sourced above.",
+    "relevance": "Feeds the damages model and mediation range. Key open follow-ups: (1) Cummings v. Premier Rehab impact on Title VI emotional-distress damages; (2) HCQIA / NY peer-review-immunity exposure on the probation-related conduct (Poliner warning); (3) whether to amend to add NYSHRL + FMLA before the amendment deadline; (4) individual-defendant punitive exposure (Nadeem texts, program director's unilateral probation signature) — punitive verdicts against individuals are less ratio-compressed in practice and uninsurable, a real settlement pressure point.",
+    "cuts_against_us": false,
+    "notes": "The 'verification: VERIFIED' on this synthesis row means each component authority carries its own verification status recorded above; the synthesis itself is work product, not authority."
+  }
+]

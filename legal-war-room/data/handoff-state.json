@@ -2,9 +2,10 @@
   "mission": "Rahman v UHS war room: meeting deliverables, master legal plan, mediation kit, skill spine",
   "case": "3:26-cv-00197 NDNY",
   "done": [
-    "gate-0 + WF1 transcript forensics (fidelity PASS 32/32; canon: 80 blocks, 85 facts, 16 action items)"
+    "gate-0 + WF1 transcript forensics (fidelity PASS 32/32; canon: 80 blocks, 85 facts, 16 action items)",
+    "WF2 + Gate 2: summary + annotated transcript built, verified, shipped (pdf/docx + 2 artifacts published)"
   ],
-  "in_progress": "WF2 meeting deliverables",
+  "in_progress": "WF3 strategy core (running); next Gate 3",
   "decisions": [
     "docx is canonical source",
     "raw transcript gitignored",

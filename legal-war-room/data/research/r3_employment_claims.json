@@ -1,0 +1,488 @@
+[
+  {
+    "question": "Q1. Title VI private right of action for employment-adjacent claims by a resident-physician",
+    "claim": "A private right of action exists under Title VI section 601 only for intentional discrimination (disparate treatment); there is no private right to enforce disparate-impact regulations.",
+    "authority": {
+      "type": "case",
+      "name": "Alexander v. Sandoval",
+      "citation": "532 U.S. 275",
+      "court": "Supreme Court of the United States",
+      "year": 2001,
+      "courtlistener_id": "cluster_id 2620697 / opinion_id 9795078",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/2620697/alexander-v-sandoval/"
+    },
+    "holding_or_text": "Private individuals may sue to enforce section 601 of Title VI (intentional discrimination) but not the disparate-impact regulations promulgated under section 602.",
+    "relevance": "Confirms the Title VI disparate-treatment claim pleaded in the complaint is the correct (and only) privately enforceable Title VI theory. Plaintiff must prove intentional national-origin discrimination by the funding recipient (UHSH); disparate-impact framing is unavailable.",
+    "cuts_against_us": false,
+    "notes": "Also doctrinally settled (no single case retrieved here): Title VI liability runs against the RECIPIENT entity, not individual employees, so the four physician defendants are not proper Title VI defendants — expect a motion on that ground. Recorded as an obstacle."
+  },
+  {
+    "question": "Q1. Title VI employment-practice limitation (section 604)",
+    "claim": "Title VI reaches employment practices only where a primary objective of the federal financial assistance is to provide employment (42 U.S.C. 2000d-3, section 604 of the Civil Rights Act of 1964).",
+    "authority": {
+      "type": "statute",
+      "name": "42 U.S.C. 2000d-3 (Civil Rights Act of 1964, sec. 604)",
+      "citation": "42 U.S.C. 2000d-3",
+      "court": null,
+      "year": 1964,
+      "courtlistener_id": null,
+      "verification": "UNVERIFIED_WEB",
+      "source_url": "https://uscode.house.gov/view.xhtml?req=granuleid%3AUSC-prelim-title42-section2000d-3 ; https://www.govinfo.gov/content/pkg/USCODE-2023-title42/pdf/USCODE-2023-title42-chap21-subchapV-sec2000d-3.pdf"
+    },
+    "holding_or_text": "\"Nothing contained in this subchapter shall be construed to authorize action under this subchapter by any department or agency with respect to any employment practice of any employer, employment agency, or labor organization except where a primary objective of the Federal financial assistance is to provide employment.\" (verbatim from official U.S. Code sources)",
+    "relevance": "MAJOR OBSTACLE: defendants will argue the Title VI claim is an employment claim and that the primary objective of UHSH's federal funds (Medicare/Medicaid patient-care reimbursement) is not to provide employment. COUNTER: plaintiff is a resident in a GME program; Medicare direct GME payments (42 U.S.C. 1395ww(h)) are earmarked to fund resident stipends/training — a colorable argument that a primary objective of THAT funding stream is to provide (resident) employment. Also, plaintiff's hybrid student/trainee status lets him frame the claim as exclusion from an education/training program rather than a pure employment practice.",
+    "cuts_against_us": true,
+    "notes": "Discovery target: identify every federal funding stream UHSH receives, especially direct GME dollars, to satisfy the section 604 primary-objective test."
+  },
+  {
+    "question": "Q1. Second Circuit application of the section 604 primary-objective test",
+    "claim": "The Second Circuit has allowed Title VI employment-discrimination relief where the federal assistance had employment as a primary objective.",
+    "authority": {
+      "type": "case",
+      "name": "Association Against Discrimination in Employment, Inc. v. City of Bridgeport",
+      "citation": "647 F.2d 256",
+      "court": "Court of Appeals for the Second Circuit",
+      "year": 1981,
+      "courtlistener_id": "cluster_id 8923941 / opinion_id 8913187",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/8923941/association-against-discrimination-in-employment-inc-v-city-of/"
+    },
+    "holding_or_text": "Title VI employment-discrimination claim proceeded against a federally funded fire department where federal revenue-sharing/employment-program funds were at issue; the section 604 employment limitation is tied to whether providing employment is a primary objective of the assistance.",
+    "relevance": "Template for arguing GME funding satisfies section 604 in the Second Circuit. Retrieved and identified via CourtListener; the full section-604 discussion should be pulled and quoted before briefing.",
+    "cuts_against_us": false,
+    "notes": "Holding characterization is from counsel knowledge of the case; opinion text itself was located but not read line-by-line in this pass. Treat the section-604 analysis as VERIFIED-existence / to-be-quoted."
+  },
+  {
+    "question": "Q1. CRITICAL adverse authority: what damages survive Cummings under Title VI",
+    "claim": "Emotional-distress damages are NOT recoverable in private actions under Spending Clause antidiscrimination statutes (Rehab Act sec. 504, ACA sec. 1557, and by its contract-law logic Title VI and Title IX).",
+    "authority": {
+      "type": "case",
+      "name": "Cummings v. Premier Rehab Keller, P.L.L.C.",
+      "citation": "596 U.S. 212; 142 S. Ct. 1562",
+      "court": "Supreme Court of the United States",
+      "year": 2022,
+      "courtlistener_id": "cluster_id 6463720 / opinion_id 6335831",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/6463720/cummings-v-premier-rehab-keller/"
+    },
+    "holding_or_text": "Because Spending Clause statutes operate like contracts, remedies are limited to those traditionally available in contract actions; emotional-distress damages are not traditionally available for breach of contract and therefore cannot be recovered in private suits under these statutes.",
+    "relevance": "CUTS AGAINST US on the Title VI count (and any Rehab Act count): no emotional-distress or dignitary-harm damages. WHAT REMAINS under Title VI after Cummings: (1) economic/pecuniary compensatory damages — lost wages, lost benefits, consequential economic losses traceable to the discrimination (contract-type expectation/consequential damages); (2) back pay; (3) equitable and injunctive relief (e.g., correction of academic records, certification, expungement of probation); (4) declaratory relief; (5) attorney's fees under 42 U.S.C. 1988(b). Punitive damages were already barred by Barnes v. Gorman. Practical consequence: the emotional-distress and reputational-dignitary components of this case must ride on NYSHRL, the tort claims, and (for the arrest events) the malicious-prosecution/fair-trial theories — NOT on Title VI.",
+    "cuts_against_us": true,
+    "notes": "This is the single most important damages-architecture case for the federal counts. The ~$1M documented living expenses / lost Florida contract economics ARE recoverable under Title VI as pecuniary loss if causation is proven; the humiliation/distress overlay is not."
+  },
+  {
+    "question": "Q1. Punitive damages under Title VI",
+    "claim": "Punitive damages are not available in private actions under Spending Clause statutes (Title VI and statutes incorporating its remedies).",
+    "authority": {
+      "type": "case",
+      "name": "Barnes v. Gorman",
+      "citation": "536 U.S. 181",
+      "court": "Supreme Court of the United States",
+      "year": 2002,
+      "courtlistener_id": "cluster_id 121152 / opinion_id 9434273",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/121152/barnes-v-gorman/"
+    },
+    "holding_or_text": "Punitive damages may not be awarded in private suits under section 202 of the ADA and section 504 of the Rehabilitation Act because such suits sound in contract under the Spending Clause framework, and punitive damages are not traditionally available for breach of contract; the same rule governs Title VI, whose remedies these statutes incorporate.",
+    "relevance": "Closes the door on punitive damages under the Title VI count. Punitive exposure for defendants must be built on NYSHRL (post-2019) and the state-law torts.",
+    "cuts_against_us": true,
+    "notes": ""
+  },
+  {
+    "question": "Q2. FMLA remedies under 29 U.S.C. 2617 — liquidated (double) damages and the good-faith defense",
+    "claim": "A prevailing FMLA plaintiff recovers lost wages/benefits (or, if no wages lost, actual monetary losses up to 12 weeks of wages), plus interest, plus an EQUAL amount as liquidated damages by default; the court may reduce liquidated damages only if the employer proves the violation was in good faith AND it had reasonable grounds to believe it was not violating the Act. Equitable relief (reinstatement, employment, promotion) and mandatory attorney's fees/costs are also available.",
+    "authority": {
+      "type": "statute",
+      "name": "29 U.S.C. 2617(a)(1), (a)(3) (FMLA enforcement)",
+      "citation": "29 U.S.C. 2617",
+      "court": null,
+      "year": 1993,
+      "courtlistener_id": null,
+      "verification": "UNVERIFIED_WEB",
+      "source_url": "https://www.law.cornell.edu/uscode/text/29/2617 ; https://www.govinfo.gov/content/pkg/USCODE-2023-title29/html/USCODE-2023-title29-chap28-subchapI-sec2617.htm"
+    },
+    "holding_or_text": "Sec. 2617(a)(1)(A)(iii): 'an additional amount as liquidated damages equal to the sum [of lost compensation plus interest], except that if an employer who has violated section 2615 of this title proves to the satisfaction of the court that the act or omission ... was in good faith and that the employer had reasonable grounds for believing that the act or omission was not a violation ... such court may, in the discretion of the court, reduce the amount of the liability ...' (structure confirmed against law.cornell.edu and govinfo.gov official text).",
+    "relevance": "Doubling presumption favors plaintiff: employer bears the burden on BOTH good faith and reasonable grounds, and even then reduction is discretionary. Here, administrative leave imposed within days of (and after) an FMLA request, then reversed within ~24 hours with all investigations dropped, is strong evidence against good faith. ADVERSE LIMIT: FMLA damages are strictly economic — no emotional-distress or punitive damages under 2617; also, if plaintiff lost no wages from the FMLA violation itself (leave/probation reversed in ~24h, residency completed), the FMLA count's standalone monetary value may be small (actual monetary losses capped at 12 weeks' wages). Its real value is the liability hook, fee-shifting, and the retaliation narrative.",
+    "cuts_against_us": false,
+    "notes": "Flag both directions: liquidated-damages presumption is pro-plaintiff; the no-emotional-distress rule and the 12-week cap on non-wage losses are recorded as obstacles for the damages model."
+  },
+  {
+    "question": "Q2. FMLA statute of limitations",
+    "claim": "FMLA actions must be brought within 2 years of the last event constituting the violation; 3 years if the violation was willful (29 U.S.C. 2617(c)(1)-(2)).",
+    "authority": {
+      "type": "statute",
+      "name": "29 U.S.C. 2617(c)",
+      "citation": "29 U.S.C. 2617(c)",
+      "court": null,
+      "year": 1993,
+      "courtlistener_id": null,
+      "verification": "UNVERIFIED_WEB",
+      "source_url": "https://www.law.cornell.edu/uscode/text/29/2617"
+    },
+    "holding_or_text": "'(1) In general. An action may be brought under this section not later than 2 years after the date of the last event constituting the alleged violation for which the action is brought. (2) Willful violation. In the case of such action brought for a willful violation of section 2615 of this title, such action may be brought within 3 years of the date of the last event constituting the alleged violation ...' (confirmed via law.cornell.edu).",
+    "relevance": "Timeline check: FMLA request and the April 14, 2024 administrative leave/adverse actions; complaint filed ~January 2026 — within the 2-year window (no need to reach willfulness for timeliness, but plead willfulness anyway to preserve the 3-year window for any later-discovered retaliatory events and to reinforce the liquidated-damages posture).",
+    "cuts_against_us": false,
+    "notes": "If any FMLA-retaliatory 'last event' is pegged later (e.g., post-April-2024 record-keeping or reference interference), the willful 3-year window keeps it alive."
+  },
+  {
+    "question": "Q2. FMLA retaliation framework in the Second Circuit; protection of a leave REQUEST made before the adverse action",
+    "claim": "FMLA retaliation claims in the Second Circuit follow McDonnell Douglas; the prima facie case requires (1) exercise of rights protected under the FMLA (which includes REQUESTING/attempting to exercise leave, not only taking it), (2) qualification, (3) adverse employment action, and (4) circumstances giving rise to an inference of retaliatory intent.",
+    "authority": {
+      "type": "case",
+      "name": "Potenza v. City of New York",
+      "citation": "365 F.3d 165",
+      "court": "Court of Appeals for the Second Circuit",
+      "year": 2004,
+      "courtlistener_id": "cluster_id 785859 / opinion_id 785859",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/785859/peter-potenza-clifford-aversano-v-city-of-new-york/"
+    },
+    "holding_or_text": "Adopted the retaliation analysis for FMLA claims under McDonnell Douglas and articulated the four-part prima facie test; 'exercised rights protected under the FMLA' is the first element.",
+    "relevance": "Because 29 U.S.C. 2615(a)(1) protects 'the exercise of or the attempt to exercise' FMLA rights, the leave REQUEST filed before the arrest/administrative leave is itself protected activity. The sequence (request -> days later, leave/probation machinery) is the textbook prima facie pattern.",
+    "cuts_against_us": false,
+    "notes": "Pair with 29 C.F.R. 825.220(c) (employer may not use FMLA leave as a negative factor) in briefing."
+  },
+  {
+    "question": "Q2. FMLA retaliation causation standard (plaintiff-friendly) — Second Circuit",
+    "claim": "In the Second Circuit, FMLA retaliation requires only that the protected activity be a MOTIVATING FACTOR, not the but-for cause, of the adverse action.",
+    "authority": {
+      "type": "case",
+      "name": "Woods v. START Treatment & Recovery Centers, Inc.",
+      "citation": "864 F.3d 158",
+      "court": "Court of Appeals for the Second Circuit",
+      "year": 2017,
+      "courtlistener_id": "cluster_id 4409966 / opinion_id 4187219",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/4409966/woods-v-start-treatment-recovery-centers-inc/"
+    },
+    "holding_or_text": "FMLA retaliation claims are governed by a 'motivating factor' causation standard (derived from 29 C.F.R. 825.220(c)), rejecting but-for causation; jury instruction requiring but-for causation was error.",
+    "relevance": "Significantly lowers plaintiff's causation burden versus Title VII retaliation (Nassar but-for). Even if defendants show the complaint/probation had independent grounds, plaintiff prevails on FMLA retaliation if the leave request was one motivating factor.",
+    "cuts_against_us": false,
+    "notes": ""
+  },
+  {
+    "question": "Q2. Temporal proximity doctrine — Second Circuit FMLA",
+    "claim": "Close temporal proximity between protected FMLA activity and the adverse action can alone establish the causal-connection element of the prima facie case.",
+    "authority": {
+      "type": "case",
+      "name": "Donnelly v. Greenburgh Central School District No. 7",
+      "citation": "691 F.3d 134",
+      "court": "Court of Appeals for the Second Circuit",
+      "year": 2012,
+      "courtlistener_id": "cluster_id 806387 / opinion_id 806387",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/806387/donnelly-v-greenburgh-central-school-district-no-7/"
+    },
+    "holding_or_text": "Reversed summary judgment on an FMLA retaliation claim; temporal proximity between FMLA leave and the adverse action (negative evaluation/denial of tenure recommendation) supported the inference of causation at the prima facie stage.",
+    "relevance": "FMLA request filed BEFORE the April 14 administrative leave; the gap is days-to-weeks. Under Donnelly that proximity alone carries the prima facie causation element; combined with the 24-hour reversal and dropped investigations, the pretext story is strong.",
+    "cuts_against_us": false,
+    "notes": "Caution (record as obstacle): defendants will argue the intervening arrest — instigated by Guthrie, not UHS — was the true cause, breaking the causal chain. Response: the arrest was reversed within ~24 hours and all investigations dropped, and the alleged UHS-Nadeem-DA coordination makes the arrest itself part of the retaliatory mechanism, not an independent cause."
+  },
+  {
+    "question": "Q2/Q4. Individual liability of the four physician defendants under FMLA",
+    "claim": "Individuals can be personally liable as 'employers' under the FMLA where, under the economic-reality test, they controlled the plaintiff's rights (hiring/firing, schedules, conditions).",
+    "authority": {
+      "type": "case",
+      "name": "Graziadio v. Culinary Institute of America",
+      "citation": "817 F.3d 415",
+      "court": "Court of Appeals for the Second Circuit",
+      "year": 2016,
+      "courtlistener_id": "cluster_id 3186382 / opinion_id 3186329",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/3186382/graziadio-v-culinary-institute-of-america/"
+    },
+    "holding_or_text": "FMLA's definition of employer (29 U.S.C. 2611(4)(A)(ii)(I): 'any person who acts, directly or indirectly, in the interest of an employer') supports individual liability, assessed under the FLSA economic-reality test — power to hire/fire, supervision and control of schedules or conditions, rate/method of payment, maintenance of records.",
+    "relevance": "The program director who unilaterally signed the probation and any physician defendant who controlled the leave decision or the administrative leave can be sued individually on the FMLA count — personal exposure is settlement leverage against Ahmed, Nadeem, Rehman, and Ali.",
+    "cuts_against_us": false,
+    "notes": ""
+  },
+  {
+    "question": "Q3. Is Brugada syndrome + ICD a qualifying disability under the ADA/Rehab Act?",
+    "claim": "Post-ADAAA, Brugada syndrome (a cardiac electrical/arrhythmia disorder) substantially limits the operation of a major bodily function (circulatory/cardiovascular function, 42 U.S.C. 12102(2)(B)), and the ameliorative effect of the ICD and medications MUST be disregarded in the disability determination.",
+    "authority": {
+      "type": "statute",
+      "name": "42 U.S.C. 12102(2)(B), (4)(E)(i) (ADA as amended by ADAAA 2008)",
+      "citation": "42 U.S.C. 12102",
+      "court": null,
+      "year": 2008,
+      "courtlistener_id": null,
+      "verification": "UNVERIFIED_WEB",
+      "source_url": "https://www.law.cornell.edu/uscode/text/42/12102"
+    },
+    "holding_or_text": "Sec. 12102(4)(E)(i) (verbatim, law.cornell.edu): 'The determination of whether an impairment substantially limits a major life activity shall be made without regard to the ameliorative effects of mitigating measures such as — (I) medication, medical supplies, equipment, or appliances ... prosthetics including limbs and devices, hearing aids and cochlear implants or other implantable hearing devices, mobility devices, or oxygen therapy equipment and supplies ...'. Sec. 12102(2)(B) makes 'circulatory' function a major bodily function whose limitation qualifies.",
+    "relevance": "Brugada + ICD (implanted Feb 2024) is a near-certain qualifying disability under the ADA, Rehab Act (which borrows the ADA definition, 29 U.S.C. 705(9)(B)), and the even broader NYSHRL definition (Exec. Law 292(21), any medically diagnosable impairment). Defendants cannot argue the ICD 'fixes' the condition. Also supports 'record of' and 'regarded as' theories given the Feb 2024 implant preceding the Mar-Apr 2024 probation.",
+    "cuts_against_us": false,
+    "notes": "EEOC regs at 29 C.F.R. 1630.2(j)(3)(iii) list cardiovascular impairments among those that should easily be found substantially limiting. CAVEAT/OBSTACLE: no ADA count appears in the current complaint (claims are Title VI, tortious interference, breach of contract, injunctive relief). ADA/Rehab/NYSHRL disability theories require amendment; ADA Title I also requires an EEOC charge within 300 days (NY deferral state) — the Mar-Apr 2024 events are now outside that window unless a charge was filed or a continuing-violation/equitable-tolling theory exists. NYSHRL has a 3-year limitations period and NO administrative-exhaustion requirement, so the disability claim is still viable under state law."
+  },
+  {
+    "question": "Q3. Federal compensatory/punitive caps by employer size — 42 U.S.C. 1981a",
+    "claim": "For intentional-discrimination claims under Title VII and the ADA, combined compensatory (future pecuniary, emotional distress) + punitive damages are capped by employer size: 15-100 employees $50,000; 101-200 $100,000; 201-500 $200,000; 500+ $300,000. Back pay, front pay (equitable), interest, and fees are OUTSIDE the cap. Punitive damages under 1981a(b)(1) are unavailable against governments/agencies and require malice or reckless indifference.",
+    "authority": {
+      "type": "statute",
+      "name": "42 U.S.C. 1981a(b)(3)",
+      "citation": "42 U.S.C. 1981a",
+      "court": null,
+      "year": 1991,
+      "courtlistener_id": null,
+      "verification": "UNVERIFIED_WEB",
+      "source_url": "https://www.law.cornell.edu/uscode/text/42/1981a ; https://uscode.house.gov/view.xhtml?req=%28title%3A42+section%3A1981a+edition%3Aprelim%29"
+    },
+    "holding_or_text": "Sec. 1981a(b)(3)(A)-(D) caps 'the sum of the amount of compensatory damages awarded ... for future pecuniary losses, emotional pain, suffering, inconvenience, mental anguish, loss of enjoyment of life, and other nonpecuniary losses, and the amount of punitive damages' at $50k/$100k/$200k/$300k by employer headcount (confirmed against law.cornell.edu and uscode.house.gov).",
+    "relevance": "UHSH (regional health system, well over 500 employees) → $300,000 federal cap on ADA compensatory+punitive IF an ADA count is added. Given a damages theory approaching seven figures in economic loss plus large distress claims, the federal caps make the NYSHRL the primary compensatory vehicle. Note: caps do NOT apply to Title VI (no 1981a caps there — but Cummings/Barnes strip distress and punitive instead), nor to FMLA (economic-only), nor to NYSHRL (uncapped).",
+    "cuts_against_us": true,
+    "notes": "Damages architecture: economic loss (Florida contract ~$1.11M over 3 years + consequentials) -> Title VI + tort claims; emotional distress (uncapped) -> NYSHRL; punitive -> NYSHRL post-2019 + state torts; liquidated double damages -> FMLA."
+  },
+  {
+    "question": "Q3. Rehab Act interplay after Cummings",
+    "claim": "The Rehabilitation Act (sec. 504) reaches federally funded programs and uses ADA substantive standards, but as a Spending Clause statute its private remedies are limited by Barnes/Cummings: no punitive damages, no emotional-distress damages.",
+    "authority": {
+      "type": "case",
+      "name": "Cummings v. Premier Rehab Keller, P.L.L.C. (Rehab Act/ACA holding); Barnes v. Gorman (sec. 504 punitive holding)",
+      "citation": "596 U.S. 212; 536 U.S. 181",
+      "court": "Supreme Court of the United States",
+      "year": 2022,
+      "courtlistener_id": "cluster_id 6463720; cluster_id 121152",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/6463720/cummings-v-premier-rehab-keller/"
+    },
+    "holding_or_text": "Cummings itself was a sec. 504/sec. 1557 case: emotional-distress damages are unavailable in private actions under those statutes. Barnes bars punitive damages under sec. 504.",
+    "relevance": "Adding a Rehab Act count gains a federal disability hook without EEOC exhaustion and with a 3-year NY limitations borrow, but its damages are limited to economic loss + equitable relief + fees. NYSHRL remains the distress/punitive vehicle.",
+    "cuts_against_us": true,
+    "notes": "Strategic: Rehab Act count still worth adding for liability breadth (federal-funds recipient; same GME funding facts as Title VI) and because its 'solely by reason of disability' causation is the main doctrinal cost to weigh."
+  },
+  {
+    "question": "Q4. NYSHRL post-2019: uncapped compensatory and punitive damages against private employers",
+    "claim": "Since the August 12, 2019 amendments (S.6577/A.8421, effective Oct. 11, 2019 for the remedies provision), the NYSHRL authorizes UNCAPPED compensatory damages and, for the first time in employment cases, PUNITIVE damages against private employers, in both DHR proceedings and court actions (N.Y. Exec. Law 297(4)(c), 297(9)); the 2019 amendments also mandate liberal construction (Exec. Law 300) and lower the 'severe or pervasive' bar.",
+    "authority": {
+      "type": "statute",
+      "name": "N.Y. Executive Law 297(9), 297(4)(c) as amended 2019",
+      "citation": "N.Y. Exec. Law 297",
+      "court": null,
+      "year": 2019,
+      "courtlistener_id": null,
+      "verification": "UNVERIFIED_WEB",
+      "source_url": "https://www.nysenate.gov/legislation/laws/EXC/297 ; https://www.nysenate.gov/legislation/bills/2019/S4393 ; https://dhr.ny.gov/system/files/documents/2024/05/hrl.pdf"
+    },
+    "holding_or_text": "2019 amendment extended punitive damages — previously limited to housing discrimination (capped at $10,000) — to employment discrimination claims against private (non-governmental) employers, with no statutory cap; compensatory damages under NYSHRL have always been uncapped. Confirmed across nysenate.gov bill text and NY DHR's official HRL compilation.",
+    "relevance": "All operative conduct (Mar-Apr 2024 onward) post-dates the amendments, so the amended NYSHRL applies in full. This is the ONLY discrimination vehicle in the case with uncapped emotional-distress AND punitive exposure against UHSH — it should carry the big-number theory that Cummings takes away from Title VI and 1981a caps take away from any ADA count.",
+    "cuts_against_us": false,
+    "notes": "OBSTACLE check: no NYSHRL count appears in the current claim list — amendment needed. NYSHRL employment claims carry a 3-year SoL (CPLR 214(2)); Mar-Apr 2024 events remain timely into 2027. Punitive unavailable against governmental employers, but UHSH is private."
+  },
+  {
+    "question": "Q4. Punitive damages standard applied to NY Human Rights claims",
+    "claim": "Under Chauca v. Abraham (answering the Second Circuit's certified question), punitive damages under the NYC HRL — the standard federal courts have since borrowed for post-2019 NYSHRL punitive claims — require proof that the wrongdoer acted with willful or wanton negligence, recklessness, or a conscious disregard of the rights of others, but NOT the federal Kolstad awareness-of-illegality showing.",
+    "authority": {
+      "type": "case",
+      "name": "Chauca v. Abraham",
+      "citation": "30 N.Y.3d 325; 89 N.E.3d 475 (N.Y. 2017); on remand 885 F.3d 122 (2d Cir. 2018)",
+      "court": "New York Court of Appeals; Second Circuit",
+      "year": 2017,
+      "courtlistener_id": "NY Ct App: cluster_id 7170278 / opinion_id 7080600; 2d Cir: cluster_id 8439840 / opinion_id 8410654",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/7170278/chauca-v-abraham/ ; https://www.courtlistener.com/opinion/8439840/chauca-v-abraham/"
+    },
+    "holding_or_text": "Punitive damages are available where the defendant's actions amount to willful or wanton negligence, recklessness, or 'a conscious disregard of the rights of others or conduct so reckless as to amount to such disregard' — a lower bar than the federal punitive standard.",
+    "relevance": "If the coordination evidence (Nadeem texts with complainant's family, wanted-poster circulation, DA contacts) is credited, 'conscious disregard of rights' is comfortably arguable — punitive exposure under the state HRL is real and uncapped.",
+    "cuts_against_us": false,
+    "notes": "CourtListener's court label for cluster 7170278 reads 'Court for the Trial of Impeachments and Correction of Errors' — a database quirk for the New York Court of Appeals; the 30 N.Y.3d 325 citation is correct."
+  },
+  {
+    "question": "Q4. Individual liability under NYSHRL 296(6) aiding and abetting",
+    "claim": "N.Y. Exec. Law 296(6) makes it unlawful 'for any person to aid, abet, incite, compel or coerce the doing of any of the acts forbidden under this article, or to attempt to do so' — and the Second Circuit holds an individual defendant who ACTUALLY PARTICIPATES in the discriminatory conduct may be held personally liable as an aider-abettor.",
+    "authority": {
+      "type": "case",
+      "name": "Tomka v. Seiler Corp.; Feingold v. New York",
+      "citation": "66 F.3d 1295 (2d Cir. 1995); 366 F.3d 138 (2d Cir. 2004)",
+      "court": "Court of Appeals for the Second Circuit",
+      "year": 1995,
+      "courtlistener_id": "Tomka: cluster_id 705166 / opinion_id 9488571; Feingold: cluster_id 785942 / opinion_id 785942",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/705166/carole-tomka-v-the-seiler-corporation-daniel-lucey-david-polonsky-and/ ; https://www.courtlistener.com/opinion/785942/feingold-v-new-york/"
+    },
+    "holding_or_text": "Tomka: a defendant who actually participates in the conduct giving rise to a discrimination claim may be held personally liable under HRL 296(6). Feingold: reaffirms individual aiding-and-abetting liability for co-workers/supervisors who participate. Statutory text of 296(6) verified verbatim at nysenate.gov.",
+    "relevance": "Direct personal-liability route against Ahmed, Nadeem, Rehman, and Ali for the probation, leave, and coordination conduct — independent of their 'employer' status. Combined with Graziadio (FMLA) this puts each individual physician at personal financial risk, which matters for the November 2026 mediation.",
+    "cuts_against_us": false,
+    "notes": "Known tension recorded as obstacle: NY courts are split on whether a person can 'aid and abet' primarily their OWN conduct (the 'aiding one's own violation' circularity critique, e.g., Strauss line); safest pleading names UHSH as principal violator with each individual aiding the entity's violation."
+  },
+  {
+    "question": "Q5. Academic deference doctrine — the defense shield (adverse authority #1)",
+    "claim": "Courts give near-total deference to genuinely ACADEMIC judgments about a medical trainee's fitness; far less process is due for academic dismissals than disciplinary ones.",
+    "authority": {
+      "type": "case",
+      "name": "Board of Curators of the University of Missouri v. Horowitz",
+      "citation": "435 U.S. 78 (NOTE: the working file's cite '438 U.S. 78' is a miscite)",
+      "court": "Supreme Court of the United States",
+      "year": 1978,
+      "courtlistener_id": "cluster_id 109809 / opinion_id 9427086",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/109809/board-of-curators-of-the-university-of-missouri-v-horowitz/"
+    },
+    "holding_or_text": "Dismissal of a medical student for academic deficiencies (clinical performance, hygiene, punctuality) required no hearing; academic evaluations are 'not readily adapted to the procedural tools of judicial or administrative decisionmaking' and courts should not override them.",
+    "relevance": "CUTS AGAINST US: defendants will wrap the March-April 2024 complaint/probation in Horowitz deference as an 'academic' assessment of professionalism. KEY DISTINCTION FOR US: Horowitz itself distinguishes DISCIPLINARY action (which gets more scrutiny/process). A probation triggered by a third-party complaint, signed unilaterally by the program director without committee process, contemporaneous with an arrest and administrative leave that were REVERSED within 24 hours, is disciplinary/retaliatory in character, not an evaluation of clinical competence — and plaintiff GRADUATED, which itself undercuts any claim that the probation reflected genuine academic deficiency.",
+    "cuts_against_us": true,
+    "notes": "Correct citation is 435 U.S. 78 — fix in all downstream documents before anything is filed."
+  },
+  {
+    "question": "Q5. Academic deference — adverse authority #2 and the piercing standard",
+    "claim": "A genuinely academic decision may be overridden only if it is 'such a substantial departure from accepted academic norms as to demonstrate that the person or committee responsible did not actually exercise professional judgment.'",
+    "authority": {
+      "type": "case",
+      "name": "Regents of the University of Michigan v. Ewing",
+      "citation": "474 U.S. 214",
+      "court": "Supreme Court of the United States",
+      "year": 1985,
+      "courtlistener_id": "cluster_id 111549 / opinion_id 9430245",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/111549/regents-of-the-university-of-michigan-v-ewing/"
+    },
+    "holding_or_text": "Substantive-due-process review of academic judgments is limited to whether the decision substantially departed from accepted academic norms such that professional judgment was not actually exercised.",
+    "relevance": "CUTS AGAINST US as the general shield, but Ewing supplies the piercing test. Facts that fit the piercing standard here: (1) unilateral probation signed by one person (program director) rather than a Clinical Competency Committee — a procedural departure from ACGME norms; (2) temporal entanglement with an FMLA request and an arrest instigated by a NON-UHS entity; (3) 24-hour reversal of leave/arrest and dropped investigations (the institution's own conduct shows the 'academic' judgment was not stable professional judgment); (4) acquittal on all charges; (5) alleged coordination with the complainant's family and the DA. Discovery should target ACGME/UHS GME policy manuals on probation procedure to prove the departure from accepted norms.",
+    "cuts_against_us": true,
+    "notes": "Deference applies to ACADEMIC judgments only — the threshold fight is characterization (academic vs. disciplinary/retaliatory), and plaintiff should win that fight on these facts."
+  },
+  {
+    "question": "Q5. What pierces deference: discrimination — Second Circuit",
+    "claim": "Academic deference does not shield decisions motivated by discrimination; courts must not 'abdicate' review, and a plaintiff may show an academic justification is pretextual.",
+    "authority": {
+      "type": "case",
+      "name": "Jane Doe v. New York University",
+      "citation": "666 F.2d 761",
+      "court": "Court of Appeals for the Second Circuit",
+      "year": 1981,
+      "courtlistener_id": "cluster_id 398023 / opinion_id 398023 (dup cluster 8924974)",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/398023/jane-doe-v-new-york-university/"
+    },
+    "holding_or_text": "Rehab Act sec. 504 suit over medical-school readmission: while courts respect academic judgments about qualifications, those judgments are reviewable where a statute prohibits discrimination — the court engaged in searching review of NYU's refusal rather than rubber-stamping it.",
+    "relevance": "Establishes in this circuit that antidiscrimination statutes (Title VI, Rehab Act, NYSHRL here) authorize judicial scrutiny of medical-education decisions notwithstanding Horowitz/Ewing deference.",
+    "cuts_against_us": false,
+    "notes": ""
+  },
+  {
+    "question": "Q5. What pierces deference: deference is 'not abdication' — Second Circuit medical-school authority",
+    "claim": "Even under the deferential Ewing standard, summary judgment for a medical school is improper where the record shows the institution may not have actually exercised professional judgment (e.g., failure to follow its own accommodation/procedural framework).",
+    "authority": {
+      "type": "case",
+      "name": "Dean v. University at Buffalo School of Medicine & Biomedical Sciences",
+      "citation": "804 F.3d 178",
+      "court": "Court of Appeals for the Second Circuit",
+      "year": 2015,
+      "courtlistener_id": "cluster_id 8442415 / opinion_id 8413674",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/8442415/dean-v-university-at-buffalo-school-of-medicine-biomedical-sciences/"
+    },
+    "holding_or_text": "Vacated summary judgment for the medical school on a dismissed student's Rehab Act/ADA claims; deference to academic judgment did not excuse the school's failure to adequately consider accommodation, and the reasonableness of the school's process was a triable issue.",
+    "relevance": "Best modern Second Circuit cite for the proposition that deference has limits in the medical-education setting, especially where disability accommodations (here: Brugada/ICD, FMLA leave) intersect with the 'academic' action.",
+    "cuts_against_us": false,
+    "notes": ""
+  },
+  {
+    "question": "Q5. Resident-physicians' hybrid status — employee-side authority in the Second Circuit",
+    "claim": "A medical resident in the Second Circuit has been treated as holding enforceable employment-type interests in residency positions/benefits; residency is a hybrid of employment and education, and residents are employees for many statutory purposes.",
+    "authority": {
+      "type": "case",
+      "name": "Ezekwo v. NYC Health & Hospitals Corp.",
+      "citation": "940 F.2d 775",
+      "court": "Court of Appeals for the Second Circuit",
+      "year": 1991,
+      "courtlistener_id": "cluster_id 566006 / opinion_id 566006",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/566006/ezekwo-v-nyc-health-hospitals-corporation/"
+    },
+    "holding_or_text": "Ophthalmology resident's due-process claim: the court recognized a protected property interest arising from the residency program's established policies (chief-resident rotation) and upheld liability where the program deviated from them — residency-program commitments can create enforceable rights.",
+    "relevance": "Counters the defense move of recasting everything as 'academic': residents sign employment contracts, draw salaries and benefits, request FMLA leave (an EMPLOYEE right — a program cannot claim its resident is a pure student while processing his FMLA paperwork), and are covered by the NYSHRL/FMLA as employees. The residency agreement + GME policies also ground the breach-of-contract count and the academic-records injunctive claim.",
+    "cuts_against_us": false,
+    "notes": "Additional corroborating doctrine (not case-verified here, record as UNVERIFIED_WEB context): NLRB, Boston Medical Center, 330 NLRB 152 (1999) (interns/residents are statutory employees); Second Circuit FICA/Title VII cases treat residents as employees. NOT_FOUND in this pass: a single on-point 2d Cir. opinion applying Horowitz/Ewing deference to a RESIDENCY dismissal with the hybrid analysis — searches tried: 'Ezekwo residency', 'Branum v. Clark academic dismissal' (found, but graduate-program pleading case: 927 F.2d 698, cluster 557202, holds dismissal must not be arbitrary or in bad faith), 'medical resident academic deference ca2'. Gap flagged for R-team follow-up; district courts in this circuit routinely apply deference to residents, so brief the characterization fight, not the status fight."
+  },
+  {
+    "question": "Q5. Piercing deference via bad faith / arbitrariness — Second Circuit",
+    "claim": "Even academic dismissals are actionable if arbitrary, capricious, or in bad faith.",
+    "authority": {
+      "type": "case",
+      "name": "Branum v. Clark",
+      "citation": "927 F.2d 698",
+      "court": "Court of Appeals for the Second Circuit",
+      "year": 1991,
+      "courtlistener_id": "cluster_id 557202 / opinion_id 557202",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/557202/gregory-branum-v-clifford-clark-david-hanson-paul-szarmach-george/"
+    },
+    "holding_or_text": "Reinstating claims arising from dismissal from an academic program: dismissal decisions are reviewable for arbitrariness and bad faith notwithstanding academic deference; complaint alleging improper motive stated a claim.",
+    "relevance": "The three recognized piercing routes, each supported by verified authority: (1) discrimination/statutory violation (Doe v. NYU; Dean); (2) bad faith/arbitrariness (Branum; Ewing's 'no actual professional judgment'); (3) procedural irregularity/departure from the institution's own rules (Ezekwo; Ewing 'accepted academic norms'). The unilateral probation signature, 24-hour reversals, acquittal, and coordination evidence feed all three routes simultaneously.",
+    "cuts_against_us": false,
+    "notes": ""
+  },
+  {
+    "question": "Q6. Tortious interference with EXISTING contract — NY elements",
+    "claim": "Under New York law, tortious interference with contract requires: (1) a valid contract between plaintiff and a third party; (2) defendant's knowledge of the contract; (3) defendant's intentional procurement of the third party's breach without justification; (4) actual breach; and (5) damages.",
+    "authority": {
+      "type": "case",
+      "name": "Lama Holding Co. v. Smith Barney Inc.",
+      "citation": "88 N.Y.2d 413; 668 N.E.2d 1370",
+      "court": "New York Court of Appeals",
+      "year": 1996,
+      "courtlistener_id": "cluster_id 2038313 / opinion_id 2038313",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/2038313/lama-holding-co-v-smith-barney-inc/"
+    },
+    "holding_or_text": "States the canonical five elements, including 'defendant's intentional procurement of the third-party's breach of the contract without justification, actual breach of the contract, and damages resulting therefrom.'",
+    "relevance": "If the Florida agreement ($300K/yr + $70K bonus, 3-year term) was SIGNED before the interference, plaintiff pleads under Lama Holding and does NOT need to prove 'wrongful means' — only intentional, unjustified procurement of the Florida employer's breach/withdrawal. The claimed expectancy (~$1.11M) is the direct damages measure, plus consequential losses. CRITICAL PLEADING FACT to lock down in discovery: the exact execution status of the Florida contract on the date(s) of the alleged interference (wanted-poster circulation, communications to the Florida employer, background-check poisoning via arrest record/academic file).",
+    "cuts_against_us": false,
+    "notes": "OBSTACLE: if the Florida employer rescinded because of the ARREST/prosecution itself (public record) rather than any defendant's communication, causation fails as to defendants unless the instigation evidence ties them to the prosecution — this is why the R1 malicious-prosecution/instigation record matters to this count too. Also watch for an at-will/contingency clause in the Florida contract (breach element; NY treats interference with at-will relations under the harder Carvel standard)."
+  },
+  {
+    "question": "Q6. Tortious interference with PROSPECTIVE contract/business relations — the 'wrongful means' bar",
+    "claim": "Interference with prospective (unsigned or at-will) relations requires conduct amounting to a crime or an independent tort, or conduct undertaken solely to harm the plaintiff ('wrongful means'); mere persuasion or self-interested conduct is insufficient.",
+    "authority": {
+      "type": "case",
+      "name": "Carvel Corp. v. Noonan; Guard-Life Corp. v. S. Parker Hardware Mfg. Corp.",
+      "citation": "3 N.Y.3d 182; 818 N.E.2d 1100 (2004); 50 N.Y.2d 183; 406 N.E.2d 445 (1980)",
+      "court": "New York Court of Appeals",
+      "year": 2004,
+      "courtlistener_id": "Carvel: cluster_id 2124135 / opinion_id 9722096; Guard-Life: cluster_id 2591575 / opinion_id 9787991",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/2124135/carvel-corp-v-noonan/ ; https://www.courtlistener.com/opinion/2591575/guard-life-corp-v-s-parker-hardware-manufacturing-corp/"
+    },
+    "holding_or_text": "Carvel: for prospective-relations interference the defendant's conduct must generally amount to a crime or an independent tort, or be aimed solely at harming the plaintiff. Guard-Life (adopting Restatement): 'wrongful means' includes physical violence, fraud or misrepresentation, civil suits and criminal prosecutions, and some degrees of economic pressure.",
+    "relevance": "If defendants argue the Florida deal was merely prospective, plaintiff still clears the wrongful-means bar IF the instigation evidence holds: procuring/encouraging a criminal prosecution (Guard-Life expressly lists 'criminal prosecutions'), circulating a wanted poster (defamation/libel — an independent tort), and misrepresentations to police/DA are each classic wrongful means. The Sept 2025 acquittal plus dropped investigations supply the 'without probable cause / misrepresentation' texture.",
+    "cuts_against_us": true,
+    "notes": "Recorded as cuts_against_us because the wrongful-means requirement is a heightened burden that defendants will invoke; but the fact pattern is unusually well-suited to satisfying it. Also verified in the same search: White Plains Coat & Apron Co. v. Cintas Corp., 8 N.Y.3d 422 (2007), cluster_id 2085978 — a defendant's generalized economic interest does not justify inducing breach of an existing contract (kills a 'legitimate business interest' defense on the existing-contract theory)."
+  },
+  {
+    "question": "Q6. Punitive damages on the NY tort claims (tortious interference)",
+    "claim": "Punitive damages in New York common-law tort require conduct evincing a high degree of moral turpitude and wanton dishonesty — gross, wanton, or willful conduct; the Court of Appeals has often (in fraud contexts) also looked for conduct aimed at the public generally, though egregious malice toward the plaintiff can suffice on tort claims.",
+    "authority": {
+      "type": "case",
+      "name": "Ross v. Louise Wise Services, Inc.",
+      "citation": "8 N.Y.3d 478; 868 N.E.2d 189",
+      "court": "New York Court of Appeals",
+      "year": 2007,
+      "courtlistener_id": "cluster_id 2032322 / opinion_id 2032322",
+      "verification": "VERIFIED",
+      "source_url": "https://www.courtlistener.com/opinion/2032322/ross-v-louise-wise-services-inc/"
+    },
+    "holding_or_text": "Punitive damages are available only for conduct that is gross and morally reprehensible, of 'such wanton dishonesty as to imply a criminal indifference to civil obligations'; they punish and deter egregious conduct.",
+    "relevance": "Punitive damages ARE legally available on the tortious-interference count (unlike Title VI/FMLA), but only on an egregiousness showing. The alleged conduct — coordinating a criminal prosecution against a colleague, circulating a wanted poster, suppressing CCTV — if proven, is exactly the 'wanton, malicious' profile NY courts require. This plus NYSHRL 297(9) punitive gives two uncapped punitive vehicles.",
+    "cuts_against_us": true,
+    "notes": "Flagged adverse because the bar is high and some NY decisions demand public-aimed conduct; defense will move to strike punitive allegations. Breach-of-contract count (against UHSH on the residency agreement) carries NO punitive damages and, under NY contract rules, no emotional-distress damages — keep its role limited to records/certification obligations and stipend/benefit economics."
+  },
+  {
+    "question": "Cross-cutting damages architecture summary (for the obstacle matrix)",
+    "claim": "Post-Cummings damages map for this case: emotional distress and punitive damages must flow through NYSHRL (uncapped, post-2019 punitive per 297(9)/Chauca) and the NY torts (Ross standard); Title VI carries economic compensatory + equitable relief + fees only (Cummings/Barnes); FMLA carries economic damages doubled by the liquidated-damages presumption (2617(a)) + fees; any ADA count is capped at $300K for compensatory+punitive combined (1981a(b)(3)) and needs an EEOC charge; breach of contract carries economic damages only.",
+    "authority": {
+      "type": "factual",
+      "name": "Synthesis of verified authorities above (Cummings cluster 6463720; Barnes cluster 121152; Chauca cluster 7170278; Ross cluster 2032322; 29 U.S.C. 2617; 42 U.S.C. 1981a; N.Y. Exec. Law 297)",
+      "citation": null,
+      "court": null,
+      "year": 2026,
+      "courtlistener_id": null,
+      "verification": "VERIFIED",
+      "source_url": null
+    },
+    "holding_or_text": "See individual entries.",
+    "relevance": "For the November 2026 mediation model: the ~$1.11M Florida-contract expectancy + documented ~$1M living-expense/consequential losses are recoverable across Title VI/tort/contract counts (single recovery); the multiplier exposure (FMLA doubling, NYSHRL uncapped distress, dual punitive vehicles) is what moves settlement value, and none of it depends on the counts Cummings weakened.",
+    "cuts_against_us": false,
+    "notes": "Open items for R-team: (1) NOT_FOUND this pass — a Second Circuit opinion squarely applying academic deference to a residency termination (district-court authority exists; needs collection); (2) execution status/choice-of-law of the Florida contract (if Florida law governs the interference tort, elements differ modestly); (3) whether an EEOC charge was ever filed (gates any ADA count); (4) confirm no NYSHRL/ADA/Rehab counts are pleaded yet — amendment deadline per the NDNY scheduling order should be checked immediately."
+  }
+]
