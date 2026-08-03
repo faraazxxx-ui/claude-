@@ -1,0 +1,253 @@
+{
+  "case": "Rahman v. UHSH et al., 3:26-cv-00197 (NDNY)",
+  "source": "Merged damages mentions from segment analyses seg-01..seg-06; overlap duplicates dropped (richer twin kept); categories normalized to the canonical set.",
+  "category_set": [
+    "lost_salary",
+    "family_loans",
+    "living_expenses",
+    "medications",
+    "cardiac_device",
+    "property_sales",
+    "family_hardship",
+    "legal_fees",
+    "board_exam",
+    "other"
+  ],
+  "dedupe_drops": {
+    "seg-02[2]": "living expenses ~$1M — duplicate of seg-03[0] (kept: adds conservative per-item '$50' basis)",
+    "seg-03[1]": "physical injury/medical (prognosis + ICD) — duplicate of seg-02[4] (kept: adds license-to-healthcare causation link)",
+    "seg-04[4]": "loss of employability at 01:05:45 — duplicate of seg-05[0] (kept: carries both verbatim quotes)"
+  },
+  "quantified_headline_figures": [
+    {
+      "figure": "~$300,000/year for ~3 years",
+      "what": "father's transfers structured as a repayable loan, mirroring lost Tampa contract ($350,000 salary + $70,000 bonus, 3-year term)",
+      "timestamp": "00:28:43"
+    },
+    {
+      "figure": "close to $1,000,000 over past 3 years",
+      "what": "documentable living expenses (bank records), excluding food and father's asset sales",
+      "timestamp": "00:32:39"
+    },
+    {
+      "figure": "$4,000 / $600 / $400 per bottle",
+      "what": "three essential medications; $4,000 medication forgone 'for quite some time'",
+      "timestamp": "00:27:22"
+    },
+    {
+      "figure": "3 years of missed ICD checks (required every 4 months, Boston Scientific)",
+      "what": "objective cardiac-device monitoring lapse",
+      "timestamp": "00:32:39"
+    },
+    {
+      "figure": "'100 million with a base of 10'",
+      "what": "UNCLEAR REFERENT — client's off-line question at 00:40:05 while Drazen was away; never clarified on the record",
+      "timestamp": "00:40:05"
+    }
+  ],
+  "damages_mentions": [
+    {
+      "category": "lost_salary",
+      "also_relates_to": [
+        "other:tortious_interference"
+      ],
+      "original_category": "Lost job opportunity (Vermont offer rescinded)",
+      "amount_raw": "none stated",
+      "basis_stated": "The Vermont offer came in May and 'was taken away' — the same period he was placed on probation without his knowledge; probation that late in residency prevents graduation and employment.",
+      "timestamp": "00:13:03",
+      "source_segment": "seg-01"
+    },
+    {
+      "category": "other",
+      "also_relates_to": [
+        "lost_salary"
+      ],
+      "original_category": "Career/reputational harm from criminal charge",
+      "amount_raw": "none stated",
+      "basis_stated": "'I cannot get a job in the medical field cuz the charge was damaging' — arrest on an asserted false charge as the mechanism of career destruction after probation and firing avenues failed.",
+      "timestamp": "00:14:21",
+      "source_segment": "seg-01"
+    },
+    {
+      "category": "other",
+      "also_relates_to": [
+        "family_hardship"
+      ],
+      "original_category": "Emotional distress / psychological injury",
+      "amount_raw": "none stated",
+      "basis_stated": "'that's the time I actually broke in my life' — being forced to keep working with Dr. Awais Ahmed after UHS refused his conflict-of-interest complaints.",
+      "timestamp": "00:11:46",
+      "source_segment": "seg-01"
+    },
+    {
+      "category": "medications",
+      "also_relates_to": [],
+      "original_category": "Medical/prescription costs",
+      "amount_raw": "$4,000 per bottle (primary medication), $600 per bottle (second), $400 per bottle (third)",
+      "basis_stated": "Cost of essential medications he could not afford and only recently obtained; primary medication not taken 'for quite some time'.",
+      "timestamp": "00:27:22",
+      "source_segment": "seg-02"
+    },
+    {
+      "category": "family_loans",
+      "also_relates_to": [
+        "lost_salary"
+      ],
+      "original_category": "Lost income / family support loan",
+      "amount_raw": "~$300,000/year for ~3 years (father's transfers), mirroring Tampa contract of $350,000 salary + $70,000 bonus over 3 years",
+      "basis_stated": "Father's bank-statement-documented transfers structured as a loan repayable at settlement or re-employment; proxies the forfeited Tampa physician contract as loss of income.",
+      "timestamp": "00:28:43",
+      "source_segment": "seg-02"
+    },
+    {
+      "category": "property_sales",
+      "also_relates_to": [
+        "family_hardship"
+      ],
+      "original_category": "Family consequential losses",
+      "amount_raw": "unquantified (property and store sold; ships stuck in Dubai)",
+      "basis_stated": "Father sold property and a store to fund support; shipping business disruption; emotional toll on mother and sister ('triplicate the pain').",
+      "timestamp": "00:31:12",
+      "source_segment": "seg-02"
+    },
+    {
+      "category": "cardiac_device",
+      "also_relates_to": [],
+      "original_category": "Health damages",
+      "amount_raw": "unquantified",
+      "basis_stated": "Untreated prognosis of heart failure in 5 years / transplant in 10, now at ~5-year mark; ICD unchecked for 3 years despite required 4-month Boston Scientific checks; loss of healthcare tied to loss of license.",
+      "timestamp": "00:32:39",
+      "source_segment": "seg-02"
+    },
+    {
+      "category": "other",
+      "also_relates_to": [],
+      "original_category": "Counsel assessment",
+      "amount_raw": "n/a",
+      "basis_stated": "Drazen: 'we definitely have measurable damages.'",
+      "timestamp": "00:30:05",
+      "source_segment": "seg-02"
+    },
+    {
+      "category": "living_expenses",
+      "also_relates_to": [],
+      "original_category": "economic - living expenses",
+      "amount_raw": "close to a million dollars in the past 3 years",
+      "basis_stated": "documentable living expenses over the past three years, excluding food; client says even at a conservative per-item rate ('let's say it's $50') the amounts add up and can be shown",
+      "timestamp": "00:32:39",
+      "source_segment": "seg-03"
+    },
+    {
+      "category": "family_hardship",
+      "also_relates_to": [],
+      "original_category": "consequential - family medical expenditure",
+      "amount_raw": "amount garbled/omitted in transcript ('cost about and')",
+      "basis_stated": "bone marrow transplant for father's wife (cancer), paid in cash in Dubai; described as a hardship endured by the family; bank records available",
+      "timestamp": "00:33:46",
+      "source_segment": "seg-03"
+    },
+    {
+      "category": "other",
+      "also_relates_to": [
+        "lost_salary"
+      ],
+      "original_category": "career / licensure",
+      "amount_raw": "not quantified",
+      "basis_stated": "client still cannot pick up his medical license because of the disputed records/proceedings",
+      "timestamp": "00:33:46",
+      "source_segment": "seg-03"
+    },
+    {
+      "category": "other",
+      "also_relates_to": [],
+      "original_category": "unclear - possible demand/valuation document",
+      "amount_raw": "100 million with a base of 10",
+      "basis_stated": "client asks someone to check whether 'a document for 100 million with a base of 10' is there; context and referent unclear (Drazen was momentarily away)",
+      "timestamp": "00:40:05",
+      "source_segment": "seg-03"
+    },
+    {
+      "category": "lost_salary",
+      "also_relates_to": [],
+      "original_category": "Lost career / lost earnings — unable to practice medicine",
+      "amount_raw": "none stated (duration: 3 years)",
+      "basis_stated": "'I've been three years not since I've practiced medicine and I wish to practice medicine before the case gets done'",
+      "timestamp": "01:03:33",
+      "source_segment": "seg-04"
+    },
+    {
+      "category": "other",
+      "also_relates_to": [],
+      "original_category": "Reputational harm / stigma",
+      "amount_raw": "none stated",
+      "basis_stated": "'the scarlet letter I'm holding on my chest'; CCTV photo 'posted everywhere'; residual stigma 'he was still involved in it' even after acquittal",
+      "timestamp": "00:56:56",
+      "source_segment": "seg-04"
+    },
+    {
+      "category": "other",
+      "also_relates_to": [],
+      "original_category": "Licensure impairment (collateral consequence of arrest)",
+      "amount_raw": "none stated",
+      "basis_stated": "NYS medical license questionnaire asks 'have you ever been arrested' — arrest record survives expungement for the licensing board",
+      "timestamp": "01:01:30",
+      "source_segment": "seg-04"
+    },
+    {
+      "category": "other",
+      "also_relates_to": [],
+      "original_category": "Immigration harm (non-citizen collateral consequence)",
+      "amount_raw": "none stated",
+      "basis_stated": "Three immigration attorneys advised the arrest record is a serious problem for USCIS despite acquittal",
+      "timestamp": "01:02:46",
+      "source_segment": "seg-04"
+    },
+    {
+      "category": "other",
+      "also_relates_to": [
+        "lost_salary"
+      ],
+      "original_category": "Reputational/employment harm from criminal charge",
+      "amount_raw": "not quantified",
+      "basis_stated": "Fear of never getting a job; 'the way the charge placed on me was damaging enough'",
+      "timestamp": "01:05:45",
+      "source_segment": "seg-05"
+    },
+    {
+      "category": "legal_fees",
+      "also_relates_to": [],
+      "original_category": "Criminal defense attorney fees (out of pocket)",
+      "amount_raw": "not quantified",
+      "basis_stated": "Family 'paid the lawyers separately' in the criminal matter; only sought to clear his name",
+      "timestamp": "01:07:48",
+      "source_segment": "seg-05"
+    },
+    {
+      "category": "other",
+      "also_relates_to": [],
+      "original_category": "Professional licensure impairment",
+      "amount_raw": "not quantified",
+      "basis_stated": "Medical-license ethics/disciplinary committee reviews the charge; narrative affects licensure and visa timing",
+      "timestamp": "01:07:48",
+      "source_segment": "seg-05"
+    },
+    {
+      "category": "other",
+      "also_relates_to": [],
+      "original_category": "Defamation/reputational (internal publication)",
+      "amount_raw": "not quantified",
+      "basis_stated": "CCTV 'poster' spread at UHS; a UHS nurse recognized and messaged him",
+      "timestamp": "01:08:55",
+      "source_segment": "seg-05"
+    },
+    {
+      "category": "board_exam",
+      "also_relates_to": [],
+      "original_category": "Career/exam disruption + out-of-pocket",
+      "amount_raw": "board exam fee (unquantified)",
+      "basis_stated": "Board-exam login locked inside UHS work email; UHS failed to pay the board exam fee it was supposed to pay; could not print registration",
+      "timestamp": "01:11:15",
+      "source_segment": "seg-05"
+    }
+  ]
+}

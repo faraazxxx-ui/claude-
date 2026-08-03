@@ -1,0 +1,36 @@
+{
+  "mission": "Rahman v UHS war room: meeting deliverables, master legal plan, mediation kit, skill spine",
+  "case": "3:26-cv-00197 NDNY",
+  "done": [
+    "gate-0 + WF1 transcript forensics (fidelity PASS 32/32; canon: 80 blocks, 85 facts, 16 action items)"
+  ],
+  "in_progress": "WF2 meeting deliverables",
+  "decisions": [
+    "docx is canonical source",
+    "raw transcript gitignored",
+    "damages: 3-tier nest, $100M exposure posture / $40M acceptance",
+    "all citations dual-source verified or flagged",
+    "REPO IS PUBLIC (verified via GitHub API 2026-08-02): main already exposes REFRAMED/SYNTHESIS/legal-endeavors + health data. ALL pushes held until user decides (make private vs strip). apex commits remain local-only.",
+    "CourtListener works from workflow agents (Thompson v Clark verified, opinion_id 6329458); Descrybe approval-gated -> single-source verification + WebSearch corroboration"
+  ],
+  "canon_files": [
+    "data/transcript_master.json",
+    "data/facts_extraction.json",
+    "data/action_items.json",
+    "data/damages_mentions.json",
+    "data/speaker_roster.json",
+    "data/pacing_digest.md"
+  ],
+  "open_questions": [
+    "UHS corporate identity for punitive theory",
+    "MP SoL exact date",
+    "User decision: flip repo private then push, or keep public and never push case material"
+  ],
+  "next_actions": [
+    "WF1 transcript forensics"
+  ],
+  "critical_deadlines": {
+    "malicious_prosecution_SoL": "~Sept 2026 (1yr from Sept 2025 acquittal)",
+    "mediation_complete_by": "Nov 2026"
+  }
+}

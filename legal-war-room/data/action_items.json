@@ -1,0 +1,203 @@
+{
+  "case": "Rahman v. United Health Services Hospitals (UHSH) et al., No. 3:26-cv-00197 (N.D.N.Y.)",
+  "meeting": "Attorney-client meeting, August 2, 2026",
+  "source": "Definitive action-item list merged and deduped from segment analyses seg-01..seg-06; reconciled against Gemini meeting notes, which list 12 items (7 Faraaz, 3 Drazen, 1 Haseeb, 1 shared identify-doctors).",
+  "gemini_notes_claim": {
+    "total": 12,
+    "faraaz": 7,
+    "drazen": 3,
+    "haseeb": 1,
+    "shared_identify_doctors": 1
+  },
+  "reconciliation_summary": "Transcript evidence supports 16 recorded items. The Gemini 12-count reconciles as follows: Faraaz = 7 open items (FR-01 through FR-07) once the CCTV-poster send (FR-08, completed during the call) and the unclear '100 million with a base of 10' check (FR-09) are excluded; Drazen = 3 (DZ-01 through DZ-03) only if his ~14 individual discovery-demand commitments are consolidated under the single demand-drafting task DZ-01 and the closing 'talk soon' follow-up (DZ-04) is not counted as a work item; Haseeb = 1 (HB-01); shared identify-doctors = 1 (SH-01, Faraaz with his mother's contacts). One additional minor logistics item (FAM-01, call from the Verizon phone) appears in the transcript but not in the notes' count.",
+  "items": [
+    {
+      "id": "FR-01",
+      "item": "Gather actual bank records documenting family expenditures and financial hardship (father's ~$300k/yr transfers structured as a loan, Dubai cash medical payments, living expenses) and send to counsel; client has already run bank records through AI analysis.",
+      "owner": "Dr. Faraaz Rahman (client)",
+      "deadline": "not stated",
+      "timestamp": "00:33:46",
+      "verbatim_anchor": "I can find uh actual bank records for everything.  [Drazen: 'get get me all that stuff']",
+      "source_segments": ["seg-02", "seg-03"],
+      "status": "open"
+    },
+    {
+      "id": "FR-02",
+      "item": "Preliminarily review the academic records already in hand; mark every entry that is unfair, inaccurate, or damaging and send the markup to Drazen to frame the removal/correction demand.",
+      "owner": "Dr. Faraaz Rahman (client)",
+      "deadline": "not stated",
+      "timestamp": "00:35:01",
+      "verbatim_anchor": "draw draw a line under them and then get that to me so that we know what it is that we're asking them or demanding of them to remove from the record",
+      "source_segments": ["seg-03"],
+      "status": "open"
+    },
+    {
+      "id": "FR-03",
+      "item": "Locate and send Drazen the 2022 ten-page line-by-line rebuttal email (sent to the entire GME from the UHS work email; client to search for a personal copy).",
+      "owner": "Dr. Faraaz Rahman (client)",
+      "deadline": "not stated",
+      "timestamp": "00:37:46",
+      "verbatim_anchor": "I spent three days writing a 10page email with a uh line by line rebuttal to every single thing written on my thing.",
+      "source_segments": ["seg-03"],
+      "status": "open",
+      "note": "Client has tried and failed to find a personal copy; Drazen will demand work-email access as the fallback (see DZ-01.c)."
+    },
+    {
+      "id": "FR-04",
+      "item": "Send Drazen a list of the official complaints filed against Dr. Awais Ahmed as a resident in 2021 and 2022 (sent from the UHS hospital email account).",
+      "owner": "Dr. Faraaz Rahman (client)",
+      "deadline": "not stated",
+      "timestamp": "01:13:37",
+      "verbatim_anchor": "Send me send me as best you can a a list of of those.",
+      "source_segments": ["seg-05"],
+      "status": "open"
+    },
+    {
+      "id": "FR-05",
+      "item": "Track down and print the text messages from the senior resident asking him not to complain about Dr. Ahmed ('I want to match into cardiology'); believed recoverable in iMessage despite phone-number change.",
+      "owner": "Dr. Faraaz Rahman (client)",
+      "deadline": "not stated",
+      "timestamp": "01:16:57",
+      "verbatim_anchor": "Are are you able to print out the text messages? ... Try try to get them.",
+      "source_segments": ["seg-05"],
+      "status": "open"
+    },
+    {
+      "id": "FR-06",
+      "item": "Go through the ~4,000 pages of saved documents, annotate significant items, and deliver the compiled document he is developing to Drazen (client spent the prior two nights on this).",
+      "owner": "Dr. Faraaz Rahman (client)",
+      "deadline": "not stated",
+      "timestamp": "01:16:57",
+      "verbatim_anchor": "there were about uh 4,000 pages of documents I had saved",
+      "source_segments": ["seg-05"],
+      "status": "open"
+    },
+    {
+      "id": "FR-07",
+      "item": "Initiate an ACGME complaint to bring ACGME to the table from plaintiff's side (parallel-track leverage; Drazen: 'that's fine').",
+      "owner": "Dr. Faraaz Rahman (client)",
+      "deadline": "not stated",
+      "timestamp": "01:05:45",
+      "verbatim_anchor": "I am going to call try to get ACGME to come to the table uh from the side in which they come as a complaint from my side.",
+      "source_segments": ["seg-04", "seg-05"],
+      "status": "open"
+    },
+    {
+      "id": "FR-08",
+      "item": "Find and send Drazen the circulated CCTV 'poster' image (defamation exhibit; a UHS nurse messaged him asking 'is this you').",
+      "owner": "Dr. Faraaz Rahman (client)",
+      "deadline": "not stated",
+      "timestamp": "01:08:55",
+      "verbatim_anchor": "this is the picture which they had taken. I'm going to send it to you on ... email  [Drazen: 'I definitely want that.']",
+      "source_segments": ["seg-05"],
+      "status": "completed_during_call",
+      "note": "Emailed to Drazen during the call at 01:10:28 ('I just uh emailed you the picture')."
+    },
+    {
+      "id": "FR-09",
+      "item": "Check whether 'a document for 100 million with a base of 10' is in the file — asked off-line while Drazen was momentarily away; referent never clarified on the record.",
+      "owner": "Dr. Faraaz Rahman (requestor; addressee unclear)",
+      "deadline": "not stated",
+      "timestamp": "00:40:05",
+      "verbatim_anchor": "a document for 100 million with a base of 10",
+      "source_segments": ["seg-03"],
+      "status": "unclear_referent"
+    },
+    {
+      "id": "SH-01",
+      "item": "Identify and track down the two doctors who filed the complaint on behalf of the Indian women the family housed, and the two fired Indian physicians; provide the names to Drazen. Mother (Dr. Mubeena Iqbal) has been in contact with them and called them once.",
+      "owner": "Shared: Dr. Faraaz Rahman with Dr. Mubeena Iqbal (mother's contacts); deliverable to Douglas Walter Drazen",
+      "deadline": "not stated",
+      "timestamp": "00:59:30",
+      "verbatim_anchor": "I'll get their names and I'll try to track those people down as well  [Drazen at 01:00:37: 'get me the names'; at 01:08:55: 'Get me the names. of these people.']",
+      "source_segments": ["seg-04", "seg-05"],
+      "status": "open",
+      "note": "Matches the Gemini notes' shared 'identify doctors' item."
+    },
+    {
+      "id": "DZ-01",
+      "item": "Finish drafting and serve plaintiff's discovery demands, incorporating everything discussed in this meeting (draft is a work in progress — substantial progress made, 'not entirely satisfied with it yet').",
+      "owner": "Douglas Walter Drazen (attorney)",
+      "deadline": "no set time; a schedule deadline exists but was not stated on the call ('There is no set time. I mean, there's a deadline. I don't have the schedule in front of me')",
+      "timestamp": "00:05:23",
+      "verbatim_anchor": "So, I've been drafting it. ... the very first thing that we're going to be demanding ... your entire ... academic record",
+      "source_segments": ["seg-01", "seg-02", "seg-03", "seg-04", "seg-05"],
+      "status": "open",
+      "consolidates_specific_demand_commitments": [
+        {"demand": "Entire academic record (demand #1), followed by line-by-line review once produced", "timestamp": "00:05:23", "anchor": "the very first thing that we're going to be demanding ... your entire ... academic record"},
+        {"demand": "Entire medical record", "timestamp": "01:10:28", "anchor": "We're going to ask for your entire medical record."},
+        {"demand": "Direct access to client's UHS work email account or hard-copy printout of every email", "timestamp": "01:00:37", "anchor": "we're going to demand either direct access to your email account or... we'll ask them to print out every single one of them"},
+        {"demand": "Copies of complaints of a similar (discriminatory) nature — comparator complaints", "timestamp": "00:18:03", "anchor": "We want we want copies of complaints of a similar nature."},
+        {"demand": "Formal complaint letters and resignation-threat letters re the Indian resident's firing (addressed to then-program director Dr. Janice)", "timestamp": "00:21:40", "anchor": "All right. Yeah. Because we we're going to be asking for those."},
+        {"demand": "Dr. Jones's letter to Dr. Ali calling the probation 'very inhumane'", "timestamp": "00:26:23", "anchor": "Well, we're going to get that letter"},
+        {"demand": "All communications referencing client between the individual defendants and anybody else at UHS, plus internal UHS emails/texts referencing him and meeting minutes", "timestamp": "00:27:22", "anchor": "we're asking for all communications that referenced you between the individual defendants and anybody else at UHS"},
+        {"demand": "All communications between the individual defendants / anyone at UHS and the Broome County District Attorney's Office referencing the client", "timestamp": "00:40:05", "anchor": "we're also asking for all communications between the individual defendants and anyone at UHS and the Broom County District Attorney's Office that reference your name"},
+        {"demand": "All communications between UHS employees, the individual defendants, and Guthrie hospital referencing the client, April 1 through April 30 (event date ~April 14)", "timestamp": "00:42:37", "anchor": "We are also asking for all communications between UHS employees, the individual defendants and uh Guthrie hospital ... from April 1st till April 30th"},
+        {"demand": "Copy of the subpoena (if any) under which UHS gave the client's academic records to the DA", "timestamp": "00:51:14", "anchor": "there was probably a subpoena issued and we'll get a copy of that, too."},
+        {"demand": "Written administrative-leave / stay-away directive documents", "timestamp": "00:52:32", "anchor": "we're going to ask for those kind, too."},
+        {"demand": "Inter-hospital (UHS/Guthrie) legal-team communications, plus records of why administrative leave was imposed and removed", "timestamp": "00:58:11", "anchor": "Yeah, we'll ask for it. We'll see what they say."},
+        {"demand": "UHS records on Dr. Awais Ahmed's departure, and the demotion/replacement personnel actions", "timestamp": "01:11:15", "anchor": "they may chafe at this, but we want the records with respect to um Ahmed um departure"},
+        {"demand": "Client-raised targets endorsed on the call: Dr. Nadeem's texts with the complainant and her brother; police body-cam footage ('access to Dr. Ali' statement); internal meeting records behind Dr. Ali's and Dr. Ahmed's dismissals; Dr. Rehman's UHS-wide conflict-of-interest step-down email", "timestamp": "00:15:52", "anchor": "if you were to simply get a text of Dr. Nadim, he is in constant communication with uh her and her brother"}
+      ]
+    },
+    {
+      "id": "DZ-02",
+      "item": "Evaluate the viability and timeliness (statute of limitations) of a malicious-prosecution claim against the arresting police officers and ancillary prosecution-team members (DA immune); Drazen is openly skeptical but agreed to review.",
+      "owner": "Douglas Walter Drazen (attorney)",
+      "deadline": "not stated (urgent — Drazen flagged 'the timeliness of of it now may be in question' given the Sept 2025 acquittal)",
+      "timestamp": "01:04:38",
+      "verbatim_anchor": "I'll take a look at it. I don't I I don't hold out a lot of hope for it.",
+      "source_segments": ["seg-04", "seg-05"],
+      "status": "open"
+    },
+    {
+      "id": "DZ-03",
+      "item": "Sequence the case so mediation is held only after defendants' discovery responses are received; court-ordered mediation must be completed by November 2026.",
+      "owner": "Douglas Walter Drazen (attorney)",
+      "deadline": "mediation completion deadline: November 2026 (stated: 'the mediation has to be completed by November')",
+      "timestamp": "00:05:23",
+      "verbatim_anchor": "I don't know that we would want to do a mediation without having their discovery responses.",
+      "source_segments": ["seg-01"],
+      "status": "open"
+    },
+    {
+      "id": "DZ-04",
+      "item": "Follow-up attorney-client call with the family.",
+      "owner": "Douglas Walter Drazen (attorney), with the Rahman family",
+      "deadline": "not stated ('soon')",
+      "timestamp": "01:29:03",
+      "verbatim_anchor": "So, we're going to talk we're going to talk soon",
+      "source_segments": ["seg-06"],
+      "status": "open",
+      "note": "Closing commitment rather than a discrete work item; likely not counted in the Gemini notes' 12."
+    },
+    {
+      "id": "HB-01",
+      "item": "Collect and send Drazen 'all that information' — the documents/information referenced earlier in the meeting (ties to the family bank/financial records and exhibit materials, e.g., '43 of the forgery' Haseeb flagged at 00:38:32).",
+      "owner": "Haseeb Rahman (father)",
+      "deadline": "not stated",
+      "timestamp": "01:29:03",
+      "verbatim_anchor": "Hassie. Try to get me all that that information.",
+      "source_segments": ["seg-06"],
+      "status": "open"
+    },
+    {
+      "id": "FAM-01",
+      "item": "Call Drazen from the family's Verizon phone next time (his Verizon line cannot receive audio from AT&T/T-Mobile callers until his maintenance ticket is resolved).",
+      "owner": "Rahman family",
+      "deadline": "not stated",
+      "timestamp": "00:01:14",
+      "verbatim_anchor": "not stated verbatim in segment analyses (logistics summarized at 00:01:14; no key quote extracted)",
+      "source_segments": ["seg-01"],
+      "status": "minor_logistics",
+      "note": "Not in the Gemini notes' 12-item count."
+    }
+  ],
+  "discrepancy_notes": [
+    "Count: Gemini notes claim 12 items; transcript evidence supports 16 recorded items. The 12 reconcile exactly only under the consolidations described in reconciliation_summary (Drazen's ~14 discovery-demand commitments collapsed into DZ-01; FR-08 completed during the call; FR-09 unclear referent; DZ-04 and FAM-01 treated as non-work items).",
+    "Faraaz count: 7 matches only if the completed poster send (FR-08) and the unclear '100 million with a base of 10' check (FR-09) are excluded; including them the transcript shows 9 Faraaz-owned items.",
+    "Drazen count: 3 matches only at the consolidated level; at the individual-demand level the transcript records ~14 distinct discovery commitments plus the malicious-prosecution review and mediation sequencing.",
+    "No stated deadline exists for any item except the November 2026 mediation completion (DZ-03) and Drazen's unspecified draft deadline (DZ-01: 'There is no set time. I mean, there's a deadline').",
+    "FR-09's referent ('a document for 100 million with a base of 10') was never clarified on the record — possibly a damages/valuation figure; flagged in damages_mentions.json as well."
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "case": "Rahman v. UHS et al., 3:26-cv-00197 (NDNY)",
+  "source_files": [
+    "/home/user/claude-/legal-war-room/data/raw/gemini_notes.txt",
+    "/home/user/claude-/legal-war-room/data/raw/segments/seg-01.txt",
+    "/home/user/claude-/legal-war-room/data/raw/segments/seg-03.txt"
+  ],
+  "generated": "2026-08-02",
+  "method_note": "Gemini lumps multiple family members under the single raw label 'faraaz rahman'. Reassignments are made ONLY where context cues justify, each with basis; otherwise the raw label is retained with confidence < 0.7.",
+  "speaker_roster": [
+    {
+      "label_raw": "faraaz rahman",
+      "identity": "Dr. Faraaz Rahman",
+      "role": "Plaintiff / client; resident physician",
+      "confidence": 0.9,
+      "cues": [
+        "First-person ownership of the medical-career narrative: 'my academic records', 'I filed FMLA', 'I was arrested on basically a false charge', 'my contract was signed on April 1st', 'I was put on probation on the 14th of April' (seg-01).",
+        "Describes his own cardiac device / Boston Scientific checkups and heart-failure prognosis (seg-03 line 3).",
+        "'I spent three days writing a 10 page email with a line by line rebuttal' — the 2022 GME email he is tasked to resend (seg-03 lines 76-84; notes next-step 'Send Rebuttal Email').",
+        "'this is the part which my AI kind of arranged it' (seg-01 line 170) ties him to the 'enterprise AI' work described in third person by another speaker.",
+        "Carries essentially all substantive legal dialogue with Drazen."
+      ]
+    },
+    {
+      "label_raw": "faraaz rahman",
+      "identity": "Dr. Mubeena Iqbal (mother) — REASSIGNED for specific turns",
+      "role": "Client's mother; physician (per invite roster drmubeenaiqbal@gmail.com)",
+      "confidence": 0.65,
+      "cues": [
+        "seg-01 lines 13-14: 'faraaz rahman: Hi, Doug.' / 'Douglas Walter Drazen: Hi, Abena.' — Drazen answers a female greeter as 'Abena', a phonetic garble of 'Mubeena'. The only female known participant is Dr. Mubeena Iqbal.",
+        "seg-01 lines 57-63: 'I think Perez will come he's been up like two days continuous ... 48 hours ... He has an enterprise AI ... I've told his father also to join.' Speaker refers to Faraaz ('Perez') AND to 'his father' (Haseeb) in the third person, so the speaker is neither Faraaz nor Haseeb — consistent with the mother.",
+        "Notes corroborate the mother is an active intermediary: 'their mother has been in contact with these individuals' (notes line 62)."
+      ],
+      "caveat": "Reassignment offered as a flagged candidate (confidence < 0.7). Underlying raw label remains 'faraaz rahman'."
+    },
+    {
+      "label_raw": "haseeb rahman",
+      "identity": "Haseeb Rahman (father)",
+      "role": "Client's father; Dubai shipping businessman (invite roster haseeb1962@gmail.com / haseeb@minecore.ae)",
+      "confidence": 0.75,
+      "cues": [
+        "Joins mid-call greeting: 'Alsam good morning.' ('Alsam' = 'Assalam') and addresses Drazen deferentially as 'sir': 'How are you sir?', 'Thank you so much', 'Sir take care' (seg-01 lines 146-157).",
+        "Points counsel to a documentary exhibit: 'Well, 43 of the forgery. ... Let fory.' (seg-03 lines 106-108), consistent with the father assisting on document production (notes next-step '[haseeb rahman] Collect Information').",
+        "Register (short, polite, older-generation) differs markedly from the detailed clinical/legal narration of Faraaz."
+      ],
+      "caveat": "Some very short interjections filed under this label ('Stop', 'Relax', 'Okay', 'Yes', 'Don't have anything') may be cross-talk/background and are not individually attributable with confidence."
+    },
+    {
+      "label_raw": "Douglas Walter Drazen",
+      "identity": "Douglas Walter Drazen (attorney)",
+      "role": "Plaintiff's counsel",
+      "confidence": 0.95,
+      "cues": [
+        "First-person counsel voice: 'I've been drafting it', 'the very first thing that we're going to be demanding' (seg-01 line 110; seg-03 line 19).",
+        "Explains procedure: federal court has no fixed decision deadline, mediation must be completed by November, July magistrate phone conference (seg-01 lines 74-98).",
+        "Directs discovery scope and evidence collection ('get me all that stuff', 'send that to me').",
+        "Label is reliable throughout; no reassignment needed."
+      ]
+    }
+  ],
+  "garble_glossary": [
+    {
+      "raw": "Horizon",
+      "corrected": "Verizon",
+      "confidence": 0.95,
+      "basis": "seg-01 line 29: 'I think Horizon this new number Oh, this new number is AT&T.' Immediately follows Drazen: 'Verizon is not your provider. Is that right?' (line 28). Provider-connectivity discussion (Verizon/AT&T/T-Mobile). Matches known candidate Horizon=Verizon and notes line 51 (Verizon/AT&T/T-Mobile)."
+    },
+    {
+      "raw": "Oasis / O Ahmed / OS Ahmed / OM",
+      "corrected": "Awais Ahmed MD (defendant)",
+      "confidence": 0.9,
+      "basis": "seg-01: 'what happened with Dr. O Ahmed' (line 124); 'so Oasis he he was fired from UHS' (line 127); 'Dr. OS Ahmed got fired for discip... which was my complaint against him' (line 140); 'Dr. OM's dismissal' (line 162). Same individual: fired for disciplinary reasons on Faraaz's HR complaint (see notes line 69, HR complaints against 'Ahmed'). Maps to named defendant Awais Ahmed MD. Matches known candidate Oasis/OS Ahmed/O Ahmed = Awais Ahmed."
+    },
+    {
+      "raw": "Reman / Rakman / 'Dr. Rahman' (the GME head)",
+      "corrected": "Dr. Afzal ur Rehman MD (defendant) — NOT the client",
+      "confidence": 0.8,
+      "basis": "seg-01 line 129: Drazen '...and so was was was Reman or Rakman'. The person then described as 'Dr. Rahman who was the head of graduate medical education... for almost 30 years' who stepped down 'because of a conflict of interest because my son-in-law is joining fellowship' (lines 140, 162) is one of the four defendant doctors, distinct from plaintiff Faraaz Rahman. Maps to defendant Afzal ur Rehman MD. Matches known candidate Reman/Rakman = Rehman. IMPORTANT forensic distinction: shared surname 'Rahman/Rehman' — the transcript's 'Dr. Rahman' = defendant, not the client."
+    },
+    {
+      "raw": "Dr. Nadim / Dr. Nadu",
+      "corrected": "M. Farhan Nadeem MD (defendant)",
+      "confidence": 0.85,
+      "basis": "seg-01 line 168: 'Dr. Nadim is not academia. He's only the only reason I put Dr. Nadu's name there is because he is the link to the the girl'; line 195: 'if you were to simply get a text of Dr. Nadim, he is in constant communication with her and her brother.' Named defendant M. Farhan Nadeem MD; described as the link to the complainant ('the girl')."
+    },
+    {
+      "raw": "Dr. Ali",
+      "corrected": "Muhammad Imran Ali MD (defendant)",
+      "confidence": 0.85,
+      "basis": "seg-01: 'Dr. Ali was my program director' (line 140); 'Dr. Ali was the assistant program director for about 20 years' and 'made to step down' (lines 145, 157). Program-director role matches named defendant Muhammad Imran Ali MD. (Name is largely un-garbled; included for identity mapping and to disambiguate the four defendant doctors.)"
+    },
+    {
+      "raw": "Alsam",
+      "corrected": "Assalam (greeting, 'Assalamu alaikum')",
+      "confidence": 0.9,
+      "basis": "seg-01 line 146: 'haseeb rahman: Alsam good morning.' Islamic greeting used as a salutation immediately paired with 'good morning'. Matches known candidate Alsam = Assalam."
+    },
+    {
+      "raw": "Abena",
+      "corrected": "Mubeena (Dr. Mubeena Iqbal, the mother)",
+      "confidence": 0.6,
+      "basis": "seg-01 line 14: 'Douglas Walter Drazen: Hi, Abena.' answering a greeting on the call. The only female known participant (invite roster) is Dr. Mubeena Iqbal; 'Abena' is a plausible phonetic clipping of 'Mubeena'. Offered as a flagged candidate (confidence < 0.7); not among the pre-listed garble candidates."
+    },
+    {
+      "raw": "Perez",
+      "corrected": "Faraaz (Dr. Faraaz Rahman)",
+      "confidence": 0.6,
+      "basis": "seg-01 line 57: 'I think Perez will come he's been up like two days continuous ... he's been working on a lot of AI'. The subject uses an 'enterprise AI'; Faraaz later says 'my AI kind of arranged it' (line 170). Phonetic near-match Perez/Faraaz and the AI thread point to Faraaz being described in the third person. Flagged candidate (confidence < 0.7)."
+    },
+    {
+      "raw": "Guthri / Gutri / G3 / gutri",
+      "corrected": "Guthrie (Hospital)",
+      "confidence": 0.9,
+      "basis": "seg-03: 'the call to the cops came from Guthri hospital' (line 135); 'the lawyers of Guthri called the lawyers of UHS' (line 156); 'G3 called the cops as well' (line 166); 'the gutri lawyers callous lawyers' (line 173). Notes reference 'Guthrie Hospital' (notes lines 28, 39, 59). Consistent single institution = Guthrie."
+    },
+    {
+      "raw": "USS / US's / UHF",
+      "corrected": "UHS (United Health Services / UHSH, defendant)",
+      "confidence": 0.9,
+      "basis": "seg-01 line 162: 'sends out an email out to the entirety of USS'; line 195: 'she's not linked with UHF'; seg-03 lines 189-194: 'US's lawyers put me on admin leave', 'highest levels of USS UHS corporate'. Note line 194 the transcript self-corrects 'USS UHS'. Maps to defendant United Health Services Hospitals (UHSH)."
+    },
+    {
+      "raw": "Broom County",
+      "corrected": "Broome County (District Attorney's Office)",
+      "confidence": 0.85,
+      "basis": "seg-03 line 122: 'the Broom County District Attorney's Office that reference your name.' Notes line 59 uses correct 'Broome County District Attorney's Office'. NDNY / Binghamton venue is Broome County."
+    },
+    {
+      "raw": "sunny upstate",
+      "corrected": "SUNY Upstate (SUNY Upstate Medical University)",
+      "confidence": 0.75,
+      "basis": "seg-01 line 140: 'head of graduate medical education for the entire for all for not just UHS but also for sunny upstate. So when we have medical students rotate at UHS...'. Academic medical-education context makes SUNY Upstate the clear referent."
+    }
+  ],
+  "unresolved_garble_candidates": [
+    {
+      "raw": "ANSCO",
+      "note": "seg-03 line 199: 'they never gave us the footages of ANSCO and ANSCO lawyers were involved too very heavily... they were the ones who let them in.' Refers to an entity holding CCTV footage whose lawyers were involved; insufficient basis in the provided files to map confidently. Do not correct without further context."
+    },
+    {
+      "raw": "Dr. Hila / Dr. Rama's position",
+      "note": "seg-03 line 189: \"it's not even Dr. Hila's hands who had Dr. Rama's position before.\" 'Dr. Rama' plausibly = Dr. Rahman/Rehman (the GME head), and 'Dr. Hila' may be his successor, but names are unverifiable from the provided text. Flagged, not corrected."
+    },
+    {
+      "raw": "Carri",
+      "note": "seg-03 line 188: 'That was that Carri' — Drazen appears to be probing for a CEO's name (UHS vs Guthrie CEO). Unverifiable from provided files."
+    },
+    {
+      "raw": "false vergers",
+      "note": "Pre-listed candidate 'false vergers' = 'false charges/allegations' does NOT appear in the segments read (seg-01, seg-03) or the notes. The actual text already reads 'false charge'/'false charges' (seg-01 line 190). No correction applied here; the garble presumably lives in an un-read segment."
+    }
+  ]
+}

@@ -1,0 +1,270 @@
+{
+  "segment_id": "seg-03",
+  "blocks": [
+    {
+      "timestamp": "00:32:39",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Haseeb Rahman (father)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Faraaz frames his health-related damages: mathematically, without proper treatment he faces heart failure within five years and would need a transplant in ten, and he is now 'walking around the five year mark.' His implanted cardiac device, which Boston Scientific must check every four months, has gone unchecked for three years. On financial damages, he says he can document close to a million dollars over the past three years in living expenses alone, not counting food or the sacrifices his father made.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "mathematically the way if I was not treated I would I would have had heart failure in five years and uh I would need a transplant in 10 and I just realized I'm walk I'm walking around the five year mark", "significance": "Establishes serious ongoing physical-injury/health damages tied to the disruption of his medical care — supports damages and potentially ADA-related claims."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "My my device which is placed has to be checked by Boston Scientific ... it has to be checked every four months it's been three years", "significance": "Concrete, verifiable medical-neglect consequence (device-check records from Boston Scientific are objective third-party evidence of harm)."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "I can show an amount which amounts to just uh close to a million dollars in the past 3 years just in living expenses", "significance": "Client's own quantification of documentable economic damages (~$1M over 3 years)."}
+      ],
+      "corrections": [],
+      "legal_tags": ["damages", "health"],
+      "callout": "Client quantifies ~$1M in documentable 3-year living-expense damages and flags 3 years of missed mandatory cardiac-device checks (Boston Scientific) as ongoing physical harm."
+    },
+    {
+      "timestamp": "00:33:46",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Faraaz describes family financial hardship: his father's wife had cancer and needed a bone marrow transplant paid in cash in Dubai (the dollar amount is garbled/omitted in the transcript). He notes he still cannot pick up his medical license because of this, and says he can find actual bank records for all family expenditures. Drazen says 'get me all that stuff,' then pivots to discovery strategy: the first demand is the entire academic record, and he asks Faraaz to pre-identify what in the records he wants redacted or revised, anticipating the defense will ask exactly that.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "I still can't pick up my medical license because of this. Um, you can't you couldn't drag it on.", "significance": "Ongoing career/licensure injury — core to lost-earnings and continuing-harm damages theory."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "I can find uh actual bank records for everything.", "significance": "Client commits to producing documentary proof of economic damages."},
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "the first thing that we're demanding is your entire academic record", "significance": "Counsel's stated priority-one discovery demand."}
+      ],
+      "corrections": [],
+      "legal_tags": ["damages", "discovery", "action_item"],
+      "callout": "Counsel's first demand is the complete academic record; client tasked with gathering bank records proving family financial hardship (including a cash-paid bone marrow transplant in Dubai)."
+    },
+    {
+      "timestamp": "00:35:01",
+      "speakers_present": ["Douglas Walter Drazen (attorney)", "Dr. Faraaz Rahman (client/plaintiff)", "Haseeb Rahman (father)"],
+      "clean_summary": "Drazen instructs Faraaz to go through the academic records they already have, mark everything unfair or inaccurate ('draw a line under them'), and send it to him so they know exactly what to demand be removed. Faraaz says he managed to peek at his records and strongly suspects UHS has since redacted quite a bit, because he changed a lot of information back in 2022 when 'they tried everything to fire me.' He admits that when threatened with probation he told Dr. Ali (Muhammad Imran Ali MD) he would not sign, and a lawyer he consulted at the time advised letting sleeping dogs lie.",
+      "key_quotes": [
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "draw draw a line under them and then get that to me so that we know what it is that we're asking them or demanding of them to remove from the record", "significance": "Defines the record-remediation demand process — client's markup becomes the basis of the expungement/correction demand."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "in 2022 when they tried everything to fire me ... I kind of told Dr. Ali, I'm not going to sign.", "significance": "Establishes a 2022 attempted-termination episode and client's refusal to sign the probation — timeline anchor for the retaliation/pattern narrative."}
+      ],
+      "corrections": [
+        {"raw": "Dr. Ali", "corrected": "Muhammad Imran Ali MD (defendant, program director)", "basis": "Roster/glossary: seg-01 identifies 'Dr. Ali' as the client's program director, mapping to named defendant Muhammad Imran Ali MD."}
+      ],
+      "legal_tags": ["discovery", "action_item", "timeline", "evidence"],
+      "callout": "Client suspects post-hoc redaction/alteration of his academic record by UHS — spoliation concern; markup task assigned to client."
+    },
+    {
+      "timestamp": "00:36:02",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Haseeb Rahman (father)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Faraaz relays his prior lawyer's warning: programs often slip things into or remove things from a resident's academic record at will after graduation, and by the time the resident finds out it is too late. But the emails cannot be changed — they were sent by him and by them. Drazen confirms they will demand all communications between Faraaz and everyone associated with UHS during the relevant time frame, plus all emails and texts among UHS personnel that reference Faraaz. Faraaz adds meeting minutes, which Drazen agrees to demand as well, reiterating that the very first ask is the entire academic record.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "what they very often do is you graduate, they slip things, remove things from your academic record at will and you don't know it until you it's too late", "significance": "Motivates urgency of academic-record discovery and supports a record-tampering/spoliation theory."},
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "We'll we'll be demanding all of that, all communications between you and everyone ... anyone associated with UHS and then we want to ask for all the emails and texts between each other that reference you.", "significance": "Scope of the document demands: bilateral communications plus internal UHS communications referencing the client."}
+      ],
+      "corrections": [
+        {"raw": "UHS", "corrected": "United Health Services Hospitals (defendant)", "basis": "Named institutional defendant in Rahman v. UHS, 3:26-cv-00197 (NDNY); consistent with glossary UHS/USS mapping."}
+      ],
+      "legal_tags": ["discovery", "evidence"],
+      "callout": "Discovery scope set: all client-UHS communications, all internal UHS emails/texts referencing client, and meeting minutes — emails identified as the tamper-proof evidence layer."
+    },
+    {
+      "timestamp": "00:36:52",
+      "speakers_present": ["Douglas Walter Drazen (attorney)", "Dr. Faraaz Rahman (client/plaintiff)"],
+      "clean_summary": "Drazen repeats the two-stage plan: preliminarily, Faraaz reviews the records they already have and flags what is wrong, inaccurate, or damaging; once the full record is produced they will go through it line by line to determine what must be taken out. Faraaz explains why he raised the emails: when he peeked at his records he made a copy, and — fighting his own battle at the time — spent three days writing a ten-page email with a line-by-line rebuttal to every single thing written in his record.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "I spent three days writing a 10page email with a uh line by line rebuttal to every single thing written on my thing.", "significance": "A contemporaneous (2022) written rebuttal to the derogatory record entries — powerful contemporaneous-denial evidence that also proves UHS was on notice of his disputes."},
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "once we get the full record, then we're going to get a chance to go through line by line and see what it is that we want taken out", "significance": "Confirms the record-correction remedy sought against UHS."}
+      ],
+      "corrections": [],
+      "legal_tags": ["evidence", "discovery", "action_item"],
+      "callout": "Existence of a 2022 ten-page line-by-line rebuttal email establishes contemporaneous dispute of the academic-record entries and UHS's notice of it."
+    },
+    {
+      "timestamp": "00:37:46",
+      "speakers_present": ["Douglas Walter Drazen (attorney)", "Dr. Faraaz Rahman (client/plaintiff)"],
+      "clean_summary": "Drazen asks who received the rebuttal email. Faraaz says he sent it not just to his entire program but to the entirety of GME — including all the gastroenterology and cardiology doctors — 'so everyone knew what my story was'; it sits in his 2022 emails. Drazen tells him to send it if he hasn't already; Faraaz explains it is in his work email and he has tried but failed to find a personal copy. Drazen responds that they will demand access to the work email account too.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "I sent it to not just the entirety of GM uh of my program but the entirety of GME which included all the doctors of gastrontology, all the doctors of cardiology so everyone knew what I was what my story was", "significance": "Broad institutional distribution means dozens of custodians hold the rebuttal — hard for UHS to claim ignorance or non-existence; also shows institution-wide notice."},
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "We're going to ask for all your the access to your to your work email account", "significance": "Adds the client's UHS work-email account to the discovery demands — the rebuttal and much of the 2022 correspondence live only there."}
+      ],
+      "corrections": [
+        {"raw": "gastrontology", "corrected": "gastroenterology", "basis": "Transcription garble; context is hospital specialty departments alongside cardiology within GME."}
+      ],
+      "legal_tags": ["evidence", "discovery", "action_item"],
+      "callout": "Key exhibit (2022 rebuttal email) is locked in the client's UHS work email — access to that account added to the demand list."
+    },
+    {
+      "timestamp": "00:38:32",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)", "Haseeb Rahman (father)"],
+      "clean_summary": "Faraaz raises a critical question: he recalls the DA saying a grand jury was used to subpoena his academic records — how did the DA conclude there was something in his academic record at all? Haseeb points counsel to a document: 'Well, 43 of the forgery' (apparently exhibit/page 43 of the forgery matter). Faraaz confirms they have that document and that 'he clearly wrote over there.' The block ends with an interruption — Drazen steps away briefly to deal with something at his location ('Same time. 5:36 ... You're approved ... I'll be right back').",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "the DA said that they had a grand jury uh to to subpoena my academic records. How did he come to that ... conclusion that ... something was there in my academic record?", "significance": "Goes to who fed the DA information — the causal link between the UHS defendants and the criminal prosecution, central to malicious prosecution."},
+        {"speaker": "Haseeb Rahman (father)", "quote": "Well, 43 of the forgery.", "significance": "Father directs counsel to an existing exhibit (item 43 of the forgery documents) that apparently evidences the DA's basis — a locatable documentary anchor."}
+      ],
+      "corrections": [
+        {"raw": "Let fory.", "corrected": "[unclear — likely a repetition referencing 'the forgery']", "basis": "Garbled fragment immediately following Haseeb's '43 of the forgery'; no confident correction possible, left flagged."}
+      ],
+      "legal_tags": ["malicious_prosecution", "evidence", "discovery"],
+      "callout": "Grand-jury subpoena of academic records implies someone told the DA the records mattered — identifying that channel is a malicious-prosecution linchpin; exhibit '43 of the forgery' flagged by the father."
+    },
+    {
+      "timestamp": "00:40:05",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "During Drazen's brief absence, Faraaz asks (apparently to someone off-line) about 'a document for 100 million with a base of 10' and whether it is there. Drazen returns and states they are also demanding all communications between the individual defendants, anyone at UHS, and the Broome County District Attorney's Office that reference Faraaz's name. Both are curious how the DA got involved; Drazen notes it would be 'rather unusual' if there were no written communications. Faraaz then raises a point he feels gets glossed over: the call to the cops came from Guthrie hospital — it did not come from the girl (the complainant).",
+      "key_quotes": [
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "we're also asking for all communications between the individual defendants and anyone at UHS and the Broom County District Attorney's Office that reference your name", "significance": "Direct discovery demand targeting the defendants-to-prosecutor channel — the initiation/instigation element of malicious prosecution."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "the the call to the cops came from Guthri hospital they didn't come from the girl", "significance": "Reframes who instigated the police involvement: an institution, not the alleged victim — undermines the narrative that the prosecution arose organically from a complainant."},
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "it would seem rather unusual if they didn't communicate at all in writing", "significance": "Counsel's expectation that written defendant-DA communications exist and are discoverable."}
+      ],
+      "corrections": [
+        {"raw": "Broom County", "corrected": "Broome County (District Attorney's Office)", "basis": "Glossary: NDNY/Binghamton venue is Broome County; notes use the correct spelling."},
+        {"raw": "Guthri", "corrected": "Guthrie (Hospital)", "basis": "Glossary: consistent seg-03 usage and notes referencing 'Guthrie Hospital'."}
+      ],
+      "legal_tags": ["discovery", "malicious_prosecution", "evidence"],
+      "callout": "Pivotal instigation fact: police were called by Guthrie hospital, not by the complainant — defendant-to-DA communications now formally on the demand list."
+    },
+    {
+      "timestamp": "00:42:37",
+      "speakers_present": ["Haseeb Rahman (father)", "Douglas Walter Drazen (attorney)", "Dr. Faraaz Rahman (client/plaintiff)"],
+      "clean_summary": "Drazen adds another demand: all communications between UHS employees, the individual defendants, and Guthrie hospital on the relevant date — he places it as the 14th of April — and more broadly any communications referencing Faraaz from April 1st through April 30th. Faraaz recounts that while the cops were waiting for him downstairs, Dr. Ali called to say the lawyers of Guthrie had called the lawyers of UHS to begin an investigation and that he was on administrative leave; Guthrie as an institution had already posted photographs of him across the hospital saying, in effect, 'if you see this person please call the police.'",
+      "key_quotes": [
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "We are also asking for all communications between UHS employees, the individual defendants and uh Guthrie hospital ... from April 1st till April 30th. Any any communications regarding you", "significance": "Defines the April 1-30 window and the UHS-Guthrie communications demand — brackets the arrest/administrative-leave events."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "the lawyers of Guthri called the lawyers of UHS to uh to begin an investigation and he called me to say I'm on administrative leave", "significance": "Direct account of the lawyer-to-lawyer instigation chain leading to adverse employment action — links Guthrie and UHS institutional actors."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "Guthrie uh as a institution had photographs of me all across the hospital saying if you see this person please call the police", "significance": "Wanted-poster treatment — defamation-adjacent reputational harm and evidence of institutional pre-judgment before any adjudication."}
+      ],
+      "corrections": [
+        {"raw": "Guthri", "corrected": "Guthrie (Hospital)", "basis": "Glossary mapping; notes reference Guthrie Hospital."},
+        {"raw": "Dr. Ali", "corrected": "Muhammad Imran Ali MD (defendant, program director)", "basis": "Roster: 'Dr. Ali was my program director' (seg-01), maps to named defendant."}
+      ],
+      "legal_tags": ["discovery", "malicious_prosecution", "timeline", "evidence", "damages"],
+      "callout": "April 14 event window fixed; Guthrie-lawyers-to-UHS-lawyers chain and hospital-wide 'wanted' posters described — strong reputational-harm and instigation evidence targets."
+    },
+    {
+      "timestamp": "00:43:40",
+      "speakers_present": ["Douglas Walter Drazen (attorney)", "Dr. Faraaz Rahman (client/plaintiff)"],
+      "clean_summary": "Faraaz recounts the day after his release: he had told Dr. Ali (Muhammad Imran Ali MD) his account — a true story of what he saw with his own eyes — and Dr. Ali had a slip of the tongue: 'oh well I guess a fiancee is considered family.' Faraaz notes he filed his FMLA before he was officially arrested. The next day Dr. Ali called to say he was released from administrative leave, any case against him was dropped, and all investigations at both Guthrie and UHS were stopped. Faraaz repeats that Guthrie's lawyers called UHS's lawyers, that Guthrie also called the cops, and that they posted his photograph like a wanted man.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "he had a slip of tongue he said oh well I guess a fiance is considered family ... and I filed my FMLA before I was arrested officially", "significance": "Sequencing is critical for FMLA retaliation/interference: protected FMLA activity preceded the arrest and adverse actions; Dr. Ali's remark concedes the family-member premise of the FMLA claim."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "they have released you from administrative leave. They've dropped any case against you. They stop all investigations and Guthri and UHS.", "significance": "Within about a day, both institutions dropped everything — evidence they knew there was no wrongdoing (undercuts probable cause and any legitimate-business-reason defense)."}
+      ],
+      "corrections": [
+        {"raw": "Dr. Ali Singh I had", "corrected": "Dr. Ali [garbled fragment — likely 'Dr. Ali. See, I had...']", "basis": "No 'Dr. Ali Singh' exists among known participants/defendants; surrounding context is unambiguously the program director Muhammad Imran Ali MD. Fragment flagged rather than confidently rewritten."},
+        {"raw": "Guthri / G3", "corrected": "Guthrie (Hospital)", "basis": "Glossary mapping; 'G3 called the cops as well' parallels 'Guthrie called the cops' in the same passage."}
+      ],
+      "legal_tags": ["timeline", "admission", "malicious_prosecution", "evidence"],
+      "callout": "Two admissions in one block: Dr. Ali's 'a fiancee is considered family' slip (FMLA validity) and the 24-hour institutional stand-down (implied exoneration / absence of probable cause)."
+    },
+    {
+      "timestamp": "00:44:39",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)"],
+      "clean_summary": "Faraaz reasons through the anomaly: with lawyers involved, police called, his arrest witnessed, and him already on probation, 'there is no way I'm not fired' — especially in an academic field. Yet not only was he not fired: Dr. Ali first told him that if he ever came within 10 feet of any property while on administrative leave they would call the cops, and then the very next day said the leave was lifted and 'you're good.' Faraaz concludes that whatever they saw and discussed made them realize he had done nothing wrong — 'there was no case over there.'",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "if I'm on probation, There's no way I'm not fired. There is no way I'm not fired.", "significance": "The non-firing despite probation status is the logical tell that the internal review exonerated him — supports lack of probable cause for the later prosecution."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "whatever they saw, whatever they discussed, they realized that I didn't do anything wrong. There was no case over there.", "significance": "Client's core inference: institutions with access to the evidence (including footage) concluded no wrongdoing — directly relevant to malicious prosecution."}
+      ],
+      "corrections": [
+        {"raw": "you're not unnecessary to leave anymore", "corrected": "you're not on [administrative] leave anymore", "basis": "Garble; the same speaker states two lines earlier 'they have released you from administrative leave' — 'unnecessary' is a mis-transcription of 'on necessary/administrative leave' context."}
+      ],
+      "legal_tags": ["malicious_prosecution", "timeline", "admission"],
+      "callout": "Non-termination of a probationary resident after an arrest is presented as institutional acknowledgment of innocence — a probable-cause-negating inference."
+    },
+    {
+      "timestamp": "00:45:36",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)"],
+      "clean_summary": "Faraaz says he is very curious why the internal investigation was dropped: Dr. Ali warned him the cops came because Guthrie called them, that Guthrie's lawyers were involved and there was nothing UHS could do, and that an internal investigation was pending — yet both sets of lawyers apparently saw the footage and decided to drop everything, even asking him to work the next night (he refused, saying he was done). He asks how such a big matter gets dropped within 24 hours, followed later by giving the DA his academic records and pursuing him — after they had internally decided he was not guilty, asked him back to work, and graduated him. He argues the drop decision is not privileged: it had to be an official call, and the request to UHS to put him on admin leave came within minutes, maybe an hour, of him returning.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "how do you drop such a big thing within 24 hours and then go with a whole barrage by saying that well, you know what, we will give the DA your academic records", "significance": "The core malicious-prosecution contradiction: internal exoneration followed by affirmative cooperation with the prosecution."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "when you internally decided that I was not guilty and asked me to come back to work and graduated me", "significance": "Three institutional acts inconsistent with belief in guilt: reinstatement, return-to-work request, and graduation."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "that's not privileged that had to be an official call ... they made a request to UHS to put me on admin leave within minutes maybe an hour", "significance": "Client anticipates a privilege fight over the inter-institutional lawyer communications and argues the operative decision communications are discoverable."}
+      ],
+      "corrections": [
+        {"raw": "I want to film", "corrected": "[unclear — possibly 'I want to FMLA']", "basis": "Context is his refusal to return to work immediately after release, adjacent to his FMLA filing narrative; garble flagged, not confidently corrected."},
+        {"raw": "follow with the sharat", "corrected": "[unresolved garble]", "basis": "No confident reading; context suggests 'follow with the charade/charges' but insufficient basis to correct."},
+        {"raw": "gutri / gut", "corrected": "Guthrie (Hospital)", "basis": "Glossary mapping for gutri/Guthri variants in seg-03."}
+      ],
+      "legal_tags": ["malicious_prosecution", "discovery", "admission", "timeline"],
+      "callout": "The pivot — internal exoneration and graduation, then handing academic records to the DA — is the narrative spine of the malicious-prosecution claim; expect a privilege battle over the lawyer-to-lawyer calls."
+    },
+    {
+      "timestamp": "00:47:06",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Faraaz argues the speed of the administrative-leave decision means a call between the legal teams occurred and the CEO had to be involved. Drazen asks whether he means the UHS CEO or the Guthrie CEO at the time, and floats a name ('Carri' — unresolved). Faraaz relays what Dr. Ali told him: the matter was not in Dr. Ali's hands, nor even in Dr. Hila's (who then held Dr. Rama's former position) — it was with corporate; the call came straight from their legal team to our legal team, and UHS's lawyers put him on administrative leave — Dr. Ali was only the messenger. Faraaz adds that Dr. Ali had been persuaded that seeing your potential fiancee get beaten by her family qualifies as a family medical emergency, and Faraaz submitted his FMLA documentation before Dr. Ali could say no.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "the call came straight from uh their legal team to our legal team and I got a call from ... UHS's lawyers to tell you that you're on administrative leave the UHS's lawyers put me on admin leave not Dr. Ali Dr. Ali was only the messenger", "significance": "Locates the adverse-action decision at UHS corporate legal, not the program level — supports institutional liability and identifies the decision-makers to depose."},
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "UHS CEO or or Guthrie CEO at the time.", "significance": "Counsel actively identifying which executive custodians to target in discovery."}
+      ],
+      "corrections": [
+        {"raw": "US's", "corrected": "UHS's (United Health Services Hospitals)", "basis": "Glossary: seg-03 'US's lawyers put me on admin leave' maps to UHS; speaker self-corrects USS to UHS at 00:50:15."},
+        {"raw": "Carri", "corrected": "[unresolved — possible CEO surname]", "basis": "Insufficient context to resolve; flagged per roster notes as unresolved garble."},
+        {"raw": "Dr. Hila / Dr. Rama", "corrected": "[unresolved physician-administrator names]", "basis": "Roster notes list these as unresolved; no confident mapping to known individuals."}
+      ],
+      "legal_tags": ["malicious_prosecution", "admission", "timeline", "discovery"],
+      "callout": "Decision chain pinned to UHS corporate legal (Dr. Ali 'only the messenger') — key for institutional liability and the deposition/custodian list; CEO identity flagged for follow-up."
+    },
+    {
+      "timestamp": "00:48:17",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)"],
+      "clean_summary": "Faraaz recalls Dr. Ali had sympathy for him then, and again quotes 'their lawyers call our lawyers.' Dr. Ali asked him to come to work that evening, unaware Faraaz had spent the night in jail. Faraaz poses the central question: how is he put on admin leave so quickly with the intention of being fired, spends a night in jail, and within less than 24 hours they drop all charges with no punishment at all — and then what prompted them to proceed to damage his career further? He notes that professionalism thresholds are grounds enough to dismiss a doctor: he had a sexual/domestic charge against him and an allegation (in the complainant's words to others) that he broke in and threw things around — yet the highest levels of UHS corporate got involved and still did not fire him.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "within 24 hours, less than that, you decide to drop all charges, not even like give me any form of punishment for triggering such an event", "significance": "Restates the exoneration timeline with precision — no discipline at all despite maximal institutional scrutiny."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "whatever that thing was, what then prompted you to proceed to um damage my career further?", "significance": "Frames the post-exoneration conduct (record damage, DA cooperation) as gratuitous and retaliatory — the damages and malice narrative."}
+      ],
+      "corrections": [
+        {"raw": "USS", "corrected": "UHS (United Health Services Hospitals)", "basis": "Speaker self-corrects to 'UHS corporate' at the start of the next block (00:50:15); glossary mapping."},
+        {"raw": "administrative belie", "corrected": "administrative leave", "basis": "Garble; identical phrase used correctly throughout the surrounding passage."}
+      ],
+      "legal_tags": ["malicious_prosecution", "damages", "timeline"],
+      "callout": "Despite allegations that would normally end a residency, corporate-level review imposed zero discipline — then the career damage came anyway; malice/retaliation framing."
+    },
+    {
+      "timestamp": "00:50:15",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Faraaz completes the argument: the highest levels of UHS corporate got involved, would have done their due diligence, and within about an hour decided not to fire him even though he was on probation — when, per the probation documentation, this was an immediately fireable offense and he should have been fired on the spot, not asked back to work and allowed to graduate. Whatever they saw exonerated him, but the ANSCO footage was never given to them: ANSCO's lawyers were heavily involved, were the ones who let them in, and never produced the footage. He is sure all the lawyers saw the footage, since they claimed to have a CCTV photo of him which they posted everywhere. Drazen concurs ('Right').",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "according to the documentation I should have been fired on the spot not asked to come back to work definitely not let him graduate", "significance": "Uses UHS's own probation documentation against them: their non-enforcement proves they did not believe the allegations."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "they never gave us the footages of ANSCO and ANSCO lawyers were involved too very heavily ... They were the ones who never gave us the footage.", "significance": "Identifies withheld, likely exculpatory CCTV footage held by a third party (ANSCO) — priority subpoena target and potential spoliation issue."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "they had a photo of me on CCTV which they posted everywhere", "significance": "Confirms CCTV footage existed and was used against him publicly while the underlying footage was never produced — asymmetric use of evidence."}
+      ],
+      "corrections": [
+        {"raw": "USS UHS", "corrected": "UHS (United Health Services Hospitals)", "basis": "Speaker self-correction in situ ('highest levels of USS ... UHS corporate'); glossary mapping."},
+        {"raw": "ANSCO", "corrected": "[unresolved entity — holder of the CCTV footage]", "basis": "Roster notes flag ANSCO as unresolved; no confident correction. Context: entity whose lawyers 'let them in' and controlled the footage, possibly the apartment complex/property manager."}
+      ],
+      "legal_tags": ["evidence", "malicious_prosecution", "admission", "discovery"],
+      "callout": "Never-produced ANSCO CCTV footage — seen by the lawyers, used for 'wanted' posters, then withheld — is a top-priority third-party subpoena and potential spoliation claim."
+    }
+  ],
+  "facts": [
+    {"fact": "Client's implanted cardiac device (Boston Scientific) requires checks every four months but has gone unchecked for three years; he faces a prognosis of heart failure within five years and transplant within ten absent proper treatment, and is now at the five-year mark.", "timestamp": "00:32:39", "quote_anchor": "it has to be checked every four months it's been three years", "claim_links": ["damages (physical injury/emotional distress)", "ADA/disability-related claims"]},
+    {"fact": "Client states he can document close to $1,000,000 in living expenses over the past three years as economic damages, excluding food and family sacrifices.", "timestamp": "00:32:39", "quote_anchor": "close to a million dollars in the past 3 years just in living expenses", "claim_links": ["damages (economic)"]},
+    {"fact": "Father's wife had cancer requiring a bone marrow transplant paid in cash in Dubai, a family financial hardship; client says actual bank records exist for all such expenditures.", "timestamp": "00:33:46", "quote_anchor": "she needed a bone marrow transplant", "claim_links": ["damages (consequential/economic)"]},
+    {"fact": "Client still cannot obtain/pick up his medical license because of the disputed records/proceedings.", "timestamp": "00:33:46", "quote_anchor": "I still can't pick up my medical license because of this", "claim_links": ["damages (lost earnings/career harm)", "continuing-harm theory"]},
+    {"fact": "In 2022, UHS 'tried everything' to fire the client; he refused to sign the probation when threatened, telling Dr. Ali (Muhammad Imran Ali MD) he would not sign.", "timestamp": "00:35:01", "quote_anchor": "I kind of told Dr. Ali, I'm not going to sign", "claim_links": ["retaliation/pattern_discrimination", "timeline"]},
+    {"fact": "In 2022 the client wrote a ten-page, line-by-line rebuttal email to every entry in his academic record over three days and sent it to the entire GME (including all gastroenterology and cardiology doctors); it resides in his UHS work email.", "timestamp": "00:37:46", "quote_anchor": "10page email with a uh line by line rebuttal", "claim_links": ["evidence of contemporaneous dispute/notice", "record-correction demand", "due process/defamation-adjacent claims"]},
+    {"fact": "The Broome County DA reportedly used a grand jury to subpoena the client's academic records; a document ('43 of the forgery') in counsel's possession evidences the DA's stated basis.", "timestamp": "00:38:32", "quote_anchor": "a grand jury uh to to subpoena my academic records", "claim_links": ["malicious_prosecution (instigation/causation)"]},
+    {"fact": "The call to the police came from Guthrie hospital, not from the complainant.", "timestamp": "00:40:05", "quote_anchor": "the call to the cops came from Guthri hospital they didn't come from the girl", "claim_links": ["malicious_prosecution (initiation element)"]},
+    {"fact": "While police waited for the client, Dr. Ali called to say Guthrie's lawyers had called UHS's lawyers to begin an investigation and that the client was on administrative leave; the operative date is placed at April 14.", "timestamp": "00:42:37", "quote_anchor": "the lawyers of Guthri called the lawyers of UHS", "claim_links": ["malicious_prosecution", "retaliation (adverse action)", "timeline"]},
+    {"fact": "Guthrie posted photographs of the client throughout the hospital instructing staff to call the police if he was seen ('wanted man' treatment).", "timestamp": "00:42:37", "quote_anchor": "photographs of me all across the hospital saying if you see this person please call the police", "claim_links": ["defamation/reputational damages", "malicious_prosecution (malice)"]},
+    {"fact": "Client filed his FMLA before he was officially arrested; Dr. Ali's slip of the tongue — 'I guess a fiancee is considered family' — conceded the family-member premise of the FMLA request.", "timestamp": "00:43:40", "quote_anchor": "I filed my FMLA before I was arrested officially", "claim_links": ["FMLA interference/retaliation (protected activity preceding adverse action)"]},
+    {"fact": "Within roughly 24 hours of the arrest, the client was released from administrative leave, any internal case was dropped, and all investigations at both Guthrie and UHS were stopped; he was asked to return to work the next day/evening.", "timestamp": "00:43:40", "quote_anchor": "They've dropped any case against you. They stop all investigations", "claim_links": ["malicious_prosecution (lack of probable cause)", "pretext evidence"]},
+    {"fact": "Despite being on probation — which per the probation documentation made the arrest an immediately fireable offense — the client was not fired, was asked back to work, and was allowed to graduate.", "timestamp": "00:50:15", "quote_anchor": "according to the documentation I should have been fired on the spot", "claim_links": ["malicious_prosecution (institutional knowledge of innocence)", "pretext"]},
+    {"fact": "UHS's corporate lawyers — not Dr. Ali, who was 'only the messenger' — made the administrative-leave decision; the call came 'straight from their legal team to our legal team' within minutes to an hour, implying CEO/corporate-level involvement.", "timestamp": "00:47:06", "quote_anchor": "the UHS's lawyers put me on admin leave not Dr. Ali", "claim_links": ["institutional liability (UHS)", "deposition targets/custodians"]},
+    {"fact": "After internally deciding the client was not guilty, reinstating him, and graduating him, UHS nonetheless gave the DA his academic records and cooperated with the prosecution.", "timestamp": "00:45:36", "quote_anchor": "we will give the DA your academic records", "claim_links": ["malicious_prosecution (malice + causation)", "retaliation"]},
+    {"fact": "CCTV footage held by 'ANSCO' (unresolved entity) was never produced to the client, though its lawyers were heavily involved, they controlled access, and a CCTV photo of the client was posted publicly; both institutions' lawyers apparently viewed the footage before dropping everything.", "timestamp": "00:50:15", "quote_anchor": "they never gave us the footages of ANSCO", "claim_links": ["evidence/spoliation", "malicious_prosecution (exculpatory evidence)", "third-party subpoena target"]}
+  ],
+  "action_items": [
+    {"item": "Gather actual bank records documenting family expenditures/financial hardship (including Dubai cash medical payments) and send to counsel ('get get me all that stuff').", "owner": "Dr. Faraaz Rahman", "deadline_stated": null, "timestamp": "00:33:46"},
+    {"item": "Preliminarily review the academic records already in hand; mark ('draw a line under') every entry that is unfair, inaccurate, or damaging and send the markup to Drazen to frame the redaction/removal demand.", "owner": "Dr. Faraaz Rahman", "deadline_stated": null, "timestamp": "00:35:01"},
+    {"item": "Demand the entire academic record as the first discovery item, then conduct line-by-line review of the full record once produced.", "owner": "Douglas Walter Drazen", "deadline_stated": null, "timestamp": "00:36:52"},
+    {"item": "Demand all communications between the client and anyone associated with UHS during the relevant time frame; all internal UHS emails/texts referencing the client; and minutes of their meetings.", "owner": "Douglas Walter Drazen", "deadline_stated": null, "timestamp": "00:36:02"},
+    {"item": "Locate and send the 2022 ten-page line-by-line rebuttal email to Drazen (client to search for a personal copy; it was sent to the entire GME from his work email).", "owner": "Dr. Faraaz Rahman", "deadline_stated": null, "timestamp": "00:37:46"},
+    {"item": "Demand access to the client's UHS work email account (repository of the 2022 rebuttal and related correspondence).", "owner": "Douglas Walter Drazen", "deadline_stated": null, "timestamp": "00:37:46"},
+    {"item": "Demand all communications between the individual defendants, anyone at UHS, and the Broome County District Attorney's Office that reference the client's name.", "owner": "Douglas Walter Drazen", "deadline_stated": null, "timestamp": "00:40:05"},
+    {"item": "Demand all communications between UHS employees, the individual defendants, and Guthrie hospital referencing the client, April 1 through April 30 (event date ~April 14).", "owner": "Douglas Walter Drazen", "deadline_stated": null, "timestamp": "00:42:37"},
+    {"item": "Check whether 'a document for 100 million with a base of 10' is in the file (client's mid-call request while Drazen was away; referent unclear — follow up).", "owner": "Dr. Faraaz Rahman (requestor; addressee unclear)", "deadline_stated": null, "timestamp": "00:40:05"}
+  ],
+  "damages_mentions": [
+    {"category": "economic - living expenses", "amount_raw": "close to a million dollars in the past 3 years", "basis_stated": "documentable living expenses over the past three years, excluding food; client says even at a conservative per-item rate ('let's say it's $50') the amounts add up and can be shown", "timestamp": "00:32:39"},
+    {"category": "physical injury / medical", "amount_raw": "not quantified", "basis_stated": "heart-failure prognosis within five years absent proper treatment (now at the five-year mark); implanted Boston Scientific device unchecked for three years despite a four-month check requirement — 'those amounts add up as well'", "timestamp": "00:32:39"},
+    {"category": "consequential - family medical expenditure", "amount_raw": "amount garbled/omitted in transcript ('cost about and')", "basis_stated": "bone marrow transplant for father's wife (cancer), paid in cash in Dubai; described as a hardship endured by the family; bank records available", "timestamp": "00:33:46"},
+    {"category": "career / licensure", "amount_raw": "not quantified", "basis_stated": "client still cannot pick up his medical license because of the disputed records/proceedings", "timestamp": "00:33:46"},
+    {"category": "unclear - possible demand/valuation document", "amount_raw": "100 million with a base of 10", "basis_stated": "client asks someone to check whether 'a document for 100 million with a base of 10' is there; context and referent unclear (Drazen was momentarily away)", "timestamp": "00:40:05"}
+  ],
+  "open_questions": [
+    "What is 'ANSCO' — the entity whose lawyers controlled and never produced the CCTV footage (possibly the apartment complex/property manager)? Priority identification for a third-party subpoena.",
+    "What is the 'document for 100 million with a base of 10' (00:40:05) — a damages demand, an insurance figure, or something else? The referent was never clarified on the record.",
+    "Who are 'Dr. Hila' and 'Dr. Rama' (00:47:06) — administrators in the chain above Dr. Ali — and who was the CEO Drazen calls 'Carri' (UHS or Guthrie) at the time of the April events?",
+    "What exactly is exhibit '43 of the forgery' (00:38:32) that Haseeb says shows the DA's basis for the grand-jury subpoena of academic records, and who authored it?",
+    "How did the Broome County DA conclude the academic records were relevant — who at UHS/among the individual defendants communicated with the DA's office? (Central causation question; discovery demanded.)",
+    "The dollar amount of the Dubai bone marrow transplant was garbled/omitted — needs client confirmation with bank records.",
+    "Was the garbled 'I want to film' (00:45:36) actually 'I want to FMLA' — i.e., did he invoke FMLA when refusing the return-to-work request? Sequencing matters for the FMLA claim.",
+    "Which year do the arrest/administrative-leave events (April 14, April 1-30 window) belong to? The month/day is fixed in this segment but the year is not stated here."
+  ]
+}
