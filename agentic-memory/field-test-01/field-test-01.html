@@ -1,0 +1,658 @@
+<title>Field Test #1 — How I Work With AI</title>
+<style>
+  :root {
+    --ground:#EFF2F3; --surface:#FFFFFF; --surface-2:#E5EAEC; --line:#C9D4D8;
+    --ink:#131E26; --ink-2:#465A66; --ink-3:#71868F;
+    --accent:#0D6E68; --accent-soft:#D6EAE8; --accent-line:#8FC7C2;
+    --stable:#2E7D53; --monitor:#8E6A10; --warn:#B0511C; --crit:#962727;
+    --on-accent:#FFFFFF;
+    --shadow:0 1px 2px rgba(19,30,38,.06), 0 8px 24px -16px rgba(19,30,38,.28);
+    --serif: "Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono: ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground:#0C1418; --surface:#121D23; --surface-2:#1A2932; --line:#26383F;
+      --ink:#E3EDF0; --ink-2:#9DB2BC; --ink-3:#7A929D;
+      --accent:#4FBFB4; --accent-soft:#12332F; --accent-line:#2C5F5A; --on-accent:#08110F;
+      --stable:#5FB483; --monitor:#CBA13C; --warn:#DD8850; --crit:#D96A6A;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#0C1418; --surface:#121D23; --surface-2:#1A2932; --line:#26383F;
+    --ink:#E3EDF0; --ink-2:#9DB2BC; --ink-3:#7A929D;
+    --accent:#4FBFB4; --accent-soft:#12332F; --accent-line:#2C5F5A; --on-accent:#08110F;
+    --stable:#5FB483; --monitor:#CBA13C; --warn:#DD8850; --crit:#D96A6A;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+  }
+  :root[data-theme="light"] {
+    --ground:#EFF2F3; --surface:#FFFFFF; --surface-2:#E5EAEC; --line:#C9D4D8;
+    --ink:#131E26; --ink-2:#465A66; --ink-3:#71868F;
+    --accent:#0D6E68; --accent-soft:#D6EAE8; --accent-line:#8FC7C2; --on-accent:#FFFFFF;
+    --stable:#2E7D53; --monitor:#8E6A10; --warn:#B0511C; --crit:#962727;
+    --shadow:0 1px 2px rgba(19,30,38,.06), 0 8px 24px -16px rgba(19,30,38,.28);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin:0; background:var(--ground); color:var(--ink);
+    font-family:var(--sans); font-size:16px; line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap { max-width:940px; margin:0 auto; padding:0 20px 80px; }
+  section { padding-top:52px; }
+  h1,h2,h3 { text-wrap:balance; margin:0; }
+  p { margin:0; }
+
+  /* ---------- utility type ---------- */
+  .eyebrow {
+    font-family:var(--mono); font-size:11px; letter-spacing:.13em;
+    text-transform:uppercase; color:var(--ink-3);
+  }
+  .id {
+    font-family:var(--mono); font-size:12px; letter-spacing:.02em;
+    color:var(--accent); font-weight:600;
+  }
+  .lede { font-size:16px; color:var(--ink-2); max-width:62ch; }
+
+  /* ---------- masthead ---------- */
+  header.mast { padding:56px 0 0; }
+  .mast h1 {
+    font-family:var(--serif); font-weight:600; letter-spacing:-.015em;
+    font-size:clamp(30px,5.2vw,46px); line-height:1.08; margin:14px 0 12px;
+    max-width:20ch;
+  }
+  .verdictbar {
+    display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:22px;
+  }
+  .verdict {
+    display:inline-flex; align-items:baseline; gap:8px;
+    font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+    background:var(--accent-soft); color:var(--accent);
+    border:1px solid var(--accent-line); border-radius:2px; padding:6px 11px; font-weight:600;
+  }
+  .verdict b { font-size:12px; }
+
+  .stats {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(104px,1fr));
+    gap:1px; background:var(--line); border:1px solid var(--line);
+    margin-top:24px; border-radius:3px; overflow:hidden;
+  }
+  .stat { background:var(--surface); padding:13px 14px; }
+  .stat .n {
+    font-family:var(--mono); font-size:23px; font-weight:600; letter-spacing:-.02em;
+    font-variant-numeric:tabular-nums; display:block; line-height:1.1;
+  }
+  .stat .k {
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-3); margin-top:5px; display:block;
+  }
+  .stat.short .n { color:var(--warn); }
+
+  /* ---------- section heads ---------- */
+  .shead { border-top:1px solid var(--line); padding-top:16px; margin-bottom:22px; }
+  .shead h2 {
+    font-family:var(--serif); font-weight:600; font-size:clamp(21px,3vw,27px);
+    letter-spacing:-.01em; margin:8px 0 8px; line-height:1.2;
+  }
+
+  /* ---------- the loop diagram ---------- */
+  .loop {
+    background:var(--surface); border:1px solid var(--line); border-radius:4px;
+    padding:26px 22px 20px; box-shadow:var(--shadow); overflow-x:auto;
+  }
+  .track { display:flex; align-items:stretch; gap:0; min-width:640px; }
+  .node {
+    flex:1; background:var(--surface-2); border:1px solid var(--line); border-radius:3px;
+    padding:12px 13px; display:flex; flex-direction:column; gap:5px;
+  }
+  .node .t { font-weight:600; font-size:13.5px; line-height:1.3; }
+  .node .s { font-family:var(--mono); font-size:11px; color:var(--ink-3); }
+  .node.flag { border-color:var(--warn); background:var(--surface); box-shadow:inset 3px 0 0 var(--warn); }
+  .node.flag .s { color:var(--warn); }
+  .arrow {
+    flex:0 0 34px; display:flex; align-items:center; justify-content:center;
+    color:var(--ink-3); font-size:15px;
+  }
+  .returnrail { min-width:640px; margin-top:12px; display:flex; align-items:center; gap:10px; }
+  .returnrail .bar {
+    flex:1; height:26px; border:1px dashed var(--crit); border-top:none;
+    border-radius:0 0 4px 4px;
+  }
+  .returnlab {
+    font-family:var(--mono); font-size:11px; color:var(--crit); white-space:nowrap;
+    letter-spacing:.02em;
+  }
+  .loopcap { font-size:13.5px; color:var(--ink-2); margin-top:16px; max-width:66ch; }
+
+  /* ---------- pattern cards ---------- */
+  .patterns { display:grid; gap:10px; }
+  .pcard {
+    width:100%; text-align:left; font:inherit; color:inherit; cursor:pointer;
+    background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--accent-line);
+    border-radius:3px; padding:15px 17px; display:grid; gap:7px;
+    transition:border-color .14s ease, background .14s ease;
+  }
+  .pcard:hover { border-left-color:var(--accent); background:var(--surface); }
+  .pcard[aria-pressed="true"] { border-left-color:var(--accent); background:var(--accent-soft); }
+  .pcard:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+  .prow { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; }
+  .pcard .claim { font-weight:600; font-size:15.5px; letter-spacing:-.005em; }
+  .pcard .stall { font-size:13.5px; color:var(--ink-2); }
+  .pcard .stall b { font-weight:600; color:var(--ink); }
+  .chips { display:flex; gap:5px; flex-wrap:wrap; margin-left:auto; }
+  .chip {
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.04em;
+    border:1px solid var(--line); border-radius:2px; padding:2px 6px; color:var(--ink-3);
+    background:var(--ground);
+  }
+
+  /* ---------- fixes table ---------- */
+  .tablewrap { overflow-x:auto; border:1px solid var(--line); border-radius:3px; background:var(--surface); }
+  table { border-collapse:collapse; width:100%; min-width:600px; font-size:14px; }
+  th, td { text-align:left; padding:11px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th {
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-3); font-weight:600; background:var(--surface-2);
+  }
+  tbody tr:last-child td { border-bottom:none; }
+  td.sev { font-family:var(--mono); font-size:11px; letter-spacing:.05em; white-space:nowrap; }
+  .dot { display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:7px; vertical-align:1px; }
+  .s-high .dot { background:var(--crit); } .s-high { color:var(--crit); }
+  .s-med .dot  { background:var(--warn); } .s-med  { color:var(--warn); }
+  .s-low .dot  { background:var(--ink-3); } .s-low { color:var(--ink-3); }
+  tr.act td:first-child { box-shadow:inset 3px 0 0 var(--accent); }
+  .now {
+    font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--accent); border:1px solid var(--accent-line); border-radius:2px;
+    padding:1px 5px; margin-left:8px; white-space:nowrap;
+  }
+
+  /* ---------- evidence ---------- */
+  .filters { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin-bottom:14px; }
+  .fgroup { display:flex; gap:4px; align-items:center; }
+  .flabel {
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-3); margin-right:3px;
+  }
+  .f {
+    font-family:var(--mono); font-size:11.5px; cursor:pointer; color:var(--ink-2);
+    background:var(--surface); border:1px solid var(--line); border-radius:2px; padding:4px 9px;
+    transition:all .12s ease;
+  }
+  .f:hover { border-color:var(--accent-line); color:var(--ink); }
+  .f[aria-pressed="true"] { background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
+  .f:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+  .fstate {
+    font-family:var(--mono); font-size:11.5px; color:var(--ink-3); margin-left:auto;
+    font-variant-numeric:tabular-nums;
+  }
+
+  .notes { display:grid; gap:7px; }
+  details.note {
+    background:var(--surface); border:1px solid var(--line); border-radius:3px;
+  }
+  details.note[open] { border-color:var(--accent-line); }
+  details.note.lit { box-shadow:inset 3px 0 0 var(--accent); }
+  summary { cursor:pointer; padding:12px 15px; display:flex; gap:11px; align-items:baseline; list-style:none; }
+  summary::-webkit-details-marker { display:none; }
+  summary:focus-visible { outline:2px solid var(--accent); outline-offset:-2px; }
+  .ntitle { font-weight:600; font-size:14.5px; line-height:1.35; flex:1; letter-spacing:-.005em; }
+  .nmeta { display:flex; gap:5px; align-items:center; flex-shrink:0; }
+  .conf {
+    font-family:var(--mono); font-size:10px; letter-spacing:.07em; text-transform:uppercase;
+    border-radius:2px; padding:2px 6px; border:1px solid;
+  }
+  .conf.high { color:var(--stable); border-color:var(--stable); }
+  .conf.med  { color:var(--monitor); border-color:var(--monitor); }
+  .nbody { padding:0 15px 15px 15px; display:grid; gap:10px; }
+  .nbody p { font-size:14.5px; color:var(--ink-2); max-width:70ch; }
+  .nsrc {
+    font-family:var(--mono); font-size:11.5px; color:var(--ink-3);
+    border-left:2px solid var(--line); padding-left:10px; max-width:74ch; line-height:1.5;
+  }
+  .ngap { font-size:13px; color:var(--warn); font-family:var(--mono); }
+  .ngap.none { color:var(--ink-3); }
+  .typetag {
+    font-family:var(--mono); font-size:10px; letter-spacing:.07em; text-transform:uppercase;
+    color:var(--ink-3); border:1px solid var(--line); border-radius:2px; padding:2px 6px;
+  }
+
+  /* ---------- handoff ---------- */
+  .handoff {
+    background:var(--surface); border:1px solid var(--accent-line); border-radius:4px;
+    padding:22px 22px 20px; box-shadow:var(--shadow); display:grid; gap:16px;
+  }
+  .hgrid { display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
+  .hitem .k {
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-3); display:block; margin-bottom:5px;
+  }
+  .hitem .v { font-size:14.5px; color:var(--ink); }
+  .hitem .v em { color:var(--ink-2); font-style:normal; }
+  .promptbox { position:relative; }
+  .promptbox pre {
+    margin:0; background:var(--ground); border:1px solid var(--line); border-radius:3px;
+    padding:15px 15px 15px; font-family:var(--mono); font-size:12.5px; line-height:1.6;
+    color:var(--ink-2); white-space:pre-wrap; overflow-x:auto;
+  }
+  .copy {
+    position:absolute; top:9px; right:9px; font-family:var(--mono); font-size:11px;
+    background:var(--surface); color:var(--ink-2); border:1px solid var(--line);
+    border-radius:2px; padding:4px 9px; cursor:pointer;
+  }
+  .copy:hover { border-color:var(--accent); color:var(--accent); }
+  .copy:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+
+  .scopebox {
+    margin-top:16px; border-left:3px solid var(--warn); background:var(--surface);
+    border-top:1px solid var(--line); border-right:1px solid var(--line); border-bottom:1px solid var(--line);
+    border-radius:0 3px 3px 0; padding:14px 16px; font-size:14px; color:var(--ink-2); max-width:72ch;
+  }
+  .scopebox b { color:var(--ink); font-weight:600; }
+
+  footer {
+    margin-top:56px; border-top:1px solid var(--line); padding-top:16px;
+    font-family:var(--mono); font-size:11px; color:var(--ink-3); letter-spacing:.03em;
+    display:flex; flex-wrap:wrap; gap:8px 18px;
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition:none !important; animation:none !important; } }
+  @media (max-width:620px) {
+    .chips { margin-left:0; }
+    summary { flex-wrap:wrap; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="eyebrow">Agentic Memory · Field Test #1 · Phase R (retrospective)</div>
+    <h1>A behavioral map of how I work with AI</h1>
+    <p class="lede">Built only from five exported conversations. Every claim traces to a named source. This is a symptom diary of a working method — hypothesis-generating, <strong>not diagnostic</strong>, and not a claim about health or neurology.</p>
+    <div class="verdictbar">
+      <span class="verdict">Done-when · <b>Partial pass</b></span>
+      <span class="chip">Method proven</span>
+      <span class="chip">Batch short: 5 of ~50</span>
+      <span class="chip">Orphan claims: 0</span>
+    </div>
+    <div class="stats">
+      <div class="stat short"><span class="n">5</span><span class="k">Conversations</span></div>
+      <div class="stat"><span class="n">19</span><span class="k">Atomic notes</span></div>
+      <div class="stat"><span class="n">5</span><span class="k">Patterns</span></div>
+      <div class="stat"><span class="n">9</span><span class="k">Gaps</span></div>
+      <div class="stat"><span class="n">3</span><span class="k">Act now</span></div>
+      <div class="stat"><span class="n">1/2</span><span class="k">Rounds used</span></div>
+    </div>
+  </header>
+
+  <section id="loop">
+    <div class="shead">
+      <div class="eyebrow">The finding, in one picture</div>
+      <h2>The loop I actually run — and the two rounds it wastes</h2>
+    </div>
+    <div class="loop">
+      <div class="track">
+        <div class="node">
+          <span class="t">Engineered prompt</span>
+          <span class="s">schema · formula · guardrails</span>
+        </div>
+        <div class="arrow" aria-hidden="true">→</div>
+        <div class="node">
+          <span class="t">Report arrives</span>
+          <span class="s">prose, no visual</span>
+        </div>
+        <div class="arrow" aria-hidden="true">→</div>
+        <div class="node flag">
+          <span class="t">“Help me visualize this data”</span>
+          <span class="s">verbatim in 3 of 5 · N03</span>
+        </div>
+        <div class="arrow" aria-hidden="true">→</div>
+        <div class="node">
+          <span class="t">Dashboard</span>
+          <span class="s">what was wanted at turn 1</span>
+        </div>
+      </div>
+      <div class="returnrail">
+        <span class="returnlab">“Redo to the perfect output” ×3 — no exit test · N01</span>
+        <div class="bar" aria-hidden="true"></div>
+      </div>
+      <p class="loopcap">Round one is spent asking for something foreseeable. The return arc has no stop condition, because “perfect” was never given an observable test. Both are structural, not effort problems — and both close with a rule, not more work.</p>
+    </div>
+  </section>
+
+  <section id="patterns">
+    <div class="shead">
+      <div class="eyebrow">Pattern map · click any row to pull its evidence</div>
+      <h2>Five recurring patterns</h2>
+    </div>
+    <div class="patterns" id="pcards"></div>
+  </section>
+
+  <section id="fixes">
+    <div class="shead">
+      <div class="eyebrow">Stall points → the one-line fix</div>
+      <h2>Where the approach breaks</h2>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th style="width:32%">Stall</th><th style="width:30%">Evidence</th><th>Fix</th></tr>
+        </thead>
+        <tbody>
+          <tr class="act"><td>No externalized “done”<span class="now">Act now</span></td><td>C1 pp.16, 21 · N01, N07</td><td>A Done-when test on every task. Highest leverage single change — LOOP OS already carries it.</td></tr>
+          <tr class="act"><td>Un-pre-empted next step<span class="now">Act now</span></td><td>C2 p.10, C4 p.21, C5 p.26 · N03</td><td>Default analytical outputs to <b>report + dashboard</b> in one pass.</td></tr>
+          <tr class="act"><td>Completeness-blind metrics<span class="now">Act now</span></td><td>C2 p.8 vs C4 p.20 · N09</td><td>Print “inputs present: X/Y” beside any composite score.</td></tr>
+          <tr><td>Un-glossed shorthand</td><td>C1 pp.2, 16, 21 · N02, N08</td><td>Six-line glossary in standing instructions: audiovisual = interactive dashboard, and so on.</td></tr>
+          <tr><td>Verification never enters the loop</td><td>C1 pp.16, 21 · N07</td><td>Append a “flagged for verification” list to any citation-bearing output.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="evidence">
+    <div class="shead">
+      <div class="eyebrow">Evidence · 19 atomic notes · zero orphan claims</div>
+      <h2>Every claim, with its source</h2>
+    </div>
+    <div class="filters" id="filters">
+      <div class="fgroup"><span class="flabel">Type</span>
+        <button class="f" data-k="type" data-v="all" aria-pressed="true">All</button>
+        <button class="f" data-k="type" data-v="Process" aria-pressed="false">Process</button>
+        <button class="f" data-k="type" data-v="Content" aria-pressed="false">Content</button>
+      </div>
+      <div class="fgroup"><span class="flabel">Source</span>
+        <button class="f" data-k="src" data-v="all" aria-pressed="true">All</button>
+        <button class="f" data-k="src" data-v="C1" aria-pressed="false">C1</button>
+        <button class="f" data-k="src" data-v="C2" aria-pressed="false">C2</button>
+        <button class="f" data-k="src" data-v="C3" aria-pressed="false">C3</button>
+        <button class="f" data-k="src" data-v="C4" aria-pressed="false">C4</button>
+        <button class="f" data-k="src" data-v="C5" aria-pressed="false">C5</button>
+      </div>
+      <span class="fstate" id="fstate">19 of 19</span>
+    </div>
+    <div class="notes" id="notes"></div>
+  </section>
+
+  <section id="gaps">
+    <div class="shead">
+      <div class="eyebrow">Gap list · what is thin, missing, or unverified</div>
+      <h2>What would make this map trustworthy</h2>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th style="width:8%">ID</th><th style="width:30%">Gap</th><th style="width:14%">Severity</th><th>What closes it</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="id">G1</td><td>5 of ~50 conversations</td><td class="sev s-high"><span class="dot"></span>High</td><td>Export the remaining ~45 and re-run the pipeline.</td></tr>
+          <tr><td class="id">G2</td><td>No 2021–2025 material</td><td class="sev s-high"><span class="dot"></span>High</td><td>Add older exports; sort by real conversation date, not export date.</td></tr>
+          <tr><td class="id">G3</td><td>Topic monoculture — all health</td><td class="sev s-high"><span class="dot"></span>High</td><td>Add ≥10 non-health conversations (legal, finance, workflow).</td></tr>
+          <tr><td class="id">G4</td><td>C3 deliverable truncated</td><td class="sev s-med"><span class="dot"></span>Medium</td><td>Re-export C3 including the post-launch research output.</td></tr>
+          <tr><td class="id">G5</td><td>Content notes N15–N18 unverified</td><td class="sev s-med"><span class="dot"></span>Medium</td><td>Verify PMIDs and trials against a citation source before any reuse.</td></tr>
+          <tr><td class="id">G6</td><td>Raw CSVs absent</td><td class="sev s-med"><span class="dot"></span>Medium</td><td>Attach the WHOOP, Oura and Visible exports so scores can be recomputed.</td></tr>
+          <tr><td class="id">G7</td><td>Self-reported profile unconfirmed</td><td class="sev s-med"><span class="dot"></span>Medium</td><td>Confirm against actual records before any clinical use.</td></tr>
+          <tr><td class="id">G8</td><td>Exports show summaries, not full outputs</td><td class="sev s-low"><span class="dot"></span>Low</td><td>Export full assistant message bodies, not collapsed thought-process.</td></tr>
+          <tr><td class="id">G9</td><td>Can’t separate my patterns from the AI’s habits</td><td class="sev s-low"><span class="dot"></span>Low</td><td>Not fixable by more data — keep the Process/Content split so AI behavior stays labeled.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="scopebox">
+      <b>Do first: G1 + G3 together.</b> The cheapest high-value move is a <em>diverse</em> next batch — some non-health, some older — not more health conversations. That is the direct test of whether these five patterns are “how I think” or only “how I do health analysis.” Until then the map is provisional and health-scoped.
+    </div>
+  </section>
+
+  <section id="handoff">
+    <div class="shead">
+      <div class="eyebrow">Handoff card · end of Phase R</div>
+      <h2>Where this stops, and what starts next</h2>
+    </div>
+    <div class="handoff">
+      <div class="hgrid">
+        <div class="hitem"><span class="k">Goal</span><span class="v">Turn exported AI history into atomic notes + pattern map + gap list, every claim traceable, feeding a BigQuery/RAG second brain.</span></div>
+        <div class="hitem"><span class="k">Done-when</span><span class="v"><strong>Partial pass.</strong> <em>Three artifacts, zero orphan claims, all gaps named — but on 5 conversations, not ~50.</em></span></div>
+        <div class="hitem"><span class="k">Decisions</span><span class="v"><em>Scoped to what exists. Split Process vs Content notes. Map treated as provisional and health-scoped. Phase P deferred to fresh context by design.</em></span></div>
+        <div class="hitem"><span class="k">Open</span><span class="v"><em>G1–G3 block a representative map. G4–G5 are the data-integrity items. Round 2 of 2 unspent.</em></span></div>
+        <div class="hitem"><span class="k">Pipeline</span><span class="v"><em>Notes map 1:1 to the guide’s <code>documents</code> rows — N-id → document_id, title → title, body → content, confidence and gap → tags. No embeddings generated here. Watson X stays deferred.</em></span></div>
+        <div class="hitem"><span class="k">Do not</span><span class="v"><em>Re-open this thread to improve it. Anti-resonation: add conversations, or run Phase P fresh.</em></span></div>
+      </div>
+      <div>
+        <span class="k eyebrow" style="display:block;margin-bottom:7px">Next prompt — paste into a fresh session</span>
+        <div class="promptbox">
+          <button class="copy" id="copybtn" type="button">Copy</button>
+          <pre id="promptext">Phase P — Prospective, fresh context. Load only 04-HANDOFF.md, 01-ATOMIC-NOTES.md and 02-PATTERN-MAP.md from agentic-memory/field-test-01/. Do not re-read the source PDFs.
+
+From the notes and pattern map alone, predict my 3 most likely next prompts or needs. Draft each one loop-shaped (Outcome / Done-when / Rounds), ready to paste. Ground every prediction in a named pattern (P1–P5) or note (N01–N19) — no orphan predictions. Flag anything you are inferring. Then stop and give me a handoff card.</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Confidence in the map: Medium — patterns multiply-sourced, sample 5/50, one ~2-week window, health only.</span>
+    <span>Generalization beyond health: Low.</span>
+    <span>Behavioral, not clinical.</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var PATTERNS = [
+    { id:"P1", claim:"The “perfect output” recursion",
+      stall:"Corrections demand an untestable ideal and loop with no exit — “done” was never defined observably.",
+      notes:["N01","N07"], conf:"High" },
+    { id:"P2", claim:"Shorthand the AI must decode over rounds",
+      stall:"“Audiovisuals”, “cognitive wish” carry stable intent, but interpretation lags 2–3 rounds.",
+      notes:["N02","N08"], conf:"High" },
+    { id:"P3", claim:"The predictable second step",
+      stall:"Analysis is always followed by “Help me visualize this data” — an entire round spent on the foreseeable.",
+      notes:["N03"], conf:"High" },
+    { id:"P4", claim:"Heavy front-loaded scaffolding, versioned",
+      stall:"Exact schemas, formulas and guardrails, maintained v1 → v2. High authoring effort, brittle to missing inputs.",
+      notes:["N04","N05","N12"], conf:"Medium" },
+    { id:"P5", claim:"Answer fragility on incomplete data",
+      stall:"Headline metric swings ~1 point on same-day data gaps. Same question, two numbers, no completeness flag.",
+      notes:["N09","N10"], conf:"Medium" }
+  ];
+
+  var NOTES = [
+    { id:"N01", type:"Process", src:["C1"], conf:"High",
+      title:"I re-issue a near-identical “perfect output / red-team” prompt until satisfied, with no stated stop condition",
+      body:"The same meta-instruction fires at least three times in one thread. Each firing makes the AI rebuild from scratch. Because “perfect” and “cognitive wish” are never given an observable test, the loop has no exit — it can recurse indefinitely. This is the exact failure the Done-when and anti-resonation rules are built to stop.",
+      source:"C1 pp. 16 & 21 — the sentence appears verbatim twice, after an initial “redo”.",
+      why:"Identical prompt text visible on two pages.", gap:"" },
+    { id:"N02", type:"Process", src:["C1"], conf:"High",
+      title:"“Audiovisuals” is my shorthand for “make it interactive, not prose” — the AI needed 2–3 rounds to decode it",
+      body:"The word escalates across turns as the AI keeps returning text. It eventually decodes to “build a dashboard”, which ends the escalation. The intent was stable from turn 1; only the interpretation lagged. A one-word gloss in standing instructions would collapse this to a single round.",
+      source:"C1 p.2 “make sure the audiovisuals are always there” → p.16 “Add audiovisuals too” → p.21 “Always use Audiovisuals in the output”.",
+      why:"High for the recurrence; Medium for the intended meaning, inferred from the dashboard being accepted (p.19).",
+      gap:"No explicit line confirming “a dashboard is what I meant”." },
+    { id:"N03", type:"Process", src:["C2","C4","C5"], conf:"High",
+      title:"“Help me visualize this data” is my reflexive second move — verbatim across three separate conversations",
+      body:"The sequence is stable: request analysis → receive report → immediately ask for a visualization. Predictable enough to pre-empt: delivering report and dashboard in the first pass removes an entire round in about 60% of the sampled threads.",
+      source:"C2 p.10, C4 p.21, C5 p.26 — identical string in all three.",
+      why:"Identical string, three independent exports.", gap:"" },
+    { id:"N04", type:"Process", src:["C2","C4"], conf:"High",
+      title:"I front-load heavy scaffolding — exact schemas, formulas, anti-fabrication rules — to constrain the AI before it runs",
+      body:"Prompts specify CSV column names, parse code, a 5-node scoring formula, tiered alert thresholds, a contraindicated-drug list, and rules such as “NEVER fabricate” and “cite file + column”. I engineer the guardrails myself rather than trusting defaults. Buys precision; high effort and brittle — see N09.",
+      source:"C2 pp.2–4, C4 pp.2–15.", why:"The scaffolding is the bulk of both conversations.", gap:"" },
+    { id:"N05", type:"Process", src:["C4","C2"], conf:"High",
+      title:"I version my master-prompts — the nonadherence prompt is explicitly “v2.0 (Red-Team Validated)”",
+      body:"C4 restates C2’s patient context, data schemas and Loop Score formula in a cleaner, numbered, more defensive form and labels itself v2.0. Prompts are treated as maintained software artifacts, not one-off messages — the reuse pattern the BigQuery plan is meant to institutionalize.",
+      source:"C4 p.2 title block vs C2 p.2.", why:"Version label and near-duplicate structure both visible.", gap:"" },
+    { id:"N06", type:"Process", src:["C3"], conf:"High",
+      title:"When asked clarifying questions, I delegate the decision back rather than specifying",
+      body:"Faced with three clarifying questions — budget, use pattern, coverage — I removed two constraints (“cost no object”, “max wear”) and handed the third back (“you recommend”). Implication: clarifying questions are often friction. Design consequence — prefer propose-then-confirm over ask-then-wait.",
+      source:"C3 p.6 — answers quoted verbatim: “co0st no matter”, “as often as I can”, “I want you to recommend the correct answer”.",
+      why:"Answers quoted verbatim.", gap:"Single conversation; may not generalize." },
+    { id:"N07", type:"Process", src:["C1"], conf:"Medium",
+      title:"My corrections target form and depth, not factual errors — I rarely dispute a specific claim",
+      body:"Across the visible correction turns, none says “that number is wrong” or “that citation is off”. Every correction pushes for better rendering or a deeper pass. Strength: fast to a usable artifact. Latent risk: the correction budget never lands on fact-checking, so errors in the content notes below would survive review.",
+      source:"C1 pp.16, 21.", why:"Inferred from absence of factual disputes in a small visible set.",
+      gap:"Only C1 contains explicit correction turns." },
+    { id:"N08", type:"Process", src:["C3"], conf:"High",
+      title:"I frame the AI as a cognitive layer for a verbal thinker, not merely a tool",
+      body:"The stated self-model is consistent: language in, finished cognition out; the AI does the translation to the technical layer. Same premise as the standing operating instructions — the operating system is itself a compensatory response to how I think.",
+      source:"C3 p.2 — “the expert executor of prompts which forms an additional layer or transformer… aiding a verbal thinker to maximize AI use”.",
+      why:"Quoted, and echoed by the session’s own preamble.", gap:"" },
+    { id:"N09", type:"Process", src:["C2","C4"], conf:"High",
+      title:"Same data, same date, same formula produced two different Loop Scores — 6.7 vs 5.7",
+      body:"Both target 2026-03-15, the same person, the same 5-node formula. The scores diverge mainly on the Inflammatory/PEM node, which depends on same-day symptom logging that was partially absent. A headline metric that swings about a point on data completeness is fragile; it needs an explicit completeness flag beside the score.",
+      source:"C2 p.8 (LS 6.7, “only because today’s Visible entries are incomplete”) vs C4 p.20 (LS 5.7, WARNING).",
+      why:"High for the two numbers; Medium for pinning the delta to one node.",
+      gap:"Raw CSVs not in session — cannot recompute." },
+    { id:"N10", type:"Content", src:["C2","C4"], conf:"High",
+      title:"Across both clinical reports the AI independently ranks propranolol non-adherence as the #1 lever",
+      body:"Both reports surface the same dominant real-world lever: adherence, reported at 38% / 20% / eight consecutive missed doses. It is the most stable finding the data produces. Recorded here as a recurring signal in the corpus — not as a medical recommendation.",
+      source:"C2 p.9, C4 p.20.", why:"High that both reports ranked it first.",
+      gap:"Adherence figures are AI-reported from CSVs not present; unverified." },
+    { id:"N11", type:"Process", src:["C1"], conf:"High",
+      title:"I am building the meta-system that would automate the n-of-1 analysis I keep running by hand",
+      body:"CNN for feature extraction from raw wearable inputs, RNN for longitudinal memory, RL for experiment selection — each layer mapped to a real research system. The through-line across all five conversations: turn personal biometric data into a self-improving retrieval and decision system. Same ambition as this field test.",
+      source:"C1 pp.3–4, 9–15.", why:"Architecture is spelled out.",
+      gap:"Aspirational design; no evidence any of it is deployed." },
+    { id:"N12", type:"Content", src:["C4","C2"], conf:"High",
+      title:"Substrate: the 5-node Loop Score is my own composite metric, defined by explicit formula",
+      body:"LS = (Autonomic + Sleep + Inflammatory/PEM + Pharmacologic + Deconditioning) / 15 × 10, each node 0–3. Bands: 0–3 stable, 3–5 monitoring, 5–7 warning, 7–10 critical. An invented instrument for compressing multi-stream data into one number — a durable definition worth persisting to the wiki.",
+      source:"C4 pp.5–6, C2 p.3.", why:"Formula quoted.", gap:"Validity of the instrument is out of scope here." },
+    { id:"N13", type:"Content", src:["C2","C4"], conf:"High",
+      title:"Substrate: self-reported clinical profile stated in-prompt — declared, not confirmed",
+      body:"Age 32; ICD implanted Feb 2023 with follow-up overdue; Long COVID, POTS, Brugada (SCN5A suspected), DM2, active VZV, ME-CFS overlap; baseline over 166 days HRV ~20 ms, RHR ~84 bpm, recovery 36%, sleep ~5 h. User-supplied context, not a verified record.",
+      source:"C2 p.2, C4 p.2.", why:"High that it is stated.", gap:"Unverified medical history — treat as declared." },
+    { id:"N14", type:"Content", src:["C1"], conf:"High",
+      title:"Substrate: behavioral and dietary identity surfaced from my own files",
+      body:"Halal 100%, intermittent fasting ~35% of days, magnesium and L-theanine, ~0% alcohol, ~12% caffeine. Corpus size: WHOOP 277 days, Oura 62 days, 1,399 journal entries across 47 unique questions — named as the reinforcement-learning training signal for the second-brain system.",
+      source:"C1 pp.23–25.", why:"High that the AI reported them; Medium that figures are exact.",
+      gap:"Underlying files not in session." },
+    { id:"N15", type:"Content", src:["C1"], conf:"Medium",
+      title:"Substrate: meal decode headline — peanut butter blunts the spike about 30%",
+      body:"Bread + Nutella + peanut butter ≈ 525 kcal at roughly 49/41/10 fat/carb/protein; Nutella ~57% sugar by weight; peanut butter blunts the glucose spike about 30%, attributed to Niederhoffer 2018. Optimal protocol offered: morning, peanut-butter-first, whole-wheat.",
+      source:"C1 pp.4–6.", why:"AI synthesis with PMIDs, not independently checked here.",
+      gap:"Citations unverified in this session." },
+    { id:"N16", type:"Content", src:["C5"], conf:"Medium",
+      title:"Substrate: POTS pharmacotherapy ranking",
+      body:"The synthesis ranks ivabradine and low-dose propranolol as strongest for heart-rate control, and guanfacine as the best dual POTS + ADHD agent, citing 85% response in hyperadrenergic POTS. Fludrocortisone weak; midodrine, salt and compression complementary.",
+      source:"C5 pp.5–7, 16.", why:"Tagged peer-reviewed, unverified here.", gap:"Citations unverified." },
+    { id:"N17", type:"Content", src:["C5"], conf:"Medium",
+      title:"Substrate: GLP-1 risk thesis — flagged high-risk for this profile",
+      body:"GLP-1 agonists raise heart rate through a sinus-node mechanism ivabradine cannot block, and suppress HRV by about 6 ms — meaningful from an already-low baseline. Net position in the synthesis: defer pending the named trials.",
+      source:"C5 pp.11–12, 22–24.", why:"Mechanistic claims tagged peer-reviewed, unverified here.",
+      gap:"Citations unverified." },
+    { id:"N18", type:"Content", src:["C5"], conf:"Medium",
+      title:"Substrate: MCAS-as-driver thesis plus an empiric antihistamine trial",
+      body:"Mast Cell Activation Syndrome — an over-reactive mast-cell condition — is framed as a likely under-diagnosed driver of POTS via a mast-cell to sympathetic feedback loop. An empiric H1/H2 antihistamine trial is presented as low-risk, high-reward.",
+      source:"C5 pp.18–20.", why:"Tagged peer-reviewed, unverified here.",
+      gap:"Citations unverified; a diagnostic hypothesis, not a diagnosis." },
+    { id:"N19", type:"Process", src:["C3"], conf:"High",
+      title:"Gap-note: C3’s actual deliverable is absent from the export",
+      body:"The compression-wrap conversation is captured only up to the moment research launches — no product list, no recommendation, no pressures or sizing. Any downstream claim about what I was told regarding compression must come from C5’s corroborating evidence, not from C3.",
+      source:"C3 p.6 — thread ends at the research launch.", why:"The truncation point is visible.",
+      gap:"The deliverable itself is the gap." }
+  ];
+
+  var state = { type:"all", src:"all", pattern:null };
+
+  function esc(s) {
+    return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  }
+
+  /* ---- pattern cards ---- */
+  var pwrap = document.getElementById("pcards");
+  PATTERNS.forEach(function (p) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "pcard";
+    b.setAttribute("aria-pressed", "false");
+    b.dataset.p = p.id;
+    b.innerHTML =
+      '<div class="prow"><span class="id">' + p.id + '</span>' +
+      '<span class="claim">' + esc(p.claim) + '</span>' +
+      '<span class="chips"><span class="chip">' + p.notes.join(" · ") + '</span>' +
+      '<span class="chip">' + p.conf + '</span></span></div>' +
+      '<div class="stall">' + esc(p.stall) + '</div>';
+    b.addEventListener("click", function () {
+      state.pattern = (state.pattern === p.id) ? null : p.id;
+      syncPatterns();
+      render();
+      if (state.pattern) {
+        document.getElementById("evidence").scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+    pwrap.appendChild(b);
+  });
+
+  function syncPatterns() {
+    Array.prototype.forEach.call(pwrap.children, function (el) {
+      el.setAttribute("aria-pressed", el.dataset.p === state.pattern ? "true" : "false");
+    });
+  }
+
+  /* ---- filters ---- */
+  var fbtns = document.querySelectorAll("#filters .f");
+  Array.prototype.forEach.call(fbtns, function (btn) {
+    btn.addEventListener("click", function () {
+      state[btn.dataset.k] = btn.dataset.v;
+      state.pattern = null;
+      syncPatterns();
+      Array.prototype.forEach.call(fbtns, function (o) {
+        if (o.dataset.k === btn.dataset.k) {
+          o.setAttribute("aria-pressed", o === btn ? "true" : "false");
+        }
+      });
+      render();
+    });
+  });
+
+  /* ---- notes ---- */
+  var nwrap = document.getElementById("notes");
+  var fstate = document.getElementById("fstate");
+
+  function visible(n) {
+    if (state.pattern) {
+      var p = PATTERNS.filter(function (x) { return x.id === state.pattern; })[0];
+      return p.notes.indexOf(n.id) !== -1;
+    }
+    if (state.type !== "all" && n.type !== state.type) { return false; }
+    if (state.src !== "all" && n.src.indexOf(state.src) === -1) { return false; }
+    return true;
+  }
+
+  function render() {
+    var shown = NOTES.filter(visible);
+    nwrap.innerHTML = shown.map(function (n) {
+      var confCls = n.conf === "High" ? "high" : "med";
+      return '<details class="note' + (state.pattern ? " lit" : "") + '"' + (state.pattern ? " open" : "") + '>' +
+        '<summary><span class="id">' + n.id + '</span>' +
+        '<span class="ntitle">' + esc(n.title) + '</span>' +
+        '<span class="nmeta"><span class="typetag">' + n.type + '</span>' +
+        '<span class="conf ' + confCls + '">' + n.conf + '</span></span></summary>' +
+        '<div class="nbody"><p>' + esc(n.body) + '</p>' +
+        '<div class="nsrc">Source · ' + esc(n.source) + '<br>Confidence · ' + n.conf + ' — ' + esc(n.why) + '</div>' +
+        '<div class="ngap' + (n.gap ? "" : " none") + '">Gap · ' + esc(n.gap || "none") + '</div></div></details>';
+    }).join("");
+    fstate.textContent = state.pattern
+      ? shown.length + " supporting " + state.pattern + " — click " + state.pattern + " again to clear"
+      : shown.length + " of " + NOTES.length;
+  }
+
+  render();
+
+  /* ---- copy ---- */
+  var btn = document.getElementById("copybtn");
+  btn.addEventListener("click", function () {
+    var text = document.getElementById("promptext").textContent;
+    var done = function () {
+      btn.textContent = "Copied";
+      setTimeout(function () { btn.textContent = "Copy"; }, 1600);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () { btn.textContent = "Select manually"; });
+    } else {
+      btn.textContent = "Select manually";
+    }
+  });
+})();
+</script>
