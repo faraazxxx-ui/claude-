@@ -3,9 +3,10 @@
   "case": "3:26-cv-00197 NDNY",
   "done": [
     "gate-0 + WF1 transcript forensics (fidelity PASS 32/32; canon: 80 blocks, 85 facts, 16 action items)",
-    "WF2 + Gate 2: summary + annotated transcript built, verified, shipped (pdf/docx + 2 artifacts published)"
+    "WF2 + Gate 2: summary + annotated transcript built, verified, shipped (pdf/docx + 2 artifacts published)",
+    "WF3 + Gate 3: research 51/71 VERIFIED (two-rail SoL locked; UHSH identity EIN 16-1165049 $1.16B; Barnes/Cummings adverse authority in matrix), red-team PASS r2, master plan shipped (pdf/docx/artifact)"
   ],
-  "in_progress": "WF3 strategy core (running); next Gate 3",
+  "in_progress": "WF4 mediation + visuals",
   "decisions": [
     "docx is canonical source",
     "raw transcript gitignored",
@@ -23,9 +24,10 @@
     "data/pacing_digest.md"
   ],
   "open_questions": [
-    "UHS corporate identity for punitive theory",
-    "MP SoL exact date",
-    "User decision: flip repo private then push, or keep public and never push case material"
+    "User decision: flip repo private then push, or keep public and never push case material",
+    "2022-vs-2024 operative-year discrepancy (Update Trigger 1)",
+    "Florida contract executed instrument (Flag 4)",
+    "exact acquittal date + charging instrument"
   ],
   "next_actions": [
     "WF1 transcript forensics"
