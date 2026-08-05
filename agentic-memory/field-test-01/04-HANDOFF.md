@@ -21,8 +21,14 @@
 | `02-PATTERN-MAP.md` | 7 patterns, deltas, stall points ordered by observed cost |
 | `03-GAP-LIST.md` | G1–G12 + fixes |
 | `05-PHASE-P.md` | 3 predicted next prompts, loop-shaped, paste-ready |
+| `06-INGEST.md` | Note → `documents` field mapping, validation result, the credential handoff |
+| `notes.jsonl` | 34 BigQuery-ready rows. Validation PASS, zero orphan claims |
+| `schema.json` | The guide's Stage 2.2 field list, verbatim, for `bq load` |
+| `build_jsonl.py` | Regenerates both from the markdown, so the notes stay the single source of truth |
 | `field-test-01.html` | The interactive artefact — published, and the PDF source |
 | `field-test-01.pdf` | Print version |
+
+**Two of the three Phase P predictions were executed rather than left as forecasts:** the triage layer (counts, observed cost, band, fix) is built into the pattern cards, and the notes are queryable — the artefact carries a working search panel that answers "where does my approach stall?" from the 34 notes with sources attached. Prediction 1 is blocked on exports only he can produce.
 
 ## How these notes feed BigQuery (reference, not a rebuild)
 
@@ -45,7 +51,9 @@ No embeddings generated here — that is the pipeline's job. **Watson X stays de
 
 ## Next session
 
-Round 2 of 2 is spent. Do **not** re-open this thread to improve it (anti-resonation). Two clean starts, either order:
+Round 2 of 2 is spent. Do **not** re-open this thread to improve it (anti-resonation). Three clean starts, in this order of value:
+
+0. **Load the JSONL** — `06-INGEST.md` lists the four steps that need your Google Cloud credentials: bucket + dataset, IAM, `gsutil cp` then `bq load`, then embeddings. Everything before that boundary is done and validated.
 
 1. **Fix the corpus, then scale** — re-export C6–C8 with user turns (G10), then add the remaining ~42, oldest first (G1). Prompt is drafted in `05-PHASE-P.md`, Prediction 1.
 2. **Fresh-context Phase P** — the honest version of the forecast, run from the notes alone:
