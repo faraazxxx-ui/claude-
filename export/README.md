@@ -5,8 +5,8 @@ every agent chat session that has run against it.
 
 | File | Size | Format |
 |---|---|---|
-| `REPO_AND_CHAT_EXPORT.md` | ~4.2 MB | Human-readable, single document |
-| `REPO_AND_CHAT_EXPORT.json` | ~4.5 MB | Machine-readable, same data |
+| `REPO_AND_CHAT_EXPORT.md` | ~4.4 MB | Human-readable, single document |
+| `REPO_AND_CHAT_EXPORT.json` | ~4.7 MB | Machine-readable, same data |
 
 Both files carry identical information. The Markdown version is for reading and
 diffing; the JSON version is for programmatic use — feeding a NotebookLM/Obsidian
@@ -35,6 +35,30 @@ them with:
 ```bash
 git show <ref>:<path>
 ```
+
+### Prior exports are never inlined
+
+This exporter's own output files are manifested with size and SHA-256 but never
+inlined, so regenerating does not fold the previous export into the new one and
+grow it without bound. They appear as `kind: "export-artifact"`. The paths are
+derived from `--out-dir` and `--basename`, or set explicitly with `--self-path`.
+
+Note that `tools/export_repo_and_chats.py` *is* inlined and contains the export's
+own header as a template string. That is the generator's source, not recursion.
+
+## Relationship to `exports/`
+
+There are two export directories, from two sessions that answered the same request
+in parallel on 2026-08-05:
+
+| Directory | Origin | Contents |
+|---|---|---|
+| `export/` (this one) | Claude Code, PR #22 | Complete — every file's full text, every session's outputs, verified against git |
+| `exports/` | a parallel multi-agent session, on `main` | Interim — a structure summary and a clarification-branch document; it did not inline file contents |
+
+They do not overlap or conflict. If the complete export is the one worth keeping,
+`exports/` can be removed; that is a call for the repository owner, not something
+done here.
 
 ## Regenerating
 

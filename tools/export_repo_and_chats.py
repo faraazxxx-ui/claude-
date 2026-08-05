@@ -79,8 +79,14 @@ def looks_binary(blob: bytes) -> bool:
     return False
 
 
-def describe_blob(path: str, blob: bytes, blob_sha: str = "") -> dict:
-    """Build the per-file record used by both the JSON and Markdown outputs."""
+def describe_blob(path: str, blob: bytes, blob_sha: str = "",
+                  self_paths: frozenset[str] = frozenset()) -> dict:
+    """Build the per-file record used by both the JSON and Markdown outputs.
+
+    Paths in `self_paths` are this exporter's own output files. They are
+    manifested but never inlined — inlining them would fold each previous
+    export into the next one and grow without bound.
+    """
     rec = {
         "path": path,
         "size_bytes": len(blob),
@@ -88,7 +94,9 @@ def describe_blob(path: str, blob: bytes, blob_sha: str = "") -> dict:
         "git_blob_sha": blob_sha,
         "language": language_for(path),
     }
-    if looks_binary(blob):
+    if path in self_paths:
+        rec.update(kind="export-artifact", content=None, lines=None)
+    elif looks_binary(blob):
         rec.update(kind="binary", content=None, lines=None)
     elif len(blob) > TEXT_MAX_BYTES:
         rec.update(kind="oversized-text", content=None, lines=None)
@@ -154,7 +162,8 @@ def session_agent(branch_ref: str) -> str:
     return "unknown"
 
 
-def collect_sessions(default_ref: str, prs_by_head: dict) -> list[dict]:
+def collect_sessions(default_ref: str, prs_by_head: dict,
+                     self_paths: frozenset = frozenset()) -> list[dict]:
     refs = [
         r for r in (git("for-each-ref", "--format=%(refname:short)",
                         "refs/remotes/origin") or "").split()
@@ -193,7 +202,7 @@ def collect_sessions(default_ref: str, prs_by_head: dict) -> list[dict]:
                     "language": language_for(path), "content": None, "lines": None,
                 })
                 continue
-            rec = describe_blob(path, blob)
+            rec = describe_blob(path, blob, self_paths=self_paths)
             rec["change_status"] = status
             outputs.append(rec)
 
@@ -377,6 +386,11 @@ def render_file_record(rec: dict, heading_level: int = 4) -> list[str]:
         )
     elif rec["kind"] == "deleted":
         out.append("> Deleted on this branch.\n")
+    elif rec["kind"] == "export-artifact":
+        out.append(
+            "> This exporter's own output. Manifested but not inlined — "
+            "inlining it would fold every previous export into this one.\n"
+        )
     else:
         out.append("> Text file exceeds the inline size limit; see repository.\n")
     out.append("")
@@ -436,6 +450,8 @@ def render_markdown(data: dict, tool_result_limit: int) -> str:
         f"| — work already merged to `{snap['branch']}` | {stats['sessions_merged']} |",
         f"| Session output files | {stats['session_output_files']} |",
         f"| Text inlined from sessions | {human_bytes(stats['session_output_bytes'])} |",
+        f"| Prior export artifacts (manifested, not inlined) | "
+        f"{stats.get('snapshot_export_artifacts', 0) + stats.get('session_export_artifacts', 0)} |",
         f"| Commits in history | {stats['commit_count']} |",
         f"| Pull requests | {stats['pr_count']} |",
         "",
@@ -645,6 +661,10 @@ def main() -> int:
                     help="directory holding Claude Code .jsonl transcripts")
     ap.add_argument("--repository", default="", help="owner/name, for the header")
     ap.add_argument("--visibility", default="unknown")
+    ap.add_argument("--self-path", action="append", default=[],
+                    help="repo-relative path of an output of this exporter; "
+                         "manifested but never inlined (repeatable). Defaults "
+                         "to <out-dir>/<basename>.{md,json}")
     ap.add_argument("--tool-result-limit", type=int, default=4000,
                     help="max chars per tool result in the Markdown output "
                          "(JSON always keeps the full value)")
@@ -669,6 +689,12 @@ def main() -> int:
     prs_by_head = {(p.get("head") or {}).get("ref"): p for p in prs
                    if (p.get("head") or {}).get("ref")}
 
+    # --- self-reference guard ---------------------------------------------
+    self_paths = frozenset(args.self_path or [
+        f"{args.out_dir.strip('/')}/{args.basename}.md",
+        f"{args.out_dir.strip('/')}/{args.basename}.json",
+    ])
+
     # --- snapshot ----------------------------------------------------------
     print(f"snapshotting {ref} …", file=sys.stderr)
     files = []
@@ -676,7 +702,7 @@ def main() -> int:
         blob = read_blob(ref, path)
         if blob is None:
             continue
-        files.append(describe_blob(path, blob, blob_sha))
+        files.append(describe_blob(path, blob, blob_sha, self_paths=self_paths))
 
     snapshot = {
         "branch": ref.split("/", 1)[-1] if "/" in ref else ref,
@@ -688,7 +714,7 @@ def main() -> int:
 
     # --- sessions ----------------------------------------------------------
     print("collecting chat sessions …", file=sys.stderr)
-    sessions = collect_sessions(ref, prs_by_head)
+    sessions = collect_sessions(ref, prs_by_head, self_paths=self_paths)
 
     # --- transcript --------------------------------------------------------
     transcript = None
@@ -715,6 +741,12 @@ def main() -> int:
         "sessions_with_pr": sum(1 for s in sessions if s.get("pull_request")),
         "sessions_merged": sum(1 for s in sessions
                                if s["work_merged_into_default"]),
+        "snapshot_export_artifacts": sum(1 for f in files
+                                         if f["kind"] == "export-artifact"),
+        "session_export_artifacts": sum(
+            1 for s in sessions for o in s["outputs"]
+            if o["kind"] == "export-artifact"),
+        "self_excluded_paths": sorted(self_paths),
         "session_output_files": sum(s["output_file_count"] for s in sessions),
         "session_output_bytes": sum(s["output_text_bytes"] for s in sessions),
         "commit_count": len(history),
