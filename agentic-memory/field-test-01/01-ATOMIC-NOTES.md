@@ -174,3 +174,143 @@
 - **Body:** The compression-wrap conversation is captured only up to the moment research launches; no product list, no recommendation, no pressures/sizing appear. Any downstream claim about "what he was told about compression" must come from C5's corroborating evidence (abdominal > leg-only, 20–30 mmHg; C5 p. 8), not from C3 itself.
 - **Confidence:** High — the truncation point is visible.
 - **Gap:** The deliverable itself is the gap.
+
+---
+
+# Round 2 additions — C6–C8 (ChatGPT, legal, Oct 2025) and cross-corpus notes
+
+---
+
+### N20 — All three ChatGPT threads open with him re-priming a standing instruction set ("Living Notebook mode")
+- **Type:** Process
+- **Source:** C6, C7, C8 — the first assistant turn in each is "✅ Living Notebook mode resumed," listing the same five processing rules (parse → analyse → structure → tag/index → triage).
+- **Body:** The operating instructions do not persist, so every session begins with a re-priming tax before any work happens. Three sessions, three re-primes, identical mode. This is the same problem LOOP OS and this repository exist to solve: the instruction set has to live in a file, not in a chat window.
+- **Confidence:** High that re-priming occurred in all three — the acknowledgment is explicit and identical.
+- **Gap:** His actual priming text is not captured (see N21); only the AI's readback of it.
+
+---
+
+### N21 — The ChatGPT exports contain only assistant turns; his own messages are absent
+- **Type:** Process (data integrity)
+- **Source:** C6, C7, C8 — every block is headed "## Response:". No user turns anywhere.
+- **Body:** What he asked has to be reconstructed from what the AI answered. Some is recoverable with high confidence (the AI quotes or paraphrases his instruction), but every behavioural claim drawn from C6–C8 is one inference-step removed from the Claude notes, where his prompts are visible verbatim.
+- **Confidence:** High — structural and plainly visible.
+- **Gap:** This *is* the gap. Re-export with user messages included (G10).
+
+---
+
+### N22 — He applies the same architecture metaphor to a second, unrelated domain: a "Convolutional Narrative Network" map of his litigation
+- **Type:** Process
+- **Source:** C6 (CNN Map v2, then v3 — nodes N1–N18, edges, legal axes A1–A6, "Network Flow," "corrective back-propagation") vs C1 (biological CNN→RNN→RL second brain).
+- **Body:** Health data and legal causation get the same treatment: entities as nodes, relationships as edges, a layered flow from input to output, and a feedback loop. The metaphor engine is domain-independent. This is the single finding that most changes the map — the scaffolding pattern is not a health-analysis habit, it is how he structures any complex problem.
+- **Confidence:** High — both maps are explicit and labelled.
+- **Gap:** None for the observation. Whether the metaphor helps or misleads is out of scope.
+
+---
+
+### N23 — He versions artefacts in the legal domain exactly as he does in the health domain
+- **Type:** Process
+- **Source:** C6 (CNN Map **v2** → **v3**; "Affidavit A" / "Affidavit B") vs C4 (master-prompt **v2.0, Red-Team Validated**).
+- **Body:** Same behaviour, different subject: produce, label a version, then merge and strengthen into the next. C6's v3 is explicitly described as merging the earlier map with new material. Confirms N05 across platform and domain.
+- **Confidence:** High — version labels visible in both.
+- **Gap:** None.
+
+---
+
+### N24 — The reflexive second move is "render it as a deliverable" — a dashboard for data, a court-ready PDF for law
+- **Type:** Process
+- **Source:** Health — "Help me visualize this data" (C2 p.10, C4 p.21, C5 p.26). Legal — every C6/C7/C8 thread pivots from a markdown/YAML node to a generated PDF (C6: 4 PDFs; C7: 5 PDFs; C8: 2 PDFs).
+- **Body:** P3 generalises. The constant is not "charts" — it is that a structured answer is only finished once it becomes an artefact. The medium is domain-dependent. Practical consequence: the artefact should ship in the first pass, whatever the domain.
+- **Confidence:** High for the pattern (6 of 8 conversations); Medium for reading the two forms as one underlying drive — that is inference.
+- **Gap:** His request wording in C6–C8 is not visible (N21).
+
+---
+
+### N25 — He explicitly instructed the assistant to stop asking for confirmations and take initiative
+- **Type:** Process
+- **Source:** C6 — "Understood. I'll take full initiative on drafting and optimizing all filings without pausing for minor confirmations." Live corroboration: this session's own instruction, "Re-run and automatically proceed to next step."
+- **Body:** Confirms N06 on a second platform, in a second domain, a year apart. Clarifying questions are friction, not help. The design rule that follows is propose-then-confirm: produce the draft, state the assumption, let him correct it.
+- **Confidence:** High that the instruction was given — the AI's readback is verbatim-style and it changed behaviour immediately afterwards.
+- **Gap:** His exact wording not captured (N21).
+
+---
+
+### N26 — Five consecutive assistant turns in C7 asked for confirmations before producing a single document
+- **Type:** Process (measured stall)
+- **Source:** C7 — sequential requests for: institution identifiers → tone (formal-legal vs empathetic) → address/date vs placeholders → one combined block vs separate files → typeface and line spacing.
+- **Body:** Five round-trips of formatting questions before the first deliverable. Every one of them was answerable by proposing a default and noting it. This is the concrete cost of ask-then-wait, and it is the highest-leverage stall in the corpus because it is entirely avoidable by the responder.
+- **Confidence:** High — the five turns are consecutive and visible.
+- **Gap:** His replies are absent, so his tolerance for each question is unknown.
+
+---
+
+### N27 — C8 ends with the same question asked three times in a row; four promised documents were never produced
+- **Type:** Process (measured stall)
+- **Source:** C8 — the final three assistant turns each request "the approximate starting month of financial loss." Thread ends there. The Legal Memorandum, Affidavit of Fact, Financial Loss Statement and Health Impact Declaration are all promised and absent.
+- **Body:** The mirror image of N01. In N01 he loops because no exit test was defined; here the assistant loops because it will not proceed without one datum. Same failure, opposite direction: **the loop stalls whenever neither side holds a stop rule.** A default-and-flag ("assuming April 2024 — correct me") would have delivered four documents.
+- **Confidence:** High — three identical consecutive requests are visible.
+- **Gap:** Cannot tell whether he replied and the export dropped it (N21), or the thread genuinely died.
+
+---
+
+### N28 — In this corpus, initiative produced deliverables and confirmation-seeking produced none
+- **Type:** Process
+- **Source:** C6 (after "take full initiative": 4 PDFs + 2 full maps delivered, and one turn states "Next, I will automatically proceed"), C7 (5 confirmation turns → PDFs eventually delivered, promised markdown set never), C8 (deadlock → nothing), C3 (clarifying questions → deliverable absent).
+- **Body:** The two threads that ended with nothing delivered both ended on a confirmation question. The thread where he told the assistant to act produced the most artefacts. Not absolute — C7 shows confirmations can eventually yield — but the direction is consistent across four conversations and two platforms.
+- **Confidence:** Medium — n=4, and his turns are not visible, so cause and effect cannot be fully separated.
+- **Gap:** Needs the remaining conversations to test.
+
+---
+
+### N29 — He runs the same operating pattern on two different AI platforms
+- **Type:** Process
+- **Source:** C1–C5 (Claude) and C6–C8 (ChatGPT): heavy front-loaded scaffolding, versioned artefacts, render-to-deliverable second step, initiative preferred over questions, node/edge architecture metaphors.
+- **Body:** The strongest available test of whether these are his patterns or one model's habits — and they replicate. This retires most of the original G9 concern. Caveat: both systems are instruction-following assistants with broadly similar training, so replication is good evidence, not proof.
+- **Confidence:** Medium — the patterns clearly appear on both; the inference "therefore his, not the AI's" is strong but not conclusive.
+- **Gap:** A third, structurally different system (or his handwritten notes) would settle it.
+
+---
+
+### N30 — The externalised-memory project predates the "second brain" design by about five months
+- **Type:** Process / Content
+- **Source:** C6/C7/C8 — a working schema in Oct 2025: `RLN_ID: RLN20251014-*` codes, YAML front-matter, tags, backlinks, an explicit `/Living Notebook/03_Projects/...` folder tree, SCQH + MECE triage, Now / Next 2 / Later horizons, "Danger Radar." Versus C1 (Feb–Mar 2026) proposing CNN→RNN→RL to automate it.
+- **Body:** The first genuinely longitudinal observation in the corpus. He was hand-running a structured second brain in October 2025; the 2026 architecture is an attempt to automate what he was already doing manually. This field test is the third iteration of the same project.
+- **Confidence:** High — RLN date codes and export stamps are explicit on both ends.
+- **Gap:** The Oct 2025 → Feb 2026 middle is missing; whether the RLN was sustained or abandoned is unknown.
+
+---
+
+### N31 — His own instruments use decimal scores; his instruction to me forbids them
+- **Type:** Process
+- **Source:** C2 (Loop Score 6.7/10), C4 (5.7/10), C8 (severity 90/100 from Impact 10 × Urgency 10 × Risk 9 − Effort 7) versus his standing rule: "Confidence = High / Medium / Low + one line of why. **Never a decimal.**"
+- **Body:** Not a contradiction — a boundary. Numbers he computed from data are wanted; numbers the AI invents to sound precise are not. The rule is anti-false-precision, not anti-quantification. Practical read: give him bands for judgment and exact figures only where they trace to a source.
+- **Confidence:** High that both exist; Medium for this interpretation of why.
+- **Gap:** He has not stated the rationale; this is inference.
+
+---
+
+### N32 — He scores and triages every map he builds
+- **Type:** Process
+- **Source:** C8 (severity 90 → "Critical Priority / Immediate Action"), C2/C4 (Loop Score with 4 named bands), C6 ("Danger Radar" risk × severity × urgency tables), C7 (Now / Next 2 / Later).
+- **Body:** Across both domains, a structured map is immediately followed by a triage layer that converts it into a single priority verdict. Four conversations, two domains, two platforms. Strong predictor of what he will ask for next after any map (see `05-PHASE-P.md`).
+- **Confidence:** High — explicit scoring instruments in four conversations.
+- **Gap:** None for the observation; instrument validity is out of scope.
+
+---
+
+### N33 — Content: the legal claim structure he is assembling (declared, not adjudicated)
+- **Type:** Content
+- **Source:** C6, C7, C8.
+- **Body:** Six legal axes: employment retaliation (Title VII, FMLA 29 CFR §825.220), privacy (HIPAA 45 CFR §164.530(b), §164.508), education due process (ACGME IV.C.1.e), civil rights (§1983/1985), defamation, immigration hardship. Damages ledger subtotal **$693,000** across 8 line items. Causation chain: academic-record falsification → licensure block → employment loss → housing, insurance and health harm. Filing deadlines tracked (EEOC 300-day, HHS OCR 180-day).
+- **Confidence:** High that these are the assertions in his affidavits and RLN nodes.
+- **Gap:** **Unverified and unadjudicated.** No court records, exhibits or filings are in this session. Recorded as the content of his corpus, not as findings of fact — and this note carries no legal opinion.
+
+---
+
+### N34 — The two reference files are not conversations and cannot support behavioural claims
+- **Type:** Process (data integrity)
+- **Source:** R1 `examples.md`, R2 `cybertruck_domain_knowledge.md`.
+- **Body:** Both are distilled reference material with no dialogue and no ask→outcome sequence. R1 (prompt-optimisation examples across 10 platforms) matches the `prompt-optimizer` skill in his workspace and may be third-party content — authorship is unknown. R2 (Cybertruck 48V jump-start facts, NYC sourcing) is a personal fact sheet. What they show, weakly: he maintains structured reference files for both tooling and one-off practical problems, consistent with N30.
+- **Confidence:** High that they are not conversations; Low for any behavioural inference from them.
+- **Gap:** Authorship of R1 unknown (G12).
+
