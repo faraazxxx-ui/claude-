@@ -1,0 +1,3 @@
+# Generated export: regenerate with tools/export_repo_and_chats.py, never commit.
+# It aggregates the whole repo into one file; keep that out of remote history.
+export/REPO_AND_CHAT_EXPORT.*
