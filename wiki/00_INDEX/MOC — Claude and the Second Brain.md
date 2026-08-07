@@ -6,7 +6,7 @@ domain: systems
 tags: [moc, claude, second-brain, wiki-method]
 status: developing
 sources: [conversation-2026-08-07]
-related: ["[[Claude Layers Model]]", "[[Why Wiki Pages Are the Second Brain]]", "[[Second Brain Operating Loop]]", "[[Chat Archive Mining]]", "[[Claude Surface Selection Guide]]"]
+related: ["[[Claude Layers Model]]", "[[Why Wiki Pages Are the Second Brain]]", "[[Second Brain Operating Loop]]", "[[Chat Archive Mining]]", "[[Claude Surface Selection Guide]]", "[[Output Contract for AI Handoffs]]"]
 ---
 
 # MOC — Claude and the Second Brain
@@ -20,6 +20,11 @@ The spine for everything about using Claude deliberately and building the second
 3. **[[Second Brain Operating Loop]]** — the full cycle: capture → triage → reconcile → index → retrieve → act. The loss-function analogy lives here.
 4. **[[Chat Archive Mining]]** — turning every past AI conversation into a map of ask-vs-want deltas and seed pages.
 5. **[[Claude Surface Selection Guide]]** — which door to walk through for which task: chat, Project, Claude Code, skill, connector, routine.
+6. **[[Output Contract for AI Handoffs]]** — standing delivery rules: artifact/PDF always, diagrams over prose, succinct handoffs.
+
+## Visual companion
+
+`wiki/Second Brain Visual Guide.html` — the interactive one-page version of pages 1–5 (layer stack, loop, consolidation, triage tree), published as a Claude artifact. Start here when re-orienting; the pages above carry the depth.
 
 ## Related material already in this repo
 

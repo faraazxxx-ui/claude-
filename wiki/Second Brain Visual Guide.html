@@ -1,0 +1,485 @@
+<title>Claude in Layers — Second Brain Field Guide</title>
+<style>
+  :root {
+    --paper: #F6F9F8;
+    --card: #FFFFFF;
+    --ink: #182B2C;
+    --muted: #566D6C;
+    --line: #D3E0DD;
+    --accent: #0E7368;
+    --accent-soft: #E0EFED;
+    --amber: #B45309;
+    --amber-soft: #F6E8D8;
+    --frozen: #7E93A0;
+    --frozen-soft: #EAEEF1;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0F1B1B;
+      --card: #152423;
+      --ink: #E3EEEB;
+      --muted: #92A9A5;
+      --line: #27403C;
+      --accent: #45C0B2;
+      --accent-soft: #143734;
+      --amber: #E8964B;
+      --amber-soft: #3A2A17;
+      --frozen: #8FA3B0;
+      --frozen-soft: #1D2A31;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0F1B1B;
+    --card: #152423;
+    --ink: #E3EEEB;
+    --muted: #92A9A5;
+    --line: #27403C;
+    --accent: #45C0B2;
+    --accent-soft: #143734;
+    --amber: #E8964B;
+    --amber-soft: #3A2A17;
+    --frozen: #8FA3B0;
+    --frozen-soft: #1D2A31;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 48px 20px 80px; display: flex; flex-direction: column; gap: 56px; }
+
+  h1, h2 { font-family: Charter, "Iowan Old Style", Georgia, serif; text-wrap: balance; margin: 0; }
+  h1 { font-size: 2.4rem; line-height: 1.15; font-weight: 700; }
+  h2 { font-size: 1.5rem; font-weight: 700; }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 10px;
+  }
+  .thesis { font-size: 1.15rem; color: var(--muted); max-width: 34em; margin: 14px 0 0; }
+  .thesis strong { color: var(--ink); }
+  p { margin: 0; max-width: 62ch; }
+  section { display: flex; flex-direction: column; gap: 18px; }
+  .claim { color: var(--muted); max-width: 56ch; }
+  .claim strong { color: var(--ink); }
+
+  /* ---- Layer stack ---- */
+  .stack { display: flex; flex-direction: column; gap: 6px; }
+  .stratum { border: 0; padding: 0; margin: 0; background: none; }
+  .stratum > button {
+    width: 100%; display: grid; grid-template-columns: 34px 1fr auto; align-items: center; gap: 12px;
+    text-align: left; padding: 12px 16px; cursor: pointer;
+    background: var(--card); color: var(--ink);
+    border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 6px;
+    font: inherit;
+  }
+  .stratum > button:hover { border-color: var(--accent); }
+  .stratum > button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .stratum.frozen > button { border-left-color: var(--frozen); background: var(--frozen-soft); }
+  .l-num {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.8rem;
+    color: var(--muted); font-variant-numeric: tabular-nums;
+  }
+  .l-name { font-weight: 600; }
+  .l-name small { font-weight: 400; color: var(--muted); display: block; font-size: 0.85rem; }
+  .l-tag {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.7rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent);
+    padding: 3px 8px; border: 1px solid var(--line); border-radius: 999px; white-space: nowrap;
+  }
+  .stratum.frozen .l-tag { color: var(--frozen); }
+  .l-detail {
+    display: none; padding: 12px 16px 14px 62px; font-size: 0.95rem; color: var(--muted);
+    border-left: 4px solid transparent;
+  }
+  .l-detail strong { color: var(--ink); }
+  .stratum.open .l-detail { display: block; }
+  .stratum.open > button { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+  .frozen-line {
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px;
+    color: var(--amber); font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; margin: 6px 0;
+  }
+  .frozen-line::before, .frozen-line::after { content: ""; border-top: 2px dashed var(--amber); }
+  .band {
+    display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: baseline;
+    font-size: 0.85rem; color: var(--muted);
+  }
+  .band b { color: var(--accent); font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  /* ---- Figures ---- */
+  figure { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 20px; overflow-x: auto; }
+  figure svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+  figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 12px; max-width: 60ch; }
+  figcaption strong { color: var(--ink); }
+  svg text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  svg .mono { font-family: ui-monospace, "SF Mono", Menlo, monospace; }
+
+  /* ---- Gap taxonomy grid ---- */
+  .gaps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+  .gap-card { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; gap: 6px; }
+  .gap-card h3 { margin: 0; font-size: 1rem; }
+  .gap-card .sig { font-size: 0.88rem; color: var(--muted); }
+  .gap-card .fix { font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-top: auto; }
+  .gap-card.hot { border-color: var(--amber); background: linear-gradient(var(--card), var(--card)); }
+  .gap-card.hot .badge {
+    align-self: flex-start; font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--amber); background: var(--amber-soft); border-radius: 999px; padding: 2px 8px;
+  }
+
+  /* ---- Moves ---- */
+  .moves { display: flex; flex-direction: column; gap: 10px; counter-reset: mv; padding: 0; margin: 0; list-style: none; }
+  .moves li {
+    counter-increment: mv; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: baseline;
+    background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px;
+  }
+  .moves li::before {
+    content: counter(mv);
+    font-family: Charter, "Iowan Old Style", Georgia, serif; font-size: 1.5rem; font-weight: 700; color: var(--accent);
+  }
+  .moves strong { display: block; }
+  .moves span { color: var(--muted); font-size: 0.92rem; }
+
+  footer { border-top: 1px solid var(--line); padding-top: 20px; font-size: 0.88rem; color: var(--muted); }
+  footer a { color: var(--accent); }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .stratum > button { transition: border-color 120ms ease; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">Field Guide · Systems · 2026-08-07</p>
+    <h1>Claude, in layers</h1>
+    <p class="thesis"><strong>You will never train the model. You will engineer what it sees.</strong><br>
+    Seven layers — one frozen, six yours. The second brain lives in the six.</p>
+  </header>
+
+  <section>
+    <h2>The stack</h2>
+    <p class="claim">Tap a layer. Layers 2–4 decide what Claude <strong>knows</strong>; 5–7 decide what it <strong>can do</strong>.</p>
+
+    <div class="stack">
+      <div class="stratum">
+        <button type="button" aria-expanded="false">
+          <span class="l-num">7</span>
+          <span class="l-name">Agents &amp; routines <small>the resident on standing orders</small></span>
+          <span class="l-tag">Can do</span>
+        </button>
+        <div class="l-detail"><strong>Claude working over time with tools</strong> — Claude Code, scheduled jobs. <strong>Your move:</strong> delegate anything that outlives your attention span. The surface holds the thread so you don't have to.</div>
+      </div>
+      <div class="stratum">
+        <button type="button" aria-expanded="false">
+          <span class="l-num">6</span>
+          <span class="l-name">Connectors <small>the EMR &amp; lab interfaces</small></span>
+          <span class="l-tag">Can do</span>
+        </button>
+        <div class="l-detail"><strong>Live lines into Drive, Gmail, Calendar, literature.</strong> <strong>Your move:</strong> never let it recall what it can look up — invoke the lookup explicitly.</div>
+      </div>
+      <div class="stratum">
+        <button type="button" aria-expanded="false">
+          <span class="l-num">5</span>
+          <span class="l-name">Skills <small>the order sets</small></span>
+          <span class="l-tag">Can do</span>
+        </button>
+        <div class="l-detail"><strong>Packaged procedures that fire as one unit</strong> — axiom, clinical narratives, legal strategy, ~15 in your roster. <strong>Your move:</strong> name the skill when you know it; triggers overlap.</div>
+      </div>
+      <div class="stratum">
+        <button type="button" aria-expanded="false">
+          <span class="l-num">4</span>
+          <span class="l-name">Memory &amp; Projects <small>the chart between visits</small></span>
+          <span class="l-tag">Knows</span>
+        </button>
+        <div class="l-detail"><strong>Persistent knowledge auto-loaded across chats.</strong> <strong>Your move:</strong> one Project per domain, wiki pages as its knowledge. This is what ends re-explaining.</div>
+      </div>
+      <div class="stratum">
+        <button type="button" aria-expanded="false">
+          <span class="l-num">3</span>
+          <span class="l-name">Instructions &amp; styles <small>standing orders on the wall</small></span>
+          <span class="l-tag">Knows</span>
+        </button>
+        <div class="l-detail"><strong>Set once, shapes every encounter</strong> — preferences, project instructions, output style. <strong>Your move:</strong> encode the archetype here (visual, succinct, no CS jargon) so you never restate it.</div>
+      </div>
+      <div class="stratum">
+        <button type="button" aria-expanded="false">
+          <span class="l-num">2</span>
+          <span class="l-name">Context window <small>working memory — the whiteboard</small></span>
+          <span class="l-tag">Knows</span>
+        </button>
+        <div class="l-detail"><strong>The only place your data ever meets the model.</strong> No hippocampus — every chat starts in anterograde amnesia; the window is wiped at session end. <strong>Your move:</strong> curate what enters. Everything above feeds this layer.</div>
+      </div>
+
+      <div class="frozen-line" aria-hidden="true"><span>the frozen line — nothing below it changes</span></div>
+
+      <div class="stratum frozen">
+        <button type="button" aria-expanded="false">
+          <span class="l-num">1</span>
+          <span class="l-name">Weights — the trained model <small>med school, consolidated; identical for everyone</small></span>
+          <span class="l-tag">Frozen</span>
+        </button>
+        <div class="l-detail"><strong>Billions of parameters, fixed at Anthropic before you ever typed.</strong> You can't edit a physician's training by talking to them. <strong>Your move:</strong> pick the dose only — Opus for depth, Sonnet for balance, Haiku for speed.</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The correction</h2>
+    <p class="claim">"Train it on my data until it mirrors me" — right outcome, wrong door. The training door closed at Anthropic. The retrieval door is wide open, and it reaches the same mirror.</p>
+    <figure>
+      <svg viewBox="0 0 680 210" role="img" aria-label="Two paths from your data to the model: retraining the weights is closed; retrieval through a wiki page into the context window is open.">
+        <defs>
+          <marker id="arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="currentColor"/>
+          </marker>
+          <marker id="arrA" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="var(--accent)"/>
+          </marker>
+        </defs>
+        <!-- closed path -->
+        <rect x="16" y="30" width="120" height="40" rx="6" fill="var(--card)" stroke="currentColor"/>
+        <text x="76" y="54" text-anchor="middle" font-size="13" fill="currentColor">your data</text>
+        <line x1="136" y1="50" x2="520" y2="50" stroke="var(--frozen)" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#arr)" color="var(--frozen)"/>
+        <text x="330" y="38" text-anchor="middle" font-size="12" fill="var(--frozen)">retraining the weights</text>
+        <g stroke="var(--amber)" stroke-width="2.5">
+          <line x1="318" y1="58" x2="342" y2="82"/><line x1="342" y1="58" x2="318" y2="82"/>
+        </g>
+        <text x="330" y="98" text-anchor="middle" font-size="11" fill="var(--amber)" class="mono">door closed at Anthropic</text>
+        <rect x="528" y="30" width="136" height="40" rx="6" fill="var(--frozen-soft)" stroke="var(--frozen)"/>
+        <text x="596" y="54" text-anchor="middle" font-size="13" fill="currentColor">frozen model</text>
+        <!-- open path -->
+        <rect x="16" y="140" width="120" height="40" rx="6" fill="var(--card)" stroke="currentColor"/>
+        <text x="76" y="164" text-anchor="middle" font-size="13" fill="currentColor">your data</text>
+        <line x1="136" y1="160" x2="196" y2="160" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrA)"/>
+        <rect x="200" y="140" width="120" height="40" rx="6" fill="var(--accent-soft)" stroke="var(--accent)"/>
+        <text x="260" y="164" text-anchor="middle" font-size="13" fill="currentColor">wiki page</text>
+        <line x1="320" y1="160" x2="380" y2="160" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrA)"/>
+        <rect x="384" y="140" width="130" height="40" rx="6" fill="var(--accent-soft)" stroke="var(--accent)"/>
+        <text x="449" y="164" text-anchor="middle" font-size="13" fill="currentColor">context window</text>
+        <line x1="514" y1="160" x2="524" y2="160" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrA)"/>
+        <rect x="528" y="140" width="136" height="40" rx="6" fill="var(--frozen-soft)" stroke="var(--frozen)"/>
+        <text x="596" y="164" text-anchor="middle" font-size="13" fill="currentColor">frozen model</text>
+        <text x="330" y="200" text-anchor="middle" font-size="11" fill="var(--accent)" class="mono">retrieval — loaded at the moment of need</text>
+      </svg>
+      <figcaption><strong>Same destination, different door.</strong> Nothing typed into a chat updates a weight. Your data reaches the model only through the context window — so the build is retrieval, and the wiki page is its unit.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>The loop — your loss function, relocated</h2>
+    <p class="claim">The p-value intuition was right; it just runs on the wiki, not the weights. <strong>The gap between what got retrieved and what you needed is the loss. Editing the pages is the gradient step.</strong> Hundreds of cycles narrow the interval around "what I mean."</p>
+    <figure>
+      <svg viewBox="0 0 640 430" role="img" aria-label="Six-stage cycle: capture, triage, reconcile, index, retrieve, act — with an error-signal arrow from act back to reconcile.">
+        <defs>
+          <marker id="arr2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="currentColor"/>
+          </marker>
+          <marker id="arrAm" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="var(--amber)"/>
+          </marker>
+        </defs>
+        <!-- ring arrows (clockwise) -->
+        <g stroke="currentColor" stroke-width="1.5" fill="none" color="var(--muted)">
+          <path d="M 384 72 Q 470 88 508 138" marker-end="url(#arr2)"/>
+          <path d="M 528 182 Q 540 215 528 248" marker-end="url(#arr2)"/>
+          <path d="M 508 292 Q 470 342 384 358" marker-end="url(#arr2)"/>
+          <path d="M 256 358 Q 170 342 132 292" marker-end="url(#arr2)"/>
+          <path d="M 112 248 Q 100 215 112 182" marker-end="url(#arr2)"/>
+          <path d="M 132 138 Q 170 88 256 72" marker-end="url(#arr2)"/>
+        </g>
+        <!-- error signal: act -> reconcile -->
+        <path d="M 175 165 Q 320 260 455 265" fill="none" stroke="var(--amber)" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrAm)"/>
+        <text x="308" y="248" text-anchor="middle" font-size="11.5" fill="var(--amber)" class="mono">gap noticed = training signal</text>
+        <!-- nodes -->
+        <g>
+          <rect x="260" y="40" width="120" height="44" rx="8" fill="var(--card)" stroke="currentColor"/>
+          <text x="320" y="61" text-anchor="middle" font-size="13" font-weight="600" fill="currentColor">1 · Capture</text>
+          <text x="320" y="76" text-anchor="middle" font-size="10.5" fill="var(--muted)">dictate it now</text>
+
+          <rect x="460" y="120" width="120" height="44" rx="8" fill="var(--card)" stroke="currentColor"/>
+          <text x="520" y="141" text-anchor="middle" font-size="13" font-weight="600" fill="currentColor">2 · Triage</text>
+          <text x="520" y="156" text-anchor="middle" font-size="10.5" fill="var(--muted)">route by domain</text>
+
+          <rect x="460" y="250" width="120" height="44" rx="8" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+          <text x="520" y="271" text-anchor="middle" font-size="13" font-weight="600" fill="currentColor">3 · Reconcile</text>
+          <text x="520" y="286" text-anchor="middle" font-size="10.5" fill="var(--muted)">the gradient step</text>
+
+          <rect x="260" y="340" width="120" height="44" rx="8" fill="var(--card)" stroke="currentColor"/>
+          <text x="320" y="361" text-anchor="middle" font-size="13" font-weight="600" fill="currentColor">4 · Index</text>
+          <text x="320" y="376" text-anchor="middle" font-size="10.5" fill="var(--muted)">link from the MOC</text>
+
+          <rect x="60" y="250" width="120" height="44" rx="8" fill="var(--card)" stroke="currentColor"/>
+          <text x="120" y="271" text-anchor="middle" font-size="13" font-weight="600" fill="currentColor">5 · Retrieve</text>
+          <text x="120" y="286" text-anchor="middle" font-size="10.5" fill="var(--muted)">pages → context</text>
+
+          <rect x="60" y="120" width="120" height="44" rx="8" fill="var(--card)" stroke="currentColor"/>
+          <text x="120" y="141" text-anchor="middle" font-size="13" font-weight="600" fill="currentColor">6 · Act</text>
+          <text x="120" y="156" text-anchor="middle" font-size="10.5" fill="var(--muted)">skills + connectors</text>
+        </g>
+      </svg>
+      <figcaption><strong>Every re-explanation you catch yourself doing is a labeled error — bank it.</strong> Skip stage 3 and the system decays back into the data pile. Protect the weekly reconcile like a clinic slot.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Chats → wiki: the consolidation</h2>
+    <p class="claim">Chat logs are hippocampus — episodic, contradictory, time-ordered. Wiki pages are cortex — one concept, current-state, linked. Reconciliation is the sleep between them. <strong>Your data pile is substrate, not second brain: consolidate first, then index.</strong></p>
+    <figure>
+      <svg viewBox="0 0 680 190" role="img" aria-label="Tangled episodic chats on the left consolidate through reconciliation into linked atomic wiki pages on the right.">
+        <defs>
+          <marker id="arr3" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="var(--accent)"/>
+          </marker>
+        </defs>
+        <!-- episodic tangle -->
+        <g fill="var(--card)" stroke="var(--frozen)">
+          <rect x="30" y="34" width="92" height="30" rx="5" transform="rotate(-4 76 49)"/>
+          <rect x="70" y="72" width="92" height="30" rx="5" transform="rotate(3 116 87)"/>
+          <rect x="24" y="112" width="92" height="30" rx="5" transform="rotate(-2 70 127)"/>
+          <rect x="96" y="132" width="92" height="30" rx="5" transform="rotate(5 142 147)"/>
+        </g>
+        <g fill="var(--muted)" font-size="10.5">
+          <text x="76" y="53" text-anchor="middle" transform="rotate(-4 76 49)">chats '23</text>
+          <text x="116" y="91" text-anchor="middle" transform="rotate(3 116 87)">chats '24</text>
+          <text x="70" y="131" text-anchor="middle" transform="rotate(-2 70 127)">files</text>
+          <text x="142" y="151" text-anchor="middle" transform="rotate(5 142 147)">dictations</text>
+        </g>
+        <g stroke="var(--frozen)" stroke-width="1" opacity="0.55">
+          <path d="M 100 64 Q 90 80 108 76" fill="none"/>
+          <path d="M 70 100 Q 110 96 96 118" fill="none"/>
+          <path d="M 130 102 Q 150 120 140 132" fill="none"/>
+        </g>
+        <text x="106" y="22" text-anchor="middle" font-size="11" fill="var(--frozen)" class="mono">episodic — append-only</text>
+        <!-- arrow -->
+        <line x1="215" y1="95" x2="345" y2="95" stroke="var(--accent)" stroke-width="2.5" marker-end="url(#arr3)"/>
+        <text x="280" y="82" text-anchor="middle" font-size="11.5" fill="var(--accent)" class="mono">reconcile</text>
+        <text x="280" y="114" text-anchor="middle" font-size="10.5" fill="var(--muted)">merge, don't append — "sleep"</text>
+        <!-- semantic graph -->
+        <g stroke="var(--accent)" stroke-width="1.5">
+          <line x1="452" y1="60" x2="530" y2="120"/>
+          <line x1="452" y1="60" x2="588" y2="52"/>
+          <line x1="530" y1="120" x2="588" y2="52"/>
+        </g>
+        <g fill="var(--accent-soft)" stroke="var(--accent)">
+          <rect x="396" y="42" width="112" height="34" rx="5"/>
+          <rect x="476" y="104" width="112" height="34" rx="5"/>
+          <rect x="536" y="36" width="104" height="34" rx="5"/>
+        </g>
+        <g fill="currentColor" font-size="11">
+          <text x="452" y="63" text-anchor="middle">Claude Layers</text>
+          <text x="532" y="125" text-anchor="middle">Operating Loop</text>
+          <text x="588" y="57" text-anchor="middle">Wiki Method</text>
+        </g>
+        <text x="516" y="170" text-anchor="middle" font-size="11" fill="var(--accent)" class="mono">semantic — one page, one concept, linked</text>
+      </svg>
+      <figcaption><strong>The links are your "brain linkages," made literal.</strong> Filename = address; a page ≈ one clean retrieval chunk. Embedding the raw pile would faithfully reproduce its sprawl in vector space.</figcaption>
+    </figure>
+
+    <p class="claim">Mining the old chats: every conversation is a paired sample — <strong>what you asked vs. what you wanted</strong>. Classify each gap; the distribution is the diagnosis.</p>
+    <div class="gaps">
+      <div class="gap-card">
+        <h3>Under-specified</h3>
+        <p class="sig">You knew; the prompt didn't carry it.</p>
+        <p class="fix">Fix: skills + standing orders · L3 L5</p>
+      </div>
+      <div class="gap-card hot">
+        <span class="badge">expect the biggest bucket</span>
+        <h3>Missing context</h3>
+        <p class="sig">The AI never had your data or history.</p>
+        <p class="fix">Fix: wiki + connectors · L4 L6</p>
+      </div>
+      <div class="gap-card">
+        <h3>Wrong door</h3>
+        <p class="sig">Right ask, wrong surface for it.</p>
+        <p class="fix">Fix: the triage tree below</p>
+      </div>
+      <div class="gap-card">
+        <h3>Drift</h3>
+        <p class="sig">Thread abandoned before payoff — the ADHD signature.</p>
+        <p class="fix">Fix: agents hold the thread · L7</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Which door? Two questions</h2>
+    <p class="claim">"A few clicks behind optimal" is a routing error, not a prompting error. Thirty seconds of triage saves the restart.</p>
+    <figure>
+      <svg viewBox="0 0 720 300" role="img" aria-label="Decision tree: if nothing needs to exist tomorrow, use chat; otherwise route by whether the task needs your context, your tools, or both.">
+        <defs>
+          <marker id="arr4" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="currentColor"/>
+          </marker>
+        </defs>
+        <rect x="230" y="16" width="260" height="46" rx="8" fill="var(--card)" stroke="currentColor"/>
+        <text x="360" y="36" text-anchor="middle" font-size="13" font-weight="600" fill="currentColor">Will any of this need to exist tomorrow?</text>
+        <text x="360" y="52" text-anchor="middle" font-size="10.5" fill="var(--muted)">Q1</text>
+
+        <g stroke="currentColor" stroke-width="1.5" fill="none" color="var(--muted)">
+          <path d="M 268 62 Q 180 90 140 128" marker-end="url(#arr4)"/>
+          <path d="M 430 62 Q 470 90 476 122" marker-end="url(#arr4)"/>
+        </g>
+        <text x="180" y="88" font-size="11.5" fill="var(--muted)" class="mono">no</text>
+        <text x="470" y="88" font-size="11.5" fill="var(--muted)" class="mono">yes</text>
+
+        <rect x="40" y="132" width="180" height="46" rx="8" fill="var(--card)" stroke="currentColor"/>
+        <text x="130" y="152" text-anchor="middle" font-size="13" font-weight="600" fill="currentColor">claude.ai chat</text>
+        <text x="130" y="168" text-anchor="middle" font-size="10.5" fill="var(--muted)">let it die — guilt-free</text>
+
+        <rect x="356" y="126" width="240" height="46" rx="8" fill="var(--card)" stroke="currentColor"/>
+        <text x="476" y="146" text-anchor="middle" font-size="13" font-weight="600" fill="currentColor">Needs my context, tools, or both?</text>
+        <text x="476" y="162" text-anchor="middle" font-size="10.5" fill="var(--muted)">Q2</text>
+
+        <g stroke="currentColor" stroke-width="1.5" fill="none" color="var(--muted)">
+          <path d="M 396 172 Q 330 200 296 226" marker-end="url(#arr4)"/>
+          <path d="M 476 172 L 476 226" marker-end="url(#arr4)"/>
+          <path d="M 556 172 Q 620 200 648 226" marker-end="url(#arr4)"/>
+        </g>
+        <text x="316" y="202" font-size="11.5" fill="var(--muted)" class="mono">context</text>
+        <text x="484" y="202" font-size="11.5" fill="var(--muted)" class="mono">tools · time</text>
+        <text x="626" y="202" font-size="11.5" fill="var(--muted)" class="mono">both</text>
+
+        <rect x="176" y="230" width="200" height="46" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"/>
+        <text x="276" y="250" text-anchor="middle" font-size="13" font-weight="600" fill="currentColor">Project (wiki-fed)</text>
+        <text x="276" y="266" text-anchor="middle" font-size="10.5" fill="var(--muted)">the chart pre-loaded</text>
+
+        <rect x="392" y="230" width="168" height="46" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"/>
+        <text x="476" y="250" text-anchor="middle" font-size="13" font-weight="600" fill="currentColor">Claude Code / routine</text>
+        <text x="476" y="266" text-anchor="middle" font-size="10.5" fill="var(--muted)">outlives your attention</text>
+
+        <rect x="576" y="230" width="132" height="46" rx="8" fill="var(--accent-soft)" stroke="var(--accent)"/>
+        <text x="642" y="250" text-anchor="middle" font-size="13" font-weight="600" fill="currentColor">Code + wiki</text>
+        <text x="642" y="266" text-anchor="middle" font-size="10.5" fill="var(--muted)">this very build</text>
+      </svg>
+      <figcaption><strong>One standing rule:</strong> never let chat do an agent's job — a task that will outlive your attention span belongs to a surface that outlives it too.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>First three moves</h2>
+    <ol class="moves">
+      <li><div><strong>Read the MOC.</strong> <span>Repo wiki entry page — 15 minutes, the whole map.</span></div></li>
+      <li><div><strong>Mine the biggest archive.</strong> <span>Export it, run the ask-vs-want rubric through Claude Code, batch by platform.</span></div></li>
+      <li><div><strong>Stand up the weekly reconcile.</strong> <span>A scheduled routine. It is the gradient step — protect it like a clinic slot.</span></div></li>
+    </ol>
+  </section>
+
+  <footer>
+    Deep pages (open questions, provenance, full method): <a href="https://github.com/faraazxxx-ui/claude-/pull/24">repo wiki · PR #24</a> — start at <em>MOC — Claude and the Second Brain</em>.
+  </footer>
+</div>
+
+<script>
+  document.querySelectorAll('.stratum > button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var s = btn.parentElement;
+      var open = s.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+</script>
