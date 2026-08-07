@@ -1,0 +1,523 @@
+<title>Case Console — Malicious Prosecution</title>
+
+<style>
+/* ============ TOKENS: light is the base, both dark paths redefine ============ */
+:root{
+  --paper:#F6F7FA;      /* cool white, faint blue bias — court record, not letterpress */
+  --card:#FFFFFF;
+  --ink:#14181F;
+  --ink-2:#454E5E;
+  --ink-3:#6E7889;
+  --rule:#D4D9E2;
+  --rule-2:#E7EAF0;
+  --indigo:#2C3E63;     /* structure */
+  --indigo-soft:#E8ECF4;
+  --oxblood:#8C1F28;    /* the expiring clock. nothing else. */
+  --oxblood-soft:#FBEDEE;
+  --amber:#8A5A10;
+  --amber-soft:#FBF2E2;
+  --slate:#4B6152;
+  --slate-soft:#EAF0EB;
+  --shadow:0 1px 2px rgba(20,24,31,.05), 0 8px 24px -12px rgba(20,24,31,.10);
+
+  --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: ui-sans-serif, "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1319; --card:#161B23; --ink:#E9ECF2; --ink-2:#AEB6C4; --ink-3:#7C8595;
+    --rule:#2A3240; --rule-2:#212934;
+    --indigo:#A8BDE4; --indigo-soft:#1B2434;
+    --oxblood:#F0868F; --oxblood-soft:#2A1518;
+    --amber:#E0AE5C; --amber-soft:#251C0E;
+    --slate:#8FB79C; --slate-soft:#14201A;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1319; --card:#161B23; --ink:#E9ECF2; --ink-2:#AEB6C4; --ink-3:#7C8595;
+  --rule:#2A3240; --rule-2:#212934;
+  --indigo:#A8BDE4; --indigo-soft:#1B2434;
+  --oxblood:#F0868F; --oxblood-soft:#2A1518;
+  --amber:#E0AE5C; --amber-soft:#251C0E;
+  --slate:#8FB79C; --slate-soft:#14201A;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--serif); font-size:16.5px; line-height:1.55;
+  -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:820px; margin:0 auto; padding:0 20px 72px}
+
+/* ============ MASTHEAD + LIVE CLOCKS ============ */
+.mast{
+  position:sticky; top:0; z-index:20;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(12px) saturate(1.4);
+  border-bottom:1px solid var(--rule);
+}
+.mast-in{max-width:820px; margin:0 auto; padding:11px 20px 12px;
+  display:flex; flex-wrap:wrap; align-items:center; gap:8px 14px}
+.caption{
+  font-family:var(--sans); font-size:11px; font-weight:600; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--ink-3); margin-right:auto; white-space:nowrap;
+}
+.clock{
+  display:flex; align-items:baseline; gap:7px;
+  font-family:var(--mono); font-variant-numeric:tabular-nums;
+  font-size:12.5px; padding:4px 10px; border-radius:3px; border:1px solid;
+}
+.clock b{font-size:15px; font-weight:700; letter-spacing:-.01em}
+.clock i{font-style:normal; font-family:var(--sans); font-size:10px; font-weight:600;
+  letter-spacing:.07em; text-transform:uppercase; opacity:.75}
+.clock.hot{color:var(--oxblood); border-color:color-mix(in srgb,var(--oxblood) 35%,transparent); background:var(--oxblood-soft)}
+.clock.cool{color:var(--indigo); border-color:color-mix(in srgb,var(--indigo) 30%,transparent); background:var(--indigo-soft)}
+
+/* ============ THE ONE THING ============ */
+.now{
+  margin:26px 0 0; padding:20px 22px 21px; border-radius:4px;
+  background:var(--card); border:1px solid var(--rule);
+  border-left:3px solid var(--oxblood); box-shadow:var(--shadow);
+}
+.eyebrow{
+  font-family:var(--sans); font-size:10.5px; font-weight:700; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--oxblood); margin:0 0 9px;
+}
+.now h1{
+  font-family:var(--serif); font-size:clamp(23px,4.6vw,31px); line-height:1.2;
+  font-weight:600; letter-spacing:-.015em; margin:0 0 10px; text-wrap:balance;
+}
+.now p{margin:0; color:var(--ink-2); font-size:16px}
+.now p + p{margin-top:9px}
+
+/* ============ SECTION FRAME ============ */
+h2{
+  font-family:var(--sans); font-size:11px; font-weight:700; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--ink-3);
+  margin:44px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--rule);
+  display:flex; align-items:baseline; gap:10px;
+}
+h2 span{font-family:var(--mono); font-size:10.5px; color:var(--indigo); letter-spacing:0}
+
+/* ============ DATE DIAL ============ */
+.dial{
+  background:var(--card); border:1px solid var(--rule); border-radius:4px;
+  padding:15px 17px 16px; box-shadow:var(--shadow);
+}
+.dial > p{margin:0 0 12px; font-size:15px; color:var(--ink-2)}
+.opts{display:flex; flex-wrap:wrap; gap:8px}
+.opt{
+  font-family:var(--mono); font-size:13px; font-variant-numeric:tabular-nums;
+  padding:7px 13px; border-radius:3px; cursor:pointer;
+  background:transparent; color:var(--ink-2);
+  border:1px solid var(--rule); transition:background .12s, border-color .12s, color .12s;
+}
+.opt:hover{border-color:var(--indigo); color:var(--ink)}
+.opt[aria-pressed="true"]{background:var(--indigo); border-color:var(--indigo); color:var(--paper); font-weight:600}
+:root[data-theme="dark"] .opt[aria-pressed="true"],
+:root:not([data-theme="light"]) .opt[aria-pressed="true"]{color:#0F1319}
+.opt:focus-visible, .card > summary:focus-visible, .tick:focus-visible{
+  outline:2px solid var(--indigo); outline-offset:2px}
+.verdict{
+  margin:13px 0 0; padding-top:12px; border-top:1px dashed var(--rule);
+  font-family:var(--sans); font-size:14px; line-height:1.5;
+}
+.verdict strong{font-weight:650}
+
+/* ============ SPINE DIAGRAM ============ */
+.spine{overflow-x:auto; margin:0; padding:2px 0 4px}
+.spine svg{display:block; min-width:660px; width:100%; height:auto}
+.dlabel{font-family:var(--sans); font-size:11.5px; font-weight:650; fill:var(--ink)}
+.dsub{font-family:var(--sans); font-size:10px; fill:var(--ink-3)}
+.dtag{font-family:var(--mono); font-size:9.5px; letter-spacing:.02em}
+figcaption{
+  font-family:var(--sans); font-size:12.5px; color:var(--ink-3);
+  margin-top:6px; padding-left:2px;
+}
+
+/* ============ ORDER CARDS ============ */
+.stack{display:flex; flex-direction:column; gap:10px}
+.card{
+  background:var(--card); border:1px solid var(--rule); border-radius:4px;
+  box-shadow:var(--shadow); overflow:hidden;
+}
+.card > summary{
+  cursor:pointer; padding:14px 16px; display:flex; gap:12px; align-items:flex-start;
+  list-style:none;
+}
+.card > summary::-webkit-details-marker{display:none}
+.card > summary::after{
+  content:"+"; margin-left:auto; font-family:var(--mono); font-size:16px;
+  color:var(--ink-3); line-height:1; padding-top:2px; flex:none;
+}
+.card[open] > summary::after{content:"−"}
+.card[open] > summary{border-bottom:1px solid var(--rule-2)}
+.who{
+  font-family:var(--mono); font-size:9.5px; font-weight:600; letter-spacing:.06em;
+  text-transform:uppercase; padding:3px 7px; border-radius:2px; flex:none; margin-top:2px;
+}
+.who.you{background:var(--oxblood-soft); color:var(--oxblood)}
+.who.him{background:var(--amber-soft); color:var(--amber)}
+.who.them{background:var(--slate-soft); color:var(--slate)}
+.sumtext{flex:1; min-width:0}
+.sumtext b{display:block; font-weight:600; font-size:16.5px; letter-spacing:-.005em}
+.sumtext em{
+  display:block; font-style:normal; font-family:var(--sans); font-size:12.5px;
+  color:var(--ink-3); margin-top:3px;
+}
+.body{padding:14px 16px 16px}
+.body > *:first-child{margin-top:0}
+.body > *:last-child{margin-bottom:0}
+.body p{margin:0 0 11px; color:var(--ink-2); font-size:15.5px}
+
+/* checkable rows */
+.tick{
+  display:flex; gap:11px; align-items:flex-start; width:100%; text-align:left;
+  background:transparent; border:0; border-top:1px solid var(--rule-2);
+  padding:11px 2px; cursor:pointer; color:inherit; font:inherit;
+}
+.tick:first-of-type{border-top:0; padding-top:2px}
+/* specificity: .tick span sets flex:1, so the box needs an equally specific rule */
+.tick span.box{
+  flex:0 0 auto; width:17px; height:17px; margin-top:2px; border-radius:2px;
+  border:1.5px solid var(--rule); position:relative; transition:background .12s, border-color .12s;
+}
+.tick[aria-pressed="true"] span.box{background:var(--indigo); border-color:var(--indigo)}
+.tick[aria-pressed="true"] span.box::after{
+  content:""; position:absolute; left:4.5px; top:1.5px; width:5px; height:9.5px;
+  border:solid var(--card); border-width:0 2px 2px 0; transform:rotate(42deg);
+}
+.tick span.txt{flex:1; font-size:15.5px; line-height:1.45}
+.tick[aria-pressed="true"] span.txt{color:var(--ink-3); text-decoration:line-through; text-decoration-thickness:1px}
+.tick span.txt b{font-weight:600; color:var(--ink)}
+.tick[aria-pressed="true"] span.txt b{color:var(--ink-3); font-weight:400}
+
+.flag{
+  margin:12px 0 0; padding:11px 13px; border-radius:3px;
+  background:var(--oxblood-soft); border-left:2.5px solid var(--oxblood);
+  font-family:var(--sans); font-size:13.5px; line-height:1.5; color:var(--ink);
+}
+.flag b{color:var(--oxblood)}
+.quote{
+  margin:11px 0 0; padding:11px 14px; border-radius:3px;
+  background:var(--indigo-soft); font-size:15px; line-height:1.5; color:var(--ink);
+}
+.quote::before{content:"“"; font-size:19px; color:var(--indigo); line-height:0; vertical-align:-2px; margin-right:1px}
+.quote::after{content:"”"; font-size:19px; color:var(--indigo); line-height:0; vertical-align:-6px; margin-left:1px}
+
+/* ============ TABLE ============ */
+.tscroll{overflow-x:auto; border:1px solid var(--rule); border-radius:4px; background:var(--card); box-shadow:var(--shadow)}
+table{border-collapse:collapse; width:100%; min-width:520px; font-size:14.5px}
+th{
+  font-family:var(--sans); font-size:10px; font-weight:700; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--ink-3); text-align:left;
+  padding:10px 14px; border-bottom:1px solid var(--rule); white-space:nowrap;
+}
+td{padding:11px 14px; border-bottom:1px solid var(--rule-2); vertical-align:top; color:var(--ink-2)}
+tr:last-child td{border-bottom:0}
+td:first-child{color:var(--ink); font-weight:550; white-space:nowrap}
+td cite{font-style:italic; color:var(--ink-3)}
+.yn{font-family:var(--mono); font-size:11px; font-weight:600; white-space:nowrap}
+.yn.y{color:var(--slate)} .yn.n{color:var(--oxblood)}
+
+/* ============ LADDER ============ */
+.rungs{list-style:none; margin:0; padding:0; counter-reset:r}
+.rungs li{
+  counter-increment:r; display:flex; gap:13px; padding:11px 0;
+  border-top:1px solid var(--rule-2); font-size:15.5px; color:var(--ink-2);
+}
+.rungs li:first-child{border-top:0}
+.rungs li::before{
+  content:counter(r); flex:0 0 auto; font-family:var(--mono); font-size:11px; font-weight:600;
+  color:var(--indigo); width:20px; height:20px; margin-top:3px; border-radius:50%;
+  background:var(--indigo-soft); display:grid; place-items:center;
+}
+/* the li is a flex container — its text must sit in one child, or bold runs become columns */
+.rungs li > span{flex:1}
+.rungs li:last-child{color:var(--ink)}
+.rungs strong{color:var(--ink); font-weight:600}
+
+/* ============ FOOT ============ */
+.foot{
+  margin-top:44px; padding-top:16px; border-top:1px solid var(--rule);
+  font-family:var(--sans); font-size:12.5px; line-height:1.6; color:var(--ink-3);
+}
+.foot b{color:var(--ink-2); font-weight:650}
+.foot ul{margin:8px 0 0; padding-left:17px}
+.foot li{margin-bottom:4px}
+
+@media (prefers-reduced-motion:reduce){*{transition:none !important; animation:none !important}}
+@media (max-width:520px){
+  .caption{margin-right:0; width:100%}
+  body{font-size:16px}
+}
+</style>
+
+<header class="mast">
+  <div class="mast-in">
+    <div class="caption">Rahman · Binghamton · malicious prosecution</div>
+    <div class="clock hot"><i>State</i><b id="c1">—</b><span id="u1"></span></div>
+    <div class="clock cool"><i>§1983</i><b id="c2">—</b><span id="u2"></span></div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="now">
+    <p class="eyebrow">Today — 7 August 2026</p>
+    <h1 id="headline">The state-law year is the only thing that can be lost. Everything else survives to 2028.</h1>
+    <p id="lede">One filing stops it: a summons with notice under CPLR 305(b) in Broome County Supreme Court, naming the complainant. No complaint required at filing. Drazen can do it in an afternoon; you can do it yourself if he won't.</p>
+    <p>The federal case is not urgent. Do not let it borrow the urgency.</p>
+  </section>
+
+  <h2>The open variable <span>drives both clocks</span></h2>
+  <div class="dial">
+    <p>Your records disagree on the acquittal date. Three documents say August 2025, one says September. The year runs from the verdict — so this single unknown decides whether you have days or weeks.</p>
+    <div class="opts" role="group" aria-label="Acquittal date">
+      <button class="opt" data-d="2025-08-01" aria-pressed="false">1 Aug 2025</button>
+      <button class="opt" data-d="2025-08-15" aria-pressed="true">15 Aug 2025</button>
+      <button class="opt" data-d="2025-08-29" aria-pressed="false">29 Aug 2025</button>
+      <button class="opt" data-d="2025-09-15" aria-pressed="false">15 Sep 2025</button>
+    </div>
+    <p class="verdict" id="verdict"></p>
+  </div>
+
+  <h2>Two filings, not one <span>Krupski forecloses relation back</span></h2>
+  <figure class="spine">
+    <svg viewBox="0 0 680 232" role="img" aria-label="The acquittal branches into two separate filings: a state summons with notice in Broome County that must be filed now, and a federal section 1983 action in the Northern District that runs to 2028.">
+      <g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" opacity=".38">
+        <path d="M96 116 C 128 116, 138 115, 168 116"/>
+        <path d="M168 116 C 196 116, 202 63, 236 62"/>
+        <path d="M168 116 C 196 116, 202 170, 236 170"/>
+      </g>
+      <circle cx="168" cy="116" r="3.4" fill="var(--indigo)"/>
+
+      <!-- origin -->
+      <g>
+        <rect x="8" y="94" width="88" height="44" rx="3" fill="var(--indigo-soft)" stroke="var(--indigo)" stroke-width="1" opacity=".9"/>
+        <text class="dlabel" x="52" y="112" text-anchor="middle">Acquittal</text>
+        <text class="dsub" x="52" y="127" text-anchor="middle">Aug 2025</text>
+      </g>
+
+      <!-- top branch: state -->
+      <g>
+        <rect x="236" y="34" width="196" height="56" rx="3" fill="var(--oxblood-soft)" stroke="var(--oxblood)" stroke-width="1.25"/>
+        <text class="dlabel" x="250" y="54">Broome County Supreme</text>
+        <text class="dsub" x="250" y="69">CPLR 305(b) summons with notice</text>
+        <text class="dtag" x="250" y="83" fill="var(--oxblood)">DEFENDANT: the complainant</text>
+      </g>
+      <g fill="none" stroke="var(--oxblood)" stroke-width="1.75" stroke-linecap="round" opacity=".55">
+        <path d="M432 62 C 462 62, 470 61, 498 62"/>
+      </g>
+      <g>
+        <rect x="498" y="38" width="174" height="48" rx="3" fill="none" stroke="var(--oxblood)" stroke-width="1.25" stroke-dasharray="3 3"/>
+        <text class="dlabel" x="512" y="57" fill="var(--oxblood)">FILE NOW — or gone</text>
+        <text class="dsub" x="512" y="72">serve + amend later, 120 days</text>
+      </g>
+
+      <!-- bottom branch: federal -->
+      <g>
+        <rect x="236" y="142" width="196" height="56" rx="3" fill="var(--card)" stroke="var(--indigo)" stroke-width="1.25"/>
+        <text class="dlabel" x="250" y="162">N.D.N.Y. — § 1983</text>
+        <text class="dsub" x="250" y="177">fabrication of evidence, conspiracy</text>
+        <text class="dtag" x="250" y="191" fill="var(--indigo)">officer + private actors</text>
+      </g>
+      <g fill="none" stroke="var(--indigo)" stroke-width="1.75" stroke-linecap="round" opacity=".45">
+        <path d="M432 170 C 462 170, 470 169, 498 170"/>
+      </g>
+      <g>
+        <rect x="498" y="146" width="174" height="48" rx="3" fill="none" stroke="var(--indigo)" stroke-width="1.25" stroke-dasharray="3 3"/>
+        <text class="dlabel" x="512" y="165" fill="var(--indigo)">Runs to 2028</text>
+        <text class="dsub" x="512" y="180">new counsel &#183; not the DA</text>
+      </g>
+
+      <text class="dsub" x="176" y="112" fill="var(--ink-3)">split</text>
+    </svg>
+    <figcaption>A new party cannot be added later by amendment — <cite>Krupski</cite> closes that door. The two actions are commenced separately, by different hands, on different clocks.</figcaption>
+  </figure>
+
+  <h2>Orders <span>tap to open · taps are saved</span></h2>
+  <div class="stack">
+
+    <details class="card" open>
+      <summary>
+        <span class="who him">Drazen</span>
+        <span class="sumtext"><b>Five asks — one of them is non-negotiable</b><em>Email is written. Send today, then telephone.</em></span>
+      </summary>
+      <div class="body">
+        <button class="tick" data-k="d1"><span class="box"></span><span class="txt"><b>Docs 17, 18, 14</b> from PACER — the joinder-and-amendment deadline and the mediation date are both inside them.</span></button>
+        <button class="tick" data-k="d2"><span class="box"></span><span class="txt"><b>The acquittal date</b> from his file. This is the variable above.</span></button>
+        <button class="tick" data-k="d3"><span class="box"></span><span class="txt"><b>File the 305(b) summons</b> in Broome County. He can be substituted out the day after. If he won't, get it in writing today.</span></button>
+        <button class="tick" data-k="d4"><span class="box"></span><span class="txt"><b>The release carve-out</b> — written confirmation he will sign nothing in the UHS action that releases claims arising from the prosecution.</span></button>
+        <button class="tick" data-k="d5"><span class="box"></span><span class="txt"><b>Amendment</b> — NYSHRL § 296 and § 296(6) against the individuals, plus counts sounding in physical injury.</span></button>
+        <button class="tick" data-k="d6"><span class="box"></span><span class="txt"><b>File release + common-interest agreement</b> so incoming counsel can be brought up to speed without waiver.</span></button>
+        <div class="flag"><b>Ask four is the one that cannot wait.</b> A general release in the UHS mediation extinguishes the malicious prosecution and conspiracy claims against those defendants — permanently, and before you have filed them. Mediation is court-ordered under Doc 18, so this is live, not hypothetical.</div>
+        <div class="quote">None of these asks you to take on the malicious prosecution case — I am retaining separate counsel for that, and I will keep you clear of it.</div>
+        <p style="margin-top:11px">That sentence is why he says yes. It removes the thing he is declining before he has to decline it.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary>
+        <span class="who you">You</span>
+        <span class="sumtext"><b>Four firms — send separately, call within 48 hours</b><em>Case summary + complaint architecture. Nothing else attached.</em></span>
+      </summary>
+      <div class="body">
+        <button class="tick" data-k="f1"><span class="box"></span><span class="txt"><b>Rickner PLLC</b> — Rob Rickner</span></button>
+        <button class="tick" data-k="f2"><span class="box"></span><span class="txt"><b>Sivin, Miller &amp; Roche</b> — Edward Sivin or Glenn Miller</span></button>
+        <button class="tick" data-k="f3"><span class="box"></span><span class="txt"><b>Newirth Linehan PLLC</b> — Karen Newirth</span></button>
+        <button class="tick" data-k="f4"><span class="box"></span><span class="txt"><b>Roth &amp; Roth LLP</b> — Elliot Dolby Shields</span></button>
+        <button class="tick" data-k="f5"><span class="box"></span><span class="txt"><b>Telephone all four</b> — civil-rights intake email is slow; the limitation date is the reason to call.</span></button>
+        <p style="margin-top:13px">Do not send one email with four addressees. They must not see each other.</p>
+        <div class="quote">I sent a case summary yesterday — I have a one-year malicious prosecution period expiring this month and I need five minutes with whoever screens § 1983 cases.</div>
+        <p style="margin-top:12px"><b>Screen them on one question.</b> Not “can we win” — ask what they would do if the court dismissed the count against the officer on qualified immunity. If the answer is that the private-actor counts carry the case, they understood the file. If the answer is that the case is then over, they did not read it.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary>
+        <span class="who you">You</span>
+        <span class="sumtext"><b>The criminal record — only you can get it</b><em>CPL § 160.50 sealed it on acquittal.</em></span>
+      </summary>
+      <div class="body">
+        <p>The court cannot confirm to a third party that a record exists. Counsel cannot obtain it. Your own written request, in person, with photo identification, at the Binghamton City Court clerk’s office is the only route.</p>
+        <button class="tick" data-k="r1"><span class="box"></span><span class="txt"><b>Certificate of disposition</b> — the acquittal date, in the court’s own hand. Ends the August/September question.</span></button>
+        <button class="tick" data-k="r2"><span class="box"></span><span class="txt"><b>Order the trial transcript</b> — the cross-examination is the probable-cause proof. Nothing in the file does more work.</span></button>
+        <button class="tick" data-k="r3"><span class="box"></span><span class="txt"><b>Identify the telephone voice</b> on the statement video. A name turns coaching into a conspirator.</span></button>
+        <div class="flag"><b>Records before dollars.</b> Expungement, a good-standing letter and licensure support are worth more to you than another half-million in settlement — that half-million nets roughly $250,000 after tax, while the records unlock the practice and the visa. Say this to counsel before they negotiate, not after.</div>
+      </div>
+    </details>
+
+  </div>
+
+  <h2>Who is suable, for what <span>the immunity line</span></h2>
+  <div class="tscroll">
+    <table>
+      <thead><tr><th>Defendant</th><th>Act</th><th>Reachable</th><th>Authority</th></tr></thead>
+      <tbody>
+        <tr><td>District Attorney</td><td>Charging, advocacy at trial</td><td class="yn n">No — absolute</td><td><cite>Imbler v. Pachtman</cite></td></tr>
+        <tr><td>District Attorney</td><td>Investigative acts before probable cause</td><td class="yn y">Qualified only</td><td><cite>Buckley</cite>; <cite>Zahrey v. Coffey</cite></td></tr>
+        <tr><td>Investigating officer</td><td>Fabrication, coached statement</td><td class="yn y">Yes</td><td><cite>Ricciuti</cite>; <cite>Zahrey</cite></td></tr>
+        <tr><td>Complainant</td><td>False report, state-law claim</td><td class="yn y">Yes — 1 year</td><td>CPLR 215(3)</td></tr>
+        <tr><td>Private actors</td><td>Conspiring with state actors</td><td class="yn y">Yes</td><td><cite>Dennis v. Sparks</cite></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <figcaption style="margin-top:8px">Concede <cite>Imbler</cite> in the pleading and plead no count against the DA for advocacy. Showing the court you know where the line sits is what buys you the counts on the other side of it — and it is the reason to proceed against everyone except the DA, as you instructed.</figcaption>
+
+  <h2>If Drazen will not file <span>five rungs, in order</span></h2>
+  <ol class="rungs">
+    <li><span>Ask again in writing, naming the date the claim dies. <strong>Ask for a yes or no, today.</strong></span></li>
+    <li><span>Ask him to file as a courtesy with an immediate substitution — no ongoing obligation.</span></li>
+    <li><span>Ask incoming counsel to file the state summons as their first act, before the retainer is finalised.</span></li>
+    <li><span>Retain a Broome County solo for the single filing. It is a one-page instrument.</span></li>
+    <li><span><strong>File the CPLR 305(b) summons with notice yourself, pro se.</strong> It commences the action and stops the clock. Counsel amends afterwards. This rung requires nobody’s permission.</span></li>
+  </ol>
+
+  <div class="foot">
+    <b>Still unverified — each one changes something.</b>
+    <ul>
+      <li>The acquittal date. Three documents say August, one says September.</li>
+      <li>Wire transfers recorded as $84,747.92 in one place and $223,800 in another, on a hash-chained exhibit. A factor of 2.6 is not a typing error.</li>
+      <li>Whether the EEOC charge was filed. It gates the Title VII path, not the § 1983 path.</li>
+      <li>“M. Farhan Nadeem” and “Nadeem Choudery” — one person or two.</li>
+      <li>The Doc 17 deadline for joinder and amendment of pleadings. Unknown until the docket is pulled.</li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var MS = 864e5;
+  var opts = Array.prototype.slice.call(document.querySelectorAll(".opt"));
+  var el = function(id){ return document.getElementById(id); };
+
+  function fmt(n){ return n.toLocaleString("en-US"); }
+  function addYears(d, n){
+    var x = new Date(d.getTime());
+    x.setFullYear(x.getFullYear() + n);
+    return x;
+  }
+  function longDate(d){
+    return d.toLocaleDateString("en-GB", {day:"numeric", month:"long", year:"numeric"});
+  }
+
+  function render(iso){
+    var parts = iso.split("-");
+    var acq = new Date(+parts[0], +parts[1] - 1, +parts[2]);
+    var now = new Date();
+    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+    var state = addYears(acq, 1);
+    var fed = addYears(acq, 3);
+    var dS = Math.round((state - today) / MS);
+    var dF = Math.round((fed - today) / MS);
+
+    // masthead
+    if (dS > 0){
+      el("c1").textContent = fmt(dS);
+      el("u1").textContent = dS === 1 ? "day" : "days";
+    } else if (dS === 0){
+      el("c1").textContent = "today";
+      el("u1").textContent = "";
+    } else {
+      el("c1").textContent = "lapsed";
+      el("u1").textContent = "";
+    }
+    el("c2").textContent = fmt(dF);
+    el("u2").textContent = "days";
+
+    // the verdict line — the whole point of the dial
+    var v = el("verdict"), h = el("headline"), l = el("lede");
+    if (dS > 0){
+      v.innerHTML = "Acquitted " + longDate(acq) + " &rarr; the state-law year expires <strong>" +
+        longDate(state) + "</strong>. That is <strong>" + fmt(dS) + (dS === 1 ? " day" : " days") +
+        "</strong> from today. The &sect;&nbsp;1983 claims run to " + longDate(fed) + ".";
+      h.textContent = "The state-law year is the only thing that can be lost. Everything else survives to 2028.";
+      l.innerHTML = "One filing stops it: a summons with notice under CPLR 305(b) in Broome County Supreme Court, naming the complainant. No complaint required at filing. Drazen can do it in an afternoon; you can do it yourself if he won’t.";
+    } else {
+      v.innerHTML = "Acquitted " + longDate(acq) + " &rarr; the state-law year expired <strong>" +
+        longDate(state) + "</strong>, " + fmt(Math.abs(dS)) + " days ago. " +
+        "The &sect;&nbsp;1983 claims are unaffected and run to " + longDate(fed) + ".";
+      h.textContent = "On this date the state-law year has already run. The federal claims have not, and they carry the case.";
+      l.innerHTML = "If this is the true acquittal date, stop trying to save the state claim and put everything into the &sect;&nbsp;1983 action — fabrication of evidence against the officer, conspiracy against the private actors. Confirm the date at the clerk’s office before you accept this, because a certificate of disposition is the only thing that settles it.";
+    }
+  }
+
+  function choose(btn){
+    opts.forEach(function(o){ o.setAttribute("aria-pressed", String(o === btn)); });
+    render(btn.getAttribute("data-d"));
+    try { localStorage.setItem("acq", btn.getAttribute("data-d")); } catch(e){}
+  }
+  opts.forEach(function(o){ o.addEventListener("click", function(){ choose(o); }); });
+
+  var saved = null;
+  try { saved = localStorage.getItem("acq"); } catch(e){}
+  var start = null;
+  if (saved){
+    start = opts.filter(function(o){ return o.getAttribute("data-d") === saved; })[0] || null;
+  }
+  if (!start){
+    start = opts.filter(function(o){ return o.getAttribute("aria-pressed") === "true"; })[0] || opts[0];
+  }
+  choose(start);
+
+  // checkable rows
+  Array.prototype.forEach.call(document.querySelectorAll(".tick"), function(t){
+    var k = "tick:" + t.getAttribute("data-k"), on = null;
+    try { on = localStorage.getItem(k); } catch(e){}
+    t.setAttribute("aria-pressed", on === "1" ? "true" : "false");
+    t.addEventListener("click", function(){
+      var next = t.getAttribute("aria-pressed") !== "true";
+      t.setAttribute("aria-pressed", String(next));
+      try { localStorage.setItem(k, next ? "1" : "0"); } catch(e){}
+    });
+  });
+})();
+</script>
