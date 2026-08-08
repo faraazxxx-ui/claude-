@@ -17,6 +17,8 @@ New to this, or coming back after a gap? Read in this order:
 4. **[[adhd-operating-system]]** — the design rules, and why they remove remembering steps rather
    than asking for discipline.
 5. **[[anti-versioning]]** — why no filename here says `FINAL`.
+6. **[[handoff]]** — what a finished output looks like when it reaches him. Read this before
+   writing anything back to him.
 
 ## Concepts
 
@@ -27,6 +29,7 @@ New to this, or coming back after a gap? Read in this order:
 | [[ai-medicine-rosetta]] | Medicine ↔ AI translations; the derivation/validation trap |
 | [[adhd-operating-system]] | Initiation, single address, one-next-action, the scope valve |
 | [[anti-versioning]] | Plain-noun filenames; how to promote existing work |
+| [[handoff]] | Artifact or PDF, three lines beside it, diagrams over prose |
 
 ## Projects
 
@@ -59,6 +62,7 @@ what was actually produced, the single next action. This is what lets a future s
 mid-thought instead of restarting.
 
 - [[2026-07-26-claude-layers-and-wiki-method]] — the session that built this.
+- [[2026-08-08-handoff-contract]] — the output rules, and the layers redrawn as figures.
 
 ## Measurements
 

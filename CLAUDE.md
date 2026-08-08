@@ -41,6 +41,10 @@ the previous session existed. You are that next session. Break the loop.
    is measured, what is inferred, and what is guessed. Never let the three blur.
 5. **Do not put new detail about private third parties into fresh pages.** The existing entity
    registry in `analysis-output/perfected/SECOND_BRAIN_ARCHITECTURE.md` is enough. Link to it.
+6. **Hand off an artifact or a PDF, and keep the message beside it to three lines.** Your internal
+   plan can be as long as it needs to be; what reaches him cannot. Draw the mechanism instead of
+   describing it, and name things in his language — `top-p` is a footnote, *trimming the tail of
+   unlikely outcomes* is the heading. Full contract: `brain/concepts/handoff.md`.
 
 ## Where things live
 

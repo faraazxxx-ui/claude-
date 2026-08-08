@@ -6,10 +6,12 @@ those are the concepts everything else hangs off.*
 ```mermaid
 graph LR
   2026_07_26_claude_layers_and_wiki_method["2026-07-26-claude-layers-and-wiki-method"]
+  2026_08_08_handoff_contract["2026-08-08-handoff-contract"]
   adhd_operating_system(["adhd-operating-system"])
   ai_medicine_rosetta(["ai-medicine-rosetta"])
   anti_versioning(["anti-versioning"])
   claude_layers(["claude-layers"])
+  handoff["handoff"]
   index(["index"])
   second_brain(["second-brain"])
   wiki_method(["wiki-method"])
@@ -17,6 +19,10 @@ graph LR
   2026_07_26_claude_layers_and_wiki_method --> index
   2026_07_26_claude_layers_and_wiki_method --> second_brain
   2026_07_26_claude_layers_and_wiki_method --> wiki_method
+  2026_08_08_handoff_contract --> claude_layers
+  2026_08_08_handoff_contract --> handoff
+  2026_08_08_handoff_contract --> index
+  2026_08_08_handoff_contract --> second_brain
   adhd_operating_system --> ai_medicine_rosetta
   adhd_operating_system --> anti_versioning
   adhd_operating_system --> claude_layers
@@ -37,11 +43,17 @@ graph LR
   claude_layers --> index
   claude_layers --> second_brain
   claude_layers --> wiki_method
+  handoff --> adhd_operating_system
+  handoff --> claude_layers
+  handoff --> index
+  handoff --> wiki_method
   index --> 2026_07_26_claude_layers_and_wiki_method
+  index --> 2026_08_08_handoff_contract
   index --> adhd_operating_system
   index --> ai_medicine_rosetta
   index --> anti_versioning
   index --> claude_layers
+  index --> handoff
   index --> second_brain
   index --> wiki_method
   second_brain --> adhd_operating_system
