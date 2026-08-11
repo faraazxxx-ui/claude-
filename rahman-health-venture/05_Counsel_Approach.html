@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Counsel Selection &amp; Approach — Binghamton Malicious Prosecution</title>
+<style>
+  @page {
+    size: Letter;
+    margin: 20mm 18mm 18mm 18mm;
+    @bottom-center { content: counter(page); }
+  }
+  @page :first { margin: 0; }
+
+  :root {
+    --ink:      #1a1a18;
+    --ink-soft: #4a4a46;
+    --ink-mute: #6e6e68;
+    --rule:     #d2cfc7;
+    --rule-hi:  #a8a49a;
+    --primary:  #14403c;
+    --primary-l:#e8efed;
+    --amber:    #8a5d0e;
+    --amber-l:  #fbf4e6;
+    --red:      #8a2b2b;
+    --red-l:    #faeeee;
+    --paper:    #fdfcfa;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { font-size: 10.2pt; }
+
+  body {
+    font-family: "Liberation Serif", "DejaVu Serif", Georgia, serif;
+    color: var(--ink);
+    background: #fff;
+    line-height: 1.44;
+    margin: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ---------- COVER ---------- */
+  .cover {
+    height: 279mm;
+    padding: 26mm 24mm 15mm 24mm;
+    display: flex;
+    flex-direction: column;
+    background: var(--primary);
+    color: #f4f1e9;
+    page-break-after: always;
+  }
+  .cover .kicker {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 8.4pt; letter-spacing: .22em; text-transform: uppercase;
+    color: #9dbdb5; margin-bottom: 5mm;
+  }
+  .cover h1 {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 33pt; line-height: 1.1; font-weight: 700;
+    margin: 0 0 6mm 0; letter-spacing: -.015em; color: #fff;
+  }
+  .cover .sub {
+    font-size: 13.5pt; line-height: 1.45; color: #cfe0db;
+    max-width: 122mm; margin: 0 0 auto 0;
+  }
+  .cover .sub em { color: #f0e3c0; font-style: italic; }
+  .cover .rule { height: 2px; background: #4d7a72; margin: 9mm 0; width: 46mm; }
+  .cover-meta {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6mm 10mm;
+    border-top: 1px solid #3c6a62; padding-top: 7mm; margin-top: 8mm;
+  }
+  .cover-meta div { font-size: 9.4pt; line-height: 1.5; }
+  .cover-meta .lbl {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 7.6pt; letter-spacing: .15em; text-transform: uppercase;
+    color: #8fb2aa; display: block; margin-bottom: 1.5mm;
+  }
+  .cover-conf {
+    margin-top: 7mm; padding: 4mm 5mm; border: 1px solid #3c6a62;
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 8pt; line-height: 1.5; color: #cfe0db;
+  }
+
+  /* ---------- HEADINGS ---------- */
+  h2, h3, h4 { font-family: "Liberation Sans", Helvetica, sans-serif; }
+
+  h2 {
+    font-size: 15.5pt; font-weight: 700; color: var(--primary);
+    margin: 0 0 5mm 0; padding-bottom: 2.4mm;
+    border-bottom: 1.6px solid var(--primary);
+    letter-spacing: -.01em;
+  }
+  h2 .pt {
+    display: block;
+    font-size: 7.8pt; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 400; margin-bottom: 1.6mm;
+  }
+  h3 {
+    font-size: 11.4pt; font-weight: 700; color: var(--ink);
+    margin: 7mm 0 2.6mm 0;
+  }
+  h3.sec::before {
+    content: attr(data-n);
+    color: var(--primary); font-weight: 700;
+    margin-right: 2.4mm;
+  }
+  h4 {
+    font-size: 9.6pt; font-weight: 700; margin: 5mm 0 1.8mm 0;
+    color: var(--ink-soft); letter-spacing: .02em;
+  }
+  section { page-break-before: always; }
+  section.cont { page-break-before: auto; }
+
+  p { margin: 0 0 3mm 0; }
+  strong { color: #000; }
+  em.q { font-style: italic; }
+
+  /* ---------- LEAD ---------- */
+  .lead {
+    font-size: 11.2pt; line-height: 1.5; color: var(--ink-soft);
+    margin-bottom: 5mm;
+  }
+  .lead strong { color: var(--ink); }
+
+  /* ---------- TABLES ---------- */
+  table {
+    width: 100%; border-collapse: collapse;
+    margin: 3mm 0 5mm 0; font-size: 8.9pt;
+    page-break-inside: avoid;
+  }
+  thead { display: table-header-group; }
+  th {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 7.8pt; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .07em; text-align: left; color: var(--primary);
+    border-bottom: 1.4px solid var(--rule-hi);
+    padding: 2.2mm 2.4mm 1.8mm 0; vertical-align: bottom;
+  }
+  td {
+    padding: 2.1mm 2.4mm 2.1mm 0; vertical-align: top;
+    border-bottom: .6px solid var(--rule); line-height: 1.36;
+  }
+  tbody tr:last-child td { border-bottom: 1.2px solid var(--rule-hi); }
+  td:last-child, th:last-child { padding-right: 0; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tr.total td { font-weight: 700; background: var(--primary-l); }
+  tr.total td.num { color: var(--primary); }
+  table.tight td, table.tight th { font-size: 8.4pt; }
+  .neg { color: var(--red); }
+
+  /* ---------- CALLOUTS ---------- */
+  .box {
+    border-left: 2.6px solid var(--primary);
+    background: var(--primary-l);
+    padding: 3.6mm 4.4mm; margin: 4mm 0;
+    page-break-inside: avoid; font-size: 9.2pt;
+  }
+  .box > :last-child { margin-bottom: 0; }
+  .box .hd {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 7.6pt; letter-spacing: .16em; text-transform: uppercase;
+    font-weight: 700; color: var(--primary); margin-bottom: 2mm;
+  }
+  .box.warn  { border-left-color: var(--amber); background: var(--amber-l); }
+  .box.warn .hd { color: var(--amber); }
+  .box.stop  { border-left-color: var(--red); background: var(--red-l); }
+  .box.stop .hd { color: var(--red); }
+  .box.plain { border-left-color: var(--rule-hi); background: #f6f5f1; }
+  .box.plain .hd { color: var(--ink-mute); }
+
+  /* ---------- PULL ---------- */
+  .pull {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 12.4pt; line-height: 1.36; font-weight: 700;
+    color: var(--primary); border-top: 1.4px solid var(--primary);
+    border-bottom: 1.4px solid var(--primary);
+    padding: 4.6mm 0; margin: 6mm 0; page-break-inside: avoid;
+  }
+
+  /* ---------- GATE DIAGRAM ---------- */
+  .gates { margin: 4mm 0 5mm 0; page-break-inside: avoid; }
+  .gate {
+    display: flex; align-items: stretch; margin-bottom: 0;
+  }
+  .gate-id {
+    flex: 0 0 15mm;
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 9.4pt; font-weight: 700; color: #fff;
+    background: var(--primary); display: flex; align-items: center;
+    justify-content: center; border-radius: 1mm;
+  }
+  .gate-body {
+    flex: 1; padding: 2.6mm 0 2.6mm 4mm;
+  }
+  .gate-body .t {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-weight: 700; font-size: 9.6pt; margin-bottom: .8mm;
+  }
+  .gate-body .d { font-size: 8.7pt; color: var(--ink-soft); line-height: 1.38; }
+  .gate-arrow {
+    margin-left: 7mm; padding: 1mm 0 1mm 4mm;
+    border-left: 2px solid var(--rule-hi);
+    font-size: 8pt; font-style: italic; color: var(--ink-mute);
+  }
+  .gate-fan {
+    margin-left: 7mm; padding-left: 4mm; border-left: 2px solid var(--rule-hi);
+  }
+  .fan-row { display: flex; gap: 4mm; margin: 2mm 0; }
+  .fan-item {
+    flex: 1; border: .8px solid var(--rule-hi); border-top: 2.2px solid var(--primary);
+    padding: 2.6mm 3mm; font-size: 8.4pt; line-height: 1.34; background: var(--paper);
+  }
+  .fan-item b { font-family: "Liberation Sans", Helvetica, sans-serif; font-size: 8.6pt; display: block; margin-bottom: .9mm; }
+
+  /* ---------- ENTITY MAP ---------- */
+  .emap { margin: 4mm 0 5mm; page-break-inside: avoid; }
+  .ent {
+    border: .9px solid var(--rule-hi); border-top: 3px solid var(--primary);
+    padding: 3.2mm 3.6mm; background: var(--paper); margin-bottom: 2.5mm;
+  }
+  .ent.charity { border-top-color: var(--amber); }
+  .ent .en {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-weight: 700; font-size: 10pt; margin-bottom: .6mm;
+  }
+  .ent .ef {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 7.6pt; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--ink-mute); margin-bottom: 2mm;
+  }
+  .ent .ed { font-size: 8.7pt; line-height: 1.4; }
+  .ent-link {
+    text-align: center; font-size: 8pt; font-style: italic;
+    color: var(--ink-mute); margin: 1.5mm 0 2.5mm;
+  }
+
+  /* ---------- LISTS ---------- */
+  ul, ol { margin: 0 0 3.5mm 0; padding-left: 5.5mm; }
+  li { margin-bottom: 1.5mm; line-height: 1.42; }
+  ul.clean { list-style: none; padding-left: 0; }
+  ul.clean li {
+    padding-left: 5mm; position: relative; margin-bottom: 2mm;
+  }
+  ul.clean li::before {
+    content: "—"; position: absolute; left: 0; color: var(--primary); font-weight: 700;
+  }
+
+  /* ---------- TOC ---------- */
+  .toc { columns: 2; column-gap: 12mm; font-size: 9.2pt; }
+  .toc-i {
+    display: flex; justify-content: space-between; gap: 3mm;
+    padding: 1.5mm 0; border-bottom: .5px dotted var(--rule);
+    break-inside: avoid;
+  }
+  .toc-i .n { color: var(--primary); font-weight: 700; flex: 0 0 8mm; font-family: "Liberation Sans", sans-serif; font-size: 8.4pt; }
+  .toc-i .t { flex: 1; }
+  .toc-h {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 7.6pt; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--ink-mute); margin: 4mm 0 2mm; break-after: avoid;
+  }
+  .toc-h:first-child { margin-top: 0; }
+
+  /* ---------- MISC ---------- */
+  .src { font-size: 7.8pt; color: var(--ink-mute); font-style: italic; }
+  .flag {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 6.9pt; font-weight: 700; letter-spacing: .06em;
+    padding: .5mm 1.4mm; border-radius: .8mm; vertical-align: 1px;
+    white-space: nowrap;
+  }
+  .flag.asm { background: #ece9e0; color: #5c584c; }
+  .flag.unv { background: var(--amber-l); color: var(--amber); border: .5px solid #ddc79a; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin: 4mm 0 5mm; }
+  .kpi {
+    border-top: 2.2px solid var(--primary); padding: 2.4mm 0 0;
+  }
+  .kpi .v {
+    font-family: "Liberation Sans", Helvetica, sans-serif;
+    font-size: 15pt; font-weight: 700; color: var(--primary); line-height: 1.1;
+  }
+  .kpi .l { font-size: 8pt; color: var(--ink-soft); line-height: 1.3; margin-top: 1mm; }
+  .avoid { page-break-inside: avoid; }
+  .footer-note {
+    margin-top: 8mm; padding-top: 3mm; border-top: .8px solid var(--rule);
+    font-size: 8pt; color: var(--ink-mute); line-height: 1.45;
+  }
+</style>
+</head>
+<body>
+<!-- ================= COVER ================= -->
+<div class="cover">
+  <div class="kicker">Counsel Selection &amp; Approach &middot; Confidential</div>
+  <h1>Who To Retain,<br>And What To Ask Them</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    A malicious prosecution strategy for the Binghamton matter — <em>the correct defendants</em>, the two clocks that govern them, a tiered shortlist of counsel with verified Northern District track records, and the four questions that separate a lawyer who will fight from one who will not.
+  </div>
+
+  <div class="cover-meta">
+    <div><span class="lbl">Prepared for</span>Mohammed Faraaz Rahman, MD</div>
+    <div><span class="lbl">Date</span>30 July 2026</div>
+    <div><span class="lbl">Predicate</span>Acquittal, Binghamton City Court<br>August 2025 — date confirmed by client</div>
+    <div><span class="lbl">Related</span>Rahman v. UHS, No. 3:26-cv-00197<br>(N.D.N.Y.) — Douglas W. Drazen, Esq.</div>
+  </div>
+
+  <div class="cover-conf">
+    <strong style="color:#f0e3c0">Not legal advice.</strong> This is a client-side selection and approach memorandum prepared with analytical assistance. Every legal proposition — particularly the immunity analysis and the limitation calculations — requires verification by licensed counsel admitted in New York before it is relied upon. Attorney listings are drawn from public court records and public firm materials; inclusion is not a recommendation as to competence in your specific matter, and none of these firms has been contacted.
+  </div>
+</div>
+
+<!-- ================= PART 1 ================= -->
+<section class="cont">
+<h2><span class="pt">Read first</span>The Target Is Wrong. The Case Is Not.</h2>
+
+<div class="box stop">
+  <div class="hd">You cannot sue the District Attorney for prosecuting you</div>
+  <p><em>Imbler v. Pachtman</em>, 424 U.S. 409 (1976), gives prosecutors <strong>absolute immunity</strong> from civil damages for activities that are an integral part of the judicial process — deciding to charge, initiating a prosecution, and presenting the State's case. Absolute means absolute: no balancing, no bad-faith exception, no malice exception. A malicious prosecution claim against the Broome County District Attorney for bringing and maintaining the charge is dismissed on the pleadings, every time.</p>
+  <p style="margin-bottom:0"><strong>This matters for how you read the next lawyer who tells you so.</strong> You said you want counsel who will fight rather than tell you it is not worth it. Correct instinct — but a lawyer who says "you cannot sue the DA for charging you" is not pushing back. They are being competent. Part 4 gives you the four questions that tell the difference between a lawyer being competent and a lawyer being lazy.</p>
+</div>
+
+<h3 class="sec" data-n="1.1">What survives, and it is more than enough</h3>
+
+<p class="lead">Immunity is <strong>functional, not personal</strong> — it attaches to the act, not the office. The Supreme Court has drawn the line twice, and both lines run in your favour on the facts you have described.</p>
+
+<table>
+<thead><tr><th style="width:24%">Authority</th><th style="width:34%">Holding</th><th>Why it matters to you</th></tr></thead>
+<tbody>
+<tr>
+  <td><strong><em>Buckley v. Fitzsimmons</em></strong><br>509 U.S. 259 (1993)</td>
+  <td>A prosecutor acting as an <strong>investigator</strong> — "searching for clues and corroboration that might give them probable cause to recommend an arrest" — receives only <strong>qualified</strong> immunity, the same as a police officer would. So do out-of-court statements to the press. Administrative and investigative functions unrelated to an advocate's preparation for prosecution are not absolutely immune.</td>
+  <td><strong>This is the lane.</strong> Conduct that occurred <em>before</em> probable cause existed, aimed at manufacturing it, is not protected. If the coaching visible in the statement video happened during the investigative phase, it sits inside <em>Buckley</em>, not <em>Imbler</em>.</td>
+</tr>
+<tr>
+  <td><strong><em>Kalina v. Fletcher</em></strong><br>522 U.S. 118 (1997)</td>
+  <td>A prosecutor who steps outside the advocate's role and personally attests to facts as a <strong>complaining witness</strong> is entitled only to qualified immunity for that act.</td>
+  <td>Relevant only if a prosecutor personally swore to facts. Worth checking in the charging instruments; probably not present here.</td>
+</tr>
+<tr>
+  <td><strong><em>McDonough v. Smith</em></strong><br>588 U.S. 109 (2019)</td>
+  <td>A § 1983 <strong>fabricated-evidence</strong> claim does not accrue until the criminal proceeding terminates in the accused's favour. Malicious prosecution is "the most analogous common law tort."</td>
+  <td><strong>Read this case first.</strong> It arose in the Northern District of New York, it went to the Supreme Court, and the defendant <em>was a prosecutor</em> — the claim survived because it was pleaded as evidence fabrication in an investigative capacity rather than as malicious prosecution by an advocate. It is simultaneously your accrual rule, your roadmap, and controlling authority in your own district.</td>
+</tr>
+</tbody>
+</table>
+
+<div class="box">
+  <div class="hd">The reframe in one line</div>
+  <p style="margin-bottom:0">Stop asking for <em>malicious prosecution against the DA</em>. Ask for <strong>§ 1983 fabrication of evidence and malicious prosecution against the people who manufactured the complaint</strong> — the complaining witness, the officers who took and shaped her statement, and any investigator who acted before probable cause existed. Same conduct. Same evidence. Same recovery. Defendants who can actually be held liable, and — because these are federal civil rights claims — <strong>fee-shifting under 42 U.S.C. § 1988</strong>, which is what makes a contingency firm take the call.</p>
+</div>
+</section>
+
+<!-- ================= PART 2 ================= -->
+<section>
+<h2><span class="pt">Part 2</span>The Defendant Matrix</h2>
+
+<table>
+<thead><tr><th style="width:22%">Target</th><th style="width:22%">Claim</th><th style="width:24%">Immunity posture</th><th>Deadline</th></tr></thead>
+<tbody>
+<tr>
+  <td><strong>Sundas Rashid</strong><br><span class="src">complaining witness, private individual</span></td>
+  <td>State-law malicious prosecution; defamation per se</td>
+  <td><strong>None whatsoever.</strong> A private complainant has no immunity. She instigated, there was no probable cause (you were acquitted), malice is inferable, and favourable termination is established</td>
+  <td><strong style="color:#8a2b2b">AUGUST 2026 — THIS MONTH</strong><br><span class="src">CPLR § 215(3), one year from favourable termination. No notice of claim required: she is not a municipality</span></td>
+</tr>
+<tr>
+  <td><strong>Binghamton police officer(s)</strong><br><span class="src">who took and shaped the statement</span></td>
+  <td>§ 1983 fabrication of evidence; § 1983 malicious prosecution; denial of a fair trial</td>
+  <td><strong>Qualified only</strong> — and fabricating evidence defeats it. No reasonable officer could believe coaching a complainant's statement was lawful</td
+  ><td><strong>August 2028</strong><br><span class="src">Three years, <em>McDonough</em> accrual. <strong>No notice of claim needed for § 1983</strong> — <em>Felder v. Casey</em>, 487 U.S. 131 (1988)</span></td>
+</tr>
+<tr>
+  <td><strong>City of Binghamton</strong></td>
+  <td><em>Monell</em> liability — policy, practice, or failure to train</td>
+  <td>No immunity, but requires a policy or custom, not a single incident</td>
+  <td><strong>August 2028</strong> (§ 1983)</td>
+</tr>
+<tr>
+  <td><strong>DA — investigative acts</strong><br><span class="src">pre-probable-cause conduct, or a DA investigator</span></td>
+  <td>§ 1983 fabrication of evidence</td>
+  <td><strong>Qualified only</strong>, per <em>Buckley</em>. Narrow, fact-dependent, and the burden is yours — but this is the only viable route to that office</td>
+  <td><strong>August 2028</strong> (§ 1983)</td>
+</tr>
+<tr>
+  <td><strong>DA — charging and trial conduct</strong></td>
+  <td>Malicious prosecution</td>
+  <td><strong style="color:#8a2b2b">ABSOLUTELY BARRED.</strong> <em>Imbler</em>. Do not plead it</td>
+  <td>—</td>
+</tr>
+<tr>
+  <td><strong>UHS individual defendants</strong><br><span class="src">via the instigation chain</span></td>
+  <td>Malicious prosecution added to the existing federal action</td>
+  <td>None. But requires proving they fed the information that produced the complaint</td>
+  <td><strong>August 2026</strong> state-law<br><span class="src">Subject to the scheduling order in the existing case</span></td>
+</tr>
+</tbody>
+</table>
+
+<div class="box warn">
+  <div class="hd">The clock is not what you were told, and this is good news</div>
+  <p>Two separate limitation periods run on the same facts, and they are two years apart.</p>
+  <table style="margin:2mm 0 0 0">
+  <tbody>
+  <tr><td style="width:46%"><strong>State-law malicious prosecution</strong><br><span class="src">CPLR § 215(3)</span></td><td><strong>One year</strong> from favourable termination → <strong style="color:#8a2b2b">August 2026</strong></td></tr>
+  <tr><td><strong>§ 1983 malicious prosecution and fabrication</strong><br><span class="src">CPLR § 214(5) borrowed; <em>McDonough</em> accrual</span></td><td><strong>Three years</strong> → <strong>August 2028</strong></td></tr>
+  </tbody>
+  </table>
+  <p style="margin:3mm 0 0 0"><strong>So exactly one thing must happen this month:</strong> file the state-law malicious prosecution action against Sundas Rashid. It needs no notice of claim, no municipal defendant, and no immunity analysis. Everything against the officers, the City, and any investigator has <strong>two more years</strong> of runway. The panic is real but narrow — do not let a firm tell you the whole case dies in August, and do not let one rush you into a defective omnibus filing.</p>
+</div>
+
+<div class="box plain">
+  <div class="hd">One trap to raise with counsel immediately</div>
+  <p style="margin-bottom:0"><strong>Notice of claim.</strong> Any <em>state-law</em> claim against the City of Binghamton, Broome County, or their employees required a notice of claim within <strong>90 days</strong> of accrual under General Municipal Law § 50-e. From an August 2025 accrual, that window closed around <strong>November 2025</strong>. It is not necessarily fatal: § 50-e(5) permits an application for leave to serve a late notice, and that application must itself be made within the one-year-and-ninety-day period under § 50-i — roughly <strong>November 2026</strong>. Courts weigh whether the municipality had actual knowledge of the essential facts within 90 days or a reasonable time after, and whether the delay caused substantial prejudice. <strong>Your bodycam footage and the statement video are the argument that they had actual knowledge from day one.</strong> Ask counsel about this in the first conversation. And note the cleaner answer: § 1983 claims are exempt from notice-of-claim requirements entirely.</p>
+</div>
+</section>
+
+<!-- ================= PART 3 ================= -->
+<section>
+<h2><span class="pt">Part 3</span>Who To Approach</h2>
+
+<p class="lead">Tiers below are ordered by <strong>demonstrated Northern District track record</strong>, drawn from federal docket records rather than firm marketing. Tier 1 firms have all appeared in § 1983 civil rights litigation in the N.D.N.Y. within the last five years, and three of the four have litigated against <strong>Broome County or the City of Binghamton specifically</strong> — meaning they already hold institutional knowledge of your opponents.</p>
+
+<h3 class="sec" data-n="3.1">Tier 1 — New York City firms with verified N.D.N.Y. records</h3>
+
+<table>
+<thead><tr><th style="width:26%">Firm</th><th style="width:30%">Docket evidence</th><th>Why them</th></tr></thead>
+<tbody>
+<tr>
+  <td><strong>Rickner PLLC</strong><br>(also Rickner Moskovitz LLP)<br><span class="src">Rob Rickner &middot; Manhattan</span></td>
+  <td><em>Coffey v. Broome County</em>, No. 9:23-cv-00236 (N.D.N.Y. 2023) — civil rights, opposing the City of Binghamton Corporation Counsel and the Broome County Attorney's Office</td>
+  <td><strong>The closest match in the set.</strong> A New York City civil rights firm that has already litigated against both of the offices you would be suing. Start here.</td>
+</tr>
+<tr>
+  <td><strong>Sivin, Miller &amp; Roche LLP</strong><br><span class="src">Edward Sivin, Glenn D. Miller,<br>David Roche &middot; Manhattan</span></td>
+  <td><em>Beckwith v. City of Syracuse</em>, No. 5:21-cv-00809 (N.D.N.Y. 2021)</td>
+  <td>Publicly describes itself as bringing damages actions for false arrest, <strong>malicious prosecution</strong> and wrongful conviction, with decades as a premier New York civil rights practice. Municipal-defendant experience upstate. Strong second call.</td>
+</tr>
+<tr>
+  <td><strong>Newirth Linehan PLLC</strong><br>(also Newirth Law PLLC)<br><span class="src">Karen A. Newirth</span></td>
+  <td><em>Kweller v. County of Broome</em>, Nos. 3:24-cv-01328 and 3:25-cv-00343; <em>Rindgen v. Broome County</em>, No. 3:24-cv-01325</td>
+  <td><strong>Three Broome County cases.</strong> Wrongful-conviction pedigree, with a background in eyewitness-identification reliability — directly relevant to a case built on a coached witness statement.</td>
+</tr>
+<tr>
+  <td><strong>Roth &amp; Roth LLP</strong><br><span class="src">Elliot Dolby Shields &middot; Manhattan</span></td>
+  <td><em>Martin v. City of Syracuse</em>, No. 5:26-cv-01219 (N.D.N.Y., filed June 2026)</td>
+  <td>Actively litigating § 1983 municipal claims in your district <em>right now</em>. Current, not historical, capacity.</td>
+</tr>
+</tbody>
+</table>
+
+<div class="box">
+  <div class="hd">An advantage worth exploiting</div>
+  <p style="margin-bottom:0"><em>Kweller</em> and <em>Rindgen</em> were filed against Broome County <strong>on the same day</strong> — 30 October 2024 — with overlapping plaintiff-side counsel. That pattern indicates coordinated litigation against the County. If it is, that counsel already holds <strong>institutional discovery and a possible pattern-and-practice theory</strong> against your opponent. Ask them directly: <em>"Do you have a pattern-and-practice theory against Broome County that my facts would strengthen?"</em> A plaintiff who adds to an existing pattern is far more attractive than one arriving alone.</p>
+</div>
+
+<h3 class="sec" data-n="3.2">Tier 2 — National leaders, with an honest caveat</h3>
+
+<table>
+<thead><tr><th style="width:26%">Firm</th><th>Assessment</th></tr></thead>
+<tbody>
+<tr>
+  <td><strong>Neufeld Scheck Brustin Hoffmann &amp; Freudenberger LLP</strong><br><span class="src">Barry Scheck, Peter Neufeld,<br>Nick Brustin &middot; Manhattan</span></td>
+  <td>The national leader in federal § 1983 wrongful-conviction litigation; publicly reports recovering more from the City of New York in wrongful-conviction cases than any other firm. <strong>The honest caveat:</strong> their docket is built on long-incarceration exonerations. A seventeen-month prosecution ending in acquittal may sit below their intake threshold. Send one letter anyway — the audio admission and the destruction of a physician's career are unusual enough to warrant a read, and a referral from them carries weight even if they decline.</td>
+</tr>
+<tr>
+  <td><strong>Emery Celli Brinckerhoff Abady Ward &amp; Maazel LLP</strong><br><span class="src">Manhattan</span></td>
+  <td>Nationally recognised litigation boutique whose civil rights practice spans wrongful convictions, police and prison misconduct, and discrimination. Broader intake than the above. A realistic Tier 1 candidate if any of them engages.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="sec" data-n="3.3">Tier 3 — specific-fit candidates</h3>
+
+<table>
+<thead><tr><th style="width:26%">Firm</th><th>Fit</th></tr></thead>
+<tbody>
+<tr><td><strong>Law Offices of Michael H. Joseph</strong><br><span class="src">White Plains</span></td><td>Publicly states it has handled high-profile false arrest and malicious prosecution matters for exonerees, <strong>doctors and professionals</strong>, and has argued malicious prosecution questions in the Second Circuit. The professional-plaintiff fit is the most direct in this list.</td></tr>
+<tr><td><strong>Michelen Law, P.C.</strong><br><span class="src">Oscar Michelen</span></td><td>Appeared in <em>Kweller v. County of Broome</em>. Long-standing New York civil rights practitioner.</td></tr>
+<tr><td><strong>Bergstein &amp; Ullrich LLP</strong><br><span class="src">Stephen Bergstein &middot; New Paltz</span></td><td>Not New York City, but among the most respected Second Circuit civil rights appellate litigators in the state. If your case turns on an immunity question — and it will — this is the practitioner you want writing the brief. Appeared in <em>Jackson v. County of Ulster</em>, No. 1:24-cv-00203.</td></tr>
+</tbody>
+</table>
+
+<p class="src">Sources: federal docket records for the Northern District of New York retrieved via CourtListener/RECAP, 30 July 2026, filtered to civil rights actions pleading malicious prosecution or fabricated evidence filed since 2021 (123 matching dockets); plus public firm materials. No firm has been contacted, and none has reviewed your matter.</p>
+</section>
+
+<!-- ================= PART 4 ================= -->
+<section>
+<h2><span class="pt">Part 4</span>The Person You Actually Want</h2>
+
+<p class="lead">You described wanting someone who will fight and not tell you it is not worth it. That instinct is right, but it needs one distinction drawn through it — otherwise it selects for the wrong lawyer.</p>
+
+<div class="box">
+  <div class="hd">Two kinds of pushback, and only one is a warning sign</div>
+  <table style="margin:2mm 0 0 0">
+  <thead><tr><th style="width:50%">Disqualifying — walk away</th><th>Qualifying — this is the lawyer</th></tr></thead>
+  <tbody>
+  <tr>
+    <td>"Malicious prosecution cases never work."</td>
+    <td>"State malicious prosecution against the complainant is your August filing. The officers are a three-year § 1983 claim. Different clocks, different papers."</td>
+  </tr>
+  <tr>
+    <td>"You're suing the government — forget it."</td>
+    <td>"The DA is absolutely immune under <em>Imbler</em> for charging you. But if the coaching happened before probable cause existed, that is <em>Buckley</em>, and <em>McDonough</em> is our own circuit."</td>
+  </tr>
+  <tr>
+    <td>"Just take the employment settlement."</td>
+    <td>"The employment case and this one share evidence. Let's make sure the settlement in one doesn't release the other."</td>
+  </tr>
+  <tr>
+    <td>Will not watch the statement video before opining.</td>
+    <td>Asks for the video and the bodycam in the first call, and asks who was on the phone during the statement.</td>
+  </tr>
+  </tbody>
+  </table>
+  <p style="margin:3mm 0 0 0">The left column is a lawyer managing their own workload. The right column is a lawyer <strong>telling you no about one defendant in order to say yes about four others.</strong> That is the person you want, and they will sound like they are pushing back for the first ninety seconds.</p>
+</div>
+
+<h3 class="sec" data-n="4.1">The four screening questions</h3>
+
+<p>Ask these on the first call, in this order. They are designed so that a competent civil rights litigator answers fluently and everyone else deflects.</p>
+
+<table>
+<thead><tr><th style="width:6%">#</th><th style="width:44%">Question</th><th>What the answer tells you</th></tr></thead>
+<tbody>
+<tr><td><strong>1</strong></td><td>"Walk me through <em>Buckley v. Fitzsimmons</em> and tell me whether officer coaching of a complainant's statement puts us inside it."</td><td><strong>The decisive question.</strong> A specialist answers this from memory. Anyone who cannot is not a § 1983 practitioner, whatever the website says.</td></tr>
+<tr><td><strong>2</strong></td><td>"My acquittal was August 2025. What has to be filed this month, and what can wait until 2028?"</td><td>Tests whether they know the state-law year runs separately from the federal three. If they say everything dies in August, they have not done the analysis.</td></tr>
+<tr><td><strong>3</strong></td><td>"No notice of claim was served within 90 days. How does that change the plan?"</td><td>Should produce § 50-e(5) late-notice relief, the § 50-i outer limit, <em>and</em> the observation that § 1983 is exempt. Three-part answer or they are guessing.</td></tr>
+<tr><td><strong>4</strong></td><td>"I have a federal employment action pending in the N.D.N.Y. against the hospital. How do these two cases interact?"</td><td>Tests whether they think about release language, claim-splitting, collateral estoppel, and consolidation — or only about their own file.</td></tr>
+</tbody>
+</table>
+
+<h3 class="sec" data-n="4.2">Non-negotiables in the engagement</h3>
+<ul class="clean">
+  <li><strong>Contingency, with § 1988 fee-shifting understood.</strong> Federal civil rights claims carry statutory fees for a prevailing plaintiff. You should not be funding this hourly, and a firm that wants an hourly retainer for a § 1983 case with your evidence is signalling it does not believe in the case.</li>
+  <li><strong>Admission to the Northern District of New York</strong>, or a named local counsel already identified. Do not accept "we'll figure that out."</li>
+  <li><strong>A written coordination protocol with Mr. Drazen.</strong> The two cases share evidence and a defendant chain. Uncoordinated settlements are how one case releases the other by accident.</li>
+  <li><strong>Named lead attorney, not "the firm."</strong> Ask who tries it if it goes to trial, and get that name in the engagement letter.</li>
+  <li><strong>No claim against the DA for charging conduct.</strong> If a firm proposes pleading it, that tells you they have not read <em>Imbler</em> — and a count dismissed on immunity at the outset costs you credibility with the court on everything else.</li>
+</ul>
+
+<h3 class="sec" data-n="4.3">The approach sequence</h3>
+
+<table>
+<thead><tr><th style="width:14%">When</th><th>Action</th></tr></thead>
+<tbody>
+<tr><td><strong>Today</strong></td><td>Request the Certificate of Disposition from Binghamton City Court (Part 5). Nothing can be filed without the verdict date documented.</td></tr>
+<tr><td><strong>Today</strong></td><td>Email the companion <em>Case Summary for Prospective Counsel</em> to all four Tier 1 firms <strong>simultaneously</strong>. Do not go sequentially — you do not have the weeks that would take. Subject line: <em>"Malicious prosecution — one-year SOL expires August 2026 — acquitted physician, audio admission."</em></td></tr>
+<tr><td><strong>48 hours</strong></td><td>Follow up by telephone. Civil rights intake email is a slow channel; the SOL is the reason to call.</td></tr>
+<tr><td><strong>This week</strong></td><td>Run the four screening questions on every firm that responds. Retain on fluency, not warmth.</td></tr>
+<tr><td><strong>This week</strong></td><td>Whoever is retained files the state-law action against Sundas Rashid <strong>before the August date</strong>. Everything else follows at a normal pace.</td></tr>
+<tr><td><strong>Parallel</strong></td><td>Send Tier 2 letters. A declination from NSBHF or ECBAWM often comes with a referral, which is worth more than a cold approach.</td></tr>
+</tbody>
+</table>
+</section>
+
+<!-- ================= PART 5 ================= -->
+<section>
+<h2><span class="pt">Part 5</span>Getting The Record — Why Only You Can</h2>
+
+<div class="box warn">
+  <div class="hd">Your acquittal sealed the file by operation of law</div>
+  <p>Under <strong>Criminal Procedure Law § 160.50</strong>, a favourable disposition — including an acquittal — <strong>automatically seals</strong> the criminal record. The practical consequences are precise:</p>
+  <ul style="margin-bottom:2mm">
+    <li>The record will not appear in ordinary criminal record searches.</li>
+    <li>If a requester is <strong>not</strong> the defendant and lacks the defendant's written permission, <strong>the court cannot even acknowledge that a record exists.</strong></li>
+    <li>Binghamton City Court is a New York municipal court, so the file is <strong>not</strong> on PACER, RECAP, or any federal system.</li>
+  </ul>
+  <p style="margin-bottom:0"><strong>This is why I could not retrieve it and why no third party can.</strong> The sealing statute makes you the only person who can obtain this document. It is a fifteen-minute errand that nobody else on earth is able to run for you.</p>
+</div>
+
+<h3 class="sec" data-n="5.1">Exactly what to do</h3>
+
+<table>
+<tbody>
+<tr><td style="width:26%"><strong>Where</strong></td><td>Binghamton City Court, Criminal Part — <strong>38 Hawley Street, 5th Floor, Binghamton, NY 13901</strong></td></tr>
+<tr><td><strong>Telephone</strong></td><td><strong>607-240-4272</strong> &middot; Criminal fax <strong>607-240-5946</strong></td></tr>
+<tr><td><strong>Chief Clerk</strong></td><td><strong>Jennifer L. B. Katz</strong> — ask for the Chief Clerk by name. A sealed-record release under CPL § 160.50 is a supervisory decision, not a counter transaction, and naming the right person shortens it.</td></tr>
+<tr><td><strong>Hours</strong></td><td>Monday–Friday, 8:30 am – 4:30 pm, excluding New York State holidays</td></tr>
+<tr><td><strong>What to ask for</strong></td><td><strong>A Certificate of Disposition</strong> — the official document stating the charge, the disposition, and <strong>the date of the verdict</strong>. Request <strong>three certified copies.</strong></td></tr>
+<tr><td><strong>What you must bring or send</strong></td><td>Government photo identification, <em>and</em> — because the record is sealed — <strong>a notarised statement authorising release of the sealed record information to you in the form of a Certificate of Disposition.</strong> Without the notarised statement the clerk cannot produce it. Confirm the current fee by telephone before attending.</td></tr>
+<tr><td><strong>Also request</strong></td><td>The full case file or docket sheet, and the accusatory instrument — the complaint or information that started the case. <strong>That document names the complainant and the swearing officer, which is how you identify your § 1983 defendants.</strong></td></tr>
+<tr><td><strong>And — priority</strong></td><td><strong>The complete trial transcript.</strong> Transcripts are produced by the <strong>court reporter</strong>, not held automatically in the clerk's file, so ask to be connected to the reporter who covered the trial or for the ordering procedure. Expect a per-page charge and a preparation period, which is why this is ordered <em>now</em> rather than after counsel is retained. The cross-examination of the investigating officer is, if it is what you recall, the strongest documentary proof of absence of probable cause in the case — sworn, judicially recorded, and impossible for that officer to walk back at a civil deposition.</td></tr>
+</tbody>
+</table>
+
+<div class="box">
+  <div class="hd">Do this in person if you can</div>
+  <p style="margin-bottom:0">Same-day counter service versus an unknown mail turnaround, against a limitation period measured in weeks. If you cannot attend, telephone first, confirm the fee and the exact notarisation wording they require, and send by a trackable method. <strong>Ask the clerk to confirm the verdict date over the telephone while you are on the call</strong> — that single fact unblocks the filing decision immediately, even before the paper arrives.</p>
+</div>
+
+<h3 class="sec" data-n="5.2">The two other sources, in parallel</h3>
+<ul class="clean">
+  <li><strong>Your criminal defence counsel's file.</strong> They hold the disposition, the accusatory instrument, the discovery, and probably the bodycam and statement video in their original form with chain of custody. Request the complete file in writing today. This is often faster than the court.</li>
+  <li><strong>Norman Spencer's opinion letter of 21 March 2025</strong> — already in your possession — will recite the procedural history and may itself state the verdict date. Check it before you drive anywhere.</li>
+</ul>
+</section>
+
+<!-- ================= PART 6 ================= -->
+<section>
+<h2><span class="pt">Part 6</span>Risks In This Strategy</h2>
+
+<table>
+<thead><tr><th style="width:26%">Risk</th><th style="width:10%">Level</th><th>Reasoning and mitigation</th></tr></thead>
+<tbody>
+<tr><td><strong>Instigation cannot be proved against the UHS defendants</strong></td><td><strong>Medium</strong></td><td>Sundas Rashid filed the complaint, not them. The chain runs through the disclosure of your medical and academic information to her family. Your grandfather's affidavit asserts the mechanism; the documentary proof has to come from discovery. <em>Mitigation:</em> the claim against Sundas herself does not depend on it, so file that regardless.</td></tr>
+<tr><td><strong>Late notice of claim is denied</strong></td><td><strong>Medium</strong></td><td>The § 50-e(5) application is discretionary and the delay is substantial. <em>Mitigation:</em> argue actual knowledge from the bodycam and statement video; and route the core theory through § 1983, which is exempt from the requirement.</td></tr>
+<tr><td><strong>The <em>Buckley</em> lane turns out to be empty</strong></td><td><strong>Medium</strong></td><td>If the coaching was done solely by police with no prosecutorial involvement, there is no claim against the DA's office at all. <em>Mitigation:</em> that is not a loss — the officers are the better defendants anyway, with qualified immunity that fabrication defeats.</td></tr>
+<tr><td><strong>Firms decline on case size</strong></td><td><strong>Medium</strong></td><td>Seventeen months of prosecution ending in acquittal is smaller than the exoneration cases the top firms are built on. <em>Mitigation:</em> lead with the audio admission and the destruction of a physician's licensure and career, not with the duration. Approach all four Tier 1 firms at once.</td></tr>
+<tr><td><strong>A settlement in one case releases the other</strong></td><td><strong>Low–Medium</strong></td><td>General releases are broad by default and the two matters share defendants and facts. <em>Mitigation:</em> written coordination protocol between counsel before either mediates. Raise it in the first call with both.</td></tr>
+<tr><td><strong>The August date passes while you are still selecting counsel</strong></td><td><strong>Medium–High</strong></td><td>This is the live risk. <em>Mitigation:</em> parallel approaches today rather than sequential; and if no firm is retained within roughly ten days, instruct Mr. Drazen to file a protective state-law action against Sundas Rashid to stop the clock. A filed placeholder preserved by present counsel beats a perfect complaint filed by the perfect firm one week late.</td></tr>
+</tbody>
+</table>
+
+<div class="footer-note">
+  <strong>Grounding.</strong> Immunity doctrine from <em>Imbler v. Pachtman</em>, 424 U.S. 409 (1976), <em>Buckley v. Fitzsimmons</em>, 509 U.S. 259 (1993), <em>Kalina v. Fletcher</em>, 522 U.S. 118 (1997), and <em>McDonough v. Smith</em>, 588 U.S. 109 (2019). Limitation and notice provisions from CPLR §§ 214(5) and 215(3), General Municipal Law §§ 50-e and 50-i, and <em>Felder v. Casey</em>, 487 U.S. 131 (1988). Sealing from Criminal Procedure Law § 160.50. Attorney identification from Northern District of New York docket records retrieved via CourtListener/RECAP on 30 July 2026, plus public firm materials. Court contact details from the New York Unified Court System.
+  <br><br>
+  <strong>Standing caveat.</strong> Not legal advice, and prepared with analytical assistance rather than by a lawyer. The immunity analysis and every limitation calculation must be verified by licensed New York counsel before any filing. Firm listings reflect public records only; no firm has been contacted and none has evaluated your matter. Nothing here creates an attorney-client relationship.
+</div>
+</section>
+
+</body>
+</html>
