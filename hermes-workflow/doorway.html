@@ -1,0 +1,811 @@
+<title>The Doorway Problem</title>
+
+<style>
+  :root {
+    --paper:  #F4F7F6;
+    --surface:#FFFFFF;
+    --ink:    #15201E;
+    --muted:  #5B6C69;
+    --line:   #DBE3E1;
+    --line-2: #C3D0CD;
+    --accent: #0F6E63;
+    --accent-soft: #E2F0ED;
+    --on-accent: #FFFFFF;
+    --risk:   #9C5A0E;
+    --risk-soft:#FBF1E2;
+    --risk-line:#E8D2AC;
+
+    --display: "Iowan Old Style", "Hoefler Text", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    --body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, "Cascadia Mono", Consolas, monospace;
+
+    --col: 40rem;
+    --wide: 58rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:  #0D1312;
+      --surface:#151D1C;
+      --ink:    #E3EAE8;
+      --muted:  #90A29F;
+      --line:   #25302F;
+      --line-2: #35443F;
+      --accent: #4FD1BE;
+      --accent-soft: #14302C;
+      --on-accent: #08110F;
+      --risk:   #DFA652;
+      --risk-soft:#2A2114;
+      --risk-line:#4A3A1C;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper:  #0D1312;
+    --surface:#151D1C;
+    --ink:    #E3EAE8;
+    --muted:  #90A29F;
+    --line:   #25302F;
+    --line-2: #35443F;
+    --accent: #4FD1BE;
+    --accent-soft: #14302C;
+    --on-accent: #08110F;
+    --risk:   #DFA652;
+    --risk-soft:#2A2114;
+    --risk-line:#4A3A1C;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.62;
+    margin: 0;
+    padding: 0 1.25rem 6rem;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page { max-width: var(--wide); margin: 0 auto; }
+  .col  { max-width: var(--col); }
+
+  /* ── type ─────────────────────────────────────────── */
+  h1, h2, h3 { font-family: var(--display); font-weight: 600; text-wrap: balance; margin: 0; }
+  h1 { font-size: clamp(2.6rem, 7vw, 4rem); line-height: 1.02; letter-spacing: -0.02em; }
+  h2 { font-size: clamp(1.5rem, 3.4vw, 1.95rem); line-height: 1.15; letter-spacing: -0.01em; }
+  h3 { font-size: 1.06rem; line-height: 1.3; }
+  p  { margin: 0 0 1.05rem; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 600; }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0 0 1.1rem;
+  }
+  .eyebrow::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+  .eyebrow.accent { color: var(--accent); }
+  .eyebrow.warn   { color: var(--risk); }
+
+  .lede { font-size: 1.16rem; color: var(--muted); }
+  .kicker {
+    font-family: var(--display);
+    font-size: clamp(1.35rem, 3.2vw, 1.7rem);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  section { margin-top: 4.5rem; }
+
+  /* ── hero ─────────────────────────────────────────── */
+  header { padding-top: 4.5rem; }
+  .stamp {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    padding-bottom: 1.6rem;
+    margin-bottom: 2.4rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .thesis {
+    margin-top: 2rem;
+    padding: 1.15rem 1.4rem;
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 5px 5px 0;
+  }
+  .thesis .kicker { color: var(--ink); }
+
+  /* ── diagram ──────────────────────────────────────── */
+  .band { margin: 0 -1.25rem; padding: 0 1.25rem; }
+  .switch {
+    display: inline-flex;
+    padding: 3px;
+    gap: 3px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    margin-bottom: 1.5rem;
+  }
+  .switch button {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: none;
+    border: 0;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background 140ms ease, color 140ms ease;
+  }
+  .switch button:hover { color: var(--ink); }
+  .switch button[aria-selected="true"] { background: var(--accent); color: var(--on-accent); }
+
+  figure { margin: 0; }
+  .stage {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1.25rem 1rem 0.9rem;
+    overflow-x: auto;
+  }
+  .stage svg { display: block; width: 100%; min-width: 720px; height: auto; }
+  figcaption {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-top: 1rem;
+    max-width: 46rem;
+  }
+  .panel[hidden] { display: none; }
+
+  .tally {
+    display: flex;
+    align-items: baseline;
+    gap: 0.7rem;
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 1.1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--line-2);
+  }
+  .tally b {
+    font-size: 1.9rem;
+    font-family: var(--display);
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  /* svg element styles */
+  .n-box   { fill: var(--surface); stroke: var(--line-2); stroke-width: 1.25; }
+  .n-lab   { fill: var(--ink); font-family: var(--body); font-size: 14px; font-weight: 500; }
+  .n-sub   { fill: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; }
+  .hub-box { fill: var(--accent); stroke: none; }
+  .hub-lab { fill: var(--on-accent); font-family: var(--body); font-size: 16px; font-weight: 600; letter-spacing: 0.05em; }
+  .hub-sub { fill: var(--on-accent); opacity: 0.8; font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; }
+  .you-box { fill: var(--ink); stroke: none; }
+  .you-lab { fill: var(--paper); font-family: var(--mono); font-size: 13px; font-weight: 600; letter-spacing: 0.14em; }
+  .you-sub { fill: var(--paper); opacity: 0.72; font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; }
+  .edge      { stroke: var(--line-2); stroke-width: 1.25; fill: none; }
+  .edge-main { stroke: var(--accent); stroke-width: 2.5; fill: none; }
+  .edge-fan  { stroke: var(--line-2); stroke-width: 1.5; fill: none; }
+  .edge-dash { stroke: var(--muted); stroke-width: 1.25; stroke-dasharray: 4 4; fill: none; }
+  .edge-loop { stroke: var(--accent); stroke-width: 1.5; fill: none; }
+  .e-lab     { fill: var(--muted); font-family: var(--mono); font-size: 10px; letter-spacing: 0.07em; }
+  .e-lab-a   { fill: var(--accent); font-family: var(--mono); font-size: 10px; letter-spacing: 0.07em; }
+  .head-a { fill: var(--accent); }
+  .head-n { fill: var(--line-2); }
+  .head-m { fill: var(--muted); }
+
+  /* ── evidence ─────────────────────────────────────── */
+  .quotes { display: grid; gap: 0.55rem; margin: 0 0 1.6rem; padding: 0; list-style: none; }
+  .quotes li {
+    font-family: var(--display);
+    font-size: 1.06rem;
+    line-height: 1.4;
+    padding: 0.7rem 0 0.7rem 1.1rem;
+    border-left: 2px solid var(--line-2);
+    color: var(--ink);
+  }
+  .src { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; color: var(--muted); text-transform: uppercase; }
+
+  /* ── day ──────────────────────────────────────────── */
+  .day { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 9px; overflow: hidden; }
+  @media (min-width: 46rem) { .day { grid-template-columns: repeat(3, 1fr); } }
+  .day > div { background: var(--surface); padding: 1.2rem 1.25rem 1.35rem; }
+  .day time {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.13em;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .day p { font-size: 0.94rem; color: var(--muted); margin: 0.35rem 0 0; }
+
+  /* ── steps ────────────────────────────────────────── */
+  ol.steps { list-style: none; counter-reset: s; margin: 0; padding: 0; display: grid; gap: 1.4rem; }
+  ol.steps > li { counter-increment: s; display: grid; grid-template-columns: 2rem 1fr; gap: 0 1rem; align-items: start; }
+  ol.steps > li::before {
+    content: counter(s);
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--accent);
+    border: 1px solid var(--line-2);
+    border-radius: 50%;
+    width: 2rem; height: 2rem;
+    display: grid; place-items: center;
+    margin-top: 0.1rem;
+  }
+  ol.steps .body > p { font-size: 0.95rem; color: var(--muted); margin: 0.3rem 0 0; }
+
+  .cmd {
+    display: flex; align-items: center; gap: 0.6rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    padding: 0.55rem 0.55rem 0.55rem 0.85rem;
+    margin-top: 0.7rem;
+    overflow: hidden;
+  }
+  .cmd code {
+    font-family: var(--mono);
+    font-size: 0.83rem;
+    color: var(--ink);
+    white-space: pre;
+    display: block;
+    overflow-x: auto;
+    min-width: 0;
+    flex: 1;
+    padding-bottom: 1px;
+  }
+  .cmd code .p { color: var(--muted); }
+  .copy {
+    flex: none;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: none;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 0.34rem 0.55rem;
+    cursor: pointer;
+  }
+  .copy:hover { color: var(--accent); border-color: var(--accent); }
+
+  details {
+    margin-top: 0.7rem;
+    border-top: 1px solid var(--line);
+    padding-top: 0.6rem;
+  }
+  summary {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    list-style: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: "+ "; color: var(--accent); }
+  details[open] summary::before { content: "− "; }
+  details > *:not(summary) { font-size: 0.93rem; color: var(--muted); }
+  details p { margin: 0.7rem 0 0; }
+  details b { color: var(--ink); font-weight: 600; }
+  details code { font-family: var(--mono); font-size: 0.86em; color: var(--ink); }
+
+  .routines {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    line-height: 1.65;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    padding: 0.9rem 1rem;
+    margin: 0.7rem 0 0;
+    display: grid;
+    gap: 0.75rem;
+    list-style: none;
+    color: var(--ink);
+  }
+  .routines li { display: grid; grid-template-columns: 5.4rem 1fr; gap: 0.75rem; }
+  .routines b { color: var(--accent); font-weight: 500; letter-spacing: 0.04em; }
+
+  /* ── tables ───────────────────────────────────────── */
+  .scroll { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; min-width: 30rem; font-size: 0.94rem; }
+  th, td { text-align: left; padding: 0.68rem 0.9rem 0.68rem 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 400;
+    border-bottom-color: var(--line-2);
+  }
+  td:first-child { font-weight: 600; white-space: nowrap; padding-right: 1.4rem; }
+  td.dim { color: var(--muted); }
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    padding: 0.16rem 0.42rem;
+    border-radius: 4px;
+    border: 1px solid var(--line-2);
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .tag.open { color: var(--accent); border-color: var(--accent); }
+
+  /* ── risk ─────────────────────────────────────────── */
+  .risk {
+    background: var(--risk-soft);
+    border: 1px solid var(--risk-line);
+    border-radius: 10px;
+    padding: 1.4rem 1.5rem;
+  }
+  .risk h2 { font-size: 1.4rem; }
+  .risk p { color: var(--ink); }
+  .risk .cmd { background: transparent; border-color: var(--risk-line); }
+  .risk .copy { border-color: var(--risk-line); }
+  .risk .copy:hover { color: var(--risk); border-color: var(--risk); }
+
+  footer {
+    margin-top: 5rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  footer .links { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.04em; margin-top: 0.9rem; }
+  footer .links a { margin-right: 1rem; display: inline-block; }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+
+<div class="page">
+
+<header>
+  <div class="stamp col">
+    <span>Workflow · Aug 2026</span>
+    <span>MacBook</span>
+    <span>Supersedes the Surface system</span>
+  </div>
+
+  <div class="col">
+    <p class="eyebrow">Finding</p>
+    <h1>The Doorway Problem</h1>
+    <p class="lede" style="margin-top:1.4rem">You own nine good tools. Every one of them asks the same question before it will do anything: <em>which tool?</em></p>
+    <p class="lede">You answer it thirty times a day. That question is the tax. That tax is the overwhelm.</p>
+
+    <div class="thesis">
+      <p class="kicker">Your problem was never the tools. It was the doorway.</p>
+      <p style="margin:0.7rem 0 0; font-size:1rem; color:var(--muted)">Hermes deletes the doorway. One contact. You talk to it. It runs the rest.</p>
+    </div>
+  </div>
+</header>
+
+<!-- ══ MECHANISM ══════════════════════════════════════ -->
+<section>
+  <div class="col">
+    <p class="eyebrow accent">Mechanism</p>
+    <h2>Count the arrows that touch you</h2>
+    <p style="margin-top:0.9rem; color:var(--muted)">Same nine tools in both pictures. The only thing that changes is how many of them are waiting on a decision from you.</p>
+  </div>
+
+  <div class="band" style="margin-top:1.8rem">
+    <div class="switch" role="tablist" aria-label="Architecture">
+      <button id="tab-before" role="tab" aria-selected="true" aria-controls="p-before">Today</button>
+      <button id="tab-after"  role="tab" aria-selected="false" aria-controls="p-after">With Hermes</button>
+    </div>
+
+    <!-- ── BEFORE ── -->
+    <div class="panel" id="p-before" role="tabpanel" aria-labelledby="tab-before">
+      <figure>
+        <div class="stage">
+          <svg viewBox="0 0 880 470" role="img" aria-label="Nine tools arranged around a central YOU node, each connected directly to you: you are the integration layer between all of them.">
+            <!-- edges: centre to each node -->
+            <g class="edge">
+              <line x1="440" y1="235" x2="156" y2="42"/>
+              <line x1="440" y1="235" x2="440" y2="42"/>
+              <line x1="440" y1="235" x2="724" y2="42"/>
+              <line x1="440" y1="235" x2="74"  y2="168"/>
+              <line x1="440" y1="235" x2="806" y2="168"/>
+              <line x1="440" y1="235" x2="74"  y2="306"/>
+              <line x1="440" y1="235" x2="806" y2="306"/>
+              <line x1="440" y1="235" x2="296" y2="428"/>
+              <line x1="440" y1="235" x2="584" y2="428"/>
+            </g>
+
+            <!-- nodes (opaque, drawn over the line ends) -->
+            <g>
+              <rect class="n-box" x="94"  y="23"  width="124" height="38" rx="4"/>
+              <text class="n-lab" x="156" y="47" text-anchor="middle">Obsidian</text>
+
+              <rect class="n-box" x="378" y="23"  width="124" height="38" rx="4"/>
+              <text class="n-lab" x="440" y="47" text-anchor="middle">Notion</text>
+
+              <rect class="n-box" x="662" y="23"  width="124" height="38" rx="4"/>
+              <text class="n-lab" x="724" y="47" text-anchor="middle">Gmail</text>
+
+              <rect class="n-box" x="12"  y="149" width="124" height="38" rx="4"/>
+              <text class="n-lab" x="74"  y="173" text-anchor="middle">Calendar</text>
+
+              <rect class="n-box" x="744" y="149" width="124" height="38" rx="4"/>
+              <text class="n-lab" x="806" y="173" text-anchor="middle">Drive</text>
+
+              <rect class="n-box" x="12"  y="287" width="124" height="38" rx="4"/>
+              <text class="n-lab" x="74"  y="311" text-anchor="middle">Claude Code</text>
+
+              <rect class="n-box" x="744" y="287" width="124" height="38" rx="4"/>
+              <text class="n-lab" x="806" y="311" text-anchor="middle">Claude chat</text>
+
+              <rect class="n-box" x="234" y="409" width="124" height="38" rx="4"/>
+              <text class="n-lab" x="296" y="433" text-anchor="middle">Gemini</text>
+
+              <rect class="n-box" x="522" y="409" width="124" height="38" rx="4"/>
+              <text class="n-lab" x="584" y="433" text-anchor="middle">Granola</text>
+            </g>
+
+            <!-- hub -->
+            <rect class="you-box" x="362" y="206" width="156" height="58" rx="5"/>
+            <text class="you-lab" x="440" y="231" text-anchor="middle">YOU</text>
+            <text class="you-sub" x="440" y="250" text-anchor="middle">the routing layer</text>
+          </svg>
+        </div>
+        <figcaption>Every line is a decision only you can make — which tool, what goes where, what carries over. Nothing here runs unless you show up.</figcaption>
+      </figure>
+      <p class="tally"><b>9</b> <span>tools waiting on you</span></p>
+    </div>
+
+    <!-- ── AFTER ── -->
+    <div class="panel" id="p-after" role="tabpanel" aria-labelledby="tab-after" hidden>
+      <figure>
+        <div class="stage">
+          <svg viewBox="0 0 880 420" role="img" aria-label="You send voice to Hermes; Hermes fans out to Gemma 4 running locally, Claude Code, Google Workspace and Gemini Enterprise, and runs itself on a schedule. A single dashed line goes from you to Claude chat, the one tool you still open yourself.">
+            <defs>
+              <marker id="ah-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" class="head-a"/>
+              </marker>
+              <marker id="ah-n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" class="head-n"/>
+              </marker>
+              <marker id="ah-m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" class="head-m"/>
+              </marker>
+            </defs>
+
+            <!-- you -> hermes -->
+            <path class="edge-main" d="M300 68 V 142" marker-end="url(#ah-a)"/>
+            <text class="e-lab-a" x="314" y="102">voice · one thread</text>
+
+            <!-- you -> claude chat (the exception) -->
+            <path class="edge-dash" d="M357 46 H 587" marker-end="url(#ah-m)"/>
+            <text class="e-lab" x="472" y="34" text-anchor="middle">only when you want to think</text>
+
+            <!-- schedule loop -->
+            <path class="edge-loop" d="M434 168 C 494 162 500 224 438 218" marker-end="url(#ah-a)"/>
+            <text class="e-lab-a" x="510" y="187">06:00 · 21:00 · 03:00</text>
+            <text class="e-lab"   x="510" y="204">runs without you</text>
+
+            <!-- fan-out -->
+            <g class="edge-fan">
+              <path d="M300 230 V 276"/>
+              <path d="M300 276 H 108 V 303" marker-end="url(#ah-n)"/>
+              <path d="M300 276 V 303"       marker-end="url(#ah-n)"/>
+              <path d="M300 276 H 494 V 303" marker-end="url(#ah-n)"/>
+              <path d="M300 276 H 690 V 303" marker-end="url(#ah-n)"/>
+            </g>
+
+            <!-- destinations -->
+            <g>
+              <rect class="n-box" x="22"  y="311" width="172" height="60" rx="5"/>
+              <text class="n-lab" x="108" y="336" text-anchor="middle">Gemma 4 · local</text>
+              <text class="n-sub" x="108" y="353" text-anchor="middle">private · free</text>
+
+              <rect class="n-box" x="214" y="311" width="172" height="60" rx="5"/>
+              <text class="n-lab" x="300" y="336" text-anchor="middle">Claude Code</text>
+              <text class="n-sub" x="300" y="353" text-anchor="middle">builds things</text>
+
+              <rect class="n-box" x="408" y="311" width="172" height="60" rx="5"/>
+              <text class="n-lab" x="494" y="336" text-anchor="middle">Google Workspace</text>
+              <text class="n-sub" x="494" y="353" text-anchor="middle">system of record</text>
+
+              <rect class="n-box" x="604" y="311" width="172" height="60" rx="5"/>
+              <text class="n-lab" x="690" y="336" text-anchor="middle">Gemini Enterprise</text>
+              <text class="n-sub" x="690" y="353" text-anchor="middle">deep research</text>
+            </g>
+
+            <!-- claude chat -->
+            <rect class="n-box" x="595" y="24" width="190" height="44" rx="5"/>
+            <text class="n-lab" x="690" y="51" text-anchor="middle">Claude chat</text>
+
+            <!-- hermes -->
+            <rect class="hub-box" x="166" y="150" width="268" height="80" rx="6"/>
+            <text class="hub-lab" x="300" y="182" text-anchor="middle">HERMES</text>
+            <text class="hub-sub" x="300" y="201" text-anchor="middle">on your MacBook · remembers</text>
+            <text class="hub-sub" x="300" y="216" text-anchor="middle">writes its own skills</text>
+
+            <!-- you -->
+            <rect class="you-box" x="245" y="24" width="110" height="44" rx="5"/>
+            <text class="you-lab" x="300" y="52" text-anchor="middle">YOU</text>
+          </svg>
+        </div>
+        <figcaption>One solid arrow leaves you. The dashed one is the deliberate exception — Claude chat, for when you want something in the room to think with. Everything else, Hermes reaches for.</figcaption>
+      </figure>
+      <p class="tally"><b>1</b> <span>and it's the one you choose to send</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EVIDENCE ═══════════════════════════════════════ -->
+<section class="col">
+  <p class="eyebrow">Why this one, and not the last five</p>
+  <h2>Your own notes already named it</h2>
+  <ul class="quotes">
+    <li>“Drowning in tool sprawl — feels overwhelmed, not empowered.”</li>
+    <li>“Wants ZERO manual organizing — if it needs discipline to maintain, it will fail.”</li>
+    <li>“Adopts tools impulsively, abandons when they require discipline.”</li>
+  </ul>
+  <p class="src">daily-note-ai-integration / red_team_analysis.md</p>
+
+  <p style="margin-top:1.6rem">Every system you've built died at the same joint: <strong>it needed you to maintain it.</strong> Obsidian needed opening. Notion needed filing. The daily note needed filling in at 7am. None of them survived week three.</p>
+
+  <p>Hermes is the first thing in your stack where <strong>the upkeep runs at 3am whether or not you show up.</strong> Not the memory. Not the self-writing skills. That. That is the entire reason it's worth an hour.</p>
+
+  <div class="thesis" style="margin-top:1.8rem">
+    <p class="kicker">This was never a discipline problem.</p>
+    <p style="margin:0.7rem 0 0; font-size:1rem; color:var(--muted)">Nobody holds nine tools in working memory. It was an architecture problem wearing a willpower costume.</p>
+  </div>
+</section>
+
+<!-- ══ THE DAY ════════════════════════════════════════ -->
+<section>
+  <div class="col">
+    <p class="eyebrow">What the day becomes</p>
+    <h2>Three moments</h2>
+  </div>
+  <div class="day" style="margin-top:1.6rem">
+    <div>
+      <time>06:00</time>
+      <h3>It texts you first</h3>
+      <p>Calendar, the three things that matter, anything that broke overnight. One message. You read it in bed.</p>
+    </div>
+    <div>
+      <time>ALL DAY</time>
+      <h3>You talk. That's it.</h3>
+      <p>Voice-note whatever arrives. No app to pick. No folder to choose. No tab to find.</p>
+    </div>
+    <div>
+      <time>21:00 · 03:00</time>
+      <h3>It cleans up</h3>
+      <p>Files everything you sent, updates the record, preps tomorrow. You are asleep.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ INSTALL ════════════════════════════════════════ -->
+<section class="col">
+  <p class="eyebrow accent">Intervention · one hour, in order</p>
+  <h2>Setup</h2>
+
+  <ol class="steps" style="margin-top:1.8rem">
+    <li><div class="body">
+      <h3>Find the model you already downloaded</h3>
+      <p>Use whatever tag this prints — don't guess it.</p>
+      <div class="cmd"><code>ollama list</code><button class="copy" type="button">Copy</button></div>
+      <details>
+        <summary>Not there?</summary>
+        <p>Pull it: <code>ollama pull gemma4</code>. Ollama's own Hermes guide recommends Gemma 4 as the local model on a Mac with ~16GB.</p>
+      </details>
+    </div></li>
+
+    <li><div class="body">
+      <h3>Give it a real context window</h3>
+      <p>Ollama's default is tiny. This is the single biggest reason local agents feel stupid.</p>
+      <div class="cmd"><code>OLLAMA_CONTEXT_LENGTH=64000 ollama serve</code><button class="copy" type="button">Copy</button></div>
+      <details>
+        <summary>Confirm it took</summary>
+        <p>Run <code>ollama ps</code> — the <b>CONTEXT</b> column should read 64000. If it says 4096, the variable didn't reach the server process.</p>
+      </details>
+    </div></li>
+
+    <li><div class="body">
+      <h3>Install Hermes</h3>
+      <p>You already have Ollama, so this one line wires both together.</p>
+      <div class="cmd"><code>ollama launch hermes</code><button class="copy" type="button">Copy</button></div>
+    </div></li>
+
+    <li><div class="body">
+      <h3>Give it two brains</h3>
+      <p>The money decision. A smart brain for thinking, a local brain for grunt work and anything private.</p>
+      <div class="cmd"><code>hermes model</code><button class="copy" type="button">Copy</button></div>
+      <details>
+        <summary>What to pick at each prompt</summary>
+        <p><b>Main model</b> → Claude Opus. This plans, reasons, drafts.</p>
+        <p><b>Local model</b> → choose <b>Custom endpoint</b>, URL <code>http://127.0.0.1:11434/v1</code>, leave the API key blank, then pick your <code>gemma4</code> tag. There is no "Ollama" option — custom endpoint is the way in.</p>
+        <p>Then run <code>hermes doctor</code>. It checks exactly this.</p>
+      </details>
+    </div></li>
+
+    <li><div class="body">
+      <h3>Put it in a box</h3>
+      <p>Hermes runs terminal commands on your Mac by itself. See the next section before you skip this.</p>
+      <div class="cmd"><code>hermes config set terminal.backend docker</code><button class="copy" type="button">Copy</button></div>
+    </div></li>
+
+    <li><div class="body">
+      <h3>One channel, then five sentences</h3>
+      <p>Pick WhatsApp — you already live there. Allow your own number only.</p>
+      <div class="cmd"><code>hermes gateway setup <span class="p">&amp;&amp;</span> hermes gateway install</code><button class="copy" type="button">Copy</button></div>
+      <p style="margin-top:0.9rem">Then send it these. No cron syntax — you just tell it.</p>
+      <ul class="routines">
+        <li><b>weekday 6am</b><span>Send me a brief. Calendar, the three things that actually matter, anything that broke overnight. One short message.</span></li>
+        <li><b>daily 9pm</b><span>File everything I sent you today. Don't ask me where things go — decide, then tell me in one line what you did.</span></li>
+        <li><b>sunday 8pm</b><span>Week ahead, plus what I said I'd do this week and didn't. Be blunt about the second part.</span></li>
+        <li><b>weekday 7am</b><span>Check the docket for 3:26-cv-00197. Flag any deadline inside 14 days.</span></li>
+        <li><b>nightly</b><span>Pull my health data, give me a three-line trend. Local model only — this does not leave my Mac.</span></li>
+      </ul>
+    </div></li>
+  </ol>
+</section>
+
+<!-- ══ RISK ═══════════════════════════════════════════ -->
+<section class="col">
+  <div class="risk">
+    <p class="eyebrow warn">Read this one</p>
+    <h2>Your Mac holds PHI and an active federal case</h2>
+    <p style="margin-top:0.9rem">Hermes executes terminal commands on that machine on its own initiative. Docker gives it a sandbox to do that inside. Command approvals are the second layer.</p>
+    <div class="cmd"><code>hermes config set memory.memory_enabled true</code><button class="copy" type="button">Copy</button></div>
+    <p style="margin-top:1.1rem"><strong>Keep command approvals on.</strong> Not "on for now" — on in month two, when they've become annoying. That is precisely the month you would regret turning them off.</p>
+    <p>Anything touching health records or case files routes to Gemma 4, which runs entirely on your machine. That data never crosses the network.</p>
+  </div>
+</section>
+
+<!-- ══ DEMOTION ═══════════════════════════════════════ -->
+<section>
+  <div class="col">
+    <p class="eyebrow">One job each</p>
+    <h2>Nothing gets replaced. Everything gets demoted.</h2>
+    <p style="margin-top:0.9rem; color:var(--muted)">The point is not fewer tools. It's that none of them are your decision anymore.</p>
+  </div>
+
+  <div class="scroll" style="margin-top:1.5rem">
+    <table>
+      <thead><tr><th>Tool</th><th>Its one job</th><th>You open it?</th></tr></thead>
+      <tbody>
+        <tr><td>Hermes</td><td class="dim">The door. Capture, dispatch, memory, night shift.</td><td><span class="tag open">Yes — by default</span></td></tr>
+        <tr><td>Claude chat</td><td class="dim">Thinking out loud with something in the room</td><td><span class="tag open">Yes — deliberately</span></td></tr>
+        <tr><td>Claude Code</td><td class="dim">Building real things: repos, skills, documents</td><td><span class="tag">Hermes hands it work</span></td></tr>
+        <tr><td>Gemma 4</td><td class="dim">Private and cheap: health data, case files, filing, tagging</td><td><span class="tag">Hermes's second brain</span></td></tr>
+        <tr><td>Google Workspace</td><td class="dim">System of record: Drive, Gmail, Calendar</td><td><span class="tag">Hermes reads and writes</span></td></tr>
+        <tr><td>Gemini Enterprise</td><td class="dim">Deep research across your own Workspace corpus</td><td><span class="tag">Rarely — ask Hermes first</span></td></tr>
+        <tr><td>Obsidian</td><td class="dim">Seeing the graph, when you want to <em>look</em> at your thinking</td><td><span class="tag">Only when you want it</span></td></tr>
+        <tr><td>Notion, Keep, Bear</td><td class="dim">Nothing. Capture-only, or gone.</td><td><span class="tag">No</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══ WHAT DIED ══════════════════════════════════════ -->
+<section>
+  <div class="col">
+    <p class="eyebrow">Delta</p>
+    <h2>Half your old system stopped running when you changed machines</h2>
+    <p style="margin-top:0.9rem; color:var(--muted)">The Surface-era design was correct for the Surface. You're on a MacBook now.</p>
+  </div>
+
+  <div class="scroll" style="margin-top:1.5rem">
+    <table>
+      <thead><tr><th>Old system</th><th>Why it's dead</th><th>Now</th></tr></thead>
+      <tbody>
+        <tr><td>Power Automate<br>OneNote → Obsidian</td><td class="dim">Windows only</td><td class="dim">The 21:00 sweep</td></tr>
+        <tr><td>Pactify capture</td><td class="dim">Catches browser chats, misses everything you <em>say</em></td><td class="dim">Hermes is the capture point</td></tr>
+        <tr><td>Notion as invisible DB</td><td class="dim">Still needed a sync you'd maintain</td><td class="dim"><code>~/.hermes/</code></td></tr>
+        <tr><td>Daily note at 7am</td><td class="dim">You were never going to fill it in at 7am</td><td class="dim">06:00 brief, already written</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══ PROGNOSIS ══════════════════════════════════════ -->
+<section class="col">
+  <p class="eyebrow">Prognosis</p>
+  <h2>Month three is the test</h2>
+  <p style="margin-top:0.9rem">Every system you've adopted has died around week three, when the novelty wore off. This one survives that week only because the schedule keeps running whether or not you engage.</p>
+  <p>If you catch yourself <em>editing</em> the routines more than using them, you've turned it back into a tool that needs discipline. Cut back to three and stop.</p>
+  <p><strong>Hermes will not fix a messy operation.</strong> It will run your mess faster. Five routines is deliberately few — add a sixth only after you've felt its absence for a week.</p>
+  <p><strong>The local model is not a free lunch.</strong> Gemma 4 is genuinely good at filing, tagging, and reading your health exports. It is not good enough to plan litigation strategy. Don't let cost-saving push real work onto the small brain.</p>
+</section>
+
+<footer class="col">
+  <p>Nine tools, one door. If any piece of this needs your daily discipline to survive, it's wrong — delete it.</p>
+  <p class="links">
+    <a href="https://hermes-agent.org/">hermes-agent.org</a>
+    <a href="https://hermes-agent.nousresearch.com/docs/">nous docs</a>
+    <a href="https://docs.ollama.com/integrations/hermes">ollama × hermes</a>
+  </p>
+</footer>
+
+</div>
+
+<script>
+  // ── before / after ──
+  var tabs = [
+    { btn: document.getElementById('tab-before'), panel: document.getElementById('p-before') },
+    { btn: document.getElementById('tab-after'),  panel: document.getElementById('p-after')  }
+  ];
+  tabs.forEach(function (t, i) {
+    t.btn.addEventListener('click', function () {
+      tabs.forEach(function (o, j) {
+        o.btn.setAttribute('aria-selected', String(i === j));
+        o.panel.hidden = i !== j;
+      });
+    });
+  });
+
+  // ── copy ──
+  document.querySelectorAll('.copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var code = btn.parentNode.querySelector('code');
+      var text = code.innerText;
+      var done = function (label) {
+        var was = btn.textContent;
+        btn.textContent = label;
+        setTimeout(function () { btn.textContent = was; }, 1600);
+      };
+      var select = function () {
+        var r = document.createRange();
+        r.selectNodeContents(code);
+        var s = window.getSelection();
+        s.removeAllRanges();
+        s.addRange(r);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function () { done('Copied'); },
+          function () { select(); done('⌘C'); }
+        );
+      } else {
+        select();
+        done('⌘C');
+      }
+    });
+  });
+</script>
