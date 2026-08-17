@@ -1,5 +1,12 @@
 # Your System — One Page, Everything Decided
 
+> **⚠️ SUPERSEDED — see [`hermes-workflow/SYSTEM.md`](../hermes-workflow/SYSTEM.md)**
+>
+> This version was built for a Windows Surface. You're on a MacBook now, so the
+> Power Automate handwriting pipeline and the Pactify → Notion capture chain no
+> longer run. The replacement moves the capture point and all the maintenance
+> onto Hermes. Kept here for the architecture reasoning and the red-team notes.
+
 ---
 
 ## THE ANSWER (read this first, stop here if it clicks)
