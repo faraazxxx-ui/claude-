@@ -1,0 +1,109 @@
+<title>Case Timeline</title>
+<style>
+:root{--paper:#FBFAF7;--ink:#23262B;--ink2:#565B63;--line:#DDD8CC;--card:#FFF;
+ --navy:#1F3A5F;--maroon:#8E2C2C;--maroon-soft:#F6E9E7;
+ --s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s4:#eda100;--s5:#e87ba4;--s7:#4a3aa7;
+ --good:#008300;--warn:#c07000;--crit:#e34948;}
+@media (prefers-color-scheme: dark){:root:where(:not([data-theme="light"])){
+ --paper:#15171B;--ink:#E6E3DA;--ink2:#A9ADB6;--line:#33373E;--card:#1C1F25;
+ --navy:#8FB0D8;--maroon:#D98A80;--maroon-soft:#3A2422;
+ --s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--s7:#9085e9;
+ --good:#4fae4f;--warn:#d89a3d;--crit:#e66767;}}
+:root[data-theme="dark"]{
+ --paper:#15171B;--ink:#E6E3DA;--ink2:#A9ADB6;--line:#33373E;--card:#1C1F25;
+ --navy:#8FB0D8;--maroon:#D98A80;--maroon-soft:#3A2422;
+ --s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--s7:#9085e9;
+ --good:#4fae4f;--warn:#d89a3d;--crit:#e66767;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:14.5px/1.5 "Segoe UI",system-ui,sans-serif}
+h1{font-family:"Palatino Linotype",Palatino,Georgia,serif;color:var(--navy);font-size:21px;margin:0 0 2px;text-wrap:balance}
+.sub{color:var(--ink2);font-size:12.5px;max-width:90ch}
+.banner{background:var(--maroon);color:#FBF6F0;text-align:center;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px}
+.wrap{max-width:1060px;margin:0 auto;padding:18px 20px 70px}
+.num{font-family:ui-monospace,Consolas,monospace;font-variant-numeric:tabular-nums}
+.chip{display:inline-block;border:1px solid var(--c,var(--ink2));color:var(--c,var(--ink2));border-radius:11px;padding:0 9px;font-size:11px;max-width:100%;overflow-wrap:break-word}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 15px;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:12.5px;margin:8px 0}
+th{background:var(--navy);color:var(--paper);text-align:left;padding:6px 8px}
+td{border:1px solid var(--line);padding:5px 8px;vertical-align:top}
+.tbox{overflow-x:auto}
+#tip{position:fixed;pointer-events:none;background:var(--card);border:1px solid var(--navy);border-radius:6px;
+ padding:8px 11px;font-size:12px;max-width:330px;opacity:0;transition:opacity .12s;z-index:9;box-shadow:0 3px 14px rgba(0,0,0,.18)}
+.toggle{background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:6px;padding:4px 12px;font-size:12px;cursor:pointer}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink2);margin:8px 0}
+.sw{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+
+.tl{border-left:2px solid var(--line);margin:14px 0 14px 8px;padding-left:0}
+.ev{display:flex;gap:12px;padding:9px 0;position:relative}
+.dot{width:13px;height:13px;border-radius:50%;background:var(--c);flex-shrink:0;margin-left:-7.5px;margin-top:3px;outline:2px solid var(--paper)}
+.ev.unres .dot{background:var(--paper);border:3px dashed var(--c)}
+.when{width:120px;flex-shrink:0;font-size:12px;font-weight:700;color:var(--navy)}
+.when .yr{font-weight:400;font-size:10.5px;color:var(--ink2)}
+.what{flex:1;font-size:13px;max-width:78ch}
+.st{color:var(--ink2);font-size:12px;margin:2px 0 4px}
+.src{font-size:10.5px;color:var(--ink2)}
+.clockev .what b{color:var(--crit)}
+</style>
+<div class="banner">Attorney Work Product — Privileged &amp; Confidential</div>
+<div class="wrap">
+<h1>Case Timeline — Rahman v. UHSH et al., 3:26-cv-00197 (N.D.N.Y.)</h1>
+<p class="sub">Attorney Work Product — Privileged &amp; Confidential | Operative sequence from the Aug 2, 2026 attorney meeting canon; operative-year (2022 vs 2024) UNRESOLVED — no April/May event is assigned to a single year <span class="num">· updated 2026-08-02</span></p>
+
+<div class="legend"><span><span class="sw" style="background:var(--s1)"></span>case events</span>
+<span><span class="sw" style="background:var(--crit)"></span>clocks / deadlines</span>
+<span><span class="chip" style="--c:var(--warn)">⚑</span> open factual flag — not yet resolved against documents</span></div>
+<div class="tl"><div class="ev unres">
+<div class="dot" style="--c:var(--s1)"></div>
+<div class="when num">April 1<br><span class="yr">UNRESOLVED (2022 per facts_extraction context vs Mar–Apr 2024 per r3/r4 research)</span></div>
+<div class="what"><b>Florida (Tampa) employment contract stated as signed — before the probation, so probation could not block that job ($350,000 salary + $70,000 bonus, three-year term).</b>
+<div class="st">ASSERTED — CONTRADICTION FLAGGED</div><span class="chip" style="--c:var(--warn)">⚑ UNRESOLVED contradiction: &#x27;my contract was signed on April 1st&#x27; (00:13:03) vs. &#x27;had the offer but had never signed it and no one knew about it&#x27; (00:14:21, day of arrest). The executed-instrument question must be locked down with counsel before any demand uses the figure (handoff-state Flag 4).</span> 
+<div class="src num">facts_extraction.json 00:13:03 (&#x27;my contract was signed on April 1st&#x27;), facts_extraction.json 00:14:21 (&#x27;the day I was arrested. I was supposed to fly down&#x27;)</div></div></div><div class="ev unres">
+<div class="dot" style="--c:var(--s1)"></div>
+<div class="when num">April 14<br><span class="yr">UNRESOLVED (2022 per facts_extraction context vs Mar–Apr 2024 per r3/r4 research)</span></div>
+<div class="what"><b>Probation imposed without notice; FMLA filed the same day (client&#x27;s belief — filed before the arrest); administrative leave opened via Guthrie-lawyers-to-UHS-lawyers call, reversed within ~24 hours of the arrest.</b>
+<div class="st">ASSERTED — temporal-proximity spine of the FMLA retaliation claim</div><span class="chip" style="--c:var(--warn)">⚑ UNRESOLVED operative-year discrepancy: drives back-pay start date, FMLA 2/3-yr and NYSHRL 3-yr limitations, and the willfulness window (damages_model.json inconsistency_flag). Do not assign a year until locked down with counsel.</span> 
+<div class="src num">facts_extraction.json 00:14:21 (&#x27;put on probation on the 14th of April&#x27;), facts_extraction.json 00:43:40 (&#x27;I filed my FMLA before I was arrested officially&#x27;), facts_extraction.json 00:42:37 (&#x27;the lawyers of Guthri called the lawyers of UHS&#x27;)</div></div></div><div class="ev unres">
+<div class="dot" style="--c:var(--s1)"></div>
+<div class="when num">May<br><span class="yr">UNRESOLVED (2022 per facts_extraction context vs Mar–Apr 2024 per r3/r4 research)</span></div>
+<div class="what"><b>Vermont job offer withdrawn — the offer came in May and was taken away; the period in which plaintiff was on probation without his knowledge.</b>
+<div class="st">ASSERTED — lost-opportunity / tortious-interference damages</div><span class="chip" style="--c:var(--warn)">⚑ Same UNRESOLVED operative-year discrepancy as April events.</span> 
+<div class="src num">facts_extraction.json 00:13:03 (&#x27;the Vermont job was t taken away&#x27;)</div></div></div><div class="ev ">
+<div class="dot" style="--c:var(--s1)"></div>
+<div class="when num">September 2025<br><span class="yr">2025</span></div>
+<div class="what"><b>NOT GUILTY — acquittal; prosecution terminated in plaintiff&#x27;s favor (favorable-termination element of malicious prosecution).</b>
+<div class="st">DOCUMENTED</div><span class="chip" style="--c:var(--warn)">⚑ Exact acquittal date + charging instrument still an open question (handoff-state open_questions).</span> <span class="chip" style="--c:var(--warn)">⚑ Malicious-prosecution SoL runs ~Sept 2026 (1 yr from acquittal) per handoff-state critical_deadlines.</span> 
+<div class="src num">facts_extraction.json 01:02:46 (&#x27;terminated in your favor&#x27;), handoff-state.json critical_deadlines</div></div></div><div class="ev ">
+<div class="dot" style="--c:var(--s1)"></div>
+<div class="when num">November 2026<br><span class="yr">2026</span></div>
+<div class="what"><b>Court-ordered mediation must be COMPLETED by November 2026 — a deadline, not an earliest date. Drazen will not mediate before receiving defendants&#x27; discovery responses.</b>
+<div class="st">DOCUMENTED (court order per counsel)</div>
+<div class="src num">facts_extraction.json 00:04:20 (&#x27;the mediation has to be completed by November&#x27;), facts_extraction.json 00:05:23 (&#x27;do a mediation without having their discovery responses&#x27;)</div></div></div><div class="ev clockev">
+<div class="dot" style="--c:var(--crit)"></div>
+<div class="when num">April 1</div>
+<div class="what"><b>⏰ Florida (Tampa) contract stated as signed — pre-probation (00:13:03; UNRESOLVED inconsistency vs. 00:14:21 &#x27;never signed it&#x27;)</b></div></div><div class="ev clockev">
+<div class="dot" style="--c:var(--crit)"></div>
+<div class="when num">April 14</div>
+<div class="what"><b>⏰ Probation imposed without notice; FMLA filed the same day (client&#x27;s belief); administrative leave opened via Guthrie-lawyers-to-UHS-lawyers call</b></div></div><div class="ev clockev">
+<div class="dot" style="--c:var(--crit)"></div>
+<div class="when num">May</div>
+<div class="what"><b>⏰ Vermont job offer withdrawn</b></div></div><div class="ev clockev">
+<div class="dot" style="--c:var(--crit)"></div>
+<div class="when num">Sept 2025</div>
+<div class="what"><b>⏰ NOT GUILTY — favorable termination (DOCUMENTED)</b></div></div><div class="ev clockev">
+<div class="dot" style="--c:var(--crit)"></div>
+<div class="when num">November 2026</div>
+<div class="what"><b>⏰ Court-ordered mediation completion deadline (Drazen: no mediation before defendants&#x27; discovery responses)</b></div></div></div>
+<button class="toggle" onclick="tbl('ttable')">table view</button>
+<div id="ttable" hidden class="tbox"><table><tr><th>Date</th><th>Year</th><th>Event</th><th>Status</th></tr><tr><td>April 1</td><td>UNRESOLVED (2022 per facts_extraction context vs Mar–Apr 2024 per r3/r4 research)</td><td>Florida (Tampa) employment contract stated as signed — before the probation, so probation could not block that job ($350,000 salary + $70,000 bonus, three-year term).</td><td>ASSERTED — CONTRADICTION FLAGGED</td></tr><tr><td>April 14</td><td>UNRESOLVED (2022 per facts_extraction context vs Mar–Apr 2024 per r3/r4 research)</td><td>Probation imposed without notice; FMLA filed the same day (client&#x27;s belief — filed before the arrest); administrative leave opened via Guthrie-lawyers-to-UHS-lawyers call, reversed within ~24 hours of the arrest.</td><td>ASSERTED — temporal-proximity spine of the FMLA retaliation claim</td></tr><tr><td>May</td><td>UNRESOLVED (2022 per facts_extraction context vs Mar–Apr 2024 per r3/r4 research)</td><td>Vermont job offer withdrawn — the offer came in May and was taken away; the period in which plaintiff was on probation without his knowledge.</td><td>ASSERTED — lost-opportunity / tortious-interference damages</td></tr><tr><td>September 2025</td><td>2025</td><td>NOT GUILTY — acquittal; prosecution terminated in plaintiff&#x27;s favor (favorable-termination element of malicious prosecution).</td><td>DOCUMENTED</td></tr><tr><td>November 2026</td><td>2026</td><td>Court-ordered mediation must be COMPLETED by November 2026 — a deadline, not an earliest date. Drazen will not mediate before receiving defendants&#x27; discovery responses.</td><td>DOCUMENTED (court order per counsel)</td></tr><tr><td>April 1</td><td></td><td>Florida (Tampa) contract stated as signed — pre-probation (00:13:03; UNRESOLVED inconsistency vs. 00:14:21 &#x27;never signed it&#x27;)</td><td>deadline</td></tr><tr><td>April 14</td><td></td><td>Probation imposed without notice; FMLA filed the same day (client&#x27;s belief); administrative leave opened via Guthrie-lawyers-to-UHS-lawyers call</td><td>deadline</td></tr><tr><td>May</td><td></td><td>Vermont job offer withdrawn</td><td>deadline</td></tr><tr><td>Sept 2025</td><td></td><td>NOT GUILTY — favorable termination (DOCUMENTED)</td><td>deadline</td></tr><tr><td>November 2026</td><td></td><td>Court-ordered mediation completion deadline (Drazen: no mediation before defendants&#x27; discovery responses)</td><td>deadline</td></tr></table></div>
+<div class="card"><b>Notes</b><ul style="margin:6px 0 0;padding-left:18px;font-size:12px;color:var(--ink2)"><li>OPERATIVE-YEAR DISCREPANCY — UNRESOLVED: facts_extraction places the April 14 probation in a 2022 context, while r3/r4 research files reference Mar–Apr 2024 operative conduct and a Feb 2024 ICD implant. No April/May event in this timeline is assigned to a single year; lock down with counsel before any demand is served (damages_model.json inconsistency_flag; handoff-state Update Trigger 1).</li><li>FLORIDA CONTRACT — UNRESOLVED CONTRADICTION: signed April 1 (00:13:03) vs never signed / no one knew (00:14:21). Both anchors retained; do not present either version as established.</li><li>Prepared from /legal-war-room canon (facts_extraction.json, damages_model.json, handoff-state.json, viz/pressure-map.json key_dates) dated 2026-08-02.</li></ul></div>
+</div><div id="tip"></div>
+<script>
+const tip=document.getElementById('tip');
+function showTip(e,html){tip.innerHTML=html;tip.style.opacity=1;
+ let x=e.clientX+14,y=e.clientY+12;
+ if(x+340>innerWidth)x=e.clientX-345;if(y+120>innerHeight)y=e.clientY-110;
+ tip.style.left=x+'px';tip.style.top=y+'px';}
+function hideTip(){tip.style.opacity=0}
+function tbl(id){const t=document.getElementById(id);t.hidden=!t.hidden}
+</script>

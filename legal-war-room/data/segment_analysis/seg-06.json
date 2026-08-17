@@ -1,0 +1,164 @@
+{
+  "segment_id": "seg-06",
+  "blocks": [
+    {
+      "timestamp": "01:19:38",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Small talk about New York City real estate. Faraaz remarks that even Queens is expensive and that the south side of Harlem is 'extremely gentrified... all highrises now.' Drazen reminisces about ice skating at the Lasker rink at the northern end of Central Park in 1985, when buildings on Central Park North were vacant. Faraaz then abruptly asks Drazen what he thinks of Giuliani.",
+      "key_quotes": [],
+      "corrections": [
+        {"raw": "Alaska rink", "corrected": "Lasker Rink", "basis": "Drazen describes 'ice skating at the at the Alaska rink there at the northern end of Central Park' (line 11). The skating rink at the northern end of Central Park is the Lasker Rink; 'Alaska' is a phonetic garble of 'Lasker'."}
+      ],
+      "legal_tags": ["smalltalk"],
+      "callout": null
+    },
+    {
+      "timestamp": "01:20:29",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Continued small talk. Drazen explains he was not in NYC when Giuliani was mayor; when he lived there, Ed Koch was mayor, and Giuliani became mayor only after Drazen had left the city. He recalls thinking in 1985 that the derelict buildings around Central Park had tremendous potential and wishing he had money to buy them.",
+      "key_quotes": [],
+      "corrections": [
+        {"raw": "Ed Cotch", "corrected": "Ed Koch", "basis": "Line 30: 'when I was there, Ed Cotch was mayor' — Ed Koch was NYC mayor 1978-1989, matching Drazen's stated mid-1980s residency and the Giuliani-succession discussion."}
+      ],
+      "legal_tags": ["smalltalk"],
+      "callout": null
+    },
+    {
+      "timestamp": "01:21:15",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Faraaz describes present-day NYC policing above 112th Street — flood lights every three blocks and roughly eight uniformed officers every second block 'just for presence' — calling it dystopian. He also remarks on empty Chinese-built properties in Long Island City sitting vacant for three years, speculating it is clearly money laundering ('clearly la[under] money... this doesn't make sense'). Drazen agrees he used to wonder how it all keeps going.",
+      "key_quotes": [],
+      "corrections": [
+        {"raw": "clearly la money", "corrected": "clearly launder money (probable)", "basis": "Line 51 context: properties 'built by Chinese... building companies empty for three years now no one's there and I'm like this Clearly, you just clearly la money. This this doesn't make sense.' Vacant-property context supports 'launder money'; moderate confidence, no legal weight."},
+        {"raw": "refri that neighborhood", "corrected": "[unresolved — possibly 're-gentrified' or 'refreshed']", "basis": "Line 49; context is neighborhood transformation via police presence and lighting. Insufficient basis to fix a single reading; left unresolved."}
+      ],
+      "legal_tags": ["smalltalk"],
+      "callout": null
+    },
+    {
+      "timestamp": "01:22:28",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Drazen recounts his biography: in 1985 he had not yet started law school; he graduated from the University of Florida, moved to NYC in December 1984, and notes UF was strict — many students got a letter after their second year saying they were no longer students. Faraaz asks whether Drazen came back to Binghamton in 1985 (he did not).",
+      "key_quotes": [],
+      "corrections": [
+        {"raw": "Binghamington", "corrected": "Binghamton", "basis": "Line 61: 'So you came back to Binghamington 1985.' Drazen practices in Binghamton, NY (NDNY/Broome County venue of Rahman v. UHS); phonetic garble."},
+        {"raw": "a potty school", "corrected": "a party school (probable)", "basis": "Line 65, Faraaz interjecting about University of Florida immediately after Drazen says he graduated there; Drazen replies 'Yes. But... they were they were pretty strict,' a natural rebuttal to a 'party school' quip. UF has that colloquial reputation."}
+      ],
+      "legal_tags": ["smalltalk"],
+      "callout": null
+    },
+    {
+      "timestamp": "01:23:37",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Drazen continues about the University of Florida: students had to earn their AA and apply to an 'upper division' school or be kicked out; his was liberal arts and sciences. He wanted to live in New York City, was there by December 1984, graduated from law school, and then moved to Los Angeles (year garbled as 'fall of 198'). Faraaz notes UF is a very good school in medicine.",
+      "key_quotes": [],
+      "corrections": [
+        {"raw": "fall of 198", "corrected": "[incomplete year — likely fall of 1988]", "basis": "Line 79: 'graduated from law school and and I moved to Los Angeles in the fall of 198.' Truncated digit. A standard three-year JD begun ~fall 1985 would end 1988, but the final digit is not in the text; flagged rather than fixed."}
+      ],
+      "legal_tags": ["smalltalk"],
+      "callout": null
+    },
+    {
+      "timestamp": "01:24:38",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Geographic small talk: Drazen clarifies the University of Florida is in Gainesville, north-central Florida (not Miami), inland and brutally hot in summer. He then moved to New York, later Los Angeles (which he didn't love), then back east to Westchester, commuting into the city until about 1991-92, when he returned to Binghamton.",
+      "key_quotes": [],
+      "corrections": [
+        {"raw": "Bingington", "corrected": "Binghamton", "basis": "Line 101: 'I I came back to Bingington' — same phonetic garble of Binghamton, Drazen's practice location."}
+      ],
+      "legal_tags": ["smalltalk"],
+      "callout": null
+    },
+    {
+      "timestamp": "01:25:30",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Nostalgia about NYC student life. Drazen recalls his studio apartment with a brick-wall view renting for $692, guessing it would be about $2,000 now (Faraaz says $10,000 easily); his last apartment was about $700. Faraaz asks whether New York was always this hot, saying the heat is unbearable now.",
+      "key_quotes": [],
+      "corrections": [],
+      "legal_tags": ["smalltalk"],
+      "callout": null
+    },
+    {
+      "timestamp": "01:26:16",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Drazen describes his last apartment's small terrace with a view of the George Washington Bridge and praises the Upper West Side as a 24-hour part of the city, contrasting it with the East Side where everything closed at 11. Faraaz calls the East Side 'bougie' and 'prim and proper' (transcribed 'proven and proper'). Drazen says he preferred the West Side but his East Side spot was okay because it was next to a subway entrance for his commute to school near Union Square.",
+      "key_quotes": [],
+      "corrections": [
+        {"raw": "proven and proper", "corrected": "prim and proper (probable)", "basis": "Line 129, Faraaz characterizing the Upper East Side right after calling it 'bougie'; 'prim and proper' is the standard idiom and phonetically close."}
+      ],
+      "legal_tags": ["smalltalk"],
+      "callout": null
+    },
+    {
+      "timestamp": "01:27:04",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Drazen says he attended Benjamin N. Cardozo School of Law (transcribed 'Benjamin and Cardardoza'), up the street from NYU. He explains he lived where he found an apartment; at the very beginning of law school he lived on 112th Street and took the 1 train downtown, exiting at 12th Street.",
+      "key_quotes": [],
+      "corrections": [
+        {"raw": "Benjamin and Cardardoza", "corrected": "Benjamin N. Cardozo School of Law", "basis": "Line 144: 'I went to Benjamin and Cardardoza, which is up the street from NYU' — Cardozo School of Law is on Fifth Avenue near 12th Street in Greenwich Village, matching line 158 'schools on Fifth Avenue and 12th Street.'"}
+      ],
+      "legal_tags": ["smalltalk"],
+      "callout": null
+    },
+    {
+      "timestamp": "01:28:07",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Drazen finishes the housing story: school was on Fifth Avenue and 12th Street, and when his 100-plus-street lease ran out he took an apartment at 84th and Lexington. Faraaz says the family keeps bumping into lawyers in their neighborhood and met a very nice one who reminded them of Drazen — warm rapport-building rather than substance.",
+      "key_quotes": [],
+      "corrections": [],
+      "legal_tags": ["smalltalk"],
+      "callout": null
+    },
+    {
+      "timestamp": "01:29:03",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)", "Haseeb Rahman (father)"],
+      "clean_summary": "Final small talk (Columbia University students on the Upper West Side; Faraaz invites Drazen to a Met/planetarium 'after dark' event; Drazen: 'we'll see what happens'), then Drazen wraps up the call. He tells the family 'we're going to talk soon' and, addressing Haseeb ('Hassie'), instructs: 'Try to get me all that that information' — reaffirming the document/information-collection task assigned to the father earlier in the meeting. Goodbyes follow; a final garbled fragment under Haseeb's label ('is like hospital. health. Take for later. on the phone.') is unparseable.",
+      "key_quotes": [
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "So, we're going to talk we're going to talk soon... Hassie. Try to get me all that that information.", "significance": "Counsel's closing directive assigning evidence/information collection to Haseeb Rahman and committing to a follow-up call — anchors the family's discovery-support workstream (matches the earlier 'Collect Information' next-step attributed to Haseeb)."}
+      ],
+      "corrections": [
+        {"raw": "Hassie", "corrected": "Haseeb (Haseeb Rahman)", "basis": "Line 190: Drazen says 'Bye, Hassie. Try to get me all that that information' and the 'haseeb rahman'-labeled speaker immediately responds 'Thank you. Take care.' Phonetic clipping of Haseeb; consistent with seg-03 where Haseeb points counsel to exhibits and the notes' '[haseeb rahman] Collect Information' next step."},
+        {"raw": "Colombia", "corrected": "Columbia (Columbia University)", "basis": "Line 169: 'upper west side you have a lot of kids from Colombia who stay there'; Drazen replies 'that's up up toward, you know, 110th Street' — Columbia University's Morningside Heights campus is at ~116th St, so this is the university, not the country."}
+      ],
+      "legal_tags": ["action_item", "discovery", "evidence"],
+      "callout": "Only substantive moment in the segment: Drazen closes by tasking Haseeb Rahman with gathering 'all that information' for him and promising to talk soon."
+    }
+  ],
+  "facts": [
+    {
+      "fact": "At the close of the meeting, attorney Drazen directed Haseeb Rahman (client's father) to collect and send him 'all that information' referenced earlier in the call, confirming the father's role in assembling evidence/documents for the case.",
+      "timestamp": "01:29:03",
+      "quote_anchor": "Hassie. Try to get me all that that information.",
+      "claim_links": ["discovery/evidence development supporting all claims (malicious prosecution, discrimination/retaliation claims generally)"]
+    },
+    {
+      "fact": "Drazen committed to a near-term follow-up conversation with the family ('we're going to talk soon'), indicating active ongoing case management ahead of the November 2026 mediation deadline.",
+      "timestamp": "01:29:03",
+      "quote_anchor": "we're going to talk we're going to talk soon",
+      "claim_links": ["case management / mediation preparation (no specific cause of action)"]
+    }
+  ],
+  "action_items": [
+    {
+      "item": "Collect and send attorney Drazen 'all that information' (the documents/information discussed earlier in the meeting)",
+      "owner": "Haseeb Rahman (father)",
+      "deadline_stated": null,
+      "timestamp": "01:29:03"
+    },
+    {
+      "item": "Follow-up attorney-client call ('we're going to talk soon')",
+      "owner": "Douglas Walter Drazen (attorney) with the Rahman family",
+      "deadline_stated": null,
+      "timestamp": "01:29:03"
+    }
+  ],
+  "damages_mentions": [],
+  "open_questions": [
+    "What exactly is 'all that information' Drazen asked Haseeb to gather? The referent is in earlier segments (seg-03 exhibit/forgery discussion and the notes' '[haseeb rahman] Collect Information' next step), not restated here — cross-segment linkage needed.",
+    "Final Haseeb turn at line 200 ('care. is like hospital. health. Take for later. on the phone. Okay.') is unparseable cross-talk; it contains the words 'hospital' and 'health' but no recoverable meaning — possibly background conversation after goodbyes.",
+    "Line 79 'fall of 198' — Drazen's LA move year is truncated (likely 1988); immaterial to the case but left uncorrected in the record.",
+    "Stray one-word turn 'Philip' (line 57, Faraaz label) has no context and could not be resolved.",
+    "Line 51 'with the PC as silence' (describing LIC properties) is unresolved garble; no correction attempted.",
+    "Transcript header notes 'Transcription ended after 01:33:27' but the last timestamp block is 01:29:03 — roughly 4 minutes of trailing audio (mostly goodbyes/cross-talk) may be compressed into the final block."
+  ]
+}

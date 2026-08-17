@@ -1,0 +1,236 @@
+{
+  "segment_id": "seg-05",
+  "blocks": [
+    {
+      "timestamp": "01:05:45",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Faraaz explains he plans to try to bring ACGME to the table via a complaint from his side. He then raises pursuing a claim against the prosecution for malicious prosecution ('mis prosecution'), stating he meets 'all four' elements and that the only element previously missing was the acquittal, which he could not obtain immediately. He explains his fear had been that the pending charge alone was damaging enough that he would never get a job.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "I have charged the prosecution for mis prosecution as well but I I I meet I don't I meet all four and I wouldn't qualify to charge them if I um the only thing left was the acquitt", "significance": "Client asserts the four elements of a malicious prosecution claim are now satisfied, with the Sept 2025 NOT GUILTY acquittal supplying the favorable-termination element."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "My fear was that I I would not get a job um ever. And so it was the idea of the the way the charge placed on me was damaging enough.", "significance": "Direct statement of reputational/employment damage flowing from the criminal charge — supports damages on malicious prosecution and related claims."}
+      ],
+      "corrections": [
+        {"raw": "mis prosecution", "corrected": "malicious prosecution", "basis": "Speaker says he 'meet[s] all four' (the four elements of malicious prosecution) and that 'the only thing left was the acquitt' — favorable termination, the classic final element; consistent with case background (acquittal Sept 2025, malicious prosecution theory)."},
+        {"raw": "the acquitt", "corrected": "the acquittal", "basis": "Truncated word; refers to the Sept 2025 NOT GUILTY verdict in the related criminal case, the favorable-termination element being discussed."}
+      ],
+      "legal_tags": ["malicious_prosecution", "damages", "timeline"],
+      "callout": "Client frames the acquittal as completing all four elements of a malicious prosecution claim and articulates employment-loss damage from the charge itself."
+    },
+    {
+      "timestamp": "01:06:49",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Faraaz argues that bringing a charge against the prosecution would change his narrative — that 'the entire thing was rotten from the top' — and could add leverage. Drazen is openly skeptical ('I don't hold out a lot of hope for it') and says he will look at it, referencing 'the elements.' Faraaz recounts family strategy shaped by his father: they would tell the jury they only paid lawyer fees and want nothing but to clear his name, and that you cannot fight on multiple fronts because the DA will not settle and will drag it on.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "the charge on them at least would change my narrative was that the entire thing was rotten from the top and also it would pro possibly give us a bit more leverage.", "significance": "Client's stated strategic rationale for a malicious-prosecution action against the prosecution: narrative control and settlement leverage in the civil case."},
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "I'll take a look at it. I don't I I don't hold out a lot of hope for it.", "significance": "Counsel's contemporaneous skepticism about suing the prosecution/DA — likely prosecutorial-immunity and elements concerns; important record of legal advice given."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "we we only paying lawyer fees. We don't want any um you know ... It is only to clear my name.", "significance": "Establishes criminal-defense attorney fees as out-of-pocket damages and documents the family's stated motive (clearing name, not money) in the criminal matter."}
+      ],
+      "corrections": [],
+      "legal_tags": ["malicious_prosecution", "damages"],
+      "callout": "Counsel signals low confidence in a claim against the prosecution/DA despite client's leverage theory; criminal defense fees identified as paid out of pocket."
+    },
+    {
+      "timestamp": "01:07:48",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Faraaz continues: the family paid the criminal defense lawyers separately and intended to tell the jury they sought no compensation. He recalls counsel previously saying the DA will drag the case on and will not settle because settling would set a precedent for everyone else to sue. He says he considered waiting until he obtained his visa and medical license, noting a medical-license ethics committee reviews charges, so the narrative matters for licensure. Drazen again says he will take a look at it.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "they will not settle because it sets a precedent for everybody else to sue.", "significance": "Client's recollection of counsel's assessment of DA settlement posture — relevant to strategy and to expectations for any claim against the prosecution."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "for a medical license there is ... the disc ethical committee goes through it", "significance": "Ties the criminal charge to professional-licensure consequences — a distinct head of damages (impaired licensure/career path) beyond lost employment."}
+      ],
+      "corrections": [
+        {"raw": "the disc ethical committee", "corrected": "the disciplinary/ethics committee (medical licensure review)", "basis": "Fragmented speech in a sentence expressly about 'for a medical license there is...'; medical licensing boards screen applicants' criminal charges via ethics/disciplinary review. Minimal-cleanup reading of the truncated 'disc'."}
+      ],
+      "legal_tags": ["malicious_prosecution", "damages", "timeline"],
+      "callout": "Charge's impact on medical licensure (ethics committee review) and visa timing raised — licensure impairment is a damages theory to develop."
+    },
+    {
+      "timestamp": "01:08:55",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Drazen closes the malicious-prosecution topic ('I'll take a look at that') and pivots to evidence: he asks Faraaz to get him the names 'of these people,' and asks whether Faraaz has 'that poster they made of you' — a circulated CCTV image. Faraaz confirms he has it and recounts that he learned of it when a UHS nurse messaged him asking 'is this you' because it had spread — which he characterizes as the defamation part. Drazen asks him to find it and resend it.",
+      "key_quotes": [
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "but I think it's very important. Get me the names. of these people.", "significance": "Counsel directive — identification of witnesses/actors for the complaint and discovery."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "a nurse messaged me saying that is this you a nurse from UHS because it had spread and that's ... the defamation part", "significance": "Third-party publication evidence: the poster/CCTV image circulated within UHS and was recognized by staff — supports defamation/stigma and reputational damages."}
+      ],
+      "corrections": [],
+      "legal_tags": ["evidence", "action_item", "damages"],
+      "callout": "The circulated 'poster' (CCTV image) plus a UHS nurse's message proving its spread is key defamation/stigma evidence; counsel wants it resent and wants names."
+    },
+    {
+      "timestamp": "01:09:34",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Light banter about the CCTV photo ('I never thought I would look good in a CCTV photograph') and Drazen's daughter's summer schedule (planetarium, seventh-grade math). Mid-banter, Faraaz returns to business: 'this is the picture which they had taken' and says he will send it by email; Drazen confirms 'I definitely want that.'",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "this is the picture which they had taken. I'm going to send it to you on ... email", "significance": "Client committing to transmit the circulated CCTV poster image — the defamation exhibit — to counsel."},
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "Okay. Yeah, I I I definitely want that.", "significance": "Counsel confirms the poster image is wanted as evidence."}
+      ],
+      "corrections": [
+        {"raw": "dog", "corrected": "Doug (Douglas Drazen)", "basis": "'How's your daughter, dog' — Faraaz addresses the attorney by first name throughout ('Doug' at 01:08:55 line 'the way I knew Doug'); ASR mishears 'Doug' as 'dog' repeatedly in this segment."}
+      ],
+      "legal_tags": ["smalltalk", "action_item", "evidence"],
+      "callout": "Mostly smalltalk, but contains the client's commitment to email the CCTV poster exhibit to counsel."
+    },
+    {
+      "timestamp": "01:10:28",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Drazen lays out the discovery demand plan: they will ask for Faraaz's entire academic record, entire medical record, and either access to his (work) email account or hard copies of everything — an enormous amount of material — suggesting it would be to UHS's advantage to just give access to the email itself. Faraaz confirms he just emailed the picture during the call, then flags a critical detail he found while reviewing documents: his login for his board exam was on his work email, so he could not log in.",
+      "key_quotes": [
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "we're going to ask for your entire academic record. We're going to ask for your entire medical record. We're going to ask for ... access to your email account or we want hard copies printed out of everything.", "significance": "Defines the core document-discovery demands against UHS: academic record, medical record, and work email access/hard copies."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "my login for my board exam was on my work email I couldn't login", "significance": "Concrete harm from UHS cutting email access: lost access to board-exam registration — supports damages and shows the email account's evidentiary importance."}
+      ],
+      "corrections": [],
+      "legal_tags": ["discovery", "damages", "evidence"],
+      "callout": "Discovery blueprint stated on the record: full academic record, full medical record, and work-email access; email cutoff blocked the client's board-exam login."
+    },
+    {
+      "timestamp": "01:11:15",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Faraaz adds that the board exam fee was supposed to be paid by UHS, which they did not pay, and that he could not even print his exam registration. He thanks Drazen for taking time on a Sunday and invites him to the Bronx Zoo. Drazen says the draft (complaint/demands) is a work in progress he is not entirely satisfied with, and — prompted by Faraaz's account — adds a new discovery target: the records concerning Ahmed's departure from UHS, noting UHS 'may chafe at this.'",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "board exam was supposed to be paid by UHS which they didn't", "significance": "Alleged breach of an employment/program obligation — unpaid board exam fee is a discrete, provable out-of-pocket damage item."},
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "they may chafe at this, but we want the records with respect to um Ahmed um departure from their from from them.", "significance": "Counsel commits to seeking discovery of defendant Awais Ahmed MD's departure/separation records from UHS — probative of the disciplinary action Faraaz's complaint triggered."}
+      ],
+      "corrections": [
+        {"raw": "Ahmed", "corrected": "Awais Ahmed MD (defendant)", "basis": "Per roster/glossary: 'Oasis/O Ahmed/OS Ahmed' = Awais Ahmed MD, the defendant fired from UHS following Faraaz's HR complaint (seg-01); the departure records sought here concern that same doctor."}
+      ],
+      "legal_tags": ["discovery", "damages", "action_item"],
+      "callout": "UHS's unpaid board-exam fee is a clean out-of-pocket damages item; counsel adds Ahmed's UHS departure records to the discovery list."
+    },
+    {
+      "timestamp": "01:12:28",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Drazen extends the discovery targets to 'the demotion, the replacement' (personnel actions around Ahmed). Faraaz says the request is a testament to Ahmed's character and notes he filed an HR complaint against Ahmed, proposing they request that complaint and all HR complaints against him. Drazen cautions they likely cannot get all complaints, only 'complaints of a similar nature' — of a discriminatory nature. Faraaz pushes back that Ahmed's conduct was not exactly discrimination but cruelty rooted in majority-group impunity — belonging to a group happy to be in the majority and ensuring no one challenged it.",
+      "key_quotes": [
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "we can ask for complaints of a similar nature. We can't I don't think we can ask for all complaints against him", "significance": "Counsel scoping the HR-complaint discovery to similar/discriminatory-nature complaints — realistic view of permissible pattern discovery."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "that hery came from the fact that he belonged to a group of people who were very happy to be in the majority and make sure that nobody else challenged that majority", "significance": "Client's theory of Ahmed's animus — majority-group impunity — feeds the pattern/hostile-environment narrative even as client resists a pure 'discrimination' label."}
+      ],
+      "corrections": [
+        {"raw": "a very hid man / that hery", "corrected": "[unresolved garble — plausibly 'horrid man' / 'that hatred'; insufficient basis to fix]", "basis": "Context is pejorative characterization of Ahmed ('ugly person' at 01:13:37), but the exact words are unrecoverable from text alone; left flagged rather than fabricated."}
+      ],
+      "legal_tags": ["discovery", "pattern_discrimination"],
+      "callout": "Discovery scoping tension: counsel wants similar-nature (discriminatory) complaints against Ahmed; client nuances the animus as majority-group impunity rather than textbook discrimination — pleading language should be chosen carefully."
+    },
+    {
+      "timestamp": "01:13:37",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Faraaz elaborates the impunity/herd-mentality theory of Ahmed's conduct, conceding he was a 'good doctor but ugly person.' He states he filed official complaints as a resident in 2021 and 2022 against Ahmed, sent from his hospital email — not personal email — and written 'very categorically.' Drazen asks him to send, as best he can, a list of those complaints. Faraaz begins describing how other Pakistani residents who wanted cardiology would appease Ahmed.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "I have filed official complaints as a resident in 2021 2022 against ... it's there from the from my hospital email.", "significance": "Dates and locates key retaliation-predicate evidence: official complaints in 2021 and 2022 residing on the UHS hospital email system — strengthens the demand for email-account access and litigation-hold/spoliation posture."},
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "Send me send me as best you can a a list of of those.", "significance": "Counsel tasking: itemized list of the official complaints for pleading and discovery."}
+      ],
+      "corrections": [],
+      "legal_tags": ["evidence", "action_item", "timeline", "pattern_discrimination"],
+      "callout": "2021 and 2022 official complaints against Ahmed live on the UHS hospital email system — preservation and production of that account is critical."
+    },
+    {
+      "timestamp": "01:14:42",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)"],
+      "clean_summary": "Faraaz recounts specific mistreatment: other residents from Pakistan appeased Ahmed, including by putting Faraaz down in front of him. After Faraaz said he would not work with Ahmed, he was forced to; for an entire week Ahmed did not let him see a single patient (versus the normal ~10), did not look him in the eye, and did not speak to him, while a fellow mocked him for laughter. Faraaz finally confronted him publicly and politely: 'hey Dr. [Ahmed], do you think we could talk outside for a minute?'",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "that man did not let me see a single patient the whole week he didn't look me in the eye the whole week he didn't talk to me the whole week", "significance": "Specific, vivid factual allegation of retaliatory/hostile treatment with a quantifiable training deprivation (0 patients vs. normal ~10) — core hostile-environment and retaliation evidence."}
+      ],
+      "corrections": [
+        {"raw": "Dr. Emma", "corrected": "Dr. Ahmed (Awais Ahmed MD, defendant) — probable", "basis": "The anecdote is continuous about the same man Faraaz refused to work with and filed HR complaints against (Ahmed, per 01:12:28-01:13:37); 'Emma' is a plausible ASR mishearing of 'Ahmed'. Confidence moderate (~0.7) — flagged rather than certain."},
+        {"raw": "int fellow", "corrected": "[unresolved — possibly 'the fellow' (cardiology fellow)]", "basis": "'the fellow who has spent the entire week mocking me' at 01:15:55 confirms a fellow is the mocker; the 'int' fragment itself is unrecoverable."}
+      ],
+      "legal_tags": ["pattern_discrimination", "evidence", "damages"],
+      "callout": "Concrete week-long freeze-out by Ahmed (zero patient assignments, no communication) — quantifiable hostile-treatment allegation for the complaint."
+    },
+    {
+      "timestamp": "01:15:55",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)"],
+      "clean_summary": "Faraaz finishes the anecdote: he told Ahmed he was a 24-year-old alone in the country, his parents dealing with a family tragedy, planning his own wedding, and apologized if he had said something wrong; Ahmed said 'No, brother, you're all good' and hugged him. But first, the fellow who had mocked him all week stopped Ahmed and whispered something in his ear in front of everyone. Faraaz says the dynamic encouraged others to behave more vilely, and states he has text messages from his senior asking him not to complain to this doctor because the senior wanted to match into cardiology.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "I have text messages from my senior who said that like listen uh could you not say this to this doctor because you know ... I want to match into cardiology", "significance": "Documentary corroboration (text messages) that colleagues understood complaining to/about Ahmed carried career retaliation risk — powerful pattern/culture-of-fear evidence."}
+      ],
+      "corrections": [],
+      "legal_tags": ["pattern_discrimination", "evidence"],
+      "callout": "Senior resident's texts — 'don't complain, I want to match into cardiology' — corroborate a retaliatory culture around Ahmed; must be preserved."
+    },
+    {
+      "timestamp": "01:16:57",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Drazen asks whether Faraaz can print out the text messages. Faraaz says they should still be in his iMessage despite his phone number change and commits to tracking them down. Drazen also asks him to go through the records they have and annotate them. Faraaz says he spent the past two nights doing exactly that: he had saved about 4,000 pages of documents and will give Drazen a whole document he is developing.",
+      "key_quotes": [
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "Are are you able to print out the text messages? ... Try try to get them.", "significance": "Counsel directs preservation/production of the senior's text messages."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "there were about uh 4,000 pages of documents I had saved", "significance": "Quantifies the client's preserved evidence corpus (~4,000 pages) — a substantial self-collected record supporting the claims and discovery responses."}
+      ],
+      "corrections": [],
+      "legal_tags": ["evidence", "action_item", "discovery"],
+      "callout": "Client holds ~4,000 pages of saved documents and recoverable iMessage texts; counsel tasks retrieval of texts and an annotated document review."
+    },
+    {
+      "timestamp": "01:17:46",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Conversation shifts to personal matters: Faraaz mentions his mother wants to visit the Natural History Museum in New York and invites Drazen and his wife to visit and be hosted. They chat about where Drazen used to live in Manhattan (108th Street, 112th Street, 84th and Lexington). Faraaz mentions his pharmacy is near Mount Sinai around 96th and Madison.",
+      "key_quotes": [],
+      "corrections": [
+        {"raw": "90 Mount Si", "corrected": "Mount Sinai (pharmacy near Mount Sinai, ~96th & Madison)", "basis": "Immediately followed by 'So 96 then Madison' — Mount Sinai Hospital's campus sits at Madison Avenue in the upper 90s/low 100s; 'Mount Si' is a truncation of 'Mount Sinai'."},
+        {"raw": "National History Museum", "corrected": "American Museum of Natural History", "basis": "Common colloquial misnomer; the New York museum his mother wants to visit ('in New York... National History Museum') is the American Museum of Natural History."}
+      ],
+      "legal_tags": ["smalltalk"],
+      "callout": null
+    },
+    {
+      "timestamp": "01:18:44",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Continued personal chat about Manhattan: Drazen recalls living at 71st and Broadway near the 72nd Street subway station and Gray's Papaya ('the hot dog and the pineapple juice'), noting life there was far less expensive then. Faraaz and Drazen banter about Columbus Circle and the Upper West Side geography.",
+      "key_quotes": [],
+      "corrections": [
+        {"raw": "Grace Papaya", "corrected": "Gray's Papaya", "basis": "Described as the hot-dog-and-pineapple-juice spot above the 72nd Street subway station at 71st/72nd & Broadway — the well-known Gray's Papaya location."}
+      ],
+      "legal_tags": ["smalltalk"],
+      "callout": null
+    },
+    {
+      "timestamp": "01:19:38",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "More NYC reminiscing: Faraaz notes even Queens is expensive and the south side of Harlem is heavily gentrified. Drazen recalls ice skating at the Lasker Rink at the northern end of Central Park in 1985, when buildings on Central Park North were semi-derelict. Faraaz then asks Drazen what he thinks of Giuliani; the segment ends mid-exchange.",
+      "key_quotes": [],
+      "corrections": [
+        {"raw": "Alaska rink", "corrected": "Lasker Rink", "basis": "Described as the ice-skating rink 'at the northern end of Central Park' — that rink is the Lasker Rink; 'Alaska' is a phonetic mishearing of 'Lasker'."}
+      ],
+      "legal_tags": ["smalltalk"],
+      "callout": null
+    }
+  ],
+  "facts": [
+    {"fact": "Faraaz asserts he now meets all four elements of a malicious prosecution claim against the prosecution, the acquittal having been the last missing element.", "timestamp": "01:05:45", "quote_anchor": "I meet all four ... the only thing left was the acquitt", "claim_links": ["malicious prosecution (potential new claim vs. prosecution/DA)", "malicious prosecution vs. existing defendants"]},
+    {"fact": "Counsel (Drazen) is skeptical of a claim against the prosecution/DA: 'I don't hold out a lot of hope for it,' but agreed to review it.", "timestamp": "01:06:49", "quote_anchor": "I don't hold out a lot of hope for it", "claim_links": ["malicious prosecution (viability assessment)"]},
+    {"fact": "The family paid the criminal defense lawyers separately, seeking no compensation in the criminal matter — only to clear Faraaz's name.", "timestamp": "01:07:48", "quote_anchor": "We have paid the lawyers separately", "claim_links": ["malicious prosecution (special damages: defense costs)", "damages"]},
+    {"fact": "A 'poster' made from Faraaz's CCTV image spread within UHS; a UHS nurse messaged him asking if it was him — evidence of internal publication.", "timestamp": "01:08:55", "quote_anchor": "a nurse messaged me saying that is this you", "claim_links": ["defamation/stigma", "reputational damages", "malicious prosecution damages"]},
+    {"fact": "Faraaz emailed the CCTV poster image to Drazen during the call.", "timestamp": "01:10:28", "quote_anchor": "I just uh emailed you the picture", "claim_links": ["evidence transmission (defamation exhibit)"]},
+    {"fact": "Planned discovery demands: Faraaz's entire academic record, entire medical record, and access to his work email account or hard copies of everything.", "timestamp": "01:10:28", "quote_anchor": "entire academic record ... entire medical record ... access to your email account", "claim_links": ["all claims (discovery plan)", "FMLA/ADA/Title VI record development"]},
+    {"fact": "Faraaz's board-exam login was on his UHS work email and he could not log in after losing access; UHS was supposed to pay the board exam fee and did not.", "timestamp": "01:11:15", "quote_anchor": "board exam was supposed to be paid by UHS which they didn't", "claim_links": ["damages (out-of-pocket, career impairment)", "retaliation (post-termination harm)"]},
+    {"fact": "Counsel will seek UHS records regarding defendant Awais Ahmed MD's departure, plus 'the demotion, the replacement' personnel actions.", "timestamp": "01:11:15", "quote_anchor": "records with respect to um Ahmed um departure", "claim_links": ["pattern/notice evidence", "retaliation", "Title VI/discrimination"]},
+    {"fact": "Counsel's view on scope: they can request HR complaints against Ahmed 'of a similar nature' (discriminatory), not all complaints.", "timestamp": "01:12:28", "quote_anchor": "complaints of a similar nature", "claim_links": ["pattern discrimination (discovery scope)"]},
+    {"fact": "Faraaz filed official complaints against Ahmed as a resident in 2021 and 2022, sent from his UHS hospital email account.", "timestamp": "01:13:37", "quote_anchor": "official complaints as a resident in 2021 2022", "claim_links": ["retaliation (protected activity predicate)", "timeline", "spoliation/preservation of UHS email"]},
+    {"fact": "After Faraaz refused to work with Ahmed and was forced to anyway, Ahmed gave him zero patients for an entire week (normal ~10), refused eye contact and did not speak to him, while a fellow mocked him.", "timestamp": "01:14:42", "quote_anchor": "did not let me see a single patient the whole week", "claim_links": ["hostile environment", "retaliation", "pattern discrimination"]},
+    {"fact": "Faraaz possesses text messages from a senior resident asking him not to complain about/to Ahmed because the senior wanted to match into cardiology.", "timestamp": "01:15:55", "quote_anchor": "could you not say this to this doctor", "claim_links": ["pattern discrimination (culture of fear)", "retaliation corroboration"]},
+    {"fact": "Faraaz saved approximately 4,000 pages of documents and spent the prior two nights annotating the records; he will provide counsel a compiled document.", "timestamp": "01:16:57", "quote_anchor": "about uh 4,000 pages of documents I had saved", "claim_links": ["evidence corpus (all claims)"]}
+  ],
+  "action_items": [
+    {"item": "Review viability of the malicious-prosecution/claim-against-the-prosecution idea (elements, likely immunity issues).", "owner": "Douglas Walter Drazen (attorney)", "deadline_stated": null, "timestamp": "01:06:49"},
+    {"item": "Send Drazen the names 'of these people' (re-define/re-send the list of names).", "owner": "Dr. Faraaz Rahman", "deadline_stated": null, "timestamp": "01:08:55"},
+    {"item": "Find and resend the CCTV poster image to Drazen (completed during the call — emailed at 01:10:28).", "owner": "Dr. Faraaz Rahman", "deadline_stated": null, "timestamp": "01:08:55"},
+    {"item": "Add to discovery: UHS records on Ahmed's departure, and the demotion/replacement personnel actions.", "owner": "Douglas Walter Drazen (attorney)", "deadline_stated": null, "timestamp": "01:11:15"},
+    {"item": "Send Drazen a list of the official complaints filed against Ahmed (2021, 2022, on hospital email).", "owner": "Dr. Faraaz Rahman", "deadline_stated": null, "timestamp": "01:13:37"},
+    {"item": "Track down and print the text messages from the senior resident (iMessage, despite phone number change).", "owner": "Dr. Faraaz Rahman", "deadline_stated": null, "timestamp": "01:16:57"},
+    {"item": "Go through the ~4,000 pages of saved records, annotate significant items, and deliver a compiled document to Drazen.", "owner": "Dr. Faraaz Rahman", "deadline_stated": null, "timestamp": "01:16:57"}
+  ],
+  "damages_mentions": [
+    {"category": "Reputational/employment harm from criminal charge", "amount_raw": "not quantified", "basis_stated": "Fear of never getting a job; 'the way the charge placed on me was damaging enough'", "timestamp": "01:05:45"},
+    {"category": "Criminal defense attorney fees (out of pocket)", "amount_raw": "not quantified", "basis_stated": "Family 'paid the lawyers separately' in the criminal matter; only sought to clear his name", "timestamp": "01:07:48"},
+    {"category": "Professional licensure impairment", "amount_raw": "not quantified", "basis_stated": "Medical-license ethics/disciplinary committee reviews the charge; narrative affects licensure and visa timing", "timestamp": "01:07:48"},
+    {"category": "Defamation/reputational (internal publication)", "amount_raw": "not quantified", "basis_stated": "CCTV 'poster' spread at UHS; a UHS nurse recognized and messaged him", "timestamp": "01:08:55"},
+    {"category": "Career/exam disruption + out-of-pocket", "amount_raw": "board exam fee (unquantified)", "basis_stated": "Board-exam login locked inside UHS work email; UHS failed to pay the board exam fee it was supposed to pay; could not print registration", "timestamp": "01:11:15"}
+  ],
+  "open_questions": [
+    "Viability of a malicious-prosecution or related claim against the DA/prosecution given absolute prosecutorial immunity — Drazen flagged low hope; outcome of his review unknown.",
+    "Who exactly are 'these people' whose names Drazen requested at 01:08:55 (context suggests those who made/spread the poster, but the antecedent is not explicit in this segment).",
+    "Identity confirmation of 'Dr. Emma' (01:14:42) — treated as probable garble of 'Dr. Ahmed' (Awais Ahmed MD) from narrative continuity, confidence ~0.7.",
+    "Unresolved garbles: 'a very hid man'/'that hery' (01:12:28, pejorative characterization of Ahmed — possibly 'horrid'/'hatred'); 'It says if team contact' (01:10:28, likely fragment of the emailed picture's caption/metadata); 'int fellow' (01:14:42).",
+    "Whether the ACGME complaint route Faraaz plans (01:05:45) will be pursued and how it interacts with the federal case.",
+    "Whether the senior resident's text messages survive the phone-number change and can be authenticated (Faraaz believes they remain in iMessage).",
+    "Status of Faraaz's medical licensure ethics-committee review and visa timeline referenced at 01:07:48."
+  ]
+}

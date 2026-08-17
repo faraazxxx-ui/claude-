@@ -1,0 +1,151 @@
+{
+  "title": "Action Tracker \u2014 Rahman v. UHSH et al., 3:26-cv-00197 (N.D.N.Y.)",
+  "subtitle": "Attorney Work Product \u2014 Privileged & Confidential | All 16 action items from the Aug 2, 2026 attorney meeting (data/action_items.json), week-paced per mediation/action-schedule.md; no court deadline exists for any item except the November 2026 mediation completion (DZ-03); DZ-01 also carries an unspecified scheduling-order deadline (confirm with counsel).",
+  "updated": "2026-08-02",
+  "data": [
+    {
+      "id": "FR-01",
+      "item": "Gather actual bank records documenting family expenditures and financial hardship (father's ~$300k/yr transfers structured as a loan, Dubai cash medical payments, living expenses) and send to counsel; client has already run bank records through AI analysis.",
+      "owner": "Dr. Faraaz Rahman (client)",
+      "status": "open",
+      "deadline": "not stated",
+      "week": "W2 (Aug 10-16)",
+      "schedule_note": "One financial-records sitting; locate the executed Florida contract in the same sitting (Substantive 1 of 2). Haseeb couriers output to Drazen (HB-01)."
+    },
+    {
+      "id": "FR-02",
+      "item": "Preliminarily review the academic records already in hand; mark every entry that is unfair, inaccurate, or damaging and send the markup to Drazen to frame the removal/correction demand.",
+      "owner": "Dr. Faraaz Rahman (client)",
+      "status": "open",
+      "deadline": "not stated",
+      "week": "W3 (Aug 17-23)",
+      "schedule_note": "Heavy-emotional \u2014 scheduled alone, nothing else this week (pacing rule 3); feeds the record-correction relief and the omnibus amendment."
+    },
+    {
+      "id": "FR-03",
+      "item": "Locate and send Drazen the 2022 ten-page line-by-line rebuttal email (sent to the entire GME from the UHS work email; client to search for a personal copy).",
+      "owner": "Dr. Faraaz Rahman (client)",
+      "status": "open",
+      "deadline": "not stated",
+      "week": "W4 (Aug 24-30)",
+      "schedule_note": "Only task in the mandatory light recovery week after FR-02; the DZ-01 work-email demand is the fallback if no personal copy is found."
+    },
+    {
+      "id": "FR-04",
+      "item": "Send Drazen a list of the official complaints filed against Dr. Awais Ahmed as a resident in 2021 and 2022 (sent from the UHS hospital email account).",
+      "owner": "Dr. Faraaz Rahman (client)",
+      "status": "open",
+      "deadline": "not stated",
+      "week": "W1 (Aug 3-9)",
+      "schedule_note": "Part of the SoL-critical retrieval batch, one sitting (pacing rule 1: SoL-critical inputs first regardless of load)."
+    },
+    {
+      "id": "FR-05",
+      "item": "Track down and print the text messages from the senior resident asking him not to complain about Dr. Ahmed ('I want to match into cardiology'); believed recoverable in iMessage despite phone-number change.",
+      "owner": "Dr. Faraaz Rahman (client)",
+      "status": "open",
+      "deadline": "not stated",
+      "week": "W1 (Aug 3-9)",
+      "schedule_note": "Part of the W1 SoL-critical retrieval batch (single sitting with FR-04 and SH-01)."
+    },
+    {
+      "id": "FR-06",
+      "item": "Go through the ~4,000 pages of saved documents, annotate significant items, and deliver the compiled document he is developing to Drazen (client spent the prior two nights on this).",
+      "owner": "Dr. Faraaz Rahman (client)",
+      "status": "open",
+      "deadline": "not stated",
+      "week": "W5-W6 (Aug 31-Sep 13)",
+      "schedule_note": "Deliberately split across two weeks (part 1 in W5, part 2 + delivery in W6); never in the same week as FR-02."
+    },
+    {
+      "id": "FR-07",
+      "item": "Initiate an ACGME complaint to bring ACGME to the table from plaintiff's side (parallel-track leverage; Drazen: 'that's fine').",
+      "owner": "Dr. Faraaz Rahman (client)",
+      "status": "open",
+      "deadline": "not stated",
+      "week": "W6 (Sep 7-13)",
+      "schedule_note": "Paired with FR-06 part 2 at the 2-substantive-tasks-per-week cap; administrative leverage, not emotionally heavy, so no heavy-on-heavy stack."
+    },
+    {
+      "id": "FR-08",
+      "item": "Find and send Drazen the circulated CCTV 'poster' image (defamation exhibit; a UHS nurse messaged him asking 'is this you').",
+      "owner": "Dr. Faraaz Rahman (client)",
+      "status": "completed_during_call",
+      "deadline": "not stated",
+      "week": "none (completed)",
+      "schedule_note": "Emailed to Drazen during the Aug 2 call at 01:10:28 ('I just uh emailed you the picture'); not scheduled."
+    },
+    {
+      "id": "FR-09",
+      "item": "Check whether 'a document for 100 million with a base of 10' is in the file \u2014 asked off-line while Drazen was momentarily away; referent never clarified on the record.",
+      "owner": "Dr. Faraaz Rahman (requestor; addressee unclear)",
+      "status": "unclear_referent",
+      "deadline": "not stated",
+      "week": "W2 (Aug 10-16) \u2014 clarification only",
+      "schedule_note": "Not scheduled as work; referent to be clarified on the W2 DZ-04 family call. Possibly ties to the $100M NEGOTIATION-POSTURE figure \u2014 never pleadable, Rule 11 caveat."
+    },
+    {
+      "id": "SH-01",
+      "item": "Identify and track down the two doctors who filed the complaint on behalf of the Indian women the family housed, and the two fired Indian physicians; provide the names to Drazen. Mother (Dr. Mubeena Iqbal) has been in contact with them and called them once.",
+      "owner": "Shared: Dr. Faraaz Rahman with Dr. Mubeena Iqbal (mother's contacts); deliverable to Douglas Walter Drazen",
+      "status": "open",
+      "deadline": "not stated",
+      "week": "W1 (Aug 3-9)",
+      "schedule_note": "Part of the W1 SoL-critical retrieval batch, with Dr. Mubeena Iqbal's contacts; matches the Gemini notes' shared 'identify doctors' item."
+    },
+    {
+      "id": "DZ-01",
+      "item": "Finish drafting and serve plaintiff's discovery demands, incorporating everything discussed in this meeting \u2014 academic record first (demand #1), then the ~14 consolidated demands (medical record, work-email access, comparator complaints, DA communications, Guthrie Apr 1-30 communications, subpoena copy, leave directives, Ahmed departure records, Nadeem texts, etc.).",
+      "owner": "Douglas Walter Drazen (attorney)",
+      "status": "open",
+      "deadline": "no set time; a schedule deadline exists but was not stated on the call",
+      "week": "W2 (Aug 10-16)",
+      "schedule_note": "Finalize and serve in W2 \u2014 responses must land before the November mediation; consolidates ~14 individual discovery-demand commitments (see action_items.json)."
+    },
+    {
+      "id": "DZ-02",
+      "item": "Evaluate the viability and timeliness (statute of limitations) of a malicious-prosecution claim against the arresting police officers and ancillary prosecution-team members (DA immune); Drazen is openly skeptical but agreed to review.",
+      "owner": "Douglas Walter Drazen (attorney)",
+      "status": "open",
+      "deadline": "not stated (urgent \u2014 'the timeliness of of it now may be in question' given the Sept 2025 acquittal; MP state-tort rail runs ~Sept 2026)",
+      "week": "W1-W3 (begin Aug 3-9, conclude Aug 17-23)",
+      "schedule_note": "Begin review in W1 alongside confirming the exact acquittal date and charging instrument; conclude in W3 feeding the omnibus amendment, filed by W5 to beat the ~Sept 2026 rail."
+    },
+    {
+      "id": "DZ-03",
+      "item": "Sequence the case so mediation is held only after defendants' discovery responses are received; court-ordered mediation must be completed by November 2026.",
+      "owner": "Douglas Walter Drazen (attorney)",
+      "status": "open",
+      "deadline": "mediation completion deadline: November 2026 (stated: 'the mediation has to be completed by November')",
+      "week": "W11-W16 (Oct 12-Nov 22)",
+      "schedule_note": "Mediator selection W11; pre-mediation gate check W14 (amendment granted, discovery responses in hand, spoliation record assembled); mediation sessions W15-16. The governing sequencing principle \u2014 Drazen will not mediate without the responses."
+    },
+    {
+      "id": "DZ-04",
+      "item": "Follow-up attorney-client call with the family.",
+      "owner": "Douglas Walter Drazen (attorney), with the Rahman family",
+      "status": "open",
+      "deadline": "not stated ('soon')",
+      "week": "W2 (Aug 10-16)",
+      "schedule_note": "Via the Verizon phone per FAM-01; the FR-09 referent is clarified on this call. Closing commitment rather than a discrete work item; likely not counted in the Gemini notes' 12."
+    },
+    {
+      "id": "HB-01",
+      "item": "Collect and send Drazen 'all that information' \u2014 the documents/information referenced earlier in the meeting (ties to the family bank/financial records and exhibit materials, e.g., '43 of the forgery' Haseeb flagged at 00:38:32).",
+      "owner": "Haseeb Rahman (father)",
+      "status": "open",
+      "deadline": "not stated",
+      "week": "W1-W4 (open Aug 3-9; close-out Aug 24-30)",
+      "schedule_note": "Family information-collection channel (pacing rule 4): open the channel and courier rhythm in W1, courier FR-01 output in W2, close-out pass in W4 before the amendment files; second courier pass W10."
+    },
+    {
+      "id": "FAM-01",
+      "item": "Call Drazen from the family's Verizon phone next time (his Verizon line cannot receive audio from AT&T/T-Mobile callers until his maintenance ticket is resolved).",
+      "owner": "Rahman family",
+      "status": "minor_logistics",
+      "deadline": "not stated",
+      "week": "standing (from W1)",
+      "schedule_note": "Standing logistics, not a scheduled slot; use the Verizon phone for all calls to Drazen. Not in the Gemini notes' 12-item count."
+    }
+  ]
+}

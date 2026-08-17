@@ -1,5 +1,10 @@
 # Damages Framework & Calculation Methodology
 
+> **Canon note (Aug 2026):** this file remains the Tier-1 line-item substrate. The unified tier model
+> (Tier 1 core / Tier 2 trial range / Tier 3 posture, $100M anchor / $40M threshold) now lives in
+> [damages-architecture.md](damages-architecture.md) with machine canon at
+> `legal-war-room/data/damages_model.json`. Update figures THERE first.
+
 Three scenario totals: **$1.2M conservative · $2.5M moderate with punitives · $4.9M full claim.**
 
 ## Contents

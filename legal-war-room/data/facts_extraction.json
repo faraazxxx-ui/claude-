@@ -1,0 +1,874 @@
+{
+  "case": "Rahman v. UHSH et al., 3:26-cv-00197 (NDNY)",
+  "source": "Merged and deduped facts from segment analyses seg-01..seg-06 (Aug 2, 2026 attorney meeting). Overlap-block duplicate facts dropped in favor of the richer twin; every fact retains its timestamp, verbatim quote_anchor, and claim_links from the segment analysis.",
+  "dedupe_drops": {
+    "seg-01[21]": "ADA lied-about-job-offer trial theory — superseded by seg-02[0] (fuller anchor)",
+    "seg-02[2,3,4]": "Nadeem texts / Rehman academic-info disclosure / body-cam access-to-Ali — duplicates of seg-01[22,23,24]",
+    "seg-03[0,1,12]": "cardiac device+prognosis, ~$1M living expenses, not-fired-despite-probation — duplicates of seg-02[17], seg-02[18], seg-04[0]",
+    "seg-04[1]": "ANSCO CCTV footage — duplicate of seg-03[15] (richer: lawyers viewed footage before dropping everything)",
+    "seg-05[0]": "meets-all-four-elements-of-malicious-prosecution — duplicate of seg-04[17] (adds ACGME plan + accrual argument)"
+  },
+  "facts": [
+    {
+      "fact": "Court-ordered mediation in Rahman v. UHS must be completed by November (2026); it is a deadline, not an earliest date.",
+      "timestamp": "00:04:20",
+      "quote_anchor": "the mediation has to be completed by November",
+      "claim_links": [
+        "case management / all claims"
+      ],
+      "source_segment": "seg-01"
+    },
+    {
+      "fact": "The July conference with the magistrate was a phone conference, fairly routine, with no schedule changes.",
+      "timestamp": "00:04:20",
+      "quote_anchor": "We had a a phone conference. It was fairly routine",
+      "claim_links": [
+        "case management / all claims"
+      ],
+      "source_segment": "seg-01"
+    },
+    {
+      "fact": "A federal court decision (expected around March) is still outstanding; Drazen knows of no time limit for the federal court to decide.",
+      "timestamp": "00:03:15",
+      "quote_anchor": "I don't know that there's any time limit for the court",
+      "claim_links": [
+        "case management / all claims"
+      ],
+      "source_segment": "seg-01"
+    },
+    {
+      "fact": "Drazen is drafting the plaintiff's discovery demands; the first demand will be the complete academic record, because the DA-produced records are likely incomplete.",
+      "timestamp": "00:05:23",
+      "quote_anchor": "the very first thing that we're going to be demanding",
+      "claim_links": [
+        "all claims — discovery strategy"
+      ],
+      "source_segment": "seg-01"
+    },
+    {
+      "fact": "Drazen does not want to mediate before receiving defendants' discovery responses.",
+      "timestamp": "00:05:23",
+      "quote_anchor": "do a mediation without having their discovery responses",
+      "claim_links": [
+        "settlement/mediation strategy"
+      ],
+      "source_segment": "seg-01"
+    },
+    {
+      "fact": "When Faraaz (with family) asked UHS for his academic records, UHS refused and called security on them; he obtained the records only through criminal discovery from the DA's office.",
+      "timestamp": "00:05:23",
+      "quote_anchor": "they refused to give it to us and they called security on us",
+      "claim_links": [
+        "retaliation",
+        "malicious_prosecution (concealment)",
+        "spoliation/discovery-conduct"
+      ],
+      "source_segment": "seg-01"
+    },
+    {
+      "fact": "Faraaz was placed on probation without being told; at the criminal trial he and Drazen argued he was never on probation while the prosecution knew otherwise.",
+      "timestamp": "00:05:23",
+      "quote_anchor": "arguing you and I that I was never on probation",
+      "claim_links": [
+        "due process / breach of contract (academic)",
+        "malicious_prosecution",
+        "FMLA/ADA retaliation"
+      ],
+      "source_segment": "seg-01"
+    },
+    {
+      "fact": "The academic record produced in criminal discovery was asserted to be incomplete/cut down, especially regarding matters involving Dr. Awais Ahmed.",
+      "timestamp": "00:06:49",
+      "quote_anchor": "they relaxed a lot of it especially what happened with Dr. O Ahmed",
+      "claim_links": [
+        "discovery strategy",
+        "spoliation awareness",
+        "discrimination (hostile environment record)"
+      ],
+      "source_segment": "seg-01"
+    },
+    {
+      "fact": "Dr. Awais Ahmed was fired from UHS a couple of days after the criminal trial, for disciplinary reasons arising from Faraaz's HR complaint against him (verbal abuse).",
+      "timestamp": "00:08:02",
+      "quote_anchor": "Dr. OS Ahmed got fired for discip",
+      "claim_links": [
+        "hostile work environment",
+        "negligent supervision/retention",
+        "retaliation (validity of underlying complaint)"
+      ],
+      "source_segment": "seg-01"
+    },
+    {
+      "fact": "UHS had actual notice via HR complaint and did nothing — the stated core of UHS's liability ('you knew it was happening... you did nothing about it').",
+      "timestamp": "00:08:02",
+      "quote_anchor": "We went to HR, we filed the complaint, you did nothing",
+      "claim_links": [
+        "Title VI / discrimination",
+        "negligent supervision",
+        "retaliation"
+      ],
+      "source_segment": "seg-01"
+    },
+    {
+      "fact": "Of the four defendant doctors, only Rehman (head of GME for UHS and SUNY Upstate) and Ali (program director / assistant program director ~20 years) held positions of academic authority; all four work with residents.",
+      "timestamp": "00:08:02",
+      "quote_anchor": "only Rahman and Dr. Ali were academ",
+      "claim_links": [
+        "individual-defendant liability structure",
+        "academic-deference rebuttal"
+      ],
+      "source_segment": "seg-01"
+    },
+    {
+      "fact": "Dr. Ali was made to step down very openly because residency hires over two years were related to his wife, many unable to speak English, prompting complaints from other doctors.",
+      "timestamp": "00:09:26",
+      "quote_anchor": "everybody who was hired in residency for internal medicine was related to his wife",
+      "claim_links": [
+        "pattern_discrimination / comparator evidence",
+        "credibility of institutional 'academic judgment' defense"
+      ],
+      "source_segment": "seg-01"
+    },
+    {
+      "fact": "Dr. Rehman (head of education ~30 years) emailed the entirety of UHS that he had to step down over a conflict of interest because his son-in-law was joining the fellowship.",
+      "timestamp": "00:10:26",
+      "quote_anchor": "step down because of a conflict of interest because my son-in-law",
+      "claim_links": [
+        "admission re conflict-of-interest standard",
+        "disparate application of policy",
+        "pattern_discrimination"
+      ],
+      "source_segment": "seg-01"
+    },
+    {
+      "fact": "Faraaz repeatedly asked not to work with Dr. Awais Ahmed citing conflict of interest; UHS refused and forced him to continue — the point at which he says he 'broke.'",
+      "timestamp": "00:11:46",
+      "quote_anchor": "They said no, you still have to",
+      "claim_links": [
+        "hostile work environment",
+        "failure to accommodate / deliberate indifference",
+        "emotional-distress damages"
+      ],
+      "source_segment": "seg-01"
+    },
+    {
+      "fact": "Dr. Nadeem is not in academia; he was named as a defendant because he is the link to the complainant ('the girl').",
+      "timestamp": "00:11:46",
+      "quote_anchor": "he is the link to the the girl",
+      "claim_links": [
+        "conspiracy",
+        "malicious_prosecution"
+      ],
+      "source_segment": "seg-01"
+    },
+    {
+      "fact": "Someone allegedly forged Faraaz's signature — presented as rare, intentionality-proving conduct that takes the case outside deferential academic-judgment doctrine.",
+      "timestamp": "00:13:03",
+      "quote_anchor": "an intentional in uh decision to um harm my career",
+      "claim_links": [
+        "conspiracy/intent element",
+        "fraud/forgery",
+        "malicious_prosecution"
+      ],
+      "source_segment": "seg-01"
+    },
+    {
+      "fact": "Faraaz's employment contract for the Florida job was signed April 1st — before the probation — so probation could not block that job.",
+      "timestamp": "00:13:03",
+      "quote_anchor": "my contract was signed on April 1st",
+      "claim_links": [
+        "timeline",
+        "tortious interference",
+        "damages causation"
+      ],
+      "source_segment": "seg-01"
+    },
+    {
+      "fact": "The Vermont job offer came in May and was taken away; that is when Faraaz was placed on probation without his knowledge.",
+      "timestamp": "00:13:03",
+      "quote_anchor": "the Vermont job was t taken away",
+      "claim_links": [
+        "damages (lost job opportunity)",
+        "tortious interference",
+        "retaliation"
+      ],
+      "source_segment": "seg-01"
+    },
+    {
+      "fact": "Faraaz was put on probation on April 14th and filed FMLA, he believes, the same day.",
+      "timestamp": "00:14:21",
+      "quote_anchor": "put on probation on the 14th of April",
+      "claim_links": [
+        "FMLA retaliation (temporal proximity)",
+        "timeline"
+      ],
+      "source_segment": "seg-01"
+    },
+    {
+      "fact": "On the day of his arrest, Faraaz was scheduled to fly down for the Florida interview; he had the offer but had never signed it and no one knew about it.",
+      "timestamp": "00:14:21",
+      "quote_anchor": "the day I was arrested. I was supposed to fly down",
+      "claim_links": [
+        "malicious_prosecution",
+        "damages",
+        "timeline"
+      ],
+      "source_segment": "seg-01"
+    },
+    {
+      "fact": "Faraaz frames the case as escalation: probation failed (job already secured), firing blocked (FMLA), so he was arrested on 'basically a false charge'; the legal word used was 'conspiracy.' (He was acquitted Sept 2025.)",
+      "timestamp": "00:14:21",
+      "quote_anchor": "arrested on basically a false charge",
+      "claim_links": [
+        "malicious_prosecution",
+        "conspiracy",
+        "abuse of process"
+      ],
+      "source_segment": "seg-01"
+    },
+    {
+      "fact": "Dr. Nadeem is in constant text communication with the complainant and her brother (best friends); his texts are identified as key proof.",
+      "timestamp": "00:15:52",
+      "quote_anchor": "get a text of Dr. Nadim",
+      "claim_links": [
+        "conspiracy",
+        "malicious_prosecution",
+        "discovery target"
+      ],
+      "source_segment": "seg-01"
+    },
+    {
+      "fact": "The DA and Faraaz's mother can attest that Dr. Rehman gave Dr. Nadeem Faraaz's academic information improperly ('against rights').",
+      "timestamp": "00:15:52",
+      "quote_anchor": "Dr. Rahman gave Dr. Nadim my academic information",
+      "claim_links": [
+        "conspiracy (overt act)",
+        "privacy/FERPA-adjacent misconduct",
+        "witness list"
+      ],
+      "source_segment": "seg-01"
+    },
+    {
+      "fact": "In body-cam footage the complainant said she has access to Dr. Ali; she works at Guthrie (not UHS) and her brother is not in Binghamton.",
+      "timestamp": "00:15:52",
+      "quote_anchor": "in her body cam footage said that I have access to Dr. Ali",
+      "claim_links": [
+        "conspiracy",
+        "malicious_prosecution",
+        "evidence (body-cam subpoena)"
+      ],
+      "source_segment": "seg-01"
+    },
+    {
+      "fact": "The criminal complainant claimed Faraaz lied about having a job offer; per Faraaz, the alleged lie theory was that his probation blocked any offer, but he in fact already had a job offer.",
+      "timestamp": "00:15:52",
+      "quote_anchor": "she kept saying he that he lied to me that he had a job offer",
+      "claim_links": [
+        "malicious prosecution",
+        "pretext/retaliation"
+      ],
+      "source_segment": "seg-02"
+    },
+    {
+      "fact": "Faraaz alleges he was arrested on false charges after 'they' discovered the probation was ineffective at derailing him.",
+      "timestamp": "00:15:52",
+      "quote_anchor": "they had me arrested on a false charges",
+      "claim_links": [
+        "malicious prosecution",
+        "retaliation"
+      ],
+      "source_segment": "seg-02"
+    },
+    {
+      "fact": "An Iranian resident was fired after the hospital posted flyers in every unit soliciting nurse complaints against her, following an affair with a Pakistani attending; she was given a leave-or-else ultimatum and forced to resign the next day.",
+      "timestamp": "00:18:03",
+      "quote_anchor": "They put posters of her in every uh unit of the hospital",
+      "claim_links": [
+        "pattern discrimination (Title VI/VII national origin)",
+        "pretext"
+      ],
+      "source_segment": "seg-02"
+    },
+    {
+      "fact": "An Indian resident was fired six months from graduation, shortly after Dr. D — the only Indian member of the graduate medical council — retired; two doctors wrote official letters threatening to resign over it, and other non-Pakistani doctors filed formal complaints with UHS.",
+      "timestamp": "00:19:00",
+      "quote_anchor": "6 months from graduation they fired her",
+      "claim_links": [
+        "pattern discrimination",
+        "comparator evidence"
+      ],
+      "source_segment": "seg-02"
+    },
+    {
+      "fact": "Faraaz's statistical claim: roughly 90% of residents are Pakistani and only non-Pakistani residents ever get fired or disciplined.",
+      "timestamp": "00:20:44",
+      "quote_anchor": "How come no Pakistani gets fired?",
+      "claim_links": [
+        "pattern discrimination (disparate treatment)"
+      ],
+      "source_segment": "seg-02"
+    },
+    {
+      "fact": "Complaint letters about the Indian resident's firing were addressed to Dr. Janice, program director at the time, who is on the witness list; Dr. Ali (defendant) was assistant program director and 'hand-in-glove' with the decision.",
+      "timestamp": "00:21:40",
+      "quote_anchor": "handinand glove with whatever the decision was",
+      "claim_links": [
+        "pattern discrimination",
+        "individual liability of Dr. Ali"
+      ],
+      "source_segment": "seg-02"
+    },
+    {
+      "fact": "In 2022, in the first attempt to fire Faraaz, he was summoned to a 6:00 a.m. meeting and told no one could accompany him; his mother called the doctors who had previously threatened to resign.",
+      "timestamp": "00:19:00",
+      "quote_anchor": "summoned to a 6:00 a.m. meeting and he said no one should be there with you",
+      "claim_links": [
+        "retaliation",
+        "procedural unfairness/pretext",
+        "timeline"
+      ],
+      "source_segment": "seg-02"
+    },
+    {
+      "fact": "UHS fired Dr. Ahmed, made Dr. Ali step down, and Dr. Rehman left his GME position; Faraaz asserts internal disciplinary actions against these individuals 'did happen.'",
+      "timestamp": "00:24:52",
+      "quote_anchor": "internal disciplinary actions, right? Which did happen",
+      "claim_links": [
+        "admission/notice",
+        "pattern discrimination",
+        "punitive damages (willfulness)"
+      ],
+      "source_segment": "seg-02"
+    },
+    {
+      "fact": "Around April 22 (context suggests 2022, after the April 14 probation), Dr. Jones — current head of medical education and Faraaz's treating physician — met Faraaz and his mother, was unaware of the probation, and wrote a letter to Dr. Ali calling the probation 'very inhumane' and Faraaz 'a good doctor.'",
+      "timestamp": "00:26:23",
+      "quote_anchor": "it is very inhumane for you to put this kid on probation",
+      "claim_links": [
+        "pretext",
+        "evidence for all claims",
+        "emotional distress"
+      ],
+      "source_segment": "seg-02"
+    },
+    {
+      "fact": "Neither Faraaz nor Dr. Jones knew Faraaz had been placed on probation at the time of their meeting.",
+      "timestamp": "00:26:23",
+      "quote_anchor": "He didn't know I was on probation. I didn't know I was on probation.",
+      "claim_links": [
+        "procedural due process",
+        "pretext"
+      ],
+      "source_segment": "seg-02"
+    },
+    {
+      "fact": "Faraaz's essential medications cost $4,000, $600, and $400 per bottle; he went without the $4,000 medication for an extended period and only recently obtained it.",
+      "timestamp": "00:27:22",
+      "quote_anchor": "$4,000 a bottle which I've not been taking",
+      "claim_links": [
+        "damages (economic + health)",
+        "consequential harm"
+      ],
+      "source_segment": "seg-02"
+    },
+    {
+      "fact": "Faraaz's father sent approximately $300,000/year for three years, structured as a loan repayable at settlement or employment; this mirrors his lost Tampa contract ($350,000 salary plus $70,000 bonus, three-year term).",
+      "timestamp": "00:28:43",
+      "quote_anchor": "around $300,000 US dollars to me",
+      "claim_links": [
+        "damages (lost earnings)"
+      ],
+      "source_segment": "seg-02"
+    },
+    {
+      "fact": "Dr. Rehman (defendant) was head of electrophysiology and one of Faraaz's own cardiac physicians; when Faraaz had a post-operative infection, Rehman allegedly worked to keep it off the file/paper record.",
+      "timestamp": "00:31:12",
+      "quote_anchor": "tried very hard to make sure that that was not the case on file",
+      "claim_links": [
+        "knowledge/willfulness",
+        "record manipulation evidence",
+        "punitive damages"
+      ],
+      "source_segment": "seg-02"
+    },
+    {
+      "fact": "Faraaz's father sold property and a store to support him; the father's Dubai shipping business also suffered (ships stuck in Dubai around February before the strait closed).",
+      "timestamp": "00:31:12",
+      "quote_anchor": "My father had to sell property, sell store",
+      "claim_links": [
+        "damages (consequential/family — recoverability to be assessed)"
+      ],
+      "source_segment": "seg-02"
+    },
+    {
+      "fact": "Faraaz's stated prognosis: untreated, heart failure within five years and transplant within ten; he is approaching the five-year mark. His implanted device requires Boston Scientific checks every four months but has gone three years unchecked.",
+      "timestamp": "00:32:39",
+      "quote_anchor": "checked every four months it's been three years",
+      "claim_links": [
+        "damages (health)",
+        "irreparable harm/urgency"
+      ],
+      "source_segment": "seg-02"
+    },
+    {
+      "fact": "Faraaz can document close to $1 million in living expenses over the past three years from bank records, excluding food and his father's asset sales.",
+      "timestamp": "00:32:39",
+      "quote_anchor": "close to a million dollars in the past 3 years just in living expenses",
+      "claim_links": [
+        "damages (economic)"
+      ],
+      "source_segment": "seg-02"
+    },
+    {
+      "fact": "Drazen's discovery demands include: complaints of a similar nature (comparator complaints) and all communications referencing Faraaz between the individual defendants and anybody else at UHS.",
+      "timestamp": "00:26:23",
+      "quote_anchor": "all communications that referenced you between the individual defendants",
+      "claim_links": [
+        "discovery scope — all claims"
+      ],
+      "source_segment": "seg-02"
+    },
+    {
+      "fact": "Father's wife had cancer requiring a bone marrow transplant paid in cash in Dubai, a family financial hardship; client says actual bank records exist for all such expenditures.",
+      "timestamp": "00:33:46",
+      "quote_anchor": "she needed a bone marrow transplant",
+      "claim_links": [
+        "damages (consequential/economic)"
+      ],
+      "source_segment": "seg-03"
+    },
+    {
+      "fact": "Client still cannot obtain/pick up his medical license because of the disputed records/proceedings.",
+      "timestamp": "00:33:46",
+      "quote_anchor": "I still can't pick up my medical license because of this",
+      "claim_links": [
+        "damages (lost earnings/career harm)",
+        "continuing-harm theory"
+      ],
+      "source_segment": "seg-03"
+    },
+    {
+      "fact": "In 2022, UHS 'tried everything' to fire the client; he refused to sign the probation when threatened, telling Dr. Ali (Muhammad Imran Ali MD) he would not sign.",
+      "timestamp": "00:35:01",
+      "quote_anchor": "I kind of told Dr. Ali, I'm not going to sign",
+      "claim_links": [
+        "retaliation/pattern_discrimination",
+        "timeline"
+      ],
+      "source_segment": "seg-03"
+    },
+    {
+      "fact": "In 2022 the client wrote a ten-page, line-by-line rebuttal email to every entry in his academic record over three days and sent it to the entire GME (including all gastroenterology and cardiology doctors); it resides in his UHS work email.",
+      "timestamp": "00:37:46",
+      "quote_anchor": "10page email with a uh line by line rebuttal",
+      "claim_links": [
+        "evidence of contemporaneous dispute/notice",
+        "record-correction demand",
+        "due process/defamation-adjacent claims"
+      ],
+      "source_segment": "seg-03"
+    },
+    {
+      "fact": "The Broome County DA reportedly used a grand jury to subpoena the client's academic records; a document ('43 of the forgery') in counsel's possession evidences the DA's stated basis.",
+      "timestamp": "00:38:32",
+      "quote_anchor": "a grand jury uh to to subpoena my academic records",
+      "claim_links": [
+        "malicious_prosecution (instigation/causation)"
+      ],
+      "source_segment": "seg-03"
+    },
+    {
+      "fact": "The call to the police came from Guthrie hospital, not from the complainant.",
+      "timestamp": "00:40:05",
+      "quote_anchor": "the call to the cops came from Guthri hospital they didn't come from the girl",
+      "claim_links": [
+        "malicious_prosecution (initiation element)"
+      ],
+      "source_segment": "seg-03"
+    },
+    {
+      "fact": "While police waited for the client, Dr. Ali called to say Guthrie's lawyers had called UHS's lawyers to begin an investigation and that the client was on administrative leave; the operative date is placed at April 14.",
+      "timestamp": "00:42:37",
+      "quote_anchor": "the lawyers of Guthri called the lawyers of UHS",
+      "claim_links": [
+        "malicious_prosecution",
+        "retaliation (adverse action)",
+        "timeline"
+      ],
+      "source_segment": "seg-03"
+    },
+    {
+      "fact": "Guthrie posted photographs of the client throughout the hospital instructing staff to call the police if he was seen ('wanted man' treatment).",
+      "timestamp": "00:42:37",
+      "quote_anchor": "photographs of me all across the hospital saying if you see this person please call the police",
+      "claim_links": [
+        "defamation/reputational damages",
+        "malicious_prosecution (malice)"
+      ],
+      "source_segment": "seg-03"
+    },
+    {
+      "fact": "Client filed his FMLA before he was officially arrested; Dr. Ali's slip of the tongue — 'I guess a fiancee is considered family' — conceded the family-member premise of the FMLA request.",
+      "timestamp": "00:43:40",
+      "quote_anchor": "I filed my FMLA before I was arrested officially",
+      "claim_links": [
+        "FMLA interference/retaliation (protected activity preceding adverse action)"
+      ],
+      "source_segment": "seg-03"
+    },
+    {
+      "fact": "Within roughly 24 hours of the arrest, the client was released from administrative leave, any internal case was dropped, and all investigations at both Guthrie and UHS were stopped; he was asked to return to work the next day/evening.",
+      "timestamp": "00:43:40",
+      "quote_anchor": "They've dropped any case against you. They stop all investigations",
+      "claim_links": [
+        "malicious_prosecution (lack of probable cause)",
+        "pretext evidence"
+      ],
+      "source_segment": "seg-03"
+    },
+    {
+      "fact": "UHS's corporate lawyers — not Dr. Ali, who was 'only the messenger' — made the administrative-leave decision; the call came 'straight from their legal team to our legal team' within minutes to an hour, implying CEO/corporate-level involvement.",
+      "timestamp": "00:47:06",
+      "quote_anchor": "the UHS's lawyers put me on admin leave not Dr. Ali",
+      "claim_links": [
+        "institutional liability (UHS)",
+        "deposition targets/custodians"
+      ],
+      "source_segment": "seg-03"
+    },
+    {
+      "fact": "After internally deciding the client was not guilty, reinstating him, and graduating him, UHS nonetheless gave the DA his academic records and cooperated with the prosecution.",
+      "timestamp": "00:45:36",
+      "quote_anchor": "we will give the DA your academic records",
+      "claim_links": [
+        "malicious_prosecution (malice + causation)",
+        "retaliation"
+      ],
+      "source_segment": "seg-03"
+    },
+    {
+      "fact": "CCTV footage held by 'ANSCO' (unresolved entity) was never produced to the client, though its lawyers were heavily involved, they controlled access, and a CCTV photo of the client was posted publicly; both institutions' lawyers apparently viewed the footage before dropping everything.",
+      "timestamp": "00:50:15",
+      "quote_anchor": "they never gave us the footages of ANSCO",
+      "claim_links": [
+        "evidence/spoliation",
+        "malicious_prosecution (exculpatory evidence)",
+        "third-party subpoena target"
+      ],
+      "source_segment": "seg-03"
+    },
+    {
+      "fact": "UHS, with corporate involvement, decided within about an hour after the arrest not to fire Faraaz even though he was on probation, despite internal documentation making an arrest while on probation an immediately fireable offense.",
+      "timestamp": "00:50:15",
+      "quote_anchor": "why am I not fired if I'm on probation",
+      "claim_links": [
+        "retaliation (knowledge/bad faith)",
+        "malicious_prosecution (knowledge of innocence)",
+        "pretext for later adverse actions"
+      ],
+      "source_segment": "seg-04"
+    },
+    {
+      "fact": "About six months after the incident, when the DA contacted UHS, UHS provided Faraaz's academic records and cut off his email access; Drazen believes a subpoena was probably issued and will obtain a copy.",
+      "timestamp": "00:51:14",
+      "quote_anchor": "you give him my academic records",
+      "claim_links": [
+        "retaliation",
+        "discovery (subpoena to UHS)",
+        "privacy/records handling"
+      ],
+      "source_segment": "seg-04"
+    },
+    {
+      "fact": "Comparator: Dr. Awais Ahmed (defendant) was placed on administrative leave only about 3-6 hours before being fired by UHS, whereas Faraaz was neither fired nor kept on comparable admin leave after his arrest.",
+      "timestamp": "00:51:14",
+      "quote_anchor": "Dr. OM he was put on admin leave",
+      "claim_links": [
+        "disparate treatment / pattern",
+        "knowledge of innocence"
+      ],
+      "source_segment": "seg-04"
+    },
+    {
+      "fact": "Faraaz was told that if he came within 10 feet of the building the police would be called; the instruction was delivered by phone by Dr. Muhammad Imran Ali, who said it came from the legal team, implying a written directive chain from the CEO downward.",
+      "timestamp": "00:52:32",
+      "quote_anchor": "if you come within 10 ft of the uh uh building, we will call the cops",
+      "claim_links": [
+        "retaliation",
+        "discovery (written directive)",
+        "witness: Dr. Ali"
+      ],
+      "source_segment": "seg-04"
+    },
+    {
+      "fact": "Faraaz was retained in the residency program while on pre-trial supervision requiring weekly probation-officer check-ins, drug testing, and no travel outside the city without permission — while UHS had previously tried to discipline him for trivial matters.",
+      "timestamp": "00:53:36",
+      "quote_anchor": "call in with my probation officer every uh week",
+      "claim_links": [
+        "pretext",
+        "knowledge of innocence",
+        "pattern_discrimination"
+      ],
+      "source_segment": "seg-04"
+    },
+    {
+      "fact": "Immediately after Faraaz went to HR, UHS hurried his graduation and told him he did not have to come to work.",
+      "timestamp": "00:54:36",
+      "quote_anchor": "they hurried my graduation",
+      "claim_links": [
+        "retaliation timeline",
+        "institutional knowledge / damage control"
+      ],
+      "source_segment": "seg-04"
+    },
+    {
+      "fact": "Faraaz made printed copies of his UHS emails before HR confiscated records and cancelled his email access, on the advice of his Chicago medical-legal attorney.",
+      "timestamp": "00:55:54",
+      "quote_anchor": "Did you make prints of your email? Which I had actually",
+      "claim_links": [
+        "evidence preservation",
+        "discovery corroboration"
+      ],
+      "source_segment": "seg-04"
+    },
+    {
+      "fact": "Faraaz was arrested when he went to his car to retrieve his laptop in order to write his FMLA document; police were waiting for him there. The next day UHS called asking him to work that night's shift, unaware or unconcerned he had been in jail.",
+      "timestamp": "00:55:54",
+      "quote_anchor": "write the FMLA document and they were waiting for me",
+      "claim_links": [
+        "FMLA retaliation (timing)",
+        "malicious_prosecution",
+        "inconsistent employer conduct"
+      ],
+      "source_segment": "seg-04"
+    },
+    {
+      "fact": "Faraaz alleges Dr. Muhammad Imran Ali forged his signature on a document (probation-related), that UHS possesses the documents showing it, that Ali was made to step down over it, and that three years later UHS has not reversed the underlying decision.",
+      "timestamp": "00:56:56",
+      "quote_anchor": "he forged my uh signature because you can see it",
+      "claim_links": [
+        "forgery/fraud",
+        "due process re probation",
+        "retaliation",
+        "pattern_discrimination"
+      ],
+      "source_segment": "seg-04"
+    },
+    {
+      "fact": "Drazen will request in discovery the inter-hospital (UHS/Guthrie) legal-team communications, which Faraaz argues are not privileged, plus the records of why administrative leave was imposed and removed.",
+      "timestamp": "00:58:11",
+      "quote_anchor": "Yeah, we'll ask for it",
+      "claim_links": [
+        "discovery strategy"
+      ],
+      "source_segment": "seg-04"
+    },
+    {
+      "fact": "Two Indian physicians were fired from UHS — one amid a large upheaval of complaining doctors — and two doctors filed a complaint on behalf of the Indian women the family housed; Faraaz's mother has been in contact with them; an Indian consulate/council attorney knows of the case.",
+      "timestamp": "00:59:30",
+      "quote_anchor": "two Indian physicians who have been fired",
+      "claim_links": [
+        "Title VI / national-origin pattern_discrimination",
+        "witness development"
+      ],
+      "source_segment": "seg-04"
+    },
+    {
+      "fact": "Drazen will demand either direct access to Faraaz's UHS email account or hard-copy production of every email; there is a filing deadline but no imminent set time, and his draft is substantially progressed but not final.",
+      "timestamp": "01:00:37",
+      "quote_anchor": "demand either direct access to your email account",
+      "claim_links": [
+        "discovery",
+        "case schedule"
+      ],
+      "source_segment": "seg-04"
+    },
+    {
+      "fact": "Per Faraaz's research and the criminal judge's statement, the expungement following his acquittal does not shield the arrest record from USCIS or the New York State medical licensing board, whose questionnaire asks 'have you ever been arrested' — not charged or acquitted.",
+      "timestamp": "01:01:30",
+      "quote_anchor": "have you ever been arrested? Not charged, not acquitted, just arrested",
+      "claim_links": [
+        "damages (licensure/immigration collateral consequences)",
+        "malicious_prosecution (injury)"
+      ],
+      "source_segment": "seg-04"
+    },
+    {
+      "fact": "Drazen confirmed the prosecution was terminated in Faraaz's favor; Faraaz, a non-citizen, consulted three immigration attorneys who all said the arrest record remains a serious immigration problem despite the acquittal.",
+      "timestamp": "01:02:46",
+      "quote_anchor": "terminated in your favor",
+      "claim_links": [
+        "malicious_prosecution (favorable termination element)",
+        "damages (immigration)"
+      ],
+      "source_segment": "seg-04"
+    },
+    {
+      "fact": "Faraaz refused an ACD (adjournment in contemplation of dismissal) because USCIS would treat any diversion/course as implying guilt; he has not practiced medicine for three years.",
+      "timestamp": "01:03:33",
+      "quote_anchor": "if you were not guilty why you take the course",
+      "claim_links": [
+        "favorable termination element",
+        "damages (lost career years)"
+      ],
+      "source_segment": "seg-04"
+    },
+    {
+      "fact": "Faraaz intends to pursue malicious prosecution against the arresting police officers and ancillary prosecution-team members (not the immune DA); Drazen cautioned that the elements are not automatic upon acquittal and that timeliness may now be in question; Faraaz fears he is past the statute of limitations.",
+      "timestamp": "01:04:38",
+      "quote_anchor": "timeliness of of it now may be in question",
+      "claim_links": [
+        "malicious_prosecution (elements, immunity, statute of limitations)"
+      ],
+      "source_segment": "seg-04"
+    },
+    {
+      "fact": "Faraaz plans to bring ACGME to the table via a complaint from his side, and argues the malicious-prosecution elements were only complete upon acquittal, which is why he could not file earlier.",
+      "timestamp": "01:05:45",
+      "quote_anchor": "get ACGME to come to the table",
+      "claim_links": [
+        "malicious_prosecution (accrual)",
+        "administrative-remedy strategy"
+      ],
+      "source_segment": "seg-04"
+    },
+    {
+      "fact": "Counsel (Drazen) is skeptical of a claim against the prosecution/DA: 'I don't hold out a lot of hope for it,' but agreed to review it.",
+      "timestamp": "01:06:49",
+      "quote_anchor": "I don't hold out a lot of hope for it",
+      "claim_links": [
+        "malicious prosecution (viability assessment)"
+      ],
+      "source_segment": "seg-05"
+    },
+    {
+      "fact": "The family paid the criminal defense lawyers separately, seeking no compensation in the criminal matter — only to clear Faraaz's name.",
+      "timestamp": "01:07:48",
+      "quote_anchor": "We have paid the lawyers separately",
+      "claim_links": [
+        "malicious prosecution (special damages: defense costs)",
+        "damages"
+      ],
+      "source_segment": "seg-05"
+    },
+    {
+      "fact": "A 'poster' made from Faraaz's CCTV image spread within UHS; a UHS nurse messaged him asking if it was him — evidence of internal publication.",
+      "timestamp": "01:08:55",
+      "quote_anchor": "a nurse messaged me saying that is this you",
+      "claim_links": [
+        "defamation/stigma",
+        "reputational damages",
+        "malicious prosecution damages"
+      ],
+      "source_segment": "seg-05"
+    },
+    {
+      "fact": "Faraaz emailed the CCTV poster image to Drazen during the call.",
+      "timestamp": "01:10:28",
+      "quote_anchor": "I just uh emailed you the picture",
+      "claim_links": [
+        "evidence transmission (defamation exhibit)"
+      ],
+      "source_segment": "seg-05"
+    },
+    {
+      "fact": "Planned discovery demands: Faraaz's entire academic record, entire medical record, and access to his work email account or hard copies of everything.",
+      "timestamp": "01:10:28",
+      "quote_anchor": "entire academic record ... entire medical record ... access to your email account",
+      "claim_links": [
+        "all claims (discovery plan)",
+        "FMLA/ADA/Title VI record development"
+      ],
+      "source_segment": "seg-05"
+    },
+    {
+      "fact": "Faraaz's board-exam login was on his UHS work email and he could not log in after losing access; UHS was supposed to pay the board exam fee and did not.",
+      "timestamp": "01:11:15",
+      "quote_anchor": "board exam was supposed to be paid by UHS which they didn't",
+      "claim_links": [
+        "damages (out-of-pocket, career impairment)",
+        "retaliation (post-termination harm)"
+      ],
+      "source_segment": "seg-05"
+    },
+    {
+      "fact": "Counsel will seek UHS records regarding defendant Awais Ahmed MD's departure, plus 'the demotion, the replacement' personnel actions.",
+      "timestamp": "01:11:15",
+      "quote_anchor": "records with respect to um Ahmed um departure",
+      "claim_links": [
+        "pattern/notice evidence",
+        "retaliation",
+        "Title VI/discrimination"
+      ],
+      "source_segment": "seg-05"
+    },
+    {
+      "fact": "Counsel's view on scope: they can request HR complaints against Ahmed 'of a similar nature' (discriminatory), not all complaints.",
+      "timestamp": "01:12:28",
+      "quote_anchor": "complaints of a similar nature",
+      "claim_links": [
+        "pattern discrimination (discovery scope)"
+      ],
+      "source_segment": "seg-05"
+    },
+    {
+      "fact": "Faraaz filed official complaints against Ahmed as a resident in 2021 and 2022, sent from his UHS hospital email account.",
+      "timestamp": "01:13:37",
+      "quote_anchor": "official complaints as a resident in 2021 2022",
+      "claim_links": [
+        "retaliation (protected activity predicate)",
+        "timeline",
+        "spoliation/preservation of UHS email"
+      ],
+      "source_segment": "seg-05"
+    },
+    {
+      "fact": "After Faraaz refused to work with Ahmed and was forced to anyway, Ahmed gave him zero patients for an entire week (normal ~10), refused eye contact and did not speak to him, while a fellow mocked him.",
+      "timestamp": "01:14:42",
+      "quote_anchor": "did not let me see a single patient the whole week",
+      "claim_links": [
+        "hostile environment",
+        "retaliation",
+        "pattern discrimination"
+      ],
+      "source_segment": "seg-05"
+    },
+    {
+      "fact": "Faraaz possesses text messages from a senior resident asking him not to complain about/to Ahmed because the senior wanted to match into cardiology.",
+      "timestamp": "01:15:55",
+      "quote_anchor": "could you not say this to this doctor",
+      "claim_links": [
+        "pattern discrimination (culture of fear)",
+        "retaliation corroboration"
+      ],
+      "source_segment": "seg-05"
+    },
+    {
+      "fact": "Faraaz saved approximately 4,000 pages of documents and spent the prior two nights annotating the records; he will provide counsel a compiled document.",
+      "timestamp": "01:16:57",
+      "quote_anchor": "about uh 4,000 pages of documents I had saved",
+      "claim_links": [
+        "evidence corpus (all claims)"
+      ],
+      "source_segment": "seg-05"
+    },
+    {
+      "fact": "At the close of the meeting, attorney Drazen directed Haseeb Rahman (client's father) to collect and send him 'all that information' referenced earlier in the call, confirming the father's role in assembling evidence/documents for the case.",
+      "timestamp": "01:29:03",
+      "quote_anchor": "Hassie. Try to get me all that that information.",
+      "claim_links": [
+        "discovery/evidence development supporting all claims (malicious prosecution, discrimination/retaliation claims generally)"
+      ],
+      "source_segment": "seg-06"
+    },
+    {
+      "fact": "Drazen committed to a near-term follow-up conversation with the family ('we're going to talk soon'), indicating active ongoing case management ahead of the November 2026 mediation deadline.",
+      "timestamp": "01:29:03",
+      "quote_anchor": "we're going to talk we're going to talk soon",
+      "claim_links": [
+        "case management / mediation preparation (no specific cause of action)"
+      ],
+      "source_segment": "seg-06"
+    }
+  ]
+}

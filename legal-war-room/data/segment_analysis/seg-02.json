@@ -1,0 +1,262 @@
+{
+  "segment_id": "seg-02",
+  "blocks": [
+    {
+      "timestamp": "00:15:52",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)"],
+      "clean_summary": "Faraaz explains the complainant claimed he lied about having a job offer (he could not get one because he was on probation, which he says he did not know about), when in fact he already had a job offer. He asserts that when 'they' learned the probation was ineffective, they had him arrested on false charges. He says the proof lies in Dr. Nadeem's texts: Nadeem is in constant communication with the complainant and her brother, and the DA and Faraaz's mother can attest that Dr. Rehman gave Dr. Nadeem his academic information improperly. He notes the complainant said on body-cam footage that she had access to Dr. Ali, and stresses she works at Guthrie (not UHS) and her brother is not even in Binghamton, so neither should have been involved.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "if you were to simply get a text of Dr. Nadim, he is in constant communication with uh her and her brother", "significance": "Identifies specific text-message discovery target (defendant M. Farhan Nadeem MD's communications with the criminal complainant and her brother) supporting the malicious prosecution/conspiracy theory."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "the DA and my mom can attest to the fact that Dr. Rahman gave Dr. Nadim my academic information against uh uh against rights", "significance": "Alleges defendant Dr. Afzal ur Rehman improperly disclosed the plaintiff's academic records to defendant Nadeem — potential FERPA/privacy violation and evidence of coordination; names two attesting witnesses (the DA and the mother)."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "She in her, you know, very verbally in her body cam footage said that I have access to Dr. Ali", "significance": "Police body-cam footage allegedly captures the complainant claiming access to defendant Dr. Muhammad Imran Ali — corroborating evidence linking the criminal complaint to the individual defendants; key exhibit for discovery/preservation."}
+      ],
+      "corrections": [
+        {"raw": "Dr. Nadim", "corrected": "M. Farhan Nadeem MD (defendant)", "basis": "Glossary: seg-01 l.168/195 describe Dr. Nadim as the link to the complainant; maps to named defendant M. Farhan Nadeem MD."},
+        {"raw": "Dr. Rahman (the one who gave academic information)", "corrected": "Dr. Afzal ur Rehman MD (defendant) — NOT the client", "basis": "Glossary surname-trap entry: the transcript's 'Dr. Rahman' who handled GME/academic information is the defendant Afzal ur Rehman, distinct from plaintiff Faraaz Rahman."},
+        {"raw": "UHF", "corrected": "UHS (United Health Services Hospitals)", "basis": "Glossary: seg-01 l.195 'she's not linked with UHF' — same phrase pattern here ('she's not linked with UHF she's at Guthri'); UHS is the defendant hospital system."},
+        {"raw": "Guthri", "corrected": "Guthrie (Hospital)", "basis": "Glossary: seg-03 repeatedly garbles Guthrie as Guthri/Gutri/G3; notes reference 'Guthrie Hospital'."},
+        {"raw": "Bingington", "corrected": "Binghamton", "basis": "Case venue is Binghamton, NY (NDNY/Broome County per glossary); 'Bingington' is a phonetic garble; also appears at 00:22:38."},
+        {"raw": "the provision is ineffective", "corrected": "the probation is ineffective (probable)", "basis": "Immediate context is his probation ('he was on probation. I didn't know that'); 'provision' is a plausible mis-transcription of 'probation'. Flagged probable, not certain."}
+      ],
+      "legal_tags": ["malicious_prosecution", "evidence", "discovery"],
+      "callout": "Names three concrete evidence targets for the malicious prosecution theory: Nadeem's texts with complainant/her brother, Rehman's disclosure of academic records to Nadeem, and complainant's body-cam statement about access to Dr. Ali."
+    },
+    {
+      "timestamp": "00:17:02",
+      "speakers_present": ["Douglas Walter Drazen (attorney)", "Dr. Faraaz Rahman (client/plaintiff)"],
+      "clean_summary": "Faraaz pivots to discovery on the discrimination claim: he wants to bring in two other residents who were fired, whose names he says he put on the list. The first is an Iranian resident who he says was fired because a Pakistani doctor was sleeping with her. Drazen interjects to ask whether she made a complaint, noting the discovery demands already ask for complaints of a similar nature. Faraaz begins explaining what the hospital did was 'far worse' — it started when the wife of the chief resident, then an intern, complained to her husband about the affair.",
+      "key_quotes": [
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "Did she make a complaint? Because in the demands we're asking for complaints of a similar nature.", "significance": "Confirms the served/drafted discovery demands include prior similar complaints — the mechanism for obtaining comparator/pattern evidence of discrimination."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "I wanted to bring in two other residents who were fired and I think I put their names down in the list over there", "significance": "Identifies two comparator witnesses (other fired residents) for the pattern-discrimination case; names reportedly already on the witness/exhibit list."}
+      ],
+      "corrections": [],
+      "legal_tags": ["pattern_discrimination", "discovery", "evidence"],
+      "callout": "Comparator evidence: two other non-Pakistani residents fired by UHS; Drazen confirms discovery demands seek prior complaints of a similar nature."
+    },
+    {
+      "timestamp": "00:18:03",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Faraaz describes how the hospital manufactured grounds to fire the Iranian resident: with 'the same eagerness they had to fire me,' they put posters of her in every hospital unit inviting nurses to submit complaints about her, thereby 'creating' a case for termination — while the attending who was sleeping with her (a resident under an attending) faced nothing. Drazen twice asks whether she made a complaint against them; Faraaz is not sure. Drazen reiterates that copies of complaints of a similar nature are among the demands. Faraaz adds that for the second comparator case there are complaints and extensive documentation.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "They put posters of her in every uh unit of the hospital for nurses saying that if you have any complaints of this person please come to us and give us those complaints and they created a nature to fire her.", "significance": "Alleged modus operandi of pretextual termination — actively soliciting complaints to build a firing file; parallels plaintiff's own theory that his termination was manufactured."},
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "We want we want copies of complaints of a similar nature.", "significance": "Attorney confirms scope of document demands covering comparator/pattern evidence."}
+      ],
+      "corrections": [],
+      "legal_tags": ["pattern_discrimination", "discovery", "evidence"],
+      "callout": "Alleged pretext playbook: hospital solicited complaints via posters to manufacture grounds to fire a non-Pakistani resident — direct parallel to plaintiff's manufactured-probation theory."
+    },
+    {
+      "timestamp": "00:19:00",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Faraaz says the Iranian resident was given the same ultimatum he was ('leave or your life is going to be [made] hell' — garbled as 'helped') and was forced to resign the next day. He then describes the second, better-documented comparator: an Indian resident fired six months from graduation, just after 'Dr. D,' the only Indian member of the graduate medical council, retired. Indian doctors at UHS were in an uproar; two doctors from his home region wrote official letters threatening to resign, arguing it made no sense to fire someone six months from graduation after renewing her contracts. With the lone Indian GME doctor gone, GME became a 'cabal' of non-Indians/non-Pakistanis who accepted the resignations. He connects this to his own 2022 firing attempt: summoned to a 6:00 a.m. meeting and told no one could accompany him; his mother called those doctors.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "she was given the same deal I was given leave or uh your life is going to be helped [hell]. So she was forcibly they made her resign the next day", "significance": "Alleges an identical coerced-resignation ultimatum used against a comparator — pattern evidence of constructive discharge tactics."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "She was 6 months from graduation... 6 months from graduation they fired her", "significance": "Comparator fired at same career-destroying juncture as plaintiff; supports inference of targeted, discriminatory terminations rather than performance-based ones."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "when they tried to fire me first in 2022... I was summoned to a 6:00 a.m. meeting and he said no one should be there with you", "significance": "Timeline anchor: first termination attempt in 2022, conducted with procedurally coercive conditions (no support person allowed)."}
+      ],
+      "corrections": [
+        {"raw": "your life is going to be helped", "corrected": "your life is going to be hell (probable)", "basis": "Sentence is an ultimatum ('leave or...'); 'helped' is semantically incoherent in a threat; 'hell' is the natural idiom. Flagged probable — no other segment corroboration available."}
+      ],
+      "legal_tags": ["pattern_discrimination", "timeline", "evidence"],
+      "callout": "Second comparator (Indian resident fired 6 months pre-graduation) with 'extensive documentation' and resignation-threat letters from other doctors — strongest documented pattern evidence discussed."
+    },
+    {
+      "timestamp": "00:20:44",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)", "Haseeb Rahman (father) — interjection only, possibly cross-talk"],
+      "clean_summary": "Faraaz states the statistical core of the discrimination claim: if roughly 90% of the residents are Pakistani and no Pakistani ever gets fired or is in trouble, while the only people fired are non-Pakistani, the math itself shows discrimination. Drazen asks whether the Indian resident made a complaint. Faraaz answers that not just her — 'the Indian government' made a complaint, and all the other non-Pakistani doctors made formal complaints and wrote official letters to UHS. Drazen probes to whom the letters were addressed (HR?); Faraaz says they were addressed to Dr. Janice, the program director at that time, who is on the witness list.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "You have let's say 90% of your residents are Pakistani. How come no Pakistani gets fired? ... Only people who get fired are those who are not from Pakistan.", "significance": "Statistical disparate-treatment theory (national-origin discrimination) — frames the discovery need for residency rosters and termination data by national origin."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "not just her the Indian government made the complaint... doctors who were not Pakistani also made a formal complaint. they wrote official letters to um UHS", "significance": "Claims formal written complaints exist, including an alleged complaint by the Indian government — discoverable documents corroborating pattern discrimination (claim needs verification)."},
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "To whom would they have addressed them?", "significance": "Attorney pinning down custodians/recipients for document demands (Dr. Janice, then program director)."}
+      ],
+      "corrections": [],
+      "legal_tags": ["pattern_discrimination", "discovery", "evidence"],
+      "callout": "Statistical discrimination theory stated (only non-Pakistani residents fired); formal complaint letters allegedly addressed to then-program director Dr. Janice — a named custodian on the witness list."
+    },
+    {
+      "timestamp": "00:21:40",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)", "Haseeb Rahman (father) — interjection only, possibly cross-talk"],
+      "clean_summary": "Faraaz adds that Dr. Ali was the assistant program director at the time and 'hand-in-glove' with whatever the decision was. Drazen confirms they will be asking for those complaint letters in discovery. Faraaz notes the Indian resident's name is on the list and reiterates the parallel: she was Indian, same story, six months from graduation — and his case was even worse. He says there was an uproar, and begins describing the resident as academically weak (took four years). Drazen asks whether she is now a doctor somewhere else.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "Ali was the uh assistant program director. So he was handinand glove with whatever the decision was.", "significance": "Directly implicates defendant Muhammad Imran Ali MD in the comparator's termination — extends his alleged involvement beyond plaintiff's own case to a pattern."},
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "All right. Yeah. Because we we're going to be asking for those.", "significance": "Attorney commits to demanding the comparator complaint letters in discovery."}
+      ],
+      "corrections": [],
+      "legal_tags": ["pattern_discrimination", "discovery", "action_item"],
+      "callout": "Defendant Dr. Ali tied to the comparator firing as assistant program director; Drazen commits to demanding the related complaint letters."
+    },
+    {
+      "timestamp": "00:22:38",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)", "Haseeb Rahman (father) — background interjection, likely cross-talk"],
+      "clean_summary": "Faraaz confirms the Indian resident is now practicing as a doctor elsewhere; Drazen establishes she was accepted into and completed another program. Faraaz explains she was an American citizen and her husband was a doctor affiliated with UHS running a primary care practice in the outskirts of Binghamton (not Wilson Hospital); one reason UHS had kept her despite her mistakes was to avoid losing a physician in that location. A profane background interjection under the 'haseeb rahman' label appears to be cross-talk, not substantive.",
+      "key_quotes": [
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "So another program accepted her and she completed the program elsewhere.", "significance": "Mitigation contrast: the comparator recovered her career elsewhere, whereas plaintiff (per his account) could not — relevant to damages differential and to defense arguments."}
+      ],
+      "corrections": [
+        {"raw": "Bingington", "corrected": "Binghamton", "basis": "Same garble as 00:15:52; venue city of the case (Broome County/NDNY per glossary)."}
+      ],
+      "legal_tags": ["pattern_discrimination", "damages"],
+      "callout": "Comparator ultimately completed residency elsewhere — useful context, but also a contrast defense may draw against plaintiff's mitigation narrative."
+    },
+    {
+      "timestamp": "00:23:40",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)"],
+      "clean_summary": "Faraaz recounts that the year-two chief residents were good people who stood up for him, saying they would resign if anything happened to him. He argues UHS knew what it did to him was wrong and had three years to fix his academic record: it fired Dr. Ahmed, made Dr. Ali step down, and Dr. Rehman — whom he describes as soft-spoken but politically 'very vicious,' the reason Dr. Davi resigned and Dr. Miller resigned from the board of directors — also left his post. He mentions Dr. Heila, then head of graduate medical education, who fought to keep his position even after a stroke, as a contrast to Rehman's unexplained departure.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "UHS... knew that what they did to me was wrong. They had three years to fix my uh academic record.", "significance": "Frames UHS's institutional knowledge and three-year failure to correct the academic record — supports continuing-harm and willfulness/notice arguments."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "you fired him [Dr. Ahmed], you made Dr. Ali step down. You made Dr. Rahman [Rehman]... he's a very vicious political man.", "significance": "Argues the removals of three individual defendants are implicit institutional acknowledgment of wrongdoing — near-admission evidence if the internal disciplinary records are obtained."}
+      ],
+      "corrections": [
+        {"raw": "Dr. Omat", "corrected": "Dr. Ahmed (Awais Ahmed MD, defendant) (probable)", "basis": "Sentence: 'If they knew that Doc Dr. Omat was you fired him' — the only defendant doctor UHS fired is Awais Ahmed (glossary: 'Oasis he he was fired from UHS', seg-01). 'Omat' is a plausible phonetic garble of 'Ahmed'. Flagged probable."},
+        {"raw": "Dr. Rahman (vicious political man / made to step down)", "corrected": "Dr. Afzal ur Rehman MD (defendant)", "basis": "Glossary surname-trap entry: GME figure who stepped down = defendant Rehman, not plaintiff."},
+        {"raw": "Dr. Heila", "corrected": "UNRESOLVED — retained as heard", "basis": "Matches seg-03's unresolved 'Dr. Hila' (head of graduate medical education at plaintiff's time, post-stroke); no roster candidate; left uncorrected per glossary note 4."}
+      ],
+      "legal_tags": ["admission", "pattern_discrimination", "evidence", "timeline"],
+      "callout": "Theory that UHS's own personnel actions (firing Ahmed, stepping down Ali and Rehman) function as internal admissions — target the disciplinary files in discovery."
+    },
+    {
+      "timestamp": "00:24:52",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Haseeb Rahman (father) — interjection only, possibly cross-talk"],
+      "clean_summary": "Faraaz analyzes Dr. Rehman's departure: the conflict of interest with a son-in-law in the program arises at rank-order-list time, and the 'soft power' of being in the room is exactly why one would want to stay; it makes no sense for Rehman to leave the GME position before his son-in-law completed his fellowship unless something forced it. He argues matters 'came to a crescendo,' and reflects that had the case been filed immediately after the criminal trial while everyone was still in position, a hoped-for outcome besides money would have been internal disciplinary action against these people — 'which did happen.'",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "Doesn't make sense as to why he would leave uh before he completed his residency his fellowship... something would have I think came to a crescendo", "significance": "Circumstantial argument that Rehman's resignation was forced by internal fallout rather than the stated son-in-law conflict — supports the internal-discipline-as-admission theory."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "these people would face uh at least internal disciplinary actions, right? Which did happen", "significance": "Client asserts internal disciplinary actions against the individual defendants already occurred — those records are high-value discovery and potential admissions."}
+      ],
+      "corrections": [],
+      "legal_tags": ["admission", "evidence", "timeline"],
+      "callout": "Client asserts internal disciplinary actions against defendants 'did happen' — corroborating documents should be an explicit discovery demand."
+    },
+    {
+      "timestamp": "00:26:23",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)", "Haseeb Rahman (father) — background interjections, likely cross-talk"],
+      "clean_summary": "Faraaz notes that with the individual defendants gone, the case is now effectively against UHS, and the current head of medical education is Dr. Jones — who is also Faraaz's treating physician to date. He recounts that on approximately April 22 (year not stated; context suggests 2022, shortly after the April 14 probation), he and his mother met Dr. Jones, who did not know Faraaz was on probation (nor did Faraaz), and Jones wrote a letter to Dr. Ali saying it was 'very inhumane' to put Faraaz on probation after everything he had been through and that he is a good doctor. Drazen says they will get that letter and confirms the demands cover all communications referencing Faraaz between the individual defendants and anybody else at UHS.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "He wrote a letter to Dr. Ali saying it is very inhumane for you to put this kid on probation after everything he's gone through. He's a good he's a good doctor and... this is not right.", "significance": "Contemporaneous internal letter from UHS's own senior physician condemning the probation — powerful evidence the probation was unjustified; Faraaz: 'That that document is very important.'"},
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "we're asking for all communications that referenced you between the individual defendants and anybody else at UHS", "significance": "Defines the scope of a core document demand — all defendant communications referencing plaintiff."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "He didn't know I was on probation. I didn't know I was on probation.", "significance": "Supports claim the probation was imposed secretly/without notice — procedural due process and pretext evidence."}
+      ],
+      "corrections": [],
+      "legal_tags": ["evidence", "discovery", "action_item", "timeline"],
+      "callout": "The Dr. Jones-to-Dr. Ali 'inhumane probation' letter is a priority exhibit; Drazen commits to obtaining it and all defendant communications referencing plaintiff."
+    },
+    {
+      "timestamp": "00:27:22",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Drazen finishes stating the communications demand (all communications referencing Faraaz between the individual defendants and anybody else at UHS). Faraaz turns to damages: he has only now, for the first time, been able to get his medications — his most important medicine costs $4,000 a bottle and he has not been taking it for quite some time; his second most expensive is $600 a bottle and the next $400. He then describes reviewing his father's bank statements covering roughly three years of support, and situates the ordeal in a longer arc: he left home in 2016-2017, almost ten years away.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "My most important medicine is $4,000 a bottle which I've not been taking for quite some time. But my second most expensive medication is $600 a bottle and the next one is $400.", "significance": "Quantifies out-of-pocket medical costs and documents forgone essential treatment due to lost income/insurance — both economic damages and health-harm aggravation."}
+      ],
+      "corrections": [],
+      "legal_tags": ["damages", "health", "discovery"],
+      "callout": "Client went without a $4,000/bottle essential medication for an extended period — quantifiable damages plus aggravated-harm evidence for a cardiac patient."
+    },
+    {
+      "timestamp": "00:28:43",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Faraaz describes the personal toll (has not seen his sister in about four years; wanted to go home; the decision to stay and fight was against his best interest) and the family's damages framework: his father's support is structured as a loan, repayable when the case settles or when Faraaz starts earning. His father has sent roughly $300,000 US per year, which mirrors the salary of his lost Tampa position ($350,000 with a $70,000 bonus on a three-year contract), and they are approaching the three-year mark. The loss of income is thus framed as the debt he owes his father.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "my dad has sent around $300,000 US dollars to me which is the same amount which was my salary at... Tampa, which was a three-year contract", "significance": "Anchors lost-earnings damages: ~$300k/yr family support proxies the lost Tampa physician salary ($350k + $70k bonus) over ~3 years — roughly $900k-$1.26M in lost income."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "I took a loan from my dad... the loan was to be repaid in um either when the case gets settled or when... I start making my money", "significance": "Characterizes family support as a repayable loan — relevant to how damages are pled and to collateral-source arguments; the loan framing should be documented and vetted by counsel."}
+      ],
+      "corrections": [],
+      "legal_tags": ["damages", "timeline"],
+      "callout": "Lost-income model: ~$300k/yr paternal 'loan' mirroring the forfeited Tampa contract ($350k salary + $70k bonus, 3 years); loan characterization needs documentation and legal vetting."
+    },
+    {
+      "timestamp": "00:30:05",
+      "speakers_present": ["Douglas Walter Drazen (attorney)", "Dr. Faraaz Rahman (client/plaintiff)"],
+      "clean_summary": "Drazen affirms the damages are measurable. Faraaz describes his strategic framing — forcing the defense to defend 'even the most ridiculous claim,' a 'death by a thousand cuts' — and emphasizes cascading harm: if he cannot recover his license he cannot get healthcare. He notes Dr. Jones will be the de facto face of the defense since nobody else is left in charge of medical education, and adds that Dr. Rehman was also his own physician: Rehman was head of electrophysiology and (as he first states) the one who put in his ICD.",
+      "key_quotes": [
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "I think we definitely have measurable, you know, there there there are measurable damages.", "significance": "Counsel's assessment that the damages theory is quantifiable — a key strategic checkpoint for settlement/mediation posture."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "if I can't pick up my license I cannot I don't get healthcare", "significance": "Causation chain from termination to loss of licensure to loss of healthcare — links economic and health damages for a cardiac-device patient."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "Dr. Rahman also was my doctor... He was head of electrophysiology.", "significance": "Defendant Rehman was plaintiff's own cardiac physician — establishes his personal knowledge of plaintiff's serious health condition, defeating any 'didn't know the consequences' defense."}
+      ],
+      "corrections": [
+        {"raw": "death by a thousand cards", "corrected": "death by a thousand cuts", "basis": "Standard English idiom; 'cards' is a phonetic mis-transcription in a sentence about making the defense fight every claim."},
+        {"raw": "Dr. Rahman (head of electrophysiology, my doctor)", "corrected": "Dr. Afzal ur Rehman MD (defendant)", "basis": "Glossary surname-trap entry; same defendant discussed continuously since 00:23:40, now identified as plaintiff's electrophysiologist."}
+      ],
+      "legal_tags": ["damages", "health", "malicious_prosecution"],
+      "callout": "Attorney concedes measurable damages exist; defendant Rehman doubling as plaintiff's cardiologist forecloses a lack-of-knowledge defense on health consequences."
+    },
+    {
+      "timestamp": "00:31:12",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Haseeb Rahman (father) — background interjections, likely cross-talk"],
+      "clean_summary": "Faraaz clarifies that a different person actually placed the ICD, but Rehman knew his case: when Faraaz fell sick with a post-operative infection, Rehman 'tried very hard to make sure that that was not the case on file or on paper.' He argues there is therefore no defense that the defendants did not know the consequences of their actions. He extends the damages to his family: his father had to sell property and a store; his father is in the shipping industry and his ships were stuck in Dubai around February before the strait closed; the pain is on him, his mother, and his sister. He says he has run all his bank records through AI analysis to substantiate that the harm is 'triplicated' across the family.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "because it was a post-operative infection, he did he tried very hard to make sure that that was not the case on file or on paper. He he knew my case.", "significance": "Alleges Rehman actively worked to keep a post-operative infection off the medical record — potential medical-record manipulation by a defendant; independently discoverable and probative of character/motive."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "My father had to sell property, sell store", "significance": "Concrete family financial losses attributable to supporting plaintiff — supports the consequential-damages narrative (recoverability by non-party family members is a legal question)."}
+      ],
+      "corrections": [
+        {"raw": "before the straight closed", "corrected": "before the strait closed", "basis": "Context is Dubai shipping and ships unable to leave — 'strait' (shipping lane, e.g., Strait of Hormuz) is the sensible reading; homophone mis-transcription."},
+        {"raw": "I've put them through the eyes", "corrected": "I've put them through the AIs (probable)", "basis": "Faraaz repeatedly describes using AI on case materials (seg-01: 'my AI kind of arranged it', 'working on a lot of AI'); 'the eyes' is a homophone of 'the AIs' in a sentence about processing bank records. Flagged probable."}
+      ],
+      "legal_tags": ["evidence", "damages", "health"],
+      "callout": "New allegation: defendant Rehman kept a post-operative infection off plaintiff's medical record — demand those medical records and any related communications."
+    },
+    {
+      "timestamp": "00:32:39",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)", "Haseeb Rahman (father) — interjection only, possibly cross-talk"],
+      "clean_summary": "Faraaz quantifies health damages: mathematically, untreated he would develop heart failure in five years and need a transplant in ten — and he realizes he is now approaching the five-year mark. His implanted device is supposed to be checked by Boston Scientific every four months, but it has not been checked in three years; those amounts add up too. On damages overall, he says that even conservatively he can show close to a million dollars over the past three years in living expenses alone — not including food or the sacrifices his father made. Drazen begins to respond as the segment ends.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "if I was not treated I would I would have had heart failure in five years and uh I would need a transplant in 10 and I just realized I'm... walking around the five year mark", "significance": "Plaintiff's stated cardiac prognosis timeline — supports urgency, health damages, and potentially expedited proceedings/settlement leverage; needs medical-expert corroboration."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "My my device which is placed has to be checked by Boston Scientific... it has to be checked every four months it's been three years", "significance": "Concrete, verifiable lapse in mandatory cardiac device monitoring (9 missed checks) caused by loss of employment/insurance — objective health-damages evidence."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "I can show an amount which amounts to just uh close to a million dollars in the past 3 years just in living expenses", "significance": "Headline economic damages figure (~$1M living expenses over 3 years) backed by bank records, excluding food and the father's asset sales."}
+      ],
+      "corrections": [],
+      "legal_tags": ["damages", "health", "evidence"],
+      "callout": "Quantified damages floor stated: ~$1M in documented living expenses over 3 years, plus unmonitored ICD (3 years without required 4-month Boston Scientific checks) and a 5-year heart-failure prognosis clock."
+    }
+  ],
+  "facts": [
+    {"fact": "The criminal complainant claimed Faraaz lied about having a job offer; per Faraaz, the alleged lie theory was that his probation blocked any offer, but he in fact already had a job offer.", "timestamp": "00:15:52", "quote_anchor": "she kept saying he that he lied to me that he had a job offer", "claim_links": ["malicious prosecution", "pretext/retaliation"]},
+    {"fact": "Faraaz alleges he was arrested on false charges after 'they' discovered the probation was ineffective at derailing him.", "timestamp": "00:15:52", "quote_anchor": "they had me arrested on a false charges", "claim_links": ["malicious prosecution", "retaliation"]},
+    {"fact": "Dr. Nadeem (defendant) is allegedly in constant text communication with the criminal complainant and her brother, who are best friends with him.", "timestamp": "00:15:52", "quote_anchor": "get a text of Dr. Nadim, he is in constant communication", "claim_links": ["malicious prosecution", "civil conspiracy"]},
+    {"fact": "Dr. Rehman (defendant) allegedly gave Faraaz's academic information to Dr. Nadeem improperly; the DA and Faraaz's mother can attest to this.", "timestamp": "00:15:52", "quote_anchor": "Dr. Rahman gave Dr. Nadim my academic information", "claim_links": ["malicious prosecution", "privacy/FERPA-type violation", "civil conspiracy"]},
+    {"fact": "Police body-cam footage allegedly records the complainant saying she has access to Dr. Ali (defendant); she works at Guthrie, not UHS, and her brother is not in Binghamton.", "timestamp": "00:15:52", "quote_anchor": "in her body cam footage said that I have access to Dr. Ali", "claim_links": ["malicious prosecution", "civil conspiracy"]},
+    {"fact": "An Iranian resident was fired after the hospital posted flyers in every unit soliciting nurse complaints against her, following an affair with a Pakistani attending; she was given a leave-or-else ultimatum and forced to resign the next day.", "timestamp": "00:18:03", "quote_anchor": "They put posters of her in every uh unit of the hospital", "claim_links": ["pattern discrimination (Title VI/VII national origin)", "pretext"]},
+    {"fact": "An Indian resident was fired six months from graduation, shortly after Dr. D — the only Indian member of the graduate medical council — retired; two doctors wrote official letters threatening to resign over it, and other non-Pakistani doctors filed formal complaints with UHS.", "timestamp": "00:19:00", "quote_anchor": "6 months from graduation they fired her", "claim_links": ["pattern discrimination", "comparator evidence"]},
+    {"fact": "Faraaz's statistical claim: roughly 90% of residents are Pakistani and only non-Pakistani residents ever get fired or disciplined.", "timestamp": "00:20:44", "quote_anchor": "How come no Pakistani gets fired?", "claim_links": ["pattern discrimination (disparate treatment)"]},
+    {"fact": "Complaint letters about the Indian resident's firing were addressed to Dr. Janice, program director at the time, who is on the witness list; Dr. Ali (defendant) was assistant program director and 'hand-in-glove' with the decision.", "timestamp": "00:21:40", "quote_anchor": "handinand glove with whatever the decision was", "claim_links": ["pattern discrimination", "individual liability of Dr. Ali"]},
+    {"fact": "In 2022, in the first attempt to fire Faraaz, he was summoned to a 6:00 a.m. meeting and told no one could accompany him; his mother called the doctors who had previously threatened to resign.", "timestamp": "00:19:00", "quote_anchor": "summoned to a 6:00 a.m. meeting and he said no one should be there with you", "claim_links": ["retaliation", "procedural unfairness/pretext", "timeline"]},
+    {"fact": "UHS fired Dr. Ahmed, made Dr. Ali step down, and Dr. Rehman left his GME position; Faraaz asserts internal disciplinary actions against these individuals 'did happen.'", "timestamp": "00:24:52", "quote_anchor": "internal disciplinary actions, right? Which did happen", "claim_links": ["admission/notice", "pattern discrimination", "punitive damages (willfulness)"]},
+    {"fact": "Around April 22 (context suggests 2022, after the April 14 probation), Dr. Jones — current head of medical education and Faraaz's treating physician — met Faraaz and his mother, was unaware of the probation, and wrote a letter to Dr. Ali calling the probation 'very inhumane' and Faraaz 'a good doctor.'", "timestamp": "00:26:23", "quote_anchor": "it is very inhumane for you to put this kid on probation", "claim_links": ["pretext", "evidence for all claims", "emotional distress"]},
+    {"fact": "Neither Faraaz nor Dr. Jones knew Faraaz had been placed on probation at the time of their meeting.", "timestamp": "00:26:23", "quote_anchor": "He didn't know I was on probation. I didn't know I was on probation.", "claim_links": ["procedural due process", "pretext"]},
+    {"fact": "Faraaz's essential medications cost $4,000, $600, and $400 per bottle; he went without the $4,000 medication for an extended period and only recently obtained it.", "timestamp": "00:27:22", "quote_anchor": "$4,000 a bottle which I've not been taking", "claim_links": ["damages (economic + health)", "consequential harm"]},
+    {"fact": "Faraaz's father sent approximately $300,000/year for three years, structured as a loan repayable at settlement or employment; this mirrors his lost Tampa contract ($350,000 salary plus $70,000 bonus, three-year term).", "timestamp": "00:28:43", "quote_anchor": "around $300,000 US dollars to me", "claim_links": ["damages (lost earnings)"]},
+    {"fact": "Dr. Rehman (defendant) was head of electrophysiology and one of Faraaz's own cardiac physicians; when Faraaz had a post-operative infection, Rehman allegedly worked to keep it off the file/paper record.", "timestamp": "00:31:12", "quote_anchor": "tried very hard to make sure that that was not the case on file", "claim_links": ["knowledge/willfulness", "record manipulation evidence", "punitive damages"]},
+    {"fact": "Faraaz's father sold property and a store to support him; the father's Dubai shipping business also suffered (ships stuck in Dubai around February before the strait closed).", "timestamp": "00:31:12", "quote_anchor": "My father had to sell property, sell store", "claim_links": ["damages (consequential/family — recoverability to be assessed)"]},
+    {"fact": "Faraaz's stated prognosis: untreated, heart failure within five years and transplant within ten; he is approaching the five-year mark. His implanted device requires Boston Scientific checks every four months but has gone three years unchecked.", "timestamp": "00:32:39", "quote_anchor": "checked every four months it's been three years", "claim_links": ["damages (health)", "irreparable harm/urgency"]},
+    {"fact": "Faraaz can document close to $1 million in living expenses over the past three years from bank records, excluding food and his father's asset sales.", "timestamp": "00:32:39", "quote_anchor": "close to a million dollars in the past 3 years just in living expenses", "claim_links": ["damages (economic)"]},
+    {"fact": "Drazen's discovery demands include: complaints of a similar nature (comparator complaints) and all communications referencing Faraaz between the individual defendants and anybody else at UHS.", "timestamp": "00:26:23", "quote_anchor": "all communications that referenced you between the individual defendants", "claim_links": ["discovery scope — all claims"]}
+  ],
+  "action_items": [
+    {"item": "Obtain Dr. Nadeem's text messages/communications with the criminal complainant and her brother (discovery/subpoena target).", "owner": "Douglas Walter Drazen (raised by client)", "deadline_stated": null, "timestamp": "00:15:52"},
+    {"item": "Preserve/obtain the police body-cam footage in which the complainant says she has access to Dr. Ali.", "owner": "Douglas Walter Drazen (raised by client)", "deadline_stated": null, "timestamp": "00:15:52"},
+    {"item": "Demand copies of complaints of a similar nature (comparator discrimination complaints re Iranian and Indian residents) — already in the drafted demands.", "owner": "Douglas Walter Drazen", "deadline_stated": null, "timestamp": "00:18:03"},
+    {"item": "Demand the formal complaint letters and resignation-threat letters from non-Pakistani doctors regarding the Indian resident's firing (addressed to then-program director Dr. Janice).", "owner": "Douglas Walter Drazen", "deadline_stated": null, "timestamp": "00:21:40"},
+    {"item": "Obtain Dr. Jones's letter to Dr. Ali calling Faraaz's probation 'very inhumane' ('Well, we're going to get that letter').", "owner": "Douglas Walter Drazen", "deadline_stated": null, "timestamp": "00:26:23"},
+    {"item": "Demand all communications referencing Faraaz between the individual defendants and anybody else at UHS.", "owner": "Douglas Walter Drazen", "deadline_stated": null, "timestamp": "00:27:22"},
+    {"item": "Compile/document the damages model: father's bank statements (~$300k/yr loan), ~$1M living expenses over 3 years, medication costs, and family losses (property/store sales) — client has run bank records through AI analysis.", "owner": "Dr. Faraaz Rahman (with counsel)", "deadline_stated": null, "timestamp": "00:31:12"},
+    {"item": "Obtain medical records/communications regarding the post-operative infection Dr. Rehman allegedly kept off the record, and records of missed Boston Scientific device checks.", "owner": "Douglas Walter Drazen (implied by client's account)", "deadline_stated": null, "timestamp": "00:31:12"}
+  ],
+  "damages_mentions": [
+    {"category": "Medical/prescription costs", "amount_raw": "$4,000 per bottle (primary medication), $600 per bottle (second), $400 per bottle (third)", "basis_stated": "Cost of essential medications he could not afford and only recently obtained; primary medication not taken 'for quite some time'.", "timestamp": "00:27:22"},
+    {"category": "Lost income / family support loan", "amount_raw": "~$300,000/year for ~3 years (father's transfers), mirroring Tampa contract of $350,000 salary + $70,000 bonus over 3 years", "basis_stated": "Father's bank-statement-documented transfers structured as a loan repayable at settlement or re-employment; proxies the forfeited Tampa physician contract as loss of income.", "timestamp": "00:28:43"},
+    {"category": "Living expenses (documented)", "amount_raw": "close to $1,000,000 over the past 3 years", "basis_stated": "Bank records of living expenses alone, excluding food and father's sacrifices.", "timestamp": "00:32:39"},
+    {"category": "Family consequential losses", "amount_raw": "unquantified (property and store sold; ships stuck in Dubai)", "basis_stated": "Father sold property and a store to fund support; shipping business disruption; emotional toll on mother and sister ('triplicate the pain').", "timestamp": "00:31:12"},
+    {"category": "Health damages", "amount_raw": "unquantified", "basis_stated": "Untreated prognosis of heart failure in 5 years / transplant in 10, now at ~5-year mark; ICD unchecked for 3 years despite required 4-month Boston Scientific checks; loss of healthcare tied to loss of license.", "timestamp": "00:32:39"},
+    {"category": "Counsel assessment", "amount_raw": "n/a", "basis_stated": "Drazen: 'we definitely have measurable damages.'", "timestamp": "00:30:05"}
+  ],
+  "open_questions": [
+    "Identities not yet resolved: 'Dr. D' (retired Indian member of the graduate medical council), 'Dr. Janice' (then program director, on witness list), 'Dr. Jones' (current head of medical education and Faraaz's treating physician), 'Dr. Davi', 'Dr. Miller' (resigned board member), 'Dr. Heila'/'Dr. Hila' (former GME head, post-stroke).",
+    "Is 'Dr. Omat' (00:23:40) really Dr. Awais Ahmed? Correction flagged probable only — verify against other segments or the client.",
+    "Year of the ~April 22 meeting with Dr. Jones is unstated (context suggests 2022, days after the April 14 probation per seg-01) — confirm.",
+    "Verify the claim that 'the Indian government made the complaint' about the Indian resident's firing (00:20:44) — unusual assertion; possibly garbled or hyperbole ('Indian doctors'?).",
+    "Did the Iranian resident file a formal complaint? Faraaz said 'I'm not sure' — affects the similar-complaints discovery yield.",
+    "Names of the two comparator residents are said to be 'in the list over there' but never spoken in this segment — confirm they appear on the witness/exhibit list.",
+    "Legal vetting needed: recoverability of family-member losses (father's property/store sales, shipping losses) and the collateral-source/loan characterization of the father's ~$300k/yr support.",
+    "The medical prognosis figures (heart failure in 5 years, transplant in 10) and the 4-month Boston Scientific check requirement need expert/medical-records corroboration.",
+    "'the provision is ineffective' (00:15:52) — probable garble of 'probation'; and 'put them through the eyes' (00:31:12) — probable garble of 'the AIs'; both flagged, not certain.",
+    "Several one-word/profane interjections under the 'haseeb rahman' label (e.g., 'What the f***?' 00:22:38, 'Morning.' 00:26:23) appear to be background cross-talk and are not treated as substantive attributions."
+  ]
+}

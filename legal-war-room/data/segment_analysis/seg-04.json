@@ -1,0 +1,262 @@
+{
+  "segment_id": "seg-04",
+  "blocks": [
+    {
+      "timestamp": "00:50:15",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Faraaz argues that UHS corporate got involved after his arrest and, within about an hour, decided NOT to fire him even though he was on probation — when by their own documentation an arrest while on probation was an immediately fireable offense. He infers UHS did due diligence (likely reviewed the CCTV footage) and knew nothing happened. He notes the footage was held by an entity he calls 'ANSCO,' whose lawyers were heavily involved, let people in, and never produced the footage; UHS posted a CCTV photo of him 'everywhere,' proving access to the footage.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "why am I not fired if I'm on probation... it's an immediate fireable offense I was on probation before that according to the documentation I should have been fired on the spot", "significance": "Core inference of institutional knowledge of innocence: UHS's decision not to fire a probationary resident after an arrest suggests they knew the charge was baseless — supports bad-faith/retaliation narrative and undercuts any later 'legitimate reason' defenses."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "they never gave us the footages of ANSCO and ANSCO lawyers were involved too very heavily... They were the ones who let them in. They were the ones who never gave us the footage.", "significance": "Identifies withheld CCTV footage held by a third party ('ANSCO') as a critical discovery/spoliation target."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "they had a photo of me on CCTV which they posted everywhere", "significance": "Shows defendants had access to the exculpatory footage and also publicized plaintiff's image — relevant to defamation-type harm and to knowledge/bad faith."}
+      ],
+      "corrections": [
+        {"raw": "ANSCO", "corrected": "ANSCO (unresolved entity holding CCTV footage)", "basis": "Also appears at seg-03 l.199 per roster notes; insufficient basis to resolve to a known entity — left uncorrected and flagged."}
+      ],
+      "legal_tags": ["evidence", "discovery", "admission", "timeline"],
+      "callout": "Non-firing of a probationary resident post-arrest is argued as circumstantial proof UHS knew the charge was baseless; CCTV footage held by 'ANSCO' was never produced — spoliation/discovery target."
+    },
+    {
+      "timestamp": "00:51:14",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Faraaz says UHS had access to the footage and would have known nothing happened, yet roughly six months later, when the DA came and spoke to them, they handed over his academic records and cut off his email access. Drazen responds there was probably a subpoena issued and says they will get a copy of it. Faraaz frames himself as evidence that UHS knew the prosecution was in bad faith 'from point zero,' explains he filed FMLA because he knew he was about to be fired within hours, and describes admin leave using Dr. Awais Ahmed as the comparator (Ahmed was put on admin leave only hours before being fired). He recounts being told that if he ever came within 10 feet of the building, they would call the cops.",
+      "key_quotes": [
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "there was probably a subpoena issued and we'll get a copy of that, too.", "significance": "Counsel commits to obtaining the subpoena underlying UHS's disclosure of academic records to the DA — a discovery action item that could show whether disclosure was compelled or voluntary/cooperative."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "I'm the evidence of you know of them knowing that it was in bad faith from point zero.", "significance": "Client's theory of the case: institutional knowledge of innocence from the outset — central to malicious prosecution and retaliation claims."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "if you come within 10 ft of the uh uh building, we will call the cops", "significance": "Verbatim stay-away threat conveyed to plaintiff — evidences the severity of the employer's treatment despite later retaining him, an internal inconsistency."}
+      ],
+      "corrections": [
+        {"raw": "Dr. OM", "corrected": "Dr. Awais Ahmed MD (defendant)", "basis": "Roster garble glossary: 'Oasis / O Ahmed / OS Ahmed / OM' = Awais Ahmed MD; context here (put on admin leave hours before being fired from UHS) matches seg-01 description of Ahmed's firing."}
+      ],
+      "legal_tags": ["discovery", "admission", "malicious_prosecution", "timeline", "action_item"],
+      "callout": "Drazen will obtain the DA's subpoena to UHS for academic records; comparator evidence (Ahmed fired within hours of admin leave) vs. plaintiff's inconsistent treatment."
+    },
+    {
+      "timestamp": "00:52:32",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Drazen asks whether Faraaz has copies of the stay-away/admin-leave document and says they will ask for those in discovery too. Faraaz explains the instruction came by phone from Dr. Muhammad Imran Ali (his program director), who said it came from the legal team; Faraaz reasons the directive must exist in writing, passing from the CEO through 'Dr. Hila' and others before reaching Ali, and believes the written record would exonerate him 'extremely well.' He argues that if the hospital genuinely suspected him of breaking into Guthrie or of sexual assault, any department head would have fired a resident under such suspicion.",
+      "key_quotes": [
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "Do do you have copies of that document?... all right. Well, we're going to ask for those kind, too.", "significance": "Counsel adds the written admin-leave/stay-away directive to the discovery demand list."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "he told me it came from the legal team... there is something in writing and there would be something in writing which would have exonerated me extremely well", "significance": "Identifies a specific written internal directive chain (legal team → CEO → intermediaries → Dr. Ali) as likely exculpatory evidence; Dr. Ali is a percipient witness."}
+      ],
+      "corrections": [
+        {"raw": "Dr. Hila", "corrected": "Dr. Hila (unresolved name)", "basis": "Also at seg-03 l.189 per roster notes; no known participant or defendant matches — left uncorrected and flagged."},
+        {"raw": "gri", "corrected": "Guthrie (Hospital)", "basis": "'breaking into gri' matches the seg-03 garble family 'Guthri/Gutri/G3' = Guthrie Hospital, the site of the alleged break-in that triggered the police call (seg-03 l.135)."},
+        {"raw": "Dr. Ali", "corrected": "Muhammad Imran Ali MD (defendant)", "basis": "Roster: 'Dr. Ali was my program director' (seg-01 l.140) maps to defendant Muhammad Imran Ali MD."}
+      ],
+      "legal_tags": ["discovery", "evidence", "action_item"],
+      "callout": "Written internal directive behind the stay-away order (legal team → CEO chain → Dr. Ali) is a targeted discovery item the client believes is exculpatory; Dr. Ali identified as a witness who 'would testify.'"
+    },
+    {
+      "timestamp": "00:53:36",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)", "haseeb rahman (raw label; likely cross-talk)"],
+      "clean_summary": "Faraaz continues the internal-inconsistency argument: residents have been fired for far less ('they try to fire me because of tripping over my shoelace'), yet UHS retained him while he was on pre-trial release — checking in weekly with a probation officer and barred from leaving the city without permission. He argues something significant must have made UHS conclude he was worth keeping despite an unresolved charge. Short interjections under the 'haseeb rahman' label ('That was', 'another') appear to be cross-talk.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "We have fire people for less. We have they try to fire me because uh tripping over my shoelace", "significance": "Pattern evidence of pretextual, disproportionate discipline against plaintiff versus lenient treatment when it suited the institution — supports pretext/discrimination arguments."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "I had to call in with my probation officer every uh week I cannot leave the city without telling her how do you have me... still in the program", "significance": "Establishes the pre-trial release conditions and the incongruity of retention — circumstantial evidence UHS knew the charge lacked substance."}
+      ],
+      "corrections": [],
+      "legal_tags": ["pattern_discrimination", "evidence", "timeline"],
+      "callout": "Disproportionate-discipline history ('fired people for less') vs. retention during pre-trial supervision — pretext and knowledge-of-innocence evidence."
+    },
+    {
+      "timestamp": "00:54:36",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)", "haseeb rahman (raw label; likely cross-talk)"],
+      "clean_summary": "Faraaz reasons that UHS would not preemptively call the complainant a liar, so something must have passed between the legal teams deciding not to investigate further; the moment he went to HR, they hurried his graduation and told him not to come to work ('put your legs up, chill, relax'). He says this sets the precedent for everything happening now, and recalls a line where the lawyer asked 'were you found not guilty' — concluding 'you knew I was not guilty before anybody else did.' He mentions calling his medical-legal attorney in Chicago.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "the minute we went to HR they hurried my graduation they were like you don't have to come to work don't worry about it put your legs up chill relax", "significance": "HR's abrupt accommodation right after his complaint suggests damage-control and institutional awareness — relevant to retaliation timeline and knowledge."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "you knew I was not guilty before anybody else did", "significance": "Client's articulation of defendants' early knowledge of innocence — the linchpin of the bad-faith/malicious prosecution theory."}
+      ],
+      "corrections": [
+        {"raw": "complicent", "corrected": "complacent", "basis": "Phonetic garble in 'It's when when you get complicent'; 'complacent' fits the sentence about showing only the tip of the iceberg (cf. 01:00:37 context)."}
+      ],
+      "legal_tags": ["admission", "timeline", "evidence"],
+      "callout": "Hurried graduation and 'don't come to work' instruction immediately after the HR visit — timeline anchor for institutional knowledge and damage control."
+    },
+    {
+      "timestamp": "00:55:54",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)"],
+      "clean_summary": "Faraaz recounts his Chicago medical-legal attorney's reaction: 'That's it. You're done. Did you make prints of your email?' — which Faraaz had done before HR took the records and cancelled his email access; the attorney predicted he had only hours before receiving a termination notice. Instead, when the call came, it was a request to work the night shift that same day. Faraaz replied he had been in jail the previous night — he was arrested when he went out to his car to pick up his laptop to write the FMLA document, where police were waiting for him.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "Did you make prints of your email? Which I had actually. He's like took the HR took it away and cancelled my email access.", "significance": "Client possesses printed copies of emails predating UHS's cancellation of his email access — preserved evidence UHS may no longer expect him to have."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "I went out to the car to pick up my laptop and write the FMLA document and they were waiting for me over there.", "significance": "Arrest occurred at the moment he was about to file FMLA paperwork, with police 'waiting' — tight temporal link between protected activity and the arrest, supporting retaliation/malicious prosecution."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "he's like hey can you do the night shift today by the way? I was like do you know where I was last night?... I was in jail, bro.", "significance": "UHS asked the just-arrested resident to work a night shift — further inconsistency with any claim they viewed him as dangerous or terminable."}
+      ],
+      "corrections": [],
+      "legal_tags": ["evidence", "timeline", "malicious_prosecution", "admission"],
+      "callout": "Client holds printed emails made before UHS cut his email access; arrest occurred while he was retrieving his laptop to file FMLA — key retaliation-timing fact."
+    },
+    {
+      "timestamp": "00:56:56",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)", "haseeb rahman (raw label; likely cross-talk/background)"],
+      "clean_summary": "Faraaz argues UHS itself concluded he deserved to continue his medical career, making its later damage to that career indefensible — especially after making Dr. Ali step down knowing Ali forged Faraaz's signature ('you can see it. You have the documents too. You know I haven't signed it there'). Three years on, the decision has not been reversed. He describes graduating on time and being praised on stage while carrying 'the scarlet letter.' He then argues the legal communications between the hospitals' lawyers would not be privileged because 'lawyers are not clients of lawyers.' The 'haseeb rahman' turns here ('I want to 6418', 'Hello') appear to be background noise or a separate call.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "after you make Dr. Ali step down in knowing that he forged my uh signature because you can see it. You have the documents too. You know I haven't signed it there. It's been three years. Why haven't you reversed your decision?", "significance": "Direct allegation of document forgery by defendant Ali on plaintiff's probation-related paperwork, with UHS's knowledge evidenced by Ali's forced step-down — supports fraud/retaliation and undermines the probation's legitimacy."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "they would have had legal communication between them if and it wouldn't I don't think it is privileged because they aren't each other's clients lawyers are not clients of lawyers", "significance": "Client flags UHS–Guthrie inter-counsel communications as a discoverable, arguably non-privileged category (potential common-interest fight, but a legitimate target)."}
+      ],
+      "corrections": [
+        {"raw": "Dr. Ali", "corrected": "Muhammad Imran Ali MD (defendant)", "basis": "Roster mapping: program director 'Dr. Ali' = defendant Muhammad Imran Ali MD."}
+      ],
+      "legal_tags": ["evidence", "discovery", "pattern_discrimination", "damages"],
+      "callout": "Forged-signature allegation against Dr. Ali (with UHS possessing the documents and forcing his step-down) plus a discovery theory that inter-hospital counsel communications are not privileged."
+    },
+    {
+      "timestamp": "00:58:11",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)", "haseeb rahman (raw label; likely cross-talk/background)"],
+      "clean_summary": "Drazen agrees to request the inter-counsel communications in discovery ('we'll ask for it. We'll see what they say'). Faraaz adds alternative targets: records of why he was put on administrative leave and why it was removed. He says Dr. Ali would testify — Ali was there and made the phone call. He again presses the inconsistency: a resident checking in weekly with a pre-trial probation officer, subject to drug testing and travel restrictions, was told 'you're good, continue' — yet is now deemed not good enough for a medical license. Background 'haseeb rahman' fragments ('That's my dad', 'I'm getting lost') appear to be a separate conversation.",
+      "key_quotes": [
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "Yeah, we'll ask for it. We'll see what they say.", "significance": "Counsel commits to demanding the inter-hospital legal communications in discovery."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "Dr. Ali would testify to it. He he was there. He was the one who gave me the phone call.", "significance": "Identifies defendant Ali as a percipient witness to the admin-leave directive and its provenance from the legal team."}
+      ],
+      "corrections": [
+        {"raw": "academic preparation / academic leave", "corrected": "administrative leave", "basis": "Speaker self-corrects in the same breath: 'why was I put on academic preparation so on academic leave administrative leave' (l.83-85)."},
+        {"raw": "infuction", "corrected": "infraction", "basis": "Phonetic garble at l.89: 'If you have even an infuction like you came late one day' — 'infraction' fits the disciplinary context."}
+      ],
+      "legal_tags": ["discovery", "action_item", "evidence"],
+      "callout": "Discovery targets locked in: inter-counsel communications plus the paper trail for imposition and removal of administrative leave; Dr. Ali flagged as testifying witness."
+    },
+    {
+      "timestamp": "00:59:30",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)", "haseeb rahman (raw label; likely cross-talk/background)"],
+      "clean_summary": "Faraaz says the licensing inconsistency culminates in him being denied the ability to hold a medical license. He volunteers to get the names of, and track down, the two doctors who filed a complaint on behalf of 'the Indian girls we house'; his mother has been in touch with them and called them once. He also raises the Indian consulate/council attorney Drazen had previously met, whom he wanted to involve — noting that last time the strategy was to show defendants only 'the tip of the iceberg,' and that the Indian consulate/council knew of his case, in which two Indian physicians were fired.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "I'll get their names and I'll try to track those people down as well... the two doctors who filed a complaint's behalf the Indian girls we house.", "significance": "Witness-development commitment: two physician complainants connected to the underlying accusation; potentially critical fact witnesses."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "you have two Indian physicians who have been fired", "significance": "Pattern evidence of adverse action against Indian/South Asian physicians at UHS — supports Title VI/discrimination pattern theory."}
+      ],
+      "corrections": [
+        {"raw": "Indian council", "corrected": "Indian Consulate (probable)", "basis": "Context — an attorney connected to a body that 'knew of my case' involving Indian nationals abroad — fits a consulate; 'council' is a plausible mis-transcription. Confidence moderate; raw reading 'council' retained as alternative."},
+        {"raw": "complaint's behalf the Indian girls", "corrected": "complaint on behalf of the Indian girls", "basis": "Grammatical garble; surrounding sentence structure ('two doctors who filed... on their behalf', repeated at 01:00:37 l.121) confirms the intended meaning."}
+      ],
+      "legal_tags": ["action_item", "pattern_discrimination", "evidence"],
+      "callout": "Client to identify and locate the two physician complainants tied to the accusers; two fired Indian physicians cited as discrimination-pattern evidence; possible consulate involvement."
+    },
+    {
+      "timestamp": "01:00:37",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)", "haseeb rahman (raw label; likely cross-talk)"],
+      "clean_summary": "Faraaz elaborates: one Indian physician was fired amid a large upheaval of complaining doctors, the other was the one going through this case; he offers to get their names and reach out. Drazen instructs 'get me the names.' Drazen then states the discovery demand for email: either direct access to Faraaz's UHS email account or a hard-copy printout of every single email. Faraaz asks when it must be submitted; Drazen says there is no set time but there is a deadline, he has made substantial progress on the draft but is not entirely satisfied yet.",
+      "key_quotes": [
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "we're going to demand either direct access to your email account or... we'll ask them to print out every single one of them and provide it to us in in hard copy.", "significance": "Concrete discovery demand covering the email account UHS cut off — the account plaintiff says contains exculpatory/retaliation evidence."},
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "There is no set time. I mean, there's a deadline. I don't have the schedule in front of me, but I've made substantial progress.", "significance": "Status of the pending draft (likely discovery demands/amended filing): substantial progress, deadline exists but not imminent; today's discussion to be incorporated."}
+      ],
+      "corrections": [],
+      "legal_tags": ["discovery", "action_item", "timeline"],
+      "callout": "Drazen to demand full UHS email access or complete hard-copy production; client to supply names of the two fired Indian physicians / complainant doctors."
+    },
+    {
+      "timestamp": "01:01:30",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Drazen says he wants to include things discussed today in the draft. Faraaz raises what he calls a very important point: he must file for malicious prosecution for a specific reason — under both the New York State medical licensing board's and USCIS's rules, for domestic-violence or sexual-offense charges the question is not whether you were charged or acquitted; the record is expunged except as to a few agencies (USCIS and the New York State licensing board among them), and the licensing questionnaire asks 'have you ever been arrested?' — not charged, not acquitted, just arrested.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "I have to file for malicious prosecution for a very specific reason.", "significance": "Client states his strategic rationale for adding a malicious prosecution claim — collateral licensing and immigration consequences that survive acquittal."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "the first third question in the license questioning is have you ever been arrested? Not charged, not acquitted, just arrested.", "significance": "Damages theory: the arrest itself permanently burdens medical licensure and immigration status regardless of the Sept 2025 acquittal — makes the arrest, not just the prosecution, the injury."}
+      ],
+      "corrections": [
+        {"raw": "expuned", "corrected": "expunged", "basis": "Phonetic garble in 'the judge had said that it um it's expuned apart from a few um agencies' — expungement context."},
+        {"raw": "UCI / UCSIS / UCIS", "corrected": "USCIS (U.S. Citizenship and Immigration Services)", "basis": "Immediately adjacent to correctly-rendered 'USCIS' in the same sentence and the immigration-visa context; the speaker names it as an agency exempt from expungement, which matches USCIS practice for immigration questionnaires."}
+      ],
+      "legal_tags": ["malicious_prosecution", "damages", "health"],
+      "callout": "Rationale for malicious prosecution claim: arrest record survives expungement for USCIS and NYS medical licensing purposes — permanent collateral damage despite acquittal."
+    },
+    {
+      "timestamp": "01:02:46",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)", "haseeb rahman (raw label; likely cross-talk)"],
+      "clean_summary": "Faraaz notes it is treated as a domestic crime, worsening the collateral effect. Drazen counters that the prosecution was terminated in his favor, meaning he returns to his previous condition and everything, possibly even the arrest, is eliminated — though Drazen concedes he does not know whether the arrest itself matters. Faraaz responds that the difference is he is not an American citizen: he consulted three immigration attorneys who all said the arrest is a serious problem ('that's no bueno'). He begins explaining one reason he refused an ACD (adjournment in contemplation of dismissal).",
+      "key_quotes": [
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "The prosecution was terminated in your favor. Which means your you return to your previous condition. Everything is everything is is eliminated.", "significance": "Counsel confirms favorable termination — the element of a malicious prosecution claim that the Sept 2025 acquittal satisfies."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "I'm not an American citizen... I spoke to three immigration attorneys and they were like that's that's a no that's no bueno", "significance": "Immigration-specific harm: as a non-citizen, the arrest record carries consequences that favorable termination does not cure — distinct, ongoing damages."}
+      ],
+      "corrections": [],
+      "legal_tags": ["malicious_prosecution", "damages", "timeline"],
+      "callout": "Favorable termination confirmed by counsel; non-citizen status means the arrest has immigration consequences three immigration attorneys flagged as serious."
+    },
+    {
+      "timestamp": "01:03:33",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Faraaz explains why he refused the ACD: USCIS applies a low threshold (he reaches for 'preponderance' / partial suspicion), illustrated by his immigration attorney's example — if you were not guilty, why did you take the course? He stresses he has not practiced medicine in three years and wants to practice before the case concludes, and that even after acquittal a stigma remains ('he was still involved in it'). He begins the further point that motivated filing.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "for the UCIS they go like well if you were not guilty why you take the course that's their that's their threshold", "significance": "Explains rejection of ACD/diversion: any concession would be treated by USCIS as an implicit admission — corroborates that plaintiff insisted on full acquittal, strengthening the favorable-termination element."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "I've been three years not since I've practiced medicine and I wish to practice medicine before the case gets done.", "significance": "Quantifies career damages: three years out of medical practice; also frames urgency for interim relief (licensure/ACGME strategy)."}
+      ],
+      "corrections": [
+        {"raw": "ACD", "corrected": "ACD = adjournment in contemplation of dismissal (NY CPL)", "basis": "Not a garble — Drazen echoes 'ACD' at l.166; expansion supplied for clarity from standard NY criminal practice term matching the described diversion offer."},
+        {"raw": "UCIS", "corrected": "USCIS", "basis": "Same agency referenced correctly as USCIS at 01:01:30; immigration-threshold context."}
+      ],
+      "legal_tags": ["damages", "malicious_prosecution", "timeline"],
+      "callout": "Three years out of medical practice; refused ACD specifically to preserve full vindication — supports both damages and the favorable-termination element."
+    },
+    {
+      "timestamp": "01:04:38",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Faraaz identifies his malicious-prosecution targets: the DA has immunity, but the police officers who arrested him and ancillary members of the prosecution team do not. He says his goal is not to win that case but to have the charges on file (to change the narrative). Drazen cautions that there will be challenges: there are elements to meet, an acquittal does not automatically create a cause of action for malicious prosecution, and the timeliness of the claim may now be in question. Faraaz acknowledges he may have run past the statute of limitations.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "the DA is immune to it but not the police officers who arrested me, not the ancillary members of... the prosecution team.", "significance": "Correctly frames prosecutorial absolute immunity vs. potentially liable police/ancillary actors — shapes who can be named in a malicious prosecution / Section 1983 claim."},
+        {"speaker": "Douglas Walter Drazen (attorney)", "quote": "it's not every time you get acquitted does not automatically result in a cause of action for malicious prosecution. And also, um, the timeliness of of it now may be in question.", "significance": "Counsel's candid risk assessment: elements (esp. malice/lack of probable cause) and limitations period are live obstacles — a statute-of-limitations issue needing immediate verification given the Sept 2025 acquittal."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "It's not about winning the case. It's only about filing the charges.", "significance": "Client's stated motive is narrative/collateral benefit rather than recovery — counsel should manage Rule 11 / frivolousness exposure and align expectations."}
+      ],
+      "corrections": [],
+      "legal_tags": ["malicious_prosecution", "timeline", "action_item"],
+      "callout": "URGENT: Drazen flags timeliness of a malicious prosecution claim as possibly expired — with a Sept 2025 acquittal, the limitations window must be verified immediately."
+    },
+    {
+      "timestamp": "01:05:45",
+      "speakers_present": ["Dr. Faraaz Rahman (client/plaintiff)", "Douglas Walter Drazen (attorney)"],
+      "clean_summary": "Faraaz explains his plan: having just gotten his feet under him, he will try to get ACGME to come to the table via a complaint from his side; Drazen says that's fine. Faraaz reasons that if he can return to work, merely having filed the malicious-prosecution charge changes the story to one of wrongful accusation. He believes he meets all four elements and that the acquittal was the last missing one, which is why he could not file earlier. He closes by saying his fear was that he would never get a job — the charge as placed on him was damaging enough.",
+      "key_quotes": [
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "I am going to call try to get ACGME to come to the table uh from the side in which they come as a complaint from my side.", "significance": "Parallel-track strategy: an ACGME complaint to pressure the residency program independent of the litigation."},
+        {"speaker": "Dr. Faraaz Rahman (client/plaintiff)", "quote": "the only thing left was the acquitt so I could not do immediately. My fear was that I I would not get a job um ever.", "significance": "Explains accrual timing (favorable termination only completed the elements at the Sept 2025 acquittal) and articulates employability damages."}
+      ],
+      "corrections": [
+        {"raw": "mis prosecution", "corrected": "malicious prosecution", "basis": "l.195 'I have charged the prosecution for mis prosecution' — the entire passage from 01:01:30 onward concerns the malicious prosecution claim he intends to file."}
+      ],
+      "legal_tags": ["action_item", "malicious_prosecution", "damages"],
+      "callout": "Client to initiate an ACGME complaint as leverage; malicious-prosecution elements argued complete only upon Sept 2025 acquittal (accrual argument relevant to the limitations question Drazen raised)."
+    }
+  ],
+  "facts": [
+    {"fact": "UHS, with corporate involvement, decided within about an hour after the arrest not to fire Faraaz even though he was on probation, despite internal documentation making an arrest while on probation an immediately fireable offense.", "timestamp": "00:50:15", "quote_anchor": "why am I not fired if I'm on probation", "claim_links": ["retaliation (knowledge/bad faith)", "malicious_prosecution (knowledge of innocence)", "pretext for later adverse actions"]},
+    {"fact": "CCTV footage of the incident was held by an entity called 'ANSCO' (unresolved), whose lawyers were heavily involved; the footage was never produced to plaintiff despite UHS posting a CCTV photo of him widely.", "timestamp": "00:50:15", "quote_anchor": "they never gave us the footages of ANSCO", "claim_links": ["spoliation/discovery", "defamation-adjacent publication harm", "malicious_prosecution (suppressed exculpatory evidence)"]},
+    {"fact": "About six months after the incident, when the DA contacted UHS, UHS provided Faraaz's academic records and cut off his email access; Drazen believes a subpoena was probably issued and will obtain a copy.", "timestamp": "00:51:14", "quote_anchor": "you give him my academic records", "claim_links": ["retaliation", "discovery (subpoena to UHS)", "privacy/records handling"]},
+    {"fact": "Comparator: Dr. Awais Ahmed (defendant) was placed on administrative leave only about 3-6 hours before being fired by UHS, whereas Faraaz was neither fired nor kept on comparable admin leave after his arrest.", "timestamp": "00:51:14", "quote_anchor": "Dr. OM he was put on admin leave", "claim_links": ["disparate treatment / pattern", "knowledge of innocence"]},
+    {"fact": "Faraaz was told that if he came within 10 feet of the building the police would be called; the instruction was delivered by phone by Dr. Muhammad Imran Ali, who said it came from the legal team, implying a written directive chain from the CEO downward.", "timestamp": "00:52:32", "quote_anchor": "if you come within 10 ft of the uh uh building, we will call the cops", "claim_links": ["retaliation", "discovery (written directive)", "witness: Dr. Ali"]},
+    {"fact": "Faraaz was retained in the residency program while on pre-trial supervision requiring weekly probation-officer check-ins, drug testing, and no travel outside the city without permission — while UHS had previously tried to discipline him for trivial matters.", "timestamp": "00:53:36", "quote_anchor": "call in with my probation officer every uh week", "claim_links": ["pretext", "knowledge of innocence", "pattern_discrimination"]},
+    {"fact": "Immediately after Faraaz went to HR, UHS hurried his graduation and told him he did not have to come to work.", "timestamp": "00:54:36", "quote_anchor": "they hurried my graduation", "claim_links": ["retaliation timeline", "institutional knowledge / damage control"]},
+    {"fact": "Faraaz made printed copies of his UHS emails before HR confiscated records and cancelled his email access, on the advice of his Chicago medical-legal attorney.", "timestamp": "00:55:54", "quote_anchor": "Did you make prints of your email? Which I had actually", "claim_links": ["evidence preservation", "discovery corroboration"]},
+    {"fact": "Faraaz was arrested when he went to his car to retrieve his laptop in order to write his FMLA document; police were waiting for him there. The next day UHS called asking him to work that night's shift, unaware or unconcerned he had been in jail.", "timestamp": "00:55:54", "quote_anchor": "write the FMLA document and they were waiting for me", "claim_links": ["FMLA retaliation (timing)", "malicious_prosecution", "inconsistent employer conduct"]},
+    {"fact": "Faraaz alleges Dr. Muhammad Imran Ali forged his signature on a document (probation-related), that UHS possesses the documents showing it, that Ali was made to step down over it, and that three years later UHS has not reversed the underlying decision.", "timestamp": "00:56:56", "quote_anchor": "he forged my uh signature because you can see it", "claim_links": ["forgery/fraud", "due process re probation", "retaliation", "pattern_discrimination"]},
+    {"fact": "Drazen will request in discovery the inter-hospital (UHS/Guthrie) legal-team communications, which Faraaz argues are not privileged, plus the records of why administrative leave was imposed and removed.", "timestamp": "00:58:11", "quote_anchor": "Yeah, we'll ask for it", "claim_links": ["discovery strategy"]},
+    {"fact": "Two Indian physicians were fired from UHS — one amid a large upheaval of complaining doctors — and two doctors filed a complaint on behalf of the Indian women the family housed; Faraaz's mother has been in contact with them; an Indian consulate/council attorney knows of the case.", "timestamp": "00:59:30", "quote_anchor": "two Indian physicians who have been fired", "claim_links": ["Title VI / national-origin pattern_discrimination", "witness development"]},
+    {"fact": "Drazen will demand either direct access to Faraaz's UHS email account or hard-copy production of every email; there is a filing deadline but no imminent set time, and his draft is substantially progressed but not final.", "timestamp": "01:00:37", "quote_anchor": "demand either direct access to your email account", "claim_links": ["discovery", "case schedule"]},
+    {"fact": "Per Faraaz's research and the criminal judge's statement, the expungement following his acquittal does not shield the arrest record from USCIS or the New York State medical licensing board, whose questionnaire asks 'have you ever been arrested' — not charged or acquitted.", "timestamp": "01:01:30", "quote_anchor": "have you ever been arrested? Not charged, not acquitted, just arrested", "claim_links": ["damages (licensure/immigration collateral consequences)", "malicious_prosecution (injury)"]},
+    {"fact": "Drazen confirmed the prosecution was terminated in Faraaz's favor; Faraaz, a non-citizen, consulted three immigration attorneys who all said the arrest record remains a serious immigration problem despite the acquittal.", "timestamp": "01:02:46", "quote_anchor": "terminated in your favor", "claim_links": ["malicious_prosecution (favorable termination element)", "damages (immigration)"]},
+    {"fact": "Faraaz refused an ACD (adjournment in contemplation of dismissal) because USCIS would treat any diversion/course as implying guilt; he has not practiced medicine for three years.", "timestamp": "01:03:33", "quote_anchor": "if you were not guilty why you take the course", "claim_links": ["favorable termination element", "damages (lost career years)"]},
+    {"fact": "Faraaz intends to pursue malicious prosecution against the arresting police officers and ancillary prosecution-team members (not the immune DA); Drazen cautioned that the elements are not automatic upon acquittal and that timeliness may now be in question; Faraaz fears he is past the statute of limitations.", "timestamp": "01:04:38", "quote_anchor": "timeliness of of it now may be in question", "claim_links": ["malicious_prosecution (elements, immunity, statute of limitations)"]},
+    {"fact": "Faraaz plans to bring ACGME to the table via a complaint from his side, and argues the malicious-prosecution elements were only complete upon acquittal, which is why he could not file earlier.", "timestamp": "01:05:45", "quote_anchor": "get ACGME to come to the table", "claim_links": ["malicious_prosecution (accrual)", "administrative-remedy strategy"]}
+  ],
+  "action_items": [
+    {"item": "Obtain a copy of the subpoena (if any) under which UHS gave Faraaz's academic records to the DA", "owner": "Douglas Drazen", "deadline_stated": null, "timestamp": "00:51:14"},
+    {"item": "Request in discovery the written admin-leave/stay-away directive documents ('we're going to ask for those kind, too')", "owner": "Douglas Drazen", "deadline_stated": null, "timestamp": "00:52:32"},
+    {"item": "Request the inter-hospital legal-team (UHS/Guthrie) communications and the records of why administrative leave was imposed and removed", "owner": "Douglas Drazen", "deadline_stated": null, "timestamp": "00:58:11"},
+    {"item": "Get the names of, and try to track down/reach out to, the two doctors who filed the complaint on behalf of the Indian women, and the two fired Indian physicians; provide names to Drazen ('get me the names')", "owner": "Dr. Faraaz Rahman (with mother's contacts)", "deadline_stated": null, "timestamp": "00:59:30"},
+    {"item": "Demand either direct access to Faraaz's UHS email account or hard-copy production of every email", "owner": "Douglas Drazen", "deadline_stated": null, "timestamp": "01:00:37"},
+    {"item": "Incorporate points discussed today into the pending draft (substantial progress made; deadline exists but not imminent)", "owner": "Douglas Drazen", "deadline_stated": "no set time; 'there's a deadline'", "timestamp": "01:01:30"},
+    {"item": "Evaluate viability and timeliness (statute of limitations) of a malicious prosecution claim against arresting officers and ancillary prosecution-team members", "owner": "Douglas Drazen (raised by client)", "deadline_stated": null, "timestamp": "01:04:38"},
+    {"item": "Initiate an ACGME complaint to bring ACGME to the table from plaintiff's side", "owner": "Dr. Faraaz Rahman", "deadline_stated": null, "timestamp": "01:05:45"}
+  ],
+  "damages_mentions": [
+    {"category": "Lost career / lost earnings — unable to practice medicine", "amount_raw": "none stated (duration: 3 years)", "basis_stated": "'I've been three years not since I've practiced medicine and I wish to practice medicine before the case gets done'", "timestamp": "01:03:33"},
+    {"category": "Reputational harm / stigma", "amount_raw": "none stated", "basis_stated": "'the scarlet letter I'm holding on my chest'; CCTV photo 'posted everywhere'; residual stigma 'he was still involved in it' even after acquittal", "timestamp": "00:56:56"},
+    {"category": "Licensure impairment (collateral consequence of arrest)", "amount_raw": "none stated", "basis_stated": "NYS medical license questionnaire asks 'have you ever been arrested' — arrest record survives expungement for the licensing board", "timestamp": "01:01:30"},
+    {"category": "Immigration harm (non-citizen collateral consequence)", "amount_raw": "none stated", "basis_stated": "Three immigration attorneys advised the arrest record is a serious problem for USCIS despite acquittal", "timestamp": "01:02:46"},
+    {"category": "Loss of employability", "amount_raw": "none stated", "basis_stated": "'My fear was that I would not get a job ever... the way the charge placed on me was damaging enough'", "timestamp": "01:05:45"}
+  ],
+  "open_questions": [
+    "Identity of 'ANSCO' — the entity holding the CCTV footage whose lawyers 'let them in' and never produced footage (also unresolved in seg-03); a garbled corporate/security name? Critical for a third-party subpoena and spoliation analysis.",
+    "Identity of 'Dr. Hila' — named in the directive chain between the CEO and Dr. Ali (also unresolved in seg-03).",
+    "Statute of limitations for the malicious prosecution claim: with acquittal in Sept 2025, has the limitations period (state-law 1-year vs. Section 1983 3-year framework) run, as Faraaz fears and Drazen flags? Needs immediate verification.",
+    "Was UHS's production of academic records to the DA compelled by subpoena or voluntary? The subpoena copy Drazen will obtain resolves this and bears on retaliation/cooperation theories.",
+    "Is 'Indian council' the Indian Consulate? The attorney's identity and role (met previously by Drazen) and whether consular involvement is strategically useful remain unresolved.",
+    "Whether UHS–Guthrie inter-counsel communications are shielded by a common-interest/joint-defense privilege despite Faraaz's 'lawyers are not clients of lawyers' theory.",
+    "Names of the two fired Indian physicians and the two complainant doctors — pending from client and his mother.",
+    "What document memorialized the stay-away/admin-leave order and whether plaintiff has any copy (Drazen asked; the answer was that Dr. Ali received instructions, but plaintiff's own copy status is unclear)."
+  ]
+}

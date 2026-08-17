@@ -1,0 +1,327 @@
+{
+  "_classification": "Attorney Work Product — Privileged & Confidential. Prepared for counsel (Douglas Walter Drazen) in anticipation of litigation and the court-ordered mediation (deadline: November 2026). Not for filing. Not legal advice.",
+  "case": "Rahman v. UHSH et al., 3:26-cv-00197 (NDNY)",
+  "prepared": "2026-08-02",
+  "honesty_rules": {
+    "evidence_labels": "Every dollar figure carries DOCUMENTED (record in hand or hash-chained), ESTIMABLE (methodology + records identified, computation pending), or ASSERTED (client statement or posture figure without independent support).",
+    "citation_rule": "Every case citation traces to /legal-war-room/data/research/*.json. VERIFIED items carry their courtlistener_id. UNVERIFIED_WEB items appear only with the flag 'unverified — confirm with counsel'. No win guarantees; probabilistic language only.",
+    "posture_rule": "The $100M ceiling and $40M acceptance threshold are NEGOTIATION POSTURE figures, not damages calculations. They are labeled as such everywhere they appear, with a Rule 11 / mediator-credibility caveat."
+  },
+  "loss_period_assumption": {
+    "note": "Client has not practiced medicine for ~3 years as of the 2026-08-02 meeting (damages_mentions 01:03:33); paternal support ran ~$300K/yr for ~3 years (00:28:43). Loss onset is therefore modeled at mid-2023, running 3 years to date and ~4 years to a plausible late-2027 verdict.",
+    "inconsistency_flag": "UNRESOLVED: facts_extraction places the April 14 probation in a 2022 context, while r3/r4 research files reference 'Mar-Apr 2024' operative conduct and a Feb 2024 ICD implant. The year of the probation/arrest sequence must be locked down with counsel before any demand is served — it drives back-pay start, FMLA/NYSHRL limitations, and the willfulness window."
+  },
+  "tiers": [
+    {
+      "tier": 1,
+      "label": "Documented core (settlement floor / credibility anchor)",
+      "total_low": 1222000,
+      "total_high": 1595500,
+      "totals_arithmetic": {
+        "total_low": "1,050,000 (FL contract salary, 3 yr) + 40,000 (uninsured medical) + 13,000 (Cornell) + 44,000 (car debt) + 35,000 (civil legal) + 40,000 (travel) = 1,222,000",
+        "total_high": "1,120,000 (FL contract incl. bonus) + 40,000 + 13,000 + 44,000 + 35,000 + 40,000 + 180,000 (medications) + 71,000 (mother's salary) + 50,000 (cardiac monitoring) + 2,500 (board exam) = 1,595,500",
+        "anti_double_count": "Paternal loans (~$900K) and living expenses (~$1M) are EXCLUDED from tier totals. They are the same dollars as the lost-income gap the Florida contract measures: the loans funded the living expenses that the salary would have funded. They are carried as corroborating line items (in_totals=false) and as the client's out-of-pocket/indebtedness story, not stacked recovery."
+      },
+      "line_items": [
+        {
+          "category": "lost_salary_florida_contract_3yr",
+          "amount_low": 1050000,
+          "amount_high": 1120000,
+          "evidence_label": "DOCUMENTED-PENDING",
+          "evidence_ref": "Florida (Tampa) contract stated as executed April 1 pre-probation (facts_extraction 00:13:03, client statement — executed instrument to be exhibited, not yet in counsel's possession); terms $350,000/yr salary + $70,000 bonus, 3-year term (damages_mentions 00:28:43). Low = 3 x 350,000 salary only; high adds the 70,000 bonus. Supersedes the apex substrate's $300K/yr figure. Upgrade to DOCUMENTED only when the executed contract is physically in hand (per honesty_rules definition).",
+          "inconsistency_flag": "UNRESOLVED: facts_extraction 00:14:21 has the client stating that on the day of his arrest he was scheduled to fly down for the Florida INTERVIEW and 'had the offer but had never signed it and no one knew about it' — directly contradicting the 00:13:03 'contract was signed on April 1st' statement this line rests on. The criminal complaint's theory was that he lied about having a job offer; the defense will read the criminal trial record and the client's own recorded words back to the mediator. Lock down the executed-contract question with counsel (obtain the instrument) before this figure is used in any demand.",
+          "statute_basis": "Title VI §601 pecuniary compensatory (survives Cummings, cluster_id 6463720 VERIFIED); tortious interference with existing contract (Lama Holding, cluster_id 2038313 VERIFIED); breach of contract.",
+          "in_totals": true
+        },
+        {
+          "category": "family_loans_paternal",
+          "amount_low": 223800,
+          "amount_high": 900000,
+          "evidence_label": "DOCUMENTED ($223,800: 38 wires, ledger + SHA-256 chain of custody) / DOCUMENTED-PENDING for the remainder (~$300K/yr x 3 yr; bank-records collection is Drazen's open action item, facts_extraction 01:29:03)",
+          "evidence_ref": "Apex substrate wire ledger; damages_mentions 00:28:43 (loans structured as repayable at settlement or re-employment, mirroring the lost Tampa contract).",
+          "statute_basis": "Consequential economic loss / corroboration of lost-income measure.",
+          "in_totals": false,
+          "overlap_note": "NOT additive with lost_salary — the loans are the proxy financing of the same lost income. Use as proof of loss and hardship, not as a stacked line."
+        },
+        {
+          "category": "living_expenses",
+          "amount_low": 150000,
+          "amount_high": 1000000,
+          "evidence_label": "ESTIMABLE",
+          "evidence_ref": "Client: close to $1M documentable from bank records over 3 years, excluding food (damages_mentions 00:32:39); apex substrate carried a documented $150K subset. Computation pending bank-record production.",
+          "statute_basis": "Consequential economic loss; overlaps paternal loans and the lost-income measure.",
+          "in_totals": false,
+          "overlap_note": "NOT additive with lost_salary/family_loans. Living expenses are recoverable as damages only to the extent incremental to what employment income would have covered; primary use is corroboration and hardship narrative."
+        },
+        {
+          "category": "medications",
+          "amount_low": 0,
+          "amount_high": 180000,
+          "evidence_label": "ESTIMABLE",
+          "evidence_ref": "Three essential medications at $4,000 / $600 / $400 per bottle; the $4,000 medication was forgone 'for quite some time' (damages_mentions 00:27:22). High assumes monthly refills of all three: $5,000/mo x 36 mo = $180,000 — pharmacy records needed to fix refill frequency. Low set to $0 pending segregation from the documented $40K uninsured-medical line to avoid double count.",
+          "statute_basis": "Consequential economic loss (Title VI pecuniary; tort). Forgone-medication harm also feeds the health-injury narrative (expert).",
+          "in_totals": true
+        },
+        {
+          "category": "cardiac_device_monitoring_gap",
+          "amount_low": 0,
+          "amount_high": 50000,
+          "evidence_label": "ESTIMABLE — cardiology expert required",
+          "evidence_ref": "ICD (Boston Scientific) requires checks every 4 months; ~9 checks missed over 3 years; stated untreated prognosis of heart failure in 5 yrs / transplant in 10, now near the 5-year mark (damages_mentions 00:32:39). High is a placeholder for catch-up monitoring/care costs only; the real value of this item is injury, aggravation, and future-care testimony, quantifiable only by the retained cardiology expert (apex expert list, Chain 2).",
+          "statute_basis": "Consequential/health damages on tort and NYSHRL (if amended) counts; NOT recoverable as distress under Title VI post-Cummings (cluster_id 6463720 VERIFIED).",
+          "in_totals": true
+        },
+        {
+          "category": "property_store_sales_father",
+          "amount_low": 0,
+          "amount_high": 0,
+          "evidence_label": "ESTIMABLE — unquantified; standing caveat",
+          "evidence_ref": "Father sold property and a store to fund support; Dubai shipping disruption (damages_mentions 00:31:12). No figure stated; sale records to be collected.",
+          "statute_basis": "Third-party/family loss — recoverability by THIS plaintiff is doubtful (standing / remoteness). Carried at $0 in totals; usable as hardship narrative and to prove the loans were real.",
+          "in_totals": true
+        },
+        {
+          "category": "mothers_lost_salary_dubai",
+          "amount_low": 0,
+          "amount_high": 71000,
+          "evidence_label": "ESTIMABLE — employment records needed; standing caveat",
+          "evidence_ref": "Apex substrate line ($71,000). Third-party loss; include in high only.",
+          "statute_basis": "Consequential — same standing caveat as property sales.",
+          "in_totals": true
+        },
+        {
+          "category": "car_debt",
+          "amount_low": 44000,
+          "amount_high": 44000,
+          "evidence_label": "DOCUMENTED",
+          "evidence_ref": "Tesla Financial records (apex substrate).",
+          "statute_basis": "Consequential economic loss.",
+          "in_totals": true
+        },
+        {
+          "category": "uninsured_medical",
+          "amount_low": 40000,
+          "amount_high": 40000,
+          "evidence_label": "DOCUMENTED",
+          "evidence_ref": "Medical bills (apex substrate).",
+          "statute_basis": "Consequential economic loss.",
+          "in_totals": true
+        },
+        {
+          "category": "cornell_medical_bills",
+          "amount_low": 13000,
+          "amount_high": 13000,
+          "evidence_label": "DOCUMENTED",
+          "evidence_ref": "Hospital billing (apex substrate).",
+          "statute_basis": "Consequential economic loss.",
+          "in_totals": true
+        },
+        {
+          "category": "travel_dubai_us",
+          "amount_low": 40000,
+          "amount_high": 40000,
+          "evidence_label": "ESTIMABLE",
+          "evidence_ref": "Airline records (apex substrate).",
+          "statute_basis": "Consequential economic loss.",
+          "in_totals": true
+        },
+        {
+          "category": "civil_legal_expenses",
+          "amount_low": 35000,
+          "amount_high": 35000,
+          "evidence_label": "DOCUMENTED",
+          "evidence_ref": "Attorney invoices, $35,000+ (apex substrate). Statutory fee-shifting is modeled separately in Tier 2 — no double count.",
+          "statute_basis": "Out-of-pocket; fee recovery rides on 42 U.S.C. §1988(b) / FMLA §2617(a)(3) / NYSHRL §297(10) if those counts prevail.",
+          "in_totals": true
+        },
+        {
+          "category": "criminal_defense_fees",
+          "amount_low": 0,
+          "amount_high": 0,
+          "evidence_label": "ESTIMABLE — unquantified; invoices to be collected",
+          "evidence_ref": "Family paid criminal defense counsel separately (damages_mentions 01:07:48). Classic special damages for a malicious-prosecution count; carried at $0 until invoices are in hand.",
+          "statute_basis": "Malicious prosecution special damages (count viability under counsel review — Drazen: 'I don't hold out a lot of hope for it' as to the prosecution-side defendants, facts_extraction 01:06:49).",
+          "in_totals": true
+        },
+        {
+          "category": "board_exam_fee",
+          "amount_low": 0,
+          "amount_high": 2500,
+          "evidence_label": "ESTIMABLE",
+          "evidence_ref": "UHS was to pay the board exam fee and did not; login locked inside UHS email (damages_mentions 01:11:15). Exact fee to be documented.",
+          "statute_basis": "Breach of contract / consequential.",
+          "in_totals": true
+        }
+      ]
+    },
+    {
+      "tier": 2,
+      "label": "Realistic trial range (verified-law arithmetic; probabilistic, not guaranteed)",
+      "total_low": 4342000,
+      "total_high": 16565500,
+      "totals_arithmetic": {
+        "compensatory_low": "back pay 1,120,000 + front pay 700,000 + out-of-pockets 172,000 + emotional distress 100,000 = 2,092,000",
+        "compensatory_high": "back pay 1,470,000 + front pay/lost earning capacity 3,500,000 + out-of-pockets 475,500 + emotional distress 1,250,000 = 6,695,500",
+        "total_low": "2,092,000 compensatory + 0 FMLA liquidated + 2,000,000 punitive (~1:1) + 250,000 fees = 4,342,000",
+        "total_high": "6,695,500 compensatory + 1,120,000 FMLA liquidated + 8,000,000 punitive (~2:1 on a mid compensatory base, Turley discipline) + 750,000 fees = 16,565,500",
+        "consistency_check": "Independent r4 synthesis (research/r4_punitive_identity.json) reached ~$5M-$15M realistic verdict exposure before fees on the same verified authorities — this tier's band brackets it."
+      },
+      "line_items": [
+        {
+          "category": "back_pay",
+          "amount_low": 1120000,
+          "amount_high": 1470000,
+          "evidence_label": "ESTIMABLE (contract terms DOCUMENTED-PENDING (Flag 4); duration is an assumption)",
+          "evidence_ref": "Baseline = $350,000 salary + $70,000 bonus contract. Low = 3 yrs to date (3 x 350,000 + 70,000 = 1,120,000); high = ~4 yrs to a late-2027 verdict (4 x 350,000 + 70,000 = 1,470,000). Mitigation offset risk: defense will press failure-to-mitigate; licensure blockage is the answer but must be proven.",
+          "statute_basis": "Title VI pecuniary (Cummings-safe, cluster_id 6463720 VERIFIED); tortious interference (Lama Holding, cluster_id 2038313 VERIFIED); FMLA lost compensation 29 U.S.C. §2617(a)(1) (statute text official-source, UNVERIFIED_WEB per audit — confirm with counsel); NYSHRL if amended."
+        },
+        {
+          "category": "front_pay_lost_earning_capacity",
+          "amount_low": 700000,
+          "amount_high": 3500000,
+          "evidence_label": "ESTIMABLE — vocational/economic expert REQUIRED",
+          "evidence_ref": "Low = 2 yrs front pay at $350,000. High = ~10-yr diminished-earnings horizon at ~$350K/yr differential if licensure remains impaired. ADVERSE AUTHORITY WARNING: Tarpley v. NYC Transit Auth. (cluster_id 4680173, opinion_id 4457426, VERIFIED) — NY appellate courts ZERO OUT lost-earnings awards not proven with tax returns, documentation, and expert testimony. This line does not exist at trial without the expert. Walker v. Ascension ($10M resident-physician lifetime-earnings verdict, Dec 2025) is the supporting comparator but is unverified — confirm with counsel (state trial verdict, no CourtListener record, subject to post-trial motions/appeal).",
+          "statute_basis": "Equitable front pay (outside §1981a caps); tort lost-earning-capacity; NYSHRL if amended."
+        },
+        {
+          "category": "out_of_pocket_consequentials",
+          "amount_low": 172000,
+          "amount_high": 475500,
+          "evidence_label": "MIXED — DOCUMENTED core ($132,000: car 44K + medical 40K + Cornell 13K + legal 35K) plus ESTIMABLE items (travel, medications, cardiac monitoring, mother's salary, board fee)",
+          "evidence_ref": "= Tier 1 totals minus the lost-salary line (1,222,000 - 1,050,000 = 172,000 low; 1,595,500 - 1,120,000 = 475,500 high). Overlapping loans/living-expense corroboration excluded per Tier 1 anti-double-count rule.",
+          "statute_basis": "Same vehicles as Tier 1."
+        },
+        {
+          "category": "emotional_distress",
+          "amount_low": 100000,
+          "amount_high": 1250000,
+          "evidence_label": "ESTIMABLE — psychiatric/medical corroboration REQUIRED to leave the garden-variety band",
+          "evidence_ref": "POST-CUMMINGS CHANNELING (Cummings, cluster_id 6463720 VERIFIED): distress is NOT recoverable under Title VI or Rehab Act, and NOT under FMLA (29 U.S.C. §2617 — economic only). It rides ONLY on (a) NYSHRL — uncapped, but the count is NOT YET PLED (amendment required), and (b) NY tort counts where distress is a recognized element (malicious prosecution; NOT ordinary breach). Low = top of 2d Cir garden-variety band (~$30K-$125K). High = significant-tier award with treatment records; the $1.725M egregious-tier ceiling (Pizarro v. Quezada, 2d Cir. summary order, docket_id 69513975) is unverified — confirm with counsel, and required suicide-attempt/PTSD-level proof.",
+          "statute_basis": "NYSHRL (post-2019, uncapped — Exec. Law §297(9), official-source text, UNVERIFIED_WEB per audit — confirm with counsel); NY tort. FLAGGED: statutes allowing distress here = NYSHRL + state torts ONLY."
+        },
+        {
+          "category": "fmla_liquidated_doubling",
+          "amount_low": 0,
+          "amount_high": 1120000,
+          "evidence_label": "ESTIMABLE — CONDITIONAL: requires (1) FMLA count added by amendment (not currently pled), (2) FMLA-attributable wage loss, (3) employer failure on the good-faith defense",
+          "evidence_ref": "29 U.S.C. §2617(a)(1)(A)(iii) doubles lost compensation + interest by default; employer bears the burden on good faith AND reasonable grounds (statute text official-source, UNVERIFIED_WEB per audit — confirm with counsel). DaPrato v. MWRA (cluster_id 4626349, opinion_id 4403602, VERIFIED) — liquidated damages near-automatic absent employer good faith. Low = $0 because the FMLA-attributable wage loss may be adjudged small (leave/probation machinery reversed within ~24h; 12-week cap on non-wage actual losses). High = doubling of the 3-yr back-pay figure ($1,120,000) if FMLA retaliation is found to have caused the career loss. HORIZON NOTE: this deliberately doubles the 3-yr back_pay LOW, not the 4-yr-to-verdict back_pay high ($1,470,000) in this same tier — a conservative choice, since the FMLA-attributable share of the wage loss is the most contestable causation link in the tier and the count is not yet pled. Doubling the 4-yr horizon would raise this line to $1,470,000; do not do so without counsel sign-off.",
+          "statute_basis": "29 U.S.C. §2617(a)(1)(A)(iii); Woods v. START (cluster_id 4409966 VERIFIED) motivating-factor causation; Donnelly (cluster_id 806387 VERIFIED) temporal proximity; Graziadio (cluster_id 3186382 VERIFIED) individual liability."
+        },
+        {
+          "category": "punitive_damages",
+          "amount_low": 2000000,
+          "amount_high": 8000000,
+          "evidence_label": "ESTIMABLE — verified-lawful ratios only; conditional on proof of Chauca/Ross-level culpability",
+          "evidence_ref": "VEHICLES: NYSHRL post-2019 (§297(9); standard per Chauca v. Abraham, cluster_id 7170278 + 2d Cir 8439840, VERIFIED — cite only via the §297(9) statutory hook, never as directly governing) and NY torts (Walker v. Sheldon cluster_id 5672186; Ross cluster_id 2032322, VERIFIED — high moral-turpitude bar). NOT AVAILABLE under Title VI (Barnes v. Gorman, cluster_id 121152 VERIFIED) or FMLA. RATIO DISCIPLINE: State Farm (cluster_id 127910 VERIFIED) single-digit ceiling, 1:1 hint on substantial compensatories; 2d Cir compresses to ~2:1 (Turley, cluster_id 8442054 VERIFIED; Payne, cluster_id 820691 VERIFIED). Low = ~1:1 on the low compensatory base; high = ~2:1 on a mid ($4M) compensatory base. Zhang 7:1 (cluster_id 783131 VERIFIED, 9th Cir — persuasive only) is Tier-3 material, not Tier-2.",
+          "statute_basis": "N.Y. Exec. Law §297(9) (amendment required); NY common-law tort punitives (Rocanova bar on contract-based punitives, cluster_id 2243212 VERIFIED — anticipate motion)."
+        },
+        {
+          "category": "attorneys_fees_statutory",
+          "amount_low": 250000,
+          "amount_high": 750000,
+          "evidence_label": "ESTIMABLE — lodestar through trial; conditional on prevailing on at least one fee-shifting count",
+          "evidence_ref": "42 U.S.C. §1988(b) covers Title VI (discretionary, near-automatic for prevailing plaintiffs); FMLA §2617(a)(3) MANDATORY if that count is added and won; NYSHRL §297(10) asymmetric fee-shifting if added. All statute texts official-source, UNVERIFIED_WEB per audit — confirm with counsel. The tort and contract counts carry no fees (American Rule).",
+          "statute_basis": "42 U.S.C. §1988(b); 29 U.S.C. §2617(a)(3); N.Y. Exec. Law §297(10)."
+        }
+      ],
+      "conditions_and_risks": [
+        "Tier 2 high assumes NYSHRL and FMLA counts are ADDED BY AMENDMENT — neither is currently pled. Check the NDNY scheduling-order amendment deadline immediately (r3 open item).",
+        "Academic-deference (Horowitz 435 U.S. 78, cluster_id 109809 VERIFIED — note the substrate's '438 U.S. 78' is a miscite; Ewing cluster_id 111549 VERIFIED) and HCQIA/peer-review immunity (Poliner, cluster_id 62897 VERIFIED — $33M judgment reversed to zero) are the liability-side risks that can take this tier to $0. No outcome is guaranteed.",
+        "Causation contest: defense will attribute the Florida loss to the arrest/prosecution as an independent cause; the instigation evidence (Guthrie-originated call, Nadeem texts, records handover) is what ties it back to defendants.",
+        "Single-recovery rule: the same lost-income dollars cannot be recovered under multiple counts; the multi-count structure widens liability paths, not the compensatory pot."
+      ]
+    },
+    {
+      "tier": 3,
+      "label": "Exposure-ceiling posture (~$100M) — NEGOTIATION POSTURE / ASSERTED, not a forecast",
+      "total_low": 100000000,
+      "total_high": 101500000,
+      "totals_arithmetic": {
+        "construction": "Max compensatory 12,500,000 [lifetime lost earnings 25 yr x 400,000 = 10,000,000 (ASSERTED — undiscounted, no mitigation offset) + egregious-tier emotional distress 2,000,000 (ASSERTED) + consequentials 500,000] x maximum sustained single-digit punitive ratio 7:1 (Zhang, cluster_id 783131 VERIFIED, 9th Cir — persuasive only in the 2d Cir) = 87,500,000 punitive; + 12,500,000 compensatory + 1,500,000 fees/costs through appeal = 101,500,000 ≈ the ~$100M anchor.",
+        "label": "Every load-bearing number in this construction is ASSERTED/POSTURE. This is the runaway-jury scenario, presented honestly as such."
+      },
+      "line_items": [
+        {
+          "category": "max_compensatory_runaway",
+          "amount_low": 12500000,
+          "amount_high": 12500000,
+          "evidence_label": "ASSERTED / POSTURE",
+          "evidence_ref": "Lifetime physician-earnings destruction model (25 yr x $400K, undiscounted, zero mitigation) + egregious-tier distress. Comparator: Walker v. Ascension ~$10M resident-physician verdict — unverified — confirm with counsel (no CourtListener record; fresh, unreviewed state verdict).",
+          "statute_basis": "Would require NYSHRL + tort counts all surviving to verdict with full causation."
+        },
+        {
+          "category": "max_punitive_runaway",
+          "amount_low": 87500000,
+          "amount_high": 87500000,
+          "evidence_label": "ASSERTED / POSTURE",
+          "evidence_ref": "7:1 on max compensatory, per Zhang (cluster_id 783131 VERIFIED) — the highest ratio in the verified file, from the NINTH Circuit; the Second Circuit's own practice (Turley cluster_id 8442054; Payne cluster_id 820691, both VERIFIED) compresses to ~2:1 and would cut this by ~70-85% on review.",
+          "statute_basis": "NYSHRL §297(9) + NY tort — both uncapped in statute, both ratio-policed in practice."
+        },
+        {
+          "category": "fees_costs_through_appeal",
+          "amount_low": 1500000,
+          "amount_high": 1500000,
+          "evidence_label": "ESTIMABLE",
+          "evidence_ref": "Lodestar through trial and appeal on the fee-shifting counts.",
+          "statute_basis": "42 U.S.C. §1988(b); 29 U.S.C. §2617(a)(3); N.Y. Exec. Law §297(10)."
+        }
+      ],
+      "assumptions_that_must_ALL_break_plaintiffs_way": [
+        "1. NYSHRL and FMLA counts are added by amendment and survive dispositive motions in full.",
+        "2. Academic-deference (Horowitz/Ewing) and any HCQIA/NY peer-review immunity defenses fail entirely (Poliner reversal shows the downside is $0, not a discount).",
+        "3. The jury accepts a permanent, career-long licensure bar and a full lifetime-earnings model backed by vocational/economic expert testimony — despite the Tarpley documentation rule (cluster_id 4680173 VERIFIED, adverse).",
+        "4. Emotional-distress proof reaches the 'egregious' tier with psychiatric treatment records (Pizarro-level — unverified — confirm with counsel).",
+        "5. The factfinder finds Chauca-level conscious disregard AND the court sustains a high single-digit ratio, importing 9th Cir Zhang over 2d Cir Turley/Payne compression.",
+        "6. Neither the district court (remittitur) nor the Second Circuit (Payne reasonableness review) reduces the award — historically the least likely assumption of all.",
+        "7. Causation is fully attributed to defendants, with the arrest/prosecution treated as their instrument rather than an independent intervening cause."
+      ]
+    }
+  ],
+  "posture": {
+    "ceiling_framing": "~$100,000,000 — NEGOTIATION POSTURE (ASSERTED). Communicated only as 'the runaway-jury exposure a self-insured/carrier-advised defendant must weight by probability,' constructed transparently from the Tier-3 arithmetic. NEVER pled, never put in a filing, never stated as an expected outcome.",
+    "acceptance_threshold": "$40,000,000 — NEGOTIATION POSTURE per client directive. HONESTY FLAG: this threshold is ~2.4x the top of the verified-law Tier-2 range ($16.6M) and ~9x its floor. It is a client-instructed negotiating position, not a number this model supports as a probable verdict. Counsel must own the gap explicitly in strategy discussions; a mediator will price the case off Tier 2, not off this number.",
+    "floor_batna": {
+      "monetary": "Tier 1 documented core: $1,222,000 - $1,595,500 (do not accept below the documented core absent non-monetary relief of equivalent value to the client's stated first-order objectives).",
+      "non_monetary_must_haves": [
+        "Full correction/expungement of the academic record: removal of the probation and any document bearing the alleged forged signature; ACGME-consistent record",
+        "Clean, board-safe verification/certification letters from UHSH to any licensing authority (NYS and other states) — the 'have you ever been arrested' problem cannot be fixed by UHSH, but the institutional record can be",
+        "Written, USCIS-usable stipulation/narrative confirming the internal exoneration, reinstatement, graduation, and the favorable termination of the criminal matter",
+        "Neutral-or-better employment reference protocol; no disparagement",
+        "Institutional-change component (conflict-of-interest and GME probation-procedure reform) consistent with the case theme: accountability and sustainable change, not punishment"
+      ],
+      "rationale": "The client's true first-order objective is a clean academic record, a licensure path, and a USCIS-safe narrative. A settlement at the Tier-1 monetary floor WITH all non-monetary must-haves may serve the client better than a larger check without them; conversely, no check replaces them. BATNA below the floor: litigate to verdict — fee-shifting on the statutory counts means defendants' cost of delay compounds monthly toward the November 2026 mediation deadline."
+    },
+    "credibility_caveats": [
+      "RULE 11 / MEDIATOR-CREDIBILITY CAVEAT: the $100M ceiling and $40M threshold are negotiation posture. Any figure placed in a pleading, demand letter, or mediation statement must be traceable to the Tier-1/Tier-2 evidence-labeled arithmetic; asserting the posture numbers as computed damages risks Rule 11 exposure and, more practically, destroys credibility with the mediator — the asset this model is designed to protect.",
+      "No win guarantees. All Tier-2 and Tier-3 figures are conditional on liability findings that verified adverse authority (Horowitz/Ewing deference, Poliner/HCQIA, Tarpley, Rocanova, Payne/Turley) could reduce or eliminate.",
+      "Identity hygiene (r4): defendant is United Health Services (Binghamton, EIN 16-1165049, non-profit, ~$1.16B FY2024 revenue — unverified — confirm with counsel via the 990s). It is NOT Universal Health Services (NYSE: UHS) and NOT UnitedHealth Group. The $122M DOJ FCA settlement and the Nevada Saint Mary's $500M punitive verdict belong to the UNIVERSAL family; r2 asserts 'UHS of Delaware' is in our caption while r4's identity audit says the Binghamton system disclaims any affiliation — CONFLICT UNRESOLVED; do not use either figure in any document until counsel confirms the caption entity. Misattribution here is sanctionable and case-damaging.",
+      "The client's '100 million with a base of 10' remark (damages_mentions 00:40:05) has an UNCLEAR REFERENT — made off-line while counsel was away and never clarified. It is NOT treated as instruction or evidence; the $100M posture here derives from the client directive to this engagement, and the remark should be clarified with the client.",
+      "Emotional distress must never be argued under Title VI, Rehab Act, or FMLA (Cummings, cluster_id 6463720; §2617). Punitives must never be argued under Title VI (Barnes, cluster_id 121152). Getting this wrong in front of a mediator or judge signals the team does not know its own remedies law.",
+      "UNVERIFIED_WEB comparators (Walker v. Ascension $10M; Pizarro $1.725M; Walsh/Su v. Tara $650K) may be used in mediation atmospherics ONLY with the explicit flag: unverified — confirm with counsel."
+    ]
+  },
+  "reconciliation": [
+    {"source": "apex damages-calculator.md — $1.2M conservative scenario", "figure": "$1,200,000", "disposition": "SUPERSEDED-ABSORBED: Tier 1 rebuilds it on the corrected $350K+$70K contract baseline; new Tier-1 low $1,222,000 lands within 2% of it."},
+    {"source": "apex damages-calculator.md — $2.5M moderate / $4.9M full-claim scenarios", "figure": "$2,500,000 / $4,900,000", "disposition": "SUPERSEDED: both fall inside the new Tier-2 band ($4.34M-$16.57M), which replaces them with component-level arithmetic and post-Cummings channeling."},
+    {"source": "apex damages-calculator.md — lost salary line", "figure": "$300,000/yr", "disposition": "CORRECTED: meeting record (00:28:43) fixes the Tampa contract at $350,000 salary + $70,000 bonus, 3-yr term; $300K/yr survives only as the paternal-loan run rate."},
+    {"source": "apex damages-calculator.md — documented wires", "figure": "$223,800 (38 wires, SHA-256 chain)", "disposition": "RETAINED as the DOCUMENTED subset of the ~$900K paternal-loan claim; overlap-flagged against lost salary (not additive)."},
+    {"source": "damages_mentions 00:28:43 — paternal loans", "figure": "~$300,000/yr x ~3 yr (~$900,000)", "disposition": "INCLUDED as corroborating line item, DOCUMENTED-PENDING bank-records production (Drazen action item 01:29:03); excluded from tier totals to prevent double count with lost salary."},
+    {"source": "damages_mentions 00:32:39 — living expenses", "figure": "~$1,000,000 / 3 yr", "disposition": "INCLUDED as corroboration, ESTIMABLE; excluded from tier totals (same dollars as the lost-income gap)."},
+    {"source": "damages_mentions 00:27:22 — medications", "figure": "$4,000 / $600 / $400 per bottle", "disposition": "INCLUDED, ESTIMABLE: high modeled at $5,000/mo x 36 mo = $180,000 pending pharmacy records."},
+    {"source": "damages_mentions 00:32:39 — ICD monitoring gap", "figure": "~9 missed checks / 3 yr", "disposition": "INCLUDED, ESTIMABLE — cardiology expert required; monetary placeholder only, primary value is injury/urgency proof."},
+    {"source": "damages_mentions 00:31:12 — property/store sales", "figure": "unquantified", "disposition": "INCLUDED at $0 with standing caveat; records to be collected; narrative/corroboration use."},
+    {"source": "damages_mentions 00:33:46 — bone marrow transplant (father's wife)", "figure": "garbled in transcript", "disposition": "EXCLUDED from the model: third-party medical expense, remote causation, no plaintiff standing; retain only as family-hardship narrative if at all."},
+    {"source": "apex — mother's lost salary", "figure": "$71,000", "disposition": "INCLUDED in Tier-1 high only, ESTIMABLE with standing caveat."},
+    {"source": "damages_mentions 00:40:05 — '100 million with a base of 10'", "figure": "$100,000,000 (referent unclear)", "disposition": "NOT RELIED ON: unclear referent, off-record remark. The $100M Tier-3 anchor derives from the engagement directive, not this remark. Clarify with client."},
+    {"source": "r2_citation_audit — Walker v. Ascension", "figure": "$10,034,951 verdict", "disposition": "RETAINED as best factual comparator, UNVERIFIED_WEB — usable only with 'unverified — confirm with counsel' flag; fresh, unreviewed state verdict."},
+    {"source": "r2_citation_audit — Tarpley", "figure": "'$10M lost earnings'", "disposition": "KILLED as used (misattributed): $10M was pain & suffering, remitted 70%; lost earnings were ZEROED. Repurposed as adverse authority on documentation (VERIFIED, cluster_id 4680173)."},
+    {"source": "r2_citation_audit — Breest v. Haggis", "figure": "'$10M emotional distress'", "disposition": "KILLED: rape verdict under a NYC-only statute, settled ~$2M pending appeal; near-worthless comparator, credibility hazard."},
+    {"source": "r2_citation_audit — Reynaud v. Technicolor", "figure": "$2.9M", "disposition": "LIMITED USE: not a retaliation case (negligence re green card); usable only for 'immigration mishandling can generate multi-million distress liability' (VERIFIED, cluster_id 4738808, Cal. — persuasive only)."},
+    {"source": "r2_citation_audit — Walsh/Su v. Tara Construction", "figure": "$650,000", "disposition": "RETAINED for the retaliation-by-immigration-consequence theory, UNVERIFIED_WEB — flag required; confirm 1st Cir appeal disposition."},
+    {"source": "r2_citation_audit — Zhang", "figure": "7:1 ratio", "disposition": "RETAINED (VERIFIED, cluster_id 783131) but confined to Tier-3 posture; Tier 2 uses 2d Cir 2:1 discipline (Turley/Payne)."},
+    {"source": "r2_citation_audit — Saint Mary's v. UHS of Delaware", "figure": "$500,000,000 punitive", "disposition": "EXCLUDED pending identity resolution: r2 calls UHS of Delaware 'a defendant in our caption'; r4's corporate-identity audit says the Binghamton defendant disclaims Universal affiliation. CONFLICT — counsel must confirm the caption entity before this verdict is mentioned anywhere. Also headed for ~97% statutory reduction (Nevada cap)."},
+    {"source": "r2_citation_audit — DaPrato", "figure": "~$1.33M FMLA judgment", "disposition": "RETAINED (VERIFIED, cluster_id 4626349) for the liquidated-damages presumption; punitive component was Mass. c.151B, not FMLA — cite precisely."},
+    {"source": "r4 — UHSH FY2024 revenue", "figure": "$1,162,162,151", "disposition": "RETAINED for deterrence framing only (State Farm bars wealth-driven awards), UNVERIFIED_WEB until the 990s are exhibited."},
+    {"source": "r3/r4 vs facts_extraction — operative-year discrepancy", "figure": "April 14 probation: 2022 (facts) vs Mar-Apr 2024 (r3/r4)", "disposition": "FLAGGED UNRESOLVED: drives limitations analysis (FMLA 2/3-yr, NYSHRL 3-yr) and the back-pay start date. Lock down with counsel before any demand."}
+  ]
+}
