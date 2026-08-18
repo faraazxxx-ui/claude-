@@ -1,0 +1,602 @@
+<title>Where RAG Breaks</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+  --ground:#E7EAE5; --surface:#F6F8F4; --sunk:#DDE2DA;
+  --ink:#171E1A; --ink-2:#4E5A53; --ink-3:#7A857E;
+  --rule:#C6CEC3; --rule-2:#AFB9AC;
+  --accent:#2F35A8; --accent-soft:#E1E2F4; --accent-line:#8F93D8;
+  --good:#22694C; --warn:#8A5B08; --stop:#9E3129;
+  --shadow:0 1px 2px rgba(23,30,26,.05), 0 10px 28px -16px rgba(23,30,26,.28);
+  --serif:ui-serif,"Iowan Old Style",Charter,"Bitstream Charter","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Mono","Roboto Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#121614; --surface:#1A211D; --sunk:#232B26;
+    --ink:#E3E8E2; --ink-2:#9BA79F; --ink-3:#76817A;
+    --rule:#2C352F; --rule-2:#3B453E;
+    --accent:#A3A8FF; --accent-soft:#20233F; --accent-line:#5A5FA8;
+    --good:#5FBF93; --warn:#D6A34A; --stop:#E08078;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 30px -18px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#121614; --surface:#1A211D; --sunk:#232B26;
+  --ink:#E3E8E2; --ink-2:#9BA79F; --ink-3:#76817A;
+  --rule:#2C352F; --rule-2:#3B453E;
+  --accent:#A3A8FF; --accent-soft:#20233F; --accent-line:#5A5FA8;
+  --good:#5FBF93; --warn:#D6A34A; --stop:#E08078;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 30px -18px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1120px; margin:0 auto; padding:0 24px 96px}
+.prose{max-width:66ch}
+h1,h2,h3{font-family:var(--serif); font-weight:600; text-wrap:balance; margin:0}
+a{color:var(--accent); text-decoration-thickness:1px; text-underline-offset:2px}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:3px}
+code,.mono{font-family:var(--mono); font-size:.88em}
+
+/* ---------- masthead ---------- */
+header{padding:64px 0 40px; border-bottom:1px solid var(--rule)}
+.eyebrow{
+  font-family:var(--mono); font-size:11.5px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--ink-3); margin:0 0 18px
+}
+h1{font-size:clamp(38px,6.2vw,62px); line-height:1.02; letter-spacing:-.022em}
+h1 em{font-style:italic; color:var(--accent)}
+.standfirst{margin:20px 0 0; font-size:19px; color:var(--ink-2); max-width:56ch}
+
+.correction{
+  margin:34px 0 0; padding:16px 20px; background:var(--surface);
+  border:1px solid var(--rule); border-left:3px solid var(--stop);
+  border-radius:0 8px 8px 0; max-width:72ch; font-size:15.5px
+}
+.correction strong{color:var(--stop)}
+
+/* ---------- sections ---------- */
+section{padding:56px 0 0}
+.sec-head{display:flex; align-items:baseline; gap:14px; margin-bottom:8px; flex-wrap:wrap}
+.sec-head h2{font-size:clamp(25px,3.4vw,34px); letter-spacing:-.015em}
+.sec-note{font-size:14.5px; color:var(--ink-3); margin:0 0 28px; max-width:60ch}
+
+/* ---------- figure ---------- */
+figure{margin:0; background:var(--surface); border:1px solid var(--rule);
+  border-radius:12px; padding:22px 20px 16px; box-shadow:var(--shadow)}
+.scroller{overflow-x:auto; overflow-y:hidden; padding-bottom:4px}
+.scroller svg{display:block; min-width:760px; width:100%; height:auto}
+figcaption{margin-top:14px; padding-top:12px; border-top:1px solid var(--rule);
+  font-size:13.5px; color:var(--ink-3); line-height:1.5}
+
+/* diagram parts */
+.dg-box{fill:var(--surface); stroke:var(--rule-2); stroke-width:1.25}
+.dg-store{fill:var(--sunk); stroke:var(--ink-3); stroke-width:1.5}
+.dg-t{fill:var(--ink); font-family:var(--sans); font-size:14px; font-weight:600}
+.dg-s{fill:var(--ink-3); font-family:var(--mono); font-size:10.5px; letter-spacing:.05em}
+.dg-e{fill:var(--ink-2); font-family:var(--mono); font-size:11px; letter-spacing:.06em}
+.dg-lane{fill:var(--ink-3); font-family:var(--mono); font-size:10.5px; letter-spacing:.16em}
+.dg-line{stroke:var(--ink-3); stroke-width:1.5; fill:none}
+
+.pin{cursor:pointer}
+.pin circle{fill:var(--surface); stroke:var(--stop); stroke-width:2; transition:fill .16s, r .16s}
+.pin text{fill:var(--stop); font-family:var(--mono); font-size:12px; font-weight:700}
+.pin:hover circle, .pin:focus-visible circle{fill:var(--stop)}
+.pin:hover text, .pin:focus-visible text{fill:var(--surface)}
+.pin.lit circle{fill:var(--stop)}
+.pin.lit text{fill:var(--surface)}
+
+/* ---------- triage ---------- */
+.chips{display:flex; flex-wrap:wrap; gap:9px; margin:0; padding:0; list-style:none}
+.chip{
+  font:inherit; font-size:14.5px; cursor:pointer; text-align:left;
+  background:var(--surface); color:var(--ink); border:1px solid var(--rule);
+  border-radius:999px; padding:9px 16px; transition:background .15s, border-color .15s, color .15s
+}
+.chip:hover{border-color:var(--accent); color:var(--accent)}
+.chip .n{font-family:var(--mono); font-size:11.5px; color:var(--ink-3); margin-left:8px}
+.chip:hover .n{color:var(--accent)}
+
+/* ---------- fixes ---------- */
+.fixes{display:grid; gap:16px; margin-top:8px}
+.fix{
+  background:var(--surface); border:1px solid var(--rule); border-radius:12px;
+  padding:22px 24px; scroll-margin-top:24px;
+  display:grid; grid-template-columns:44px 1fr; gap:0 20px;
+  transition:border-color .2s, box-shadow .2s
+}
+.fix.lit{border-color:var(--stop); box-shadow:0 0 0 3px color-mix(in srgb, var(--stop) 16%, transparent)}
+.fix-n{
+  grid-row:1/span 3; font-family:var(--mono); font-size:19px; font-weight:700;
+  color:var(--stop); line-height:1.2; padding-top:2px
+}
+.fix h3{font-size:20px; letter-spacing:-.01em}
+.fix .tell{margin:6px 0 0; font-size:15px; color:var(--ink-2)}
+.fix .tell b{color:var(--ink); font-weight:600}
+.do{
+  margin:16px 0 0; padding:14px 16px; background:var(--sunk);
+  border-radius:8px; font-family:var(--mono); font-size:13.5px; line-height:1.75
+}
+.do .path{color:var(--ink-3)}
+.do .set{color:var(--accent); font-weight:700}
+.do div + div{margin-top:6px}
+.why{margin:12px 0 0; font-size:14px; color:var(--ink-3)}
+.why b{color:var(--ink-2); font-weight:600}
+
+/* ---------- gauge ---------- */
+.gauge-ui{display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin-top:16px}
+.gauge-ui label{font-family:var(--mono); font-size:11px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--ink-3)}
+input[type=range]{accent-color:var(--accent); width:min(320px,100%)}
+.readout{font-family:var(--mono); font-size:14px}
+.readout b{font-size:22px; color:var(--accent)}
+.gauge-name{font-family:var(--mono); font-size:13px; color:var(--ink-2)}
+
+/* ---------- triad ---------- */
+.triad{display:grid; grid-template-columns:repeat(auto-fit,minmax(268px,1fr)); gap:16px}
+.card{background:var(--surface); border:1px solid var(--rule); border-radius:12px; padding:20px}
+.card h3{font-size:19px}
+.card .lede{font-family:var(--mono); font-size:11px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--ink-3); margin:0 0 6px}
+.card p{margin:10px 0 0; font-size:14.5px; color:var(--ink-2)}
+.card svg{display:block; width:100%; height:auto; margin:14px 0 2px}
+.verdict{margin:14px 0 0; padding-top:12px; border-top:1px solid var(--rule);
+  font-size:13.5px; color:var(--ink)}
+.verdict b{color:var(--accent)}
+
+/* ---------- steps ---------- */
+ol.steps{counter-reset:s; list-style:none; margin:0; padding:0;
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2px;
+  background:var(--rule); border:1px solid var(--rule); border-radius:12px; overflow:hidden}
+ol.steps li{counter-increment:s; background:var(--surface); padding:20px 22px}
+ol.steps li::before{
+  content:counter(s,decimal-leading-zero); display:block;
+  font-family:var(--mono); font-size:11.5px; letter-spacing:.1em;
+  color:var(--accent); margin-bottom:8px
+}
+ol.steps b{display:block; font-family:var(--serif); font-size:17.5px; font-weight:600; margin-bottom:4px}
+ol.steps span{font-size:14px; color:var(--ink-2)}
+
+/* ---------- warnings ---------- */
+.warns{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px}
+.warn-card{background:var(--surface); border:1px solid var(--rule);
+  border-top:3px solid var(--warn); border-radius:0 0 12px 12px; padding:20px 22px}
+.warn-card h3{font-size:18px}
+.warn-card p{margin:8px 0 0; font-size:14.5px; color:var(--ink-2)}
+
+/* ---------- footer ---------- */
+footer{margin-top:64px; padding-top:24px; border-top:1px solid var(--rule);
+  font-size:13.5px; color:var(--ink-3); display:grid; gap:10px; max-width:76ch}
+footer .key{font-family:var(--mono); font-size:11.5px; letter-spacing:.05em}
+.tag{display:inline-block; font-family:var(--mono); font-size:10.5px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--accent); background:var(--accent-soft);
+  border-radius:4px; padding:2px 7px; vertical-align:1px}
+
+@media (prefers-reduced-motion:reduce){*{transition:none !important; scroll-behavior:auto !important}}
+html{scroll-behavior:smooth}
+@media (max-width:560px){
+  .fix{grid-template-columns:1fr}
+  .fix-n{grid-row:auto; margin-bottom:2px}
+}
+</style>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">AnythingLLM · retrieval diagnostics</p>
+  <h1>Where your documents <em>stop</em></h1>
+  <p class="standfirst">Your documents and your question have to meet in one place. Seven things can stop the meeting. This finds which one.</p>
+  <p class="correction"><strong>The page you were reading is the wrong page.</strong> AnythingLLM <em>Pro</em> is a desktop add-on — dictation, screen-capture Q&amp;A, autocomplete. It touches nothing in this guide. Every retrieval setting below is free.</p>
+</header>
+
+<section>
+  <div class="sec-head"><h2>The map</h2></div>
+  <p class="sec-note">Two lanes, one meeting point. Click a red marker to jump to its fix.</p>
+
+  <figure>
+    <div class="scroller">
+      <svg viewBox="0 0 1080 400" style="color:var(--ink-3)" role="img" aria-label="Diagram: documents are split into chunks and embedded into a vector store; your question is embedded by the same model, matched against the store, and the top matches are handed to the model. Seven marked points show where retrieval fails.">
+        <defs>
+          <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+          </marker>
+        </defs>
+        <g color="var(--ink-3)">
+
+        <!-- lane labels -->
+        <text class="dg-lane" x="16" y="30">ONCE — WHEN YOU ADD A FILE</text>
+        <text class="dg-lane" x="16" y="374">EVERY TIME YOU ASK</text>
+
+        <!-- ingest lane -->
+        <rect class="dg-box" x="16" y="52" width="158" height="56" rx="6"/>
+        <text class="dg-t" x="34" y="79">Your document</text>
+        <text class="dg-s" x="34" y="96">PDF · DOCX · URL</text>
+
+        <rect class="dg-box" x="216" y="52" width="158" height="56" rx="6"/>
+        <text class="dg-t" x="234" y="79">Chunks</text>
+        <text class="dg-s" x="234" y="96">≈1,000 CHARS EACH</text>
+
+        <path class="dg-line" d="M174 80 H210" marker-end="url(#ar)"/>
+        <text class="dg-e" x="192" y="68" text-anchor="middle">split</text>
+
+        <path class="dg-line" d="M374 80 H518 V144" marker-end="url(#ar)"/>
+        <text class="dg-e" x="424" y="68" text-anchor="middle">embed</text>
+
+        <!-- store -->
+        <rect class="dg-store" x="430" y="150" width="176" height="100" rx="8"/>
+        <text class="dg-t" x="518" y="192" text-anchor="middle">Vector store</text>
+        <text class="dg-s" x="518" y="211" text-anchor="middle">ONE PER WORKSPACE</text>
+        <line x1="446" y1="226" x2="590" y2="226" stroke="var(--rule-2)" stroke-width="1"/>
+        <text class="dg-s" x="518" y="241" text-anchor="middle">LANCEDB BY DEFAULT</text>
+
+        <!-- query lane -->
+        <rect class="dg-box" x="16" y="292" width="158" height="56" rx="6"/>
+        <text class="dg-t" x="34" y="319">Your question</text>
+        <text class="dg-s" x="34" y="336">PLAIN TEXT</text>
+
+        <rect class="dg-box" x="216" y="292" width="158" height="56" rx="6"/>
+        <text class="dg-t" x="234" y="319">Question vector</text>
+        <text class="dg-s" x="234" y="336">SAME EMBEDDER</text>
+
+        <path class="dg-line" d="M174 320 H210" marker-end="url(#ar)"/>
+        <text class="dg-e" x="192" y="308" text-anchor="middle">embed</text>
+
+        <path class="dg-line" d="M374 320 H518 V256" marker-end="url(#ar)"/>
+        <text class="dg-e" x="424" y="308" text-anchor="middle">must match</text>
+
+        <!-- retrieval -->
+        <path class="dg-line" d="M606 200 H674" marker-end="url(#ar)"/>
+        <text class="dg-e" x="640" y="178" text-anchor="middle">match</text>
+
+        <rect class="dg-box" x="680" y="172" width="158" height="56" rx="6"/>
+        <text class="dg-t" x="698" y="199">Top matches</text>
+        <text class="dg-s" x="698" y="216">4–6 SNIPPETS</text>
+
+        <path class="dg-line" d="M838 200 H884" marker-end="url(#ar)"/>
+        <text class="dg-e" x="861" y="178" text-anchor="middle">context</text>
+
+        <rect class="dg-box" x="890" y="172" width="158" height="56" rx="6"/>
+        <text class="dg-t" x="908" y="199">The model</text>
+        <text class="dg-s" x="908" y="216">WRITES THE ANSWER</text>
+
+        </g>
+
+        <!-- failure pins -->
+        <g class="pin" data-fix="f1" tabindex="0" role="button" aria-label="Fix 1: documents never entered the workspace">
+          <circle cx="34" cy="52" r="12"/><text x="34" y="57" text-anchor="middle">1</text></g>
+        <g class="pin" data-fix="f3" tabindex="0" role="button" aria-label="Fix 3: chunks are capped too small by the embedder">
+          <circle cx="234" cy="52" r="12"/><text x="234" y="57" text-anchor="middle">3</text></g>
+        <g class="pin" data-fix="f7" tabindex="0" role="button" aria-label="Fix 7: embedding fails with fetch failed">
+          <circle cx="486" cy="80" r="12"/><text x="486" y="85" text-anchor="middle">7</text></g>
+        <g class="pin" data-fix="f6" tabindex="0" role="button" aria-label="Fix 6: you changed the embedder or vector database">
+          <circle cx="446" cy="150" r="12"/><text x="446" y="155" text-anchor="middle">6</text></g>
+        <g class="pin" data-fix="f2" tabindex="0" role="button" aria-label="Fix 2: the retrieval gate is filtering your answer out">
+          <circle cx="640" cy="200" r="12"/><text x="640" y="205" text-anchor="middle">2</text></g>
+        <g class="pin" data-fix="f4" tabindex="0" role="button" aria-label="Fix 4: wrong chat mode">
+          <circle cx="861" cy="200" r="12"/><text x="861" y="205" text-anchor="middle">4</text></g>
+        <g class="pin" data-fix="f5" tabindex="0" role="button" aria-label="Fix 5: wrong tool for a whole-document task">
+          <circle cx="908" cy="172" r="12"/><text x="908" y="177" text-anchor="middle">5</text></g>
+      </svg>
+    </div>
+    <figcaption>Numbers are the order to try them, not the order they happen. Fix&nbsp;1 accounts for most reports.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Start from the symptom</h2></div>
+  <p class="sec-note">Pick what you are actually seeing.</p>
+  <ul class="chips">
+    <li><button class="chip" data-fix="f1">It ignores my documents entirely <span class="n">→ 1</span></button></li>
+    <li><button class="chip" data-fix="f2">“No relevant information found” <span class="n">→ 2</span></button></li>
+    <li><button class="chip" data-fix="f2">Answers are vague or half-right <span class="n">→ 2</span></button></li>
+    <li><button class="chip" data-fix="f3">It misses things that span a page <span class="n">→ 3</span></button></li>
+    <li><button class="chip" data-fix="f4">It invents facts not in the file <span class="n">→ 4</span></button></li>
+    <li><button class="chip" data-fix="f5">Good on facts, bad at “summarize this” <span class="n">→ 5</span></button></li>
+    <li><button class="chip" data-fix="f6">Worked before, broke after I changed a setting <span class="n">→ 6</span></button></li>
+    <li><button class="chip" data-fix="f7"><span class="mono">fetch failed</span> while embedding <span class="n">→ 7</span></button></li>
+  </ul>
+</section>
+
+<section>
+  <div class="sec-head"><h2>The seven fixes</h2></div>
+  <p class="sec-note">In order of yield. Stop when it works.</p>
+
+  <div class="fixes">
+
+    <article class="fix" id="f1">
+      <div class="fix-n">1</div>
+      <div>
+        <h3>Uploading is not embedding</h3>
+        <p class="tell">The file picker holds files. The workspace holds knowledge. A file sitting in the picker is invisible to the model. You have to <b>move it across</b>.</p>
+        <div class="do">
+          <div><span class="path">workspace ▸ upload icon ▸ add file ▸ select it ▸</span> <span class="set">Move to Workspace</span></div>
+          <div><span class="path">then wait for embedding to finish</span></div>
+        </div>
+        <p class="why"><b>Confirm it.</b> Ask something you know is in the file, then click the citations under the answer. No citations means nothing was retrieved.</p>
+      </div>
+    </article>
+
+    <article class="fix" id="f2">
+      <div class="fix-n">2</div>
+      <div>
+        <h3>The gate is closed</h3>
+        <p class="tell">Three settings decide what survives the match. All three live in one panel. Defaults are conservative — they throw away good material.</p>
+        <div class="do">
+          <div><span class="path">hover workspace ▸ ⚙ ▸ Vector Database</span></div>
+          <div><span class="path">Document Similarity Threshold →</span> <span class="set">No restriction</span></div>
+          <div><span class="path">Search Preference →</span> <span class="set">Accuracy Optimized</span></div>
+          <div><span class="path">Max Context Snippets →</span> <span class="set">4–6</span></div>
+        </div>
+        <p class="why"><b>Threshold</b> cuts by score: <span class="mono">Low ≥ .25 · Medium ≥ .50 · High ≥ .75</span>. Real answers routinely score under .50. <b>Accuracy Optimized</b> adds a reranking pass — slower, much better. On very large workspaces it can hang; drop back if it does.</p>
+      </div>
+    </article>
+
+    <figure>
+      <p class="lede" style="font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:0 0 4px">Fix 2, felt</p>
+      <div class="scroller">
+        <svg id="gauge" viewBox="0 0 900 190" role="img" aria-label="A score axis showing twelve document chunks; a movable threshold line greys out every chunk scoring below it.">
+          <g color="var(--ink-3)">
+            <line x1="60" y1="140" x2="860" y2="140" stroke="var(--rule-2)" stroke-width="1.5"/>
+            <text class="dg-s" x="60" y="162">0.0</text>
+            <text class="dg-s" x="460" y="162" text-anchor="middle">SIMILARITY SCORE</text>
+            <text class="dg-s" x="860" y="162" text-anchor="end">1.0</text>
+          </g>
+          <g id="dots"></g>
+          <line id="cut" x1="60" y1="34" x2="60" y2="146" stroke="var(--stop)" stroke-width="2.5" stroke-dasharray="5 4"/>
+          <text id="cutlab" x="66" y="30" fill="var(--stop)" font-family="var(--mono)" font-size="11.5" font-weight="700">NO RESTRICTION</text>
+        </svg>
+      </div>
+      <div class="gauge-ui">
+        <label for="thr">Threshold</label>
+        <input type="range" id="thr" min="0" max="3" step="1" value="0" aria-label="Document similarity threshold">
+        <span class="readout"><b id="pass">12</b> <span class="gauge-name">of 12 chunks reach the model</span></span>
+      </div>
+      <figcaption>Scores are illustrative — a real question against a real file lands in this range. At <span class="mono">High</span>, nothing survives, and you get “no relevant information found.”</figcaption>
+    </figure>
+
+    <article class="fix" id="f3">
+      <div class="fix-n">3</div>
+      <div>
+        <h3>Your chunks are too small to hold an idea</h3>
+        <p class="tell">The embedder sets a hard ceiling on chunk size — raise the chunk slider past it and it is silently clamped back. The built-in default caps at <b>1,000 characters</b>. A clinical paragraph does not fit in 1,000 characters.</p>
+        <div class="do">
+          <div><span class="path">Settings ▸ Embedder ▸ AnythingLLM Embedder ▸ model →</span> <span class="set">nomic-embed-text-v1</span></div>
+          <div><span class="path">then re-embed everything</span></div>
+        </div>
+        <p class="why"><b>The ceiling, in characters</b> <span class="tag">source-verified</span> — <span class="mono">all-MiniLM-L6-v2: 1,000 · multilingual-e5-small: 1,000 · nomic-embed-text-v1: 16,000</span>. Sixteen times the room per chunk. Slower to embed, and worth it.</p>
+      </div>
+    </article>
+
+    <article class="fix" id="f4">
+      <div class="fix-n">4</div>
+      <div>
+        <h3>Wrong chat mode</h3>
+        <p class="tell">Three modes, three different contracts. Picking the wrong one looks exactly like broken retrieval.</p>
+        <div class="do">
+          <div><span class="set">Query</span> <span class="path">— documents only. Says “no relevant information found” rather than guess.</span></div>
+          <div><span class="set">Chat</span> <span class="path">— documents plus what the model already knows. This is where invention comes from.</span></div>
+          <div><span class="set">Agent</span> <span class="path">— can use tools. Recent versions default here.</span></div>
+        </div>
+        <p class="why"><b>Diagnostic use.</b> Switch to <span class="mono">Query</span>. If the answer disappears, it was never in your documents — the model was filling in. That is a retrieval finding, not a model failure.</p>
+      </div>
+    </article>
+
+    <article class="fix" id="f5">
+      <div class="fix-n">5</div>
+      <div>
+        <h3>You asked RAG to do something RAG cannot do</h3>
+        <p class="tell">Retrieval fetches <b>pieces</b>. “Summarize this whole paper” needs the <b>whole thing</b>. It will always disappoint, no matter how you tune it.</p>
+        <div class="do">
+          <div><span class="path">whole-document work →</span> <span class="set">attach</span> <span class="path">or</span> <span class="set">pin</span></div>
+          <div><span class="path">find-the-fact work →</span> <span class="set">embed</span></div>
+        </div>
+        <p class="why">The three methods are genuinely different tools — see below.</p>
+      </div>
+    </article>
+
+    <article class="fix" id="f6">
+      <div class="fix-n">6</div>
+      <div>
+        <h3>You changed the embedder or the vector database</h3>
+        <p class="tell">Both are <b>system-wide</b>, not per-workspace. Old vectors were written by the old model in the old shape. They do not convert. They just sit there, unmatched.</p>
+        <div class="do">
+          <div><span class="path">delete every document from every workspace</span></div>
+          <div><span class="path">then re-embed from scratch</span></div>
+        </div>
+        <p class="why"><b>So decide on day one.</b> Changing later is not a settings change — it is a rebuild.</p>
+      </div>
+    </article>
+
+    <article class="fix" id="f7">
+      <div class="fix-n">7</div>
+      <div>
+        <h3><span class="mono">fetch failed</span></h3>
+        <p class="tell">The built-in embedder is downloaded on first use. This error means it could not be fetched or could not run. Three causes, in order of likelihood.</p>
+        <div class="do">
+          <div><span class="path">1 — network blocks</span> <span class="set">huggingface.co · api.huggingface.co · cdn.anythingllm.com</span></div>
+          <div><span class="path">2 — Windows missing</span> <span class="set">Visual C++ Redistributable v14.x</span></div>
+          <div><span class="path">3 — CPU lacks</span> <span class="set">AVX2</span> <span class="path">(LanceDB needs it)</span></div>
+        </div>
+        <p class="why">Hospital networks and corporate VPNs cause the first one constantly. Test on a home connection before assuming the software is broken.</p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Three ways to put a document in front of the model</h2></div>
+  <p class="sec-note">Choosing wrongly here is not a bug. It feels like one.</p>
+
+  <div class="triad">
+
+    <div class="card">
+      <p class="lede">Drag into the chat box</p>
+      <h3>Attach</h3>
+      <svg viewBox="0 0 300 96" style="color:var(--ink-3)" role="img" aria-label="A whole document passes intact into a single conversation.">
+        <defs><marker id="arA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+        <rect class="dg-box" x="8" y="24" width="72" height="48" rx="5"/>
+        <text class="dg-s" x="44" y="52" text-anchor="middle">WHOLE FILE</text>
+        <path class="dg-line" d="M84 48 H126" marker-end="url(#arA)"/>
+        <rect class="dg-box" x="134" y="24" width="158" height="48" rx="5"/>
+        <text class="dg-s" x="213" y="46" text-anchor="middle">THIS CONVERSATION</text>
+        <text class="dg-s" x="213" y="62" text-anchor="middle">ONLY</text>
+      </svg>
+      <p>Nothing is chunked. The model sees the full text, if it fits in the context window. Gone when the thread ends.</p>
+      <p class="verdict"><b>Use for:</b> one paper, read once, right now.</p>
+    </div>
+
+    <div class="card">
+      <p class="lede">Move to Workspace</p>
+      <h3>Embed</h3>
+      <svg viewBox="0 0 300 96" style="color:var(--ink-3)" role="img" aria-label="A document is split into chunks and only the matching chunks are retrieved.">
+        <defs><marker id="arB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+        <rect class="dg-box" x="8" y="24" width="60" height="48" rx="5"/>
+        <text class="dg-s" x="38" y="52" text-anchor="middle">FILE</text>
+        <path class="dg-line" d="M72 48 H96" marker-end="url(#arB)"/>
+        <rect class="dg-box" x="104" y="18" width="44" height="18" rx="3"/>
+        <rect x="104" y="39" width="44" height="18" rx="3" style="fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.5"/>
+        <rect class="dg-box" x="104" y="60" width="44" height="18" rx="3"/>
+        <path class="dg-line" d="M152 48 H184" marker-end="url(#arB)"/>
+        <rect class="dg-box" x="192" y="24" width="100" height="48" rx="5"/>
+        <text class="dg-s" x="242" y="46" text-anchor="middle">MATCHING</text>
+        <text class="dg-s" x="242" y="62" text-anchor="middle">PIECES ONLY</text>
+      </svg>
+      <p>Split, vectorised, searchable. Permanent, and shared by everyone in the workspace. This is RAG.</p>
+      <p class="verdict"><b>Use for:</b> a library you will question again and again.</p>
+    </div>
+
+    <div class="card">
+      <p class="lede">Pin icon, after embedding</p>
+      <h3>Pin</h3>
+      <svg viewBox="0 0 300 96" style="color:var(--ink-3)" role="img" aria-label="A whole document is inserted into every message in the workspace.">
+        <defs><marker id="arC" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+        <rect class="dg-box" x="8" y="24" width="72" height="48" rx="5"/>
+        <text class="dg-s" x="44" y="52" text-anchor="middle">WHOLE FILE</text>
+        <path class="dg-line" d="M84 32 H126" marker-end="url(#arC)"/>
+        <path class="dg-line" d="M84 48 H126" marker-end="url(#arC)"/>
+        <path class="dg-line" d="M84 64 H126" marker-end="url(#arC)"/>
+        <rect class="dg-box" x="134" y="24" width="158" height="48" rx="5"/>
+        <text class="dg-s" x="213" y="46" text-anchor="middle">EVERY MESSAGE,</text>
+        <text class="dg-s" x="213" y="62" text-anchor="middle">EVERY TIME</text>
+      </svg>
+      <p>Full text injected on every single turn. Skipped by search so it is not counted twice. Burns tokens hard.</p>
+      <p class="verdict"><b>Use for:</b> the one protocol that must always be in the room.</p>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>If you are starting clean</h2></div>
+  <p class="sec-note">Twenty minutes. Do them in this order — steps 3 and 4 are expensive to redo.</p>
+  <ol class="steps">
+    <li><b>Install Desktop</b><span>One person, private, simplest. Docker only if you need accounts and permissions.</span></li>
+    <li><b>Pick a model</b><span>Cloud key for quality. Ollama or LM&nbsp;Studio if nothing may leave the machine.</span></li>
+    <li><b>Pick the embedder</b><span><span class="mono">nomic-embed-text-v1</span>. Changing this later means re-embedding everything.</span></li>
+    <li><b>One workspace per subject</b><span>Not one for everything. Retrieval quality falls as the haystack grows.</span></li>
+    <li><b>Move files in</b><span>Upload, select, <em>Move to Workspace</em>, wait for the count to finish.</span></li>
+    <li><b>Open the gate</b><span>⚙ ▸ Vector Database. Threshold <em>No restriction</em>, Search <em>Accuracy Optimized</em>.</span></li>
+    <li><b>Test with a known answer</b><span>Ask something you can verify, then open the citations. Trust nothing until you have.</span></li>
+  </ol>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Two traps worth knowing before you hit them</h2></div>
+  <div class="warns">
+    <div class="warn-card">
+      <h3>Cloud will let you crash it</h3>
+      <p>The hosted built-in embedder will not stop you feeding it a 5,000-page PDF — it will accept the job and take the instance down with it. Split large files, or embed on Desktop.</p>
+    </div>
+    <div class="warn-card">
+      <h3>Bigger workspace, worse answers</h3>
+      <p>Retrieval competes. Every unrelated document you add is another candidate crowding out the right one. Split by subject early; it is the cheapest quality gain available.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="key"><span class="tag">source-verified</span> read from the AnythingLLM source, because the documentation does not state it.</div>
+  <div>Everything else is from <a href="https://docs.anythingllm.com">docs.anythingllm.com</a>. Menu names track the v1.15 release line and shift between versions — the panel is always <span class="mono">workspace ▸ ⚙ ▸ Vector Database</span>.</div>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var lit = null;
+  function light(id){
+    document.querySelectorAll('.fix.lit').forEach(function(e){e.classList.remove('lit')});
+    document.querySelectorAll('.pin.lit').forEach(function(e){e.classList.remove('lit')});
+    var card = document.getElementById(id);
+    var pin  = document.querySelector('.pin[data-fix="'+id+'"]');
+    if(card){card.classList.add('lit'); card.scrollIntoView({behavior:'smooth', block:'center'});}
+    if(pin){pin.classList.add('lit');}
+    lit = id;
+  }
+  document.querySelectorAll('[data-fix]').forEach(function(el){
+    el.addEventListener('click', function(){ light(el.getAttribute('data-fix')); });
+    el.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); light(el.getAttribute('data-fix')); }
+    });
+  });
+
+  // --- threshold gauge ---
+  var scores = [0.71,0.63,0.58,0.52,0.47,0.44,0.39,0.35,0.31,0.28,0.22,0.14];
+  var stops  = [{v:0,   name:'NO RESTRICTION'},
+                {v:0.25,name:'LOW  ≥ .25'},
+                {v:0.50,name:'MEDIUM  ≥ .50'},
+                {v:0.75,name:'HIGH  ≥ .75'}];
+  var X0 = 60, X1 = 860;
+  var x = function(s){ return X0 + s * (X1 - X0); };
+  var dots = document.getElementById('dots');
+  var NS = 'http://www.w3.org/2000/svg';
+
+  scores.forEach(function(s, i){
+    var g = document.createElementNS(NS,'g');
+    var stem = document.createElementNS(NS,'line');
+    var h = 44 + (i % 3) * 16;
+    stem.setAttribute('x1', x(s)); stem.setAttribute('x2', x(s));
+    stem.setAttribute('y1', 140);  stem.setAttribute('y2', 140 - h);
+    stem.setAttribute('stroke','var(--rule-2)'); stem.setAttribute('stroke-width','1');
+    var c = document.createElementNS(NS,'circle');
+    c.setAttribute('cx', x(s)); c.setAttribute('cy', 140 - h); c.setAttribute('r', 7);
+    c.setAttribute('stroke-width','2');
+    g.appendChild(stem); g.appendChild(c);
+    g.dataset.score = s;
+    dots.appendChild(g);
+  });
+
+  var cut = document.getElementById('cut');
+  var cutlab = document.getElementById('cutlab');
+  var pass = document.getElementById('pass');
+
+  function paint(idx){
+    var st = stops[idx], n = 0;
+    Array.prototype.forEach.call(dots.children, function(g){
+      var ok = parseFloat(g.dataset.score) >= st.v;
+      var c = g.querySelector('circle');
+      c.setAttribute('fill', ok ? 'var(--accent)' : 'var(--ground)');
+      c.setAttribute('stroke', ok ? 'var(--accent)' : 'var(--rule-2)');
+      c.setAttribute('opacity', ok ? '1' : '.5');
+      if(ok) n++;
+    });
+    cut.setAttribute('x1', x(st.v)); cut.setAttribute('x2', x(st.v));
+    var flip = st.v > 0.6;
+    cutlab.setAttribute('x', x(st.v) + (flip ? -6 : 6));
+    cutlab.setAttribute('text-anchor', flip ? 'end' : 'start');
+    cutlab.textContent = st.name;
+    pass.textContent = n;
+    pass.style.color = n === 0 ? 'var(--stop)' : 'var(--accent)';
+  }
+  var thr = document.getElementById('thr');
+  thr.addEventListener('input', function(){ paint(parseInt(thr.value,10)); });
+  paint(0);
+})();
+</script>
