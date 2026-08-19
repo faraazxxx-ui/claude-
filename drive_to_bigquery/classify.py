@@ -187,6 +187,96 @@ def sanitize_column_name(raw: str, position: int) -> str:
     return name[:300]
 
 
+# Wearable/health telemetry: enormous row counts, near-zero information per row,
+# and nothing worth embedding. Matched against the family stem, anchored so
+# `heart_rate_2026-04-05` matches but a document named "heart rate notes" does
+# not get caught by accident.
+HEALTH_FAMILY_PATTERNS = [
+    r"^(daily_)?heart_rate(_variability|_zones)?$",
+    r"^(daily_)?resting_heart_rate$",
+    r"^time_in_heart_rate_zone$",
+    r"^cardio_load.*$",
+    r"^body_temperature$",
+    r"^(daily_)?respiratory_rate.*$",
+    r"^respiratory_rate_sleep_summary$",
+    r"^oxygen_saturation$",
+    r"^(minute_|daily_)?spo2$",
+    r"^micro_(motion|stillness)$",
+    r"^sedentary_period$",
+    r"^continuous_eda$",
+    r"^active_(minutes|zone_minutes|energy_burned)$",
+    r"^calories$",
+    r"^distance$",
+    r"^steps$",
+    r"^floors$",
+    r"^altitude$",
+    r"^swim_lengths_data$",
+    r"^body_response_algorithm_features$",
+    r"^(height|weight|bmi)$",
+    r"^sleep(_score|_profile|_stages)?$",
+    r"^stress.*$",
+    r"^readiness.*$",
+    r"^breathing_rate$",
+    r"^exercise$",
+    r"^menstrual.*$",
+    r"^activity_goals$",
+]
+
+# Folders that are wholesale wearable exports.
+HEALTH_PATH_PATTERNS = [
+    r"(^|/)Fitbit(/|$)",
+    r"(^|/)Google ?Fit(/|$)",
+    r"(^|/)Apple ?Health(/|$)",
+    r"(^|/)Health ?Data(/|$)",
+]
+
+_HEALTH_FAMILY_RE = re.compile("|".join(HEALTH_FAMILY_PATTERNS), re.IGNORECASE)
+_HEALTH_PATH_RE = re.compile("|".join(HEALTH_PATH_PATTERNS), re.IGNORECASE)
+
+
+def is_health(record: dict) -> bool:
+    """True for wearable telemetry, by folder or by family name."""
+    path = record.get("path") or ""
+    if _HEALTH_PATH_RE.search(path):
+        return True
+    stem = record.get("family_stem")
+    if stem and _HEALTH_FAMILY_RE.match(sanitize_table_name(stem)):
+        return True
+    return False
+
+
+def partition(
+    files: list[dict],
+    skip_health: bool = False,
+    exclude_path: str | None = None,
+    exclude_family: str | None = None,
+) -> tuple[list[dict], list[dict]]:
+    """Split files into ``(kept, excluded)``.
+
+    Excluded files are not dropped from the run -- the caller still records them
+    in the manifest, marked as excluded with the reason. The census stays
+    complete even when the load is scoped.
+    """
+    path_re = re.compile(exclude_path, re.IGNORECASE) if exclude_path else None
+    family_re = re.compile(exclude_family, re.IGNORECASE) if exclude_family else None
+
+    kept, excluded = [], []
+    for record in files:
+        reason = None
+        if skip_health and is_health(record):
+            reason = "health telemetry"
+        elif path_re and path_re.search(record.get("path") or ""):
+            reason = f"path matched {exclude_path!r}"
+        elif family_re and family_re.search(record.get("family_stem") or ""):
+            reason = f"family matched {exclude_family!r}"
+
+        if reason:
+            excluded.append({**record, "exclude_reason": reason})
+        else:
+            kept.append(record)
+    return kept, excluded
+
+
 @dataclass
 class Family:
     """A set of Drive files that should land in one BigQuery table."""

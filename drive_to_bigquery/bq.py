@@ -37,6 +37,23 @@ MANIFEST_SCHEMA = [
     bigquery.SchemaField("ingested_at", "TIMESTAMP"),
 ]
 
+CHUNKS_TABLE = "document_chunks"
+
+CHUNKS_SCHEMA = [
+    bigquery.SchemaField("chunk_id", "STRING", mode="REQUIRED"),
+    bigquery.SchemaField("file_id", "STRING"),
+    bigquery.SchemaField("name", "STRING"),
+    bigquery.SchemaField("path", "STRING"),
+    bigquery.SchemaField("chunk_index", "INT64"),
+    bigquery.SchemaField("chunk_total", "INT64"),
+    bigquery.SchemaField("char_count", "INT64"),
+    # `content` is what gets embedded (name-prefixed); `raw_content` is the
+    # verbatim passage, for display without the synthetic header.
+    bigquery.SchemaField("content", "STRING"),
+    bigquery.SchemaField("raw_content", "STRING"),
+    bigquery.SchemaField("ingested_at", "TIMESTAMP"),
+]
+
 DOCUMENTS_SCHEMA = [
     bigquery.SchemaField("file_id", "STRING", mode="REQUIRED"),
     bigquery.SchemaField("name", "STRING"),
@@ -171,3 +188,31 @@ class Loader:
             return {row.file_id for row in self.client.query(query).result()}
         except gexc.NotFound:
             return set()
+
+    # -------------------------------------------------------------------- sql
+
+    def sql(self, statement: str, label: str = "") -> object | None:
+        """Run one statement. Returns the row iterator, or None in dry-run."""
+        if self.dry_run:
+            log.info("[dry-run] %s\n%s", label or "sql", statement)
+            return None
+        log.debug("%s\n%s", label or "sql", statement)
+        job = self.client.query(statement)
+        return job.result()
+
+    def scalar(self, statement: str, default=None):
+        """Run a statement and return the first column of the first row."""
+        if self.dry_run:
+            log.info("[dry-run] scalar: %s", statement)
+            return default
+        for row in self.client.query(statement).result():
+            return row[0]
+        return default
+
+    def list_table_ids(self, dataset_id: str) -> list[str]:
+        if self.dry_run:
+            return []
+        try:
+            return [t.table_id for t in self.client.list_tables(f"{self.project}.{dataset_id}")]
+        except gexc.NotFound:
+            return []

@@ -14,7 +14,8 @@ import json
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-MODULES = ["classify.py", "drive.py", "parse.py", "bq.py", "pipeline.py"]
+MODULES = ["classify.py", "drive.py", "parse.py", "chunk.py", "vectorize.py",
+           "bq.py", "pipeline.py"]
 NOTEBOOK = HERE / "Drive_to_BigQuery.ipynb"
 
 PROJECT = "pelagic-gist-505800-b9"
@@ -77,17 +78,21 @@ def build() -> None:
         markdown(
             "# Drive → BigQuery",
             "",
-            f"Loads your Google Drive into BigQuery project `{PROJECT}` as three datasets:",
+            f"Loads your Google Drive into BigQuery project `{PROJECT}`, then embeds it for"
+            " semantic search. Four datasets:",
             "",
             "| Dataset | Contents |",
             "|---|---|",
             "| `drive_raw.file_manifest` | One row per file in Drive — the census. Every file"
-            " appears whether it loaded or not, with its error. Nothing disappears silently. |",
+            " appears whether it loaded, failed, or was excluded. Nothing disappears silently. |",
             "| `drive_tables.<name>` | One table per *family* of tabular files. |",
-            "| `drive_documents.documents` | Extracted text from PDF, Word, PowerPoint, txt, md. |",
+            "| `drive_documents` | Extracted text from PDF, Word, PowerPoint, txt, md — plus"
+            " `document_chunks`, the passages that get embedded. |",
+            "| `drive_vectors.embeddings` | One vector table over documents, spreadsheet rows"
+            " **and** filenames, with a `search()` function. |",
             "",
-            "**Why this exists.** A Takeout/Fitbit export is thousands of files that are"
-            " really a few dozen tables sharded by day:",
+            "**Why the grouping matters.** A Takeout/Fitbit export is thousands of files that"
+            " are really a few dozen tables sharded by day:",
             "",
             "```",
             "heart_rate_2026-03-23.csv",
@@ -96,14 +101,15 @@ def build() -> None:
             "```",
             "",
             "Loading one table per file gives you 1000+ useless single-day tables. These are"
-            " grouped into one `heart_rate` table, with the date kept as a `_src_date` column."
+            " grouped into one table, with the date kept as a `_src_date` column."
             " On the first 100 CSVs in this Drive: **100 files → 28 tables.**",
             "",
             "**Why Colab.** Your Drive mounts as ordinary files, so there is no API"
             " pagination and no download quota, and BigQuery authenticates as *you* —"
             " no service account, no JSON key, nothing to paste.",
             "",
-            "Run the cells in order. Nothing is written to BigQuery until step 5.",
+            "Run the cells in order. Nothing is written to BigQuery until step 5, and step 4"
+            " shows you the full plan first.",
         ),
         markdown("## 1. Install dependencies"),
         code(
@@ -129,18 +135,28 @@ def build() -> None:
         markdown(
             "## 4. Preview the plan",
             "",
-            "Walks the mount and prints the tables it would build. **No BigQuery writes.**",
+            "Walks the mount and prints exactly what it would build. **No BigQuery writes.**",
             "",
-            "`ROOT` is the folder to ingest. `/content/drive/MyDrive` is your whole Drive;"
-            " narrow it to a subfolder to start smaller — e.g."
-            " `/content/drive/MyDrive/D:/Takeout` for just the health export.",
+            "`--skip-health` excludes wearable telemetry — the per-day Fitbit-style exports"
+            " (`heart_rate_*`, `body_temperature_*`, `micro_motion_*`, steps, calories, SpO2"
+            " and so on). These are millions of rows of near-zero information per row and"
+            " nothing worth embedding.",
+            "",
+            "**What `--skip-health` does *not* exclude:** your clinical notes, medical PDFs,"
+            " and anything under `Medical Notes`. Those are documents, not telemetry, and they"
+            " are kept and vectored. If you want those out too, add"
+            " `--exclude-path 'Medical Notes'`.",
+            "",
+            "Excluded files are still recorded in `drive_raw.file_manifest` as `excluded`, so"
+            " the census stays a complete picture of the Drive.",
         ),
         code(
             f"PROJECT = {PROJECT!r}",
             "ROOT = '/content/drive/MyDrive'",
             "LOCATION = 'US'",
             "",
-            "!python pipeline.py plan --project $PROJECT --local-root \"$ROOT\"",
+            "!python pipeline.py plan --project $PROJECT --local-root \"$ROOT\" \\",
+            "    --skip-health --vectorize",
         ),
         markdown(
             "## 5. Load",
@@ -152,14 +168,80 @@ def build() -> None:
             " recorded in the manifest and does not abort the run.",
             "",
             "Add `--dry-run` to log every operation without executing it. Add `--replace` to"
-            " truncate the tables first rather than appending.",
+            " truncate the tables first rather than appending. Drop `--skip-health` to bring"
+            " the telemetry in as well.",
         ),
         code(
             "!python pipeline.py load --project $PROJECT --local-root \"$ROOT\" \\",
-            "    --location $LOCATION --from-cache",
+            "    --location $LOCATION --skip-health --from-cache",
         ),
         markdown(
-            "## 6. Check the result",
+            "## 6. Connect BigQuery to Vertex AI",
+            "",
+            "Embeddings are generated **inside** BigQuery by `ML.GENERATE_EMBEDDING`, so the"
+            " text never leaves BigQuery and there is no client-side embedding loop.",
+            "",
+            "That needs a one-time CLOUD_RESOURCE connection, and the connection's own service"
+            " account needs Vertex access. This cell creates the connection, reads back its"
+            " service account, and grants it `roles/aiplatform.user`.",
+            "",
+            "It also enables the Vertex AI API if it is not already on. Both steps need you to"
+            " be an owner/editor on the project.",
+        ),
+        code(
+            "import json, subprocess",
+            "",
+            "CONNECTION = 'drive_vertex'",
+            "",
+            "!gcloud services enable aiplatform.googleapis.com --project $PROJECT --quiet",
+            "",
+            "# Create the connection (harmless if it already exists).",
+            "!bq mk --connection --location=$LOCATION --project_id=$PROJECT \\",
+            "    --connection_type=CLOUD_RESOURCE $CONNECTION 2>/dev/null || true",
+            "",
+            "info = subprocess.run(",
+            "    ['bq', 'show', '--format=json', '--connection',",
+            "     f'{PROJECT}.{LOCATION}.{CONNECTION}'],",
+            "    capture_output=True, text=True)",
+            "assert info.returncode == 0, info.stderr",
+            "SA = json.loads(info.stdout)['cloudResource']['serviceAccountId']",
+            "print('connection service account:', SA)",
+            "",
+            "# Let that service account call Vertex.",
+            "!gcloud projects add-iam-policy-binding $PROJECT \\",
+            "    --member=serviceAccount:$SA --role=roles/aiplatform.user --quiet",
+            "print('granted roles/aiplatform.user')",
+        ),
+        markdown(
+            "## 7. Vectorize",
+            "",
+            "Embeds three things into one searchable table, `drive_vectors.embeddings`:",
+            "",
+            "| Source | What gets embedded |",
+            "|---|---|",
+            "| `document_chunk` | Every PDF/Word/slide/text document, split into ~2000-char"
+            " overlapping passages so a hit points at a findable location. |",
+            "| `file_metadata` | Name, folder, type and date of every image, video and binary."
+            " A photo has no extractable text, but *\"that scan from the hospital\"* still"
+            " needs to be findable. |",
+            "| `table_row` | Rows of the tables you name in `--vectorize-tables` — for"
+            " spreadsheets of names, dates and notes. |",
+            "",
+            "One index over all of it means one query searches the whole Drive.",
+            "",
+            "The IAM grant above can take a minute to propagate. If this fails with a"
+            " permission error, wait and re-run — it is idempotent and resumes from the queue.",
+        ),
+        code(
+            "# Name the descriptive tables whose individual rows are worth searching.",
+            "# Check the step-4 output for the real table names and edit this list.",
+            "VECTOR_TABLES = 'pgy_1 pgy_2 pgy_3 ops_decertification_list_4_19_23'",
+            "",
+            "!python pipeline.py vectorize --project $PROJECT --location $LOCATION \\",
+            "    --vectorize-tables $VECTOR_TABLES",
+        ),
+        markdown(
+            "## 8. Check the result",
             "",
             "Row counts per table, then anything that did not load and why.",
         ),
@@ -198,23 +280,48 @@ def build() -> None:
             "    print(f'{row.name[:52]:<54} {row.ingest_error}')",
         ),
         markdown(
-            "### Example query",
-            "",
-            "The point of the exercise — one query across the whole history that used to be"
-            " hundreds of separate files.",
+            "### What got vectored",
         ),
         code(
-            "df = client.query(f'''",
-            "    SELECT _src_date AS day,",
-            "           COUNT(*) AS readings,",
-            "           ROUND(AVG(beats_per_minute), 1) AS avg_bpm,",
-            "           MIN(beats_per_minute) AS min_bpm,",
-            "           MAX(beats_per_minute) AS max_bpm",
-            "    FROM `{PROJECT}.drive_tables.heart_rate`",
-            "    WHERE beats_per_minute IS NOT NULL",
-            "    GROUP BY day ORDER BY day",
-            "''').to_dataframe()",
-            "df",
+            "for row in client.query(f'''",
+            "    SELECT source_kind, COUNT(*) AS vectors,",
+            "           COUNT(DISTINCT file_id) AS files,",
+            "           ANY_VALUE(ARRAY_LENGTH(embedding)) AS dims",
+            "    FROM `{PROJECT}.drive_vectors.embeddings`",
+            "    GROUP BY source_kind ORDER BY vectors DESC",
+            "'''):",
+            "    print(f'{row.source_kind:<18} {row.vectors:>8,} vectors  '",
+            "          f'{row.files:>6,} files  {row.dims} dims')",
+            "",
+            "# Anything still queued failed to embed and can be retried.",
+            "left = list(client.query(f'''",
+            "    SELECT COUNT(*) AS n FROM `{PROJECT}.drive_vectors.embed_queue`",
+            "'''))[0].n",
+            "print(f'\\nstill queued: {left:,}' if left else '\\nqueue empty — all embedded')",
+        ),
+        markdown(
+            "## 9. Semantic search",
+            "",
+            "The payoff. Ask in plain language; it searches documents, spreadsheet rows and"
+            " filenames at once. `distance` is cosine — lower is closer.",
+        ),
+        code(
+            "QUESTION = 'academic probation appeal deadline'",
+            "",
+            "client.query(f'''",
+            "    SELECT name, source_kind, ROUND(distance, 4) AS distance,",
+            "           SUBSTR(content, 1, 300) AS excerpt",
+            "    FROM `{PROJECT}.drive_vectors.search`(@q, 10)",
+            "    ORDER BY distance",
+            "''', job_config=bigquery.QueryJobConfig(",
+            "    query_parameters=[bigquery.ScalarQueryParameter('q', 'STRING', QUESTION)]",
+            ")).to_dataframe()",
+        ),
+        markdown(
+            "Try others — `'residency evaluation concerns'`, `'decertification'`,"
+            " `'what did the clinic note say about sleep'`. Because filenames are vectored"
+            " too, searches like `'hospital scan photo'` surface images that contain no text"
+            " at all.",
         ),
         markdown(
             "---",

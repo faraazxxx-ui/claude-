@@ -45,11 +45,18 @@ Verified by direct execution:
 - `plan` on a 100-file real inventory → 28 tables
 - `load --dry-run` end to end against a mounted-Drive fixture, including native
   Google file stubs, hidden files, and mount bookkeeping directories
+- health exclusion against real filenames, with deliberate trap cases
+- chunking invariants, and every generated SQL statement's structure
 - the notebook's embedded modules extract byte-identically and run
 
-Not verified: the four BigQuery calls (`create_dataset`, `create_table`,
-`load_table_from_file`, and the resume query) and Drive API download. Those need
-credentials, and Colab is where they will first execute.
+Run `python test_pipeline.py` for all of it (69 checks).
+
+Not verified: anything that requires a live project — the BigQuery load calls,
+Drive API download, and the whole Vertex embedding path
+(`ML.GENERATE_EMBEDDING`, `CREATE VECTOR INDEX`, `VECTOR_SEARCH`). The SQL is
+checked for structure, not accepted by a server. Colab is where it first
+executes; expect to iterate on the Vertex connection step, which is the most
+environment-dependent part.
 
 ## The problem it solves
 
@@ -73,9 +80,11 @@ Measured on the first 100 CSVs in the Drive: **100 files → 28 tables.**
 
 | Dataset | Contents |
 |---|---|
-| `drive_raw.file_manifest` | One row per file in Drive — the census. Every file appears here whether it loaded or not, with `ingest_status` and `ingest_error`. Nothing is silently dropped. |
+| `drive_raw.file_manifest` | One row per file in Drive — the census. Every file appears here whether it loaded, failed, or was excluded, with `ingest_status` and `ingest_error`. Nothing is silently dropped. |
 | `drive_tables.<family>` | One table per family of tabular files (CSV, TSV, XLSX, Sheets, JSON). |
 | `drive_documents.documents` | Extracted text from PDF, Word, PowerPoint, txt, md, html. |
+| `drive_documents.document_chunks` | Those documents split into embedding-sized passages. |
+| `drive_vectors.embeddings` | One vector table over documents, table rows **and** filenames, plus a `search()` table function. |
 
 Media and unparseable binaries are recorded in the manifest as
 `metadata_only` — searchable by name, path, and size, without their bytes.
@@ -126,6 +135,97 @@ health CSVs live under `1pBl7xkcG0hFRo2mYgyFA1JhaouJpMI7e`.
 
 Both modes produce identical records, so everything downstream behaves the same.
 Mounted mode is markedly cheaper on a Drive with thousands of files.
+
+## Scoping the load
+
+`--skip-health` excludes wearable telemetry: the per-day Fitbit-style exports
+(`heart_rate_*`, `body_temperature_*`, `micro_motion_*`, `sedentary_period_*`,
+steps, calories, SpO2 and the rest). Millions of rows carrying almost no
+information each, and nothing worth embedding.
+
+It matches on both folder (`Fitbit`, `Google Fit`, `Apple Health`) and family
+name, anchored so it does not over-reach. Verified against the real Drive: all
+19 telemetry families excluded, all 9 documents and spreadsheets kept —
+including the two traps, a PDF named `heart rate lecture notes.pdf` and a
+clinical note under `Medical Notes`.
+
+**`--skip-health` is about telemetry, not about medicine.** Clinical notes,
+medical PDFs and anything under `Medical Notes` are documents; they are kept and
+vectored. To drop those too:
+
+```bash
+python pipeline.py load --project PROJECT --local-root ROOT \
+    --skip-health --exclude-path 'Medical Notes'
+```
+
+`--exclude-path` and `--exclude-family` take arbitrary regexes. Excluded files
+are still written to the manifest with `ingest_status = 'excluded'` and the
+reason, so the census stays a complete picture of the Drive even when the load
+is deliberately partial.
+
+## Vectors
+
+```bash
+python pipeline.py vectorize --project PROJECT \
+    --vectorize-tables pgy_1 pgy_2 pgy_3
+```
+
+Or `--vectorize` on a `load` to do both in one pass.
+
+Embeddings are generated **inside** BigQuery by `ML.GENERATE_EMBEDDING` against a
+remote Vertex AI model. The text never leaves BigQuery, and there is no
+client-side embedding loop to babysit or pay egress on.
+
+Three kinds of thing get embedded, into one table on purpose — a document
+passage, a spreadsheet row and a photo's filename are all just text with
+provenance, and one index over all of them means one query searches everything:
+
+| `source_kind` | What it is |
+|---|---|
+| `document_chunk` | A ~2000-char passage of a document, with 200 chars of overlap. One vector per whole document would average away the passage you were looking for. |
+| `file_metadata` | Name, folder, type and date of every image, video and binary. A photo has no extractable text, but *"that scan from the hospital"* still has to be findable. |
+| `table_row` | A row of a table named in `--vectorize-tables`, rendered as JSON so column names travel with the values. |
+
+Row-level vectors are opt-in per table because telemetry rows are meaningless as
+text and would swamp the index.
+
+```sql
+SELECT * FROM `pelagic-gist-505800-b9.drive_vectors.search`(
+  'academic probation appeal deadline', 10
+);
+```
+
+### One-time Vertex setup
+
+`ML.GENERATE_EMBEDDING` needs a CLOUD_RESOURCE connection whose service account
+holds `roles/aiplatform.user`. The notebook does this in step 6; `vectorize`
+creates the connection itself when `bq` is on PATH, and logs the exact grant
+command when it cannot. The IAM grant takes a moment to propagate — if embedding
+fails with a permission error, wait and re-run.
+
+Embedding is resumable by construction: text is queued in
+`drive_vectors.embed_queue`, drained in batches, and rows are dequeued only once
+they land in the vector table. A row whose embedding failed stays queued. If a
+batch drains nothing, the run stops with an error rather than looping forever.
+
+Two knobs worth knowing:
+
+- `--embedding-model` defaults to `text-embedding-005`. `gemini-embedding-001` is
+  newer and stronger but returns 3072 dimensions, making a much larger index.
+- BigQuery only *uses* a vector index above ~5000 rows; below that it brute-force
+  scans, returning the same results more slowly. The pipeline skips index
+  creation below that threshold and says so rather than failing.
+
+## Tests
+
+```bash
+python test_pipeline.py
+```
+
+69 checks, no credentials needed: exclusion correctness against real filenames,
+family grouping, schema-drift reconciliation, type coercion, chunking
+invariants, SQL well-formedness and INSERT arity, and that the notebook's
+embedded modules still match the sources.
 
 Useful flags:
 

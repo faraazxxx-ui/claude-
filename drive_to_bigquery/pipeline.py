@@ -41,8 +41,10 @@ from googleapiclient.discovery import build
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import bq  # noqa: E402
+import chunk as chunk_mod  # noqa: E402
 import drive as drive_mod  # noqa: E402
-from classify import build_families, sanitize_table_name  # noqa: E402
+import vectorize as vec  # noqa: E402
+from classify import build_families, partition, sanitize_table_name  # noqa: E402
 from parse import extract_text, read_tabular, reconcile  # noqa: E402
 
 SCOPES = [
@@ -214,6 +216,23 @@ def make_drive_service(optional: bool = False):
         return None
 
 
+def apply_exclusions(files: list[dict], args) -> tuple[list[dict], list[dict]]:
+    """Split off excluded files and report what went."""
+    kept, excluded = partition(
+        files,
+        skip_health=args.skip_health,
+        exclude_path=args.exclude_path,
+        exclude_family=args.exclude_family,
+    )
+    if excluded:
+        reasons: dict[str, int] = {}
+        for record in excluded:
+            reasons[record["exclude_reason"]] = reasons.get(record["exclude_reason"], 0) + 1
+        for reason, count in sorted(reasons.items(), key=lambda kv: -kv[1]):
+            log.info("excluded %d files: %s", count, reason)
+    return kept, excluded
+
+
 def summarize(files: list[dict]) -> dict:
     by_kind: dict[str, int] = {}
     bytes_by_kind: dict[str, int] = {}
@@ -260,13 +279,29 @@ def cmd_plan(args) -> int:
         files = enumerate_drive(args, drive_service)
         Path(args.out).write_text(json.dumps(files, indent=2))
 
+    total_found = len(files)
+    files, excluded = apply_exclusions(files, args)
     stats = summarize(files)
     families = build_families(files)
 
-    print(f"\nFiles: {stats['count']}")
+    print(f"\nFiles: {stats['count']} to load", end="")
+    print(f"  ({len(excluded)} excluded of {total_found} found)" if excluded else "")
     for kind, count in sorted(stats["by_kind"].items(), key=lambda kv: -kv[1]):
         mib = stats["bytes_by_kind"].get(kind, 0) / 1024 / 1024
         print(f"  {kind:<10} {count:>6}  ({mib:,.1f} MiB)")
+
+    if excluded:
+        excluded_mib = sum(int(f.get("size_bytes") or 0) for f in excluded) / 1024 / 1024
+        print(f"\nExcluded ({excluded_mib:,.1f} MiB), still listed in the manifest:")
+        stems: dict[str, int] = {}
+        for record in excluded:
+            stems[record.get("family_stem") or record["kind"]] = (
+                stems.get(record.get("family_stem") or record["kind"], 0) + 1
+            )
+        for stem, count in sorted(stems.items(), key=lambda kv: -kv[1])[:15]:
+            print(f"  {stem:<48} {count:>5} files")
+        if len(stems) > 15:
+            print(f"  ... and {len(stems) - 15} more families")
 
     print(f"\n{TABLES_DATASET}: {len(families)} tables")
     for name, family in sorted(families.items(), key=lambda kv: -len(kv[1].files)):
@@ -275,9 +310,12 @@ def cmd_plan(args) -> int:
 
     docs = [f for f in files if f["kind"] == "document"]
     other = [f for f in files if f["kind"] in {"media", "other"}]
-    print(f"\n{DOCS_DATASET}.documents: {len(docs)} files")
-    print(f"{RAW_DATASET}.file_manifest: {stats['count']} files "
-          f"({len(other)} recorded as metadata only)")
+    print(f"\n{DOCS_DATASET}.documents: {len(docs)} files (chunked for embedding)")
+    print(f"{RAW_DATASET}.file_manifest: {total_found} files "
+          f"({len(other)} metadata only, {len(excluded)} excluded)")
+    if args.vectorize:
+        print(f"{vec.VECTORS_DATASET}.embeddings: document chunks + "
+              f"{len(other)} file-metadata rows + rows of chosen tables")
     return 0
 
 
@@ -289,6 +327,7 @@ def cmd_load(args) -> int:
         loader.ensure_dataset(dataset)
     loader.ensure_table(RAW_DATASET, bq.MANIFEST_TABLE, bq.MANIFEST_SCHEMA)
     loader.ensure_table(DOCS_DATASET, bq.DOCUMENTS_TABLE, bq.DOCUMENTS_SCHEMA)
+    loader.ensure_table(DOCS_DATASET, bq.CHUNKS_TABLE, bq.CHUNKS_SCHEMA)
 
     if args.from_cache and Path(args.out).is_file():
         files = json.loads(Path(args.out).read_text())
@@ -296,6 +335,9 @@ def cmd_load(args) -> int:
     else:
         files = enumerate_drive(args, drive_service)
         Path(args.out).write_text(json.dumps(files, indent=2))
+
+    total_found = len(files)
+    files, excluded = apply_exclusions(files, args)
 
     if args.local_root and drive_service is None and needs_api(files):
         native = sum(1 for f in files if f.get("mime_type") in drive_mod.EXPORT_MIMES)
@@ -311,7 +353,18 @@ def cmd_load(args) -> int:
 
     families = build_families(files)
     manifest: list[dict] = []
-    counters = {"loaded": 0, "skipped": 0, "failed": 0, "rows": 0}
+    counters = {"loaded": 0, "skipped": 0, "failed": 0, "rows": 0, "chunks": 0}
+
+    # Excluded files are still censused, so drive_raw stays a complete picture of
+    # the Drive even when the load is deliberately scoped.
+    for record in excluded:
+        manifest.append(
+            manifest_row(
+                record,
+                ingest_status="excluded",
+                ingest_error=record.get("exclude_reason"),
+            )
+        )
 
     # ---- tabular families -> drive_tables ---------------------------------
     for table_name, family in sorted(families.items(), key=lambda kv: -len(kv[1].files)):
@@ -394,8 +447,9 @@ def cmd_load(args) -> int:
 
         flush(buffered, first_write)
 
-    # ---- documents -> drive_documents -------------------------------------
+    # ---- documents -> drive_documents (+ chunks for embedding) -------------
     doc_rows: list[dict] = []
+    chunk_rows: list[dict] = []
     for record in files:
         if record["kind"] != "document" or record["file_id"] in done:
             continue
@@ -427,6 +481,13 @@ def cmd_load(args) -> int:
                     "ingested_at": now(),
                 }
             )
+            # Chunk for embedding. One vector per document would average away
+            # the passage you were actually looking for.
+            pieces = chunk_mod.chunk_document(record, text)
+            for piece in pieces:
+                chunk_rows.append({**piece, "ingested_at": now()})
+            counters["chunks"] += len(pieces)
+
             manifest.append(
                 manifest_row(
                     record,
@@ -451,8 +512,12 @@ def cmd_load(args) -> int:
         if len(doc_rows) >= 500:
             loader.load_rows(doc_rows, DOCS_DATASET, bq.DOCUMENTS_TABLE, bq.DOCUMENTS_SCHEMA)
             doc_rows = []
+        if len(chunk_rows) >= 5000:
+            loader.load_rows(chunk_rows, DOCS_DATASET, bq.CHUNKS_TABLE, bq.CHUNKS_SCHEMA)
+            chunk_rows = []
 
     loader.load_rows(doc_rows, DOCS_DATASET, bq.DOCUMENTS_TABLE, bq.DOCUMENTS_SCHEMA)
+    loader.load_rows(chunk_rows, DOCS_DATASET, bq.CHUNKS_TABLE, bq.CHUNKS_SCHEMA)
 
     # ---- everything else: metadata only ------------------------------------
     for record in files:
@@ -462,15 +527,124 @@ def cmd_load(args) -> int:
     loader.load_rows(manifest, RAW_DATASET, bq.MANIFEST_TABLE, bq.MANIFEST_SCHEMA)
 
     log.info(
-        "done: %d loaded, %d skipped, %d failed, %d rows into %d tables",
+        "done: %d loaded, %d skipped, %d failed, %d excluded, "
+        "%d rows into %d tables, %d chunks",
         counters["loaded"],
         counters["skipped"],
         counters["failed"],
+        len(excluded),
         counters["rows"],
         len(families),
+        counters["chunks"],
     )
+    counters["excluded"] = len(excluded)
+    counters["found"] = total_found
     print(json.dumps(counters, indent=2))
+
+    if args.vectorize:
+        log.info("vectorizing ...")
+        rc = run_vectorize(args, loader)
+        if rc:
+            return rc
     return 1 if counters["failed"] and args.strict else 0
+
+
+def run_vectorize(args, loader: bq.Loader) -> int:
+    """Embed loaded content into drive_vectors.embeddings and index it.
+
+    Idempotent throughout: the queue only ever receives ids that are not already
+    embedded, so re-running after adding files embeds just the new material.
+    """
+    project = args.project
+
+    loader.ensure_dataset(vec.VECTORS_DATASET)
+    vec.ensure_connection(project, args.location, dry_run=args.dry_run)
+
+    loader.sql(vec.create_model_sql(project, args.location, args.embedding_model), "model")
+    loader.sql(vec.create_embeddings_table_sql(project), "embeddings table")
+    loader.sql(vec.create_staging_table_sql(project), "embed queue")
+
+    # Queue everything worth embedding.
+    loader.sql(vec.enqueue_from_chunks_sql(project), "queue document chunks")
+    loader.sql(vec.enqueue_file_metadata_sql(project), "queue file metadata")
+
+    # Rows are only embedded for tables the caller names; telemetry rows are
+    # meaningless as text and would dominate the index.
+    for table in args.vectorize_tables or []:
+        if table not in loader.list_table_ids(TABLES_DATASET) and not args.dry_run:
+            log.warning("no such table %s.%s, skipping", TABLES_DATASET, table)
+            continue
+        loader.sql(
+            vec.enqueue_table_rows_sql(project, table, args.max_rows_per_table),
+            f"queue rows of {table}",
+        )
+
+    depth = loader.scalar(vec.queue_depth_sql(project), default=0) or 0
+    log.info("%s rows queued for embedding", f"{depth:,}")
+
+    # Drain the queue in batches so one oversized query cannot fail the lot.
+    batches = 0
+    while True:
+        if args.dry_run:
+            loader.sql(vec.embed_batch_sql(project, args.embed_batch), "embed batch")
+            loader.sql(vec.dequeue_embedded_sql(project), "dequeue")
+            break
+        loader.sql(vec.embed_batch_sql(project, args.embed_batch), "embed batch")
+        loader.sql(vec.dequeue_embedded_sql(project), "dequeue")
+        batches += 1
+        remaining = loader.scalar(vec.queue_depth_sql(project), default=0) or 0
+        log.info("batch %d done, %s still queued", batches, f"{remaining:,}")
+        if remaining == 0:
+            break
+        if remaining >= depth and batches > 1:
+            # Nothing drained this round: every remaining row is failing.
+            log.error(
+                "embedding stalled with %s rows queued; inspect "
+                "`%s.%s.embed_queue` and the model's status output",
+                f"{remaining:,}",
+                project,
+                vec.VECTORS_DATASET,
+            )
+            return 1
+        depth = remaining
+        if batches >= args.max_batches:
+            log.warning(
+                "stopping after %d batches with %s queued; re-run `vectorize` to continue",
+                batches,
+                f"{remaining:,}",
+            )
+            break
+
+    total = loader.scalar(
+        f"SELECT COUNT(*) FROM `{project}.{vec.VECTORS_DATASET}.{vec.EMBEDDINGS_TABLE}`",
+        default=0,
+    ) or 0
+    log.info("%s vectors in %s.%s", f"{total:,}", vec.VECTORS_DATASET, vec.EMBEDDINGS_TABLE)
+
+    # A vector index only kicks in above a row threshold; below it BigQuery
+    # brute-forces the scan, which is correct but slower.
+    if total >= vec.INDEX_MIN_ROWS or args.dry_run:
+        loader.sql(vec.create_index_sql(project), "vector index")
+    else:
+        log.info(
+            "skipping vector index: %s rows is below BigQuery's %s-row minimum, "
+            "so search will scan instead (same results)",
+            f"{total:,}",
+            f"{vec.INDEX_MIN_ROWS:,}",
+        )
+
+    loader.sql(vec.create_search_function_sql(project), "search function")
+    log.info(
+        "search with:  SELECT * FROM `%s.%s.search`('your question', 10)",
+        project,
+        vec.VECTORS_DATASET,
+    )
+    return 0
+
+
+def cmd_vectorize(args) -> int:
+    loader = bq.Loader(args.project, args.location, dry_run=args.dry_run)
+    return run_vectorize(args, loader)
 
 
 # ----------------------------------------------------------------------- main
@@ -478,7 +652,7 @@ def cmd_load(args) -> int:
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=["inventory", "plan", "load"])
+    parser.add_argument("command", choices=["inventory", "plan", "load", "vectorize"])
     parser.add_argument("--project", required=True, help="GCP project id")
     parser.add_argument("--folder", help="Drive folder id to limit the walk to")
     parser.add_argument(
@@ -494,6 +668,49 @@ def main(argv=None) -> int:
     parser.add_argument("--no-resume", action="store_true", help="reload everything")
     parser.add_argument("--strict", action="store_true", help="exit 1 on any failure")
     parser.add_argument("-v", "--verbose", action="store_true")
+
+    scope = parser.add_argument_group("scope")
+    scope.add_argument(
+        "--skip-health",
+        action="store_true",
+        help="exclude wearable/health telemetry (Fitbit-style per-day exports). "
+        "Excluded files are still recorded in the manifest as 'excluded'.",
+    )
+    scope.add_argument("--exclude-path", help="regex; exclude files whose path matches")
+    scope.add_argument("--exclude-family", help="regex; exclude matching table families")
+
+    vector = parser.add_argument_group("vectors")
+    vector.add_argument(
+        "--vectorize",
+        action="store_true",
+        help="after loading, embed content into drive_vectors.embeddings",
+    )
+    vector.add_argument(
+        "--vectorize-tables",
+        nargs="*",
+        metavar="TABLE",
+        help="also embed the rows of these drive_tables tables (descriptive "
+        "tables only -- telemetry rows are meaningless as text)",
+    )
+    vector.add_argument(
+        "--embedding-model",
+        default=vec.DEFAULT_ENDPOINT,
+        help=f"Vertex embedding endpoint (default {vec.DEFAULT_ENDPOINT}; "
+        "gemini-embedding-001 is newer but 3072-dim)",
+    )
+    vector.add_argument(
+        "--embed-batch", type=int, default=vec.EMBED_BATCH_ROWS, help="rows per embed query"
+    )
+    vector.add_argument(
+        "--max-batches", type=int, default=500, help="stop after this many embed batches"
+    )
+    vector.add_argument(
+        "--max-rows-per-table",
+        type=int,
+        default=50_000,
+        help="cap on rows embedded per table",
+    )
+
     args = parser.parse_args(argv)
 
     logging.basicConfig(
@@ -501,7 +718,12 @@ def main(argv=None) -> int:
         format="%(asctime)s %(levelname)-7s %(message)s",
     )
 
-    handler = {"inventory": cmd_inventory, "plan": cmd_plan, "load": cmd_load}[args.command]
+    handler = {
+        "inventory": cmd_inventory,
+        "plan": cmd_plan,
+        "load": cmd_load,
+        "vectorize": cmd_vectorize,
+    }[args.command]
     try:
         return handler(args)
     except Exception:
