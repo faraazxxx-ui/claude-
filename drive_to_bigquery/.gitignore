@@ -1,0 +1,4 @@
+drive_inventory.json
+venv/
+__pycache__/
+*.pyc
