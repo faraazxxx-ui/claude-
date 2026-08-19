@@ -1,0 +1,6 @@
+drive_inventory.json
+venv/
+__pycache__/
+*.pyc
+duplicate_cleanup.csv
+duplicate_cleanup.html
