@@ -43,6 +43,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import bq  # noqa: E402
 import chunk as chunk_mod  # noqa: E402
 import drive as drive_mod  # noqa: E402
+import graph as gr  # noqa: E402
 import vectorize as vec  # noqa: E402
 from classify import build_families, partition, sanitize_table_name  # noqa: E402
 from parse import extract_text, read_tabular, reconcile  # noqa: E402
@@ -647,12 +648,166 @@ def cmd_vectorize(args) -> int:
     return run_vectorize(args, loader)
 
 
+def run_crosslink(args, loader: bq.Loader) -> int:
+    """Pass 1: search the embeddings against themselves and record the edges."""
+    project = args.project
+    loader.ensure_dataset(gr.GRAPH_DATASET)
+    loader.ensure_dataset(gr.INSIGHTS_DATASET)
+    loader.sql(gr.create_state_table_sql(project), "state table")
+
+    log.info("crossing every chunk against every other chunk ...")
+    loader.sql(
+        gr.build_links_sql(
+            project, vec.VECTORS_DATASET, vec.EMBEDDINGS_TABLE,
+            neighbours=args.neighbours, max_distance=args.max_link_distance,
+        ),
+        "build cross links",
+    )
+    links = loader.scalar(
+        f"SELECT COUNT(*) FROM `{project}.{gr.GRAPH_DATASET}.{gr.LINKS_TABLE}`", default=0
+    ) or 0
+    log.info("%s cross-file links", f"{links:,}")
+    loader.sql(gr.record_state_sql(project, "cross_links", links), "state")
+    return 0
+
+
+def run_entities(args, loader: bq.Loader) -> int:
+    """Pass 2: extract entities, resolve them, and push them through the edges."""
+    project = args.project
+    loader.ensure_dataset(gr.GRAPH_DATASET)
+    loader.sql(gr.create_mentions_table_sql(project), "mentions table")
+    loader.sql(
+        gr.create_extractor_model_sql(
+            project, vec.VECTORS_DATASET, args.location,
+            vec.CONNECTION_NAME, args.text_model,
+        ),
+        "extractor model",
+    )
+
+    pending = loader.scalar(
+        gr.pending_extraction_sql(project, vec.VECTORS_DATASET), default=0
+    ) or 0
+    log.info("%s chunks awaiting entity extraction", f"{pending:,}")
+
+    batches = 0
+    while True:
+        loader.sql(
+            gr.extract_entities_sql(project, vec.VECTORS_DATASET, args.extract_batch),
+            "extract entities",
+        )
+        if args.dry_run:
+            break
+        batches += 1
+        remaining = loader.scalar(
+            gr.pending_extraction_sql(project, vec.VECTORS_DATASET), default=0
+        ) or 0
+        log.info("batch %d done, %s chunks left", batches, f"{remaining:,}")
+        if remaining == 0:
+            break
+        if remaining >= pending:
+            # Nothing consumed: every remaining chunk is failing extraction.
+            log.error(
+                "extraction stalled at %s chunks. The generative SQL in "
+                "graph.extract_entities_sql is the thing to check.",
+                f"{remaining:,}",
+            )
+            return 1
+        pending = remaining
+        if batches >= args.max_batches:
+            log.warning("stopping after %d batches, %s left", batches, f"{remaining:,}")
+            break
+
+    loader.sql(gr.build_entities_sql(project), "resolve entities")
+    mentions = loader.scalar(
+        f"SELECT COUNT(*) FROM `{project}.{gr.GRAPH_DATASET}.{gr.MENTIONS_TABLE}`", default=0
+    ) or 0
+    entities = loader.scalar(
+        f"SELECT COUNT(*) FROM `{project}.{gr.GRAPH_DATASET}.{gr.ENTITIES_TABLE}`", default=0
+    ) or 0
+    log.info("%s mentions resolving to %s entities", f"{mentions:,}", f"{entities:,}")
+    loader.sql(gr.record_state_sql(project, "entities", entities), "state")
+    return 0
+
+
+def run_insights(args, loader: bq.Loader) -> int:
+    """Build the derived views. Cheap and idempotent -- they are just views."""
+    project = args.project
+    loader.ensure_dataset(gr.INSIGHTS_DATASET)
+
+    for label, statement in [
+        ("entity_timeline", gr.entity_timeline_view_sql(project)),
+        ("entity_cooccurrence", gr.cooccurrence_view_sql(project)),
+        ("indirect_relations", gr.indirect_relations_view_sql(project)),
+        ("file_bridges", gr.file_bridges_view_sql(project)),
+        ("entity_gaps", gr.entity_gaps_view_sql(project)),
+        ("recent_activity", gr.activity_view_sql(project)),
+        ("pipeline_health", gr.health_view_sql(project)),
+        ("ask", gr.ask_function_sql(project, vec.VECTORS_DATASET)),
+    ]:
+        loader.sql(statement, label)
+        log.info("built %s.%s", gr.INSIGHTS_DATASET, label)
+
+    if args.insight_feed:
+        log.info("writing the narrated insight feed (this one calls Gemini) ...")
+        loader.sql(
+            gr.insight_feed_sql(project, vec.VECTORS_DATASET, args.feed_size),
+            "insight feed",
+        )
+        rows = loader.scalar(
+            f"SELECT COUNT(*) FROM `{project}.{gr.INSIGHTS_DATASET}.insight_feed`", default=0
+        ) or 0
+        log.info("%s narrated insights", f"{rows:,}")
+        loader.sql(gr.record_state_sql(project, "insight_feed", rows), "state")
+
+    log.info("ask a question:  SELECT * FROM `%s.%s.ask`('...', 12)",
+             project, gr.INSIGHTS_DATASET)
+    return 0
+
+
+def cmd_crosslink(args) -> int:
+    return run_crosslink(args, bq.Loader(args.project, args.location, dry_run=args.dry_run))
+
+
+def cmd_entities(args) -> int:
+    return run_entities(args, bq.Loader(args.project, args.location, dry_run=args.dry_run))
+
+
+def cmd_insights(args) -> int:
+    return run_insights(args, bq.Loader(args.project, args.location, dry_run=args.dry_run))
+
+
+def cmd_activate(args) -> int:
+    """Everything downstream of the vector table, in order, then the schedules.
+
+    This is the command to put on a timer: crossing, entities, insights.
+    """
+    loader = bq.Loader(args.project, args.location, dry_run=args.dry_run)
+    for step in (run_crosslink, run_entities, run_insights):
+        rc = step(args, loader)
+        if rc:
+            return rc
+
+    print("\nTo let BigQuery refresh this on its own, run these once:\n")
+    for name, command in gr.schedule_commands(args.project, args.location):
+        print(f"# {name}\n{command}\n")
+    print(
+        "The ingest step still needs somewhere with Drive access (re-run the\n"
+        "notebook, or put `load` on Cloud Run + Cloud Scheduler). Everything\n"
+        "above is pure SQL, so BigQuery drives it with no machine of yours."
+    )
+    return 0
+
+
 # ----------------------------------------------------------------------- main
 
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=["inventory", "plan", "load", "vectorize"])
+    parser.add_argument(
+        "command",
+        choices=["inventory", "plan", "load", "vectorize",
+                 "crosslink", "entities", "insights", "activate"],
+    )
     parser.add_argument("--project", required=True, help="GCP project id")
     parser.add_argument("--folder", help="Drive folder id to limit the walk to")
     parser.add_argument(
@@ -711,6 +866,38 @@ def main(argv=None) -> int:
         help="cap on rows embedded per table",
     )
 
+    cross = parser.add_argument_group("crossing and insights")
+    cross.add_argument(
+        "--neighbours",
+        type=int,
+        default=gr.NEIGHBOURS_PER_CHUNK,
+        help=f"cross-file neighbours kept per chunk (default {gr.NEIGHBOURS_PER_CHUNK})",
+    )
+    cross.add_argument(
+        "--max-link-distance",
+        type=float,
+        default=gr.MAX_LINK_DISTANCE,
+        help=f"cosine distance above which a link is discarded "
+        f"(default {gr.MAX_LINK_DISTANCE})",
+    )
+    cross.add_argument(
+        "--text-model",
+        default=gr.DEFAULT_TEXT_ENDPOINT,
+        help=f"Gemini endpoint for extraction and narration "
+        f"(default {gr.DEFAULT_TEXT_ENDPOINT})",
+    )
+    cross.add_argument(
+        "--extract-batch", type=int, default=2000, help="chunks per extraction query"
+    )
+    cross.add_argument(
+        "--insight-feed",
+        action="store_true",
+        help="also have Gemini narrate the strongest bridges (costs tokens)",
+    )
+    cross.add_argument(
+        "--feed-size", type=int, default=40, help="bridges to narrate"
+    )
+
     args = parser.parse_args(argv)
 
     logging.basicConfig(
@@ -723,6 +910,10 @@ def main(argv=None) -> int:
         "plan": cmd_plan,
         "load": cmd_load,
         "vectorize": cmd_vectorize,
+        "crosslink": cmd_crosslink,
+        "entities": cmd_entities,
+        "insights": cmd_insights,
+        "activate": cmd_activate,
     }[args.command]
     try:
         return handler(args)

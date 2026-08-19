@@ -85,6 +85,8 @@ Measured on the first 100 CSVs in the Drive: **100 files → 28 tables.**
 | `drive_documents.documents` | Extracted text from PDF, Word, PowerPoint, txt, md, html. |
 | `drive_documents.document_chunks` | Those documents split into embedding-sized passages. |
 | `drive_vectors.embeddings` | One vector table over documents, table rows **and** filenames, plus a `search()` table function. |
+| `drive_graph` | `cross_links` (chunk↔chunk edges), `entity_mentions`, `entities` — the corpus crossed against itself. |
+| `drive_insights` | Seven views over that, plus an `ask()` function. |
 
 Media and unparseable binaries are recorded in the manifest as
 `metadata_only` — searchable by name, path, and size, without their bytes.
@@ -222,10 +224,78 @@ Two knobs worth knowing:
 python test_pipeline.py
 ```
 
-69 checks, no credentials needed: exclusion correctness against real filenames,
+171 checks, no credentials needed: exclusion correctness against real filenames,
 family grouping, schema-drift reconciliation, type coercion, chunking
-invariants, SQL well-formedness and INSERT arity, and that the notebook's
+invariants, SQL well-formedness (balanced literals via a real quote-aware
+scanner, INSERT arity, no unrendered placeholders), and that the notebook's
 embedded modules still match the sources.
+
+## Crossing, and keeping it live
+
+Semantic search only answers what you thought to ask. These stages make the
+corpus surface connections nobody queried for.
+
+```bash
+python pipeline.py crosslink --project PROJECT   # pass 1: chunk <-> chunk edges
+python pipeline.py entities  --project PROJECT   # pass 2: entities through edges
+python pipeline.py insights  --project PROJECT --insight-feed
+python pipeline.py activate  --project PROJECT   # all three + schedule commands
+```
+
+**Pass 1 — crossing.** The embedding table is searched against itself and
+nearest neighbours *in different files* become edges in
+`drive_graph.cross_links`. Same-file neighbours are dropped (a document being
+locally coherent tells you nothing), pairs are deduplicated to one unordered
+edge, and anything past a cosine distance of 0.35 is discarded as noise.
+
+**Pass 2 — crossing the crossings.** Gemini extracts entities per chunk into
+`entity_mentions`, which resolve into `entities` by a casefolded normal form, so
+"Dr. Rahman" and "dr rahman" are one entity. Those entities are then pushed
+*through* the pass-1 edges.
+
+### The views
+
+| View | What it answers |
+|---|---|
+| `file_bridges` | Which two parts of the Drive meet, and whether the link crosses a folder boundary. |
+| `indirect_relations` | Entity pairs that never share a passage but sit at either end of a link between files. This relationship exists in no single document — only in the geometry between them. |
+| `entity_timeline` | Every dated appearance of an entity, from any source, with where the date came from (`in_text` / `filename` / `file_mtime`). |
+| `entity_cooccurrence` | Entities appearing in the same passage — the direct crossing. |
+| `entity_gaps` | Entities in your documents but absent from every spreadsheet, or the reverse. A gap or a finding. |
+| `recent_activity` | What changed lately, by day and kind. |
+| `pipeline_health` | Per-stage watermarks, with `stale` set past 48 hours. |
+
+Plus two functions: `drive_vectors.search(query, k)` for passages, and
+`drive_insights.ask(question, k)` for a cited answer — retrieval-augmented, and
+instructed to say when the corpus does not contain the answer.
+
+`insight_feed` optionally has Gemini narrate the strongest bridges. It is told to
+be blunt and to label most matches `COINCIDENTAL`, so `looks_meaningful = true`
+means something.
+
+### Active, not static
+
+Everything downstream of the vector table is pure SQL, so BigQuery refreshes it
+on a timer with no machine of yours involved. `activate` prints the
+`bq query --schedule` commands to register.
+
+Ingest is the exception — it needs Drive access. Re-run the notebook after
+adding files, or put `load` on Cloud Run behind Cloud Scheduler.
+
+Each stage writes a watermark to `drive_graph.pipeline_state`, and
+`pipeline_health` flags anything that has not run in 48 hours. That is the
+difference between a live system and one that quietly stopped.
+
+### Cost and correctness warnings
+
+- Pass 1 is a self-join over the whole vector table. Cost scales with the square
+  of the corpus. `--neighbours` (default 8) and `--max-link-distance` bound it.
+- Entity extraction calls Gemini once per chunk. It is resumable and skips
+  chunks already done, but the first run over a large corpus is the expensive
+  one. `--extract-batch` sets the batch size.
+- `extract_entities_sql` and `insight_feed_sql` are the only two statements using
+  BigQuery's generative SQL surface, which moves faster than the rest. They are
+  deliberately isolated so a drifted signature is a one-place fix.
 
 Useful flags:
 

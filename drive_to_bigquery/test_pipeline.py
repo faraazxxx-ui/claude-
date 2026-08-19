@@ -34,6 +34,41 @@ def check(name: str, condition: bool) -> None:
         FAILURES.append(name)
 
 
+def literals_balanced(sql: str) -> bool:
+    """True when every single-quoted literal in `sql` is closed.
+
+    An unterminated literal is the failure mode an apostrophe in a prompt causes,
+    and it is worth catching before BigQuery does. Needs a real scan rather than
+    a quote count: `--` starts a comment only *outside* a literal (so an
+    apostrophe in a comment is harmless), while `--` *inside* one is just text
+    (as in the separator `'--- '`). Counting quotes, or stripping comments first,
+    gets one of those two cases wrong.
+    """
+    in_literal = False
+    index = 0
+    while index < len(sql):
+        char = sql[index]
+        if in_literal:
+            if char == "\\":
+                index += 2  # escaped anything, including \' and \\
+                continue
+            if char == "'":
+                in_literal = False
+        else:
+            if char == "'":
+                in_literal = True
+            elif sql.startswith("--", index):
+                newline = sql.find("\n", index)
+                if newline == -1:
+                    return not in_literal
+                index = newline
+            elif sql.startswith("/*", index):
+                close = sql.find("*/", index)
+                index = len(sql) if close == -1 else close + 1
+        index += 1
+    return not in_literal
+
+
 def record(name: str, path: str | None = None) -> dict:
     kind, fmt = classify(name, "")
     return {
@@ -175,10 +210,12 @@ def test_sql() -> None:
         "index": vec.create_index_sql("P"),
         "search": vec.create_search_function_sql("P"),
     }
+    placeholder = re.compile(r"\{[a-z_]+\}")
     for name, sql in builders.items():
         check(f"{name}: balanced parens", sql.count("(") == sql.count(")"))
-        check(f"{name}: fully rendered", "{" not in sql and "}" not in sql)
+        check(f"{name}: fully rendered", not placeholder.search(sql))
         check(f"{name}: non-empty", len(sql.strip()) > 20)
+        check(f"{name}: literals balanced", literals_balanced(sql))
 
     # An INSERT whose column list and SELECT list disagree fails at runtime.
     for name in ["enqueue_chunks", "enqueue_metadata", "enqueue_rows", "embed_batch"]:
@@ -189,6 +226,80 @@ def test_sql() -> None:
     check("embed filters failures", "ml_generate_embedding_status = ''" in builders["embed_batch"])
     check("query uses RETRIEVAL_QUERY", "RETRIEVAL_QUERY" in builders["search"])
     check("docs use RETRIEVAL_DOCUMENT", "RETRIEVAL_DOCUMENT" in builders["embed_batch"])
+
+
+def test_literal_scanner() -> None:
+    print("SQL literal scanner")
+    cases = [
+        ("plain literal", "SELECT 'a' FROM t", True),
+        ("apostrophe in line comment", "SELECT 1 -- chunk's date\nFROM t", True),
+        ("dashes inside a literal", "SELECT CONCAT('--- ', name) FROM t", True),
+        ("escaped quote", "SELECT 'person\\'s' FROM t", True),
+        ("apostrophe in block comment", "SELECT 1 /* it's fine */ FROM t", True),
+        ("unterminated literal", "SELECT 'person's' FROM t", False),
+        ("unclosed at end of input", "SELECT 'oops FROM t", False),
+    ]
+    for name, sql, expected in cases:
+        check(f"{name} -> {expected}", literals_balanced(sql) is expected)
+
+
+def test_graph_sql() -> None:
+    print("graph and insight SQL")
+    import graph as gr
+
+    builders = {
+        "links_table": gr.create_links_table_sql("P"),
+        "build_links": gr.build_links_sql("P", "V", "E"),
+        "extractor_model": gr.create_extractor_model_sql("P", "V", "US", "C", "gemini"),
+        "mentions_table": gr.create_mentions_table_sql("P"),
+        "extract_entities": gr.extract_entities_sql("P", "V"),
+        "pending": gr.pending_extraction_sql("P", "V"),
+        "build_entities": gr.build_entities_sql("P"),
+        "timeline": gr.entity_timeline_view_sql("P"),
+        "cooccurrence": gr.cooccurrence_view_sql("P"),
+        "indirect": gr.indirect_relations_view_sql("P"),
+        "bridges": gr.file_bridges_view_sql("P"),
+        "gaps": gr.entity_gaps_view_sql("P"),
+        "activity": gr.activity_view_sql("P"),
+        "feed": gr.insight_feed_sql("P", "V"),
+        "ask": gr.ask_function_sql("P", "V"),
+        "state_table": gr.create_state_table_sql("P"),
+        "record_state": gr.record_state_sql("P", "s", 1, "note"),
+        "health": gr.health_view_sql("P"),
+    }
+
+    placeholder = re.compile(r"\{[a-z_]+\}")
+    for name, sql in builders.items():
+        check(f"{name}: balanced parens", sql.count("(") == sql.count(")"))
+        check(f"{name}: no unrendered placeholder", not placeholder.search(sql))
+        check(f"{name}: non-empty", len(sql.strip()) > 20)
+        # An odd number of single quotes means an unterminated string literal —
+        # exactly the bug an apostrophe in a prompt causes. Discount escaped
+        # quotes, which do not open or close a literal, and strip `--` comments,
+        # where an apostrophe is harmless because the comment runs to end of line.
+        check(f"{name}: literals balanced", literals_balanced(sql))
+
+    check("links exclude same-file pairs", "query.file_id != base.file_id" in
+          builders["build_links"])
+    check("links dedupe unordered pairs", "LEAST(" in builders["build_links"]
+          and "GREATEST(" in builders["build_links"])
+    check("links bound distance", "distance <=" in builders["build_links"])
+    check("extraction is resumable", "NOT EXISTS" in builders["extract_entities"])
+    check("extraction parses defensively", "SAFE.PARSE_JSON" in builders["extract_entities"])
+    check("extraction filters entity types", "entity_type IN (" in builders["extract_entities"])
+    check("indirect avoids correlated self-join",
+          "LEFT JOIN direct" in builders["indirect"])
+    check("timeline pre-aggregates dates", "chunk_dates AS" in builders["timeline"])
+
+    # sql_literal must neutralise the two things that break a prompt literal.
+    check("sql_literal escapes apostrophe", gr.sql_literal("person's") == "person\\'s")
+    check("sql_literal escapes backslash", gr.sql_literal("a\\b") == "a\\\\b")
+
+    # Schedules must be single-line and reference the project.
+    schedules = gr.schedule_commands("P", "US")
+    check("schedules produced", len(schedules) == 3)
+    check("schedules are single-line", all("\n" not in c for _, c in schedules))
+    check("schedules name the project", all("--project_id=P" in c for _, c in schedules))
 
 
 def test_notebook() -> None:
@@ -220,7 +331,7 @@ def test_notebook() -> None:
             exec(compile(source, "bootstrap", "exec"), namespace)
             drifted = [
                 name for name in ["classify.py", "drive.py", "parse.py", "chunk.py",
-                                  "vectorize.py", "bq.py", "pipeline.py"]
+                                  "vectorize.py", "graph.py", "bq.py", "pipeline.py"]
                 if (Path(tmp) / name).read_text().rstrip("\n")
                 != (Path(cwd) / name).read_text().rstrip("\n")
             ]
@@ -232,7 +343,8 @@ def test_notebook() -> None:
 
 def main() -> int:
     for suite in (test_exclusions, test_families, test_schema_drift,
-                  test_chunking, test_sql, test_notebook):
+                  test_chunking, test_sql, test_literal_scanner,
+                  test_graph_sql, test_notebook):
         suite()
         print()
     if FAILURES:

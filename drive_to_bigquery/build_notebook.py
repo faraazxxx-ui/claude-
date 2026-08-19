@@ -15,7 +15,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 MODULES = ["classify.py", "drive.py", "parse.py", "chunk.py", "vectorize.py",
-           "bq.py", "pipeline.py"]
+           "graph.py", "bq.py", "pipeline.py"]
 NOTEBOOK = HERE / "Drive_to_BigQuery.ipynb"
 
 PROJECT = "pelagic-gist-505800-b9"
@@ -78,8 +78,9 @@ def build() -> None:
         markdown(
             "# Drive → BigQuery",
             "",
-            f"Loads your Google Drive into BigQuery project `{PROJECT}`, then embeds it for"
-            " semantic search. Four datasets:",
+            f"Loads your Google Drive into BigQuery project `{PROJECT}`, embeds it for"
+            " semantic search, then crosses it against itself so connections surface"
+            " without being queried for. Five datasets:",
             "",
             "| Dataset | Contents |",
             "|---|---|",
@@ -90,6 +91,10 @@ def build() -> None:
             " `document_chunks`, the passages that get embedded. |",
             "| `drive_vectors.embeddings` | One vector table over documents, spreadsheet rows"
             " **and** filenames, with a `search()` function. |",
+            "| `drive_graph` | `cross_links` (chunk↔chunk edges), `entity_mentions`,"
+            " `entities` — the corpus crossed against itself. |",
+            "| `drive_insights` | Seven views over that: bridges, indirect relations,"
+            " timelines, gaps, health — plus an `ask()` function. |",
             "",
             "**Why the grouping matters.** A Takeout/Fitbit export is thousands of files that"
             " are really a few dozen tables sharded by day:",
@@ -322,6 +327,192 @@ def build() -> None:
             " `'what did the clinic note say about sleep'`. Because filenames are vectored"
             " too, searches like `'hospital scan photo'` surface images that contain no text"
             " at all.",
+        ),
+        markdown(
+            "## 10. Cross the data against itself",
+            "",
+            "Search only answers what you thought to ask. This step makes the corpus"
+            " surface connections nobody queried for, in two passes:",
+            "",
+            "**Pass 1 — crossing.** Every chunk is searched against every other chunk, and"
+            " nearest neighbours *in different files* are recorded as edges. A passage in a"
+            " probation letter and a row in a residency evaluation that discuss the same"
+            " thing become an explicit link, with no query typed by anyone.",
+            "",
+            "**Pass 2 — crossing the crossings.** Entities are extracted from each chunk,"
+            " then pushed *through* those edges. Two people who never appear in the same"
+            " file, but who are each central to files that link to one another, get"
+            " surfaced as related. That relationship exists in no single document — only"
+            " in the geometry between them.",
+            "",
+            "Both passes are resumable and skip work already done, so re-running after"
+            " adding files only processes the new material.",
+        ),
+        code(
+            "# Pass 1: edges between chunks in different files.",
+            "!python pipeline.py crosslink --project $PROJECT --location $LOCATION",
+        ),
+        code(
+            "# Pass 2: entities, then the derived views. --insight-feed additionally has",
+            "# Gemini write up the strongest bridges in plain language (costs tokens).",
+            "!python pipeline.py entities --project $PROJECT --location $LOCATION",
+            "!python pipeline.py insights --project $PROJECT --location $LOCATION \\",
+            "    --insight-feed",
+        ),
+        markdown(
+            "## 11. The insights",
+            "",
+            "Seven views in `drive_insights`. Each cell below is one question you could not"
+            " ask of the raw Drive.",
+        ),
+        markdown(
+            "### Where two parts of your Drive meet",
+            "",
+            "File pairs joined by many semantic links. `crosses_folder` marks pairs from"
+            " *different* top-level folders — a link that crosses how you organised things"
+            " is usually the interesting one.",
+        ),
+        code(
+            "client.query(f'''",
+            "    SELECT a_name, b_name, link_count,",
+            "           ROUND(closest_distance, 4) AS closest,",
+            "           crosses_folder",
+            "    FROM `{PROJECT}.drive_insights.file_bridges`",
+            "    ORDER BY crosses_folder DESC, link_count DESC",
+            "    LIMIT 25",
+            "''').to_dataframe()",
+        ),
+        markdown(
+            "### Relationships that exist in no single file",
+            "",
+            "Entity pairs that never share a passage, but sit at either end of links between"
+            " different files. This is the crossing-the-crossings output.",
+        ),
+        code(
+            "client.query(f'''",
+            "    SELECT entity_a, entity_b, type_a, type_b, bridge_count,",
+            "           ROUND(closest_distance, 4) AS closest",
+            "    FROM `{PROJECT}.drive_insights.indirect_relations`",
+            "    ORDER BY bridge_count DESC, closest_distance",
+            "    LIMIT 30",
+            "''').to_dataframe()",
+        ),
+        markdown(
+            "### Who and what recurs",
+            "",
+            "Entities ranked by how many *distinct files* mention them. Spanning many files"
+            " matters more than being repeated inside one.",
+        ),
+        code(
+            "client.query(f'''",
+            "    SELECT display_name, entity_type, file_count, mention_count",
+            "    FROM `{PROJECT}.drive_graph.entities`",
+            "    WHERE entity_type IN ('PERSON', 'ORG', 'CASE_NUMBER')",
+            "    ORDER BY file_count DESC, mention_count DESC",
+            "    LIMIT 30",
+            "''').to_dataframe()",
+        ),
+        markdown(
+            "### A chronology assembled across sources",
+            "",
+            "Pick an entity from the table above and get every dated appearance of it,"
+            " wherever it came from. `date_source` says where each date was found:"
+            " `in_text` (a date in the same passage), `filename`, or `file_mtime`.",
+        ),
+        code(
+            "ENTITY = 'probation'   # substring, casefolded",
+            "",
+            "client.query(f'''",
+            "    SELECT event_date, date_source, entity_text, entity_type,",
+            "           file_name, source_kind",
+            "    FROM `{PROJECT}.drive_insights.entity_timeline`",
+            "    WHERE entity_norm LIKE CONCAT('%', LOWER(@e), '%')",
+            "    ORDER BY event_date",
+            "    LIMIT 100",
+            "''', job_config=bigquery.QueryJobConfig(",
+            "    query_parameters=[bigquery.ScalarQueryParameter('e', 'STRING', ENTITY)]",
+            ")).to_dataframe()",
+        ),
+        markdown(
+            "### Narrated bridges",
+            "",
+            "Gemini's read on the strongest cross-file matches. It was told to be blunt and"
+            " to label most matches `COINCIDENTAL`, so `looks_meaningful = true` is a real"
+            " signal rather than flattery. Empty if you skipped `--insight-feed`.",
+        ),
+        code(
+            "client.query(f'''",
+            "    SELECT a_name, b_name, looks_meaningful,",
+            "           ROUND(distance, 4) AS distance, assessment",
+            "    FROM `{PROJECT}.drive_insights.insight_feed`",
+            "    ORDER BY looks_meaningful DESC, distance",
+            "    LIMIT 25",
+            "''').to_dataframe()",
+        ),
+        markdown(
+            "### Coverage gaps",
+            "",
+            "Entities present in your documents but absent from every spreadsheet, or the"
+            " reverse. Either a data gap or a finding — worth seeing either way.",
+        ),
+        code(
+            "client.query(f'''",
+            "    SELECT display_name, entity_type, coverage,",
+            "           in_documents, in_tables, file_count",
+            "    FROM `{PROJECT}.drive_insights.entity_gaps`",
+            "    WHERE coverage != 'both' AND file_count >= 2",
+            "    ORDER BY file_count DESC",
+            "    LIMIT 30",
+            "''').to_dataframe()",
+        ),
+        markdown(
+            "### Ask it anything",
+            "",
+            "Retrieval-augmented answering over the whole Drive: semantic search fetches the"
+            " passages, Gemini answers from them and cites the filenames. It is instructed"
+            " to say when the corpus does not contain the answer rather than inventing one —"
+            " check the `sources` column against the claim regardless.",
+        ),
+        code(
+            "for row in client.query(f'''",
+            "    SELECT answer, sources",
+            "    FROM `{PROJECT}.drive_insights.ask`(@q, 12)",
+            "''', job_config=bigquery.QueryJobConfig(",
+            "    query_parameters=[bigquery.ScalarQueryParameter(",
+            "        'q', 'STRING',",
+            "        'What concerns were raised about the residency, and by whom?')]",
+            ")):",
+            "    print(row.answer)",
+            "    print('\\nsources:', ', '.join(row.sources or []))",
+        ),
+        markdown(
+            "## 12. Keep it alive",
+            "",
+            "Everything downstream of the vector table is pure SQL, so BigQuery can refresh"
+            " it on a timer with no machine of yours involved. `activate` runs all three"
+            " passes and then prints the `bq query --schedule` commands to register them.",
+            "",
+            "The **ingest** step is the one exception — it needs somewhere with Drive"
+            " access. Either re-run this notebook when you have added files, or put `load`"
+            " on Cloud Run behind Cloud Scheduler for true hands-off operation.",
+        ),
+        code(
+            "!python pipeline.py activate --project $PROJECT --location $LOCATION \\",
+            "    --insight-feed",
+        ),
+        markdown(
+            "### Is it current?",
+            "",
+            "Each stage records a watermark when it runs. `stale` flags anything that has"
+            " not run in 48 hours — the difference between a live system and one that"
+            " quietly stopped.",
+        ),
+        code(
+            "client.query(f'''",
+            "    SELECT stage, last_run, rows_seen, hours_since, stale",
+            "    FROM `{PROJECT}.drive_insights.pipeline_health`",
+            "    ORDER BY last_run DESC",
+            "''').to_dataframe()",
         ),
         markdown(
             "---",
