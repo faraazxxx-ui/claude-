@@ -15,8 +15,8 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 MODULES = ["classify.py", "drive.py", "parse.py", "chunk.py", "dedupe.py",
-           "quickinsights.py", "vectorize.py", "graph.py", "bq.py",
-           "pipeline.py"]
+           "quickinsights.py", "vectorize.py", "graph.py", "preflight.py",
+           "bq.py", "pipeline.py"]
 NOTEBOOK = HERE / "Drive_to_BigQuery.ipynb"
 
 PROJECT = "pelagic-gist-505800-b9"

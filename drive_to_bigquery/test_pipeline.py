@@ -20,6 +20,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pandas as pd
 
 import chunk as ch
+import bq as bq_mod
 import dedupe
 import quickinsights as qi
 import vectorize as vec
@@ -339,6 +340,122 @@ def test_quickinsight_sql() -> None:
           not any("ML.GENERATE" in sql for sql in builders.values()))
 
 
+def test_load_schema_compatibility() -> None:
+    """The manifest/documents/chunks loads use an explicit BigQuery schema, so
+    every Parquet column type has to match exactly. This caught six mismatched
+    columns that would have failed the very first BigQuery write."""
+    print("Parquet <-> BigQuery schema compatibility")
+    import pyarrow.parquet as pq
+    from pipeline import manifest_row, now as _now
+
+    def compatible(declared: str, arrow: str) -> bool:
+        declared = declared.upper()
+        return (
+            (declared == "STRING" and "string" in arrow)
+            or (declared in {"INT64", "INTEGER"} and "int" in arrow)
+            or (declared == "TIMESTAMP" and "timestamp" in arrow)
+            or (declared == "DATE" and "date" in arrow)
+            or (declared in {"FLOAT64", "FLOAT"} and ("double" in arrow or "float" in arrow))
+            or (declared in {"BOOL", "BOOLEAN"} and "bool" in arrow)
+        )
+
+    def verify(rows, schema, label):
+        arrow_schema = pq.read_schema(bq_mod.to_parquet_bytes(pd.DataFrame(rows), schema))
+        bad = [
+            f.name for f in schema
+            if not compatible(f.field_type, str(arrow_schema.field(f.name).type))
+        ]
+        check(f"{label}{' -- ' + ', '.join(bad) if bad else ''}", not bad)
+
+    full = {
+        "file_id": "1", "name": "a.pdf", "path": "p", "mime_type": "application/pdf",
+        "extension": "pdf", "size_bytes": 260672, "md5_checksum": "d4",
+        "created_time": "2026-08-19T09:51:54.352Z",
+        "modified_time": "2026-08-19T09:27:17.217Z", "parent_id": "1p",
+        "kind": "document", "fmt": "pdf", "family_stem": None,
+        "shard_date": "2026-07-05", "content_hash": "abc", "duplicate_of": None,
+    }
+    empty = {**full, "size_bytes": None, "created_time": None, "modified_time": None,
+             "shard_date": None, "md5_checksum": None, "content_hash": None}
+
+    verify([manifest_row(full, ingest_status="loaded", row_count=1),
+            manifest_row(empty, ingest_status="metadata_only")],
+           bq_mod.MANIFEST_SCHEMA, "manifest, mixed nulls")
+    # An all-null column serialises as Arrow `null` unless the type is pinned.
+    verify([manifest_row(empty, ingest_status="metadata_only", row_count=None,
+                         ingested_at=None)],
+           bq_mod.MANIFEST_SCHEMA, "manifest, entirely null columns")
+    verify([{"file_id": "1", "name": "a", "path": "p", "mime_type": "m", "fmt": "pdf",
+             "size_bytes": 10, "created_time": "2026-08-19T09:51:54.352Z",
+             "modified_time": None, "page_count": 3, "char_count": 900,
+             "extraction_method": "pypdf", "content": "x", "ingested_at": _now()}],
+           bq_mod.DOCUMENTS_SCHEMA, "documents")
+    verify([{"chunk_id": "c0", "file_id": "1", "name": "a", "path": "p",
+             "chunk_index": 0, "chunk_total": 2, "char_count": 500,
+             "content": "x", "raw_content": "x", "ingested_at": _now()}],
+           bq_mod.CHUNKS_SCHEMA, "document_chunks")
+    # A caller omitting optional keys must not break the writer.
+    verify([{"chunk_id": "c1", "file_id": "1", "content": "x"}],
+           bq_mod.CHUNKS_SCHEMA, "sparse row, missing keys")
+
+    # Types must survive, not merely typecheck.
+    coerced = bq_mod.coerce_to_schema(
+        pd.DataFrame([manifest_row(full, ingest_status="loaded", row_count=7)]),
+        bq_mod.MANIFEST_SCHEMA)
+    check("int value preserved", coerced.size_bytes.iloc[0] == 260672)
+    check("row_count preserved", coerced.row_count.iloc[0] == 7)
+    check("timestamp parsed", str(coerced.created_time.iloc[0]).startswith("2026-08-19"))
+    check("date parsed", str(coerced.shard_date.iloc[0]) == "2026-07-05")
+
+
+def test_preflight() -> None:
+    print("preflight diagnostics")
+    import preflight
+    from google.api_core import exceptions as gexc
+
+    class Raises:
+        def __init__(self, exc): self.exc = exc
+        def list_datasets(self, **kwargs): raise self.exc
+
+    def message_for(exc) -> str:
+        try:
+            preflight.check_project(Raises(exc), "P")
+        except preflight.PreflightError as err:
+            return str(err)
+        return ""
+
+    disabled = message_for(gexc.Forbidden(
+        "BigQuery API has not been used in project P before or it is disabled"))
+    check("API-disabled names the enable command",
+          "gcloud services enable bigquery" in disabled)
+    denied = message_for(gexc.Forbidden("Access Denied: missing bigquery.datasets.get"))
+    check("permission error names the roles",
+          "bigquery.dataEditor" in denied and "bigquery.jobUser" in denied)
+    missing = message_for(gexc.NotFound("Not found: Project P"))
+    check("missing project explains id vs display name", "display name" in missing)
+    check("PreflightError is a RuntimeError",
+          issubclass(preflight.PreflightError, RuntimeError))
+
+    # A location mismatch has to be caught, and a match left alone.
+    class Dataset:
+        def __init__(self, location): self.location = location
+
+    class WithDatasets:
+        def __init__(self, location): self.location = location
+        def get_dataset(self, name): return Dataset(self.location)
+
+    try:
+        preflight.check_dataset_locations(WithDatasets("EU"), "P", ["drive_raw"], "US")
+        check("location mismatch detected", False)
+    except preflight.PreflightError as err:
+        check("location mismatch detected", "EU" in str(err) and "--location" in str(err))
+    try:
+        preflight.check_dataset_locations(WithDatasets("US"), "P", ["drive_raw"], "us")
+        check("matching location passes (case-insensitive)", True)
+    except preflight.PreflightError:
+        check("matching location passes (case-insensitive)", False)
+
+
 def test_graph_sql() -> None:
     print("graph and insight SQL")
     import graph as gr
@@ -428,7 +545,8 @@ def test_notebook() -> None:
             drifted = [
                 name for name in ["classify.py", "drive.py", "parse.py", "chunk.py",
                                   "vectorize.py", "graph.py", "dedupe.py",
-                                  "quickinsights.py", "bq.py", "pipeline.py"]
+                                  "quickinsights.py", "preflight.py", "bq.py",
+                                  "pipeline.py"]
                 if (Path(tmp) / name).read_text().rstrip("\n")
                 != (Path(cwd) / name).read_text().rstrip("\n")
             ]
@@ -442,6 +560,7 @@ def main() -> int:
     for suite in (test_exclusions, test_families, test_schema_drift,
                   test_chunking, test_sql, test_literal_scanner,
                   test_dedup, test_quickinsight_sql,
+                  test_load_schema_compatibility, test_preflight,
                   test_graph_sql, test_notebook):
         suite()
         print()

@@ -45,6 +45,7 @@ import chunk as chunk_mod  # noqa: E402
 import dedupe  # noqa: E402
 import drive as drive_mod  # noqa: E402
 import graph as gr  # noqa: E402
+import preflight  # noqa: E402
 import quickinsights as qi  # noqa: E402
 import vectorize as vec  # noqa: E402
 from classify import build_families, partition, sanitize_table_name  # noqa: E402
@@ -362,6 +363,9 @@ def cmd_plan(args) -> int:
 def cmd_load(args) -> int:
     drive_service = make_drive_service(optional=bool(args.local_root))
     loader = bq.Loader(args.project, args.location, dry_run=args.dry_run)
+    preflight.run(loader, args.project,
+                  [RAW_DATASET, TABLES_DATASET, DOCS_DATASET], args.location,
+                  need_vertex=args.vectorize, connection=vec.CONNECTION_NAME)
 
     for dataset in (RAW_DATASET, TABLES_DATASET, DOCS_DATASET):
         loader.ensure_dataset(dataset)
@@ -609,6 +613,8 @@ def run_vectorize(args, loader: bq.Loader) -> int:
     embedded, so re-running after adding files embeds just the new material.
     """
     project = args.project
+    preflight.run(loader, project, [vec.VECTORS_DATASET], args.location,
+                  need_vertex=True, connection=vec.CONNECTION_NAME)
 
     loader.ensure_dataset(vec.VECTORS_DATASET)
     vec.ensure_connection(project, args.location, dry_run=args.dry_run)
@@ -819,6 +825,7 @@ def run_insights(args, loader: bq.Loader) -> int:
 def run_quickinsights(args, loader: bq.Loader) -> int:
     """Insights needing no embeddings, no Vertex, and no LLM."""
     project = args.project
+    preflight.run(loader, project, [qi.INSIGHTS_DATASET, RAW_DATASET], args.location)
     loader.ensure_dataset(qi.INSIGHTS_DATASET)
     for label, statement in qi.all_views(project):
         loader.sql(statement, label)
@@ -1032,6 +1039,10 @@ def main(argv=None) -> int:
     }[args.command]
     try:
         return handler(args)
+    except preflight.PreflightError as exc:
+        # A configuration problem with a known fix; a traceback would only bury it.
+        print(f"\nCannot proceed:\n\n  {exc}\n", file=sys.stderr)
+        return 3
     except Exception:
         traceback.print_exc()
         return 2

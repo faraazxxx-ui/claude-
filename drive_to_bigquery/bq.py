@@ -6,6 +6,8 @@ import io
 import logging
 
 import pandas as pd
+import pyarrow as pa
+import pyarrow.parquet as pq
 from google.api_core import exceptions as gexc
 from google.cloud import bigquery
 
@@ -75,6 +77,95 @@ DOCUMENTS_SCHEMA = [
 # Provenance columns prepended to every table in the tables dataset, so a row
 # can always be traced back to the Drive file it came from.
 PROVENANCE = ("_src_file_id", "_src_file_name", "_src_date", "_src_sheet", "_ingested_at")
+
+
+# BigQuery field type -> the exact Arrow type its Parquet column must carry.
+_ARROW_TYPES = {
+    "STRING": pa.string(),
+    "BYTES": pa.binary(),
+    "INT64": pa.int64(),
+    "INTEGER": pa.int64(),
+    "FLOAT64": pa.float64(),
+    "FLOAT": pa.float64(),
+    "NUMERIC": pa.float64(),
+    "BOOL": pa.bool_(),
+    "BOOLEAN": pa.bool_(),
+    "TIMESTAMP": pa.timestamp("us", tz="UTC"),
+    "DATETIME": pa.timestamp("us"),
+    "DATE": pa.date32(),
+}
+
+
+def to_parquet_bytes(frame: pd.DataFrame, schema: list) -> io.BytesIO:
+    """Serialise a frame to Parquet with types pinned by the BigQuery schema.
+
+    Casting pandas dtypes alone is not enough: a column that is entirely null
+    serialises as Arrow `null` whatever its pandas dtype, and BigQuery rejects
+    that for anything but a STRING field. Building the Arrow schema explicitly
+    pins every column, empty or not.
+    """
+    frame = coerce_to_schema(frame, schema)
+    fields = []
+    for field in schema:
+        arrow_type = _ARROW_TYPES.get(field.field_type.upper(), pa.string())
+        if field.name not in frame.columns:
+            # A schema field the caller never populated still needs a column, or
+            # from_pandas rejects the frame.
+            frame[field.name] = None
+        fields.append(pa.field(field.name, arrow_type, nullable=field.mode != "REQUIRED"))
+
+    table = pa.Table.from_pandas(
+        frame[[f.name for f in schema]], schema=pa.schema(fields), preserve_index=False
+    )
+    buffer = io.BytesIO()
+    pq.write_table(table, buffer)
+    buffer.seek(0)
+    return buffer
+
+
+def coerce_to_schema(frame: pd.DataFrame, schema: list) -> pd.DataFrame:
+    """Cast a DataFrame so its Parquet types match a declared BigQuery schema.
+
+    Loading Parquet against an explicit schema is strict: the Parquet physical
+    type has to match the declared field type. Two pandas behaviours break that
+    silently, and both bite the very first load:
+
+    * An INT64 column containing any None becomes float64, so Parquet carries
+      `double` where BigQuery expects an integer.
+    * ISO-8601 strings stay strings. A TIMESTAMP or DATE field receives
+      `large_string` and the load is rejected.
+
+    An all-null column is a third case: it serialises as Parquet `null`, which a
+    STRING field tolerates but an INT64 or TIMESTAMP field does not, so the cast
+    is applied even when there is nothing to convert.
+    """
+    frame = frame.copy()
+    for field in schema:
+        name, kind = field.name, field.field_type.upper()
+        if name not in frame.columns:
+            continue
+        column = frame[name]
+        try:
+            if kind in {"INT64", "INTEGER"}:
+                # Nullable integer, so None survives without forcing float.
+                frame[name] = pd.to_numeric(column, errors="coerce").astype("Int64")
+            elif kind in {"FLOAT64", "FLOAT"}:
+                frame[name] = pd.to_numeric(column, errors="coerce").astype("Float64")
+            elif kind in {"BOOL", "BOOLEAN"}:
+                frame[name] = column.astype("boolean")
+            elif kind == "TIMESTAMP":
+                frame[name] = pd.to_datetime(column, errors="coerce", utc=True, format="ISO8601")
+            elif kind == "DATE":
+                parsed = pd.to_datetime(column, errors="coerce", format="ISO8601")
+                # BigQuery wants a date, not a midnight timestamp.
+                frame[name] = parsed.dt.date.astype("object").where(parsed.notna(), None)
+            else:
+                frame[name] = column.astype("string")
+        except (TypeError, ValueError) as exc:
+            raise RuntimeError(
+                f"column {name!r} cannot be cast to {kind} for load: {exc}"
+            ) from exc
+    return frame
 
 
 class Loader:
@@ -159,10 +250,7 @@ class Loader:
             log.info("[dry-run] load %d rows -> %s.%s", len(rows), dataset_id, table_id)
             return len(rows)
 
-        frame = pd.DataFrame(rows)
-        buffer = io.BytesIO()
-        frame.to_parquet(buffer, index=False, engine="pyarrow")
-        buffer.seek(0)
+        buffer = to_parquet_bytes(pd.DataFrame(rows), schema)
         config = bigquery.LoadJobConfig(
             source_format=bigquery.SourceFormat.PARQUET,
             write_disposition="WRITE_APPEND",
