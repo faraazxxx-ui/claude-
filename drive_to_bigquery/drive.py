@@ -1,13 +1,23 @@
 """Drive enumeration and download.
 
-Walks a folder tree (or the whole of My Drive) and yields one record per file,
-carrying enough metadata to build the manifest table without a second pass.
+Two modes, yielding identically shaped records so everything downstream is
+mode-agnostic:
+
+* ``walk`` / ``download`` -- the Drive API, for a service account or ADC.
+* ``walk_local`` / ``read_local`` -- an already-mounted Drive (Colab's
+  ``drive.mount``, or Drive for Desktop). Files are ordinary paths, so there is
+  no pagination, no per-file API call, and no download quota. This is by far the
+  cheaper mode for a Drive with thousands of files.
 """
 
 from __future__ import annotations
 
+import datetime as dt
 import io
+import json
+import os
 import time
+from pathlib import Path
 
 from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaIoBaseDownload
@@ -134,6 +144,119 @@ def walk(service, root_id: str | None = None, include_trashed: bool = False):
             page_token = response.get("nextPageToken")
             if not page_token:
                 break
+
+
+# A mounted Drive represents Google-native files as small JSON stub files with
+# these extensions. The stub holds the real file id but none of the data, so the
+# bytes still have to be exported through the API.
+STUB_EXTENSIONS = {
+    "gsheet": "application/vnd.google-apps.spreadsheet",
+    "gdoc": "application/vnd.google-apps.document",
+    "gslides": "application/vnd.google-apps.presentation",
+    "gdraw": "application/vnd.google-apps.drawing",
+    "gform": "application/vnd.google-apps.form",
+}
+
+# Mount bookkeeping that is not user data.
+SKIP_NAMES = {".shortcut-targets-by-id", ".file-revisions-by-id", ".Trash", ".DS_Store"}
+
+
+def _stub_file_id(path: Path) -> str | None:
+    """Pull the Drive file id out of a mounted .gsheet/.gdoc stub."""
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8", errors="replace"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    # Stubs carry either {"doc_id": ...} or {"url": "...open?id=FILE_ID"}.
+    if isinstance(payload, dict):
+        if payload.get("doc_id"):
+            return str(payload["doc_id"])
+        url = payload.get("url") or ""
+        if "id=" in url:
+            return url.split("id=", 1)[1].split("&", 1)[0]
+    return None
+
+
+def walk_local(root: str, include_hidden: bool = False):
+    """Yield file records from a mounted Drive directory tree.
+
+    Native Google files are surfaced with their real Drive id and MIME type so
+    that ``read_local`` can export them through the API; everything else is read
+    straight off disk.
+    """
+    root_path = Path(root).expanduser().resolve()
+    if not root_path.is_dir():
+        raise NotADirectoryError(f"{root_path} is not a directory")
+
+    for dirpath, dirnames, filenames in os.walk(root_path):
+        # Prune in place so os.walk does not descend into them.
+        dirnames[:] = [
+            d
+            for d in dirnames
+            if d not in SKIP_NAMES and (include_hidden or not d.startswith("."))
+        ]
+        for filename in filenames:
+            if filename in SKIP_NAMES:
+                continue
+            if not include_hidden and filename.startswith("."):
+                continue
+
+            full = Path(dirpath) / filename
+            try:
+                stat = full.stat()
+            except OSError:
+                continue
+
+            relative = full.relative_to(root_path).as_posix()
+            ext = extension_of(filename)
+
+            if ext in STUB_EXTENSIONS:
+                mime = STUB_EXTENSIONS[ext]
+                file_id = _stub_file_id(full) or f"local:{relative}"
+                size = None  # the stub's size is meaningless
+            else:
+                mime = ""
+                file_id = f"local:{relative}"
+                size = stat.st_size
+
+            kind, fmt = classify(filename, mime)
+            yield {
+                "file_id": file_id,
+                "name": filename,
+                "path": relative,
+                "local_path": str(full),
+                "mime_type": mime,
+                "extension": ext,
+                "size_bytes": size,
+                "md5_checksum": None,
+                "created_time": _iso(stat.st_ctime),
+                "modified_time": _iso(stat.st_mtime),
+                "parent_id": Path(dirpath).name,
+                "kind": kind,
+                "fmt": fmt,
+                "family_stem": family_stem(filename) if kind == "tabular" else None,
+                "shard_date": shard_date(filename),
+            }
+
+
+def _iso(timestamp: float) -> str:
+    return dt.datetime.fromtimestamp(timestamp, dt.timezone.utc).isoformat()
+
+
+def read_local(record: dict, service=None) -> tuple[bytes, str]:
+    """Read a mounted file's bytes, exporting native Google files via the API.
+
+    ``service`` is only needed for native files; plain files never touch the API.
+    """
+    mime = record.get("mime_type") or ""
+    if mime in EXPORT_MIMES:
+        if service is None:
+            raise RuntimeError(
+                f"{record['name']} is a native Google file and needs a Drive "
+                "service to export; pass credentials or skip it"
+            )
+        return download(service, record["file_id"], mime)
+    return Path(record["local_path"]).read_bytes(), ""
 
 
 def download(service, file_id: str, mime_type: str) -> tuple[bytes, str]:

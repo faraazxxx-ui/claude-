@@ -3,22 +3,53 @@
 Loads an entire Google Drive into BigQuery, turning loose files into queryable
 tables. Built for `pelagic-gist-505800-b9`.
 
+## Run it in Colab (recommended)
+
+Open **`Drive_to_BigQuery.ipynb`** in [Google Colab](https://colab.research.google.com/)
+and run the cells top to bottom.
+
+This is the path of least resistance because Colab already has what a load like
+this needs and an agent sandbox does not:
+
+- `drive.mount()` makes all 1000+ files ordinary local paths — no API
+  pagination, no per-file request, no download quota
+- `auth.authenticate_user()` authenticates BigQuery **as you** — no service
+  account, no JSON key, no folder sharing, nothing to paste
+- the notebook carries its own copy of the pipeline, so there is no clone step
+
+Nothing is written to BigQuery until step 5, and step 4 prints the full table
+plan first.
+
+The notebook is generated from the modules in this directory. After editing any
+of them, re-run:
+
+```bash
+python build_notebook.py
+```
+
+A test asserts the embedded copies stay byte-identical to the sources, so the
+notebook cannot silently drift.
+
 ## Status
 
-**The code is written and tested. It has not been run against BigQuery, because
-this environment has no Google credentials.** See [Credentials](#credentials).
+**Tested, but never yet run against a live BigQuery project** — this repo's
+development environment has no Google credentials.
 
-What is verified:
+Verified by direct execution:
 
 - family grouping and table naming, against real filenames from the Drive
 - schema-drift reconciliation across files in a family
-- type coercion (string → INT64 / FLOAT64 / TIMESTAMP / DATE)
-- Parquet serialization, which is the format BigQuery ingests
-- `plan` end-to-end on a 100-file real inventory → 28 tables
+- type coercion (string → INT64 / FLOAT64 / TIMESTAMP / DATE), and the guard
+  that stops free text becoming a bogus 1970 date
+- Parquet serialization, the format BigQuery ingests
+- `plan` on a 100-file real inventory → 28 tables
+- `load --dry-run` end to end against a mounted-Drive fixture, including native
+  Google file stubs, hidden files, and mount bookkeeping directories
+- the notebook's embedded modules extract byte-identically and run
 
-What is not verified: the BigQuery calls themselves (`create_dataset`,
-`create_table`, `load_table_from_file`) and Drive download, both of which need
-credentials.
+Not verified: the four BigQuery calls (`create_dataset`, `create_table`,
+`load_table_from_file`, and the resume query) and Drive API download. Those need
+credentials, and Colab is where they will first execute.
 
 ## The problem it solves
 
@@ -61,7 +92,10 @@ Every row in `drive_tables` carries where it came from:
 | `_src_sheet` | worksheet name, for multi-sheet workbooks |
 | `_ingested_at` | load timestamp |
 
-## Usage
+## Usage (CLI)
+
+The notebook shells out to this, and it runs anywhere — Cloud Shell, a laptop, a
+VM.
 
 ```bash
 pip install -r requirements.txt
@@ -76,9 +110,22 @@ python pipeline.py inventory --project pelagic-gist-505800-b9
 python pipeline.py load --project pelagic-gist-505800-b9
 ```
 
-Scope to one folder with `--folder FOLDER_ID`. The `D:` folder in this Drive is
-`1CcS-mQ_tjZ7NIXpRfajhWvognhwDzIQh`; the bulk of the health CSVs live under
-`1pBl7xkcG0hFRo2mYgyFA1JhaouJpMI7e`.
+### Two source modes
+
+**Mounted Drive** — pass `--local-root`. Reads from the filesystem, so it needs
+no Drive credentials and makes no API calls. Use this in Colab, or with Drive for
+Desktop:
+
+```bash
+python pipeline.py load --project PROJECT --local-root /content/drive/MyDrive
+```
+
+**Drive API** — the default. Pass `--folder FOLDER_ID` to scope the walk. The
+`D:` folder in this Drive is `1CcS-mQ_tjZ7NIXpRfajhWvognhwDzIQh`; the bulk of the
+health CSVs live under `1pBl7xkcG0hFRo2mYgyFA1JhaouJpMI7e`.
+
+Both modes produce identical records, so everything downstream behaves the same.
+Mounted mode is markedly cheaper on a Drive with thousands of files.
 
 Useful flags:
 
@@ -98,11 +145,14 @@ rows. Use `--no-resume` to override.
 
 ## Credentials
 
-The pipeline needs one identity with read on Drive and write on BigQuery:
+In Colab, step 3 handles this and there is nothing to configure.
+
+Elsewhere the pipeline needs one identity with write on BigQuery, plus read on
+Drive unless you are using `--local-root`:
 
 ```
-https://www.googleapis.com/auth/drive.readonly
 https://www.googleapis.com/auth/bigquery
+https://www.googleapis.com/auth/drive.readonly
 ```
 
 It picks up whichever it finds:
@@ -110,12 +160,16 @@ It picks up whichever it finds:
 1. `GOOGLE_APPLICATION_CREDENTIALS` pointing at a service-account JSON key
 2. Application Default Credentials (`gcloud auth application-default login`)
 
-For a service account, the Drive folders must be shared with the service
-account's email — a service account sees nothing in a personal Drive by
-default. That is the step most likely to produce a confusing empty inventory.
+Two things worth knowing before choosing a service account:
 
-Do not paste a key into chat. Set it as a secret/environment variable in the
-environment config.
+- The Drive folders must be shared with the service account's email. A service
+  account sees nothing in a personal Drive by default, and the symptom is an
+  empty inventory rather than an error.
+- `--local-root` sidesteps Drive auth entirely, needing only BigQuery. Combining
+  Drive for Desktop with a BigQuery-only service account is the least-privilege
+  option.
+
+Never paste a key into a chat transcript. Set it as an environment secret.
 
 ## Design notes
 
@@ -145,3 +199,10 @@ a run across thousands of small files.
 - Text extraction is not OCR. A scanned PDF yields a row with empty `content`
   and `extraction_method = 'pypdf'`; add an OCR pass if those matter.
 - `.xls` needs `xlrd`, which no longer supports some very old workbooks.
+- Native Google files (Sheets, Docs, Slides) are not real files on a mount —
+  Drive represents them as small JSON stubs holding an id and no data. The
+  pipeline recovers the id from the stub and exports through the Drive API, so
+  in `--local-root` mode these are the one file type that still needs Drive
+  credentials. Without them they are recorded as `failed` with a clear reason
+  and everything else loads. Uploaded `.xlsx` files are real files and are
+  unaffected.

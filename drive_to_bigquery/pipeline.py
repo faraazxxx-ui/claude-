@@ -177,11 +177,41 @@ def manifest_row(record: dict, **overrides) -> dict:
     return row
 
 
-def enumerate_drive(drive_service, folder: str | None) -> list[dict]:
-    log.info("enumerating Drive%s ...", f" folder {folder}" if folder else " (all)")
-    files = list(drive_mod.walk(drive_service, root_id=folder))
+def enumerate_drive(args, drive_service=None) -> list[dict]:
+    """Enumerate via a mounted path when given, otherwise via the Drive API."""
+    if args.local_root:
+        log.info("enumerating mounted Drive at %s ...", args.local_root)
+        files = list(drive_mod.walk_local(args.local_root))
+    else:
+        log.info(
+            "enumerating Drive%s ...", f" folder {args.folder}" if args.folder else " (all)"
+        )
+        files = list(drive_mod.walk(drive_service, root_id=args.folder))
     log.info("found %d files", len(files))
     return files
+
+
+def fetch_bytes(record: dict, args, drive_service) -> tuple[bytes, str]:
+    """Read one file's bytes in whichever mode is active."""
+    if args.local_root:
+        return drive_mod.read_local(record, service=drive_service)
+    return drive_mod.download(drive_service, record["file_id"], record["mime_type"])
+
+
+def needs_api(files: list[dict]) -> bool:
+    """True when any file can only be read by exporting through the API."""
+    return any(f.get("mime_type") in drive_mod.EXPORT_MIMES for f in files)
+
+
+def make_drive_service(optional: bool = False):
+    """Build a Drive client, tolerating absent credentials in local mode."""
+    try:
+        return build("drive", "v3", credentials=credentials(), cache_discovery=False)
+    except Exception as exc:
+        if not optional:
+            raise
+        log.warning("no Drive credentials (%s); native Google files will be skipped", exc)
+        return None
 
 
 def summarize(files: list[dict]) -> dict:
@@ -199,9 +229,8 @@ def summarize(files: list[dict]) -> dict:
 
 
 def cmd_inventory(args) -> int:
-    creds = credentials()
-    drive_service = build("drive", "v3", credentials=creds, cache_discovery=False)
-    files = enumerate_drive(drive_service, args.folder)
+    drive_service = make_drive_service(optional=bool(args.local_root))
+    files = enumerate_drive(args, drive_service)
 
     stats = summarize(files)
     families = build_families(files)
@@ -226,10 +255,9 @@ def cmd_plan(args) -> int:
         files = json.loads(Path(args.out).read_text())
         log.info("loaded %d files from cache %s", len(files), args.out)
     else:
-        drive_service = build(
-            "drive", "v3", credentials=credentials(), cache_discovery=False
-        )
-        files = enumerate_drive(drive_service, args.folder)
+        # A mounted walk needs no credentials at all; the API walk does.
+        drive_service = make_drive_service(optional=bool(args.local_root))
+        files = enumerate_drive(args, drive_service)
         Path(args.out).write_text(json.dumps(files, indent=2))
 
     stats = summarize(files)
@@ -254,8 +282,7 @@ def cmd_plan(args) -> int:
 
 
 def cmd_load(args) -> int:
-    creds = credentials()
-    drive_service = build("drive", "v3", credentials=creds, cache_discovery=False)
+    drive_service = make_drive_service(optional=bool(args.local_root))
     loader = bq.Loader(args.project, args.location, dry_run=args.dry_run)
 
     for dataset in (RAW_DATASET, TABLES_DATASET, DOCS_DATASET):
@@ -267,8 +294,16 @@ def cmd_load(args) -> int:
         files = json.loads(Path(args.out).read_text())
         log.info("loaded %d files from cache %s", len(files), args.out)
     else:
-        files = enumerate_drive(drive_service, args.folder)
+        files = enumerate_drive(args, drive_service)
         Path(args.out).write_text(json.dumps(files, indent=2))
+
+    if args.local_root and drive_service is None and needs_api(files):
+        native = sum(1 for f in files if f.get("mime_type") in drive_mod.EXPORT_MIMES)
+        log.warning(
+            "%d native Google files (Sheets/Docs/Slides) cannot be read from the "
+            "mount without credentials; they will be recorded as failed",
+            native,
+        )
 
     done = set() if args.no_resume else loader.already_ingested(RAW_DATASET)
     if done:
@@ -316,9 +351,7 @@ def cmd_load(args) -> int:
                 counters["skipped"] += 1
                 continue
             try:
-                data, exported_fmt = drive_mod.download(
-                    drive_service, record["file_id"], record["mime_type"]
-                )
+                data, exported_fmt = fetch_bytes(record, args, drive_service)
                 fmt = exported_fmt or record["fmt"]
                 sheets = read_tabular(data, fmt, record["name"])
                 rows_here = 0
@@ -374,9 +407,7 @@ def cmd_load(args) -> int:
             counters["skipped"] += 1
             continue
         try:
-            data, exported_fmt = drive_mod.download(
-                drive_service, record["file_id"], record["mime_type"]
-            )
+            data, exported_fmt = fetch_bytes(record, args, drive_service)
             fmt = exported_fmt or record["fmt"]
             text, pages, method = extract_text(data, fmt)
             doc_rows.append(
@@ -450,6 +481,11 @@ def main(argv=None) -> int:
     parser.add_argument("command", choices=["inventory", "plan", "load"])
     parser.add_argument("--project", required=True, help="GCP project id")
     parser.add_argument("--folder", help="Drive folder id to limit the walk to")
+    parser.add_argument(
+        "--local-root",
+        help="path to an already-mounted Drive (e.g. /content/drive/MyDrive) to "
+        "read from the filesystem instead of the Drive API",
+    )
     parser.add_argument("--location", default="US", help="BigQuery dataset location")
     parser.add_argument("--out", default="drive_inventory.json", help="inventory cache")
     parser.add_argument("--from-cache", action="store_true", help="reuse cached inventory")

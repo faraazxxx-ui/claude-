@@ -60,6 +60,16 @@ EXTENSION_OVERRIDES = {
     "rtf": ("document", "rtf"),
 }
 
+# A mounted Drive reports no MIME type, so media has to be recognised by
+# extension or it all lands in the "other" bucket.
+MEDIA_EXTENSIONS = {
+    "jpg", "jpeg", "png", "gif", "bmp", "tif", "tiff", "webp", "heic", "heif",
+    "svg", "ico", "raw", "cr2", "nef",
+    "mp4", "mov", "avi", "mkv", "webm", "wmv", "flv", "m4v", "mpg", "mpeg",
+    "mp3", "wav", "aac", "flac", "ogg", "m4a", "wma", "aiff",
+    "ttf", "otf", "woff", "woff2", "eot",
+}
+
 FOLDER_MIME = "application/vnd.google-apps.folder"
 
 MEDIA_PREFIXES = ("image/", "video/", "audio/", "font/")
@@ -105,6 +115,8 @@ def classify(name: str, mime_type: str) -> tuple[str, str]:
         return "document", DOCUMENT_MIMES[mime_type]
     if mime_type.startswith(MEDIA_PREFIXES):
         return "media", mime_type.split("/", 1)[0]
+    if ext in MEDIA_EXTENSIONS:
+        return "media", ext
     return "other", ext or "unknown"
 
 
