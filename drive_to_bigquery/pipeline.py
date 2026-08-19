@@ -48,7 +48,7 @@ import graph as gr  # noqa: E402
 import preflight  # noqa: E402
 import quickinsights as qi  # noqa: E402
 import vectorize as vec  # noqa: E402
-from classify import build_families, partition, sanitize_table_name  # noqa: E402
+from classify import build_families, partition  # noqa: E402
 from parse import extract_text, read_tabular, reconcile  # noqa: E402
 
 SCOPES = [
@@ -392,9 +392,21 @@ def cmd_load(args) -> int:
             native,
         )
 
-    done = set() if args.no_resume else loader.already_ingested(RAW_DATASET)
-    if done:
-        log.info("resuming: %d files already loaded, skipping", len(done))
+    # --replace truncates each table, so resuming would skip the files whose rows
+    # the truncate just destroyed and never put them back. Force a full reload.
+    if args.replace and not args.no_resume:
+        log.info("--replace implies a full reload; resume disabled")
+        args.no_resume = True
+
+    if args.no_resume:
+        done, censused = set(), set()
+    else:
+        done, censused = loader.already_ingested(RAW_DATASET)
+    if done or censused:
+        log.info(
+            "resuming: %d files already loaded, %d already in the manifest",
+            len(done), len(censused),
+        )
 
     families = build_families(files)
     manifest: list[dict] = []
@@ -403,6 +415,8 @@ def cmd_load(args) -> int:
     # Duplicates are censused with a pointer to their canonical copy, so
     # "where are all the copies of this" stays answerable without re-ingesting.
     for record in duplicates:
+        if record["file_id"] in censused:
+            continue
         manifest.append(
             manifest_row(
                 record,
@@ -414,6 +428,8 @@ def cmd_load(args) -> int:
     # Excluded files are still censused, so drive_raw stays a complete picture of
     # the Drive even when the load is deliberately scoped.
     for record in excluded:
+        if record["file_id"] in censused:
+            continue
         manifest.append(
             manifest_row(
                 record,
@@ -507,7 +523,7 @@ def cmd_load(args) -> int:
     doc_rows: list[dict] = []
     chunk_rows: list[dict] = []
     for record in files:
-        if record["kind"] != "document" or record["file_id"] in done:
+        if record["kind"] != "document" or record["file_id"] in censused:
             continue
         size = int(record["size_bytes"] or 0)
         if size > MAX_PARSE_BYTES:
@@ -577,7 +593,7 @@ def cmd_load(args) -> int:
 
     # ---- everything else: metadata only ------------------------------------
     for record in files:
-        if record["kind"] in {"media", "other"} and record["file_id"] not in done:
+        if record["kind"] in {"media", "other"} and record["file_id"] not in censused:
             manifest.append(manifest_row(record, ingest_status="metadata_only"))
 
     loader.load_rows(manifest, RAW_DATASET, bq.MANIFEST_TABLE, bq.MANIFEST_SCHEMA)

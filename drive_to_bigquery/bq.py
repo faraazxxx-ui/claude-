@@ -265,19 +265,36 @@ class Loader:
 
     # ----------------------------------------------------------------- resume
 
-    def already_ingested(self, dataset_id: str) -> set[str]:
-        """File ids already recorded as loaded, so a rerun resumes cleanly."""
+    def already_ingested(self, dataset_id: str) -> tuple[set[str], set[str]]:
+        """Return ``(loaded, censused)`` file ids from the manifest.
+
+        Two distinct sets, because they gate different things and conflating them
+        corrupts the census:
+
+        * ``loaded`` -- content was actually parsed into a table. Gates whether a
+          file needs re-parsing.
+        * ``censused`` -- the file has a manifest row of *any* status. Gates
+          whether a manifest row should be written at all.
+
+        Using only ``loaded`` for both means statuses that are never 'loaded'
+        (duplicate, excluded, metadata_only) get a fresh manifest row on every
+        run. Their rows then accumulate, and any view that counts them --
+        `drive_insights.duplicates` counting copies per content hash, most
+        visibly -- multiplies its numbers by the number of runs.
+        """
         if self.dry_run:
-            return set()
+            return set(), set()
         query = f"""
-            SELECT DISTINCT file_id
+            SELECT file_id, ingest_status
             FROM `{self.project}.{dataset_id}.{MANIFEST_TABLE}`
-            WHERE ingest_status = 'loaded'
         """
         try:
-            return {row.file_id for row in self.client.query(query).result()}
+            rows = list(self.client.query(query).result())
         except gexc.NotFound:
-            return set()
+            return set(), set()
+        loaded = {r.file_id for r in rows if r.ingest_status == "loaded"}
+        censused = {r.file_id for r in rows}
+        return loaded, censused
 
     # -------------------------------------------------------------------- sql
 

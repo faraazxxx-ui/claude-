@@ -248,7 +248,7 @@ def test_literal_scanner() -> None:
 
 def test_dedup() -> None:
     print("deduplication")
-    import tempfile, os
+    import tempfile
 
     with tempfile.TemporaryDirectory() as tmp:
         root = Path(tmp)
@@ -456,6 +456,65 @@ def test_preflight() -> None:
         check("matching location passes (case-insensitive)", False)
 
 
+def test_resume_semantics() -> None:
+    """Two bugs found by review, both silent and both corrupting.
+
+    1. --replace truncated each table while resume still skipped the files whose
+       rows the truncate destroyed, so their data was lost and never re-added.
+    2. Statuses that are never 'loaded' (duplicate, excluded, metadata_only) were
+       re-appended to the manifest on every run. Their rows accumulated, and
+       `drive_insights.duplicates` counts copies per content hash -- so the
+       recoverable-space figure multiplied by the number of runs.
+    """
+    print("resume semantics")
+    import inspect
+
+    import pipeline
+
+    source = inspect.getsource(pipeline.cmd_load)
+    check("--replace forces a full reload",
+          "args.replace and not args.no_resume" in source
+          and "args.no_resume = True" in source)
+    check("loaded and censused are separate sets",
+          "done, censused = loader.already_ingested" in source)
+    check("duplicates gated on censused", 'if record["file_id"] in censused:' in source)
+    check("metadata_only gated on censused",
+          'record["file_id"] not in censused' in source)
+    check("documents gated on censused",
+          'record["kind"] != "document" or record["file_id"] in censused' in source)
+    # Parsing must still be gated on `loaded`, not on `censused`, or a file that
+    # merely has a manifest row would never be parsed.
+    check("tabular parsing still gated on loaded",
+          'f["file_id"] not in done' in source)
+
+    # already_ingested must return the pair, and classify statuses correctly.
+    import bq as bq_module
+
+    class Row:
+        def __init__(self, file_id, status): self.file_id, self.ingest_status = file_id, status
+
+    class Job:
+        def __init__(self, rows): self.rows = rows
+        def result(self): return self.rows
+
+    class Client:
+        def __init__(self, rows): self.rows = rows
+        def query(self, sql): return Job(self.rows)
+
+    loader = bq_module.Loader.__new__(bq_module.Loader)
+    loader.project, loader.location, loader.dry_run = "P", "US", False
+    loader.client = Client([
+        Row("a", "loaded"), Row("b", "duplicate"),
+        Row("c", "excluded"), Row("d", "metadata_only"), Row("e", "failed"),
+    ])
+    loaded, censused = loader.already_ingested("drive_raw")
+    check("only 'loaded' counts as loaded", loaded == {"a"})
+    check("every status counts as censused", censused == {"a", "b", "c", "d", "e"})
+
+    loader.dry_run = True
+    check("dry-run returns empty pair", loader.already_ingested("drive_raw") == (set(), set()))
+
+
 def test_graph_sql() -> None:
     print("graph and insight SQL")
     import graph as gr
@@ -536,7 +595,7 @@ def test_notebook() -> None:
     # The embedded copies must match the sources, or the notebook ships stale code.
     source = "".join(boot["source"])
     namespace: dict = {}
-    import tempfile, os
+    import os, tempfile
     cwd = os.getcwd()
     with tempfile.TemporaryDirectory() as tmp:
         os.chdir(tmp)
@@ -561,6 +620,7 @@ def main() -> int:
                   test_chunking, test_sql, test_literal_scanner,
                   test_dedup, test_quickinsight_sql,
                   test_load_schema_compatibility, test_preflight,
+                  test_resume_semantics,
                   test_graph_sql, test_notebook):
         suite()
         print()
