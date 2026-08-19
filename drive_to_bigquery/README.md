@@ -224,11 +224,63 @@ Two knobs worth knowing:
 python test_pipeline.py
 ```
 
-171 checks, no credentials needed: exclusion correctness against real filenames,
+215 checks, no credentials needed: exclusion correctness against real filenames,
 family grouping, schema-drift reconciliation, type coercion, chunking
 invariants, SQL well-formedness (balanced literals via a real quote-aware
 scanner, INSERT arity, no unrendered placeholders), and that the notebook's
 embedded modules still match the sources.
+
+## Insights with no setup at all
+
+**Run this first.** `quickinsights` is plain SQL over the manifest and extracted
+text — no embeddings, no Vertex connection, no model. Seconds to run, cents to
+bill, nothing that can be misconfigured.
+
+```bash
+python pipeline.py quickinsights --project PROJECT
+```
+
+| View | Answers |
+|---|---|
+| `duplicates` | Which files exist as many copies, and how much space that wastes. |
+| `census` | What is in here, by kind and format, with date ranges. |
+| `storage` | Where the bytes are per folder, and what fraction is redundant. |
+| `name_clusters` | Near-duplicates hashing misses — `report.pdf` vs `report (1).pdf`, version chains. |
+| `file_timeline` | Corpus activity by month and folder. |
+| `doc_terms` | Rare-term index over document text. |
+| `term_bridges` | Documents crossed by shared rare terms — no vectors needed. |
+| `distinctive_terms` | What each document is about, by rarest frequent terms. |
+
+`term_bridges` deserves attention: it crosses documents using shared *rare*
+terms scored by inverse document frequency, so a pair sharing one very rare term
+(a case number, an unusual surname) outranks a pair sharing several common ones.
+Terms in more than 20% of documents are dropped as boilerplate. Less subtle than
+embeddings — it cannot spot a paraphrase — but for records work shared
+*identifiers* are usually what matter, and it costs nothing.
+
+## Deduplication
+
+Measured on the target Drive: **31 distinct spreadsheets exist as 100 files.**
+`PGY-3.xlsx` appears nine times; a 240 MB textbook PDF twice. Roughly 3x
+duplication.
+
+`load` deduplicates by content hash before parsing. Two reasons, the second
+mattering more than the first:
+
+1. Embedding cost is paid per copy — 3x the bill for no extra information.
+2. Every duplicate pair sits at cosine distance ~0, so without dedup
+   `file_bridges` and `indirect_relations` would rank identical-file matches
+   above every genuine connection. The expensive layer would produce confident
+   noise.
+
+Hashing is cheap because two files of different sizes cannot be identical, so
+only size-colliding files are ever read. Files above 64 MiB are hashed from a
+head+tail sample plus size rather than read whole.
+
+Nothing is lost: every copy stays in the manifest as `duplicate` with a pointer
+to its canonical copy, so "where are all the copies of this" stays answerable.
+The canonical copy is the shallowest path, so it tends to be the sensibly-placed
+one rather than a backup buried in a nested tree. `--no-dedup` disables it.
 
 ## Crossing, and keeping it live
 

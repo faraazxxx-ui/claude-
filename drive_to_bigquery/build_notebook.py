@@ -14,8 +14,9 @@ import json
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-MODULES = ["classify.py", "drive.py", "parse.py", "chunk.py", "vectorize.py",
-           "graph.py", "bq.py", "pipeline.py"]
+MODULES = ["classify.py", "drive.py", "parse.py", "chunk.py", "dedupe.py",
+           "quickinsights.py", "vectorize.py", "graph.py", "bq.py",
+           "pipeline.py"]
 NOTEBOOK = HERE / "Drive_to_BigQuery.ipynb"
 
 PROJECT = "pelagic-gist-505800-b9"
@@ -114,7 +115,8 @@ def build() -> None:
             " no service account, no JSON key, nothing to paste.",
             "",
             "Run the cells in order. Nothing is written to BigQuery until step 5, and step 4"
-            " shows you the full plan first.",
+            " shows the full plan first. **Step 6 gives you real insights with no setup and"
+            " no cost** \u2014 everything after it is optional.",
         ),
         markdown("## 1. Install dependencies"),
         code(
@@ -181,7 +183,106 @@ def build() -> None:
             "    --location $LOCATION --skip-health --from-cache",
         ),
         markdown(
-            "## 6. Connect BigQuery to Vertex AI",
+            "## 6. Insights — free, instant, no setup",
+            "",
+            "**Run this before the Vertex steps.** Everything here is plain SQL over the"
+            " manifest and the extracted text: no embeddings, no model, no connection to"
+            " configure. Seconds to run, cents to bill, and nothing that can be"
+            " misconfigured. If you only ever run one insight cell, run this one.",
+            "",
+            "It builds eight views in `drive_insights`:",
+            "",
+            "| View | Answers |",
+            "|---|---|",
+            "| `duplicates` | Which files exist as many copies, and how much space that wastes. |",
+            "| `census` | What is actually in here, by kind and format, with date ranges. |",
+            "| `storage` | Where the bytes are, per folder, and what fraction is redundant. |",
+            "| `name_clusters` | Near-duplicates content hashing misses — `report.pdf` vs `report (1).pdf`, version chains. |",
+            "| `file_timeline` | Corpus activity by month and folder. |",
+            "| `doc_terms` | Rare-term index over document text. |",
+            "| `term_bridges` | **Documents crossed against each other by shared rare terms — no vectors needed.** |",
+            "| `distinctive_terms` | What each document is about, by its rarest frequent terms. |",
+            "",
+            "`term_bridges` is the interesting one. It crosses documents using shared *rare*"
+            " terms, scored by inverse document frequency, so a pair sharing one very rare"
+            " term (a case number, an unusual surname) outranks a pair sharing several common"
+            " ones. Terms appearing in more than 20% of documents are dropped as boilerplate."
+            " Less subtle than embeddings — it will not catch a paraphrase — but for records"
+            " work, shared *identifiers* are usually what matter, and this costs nothing.",
+        ),
+        code(
+            "!python pipeline.py quickinsights --project $PROJECT --location $LOCATION",
+        ),
+        markdown(
+            "### The duplication problem, in detail",
+            "",
+            "Worth looking at closely before you spend anything on embedding. Sampling this"
+            " Drive's spreadsheets found **31 distinct documents existing as 100 files** —"
+            " `PGY-3.xlsx` nine times over — and a 240 MB textbook PDF stored twice.",
+            "",
+            "`load` deduplicates by content hash before parsing, so you are not billed to"
+            " embed the same document nine times. More importantly, without dedup every"
+            " cross-file link would rank identical copies (distance ≈ 0) above every genuine"
+            " connection, and the expensive layer would produce confident noise.",
+            "",
+            "Every copy is still recorded in the manifest as `duplicate` with a pointer to"
+            " the canonical one, so nothing is lost and \\\"where are all the copies\\\" stays"
+            " answerable.",
+        ),
+        code(
+            "client = bigquery.Client(project=PROJECT) if 'client' not in dir() else client",
+            "",
+            "client.query(f'''",
+            "    SELECT name, copies,",
+            "           ROUND(bytes_each / 1048576, 2)   AS mib_each,",
+            "           ROUND(bytes_wasted / 1048576, 1) AS mib_wasted,",
+            "           ARRAY_LENGTH(top_folders)        AS folders_spanned,",
+            "           paths",
+            "    FROM `{PROJECT}.drive_insights.duplicates`",
+            "    ORDER BY bytes_wasted DESC",
+            "    LIMIT 25",
+            "''').to_dataframe()",
+        ),
+        markdown(
+            "### Crossed without a single embedding",
+            "",
+            "Document pairs joined by shared rare terms. `*` in `crosses_folder` means the"
+            " two files sit in different top-level folders — a connection that cuts across"
+            " how you organised things, which is usually where the surprise is.",
+        ),
+        code(
+            "client.query(f'''",
+            "    SELECT a_name, b_name, shared_terms, score, crosses_folder,",
+            "           rarest_shared",
+            "    FROM `{PROJECT}.drive_insights.term_bridges`",
+            "    ORDER BY score DESC",
+            "    LIMIT 25",
+            "''').to_dataframe()",
+        ),
+        markdown(
+            "### Where your storage actually goes",
+        ),
+        code(
+            "client.query(f'''",
+            "    SELECT top_folder, kind, files,",
+            "           ROUND(bytes / 1048576, 1)           AS mib,",
+            "           duplicate_files,",
+            "           ROUND(redundant_fraction * 100, 1)  AS pct_redundant",
+            "    FROM `{PROJECT}.drive_insights.storage`",
+            "    WHERE bytes > 0",
+            "    ORDER BY bytes DESC",
+            "    LIMIT 30",
+            "''').to_dataframe()",
+        ),
+        markdown(
+            "---",
+            "",
+            "**Everything from here on is optional.** Steps 7–13 add semantic search and the"
+            " entity graph, which are more powerful but need a Vertex connection and cost"
+            " real money per token. Stop here if the views above answer your questions.",
+        ),
+        markdown(
+            "## 7. Connect BigQuery to Vertex AI",
             "",
             "Embeddings are generated **inside** BigQuery by `ML.GENERATE_EMBEDDING`, so the"
             " text never leaves BigQuery and there is no client-side embedding loop.",
@@ -218,7 +319,7 @@ def build() -> None:
             "print('granted roles/aiplatform.user')",
         ),
         markdown(
-            "## 7. Vectorize",
+            "## 8. Vectorize",
             "",
             "Embeds three things into one searchable table, `drive_vectors.embeddings`:",
             "",
@@ -246,7 +347,7 @@ def build() -> None:
             "    --vectorize-tables $VECTOR_TABLES",
         ),
         markdown(
-            "## 8. Check the result",
+            "## 9. Check the result",
             "",
             "Row counts per table, then anything that did not load and why.",
         ),
@@ -305,7 +406,7 @@ def build() -> None:
             "print(f'\\nstill queued: {left:,}' if left else '\\nqueue empty — all embedded')",
         ),
         markdown(
-            "## 9. Semantic search",
+            "## 10. Semantic search",
             "",
             "The payoff. Ask in plain language; it searches documents, spreadsheet rows and"
             " filenames at once. `distance` is cosine — lower is closer.",
@@ -329,7 +430,7 @@ def build() -> None:
             " at all.",
         ),
         markdown(
-            "## 10. Cross the data against itself",
+            "## 11. Cross the data against itself",
             "",
             "Search only answers what you thought to ask. This step makes the corpus"
             " surface connections nobody queried for, in two passes:",
@@ -360,7 +461,7 @@ def build() -> None:
             "    --insight-feed",
         ),
         markdown(
-            "## 11. The insights",
+            "## 12. The entity graph",
             "",
             "Seven views in `drive_insights`. Each cell below is one question you could not"
             " ask of the raw Drive.",
@@ -486,7 +587,7 @@ def build() -> None:
             "    print('\\nsources:', ', '.join(row.sources or []))",
         ),
         markdown(
-            "## 12. Keep it alive",
+            "## 13. Keep it alive",
             "",
             "Everything downstream of the vector table is pure SQL, so BigQuery can refresh"
             " it on a timer with no machine of yours involved. `activate` runs all three"

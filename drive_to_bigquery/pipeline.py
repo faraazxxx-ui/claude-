@@ -42,8 +42,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import bq  # noqa: E402
 import chunk as chunk_mod  # noqa: E402
+import dedupe  # noqa: E402
 import drive as drive_mod  # noqa: E402
 import graph as gr  # noqa: E402
+import quickinsights as qi  # noqa: E402
 import vectorize as vec  # noqa: E402
 from classify import build_families, partition, sanitize_table_name  # noqa: E402
 from parse import extract_text, read_tabular, reconcile  # noqa: E402
@@ -169,6 +171,8 @@ def manifest_row(record: dict, **overrides) -> dict:
         "fmt": record["fmt"],
         "family_stem": record["family_stem"],
         "shard_date": record["shard_date"],
+        "content_hash": record.get("content_hash"),
+        "duplicate_of": record.get("duplicate_of"),
         "target_dataset": None,
         "target_table": None,
         "ingest_status": "pending",
@@ -234,6 +238,32 @@ def apply_exclusions(files: list[dict], args) -> tuple[list[dict], list[dict]]:
     return kept, excluded
 
 
+def apply_dedup(files: list[dict], args) -> tuple[list[dict], list[dict]]:
+    """Drop duplicate content before anything expensive touches it.
+
+    Embedding a document nine times costs nine times as much and, worse, makes
+    every cross-link ranking start with a file matching its own copies at
+    distance zero. Dedup first or the insight layer produces confident noise.
+    """
+    if args.no_dedup:
+        for record in files:
+            record.setdefault("content_hash", record.get("md5_checksum"))
+        return files, []
+    dedupe.assign_hashes(files)
+    canonical, duplicates = dedupe.partition_duplicates(files)
+    stats = dedupe.summarize(canonical, duplicates)
+    if duplicates:
+        log.info(
+            "dedup: %d files -> %d distinct (%.2fx), %.1f MiB redundant",
+            stats["total"], stats["canonical"], stats["factor"],
+            stats["wasted_bytes"] / 1024 / 1024,
+        )
+        for name, copies, wasted in dedupe.top_duplicated(duplicates, 8):
+            log.info("  %2d copies  %7.1f MiB redundant  %s", copies,
+                     wasted / 1024 / 1024, name[:60])
+    return canonical, duplicates
+
+
 def summarize(files: list[dict]) -> dict:
     by_kind: dict[str, int] = {}
     bytes_by_kind: dict[str, int] = {}
@@ -282,8 +312,17 @@ def cmd_plan(args) -> int:
 
     total_found = len(files)
     files, excluded = apply_exclusions(files, args)
+    files, duplicates = apply_dedup(files, args)
     stats = summarize(files)
     families = build_families(files)
+
+    if duplicates:
+        d = dedupe.summarize(files, duplicates)
+        print(f"\nDuplicates: {d['duplicates']} redundant copies of "
+              f"{d['canonical']} distinct files ({d['factor']}x), "
+              f"{d['wasted_bytes'] / 1024 / 1024:,.1f} MiB")
+        for name, copies, wasted in dedupe.top_duplicated(duplicates, 10):
+            print(f"  {copies:>3} copies  {wasted / 1024 / 1024:>8.1f} MiB  {name[:56]}")
 
     print(f"\nFiles: {stats['count']} to load", end="")
     print(f"  ({len(excluded)} excluded of {total_found} found)" if excluded else "")
@@ -339,6 +378,7 @@ def cmd_load(args) -> int:
 
     total_found = len(files)
     files, excluded = apply_exclusions(files, args)
+    files, duplicates = apply_dedup(files, args)
 
     if args.local_root and drive_service is None and needs_api(files):
         native = sum(1 for f in files if f.get("mime_type") in drive_mod.EXPORT_MIMES)
@@ -355,6 +395,17 @@ def cmd_load(args) -> int:
     families = build_families(files)
     manifest: list[dict] = []
     counters = {"loaded": 0, "skipped": 0, "failed": 0, "rows": 0, "chunks": 0}
+
+    # Duplicates are censused with a pointer to their canonical copy, so
+    # "where are all the copies of this" stays answerable without re-ingesting.
+    for record in duplicates:
+        manifest.append(
+            manifest_row(
+                record,
+                ingest_status="duplicate",
+                ingest_error=f"duplicate of {record.get('duplicate_of_path')}",
+            )
+        )
 
     # Excluded files are still censused, so drive_raw stays a complete picture of
     # the Drive even when the load is deliberately scoped.
@@ -539,6 +590,7 @@ def cmd_load(args) -> int:
         counters["chunks"],
     )
     counters["excluded"] = len(excluded)
+    counters["duplicates"] = len(duplicates)
     counters["found"] = total_found
     print(json.dumps(counters, indent=2))
 
@@ -764,6 +816,62 @@ def run_insights(args, loader: bq.Loader) -> int:
     return 0
 
 
+def run_quickinsights(args, loader: bq.Loader) -> int:
+    """Insights needing no embeddings, no Vertex, and no LLM."""
+    project = args.project
+    loader.ensure_dataset(qi.INSIGHTS_DATASET)
+    for label, statement in qi.all_views(project):
+        loader.sql(statement, label)
+        log.info("built %s.%s", qi.INSIGHTS_DATASET, label)
+
+    if args.dry_run:
+        return 0
+
+    rows = list(loader.client.query(qi.headline_sql(project)).result())
+    if rows:
+        r = rows[0]
+        print("\n" + "=" * 62)
+        print("  DRIVE AT A GLANCE")
+        print("=" * 62)
+        print(f"  files                {r.files:>12,}")
+        print(f"  distinct contents    {r.distinct_contents:>12,}")
+        print(f"  redundant copies     {r.duplicate_files:>12,}"
+              f"   ({r.duplicate_gib} GiB)")
+        print(f"  total size           {r.total_gib:>12} GiB")
+        print(f"  documents            {r.documents:>12,}")
+        print(f"  tabular              {r.tabular:>12,}")
+        print(f"  media                {r.media:>12,}")
+        print(f"  excluded             {r.excluded:>12,}")
+        print(f"  failed               {r.failed:>12,}")
+        print(f"  date range           {r.earliest} .. {r.latest}")
+        print("=" * 62)
+
+    print("\n  worst duplication:")
+    for row in loader.client.query(f"""
+        SELECT name, copies, ROUND(bytes_wasted / 1048576, 1) AS mib
+        FROM `{project}.{qi.INSIGHTS_DATASET}.duplicates`
+        ORDER BY bytes_wasted DESC LIMIT 12
+    """).result():
+        print(f"    {row.copies:>3} copies  {row.mib:>9,.1f} MiB  {row.name[:52]}")
+
+    print("\n  documents most connected by shared rare terms:")
+    for row in loader.client.query(f"""
+        SELECT a_name, b_name, shared_terms, score, crosses_folder
+        FROM `{project}.{qi.INSIGHTS_DATASET}.term_bridges`
+        ORDER BY score DESC LIMIT 12
+    """).result():
+        flag = " *" if row.crosses_folder else "  "
+        print(f"   {flag} {row.score:>7.2f}  {row.shared_terms:>4} terms  "
+              f"{row.a_name[:28]:<30} <-> {row.b_name[:28]}")
+    print("\n  (* = the two files live in different top-level folders)")
+    return 0
+
+
+def cmd_quickinsights(args) -> int:
+    return run_quickinsights(args, bq.Loader(args.project, args.location,
+                                            dry_run=args.dry_run))
+
+
 def cmd_crosslink(args) -> int:
     return run_crosslink(args, bq.Loader(args.project, args.location, dry_run=args.dry_run))
 
@@ -805,7 +913,7 @@ def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "command",
-        choices=["inventory", "plan", "load", "vectorize",
+        choices=["inventory", "plan", "load", "quickinsights", "vectorize",
                  "crosslink", "entities", "insights", "activate"],
     )
     parser.add_argument("--project", required=True, help="GCP project id")
@@ -830,6 +938,12 @@ def main(argv=None) -> int:
         action="store_true",
         help="exclude wearable/health telemetry (Fitbit-style per-day exports). "
         "Excluded files are still recorded in the manifest as 'excluded'.",
+    )
+    scope.add_argument(
+        "--no-dedup",
+        action="store_true",
+        help="load every copy of duplicated content (default is to keep one and "
+        "record the rest in the manifest as 'duplicate')",
     )
     scope.add_argument("--exclude-path", help="regex; exclude files whose path matches")
     scope.add_argument("--exclude-family", help="regex; exclude matching table families")
@@ -909,6 +1023,7 @@ def main(argv=None) -> int:
         "inventory": cmd_inventory,
         "plan": cmd_plan,
         "load": cmd_load,
+        "quickinsights": cmd_quickinsights,
         "vectorize": cmd_vectorize,
         "crosslink": cmd_crosslink,
         "entities": cmd_entities,

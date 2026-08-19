@@ -29,6 +29,8 @@ MANIFEST_SCHEMA = [
     bigquery.SchemaField("fmt", "STRING"),
     bigquery.SchemaField("family_stem", "STRING"),
     bigquery.SchemaField("shard_date", "DATE"),
+    bigquery.SchemaField("content_hash", "STRING"),
+    bigquery.SchemaField("duplicate_of", "STRING"),
     bigquery.SchemaField("target_dataset", "STRING"),
     bigquery.SchemaField("target_table", "STRING"),
     bigquery.SchemaField("ingest_status", "STRING"),

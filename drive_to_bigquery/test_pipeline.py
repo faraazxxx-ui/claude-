@@ -20,6 +20,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pandas as pd
 
 import chunk as ch
+import dedupe
+import quickinsights as qi
 import vectorize as vec
 from classify import build_families, classify, family_stem, partition, shard_date
 from parse import read_tabular, reconcile
@@ -243,6 +245,100 @@ def test_literal_scanner() -> None:
         check(f"{name} -> {expected}", literals_balanced(sql) is expected)
 
 
+def test_dedup() -> None:
+    print("deduplication")
+    import tempfile, os
+
+    with tempfile.TemporaryDirectory() as tmp:
+        root = Path(tmp)
+        # The real pattern: one document set copied into several trees.
+        same = b"PROBATION NOTICE\nAppeal within fourteen days.\n"
+        paths = [
+            "D:/Triaged/probation.txt",
+            "D:/Mac/Desktop/backup/probation.txt",
+            "D:/Mac/Downloads/old/probation.txt",
+            "D:/Legal/Civil suit/probation.txt",
+        ]
+        files = []
+        for rel in paths:
+            full = root / rel
+            full.parent.mkdir(parents=True, exist_ok=True)
+            full.write_bytes(same)
+            files.append({"file_id": f"local:{rel}", "name": "probation.txt",
+                          "path": rel, "local_path": str(full),
+                          "size_bytes": len(same), "md5_checksum": None})
+        # Unique size -> must never be hashed, and never a duplicate.
+        unique = root / "D:/Triaged/only.txt"
+        unique.write_bytes(b"unique content that is a different length entirely")
+        files.append({"file_id": "local:unique", "name": "only.txt",
+                      "path": "D:/Triaged/only.txt", "local_path": str(unique),
+                      "size_bytes": unique.stat().st_size, "md5_checksum": None})
+        # Same size, different bytes -> hashed, but NOT a duplicate.
+        twin = root / "D:/Triaged/twin.txt"
+        twin.write_bytes(b"X" * len(same))
+        files.append({"file_id": "local:twin", "name": "twin.txt",
+                      "path": "D:/Triaged/twin.txt", "local_path": str(twin),
+                      "size_bytes": len(same), "md5_checksum": None})
+
+        dedupe.assign_hashes(files)
+        check("size-unique file left unhashed",
+              next(f for f in files if f["file_id"] == "local:unique")["content_hash"] is None)
+        check("size-colliding files hashed",
+              all(f["content_hash"] for f in files if f["size_bytes"] == len(same)))
+
+        canonical, dups = dedupe.partition_duplicates(files)
+        check(f"6 files -> 3 canonical (got {len(canonical)})", len(canonical) == 3)
+        check("3 duplicates found", len(dups) == 3)
+        check("same-size-different-bytes not a duplicate",
+              "local:twin" in {f["file_id"] for f in canonical})
+        check("unhashed file kept as canonical",
+              "local:unique" in {f["file_id"] for f in canonical})
+        # Shallowest path wins, so the canonical copy is the sensibly-placed one.
+        keeper = next(f for f in canonical if f["name"] == "probation.txt")
+        check("shallowest path is canonical", keeper["path"] == "D:/Triaged/probation.txt")
+        check("duplicates point at the canonical",
+              all(d["duplicate_of"] == keeper["file_id"] for d in dups))
+
+        stats = dedupe.summarize(canonical, dups)
+        check("factor computed", stats["factor"] == 2.0)
+        check("wasted bytes counted", stats["wasted_bytes"] == 3 * len(same))
+
+        top = dedupe.top_duplicated(dups)
+        check("top offender reported", top and top[0][0] == "probation.txt" and top[0][1] == 4)
+
+    # md5 from the Drive API is used directly, with no local read.
+    api = [
+        {"file_id": "a", "name": "x", "path": "x", "size_bytes": 10, "md5_checksum": "H"},
+        {"file_id": "b", "name": "x", "path": "d/x", "size_bytes": 10, "md5_checksum": "H"},
+        {"file_id": "c", "name": "y", "path": "y", "size_bytes": 10, "md5_checksum": "J"},
+    ]
+    dedupe.assign_hashes(api)
+    canonical, dups = dedupe.partition_duplicates(api)
+    check("Drive md5 used without hashing", len(canonical) == 2 and len(dups) == 1)
+
+
+def test_quickinsight_sql() -> None:
+    print("zero-setup insight SQL")
+    builders = dict(qi.all_views("P"))
+    builders["headline"] = qi.headline_sql("P")
+    placeholder = re.compile(r"\{[a-z_]+\}")
+    for name, sql in builders.items():
+        check(f"{name}: balanced parens", sql.count("(") == sql.count(")"))
+        check(f"{name}: fully rendered", not placeholder.search(sql))
+        check(f"{name}: literals balanced", literals_balanced(sql))
+    check("8 views built", len(qi.all_views("P")) == 8)
+    check("doc_terms precedes term_bridges",
+          [n for n, _ in qi.all_views("P")].index("doc_terms")
+          < [n for n, _ in qi.all_views("P")].index("term_bridges"))
+    check("boilerplate excluded from bridging",
+          "MAX_DOC_FRACTION" not in builders["doc_terms"]
+          and str(qi.MAX_DOC_FRACTION) in builders["doc_terms"])
+    check("bridges score by inverse document frequency",
+          "1.0 / a.docs_with_term" in builders["term_bridges"])
+    check("no model referenced anywhere",
+          not any("ML.GENERATE" in sql for sql in builders.values()))
+
+
 def test_graph_sql() -> None:
     print("graph and insight SQL")
     import graph as gr
@@ -331,7 +427,8 @@ def test_notebook() -> None:
             exec(compile(source, "bootstrap", "exec"), namespace)
             drifted = [
                 name for name in ["classify.py", "drive.py", "parse.py", "chunk.py",
-                                  "vectorize.py", "graph.py", "bq.py", "pipeline.py"]
+                                  "vectorize.py", "graph.py", "dedupe.py",
+                                  "quickinsights.py", "bq.py", "pipeline.py"]
                 if (Path(tmp) / name).read_text().rstrip("\n")
                 != (Path(cwd) / name).read_text().rstrip("\n")
             ]
@@ -344,6 +441,7 @@ def test_notebook() -> None:
 def main() -> int:
     for suite in (test_exclusions, test_families, test_schema_drift,
                   test_chunking, test_sql, test_literal_scanner,
+                  test_dedup, test_quickinsight_sql,
                   test_graph_sql, test_notebook):
         suite()
         print()
