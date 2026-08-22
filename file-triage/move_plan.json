@@ -1,0 +1,1194 @@
+{
+  "generated_at": "2026-08-22T14:50:57.732225",
+  "root_directory": ".",
+  "dry_run": true,
+  "stats": {
+    "total_files": 235,
+    "moved": 0,
+    "skipped": 0,
+    "by_category": {
+      "01_CORPUS": 101,
+      "02_CHATS": 37,
+      "03_FINANCES": 0,
+      "04_EXTRACTS": 19,
+      "05_ARCHIVE": 78
+    }
+  },
+  "moves": [
+    {
+      "source": "EXECUTIVE_SUMMARY_West_Africa_Expansion.md",
+      "target": "01_CORPUS/EXECUTIVE_SUMMARY_West_Africa_Expansion.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "PERFECTED_PROMPT_Red_Team_Edition.md",
+      "target": "01_CORPUS/PERFECTED_PROMPT_Red_Team_Edition.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "PowerToys_AI_Workflow.pptx",
+      "target": "02_CHATS/PowerToys_AI_Workflow.pptx",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "FINAL_Perfected_Prompt_v2.md",
+      "target": "01_CORPUS/FINAL_Perfected_Prompt_v2.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "Personal_Data_Embedding_Living_AI_Guide.md",
+      "target": "01_CORPUS/Personal_Data_Embedding_Living_AI_Guide.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "Dubai_Risk_Assessment_Minecore.md",
+      "target": "01_CORPUS/Dubai_Risk_Assessment_Minecore.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "geopolitical_risk_analysis_minecore.md",
+      "target": "01_CORPUS/geopolitical_risk_analysis_minecore.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "powertoys_ai_workflow.md",
+      "target": "01_CORPUS/powertoys_ai_workflow.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "CYB003_Optimized_Prompts.md",
+      "target": "01_CORPUS/CYB003_Optimized_Prompts.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "Optimized_Prompt_Manus.md",
+      "target": "01_CORPUS/Optimized_Prompt_Manus.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "restructure.log",
+      "target": "05_ARCHIVE/restructure.log",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "FINAL_DELIVERABLE_Rahman_Risk_Assessment.md",
+      "target": "01_CORPUS/FINAL_DELIVERABLE_Rahman_Risk_Assessment.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "AI_Platform_Master_Reference_FULL.md",
+      "target": "01_CORPUS/AI_Platform_Master_Reference_FULL.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "red_team_prompt_analysis.csv",
+      "target": "01_CORPUS/red_team_prompt_analysis.csv",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "README.md",
+      "target": "01_CORPUS/README.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "WEST_AFRICA_EXPANSION_ASSESSMENT_Minecore_Nuhu.md",
+      "target": "01_CORPUS/WEST_AFRICA_EXPANSION_ASSESSMENT_Minecore_Nuhu.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "skill/SKILL.md",
+      "target": "01_CORPUS/SKILL.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/index.html",
+      "target": "05_ARCHIVE/index.html",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "legal-endeavors/SKILL.md",
+      "target": "01_CORPUS/SKILL.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "analysis-output/damage_reframe_research.json",
+      "target": "02_CHATS/damage_reframe_research.json",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "analysis-output/LEGAL_INTELLIGENCE_SYNTHESIS.md",
+      "target": "01_CORPUS/LEGAL_INTELLIGENCE_SYNTHESIS.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "analysis-output/legal_precedent_research.json",
+      "target": "01_CORPUS/legal_precedent_research.json",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "analysis-output/master_report.md",
+      "target": "01_CORPUS/master_report.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "analysis-output/triage_classification.json",
+      "target": "02_CHATS/triage_classification.json",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "analysis-output/deep_analysis_segments.json",
+      "target": "01_CORPUS/deep_analysis_segments.json",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "analysis-output/cross_references.json",
+      "target": "02_CHATS/cross_references.json",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "analysis-output/extraction_stats.json",
+      "target": "02_CHATS/extraction_stats.json",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "analysis-output/REFRAMED_10M_STRATEGY.md",
+      "target": "01_CORPUS/REFRAMED_10M_STRATEGY.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "analysis-output/deep_analysis_segments.csv",
+      "target": "01_CORPUS/deep_analysis_segments.csv",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "analysis-output/entity_registry.json",
+      "target": "02_CHATS/entity_registry.json",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "analysis-output/domain_map.json",
+      "target": "02_CHATS/domain_map.json",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "ghusoon-project/Ghusoon_Optimized_Mega_Prompt.md",
+      "target": "01_CORPUS/Ghusoon_Optimized_Mega_Prompt.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "ghusoon-project/knowledge_base.md",
+      "target": "01_CORPUS/knowledge_base.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "ghusoon-project/context_summary.md",
+      "target": "01_CORPUS/context_summary.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "clinical_report_v4/validation.json",
+      "target": "02_CHATS/validation.json",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "clinical_report_v4/master_analysis.py",
+      "target": "01_CORPUS/master_analysis.py",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "clinical_report_v4/CLINICAL_REPORT_v4.md",
+      "target": "01_CORPUS/CLINICAL_REPORT_v4.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "clinical_report_v4/analysis_results.json",
+      "target": "01_CORPUS/analysis_results.json",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "verbal-thinker-stack-audit/parallel_research_results.csv",
+      "target": "02_CHATS/parallel_research_results.csv",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "verbal-thinker-stack-audit/verbal_thinker_stack_audit.md",
+      "target": "01_CORPUS/verbal_thinker_stack_audit.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "verbal-thinker-stack-audit/parallel_research_results.json",
+      "target": "02_CHATS/parallel_research_results.json",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "prompts/red_team_analysis.md",
+      "target": "01_CORPUS/red_team_analysis.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "prompts/medical_context.md",
+      "target": "01_CORPUS/medical_context.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "prompts/PERFECTED_PROMPTS.md",
+      "target": "01_CORPUS/PERFECTED_PROMPTS.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "prompts/geopolitical_risk_analysis_prompt.md",
+      "target": "01_CORPUS/geopolitical_risk_analysis_prompt.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "prompts/FINAL_OPTIMIZED_PROMPTS.md",
+      "target": "01_CORPUS/FINAL_OPTIMIZED_PROMPTS.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "optimized-prompts/Ghusoon_Perfected_Prompts_v2.md",
+      "target": "01_CORPUS/Ghusoon_Perfected_Prompts_v2.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "optimized-prompts/research_findings.md",
+      "target": "01_CORPUS/research_findings.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "optimized-prompts/Ghusoon_Optimized_Prompts_Final.md",
+      "target": "01_CORPUS/Ghusoon_Optimized_Prompts_Final.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "optimized-prompts/red_team_analysis.md",
+      "target": "01_CORPUS/red_team_analysis.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "daily-note-ai-integration/RED_TEAM_ANALYSIS.md",
+      "target": "01_CORPUS/RED_TEAM_ANALYSIS.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "daily-note-ai-integration/SYSTEM.md",
+      "target": "01_CORPUS/SYSTEM.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "health_analysis_v2/life_events.csv",
+      "target": "02_CHATS/life_events.csv",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "health_analysis_v2/symptom_correlations.json",
+      "target": "02_CHATS/symptom_correlations.json",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "health_analysis_v2/anomalies.csv",
+      "target": "02_CHATS/anomalies.csv",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "health_analysis_v2/medication_adherence.json",
+      "target": "02_CHATS/medication_adherence.json",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "health_analysis_v2/monthly_trends.csv",
+      "target": "02_CHATS/monthly_trends.csv",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "health_analysis_v2/red_team_analysis.md",
+      "target": "01_CORPUS/red_team_analysis.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "health_analysis_v2/PERFECTED_REPORT.md",
+      "target": "01_CORPUS/PERFECTED_REPORT.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "health_analysis_v2/period_comparison.csv",
+      "target": "02_CHATS/period_comparison.csv",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "exports/axiom-dispatch-export-2026-08-05.md",
+      "target": "02_CHATS/axiom-dispatch-export-2026-08-05.md",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "exports/repository_export.md",
+      "target": "02_CHATS/repository_export.md",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "exports/README.md",
+      "target": "01_CORPUS/README.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "notebooklm/health_data_source.md",
+      "target": "01_CORPUS/health_data_source.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "notebooklm/notebooklm_prompts.md",
+      "target": "01_CORPUS/notebooklm_prompts.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "eigent-ai-docs/bug.md",
+      "target": "01_CORPUS/bug.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "eigent-ai-docs/support.md",
+      "target": "01_CORPUS/support.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "eigent-ai-docs/sambanova.md",
+      "target": "01_CORPUS/sambanova.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "eigent-ai-docs/agent-skills.md",
+      "target": "01_CORPUS/agent-skills.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "eigent-ai-docs/kimi.md",
+      "target": "01_CORPUS/kimi.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "eigent-ai-docs/minimax.md",
+      "target": "01_CORPUS/minimax.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "eigent-ai-docs/workforce.md",
+      "target": "01_CORPUS/workforce.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "eigent-ai-docs/tools.md",
+      "target": "01_CORPUS/tools.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "eigent-ai-docs/welcome.md",
+      "target": "01_CORPUS/welcome.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "eigent-ai-docs/Eigent_AI_Documentation.md",
+      "target": "01_CORPUS/Eigent_AI_Documentation.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "eigent-ai-docs/gemini.md",
+      "target": "01_CORPUS/gemini.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "eigent-ai-docs/byok.md",
+      "target": "01_CORPUS/byok.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "eigent-ai-docs/workers.md",
+      "target": "01_CORPUS/workers.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "eigent-ai-docs/quick_start.md",
+      "target": "01_CORPUS/quick_start.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "eigent-ai-docs/local-model.md",
+      "target": "01_CORPUS/local-model.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "eigent-ai-docs/ernie.md",
+      "target": "01_CORPUS/ernie.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "eigent-ai-docs/concepts.md",
+      "target": "01_CORPUS/concepts.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "eigent-ai-docs/installation.md",
+      "target": "01_CORPUS/installation.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "autonomic_intelligence_v3/execute_master_prompt.py",
+      "target": "05_ARCHIVE/execute_master_prompt.py",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "autonomic_intelligence_v3/medication_adherence_v3.json",
+      "target": "02_CHATS/medication_adherence_v3.json",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "autonomic_intelligence_v3/loop_score_timeline.png",
+      "target": "04_EXTRACTS/loop_score_timeline.png",
+      "category": "04_EXTRACTS"
+    },
+    {
+      "source": "autonomic_intelligence_v3/glp1_readiness.json",
+      "target": "02_CHATS/glp1_readiness.json",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "autonomic_intelligence_v3/autonomic_dashboard.png",
+      "target": "04_EXTRACTS/autonomic_dashboard.png",
+      "category": "04_EXTRACTS"
+    },
+    {
+      "source": "autonomic_intelligence_v3/alerts.json",
+      "target": "02_CHATS/alerts.json",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "autonomic_intelligence_v3/trend_7d.json",
+      "target": "02_CHATS/trend_7d.json",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "autonomic_intelligence_v3/snapshot.json",
+      "target": "02_CHATS/snapshot.json",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "autonomic_intelligence_v3/loop_scores.csv",
+      "target": "02_CHATS/loop_scores.csv",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "autonomic_intelligence_v3/AUTONOMIC_INTELLIGENCE_REPORT_v3.md",
+      "target": "01_CORPUS/AUTONOMIC_INTELLIGENCE_REPORT_v3.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "autonomic_intelligence_v3/quarterly_comparison.json",
+      "target": "02_CHATS/quarterly_comparison.json",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "health_analysis/longitudinal_report.md",
+      "target": "01_CORPUS/longitudinal_report.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "health_analysis/longitudinal_comparison.csv",
+      "target": "02_CHATS/longitudinal_comparison.csv",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "health_analysis/sleeps_clean.csv",
+      "target": "02_CHATS/sleeps_clean.csv",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "health_analysis/physio_clean.csv",
+      "target": "02_CHATS/physio_clean.csv",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "health_analysis/summary_stats.json",
+      "target": "02_CHATS/summary_stats.json",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "skills/apex-legal-strategy/SKILL.md",
+      "target": "01_CORPUS/apex-legal-strategy/SKILL.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "skills/life-intelligence-engine/SKILL.md",
+      "target": "01_CORPUS/life-intelligence-engine/SKILL.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "skills/apex-legal-strategy/references/damages-calculator.md",
+      "target": "01_CORPUS/apex-legal-strategy/references/damages-calculator.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "skills/apex-legal-strategy/references/case-timeline.md",
+      "target": "01_CORPUS/apex-legal-strategy/references/case-timeline.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "skills/apex-legal-strategy/references/discovery-strategy.md",
+      "target": "01_CORPUS/apex-legal-strategy/references/discovery-strategy.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "skills/apex-legal-strategy/references/defendant-answers.md",
+      "target": "01_CORPUS/apex-legal-strategy/references/defendant-answers.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "skills/apex-legal-strategy/references/policies-violated.md",
+      "target": "01_CORPUS/apex-legal-strategy/references/policies-violated.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "skills/apex-legal-strategy/references/evidence-inventory.md",
+      "target": "01_CORPUS/apex-legal-strategy/references/evidence-inventory.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "skills/life-intelligence-engine/scripts/catalog_files.py",
+      "target": "05_ARCHIVE/life-intelligence-engine/scripts/catalog_files.py",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "skills/life-intelligence-engine/scripts/reassemble_knowledge.py",
+      "target": "05_ARCHIVE/life-intelligence-engine/scripts/reassemble_knowledge.py",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "skills/life-intelligence-engine/scripts/extract_and_tokenize.py",
+      "target": "05_ARCHIVE/life-intelligence-engine/scripts/extract_and_tokenize.py",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "skills/life-intelligence-engine/scripts/export_obsidian.py",
+      "target": "02_CHATS/life-intelligence-engine/scripts/export_obsidian.py",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "skills/life-intelligence-engine/scripts/assemble_triage.py",
+      "target": "05_ARCHIVE/life-intelligence-engine/scripts/assemble_triage.py",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "skills/life-intelligence-engine/scripts/export_evernote.py",
+      "target": "02_CHATS/life-intelligence-engine/scripts/export_evernote.py",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "skills/life-intelligence-engine/scripts/generate_report.py",
+      "target": "01_CORPUS/life-intelligence-engine/scripts/generate_report.py",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "skills/life-intelligence-engine/references/export-notebooklm.md",
+      "target": "02_CHATS/life-intelligence-engine/references/export-notebooklm.md",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "skills/life-intelligence-engine/references/export-notion.md",
+      "target": "02_CHATS/life-intelligence-engine/references/export-notion.md",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "skills/life-intelligence-engine/references/export-obsidian.md",
+      "target": "02_CHATS/life-intelligence-engine/references/export-obsidian.md",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "skills/life-intelligence-engine/references/export-evernote.md",
+      "target": "02_CHATS/life-intelligence-engine/references/export-evernote.md",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "skill/scripts/process_health_data.py",
+      "target": "05_ARCHIVE/scripts/process_health_data.py",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "skill/references/unified_model.md",
+      "target": "01_CORPUS/references/unified_model.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "skill/references/compass_artifact.md",
+      "target": "01_CORPUS/references/compass_artifact.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "skill/health-data-analyst/SKILL.md",
+      "target": "01_CORPUS/health-data-analyst/SKILL.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "skill/verbal-prompt-optimizer/SKILL.md",
+      "target": "01_CORPUS/verbal-prompt-optimizer/SKILL.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "skill/health-data-analyst/scripts/process_health_data.py",
+      "target": "05_ARCHIVE/health-data-analyst/scripts/process_health_data.py",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "skill/health-data-analyst/references/unified_model.md",
+      "target": "01_CORPUS/health-data-analyst/references/unified_model.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "skill/health-data-analyst/references/compass_artifact.md",
+      "target": "01_CORPUS/health-data-analyst/references/compass_artifact.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/App.tsx",
+      "target": "05_ARCHIVE/src/App.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/index.css",
+      "target": "05_ARCHIVE/src/index.css",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/main.tsx",
+      "target": "02_CHATS/src/main.tsx",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/const.ts",
+      "target": "05_ARCHIVE/src/const.ts",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/hooks/usePersistFn.ts",
+      "target": "05_ARCHIVE/src/hooks/usePersistFn.ts",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/hooks/useComposition.ts",
+      "target": "05_ARCHIVE/src/hooks/useComposition.ts",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/hooks/useMobile.tsx",
+      "target": "05_ARCHIVE/src/hooks/useMobile.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/PromptCard.tsx",
+      "target": "05_ARCHIVE/src/components/PromptCard.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/Map.tsx",
+      "target": "05_ARCHIVE/src/components/Map.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ManusDialog.tsx",
+      "target": "05_ARCHIVE/src/components/ManusDialog.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ErrorBoundary.tsx",
+      "target": "05_ARCHIVE/src/components/ErrorBoundary.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/pages/Home.tsx",
+      "target": "05_ARCHIVE/src/pages/Home.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/pages/NotFound.tsx",
+      "target": "05_ARCHIVE/src/pages/NotFound.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/contexts/ThemeContext.tsx",
+      "target": "05_ARCHIVE/src/contexts/ThemeContext.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/lib/utils.ts",
+      "target": "05_ARCHIVE/src/lib/utils.ts",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/lib/promptData.ts",
+      "target": "05_ARCHIVE/src/lib/promptData.ts",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/spinner.tsx",
+      "target": "05_ARCHIVE/src/components/ui/spinner.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/card.tsx",
+      "target": "05_ARCHIVE/src/components/ui/card.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/resizable.tsx",
+      "target": "05_ARCHIVE/src/components/ui/resizable.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/alert.tsx",
+      "target": "05_ARCHIVE/src/components/ui/alert.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/navigation-menu.tsx",
+      "target": "05_ARCHIVE/src/components/ui/navigation-menu.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/breadcrumb.tsx",
+      "target": "05_ARCHIVE/src/components/ui/breadcrumb.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/input.tsx",
+      "target": "05_ARCHIVE/src/components/ui/input.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/chart.tsx",
+      "target": "04_EXTRACTS/src/components/ui/chart.tsx",
+      "category": "04_EXTRACTS"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/label.tsx",
+      "target": "05_ARCHIVE/src/components/ui/label.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/separator.tsx",
+      "target": "05_ARCHIVE/src/components/ui/separator.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/scroll-area.tsx",
+      "target": "05_ARCHIVE/src/components/ui/scroll-area.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/avatar.tsx",
+      "target": "05_ARCHIVE/src/components/ui/avatar.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/tabs.tsx",
+      "target": "05_ARCHIVE/src/components/ui/tabs.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/popover.tsx",
+      "target": "05_ARCHIVE/src/components/ui/popover.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/slider.tsx",
+      "target": "05_ARCHIVE/src/components/ui/slider.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/input-otp.tsx",
+      "target": "05_ARCHIVE/src/components/ui/input-otp.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/field.tsx",
+      "target": "05_ARCHIVE/src/components/ui/field.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/command.tsx",
+      "target": "05_ARCHIVE/src/components/ui/command.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/sheet.tsx",
+      "target": "05_ARCHIVE/src/components/ui/sheet.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/toggle.tsx",
+      "target": "05_ARCHIVE/src/components/ui/toggle.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/kbd.tsx",
+      "target": "05_ARCHIVE/src/components/ui/kbd.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/dropdown-menu.tsx",
+      "target": "05_ARCHIVE/src/components/ui/dropdown-menu.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/alert-dialog.tsx",
+      "target": "05_ARCHIVE/src/components/ui/alert-dialog.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/form.tsx",
+      "target": "05_ARCHIVE/src/components/ui/form.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/drawer.tsx",
+      "target": "05_ARCHIVE/src/components/ui/drawer.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/button-group.tsx",
+      "target": "05_ARCHIVE/src/components/ui/button-group.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/aspect-ratio.tsx",
+      "target": "05_ARCHIVE/src/components/ui/aspect-ratio.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/radio-group.tsx",
+      "target": "05_ARCHIVE/src/components/ui/radio-group.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/menubar.tsx",
+      "target": "05_ARCHIVE/src/components/ui/menubar.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/button.tsx",
+      "target": "05_ARCHIVE/src/components/ui/button.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/table.tsx",
+      "target": "05_ARCHIVE/src/components/ui/table.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/calendar.tsx",
+      "target": "05_ARCHIVE/src/components/ui/calendar.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/badge.tsx",
+      "target": "05_ARCHIVE/src/components/ui/badge.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/carousel.tsx",
+      "target": "05_ARCHIVE/src/components/ui/carousel.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/select.tsx",
+      "target": "05_ARCHIVE/src/components/ui/select.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/context-menu.tsx",
+      "target": "05_ARCHIVE/src/components/ui/context-menu.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/hover-card.tsx",
+      "target": "05_ARCHIVE/src/components/ui/hover-card.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/item.tsx",
+      "target": "05_ARCHIVE/src/components/ui/item.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/accordion.tsx",
+      "target": "05_ARCHIVE/src/components/ui/accordion.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/checkbox.tsx",
+      "target": "05_ARCHIVE/src/components/ui/checkbox.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/tooltip.tsx",
+      "target": "05_ARCHIVE/src/components/ui/tooltip.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/collapsible.tsx",
+      "target": "05_ARCHIVE/src/components/ui/collapsible.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/empty.tsx",
+      "target": "05_ARCHIVE/src/components/ui/empty.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/skeleton.tsx",
+      "target": "05_ARCHIVE/src/components/ui/skeleton.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/dialog.tsx",
+      "target": "05_ARCHIVE/src/components/ui/dialog.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/pagination.tsx",
+      "target": "05_ARCHIVE/src/components/ui/pagination.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/toggle-group.tsx",
+      "target": "05_ARCHIVE/src/components/ui/toggle-group.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/textarea.tsx",
+      "target": "05_ARCHIVE/src/components/ui/textarea.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/sidebar.tsx",
+      "target": "05_ARCHIVE/src/components/ui/sidebar.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/progress.tsx",
+      "target": "05_ARCHIVE/src/components/ui/progress.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/input-group.tsx",
+      "target": "05_ARCHIVE/src/components/ui/input-group.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/sonner.tsx",
+      "target": "05_ARCHIVE/src/components/ui/sonner.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "ghusoon-prompt-hub-website/src/components/ui/switch.tsx",
+      "target": "05_ARCHIVE/src/components/ui/switch.tsx",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "legal-endeavors/scripts/generate_filing.py",
+      "target": "05_ARCHIVE/scripts/generate_filing.py",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "legal-endeavors/scripts/deadline_tracker.py",
+      "target": "05_ARCHIVE/scripts/deadline_tracker.py",
+      "category": "05_ARCHIVE"
+    },
+    {
+      "source": "legal-endeavors/references/defense-analysis.md",
+      "target": "01_CORPUS/references/defense-analysis.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "legal-endeavors/references/litigation-playbook.md",
+      "target": "01_CORPUS/references/litigation-playbook.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "legal-endeavors/references/case-context.md",
+      "target": "01_CORPUS/references/case-context.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "legal-endeavors/templates/discovery_requests.md",
+      "target": "01_CORPUS/templates/discovery_requests.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "legal-endeavors/templates/evidence_checklist.md",
+      "target": "01_CORPUS/templates/evidence_checklist.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "analysis-output/perfected/ACTIONABLE_BRIEFING.md",
+      "target": "01_CORPUS/perfected/ACTIONABLE_BRIEFING.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "analysis-output/perfected/GITHUB_GEMS_INTEGRATION.md",
+      "target": "01_CORPUS/perfected/GITHUB_GEMS_INTEGRATION.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "analysis-output/perfected/SECOND_BRAIN_ARCHITECTURE.md",
+      "target": "01_CORPUS/perfected/SECOND_BRAIN_ARCHITECTURE.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "analysis-output/perfected/EXECUTION_PROMPT.md",
+      "target": "01_CORPUS/perfected/EXECUTION_PROMPT.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "analysis-output/perfected/PERFECTED_MASTER_REPORT.md",
+      "target": "01_CORPUS/perfected/PERFECTED_MASTER_REPORT.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "analysis-output/perfected/red_team_analysis.json",
+      "target": "01_CORPUS/perfected/red_team_analysis.json",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "ghusoon-project/parallel-outputs/3_F6lx4FnpWP4nNkX4LFL6VD_1775374627692_na1fn_L2hvbWUvdWJ1bnR1L2dodXNvb25fc2tpbGxfZmluZGluZ3M.md",
+      "target": "01_CORPUS/parallel-outputs/3_F6lx4FnpWP4nNkX4LFL6VD_1775374627692_na1fn_L2hvbWUvdWJ1bnR1L2dodXNvb25fc2tpbGxfZmluZGluZ3M.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "ghusoon-project/parallel-outputs/0_it14lw6ctWCXFZanaO1Eiz_1775374616820_na1fn_L2hvbWUvdWJ1bnR1L3Byb21wdF9vcHRpbWl6ZXJfb3V0cHV0.md",
+      "target": "01_CORPUS/parallel-outputs/0_it14lw6ctWCXFZanaO1Eiz_1775374616820_na1fn_L2hvbWUvdWJ1bnR1L3Byb21wdF9vcHRpbWl6ZXJfb3V0cHV0.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "ghusoon-project/parallel-outputs/2_HySop3fuDZALpgyWOMYzrn_1775374656224_na1fn_L2hvbWUvdWJ1bnR1L3NraWxsX291dHB1dA.md",
+      "target": "01_CORPUS/parallel-outputs/2_HySop3fuDZALpgyWOMYzrn_1775374656224_na1fn_L2hvbWUvdWJ1bnR1L3NraWxsX291dHB1dA.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "ghusoon-project/parallel-outputs/4_GQWys31Ivlvymr9ZZd53Yj_1775374510524_na1fn_L2hvbWUvdWJ1bnR1L2dodXNvb24tYnVzaW5lc3MtbGF1bmNoZXItU0tJTEw.md",
+      "target": "01_CORPUS/parallel-outputs/4_GQWys31Ivlvymr9ZZd53Yj_1775374510524_na1fn_L2hvbWUvdWJ1bnR1L2dodXNvb24tYnVzaW5lc3MtbGF1bmNoZXItU0tJTEw.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "ghusoon-project/parallel-outputs/1_urwgl60d2c0gwCdZUk61AS_1775374629240_na1fn_L2hvbWUvdWJ1bnR1L3Byb21wdF9vcHRpbWl6ZXJfb3V0cHV0.md",
+      "target": "01_CORPUS/parallel-outputs/1_urwgl60d2c0gwCdZUk61AS_1775374629240_na1fn_L2hvbWUvdWJ1bnR1L3Byb21wdF9vcHRpbWl6ZXJfb3V0cHV0.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "ghusoon-project/parallel-outputs/5_5wIKQprZ673whSTjESQB9N_1775374563420_na1fn_L2hvbWUvdWJ1bnR1L2dodXNvb25fc2tpbGxfNl9vdXRwdXQ.md",
+      "target": "01_CORPUS/parallel-outputs/5_5wIKQprZ673whSTjESQB9N_1775374563420_na1fn_L2hvbWUvdWJ1bnR1L2dodXNvb25fc2tpbGxfNl9vdXRwdXQ.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "clinical_report_v4/charts/04_longitudinal_trends.png",
+      "target": "04_EXTRACTS/charts/04_longitudinal_trends.png",
+      "category": "04_EXTRACTS"
+    },
+    {
+      "source": "clinical_report_v4/charts/02_sleep_architecture.png",
+      "target": "04_EXTRACTS/charts/02_sleep_architecture.png",
+      "category": "04_EXTRACTS"
+    },
+    {
+      "source": "clinical_report_v4/charts/03_recovery_pem.png",
+      "target": "04_EXTRACTS/charts/03_recovery_pem.png",
+      "category": "04_EXTRACTS"
+    },
+    {
+      "source": "clinical_report_v4/charts/01_autonomic_balance.png",
+      "target": "04_EXTRACTS/charts/01_autonomic_balance.png",
+      "category": "04_EXTRACTS"
+    },
+    {
+      "source": "clinical_report_v4/charts/05_symptom_correlation.png",
+      "target": "04_EXTRACTS/charts/05_symptom_correlation.png",
+      "category": "04_EXTRACTS"
+    },
+    {
+      "source": "verbal-thinker-stack-audit/voice-first-verbal-thinker-skill/SKILL.md",
+      "target": "01_CORPUS/voice-first-verbal-thinker-skill/SKILL.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "verbal-thinker-stack-audit/voice-first-verbal-thinker-skill/references/routing_card.md",
+      "target": "01_CORPUS/voice-first-verbal-thinker-skill/references/routing_card.md",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "health_analysis_v2/charts/07_period_comparison.png",
+      "target": "04_EXTRACTS/charts/07_period_comparison.png",
+      "category": "04_EXTRACTS"
+    },
+    {
+      "source": "health_analysis_v2/charts/02_crisis_annotated.png",
+      "target": "04_EXTRACTS/charts/02_crisis_annotated.png",
+      "category": "04_EXTRACTS"
+    },
+    {
+      "source": "health_analysis_v2/charts/06_medication_adherence.png",
+      "target": "04_EXTRACTS/charts/06_medication_adherence.png",
+      "category": "04_EXTRACTS"
+    },
+    {
+      "source": "health_analysis_v2/charts/01_full_arc.png",
+      "target": "04_EXTRACTS/charts/01_full_arc.png",
+      "category": "04_EXTRACTS"
+    },
+    {
+      "source": "health_analysis_v2/charts/04_sleep_circadian.png",
+      "target": "04_EXTRACTS/charts/04_sleep_circadian.png",
+      "category": "04_EXTRACTS"
+    },
+    {
+      "source": "health_analysis_v2/charts/03_paradox.png",
+      "target": "04_EXTRACTS/charts/03_paradox.png",
+      "category": "04_EXTRACTS"
+    },
+    {
+      "source": "health_analysis_v2/charts/05_symptom_heatmap.png",
+      "target": "04_EXTRACTS/charts/05_symptom_heatmap.png",
+      "category": "04_EXTRACTS"
+    },
+    {
+      "source": "health_analysis/charts/04_strain_vs_recovery.png",
+      "target": "02_CHATS/charts/04_strain_vs_recovery.png",
+      "category": "02_CHATS"
+    },
+    {
+      "source": "health_analysis/charts/07_recent_30d_alert.png",
+      "target": "04_EXTRACTS/charts/07_recent_30d_alert.png",
+      "category": "04_EXTRACTS"
+    },
+    {
+      "source": "health_analysis/charts/02_recovery_analysis.png",
+      "target": "01_CORPUS/charts/02_recovery_analysis.png",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "health_analysis/charts/03_sleep_analysis.png",
+      "target": "01_CORPUS/charts/03_sleep_analysis.png",
+      "category": "01_CORPUS"
+    },
+    {
+      "source": "health_analysis/charts/05_visible_symptoms.png",
+      "target": "04_EXTRACTS/charts/05_visible_symptoms.png",
+      "category": "04_EXTRACTS"
+    },
+    {
+      "source": "health_analysis/charts/06_longitudinal_dashboard.png",
+      "target": "04_EXTRACTS/charts/06_longitudinal_dashboard.png",
+      "category": "04_EXTRACTS"
+    },
+    {
+      "source": "health_analysis/charts/01_hrv_rhr_timeseries.png",
+      "target": "04_EXTRACTS/charts/01_hrv_rhr_timeseries.png",
+      "category": "04_EXTRACTS"
+    }
+  ]
+}

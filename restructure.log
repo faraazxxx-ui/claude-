@@ -1,0 +1,26 @@
+2026-08-22 14:50:57,711 - INFO - Scanning directory: .
+2026-08-22 14:50:57,732 - INFO - Found 235 files
+2026-08-22 14:50:57,732 - INFO - Created move plan with 235 moves
+2026-08-22 14:50:57,733 - INFO - Move plan saved to file-triage/move_plan.json
+2026-08-22 14:50:57,733 - INFO - DRY RUN: Would perform the following moves:
+2026-08-22 14:50:57,733 - INFO -   1. EXECUTIVE_SUMMARY_West_Africa_Expansion.md -> 01_CORPUS/EXECUTIVE_SUMMARY_West_Africa_Expansion.md
+2026-08-22 14:50:57,733 - INFO -   2. PERFECTED_PROMPT_Red_Team_Edition.md -> 01_CORPUS/PERFECTED_PROMPT_Red_Team_Edition.md
+2026-08-22 14:50:57,733 - INFO -   3. PowerToys_AI_Workflow.pptx -> 02_CHATS/PowerToys_AI_Workflow.pptx
+2026-08-22 14:50:57,733 - INFO -   4. FINAL_Perfected_Prompt_v2.md -> 01_CORPUS/FINAL_Perfected_Prompt_v2.md
+2026-08-22 14:50:57,733 - INFO -   5. Personal_Data_Embedding_Living_AI_Guide.md -> 01_CORPUS/Personal_Data_Embedding_Living_AI_Guide.md
+2026-08-22 14:50:57,733 - INFO -   6. Dubai_Risk_Assessment_Minecore.md -> 01_CORPUS/Dubai_Risk_Assessment_Minecore.md
+2026-08-22 14:50:57,733 - INFO -   7. geopolitical_risk_analysis_minecore.md -> 01_CORPUS/geopolitical_risk_analysis_minecore.md
+2026-08-22 14:50:57,733 - INFO -   8. powertoys_ai_workflow.md -> 01_CORPUS/powertoys_ai_workflow.md
+2026-08-22 14:50:57,733 - INFO -   9. CYB003_Optimized_Prompts.md -> 01_CORPUS/CYB003_Optimized_Prompts.md
+2026-08-22 14:50:57,734 - INFO -   10. Optimized_Prompt_Manus.md -> 01_CORPUS/Optimized_Prompt_Manus.md
+2026-08-22 14:50:57,734 - INFO -   11. restructure.log -> 05_ARCHIVE/restructure.log
+2026-08-22 14:50:57,734 - INFO -   12. FINAL_DELIVERABLE_Rahman_Risk_Assessment.md -> 01_CORPUS/FINAL_DELIVERABLE_Rahman_Risk_Assessment.md
+2026-08-22 14:50:57,734 - INFO -   13. AI_Platform_Master_Reference_FULL.md -> 01_CORPUS/AI_Platform_Master_Reference_FULL.md
+2026-08-22 14:50:57,734 - INFO -   14. red_team_prompt_analysis.csv -> 01_CORPUS/red_team_prompt_analysis.csv
+2026-08-22 14:50:57,734 - INFO -   15. README.md -> 01_CORPUS/README.md
+2026-08-22 14:50:57,734 - INFO -   16. WEST_AFRICA_EXPANSION_ASSESSMENT_Minecore_Nuhu.md -> 01_CORPUS/WEST_AFRICA_EXPANSION_ASSESSMENT_Minecore_Nuhu.md
+2026-08-22 14:50:57,734 - INFO -   17. skill/SKILL.md -> 01_CORPUS/SKILL.md
+2026-08-22 14:50:57,734 - INFO -   18. ghusoon-prompt-hub-website/index.html -> 05_ARCHIVE/index.html
+2026-08-22 14:50:57,734 - INFO -   19. legal-endeavors/SKILL.md -> 01_CORPUS/SKILL.md
+2026-08-22 14:50:57,734 - INFO -   20. analysis-output/damage_reframe_research.json -> 02_CHATS/damage_reframe_research.json
+2026-08-22 14:50:57,734 - INFO -   ... and 215 more
