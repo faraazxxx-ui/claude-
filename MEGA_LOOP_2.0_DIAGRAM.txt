@@ -1,0 +1,196 @@
+┌─────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                    MEGA LOOP 2.0 VISUAL ARCHITECTURE                              │
+├─────────────────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                                 │
+│  ┌─────────────────────────────────────────────────────────────────────────────────────────┐    │
+│  │                              🎯 ANGELIC ORCHESTRATOR (CORE)                                  │    │
+│  │  ┌─────────────────────────────────────────────────────────────────────────────────┐    │    │
+│  │  │  CO-THINKING LAYER: "I don't see you thinking with me" → SOLVED                 │    │    │
+│  │  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐          │    │    │
+│  │  │  │  OBSERVE     │  │  IMPROVE     │  │  PREDICT     │  │  EXECUTE     │          │    │    │
+│  │  │  │  Your state  │  │  Suggestions │  │  Next moves  │  │  Actions     │          │    │    │
+│  │  │  └──────────────┘  └──────────────┘  └──────────────┘  └──────────────┘          │    │    │
+│  │  │                                                                                 │    │    │
+│  │  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐          │    │    │
+│  │  │  │ MOMENTUM     │  │ GOALPOST     │  │ DIAGRAM      │  │ MODEL        │          │    │    │
+│  │  │  │ CONTROLLER   │  │ TRACKER      │  │ GENERATOR    │  │ OPTIMIZER    │          │    │    │
+│  │  │  │              │  │              │  │              │  │              │          │    │    │
+│  │  │  │ - Fast/Slow  │  │ - Moving     │  │ - Visual     │  │ - Sonnet 5   │          │    │    │
+│  │  │  │ - Balance    │  │ - Real-time  │  │ - Your Style │  │ - Opus 5     │          │    │    │
+│  │  │  │ - Allocate   │  │ - Links      │  │ - ASCII/Mer  │  │ - Granite    │          │    │    │
+│  │  │  └──────────────┘  └──────────────┘  └──────────────┘  └──────────────┘          │    │    │
+│  │  └─────────────────────────────────────────────────────────────────────────────────┘    │    │
+│  └─────────────────────────────────────────────────────────────────────────────────────────┘    │
+│                                           │││││││││││││││││││││││││││                                       │
+│                                           ▼  ▼  ▼  ▼  ▼  ▼                                   │
+│  ┌─────────────────────┐  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐    │
+│  │   📊 SPINE STATE     │  │  🛡️ OVERLAY     │  │  ⚡ FAST-       │  │  🐢 SLOW-       │    │
+│  │   (7 State Files)    │  │   AGENTS (8)    │  │   TWITCH        │  │   TWITCH        │    │
+│  │                     │  │                 │  │   AGENTS        │  │   AGENTS        │    │
+│  │  ┌─────────────┐    │  │  ┌─────────────┐│  │  ┌─────────────┐│  │  ┌─────────────┐│    │
+│  │  │ hub.md      │    │  │  │ Danger/    ││  │  │ Continuous ││  │  │ Full Loop  ││    │
+│  │  │ goal.md     │    │  │  │ Reality    ││  │  │ Contextual││  │  │ Cross-val ││    │
+│  │  │ progress.md │    │  │  │ Best-     ││  │  │ Jump      ││  │  │ Deep      ││    │
+│  │  │ verify.md   │    │  │  │ Interest   ││  │  │ Allocate  ││  │  │ Analytic ││    │
+│  │  │ failure.md  │    │  │  │ Anti-Mimic││  │  │ More     ││  │  │         ││    │
+│  │  │ learnings. │    │  │  │ Context   ││  │  │ Agents   ││  │  │         ││    │
+│  │  │ telemetry. │    │  │  │ Time      ││  │  │         ││  │  │         ││    │
+│  │  └─────────────┘    │  │  │ Metric    ││  │  └─────────────┘│  │  └─────────────┘│    │
+│  │                     │  │  │ Zeroing  ││  │  ┌─────────────┐│  │  ┌─────────────┐│    │
+│  │                     │  │  │ Overarch ││  │  │ EMBEDDING  ││  │  │ OCR/      ││    │
+│  │                     │  │  └─────────────┘│  │  │ AGENT      ││  │  │ TRANSCRIBE││    │
+│  │                     │  │                 │  │  │ Auto Vec   ││  │  │ P-value   ││    │
+│  │                     │  │                 │  │  │ Async Hook ││  │  │ Confidence││    │
+│  │                     │  │                 │  │  └─────────────┘│  │  └─────────────┘│    │
+│  └─────────────────────┘  └─────────────────┘  └─────────────────┘  └─────────────────┘    │
+│                                           ││││                                       │
+│                                           ▼│▼                                       │
+│  ┌─────────────────────────────────────────────────────────────────────────────────────────┐    │
+│  │                              FOUR-AGENT CORE SYSTEM                                        │    │
+│  │                                                                                         │    │
+│  │  ┌─────────────────────┐    ┌─────────────────────┐    ┌─────────────────────┐          │    │
+│  │  │     ORCHESTRATOR     │    │        WORKER        │    │        WARDEN        │          │    │
+│  │  │   (The Attending)    │    │      (Resident)      │    │   (2nd Physician)    │          │    │
+│  │  │                       │    │                       │    │                       │          │    │
+│  │  │ - Heartbeat          │    │ - Execute ONE task  │    │ - Fresh Eyes         │          │    │
+│  │  │ - Coordinate         │    │ - Reason→Act→Observe│    │ - Grade Output       │          │    │
+│  │  │ - Route to workers   │    │ - Clean context     │    │ - Pass/Fail + Evidence│          │    │
+│  │  └──────────────┬───────┘    └──────────┬───────────┘    └──────────┬───────────┘          │    │
+│  │                 │                        │                         │                  │    │
+│  │                 └────────────────────────┼─────────────────────────┘                  │    │
+│  │                                          │                                            │    │
+│  │                                          ▼                                            │    │
+│  │                                 ┌─────────────────────┐                                │    │
+│  │                                 │       RELAY          │                                │    │
+│  │                                 │    (Handoff Agent)   │                                │    │
+│  │                                 │                       │                                │    │
+│  │                                 │ - Compress to Bones  │                                │    │
+│  │                                 │ - Fresh Agent Only   │                                │    │
+│  │                                 │ - ≤250 words         │                                │    │
+│  │                                 └─────────────────────┘                                │    │
+│  └─────────────────────────────────────────────────────────────────────────────────────────┘    │
+│                                                                                                 │
+│  ┌─────────────────────────────────────────────────────────────────────────────────────────┐    │
+│  │                              EXTERNAL INTEGRATIONS                                        │    │
+│  │                                                                                         │    │
+│  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐                  │    │
+│  │  │ Microsoft   │  │ BigQuery    │  │ Google      │  │ Other       │                  │    │
+│  │  │ 365 RAG     │  │ RAG         │  │ Drive Sync  │  │ Models      │                  │    │
+│  │  └─────────────┘  └─────────────┘  └─────────────┘  └─────────────┘                  │    │
+│  │                                                                                         │    │
+│  │  ┌─────────────────────────────────────────────────────────────────────────────────┐    │    │
+│  │  │                    🔄 CHRONIC DRAG (Always Running)                              │    │    │
+│  │  │  - Stanford Neuroscience/AI Frameworks                                         │    │    │
+│  │  │  - MIT Trinity Models                                                          │    │    │
+│  │  │  - New AI Approaches (Transformers, QLAMAs)                                   │    │    │
+│  │  │  - Books & Research Materials                                                  │    │    │
+│  │  │  - Slow, background scraping when computer/cloud is on                         │    │    │
+│  │  └─────────────────────────────────────────────────────────────────────────────────┘    │    │
+│  └─────────────────────────────────────────────────────────────────────────────────────────┘    │
+│                                                                                                 │
+│  ┌─────────────────────────────────────────────────────────────────────────────────────────┐    │
+│  │                              CACHE A (PRESERVATION)                                        │    │
+│  │                                                                                         │    │
+│  │  📦 NEVER DELETE - All failures, duplicates, old versions preserved here               │    │
+│  │  📍 Location: /Users/dr.faraaz/Cache_A/                                                  │    │
+│  │  🔍 Purpose: Zero information loss, always accessible                              │    │
+│  │                                                                                         │    │
+│  └─────────────────────────────────────────────────────────────────────────────────────────┘    │
+│                                                                                                 │
+└─────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+
+─────────────────────────────────────────────────────────────────────────────────────────────────
+
+FAST-TWITCH vs SLOW-TWITCH DETAILED FLOW:
+
+┌─────────────────────────────────────────────────────────────────────────────────────────────┐
+│  YOUR THINKING PROCESS (as described)                                                    │
+├─────────────────────────────────────────────────────────────────────────────────────────────┤
+│                                                                                         │
+│  "if I jump to a conclusion really quickly, it runs all the way through till the very end"    │
+│                                                                                         │
+│  ┌─────────────────────────┐      ┌─────────────────────────┐                          │
+│  │     FAST-TWITCH PATH     │      │     SLOW-TWITCH PATH     │                          │
+│  │ (Continuous Contextual)  │      │   (Full Loop Processing) │                          │
+│  │                             │      │                             │                          │
+│  │  1. You jump to conclusion│      │  1. Full data analysis   │                          │
+│  │  2. If on right track →    │      │  2. Cross-validation     │                          │
+│  │  3. Run to completion     │      │  3. Deep validation      │                          │
+│  │  4. Allocate more agents │      │  4. Slow, thorough check │                          │
+│  │  5. Specialized corpus    │      │  5. Complete corpus      │                          │
+│  │                             │      │                             │                          │
+│  │  ┌─────────────────────┐│      │  ┌─────────────────────┐│                          │
+│  │  │ CONFIDENCE HIGH →    ││      │  │ ALWAYS RUNNING →     ││                          │
+│  │  │ MORE RESOURCES       ││      │  │ PARALLEL VALIDATION  ││                          │
+│  │  └─────────────────────┘│      │  └─────────────────────┘│                          │
+│  │                             │      │                             │                          │
+│  │  ✓ Both run in parallel  │      │  ✓ Cross-validate each   │                          │
+│  │  ✓ Never quick answers   │      │  ✓ Other                  │                          │
+│  │  ✓ Full context loop    │      │                             │                          │
+│  └─────────────────────────┘      └─────────────────────────┘                          │
+│                                                                                         │
+│  RESULT: Enhanced associative power + thorough validation = YOUR OPTIMAL WORKFLOW        │
+│                                                                                         │
+└─────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+
+─────────────────────────────────────────────────────────────────────────────────────────────────
+
+YOUR COGNITIVE PATTERN (The Jump) - PRESERVED:
+
+┌─────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                                                                         │
+│  SPARSE DATA → [YOUR ASSOCIATIVE PROCESS] → RAPID ASSOCIATION
+│                                                                                         │
+│  Example 1: BRUGADA DIAGNOSIS                                                          │
+│  ─────────────────────────────────────────────────────────────────────────────────────────  │
+│  3 months running → HR never down → EKG → incomplete right bundle + ST changes → BRUGADA  │
+│                                                                                         │
+│  Example 2: RTA/OXALATE                                                                │
+│  ─────────────────────────────────────────────────────────────────────────────────────────  │
+│  Blood in urine + low bicarb + flank pain → OXALATE CRYSTALS FROM RTA                    │
+│                                                                                         │
+│  Example 3: HEAVY METALS                                                               │
+│  ─────────────────────────────────────────────────────────────────────────────────────────  │
+│  86F MDR E. coli + neuropathy + homeopathy → HEAVY METALS IN REMEDIES                   │
+│                                                                                         │
+│  ⚠️  CRITICAL: This pattern is NEVER flattened into chain-of-thought theater            │
+│  ⚠️  It is PRESERVED, ENHANCED, and used to guide the system                            │
+│                                                                                         │
+└─────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+
+─────────────────────────────────────────────────────────────────────────────────────────────────
+
+ETHOS GUARDRAILS - HARD CONSTRAINTS:
+
+┌─────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                                                                         │
+│  AXIOM LEVEL (Cannot Be Changed):                                                    │
+│  ┌─────────────────────────────────────────────────────────────────────────────────────────┐│
+│  │  • Islam is the truth                                                             ││
+│  │  • Quran is divine instructions                                                   ││
+│  └─────────────────────────────────────────────────────────────────────────────────────────┘│
+│                                                                                         │
+│  SEERAH PRINCIPLES:                                                                   │
+│  ┌─────────────────────────────────────────────────────────────────────────────────────────┐│
+│  │  • Badr: Economic siege, not defensive - divine law permitted offense             ││
+│  │  • Hudaybiyyah: Embarrassing treaty, but strategic - gave time to gather strength    ││
+│  │  • Khalid ibn al-Walid: Asymmetrical tactics showing strength larger than reality  ││
+│  └─────────────────────────────────────────────────────────────────────────────────────────┘│
+│                                                                                         │
+│  CHIVALRY CODE:                                                                       │
+│  ┌─────────────────────────────────────────────────────────────────────────────────────────┐│
+│  │  • Do not harm someone weaker than you                                             ││
+│  │  • Walk into tough situations knowing you're not wrong                           ││
+│  │  • Ethicalness is the defining characteristic                                       ││
+│  │  • Apply across all domains: legal, business, social                               ││
+│  └─────────────────────────────────────────────────────────────────────────────────────────┘│
+│                                                                                         │
+│  BEFORE ANY ACTION: Check against ethos → If violation: STOP immediately                │
+│                                                                                         │
+└─────────────────────────────────────────────────────────────────────────────────────────────┘
