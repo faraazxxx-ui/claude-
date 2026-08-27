@@ -27,3 +27,9 @@ Slow-loop: state as of each pass, never "done."
 - Early flags (not yet a roster): RETURN PAYMENT FEE $29 on 2026-08-12 (cash-flow stress marker, reversible by phone), Oura, Miro, PayPal*Apple MUSIC 7.99 recurring.
 - GAPS (coverage map): NO Apple Card folder anywhere in Drive despite diagram scope; no Dad's-Dubai-card statements; Amex Platinum pre-2023 absent; Chase credit pre-2021-09 absent; PayPal zips skipped (monthly PDFs assumed to cover — verify).
 - NEXT on agent completion: normalize all sources → one ledger, penny reconciliation, coverage map, then roster + calendar.
+
+## 2026-08-27 — pass 5 (Apple purchase history landed)
+- reportaproblem.apple.com PDF (12pp, faraaz.rahman@icloud.com) parsed: 94 purchases, but coverage is ONLY Jun 27 → Aug 25, 2026 (~2 months of scroll). Enough to decode the CURRENT Apple-billed roster; deeper history optional later.
+- HEADLINE: Apple-billed AI stack alone ≈ $885/mo (SuperGrok Heavy $300 + Perplexity Max $200 + Manus Pro $200 + X Premium Plus $100 + ChatGPT Plus $20 + Genspark $25 + Replit $40) ≈ $10.6k/yr, before AMEX-direct subscriptions and other cards. Duplicate-function cluster (5+ AI assistants) = prime usage-weighing target.
+- Apple Card state (Wallet screenshot): $2,750 limit, $0.00 available (100% utilization), APR 25.49%, 13 monthly installments, AUTOPAY NOT SET UP → late-payment risk at max APR.
+- Apple Card statements still missing from corpus; export path given to him (Wallet → Card Balance → Statements → Export Transactions CSV, per month).
