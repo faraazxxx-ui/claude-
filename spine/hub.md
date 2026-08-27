@@ -5,6 +5,7 @@ Fixed for each task's duration. Sub-agents write down into goal/verify/progress;
 | Task | Mode | Zone | State | Opened |
 |---|---|---|---|---|
 | financial-second-brain | slow-loop | Confidential (legal-tagged rows: Privileged) | awaiting statements + answers to 5 opening questions | 2026-08-27 |
+| orchestrator-asana-sync | slow-loop | Private work | routine STAGED (spec: spine/routines/orchestrator-asana-daily.md); blocked on one interactive approval | 2026-08-27 |
 
 ## Zone rules in force
 - Financial ledger, statements, email-derived receipts: **Confidential**. Stays in this repo / session workspace. No public RAG, no shared index, no public artifact sharing.
@@ -15,3 +16,5 @@ Fixed for each task's duration. Sub-agents write down into goal/verify/progress;
 - Gmail reachable now: `faraazxxx@gmail.com` (live-verified via connector)
 - NOT reachable: `dr.faraaz.rahman@gmail.com`, `drrahman@therahmanfoundation.com` — need per-account Gmail connectors authorized in claude.ai Settings → Connectors
 - NOT reachable: `faraaz.rahman@icloud.com` — no iCloud Mail connector exists; use reportaproblem.apple.com purchase-history export + Settings → Apple ID → Subscriptions screenshots instead
+- Asana: connector exists but MCP calls are approval-gated in autonomous turns of this session; Routine-fired sessions carry their own grant (connectors: ["Asana"]) — writes happen there
+- 6 connectors on this account are configured but pending OAuth; only Dr. Rahman can complete those sign-ins (claude.ai → Settings → Connectors)
