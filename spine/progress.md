@@ -41,3 +41,10 @@ Slow-loop: state as of each pass, never "done."
 - Gray charge: Syntagma $9.90/mo from $0.50 trial Dec 2023–Oct 2024 (stopped).
 - Structural: ZERO App Store receipts in this mailbox — Apple billing rode PayPal*APPLE.COM/BILL (AMEX-1009 funding!) ~100+ charges Feb–Oct 2024 then stopped (moved to Apple Card). NOTE: AMEX ...1009 and card ...7018 references = card numbers not yet in corpus map (Platinum=-44006; Gold=?); resolve when Gold export parses.
 - Coverage limits: other two Gmail accounts unsearched; PayPal-in-Gmail pre-Feb-2024 unpaginated.
+
+## 2026-08-27 — pass 7 (Chase checking normalized: LEGAL CORE COMPLETE)
+- 92/92 statements penny-reconciled, triple-verified (per-statement beginning+Σ=ending; parsed credits == Chase's printed "Deposits and Additions" to the cent in every statement; cross-statement continuity tiles 2018-12-21→2026-08-20, zero gaps). 6,605 txns. Courtroom-grade lineage; ~15% amounts chain-derived but anchored (documented in agent caveat).
+- DUBAI-WIRE: 103 wires $501,685 (UAE-only 102/$492,185), 2020-03-23→2026-08-17. Haseeb Ur Rahaman Mohammed 93/$459,925; Mubeena Iqbal 9/$32,260; 1 domestic false-positive (Srinath Katari TX $9,500) auto-separated. 79 wires carry AED Ocmt pattern. Per-year: 2020 $31.5k · 2021 $30.2k · 2022 $1.5k · 2023 $29.3k · 2024 $113.0k · 2025 $159.3k · 2026(→Aug) $136.9k.
+- PAYROLL (UHS Inc): $148,617 over 2021-07→2024-07-03 — THEN ZERO. Income stops Jul 2024; family wires surge after. RULE-DEPOSITS payroll carve-out proved essential (would have polluted the exhibit by $148k).
+- ZELLE-IN: 221/$107,378. Whole-account: credits $869,767 vs debits $871,678 over 7.7yr; ending balance $486.16 — the "running tight" picture in one number.
+- Files: normalized/chase_checking{,_recon,_deposits}.csv. Remaining in flight: chase-credit + amex transports.
