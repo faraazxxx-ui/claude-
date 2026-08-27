@@ -19,3 +19,11 @@ Slow-loop: state as of each pass, never "done."
 - create_trigger retried WITH user present, still "requires approval" → this session's permission layer auto-blocks it; 2/2 attempts spent, stopping per budget. Two working paths handed to user: approve-dialog-then-"retry", or create the Routine from claude.ai/code UI using spine/routines/orchestrator-asana-daily.md verbatim.
 - Connector OAuth: confirmed impossible to automate on his behalf (identity sign-in is his alone); 3-tap path given. iCloud/Apple: reportaproblem.apple.com PDF upload (fastest), or Claude-in-Chrome/desktop local session driving his logged-in browser.
 - AWAITING: statements (AMEX Platinum ×4yr first), Chase checking statements, Dad's-card statements, Apple purchase-history PDF, Q4/Q5 corrections.
+
+## 2026-08-27 — pass 4 (Drive corpus landed; transport in flight)
+- He shared the Drive folder; connector lists it ungated. Corpus ≈250 files: Chase checking -5032 (~89 PDFs, 2019-01→2026-08 — THE deposit/family-support account), Chase credit -1366 (~60, 2021-09→2026-08), Amex Platinum (~44 PDFs 2023-01→2026-07 + activity.xlsx export), Amex Gold (~50 PDFs 2022-11→2026-08 + 3 xlsx exports), PayPal (~25 monthly PDFs + 3 zips + subfolder). PayPal = decode layer (dedupe against funding cards), NOT additive spend.
+- Transport mechanics: download_file_content is approval-gated, but read_file_content is UNGATED and oversized results save to local tool-results files → zero-context transport. 4 background agents grinding all sources to Manhattan/text/.
+- Parser proven on Platinum export: 1,172 rows, 0 rejects, 2024-08-24→2026-08-22, charges $102,704.72 / payments $105,011.18. AMEX's own category column present; extended details even decode PayPal*APPLE.COM line items.
+- Early flags (not yet a roster): RETURN PAYMENT FEE $29 on 2026-08-12 (cash-flow stress marker, reversible by phone), Oura, Miro, PayPal*Apple MUSIC 7.99 recurring.
+- GAPS (coverage map): NO Apple Card folder anywhere in Drive despite diagram scope; no Dad's-Dubai-card statements; Amex Platinum pre-2023 absent; Chase credit pre-2021-09 absent; PayPal zips skipped (monthly PDFs assumed to cover — verify).
+- NEXT on agent completion: normalize all sources → one ledger, penny reconciliation, coverage map, then roster + calendar.
