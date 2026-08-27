@@ -48,3 +48,9 @@ Slow-loop: state as of each pass, never "done."
 - PAYROLL (UHS Inc): $148,617 over 2021-07→2024-07-03 — THEN ZERO. Income stops Jul 2024; family wires surge after. RULE-DEPOSITS payroll carve-out proved essential (would have polluted the exhibit by $148k).
 - ZELLE-IN: 221/$107,378. Whole-account: credits $869,767 vs debits $871,678 over 7.7yr; ending balance $486.16 — the "running tight" picture in one number.
 - Files: normalized/chase_checking{,_recon,_deposits}.csv. Remaining in flight: chase-credit + amex transports.
+
+## 2026-08-27 — pass 8 (Chase credit normalized)
+- 59/59 statements reconcile; global cross-foot exact ($61,884.35 purchases − $61,801.23 payments/credits + $104.49 fees/interest = final New Balance $187.61 from $0 start). 1,785 rows, 2021-08→2026-07.
+- 15 "Returned Payment" re-bills totaling $5,019.76 (2023, late-2025, 2026 clusters) — bank-side bounce signature matching the Gmail dunning cluster; interest episodes coincide with bounce clusters, not revolving habit. Net merchant spend ≈ $56,865.
+- Notables: SQ*Morgan Mako APRN FNP $100/mo ×12 (recurring medical — legitimate, category medical); GENSPARK.AI billed in AED on Chase with FX fees (May–Jul 2026) while Genspark ALSO appears Apple-billed — cross-card duplicate to resolve in roster; top spend = Amazon/Uber/UberEats/groceries/Chase Travel.
+- Remaining in flight: AMEX transport (last one).
