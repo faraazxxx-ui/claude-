@@ -33,3 +33,11 @@ Slow-loop: state as of each pass, never "done."
 - HEADLINE: Apple-billed AI stack alone ≈ $885/mo (SuperGrok Heavy $300 + Perplexity Max $200 + Manus Pro $200 + X Premium Plus $100 + ChatGPT Plus $20 + Genspark $25 + Replit $40) ≈ $10.6k/yr, before AMEX-direct subscriptions and other cards. Duplicate-function cluster (5+ AI assistants) = prime usage-weighing target.
 - Apple Card state (Wallet screenshot): $2,750 limit, $0.00 available (100% utilization), APR 25.49%, 13 monthly installments, AUTOPAY NOT SET UP → late-payment risk at max APR.
 - Apple Card statements still missing from corpus; export path given to him (Wallet → Card Balance → Statements → Export Transactions CSV, per month).
+
+## 2026-08-27 — pass 6 (Gmail inventory landed: faraazxxx@gmail.com)
+- 91 merchants inventoried → normalized/gmail_subscription_signals.csv (+ gmail_apple_lineitems.csv). 14 active, 41 stale, 25 canceled, 11 signal-only.
+- DUNNING CLUSTER (cash-flow signature): Netflix last two auto-pays FAILED (Jun/Aug 2026), Sembly $29/mo failing but renewing, Notion "last attempt" Apr 2026, OnlyFans retrying, Anthropic Claude Max ~$109/mo receipts STOP 2026-04 amid card failures (billing may have moved — top uncertainty).
+- Duplicate stacks: dictation ×3 concurrent (Aqua Voice $10 + Wispr Flow + VoiceInk + PLAUD hw); AI stack overlaps Gmail-side (Claude Max, Genspark $49.99, Mistral $14.99, Copilot $10.89 — Perplexity Max canceled 6/19 per email BUT reappears Apple-billed $200 in Jun-Aug — reconcile); delivery ×3 (Walmart+, Amazon Grocery, Instacart+); people-search burst Oct 2024 (~$90/mo ×4 services).
+- Gray charge: Syntagma $9.90/mo from $0.50 trial Dec 2023–Oct 2024 (stopped).
+- Structural: ZERO App Store receipts in this mailbox — Apple billing rode PayPal*APPLE.COM/BILL (AMEX-1009 funding!) ~100+ charges Feb–Oct 2024 then stopped (moved to Apple Card). NOTE: AMEX ...1009 and card ...7018 references = card numbers not yet in corpus map (Platinum=-44006; Gold=?); resolve when Gold export parses.
+- Coverage limits: other two Gmail accounts unsearched; PayPal-in-Gmail pre-Feb-2024 unpaginated.
