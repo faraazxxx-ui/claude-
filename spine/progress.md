@@ -36,3 +36,13 @@ The spine exists. Gate 0 has files to read.
 **Gate 4 note.** The separate-verifier gate could not be honoured: the same pass that built the skill and the spine also produced this summary, and no independent grader ran. That is a real gap, not a formality — the specific risk is that errors of the same *kind* the builder is prone to will not be visible to the builder. The next session should grade `skills/voice-capture-setup/SKILL.md` against the ten standing lines in `verify.md` with fresh eyes before the instructions are relied on.
 
 **Next.** Dr. Rahman fills `goal.md`, then runs the Part A install on the Mac.
+
+---
+
+## 2026-08-30 — Gate 4 satisfied: independent re-verification, zero drift
+
+A fresh session (Sonnet 5, not the Opus 5 pass that built the artifact) re-fetched `enesbasbug/voice-to-claude`'s README directly — not the prior session's ledger — and checked it line-by-line against `skills/voice-capture-setup/SKILL.md`. Every fact matched: hotkey, install steps, prerequisites, daemon requirement, model sizes and speeds, permissions, platform scope. No corrections needed.
+
+This is the separate-verifier pass `progress.md` flagged as missing on 2026-08-29. Gate 4 is now satisfied for this artifact's factual accuracy.
+
+**Still open, unchanged.** `goal.md` remains UNSET. `sony_sync.sh` and its plist remain unread. PR #30 unchanged — clean, draft, no comments.
