@@ -1,12 +1,12 @@
 ---
 title: MOC — Claude and the Second Brain
 created: 2026-08-07
-updated: 2026-08-07
+updated: 2026-09-04
 domain: systems
 tags: [moc, claude, second-brain, wiki-method]
 status: developing
-sources: [conversation-2026-08-07]
-related: ["[[Claude Layers Model]]", "[[Why Wiki Pages Are the Second Brain]]", "[[Second Brain Operating Loop]]", "[[Chat Archive Mining]]", "[[Claude Surface Selection Guide]]", "[[Output Contract for AI Handoffs]]"]
+sources: [conversation-2026-08-07, conversation-2026-09-04]
+related: ["[[Claude Layers Model]]", "[[Why Wiki Pages Are the Second Brain]]", "[[Second Brain Operating Loop]]", "[[Chat Archive Mining]]", "[[Claude Surface Selection Guide]]", "[[Output Contract for AI Handoffs]]", "[[Session Export Skill]]"]
 ---
 
 # MOC — Claude and the Second Brain
@@ -21,6 +21,7 @@ The spine for everything about using Claude deliberately and building the second
 4. **[[Chat Archive Mining]]** — turning every past AI conversation into a map of ask-vs-want deltas and seed pages.
 5. **[[Claude Surface Selection Guide]]** — which door to walk through for which task: chat, Project, Claude Code, skill, connector, routine.
 6. **[[Output Contract for AI Handoffs]]** — standing delivery rules: artifact/PDF always, diagrams over prose, succinct handoffs.
+7. **[[Session Export Skill]]** — how a whole session (this one included) gets archived into five formats for external audit and reconstruction.
 
 ## Visual companion
 

@@ -1,0 +1,261 @@
+<title>Session Autopsy — Layers & Second Brain</title>
+<style>
+  :root {
+    --paper: #F6F9F8; --card: #FFFFFF; --ink: #182B2C; --muted: #566D6C; --line: #D3E0DD;
+    --accent: #0E7368; --accent-soft: #E0EFED; --amber: #B45309; --amber-soft: #F6E8D8;
+    --frozen: #7E93A0; --frozen-soft: #EAEEF1; --danger: #B4382E; --danger-soft: #F8E3E0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0F1B1B; --card: #152423; --ink: #E3EEEB; --muted: #92A9A5; --line: #27403C;
+      --accent: #45C0B2; --accent-soft: #143734; --amber: #E8964B; --amber-soft: #3A2A17;
+      --frozen: #8FA3B0; --frozen-soft: #1D2A31; --danger: #E37367; --danger-soft: #3A1D1A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0F1B1B; --card: #152423; --ink: #E3EEEB; --muted: #92A9A5; --line: #27403C;
+    --accent: #45C0B2; --accent-soft: #143734; --amber: #E8964B; --amber-soft: #3A2A17;
+    --frozen: #8FA3B0; --frozen-soft: #1D2A31; --danger: #E37367; --danger-soft: #3A1D1A;
+  }
+  body { background: var(--paper); color: var(--ink); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.55; margin: 0; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 44px 20px 80px; display: flex; flex-direction: column; gap: 44px; }
+  h1, h2, h3 { font-family: Charter, "Iowan Old Style", Georgia, serif; text-wrap: balance; margin: 0; }
+  h1 { font-size: 2.1rem; line-height: 1.18; font-weight: 700; }
+  h2 { font-size: 1.35rem; font-weight: 700; }
+  .eyebrow { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0 0 8px; }
+  .meta { font-size: 0.85rem; color: var(--muted); }
+  .meta code { font-family: ui-monospace, "SF Mono", Menlo, monospace; background: var(--frozen-soft); padding: 1px 5px; border-radius: 4px; }
+  p { margin: 0; max-width: 66ch; }
+  section { display: flex; flex-direction: column; gap: 14px; }
+
+  .delta-card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+  .delta-row { display: grid; grid-template-columns: 90px 1fr; gap: 14px; align-items: start; }
+  .delta-tag { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; white-space: nowrap; height: fit-content; }
+  .delta-tag.user { color: var(--frozen); background: var(--frozen-soft); }
+  .delta-tag.fixed { color: var(--accent); background: var(--accent-soft); }
+  .delta-row p { font-size: 0.95rem; }
+
+  .turns { display: flex; flex-direction: column; gap: 10px; }
+  details.turn { background: var(--card); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  details.turn > summary {
+    list-style: none; cursor: pointer; padding: 14px 18px; display: grid;
+    grid-template-columns: 44px 1fr auto; gap: 14px; align-items: center;
+  }
+  details.turn > summary::-webkit-details-marker { display: none; }
+  details.turn[open] > summary { border-bottom: 1px solid var(--line); }
+  .turn-num { font-family: Charter, Georgia, serif; font-size: 1.4rem; font-weight: 700; color: var(--accent); }
+  .turn-title { display: flex; flex-direction: column; gap: 2px; }
+  .turn-title strong { font-size: 1rem; }
+  .turn-title span { font-size: 0.82rem; color: var(--muted); }
+  .turn-badges { display: flex; gap: 6px; }
+  .badge { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.62rem; letter-spacing: 0.07em; text-transform: uppercase; padding: 3px 7px; border-radius: 999px; white-space: nowrap; }
+  .badge.ok { color: var(--accent); background: var(--accent-soft); }
+  .badge.fail { color: var(--danger); background: var(--danger-soft); }
+  .badge.silent { color: var(--muted); background: var(--frozen-soft); }
+
+  .turn-body { padding: 4px 18px 20px; display: flex; flex-direction: column; gap: 16px; }
+  .field-label { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+  .quote { border-left: 3px solid var(--line); padding-left: 12px; font-size: 0.92rem; color: var(--muted); max-width: 68ch; }
+  .actions { margin: 0; padding-left: 18px; font-size: 0.9rem; color: var(--muted); display: flex; flex-direction: column; gap: 4px; }
+  .delta-mini { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .delta-mini > div { background: var(--accent-soft); border-radius: 6px; padding: 10px 12px; font-size: 0.88rem; }
+  .delta-mini > div.note { grid-column: 1 / -1; background: var(--amber-soft); }
+  .delta-mini b { display: block; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+  table.analysis { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  table.analysis th, table.analysis td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.analysis th { color: var(--muted); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .art-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-size: 0.88rem; }
+  .art-list li { display: flex; gap: 8px; align-items: baseline; }
+  .art-list code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.82rem; color: var(--accent); }
+  .fail-box { background: var(--danger-soft); border: 1px solid var(--danger); border-radius: 6px; padding: 10px 12px; font-size: 0.85rem; }
+  .fail-box b { color: var(--danger); }
+
+  footer { border-top: 1px solid var(--line); padding-top: 18px; font-size: 0.85rem; color: var(--muted); }
+  footer a { color: var(--accent); }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Session Autopsy · 2026-09-04</p>
+    <h1>Layers &amp; Second Brain — the full record</h1>
+    <p class="meta">Session <code>session_013nFhtpzbdaqJMEg81nydCm</code> · repo <code>faraazxxx-ui/claude-</code> ·
+      branch <code>claude/claude-layers-second-brain-q155b0</code> ·
+      PR <a href="https://github.com/faraazxxx-ui/claude-/pull/24">#24</a><br>
+      Started 2026-08-07 · this export generated 2026-09-04</p>
+  </header>
+
+  <section>
+    <h2>The central delta</h2>
+    <div class="delta-card">
+      <div class="delta-row">
+        <span class="delta-tag user">Your model</span>
+        <p>Personal data, vectored and trained on itself repeatedly, becomes a self-improving mirror of you — the same convergence as trimming a p-value or confidence interval toward the true state of a case. Weights and loss function map onto this directly.</p>
+      </div>
+      <div class="delta-row">
+        <span class="delta-tag fixed">Corrected</span>
+        <p>Weights are frozen at training time, identical for every user — nothing typed updates them. The equivalent system lives one layer up: a wiki of consolidated pages, retrieved into the context window at the moment of need. The loss function relocates to the gap between what the wiki supplied and what a session actually needed — closed by editing pages, not gradient descent.</p>
+      </div>
+      <p style="font-size:0.85rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;">Made in turn 1, never revisited — it didn't need to be. Everything below is the corrected mechanism, built out.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Turn by turn</h2>
+    <div class="turns">
+
+      <details class="turn" open>
+        <summary>
+          <span class="turn-num">1</span>
+          <span class="turn-title"><strong>The teaching request</strong><span>/axiom · the original prompt</span></span>
+          <span class="turn-badges"><span class="badge ok">6 files + PR</span></span>
+        </summary>
+        <div class="turn-body">
+          <div>
+            <div class="field-label">Ask (condensed)</div>
+            <p class="quote">Teach me Claude's layers and the point of wiki pages for a second brain — framed through a physician-with-ADHD self-model and the p-value / loss-function analogy above.</p>
+          </div>
+          <div>
+            <div class="field-label">Actions</div>
+            <ul class="actions">
+              <li>Loaded axiom, read the wiki protocol first</li>
+              <li>Surveyed the repo so nothing duplicated existing docs</li>
+              <li>Wrote 6 wiki pages (MOC + 5 under 05_SYSTEMS)</li>
+              <li>Updated README, committed (aa40809), pushed</li>
+              <li>Opened draft PR #24, subscribed to its activity</li>
+            </ul>
+          </div>
+          <div class="delta-mini">
+            <div><b>Literal ask</b>Teach layers + wiki-page method</div>
+            <div><b>True objective</b>A durable system, not a chat answer that evaporates</div>
+            <div class="note"><b>Note</b>Delta large enough to change form: the teaching <em>is</em> the wiki, not a description of one.</div>
+          </div>
+          <div>
+            <div class="field-label">Exposed reasoning (verbatim)</div>
+            <div style="overflow-x:auto;">
+            <table class="analysis">
+              <tr><th>Element</th><th>Finding</th></tr>
+              <tr><td>Branches considered</td><td>(a) chat-only essay — evaporates; (b) one monolithic file — defeats atomic retrieval; (c) interlinked wiki pages — selected: medium is the lesson</td></tr>
+              <tr><td>Pre-mortem</td><td>Pages never read → MOC + README pointer; duplicates existing docs → linked as phase 2; misconception persists → correction is the centerpiece</td></tr>
+              <tr><td>Wiki action</td><td>6 pages captured, pushed, PR #24 draft. Drive 2_WIKI mirror deferred — connector unstable</td></tr>
+            </table>
+            </div>
+          </div>
+          <div>
+            <div class="field-label">Artifacts</div>
+            <ul class="art-list">
+              <li>📄 <code>wiki/00_INDEX/MOC — Claude and the Second Brain.md</code></li>
+              <li>📄 <code>wiki/05_SYSTEMS/Claude Layers Model.md</code></li>
+              <li>📄 <code>wiki/05_SYSTEMS/Why Wiki Pages Are the Second Brain.md</code></li>
+              <li>📄 <code>wiki/05_SYSTEMS/Second Brain Operating Loop.md</code></li>
+              <li>📄 <code>wiki/05_SYSTEMS/Chat Archive Mining.md</code></li>
+              <li>📄 <code>wiki/05_SYSTEMS/Claude Surface Selection Guide.md</code></li>
+              <li>🔗 commit <code>aa40809</code> · PR <a href="https://github.com/faraazxxx-ui/claude-/pull/24">#24</a></li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="turn">
+        <summary>
+          <span class="turn-num">2</span>
+          <span class="turn-title"><strong>Webhook wake — silent failure</strong><span>system · PR subscription fired</span></span>
+          <span class="turn-badges"><span class="badge fail">tool error</span><span class="badge silent">no reply</span></span>
+        </summary>
+        <div class="turn-body">
+          <p class="quote">GitHub webhook activity from the new PR subscription (not the user): check CI/comments, schedule a 60-minute self check-in.</p>
+          <ul class="actions">
+            <li>Queried the PR list (came back empty on this call)</li>
+            <li>Attempted to schedule a check-in under an incorrect tool name — errored</li>
+          </ul>
+          <div class="fail-box"><b>Tool failure</b> — <code>mcp__Claude_Code_Remote__send_later</code>: "No such tool available." Turn ended with no chat reply. Seed of the repeat failure in turn 4.</div>
+        </div>
+      </details>
+
+      <details class="turn">
+        <summary>
+          <span class="turn-num">3</span>
+          <span class="turn-title"><strong>The redo — a channel fix</strong><span>/axiom · red-team + artifact requirement</span></span>
+          <span class="turn-badges"><span class="badge ok">artifact published</span></span>
+        </summary>
+        <div class="turn-body">
+          <div>
+            <div class="field-label">Ask (condensed)</div>
+            <p class="quote">Red-team the output; always deliver as artifact/PDF; succinct handoffs, verbose internal plan; match a visual-spatial, no-jargon archetype.</p>
+          </div>
+          <ul class="actions">
+            <li>Loaded artifact-design + artifact-diagramming</li>
+            <li>Built an interactive HTML guide: layer stack, correction diagram, loop diagram, consolidation diagram, triage tree</li>
+            <li>Published as a Claude Artifact</li>
+            <li>Captured the delivery rules as a new standing page (<em>Output Contract for AI Handoffs</em>)</li>
+            <li>Updated MOC, committed (894530b), pushed</li>
+          </ul>
+          <div class="delta-mini">
+            <div><b>Literal = objective</b>Explicit, not garbled — taken at face value</div>
+            <div><b>Real diagnosis</b>Turn 1 was right in content, wrong in medium</div>
+            <div class="note"><b>Note</b>Fix was channel, not substance — prose tables for a diagram-native reader was the actual defect.</div>
+          </div>
+          <div>
+            <div class="field-label">Exposed reasoning (verbatim)</div>
+            <div style="overflow-x:auto;">
+            <table class="analysis">
+              <tr><th>Element</th><th>Finding</th></tr>
+              <tr><td>Red-team verdict</td><td>Right content, wrong medium — rebuilt as interactive diagram artifact; chat now carries only the handoff</td></tr>
+              <tr><td>Wiki action</td><td>Delivery rules captured permanently — <em>Output Contract for AI Handoffs</em> (status: stable)</td></tr>
+              <tr><td>Internal deltas</td><td>Withheld per instruction — on request</td></tr>
+            </table>
+            </div>
+          </div>
+          <ul class="art-list">
+            <li>📄 <code>wiki/Second Brain Visual Guide.html</code></li>
+            <li>🎨 Published artifact — <a href="https://claude.ai/code/artifact/4433a8b0-37be-4507-bf1d-950dc11653f5">interactive field guide</a></li>
+            <li>📄 <code>wiki/05_SYSTEMS/Output Contract for AI Handoffs.md</code></li>
+            <li>🔗 commit <code>894530b</code></li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="turn">
+        <summary>
+          <span class="turn-num">4</span>
+          <span class="turn-title"><strong>The check-in that couldn't schedule itself</strong><span>relayed · PR status + reschedule attempt</span></span>
+          <span class="turn-badges"><span class="badge fail">approval denied ×2</span></span>
+        </summary>
+        <div class="turn-body">
+          <p class="quote">Re-check PR #24; act on anything actionable; re-arm silently if nothing changed.</p>
+          <ul class="actions">
+            <li>Confirmed PR #24 still open, draft, no comments, no CI configured</li>
+            <li>Retried scheduling with the corrected tool ID — failed differently this time</li>
+            <li>Seven "continue from where you left off" interrupts arrived mid-stall</li>
+            <li>Retried once more — same failure; gave up and reported status manually</li>
+          </ul>
+          <div class="fail-box"><b>Tool failure</b> — <code>mcp__bf7c680d-...__send_later</code>: "MCP tool call requires approval," denied twice. A structural environment gap, not an interpretation error — exactly the "platform mismatch" delta type the turn-1 Chat Archive Mining page describes.</div>
+        </div>
+      </details>
+
+      <details class="turn">
+        <summary>
+          <span class="turn-num">5</span>
+          <span class="turn-title"><strong>This export</strong><span>/skill-creator · the request that produced this page</span></span>
+          <span class="turn-badges"><span class="badge ok">skill + 5 formats</span></span>
+        </summary>
+        <div class="turn-body">
+          <p class="quote">Several unresolved slash fragments, then: export everything — inputs, outputs, deltas, artifacts, reasoning on both sides — as PDF, artifact, JSON, Markdown, SQL, into a folder, for external audit and reconstruction.</p>
+          <div class="delta-mini">
+            <div><b>Command vs. prose</b><code>/skill-creator</code> implies build a skill; the prose implies export now</div>
+            <div><b>Resolution</b>Both — a skill with no worked example is unverified; a one-off export wastes the invocation</div>
+            <div class="note"><b>Note</b>The <code>/spine</code>, <code>/mega-loop</code>, <code>/angelic-orchestrator-code</code> fragments resolved to nothing real in this environment and were treated as picker noise, not routed anywhere.</div>
+          </div>
+          <ul class="art-list">
+            <li>🛠️ <code>skills/session-exporter/SKILL.md</code> — the reusable method</li>
+            <li>📦 this folder: JSON, Markdown, HTML, PDF, SQL/SQLite</li>
+          </ul>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <footer>
+    Source of truth: <code>session-data.json</code> in this folder. This page, the PDF, and the SQL dump are all rendered from it — edit the JSON, not the renderings, if a fact needs to change.
+  </footer>
+</div>
