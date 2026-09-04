@@ -1,0 +1,393 @@
+<title>Session Anatomy</title>
+<style>
+  :root {
+    --ground:#F3F4F8; --surface:#FFFFFF; --surface-2:#E8EAF2; --line:#CBD0E0;
+    --ink:#171A2B; --ink-2:#4E5473; --ink-3:#7B8199;
+    --accent:#3A3F8F; --accent-soft:#E2E4F5; --accent-line:#A9AEE0;
+    --hidden:#9A5A06; --hidden-soft:#F5E7D2;
+    --verified:#2C6B4F; --alert:#973636;
+    --on-accent:#FFFFFF;
+    --mono: ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+    --sans: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground:#0A0C16; --surface:#141829; --surface-2:#1D2238; --line:#2A3050;
+      --ink:#E6E8F5; --ink-2:#A2A9C6; --ink-3:#7E86A5;
+      --accent:#8E95E8; --accent-soft:#1B2045; --accent-line:#3D4585;
+      --hidden:#D9A23F; --hidden-soft:#2E2413;
+      --verified:#62B187; --alert:#D97575; --on-accent:#0A0C16;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#0A0C16; --surface:#141829; --surface-2:#1D2238; --line:#2A3050;
+    --ink:#E6E8F5; --ink-2:#A2A9C6; --ink-3:#7E86A5;
+    --accent:#8E95E8; --accent-soft:#1B2045; --accent-line:#3D4585;
+    --hidden:#D9A23F; --hidden-soft:#2E2413;
+    --verified:#62B187; --alert:#D97575; --on-accent:#0A0C16;
+  }
+  :root[data-theme="light"] {
+    --ground:#F3F4F8; --surface:#FFFFFF; --surface-2:#E8EAF2; --line:#CBD0E0;
+    --ink:#171A2B; --ink-2:#4E5473; --ink-3:#7B8199;
+    --accent:#3A3F8F; --accent-soft:#E2E4F5; --accent-line:#A9AEE0;
+    --hidden:#9A5A06; --hidden-soft:#F5E7D2;
+    --verified:#2C6B4F; --alert:#973636; --on-accent:#FFFFFF;
+  }
+
+  * { box-sizing:border-box; }
+  body {
+    margin:0; background:var(--ground); color:var(--ink);
+    font-family:var(--sans); font-size:15.5px; line-height:1.55;
+    font-variant-numeric:tabular-nums; -webkit-font-smoothing:antialiased;
+  }
+  .wrap { max-width:1000px; margin:0 auto; padding:0 20px 72px; }
+  section { padding-top:46px; }
+  h1,h2,h3 { margin:0; text-wrap:balance; }
+  p { margin:0; }
+  code { font-family:var(--mono); font-size:.92em; }
+
+  .kicker {
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--ink-3);
+  }
+  header.mast { padding:52px 0 0; }
+  .mast h1 {
+    font-family:var(--mono); font-weight:700; letter-spacing:-.02em;
+    font-size:clamp(28px,5vw,42px); line-height:1.05; margin:12px 0 14px;
+    text-transform:uppercase;
+  }
+  .sub { color:var(--ink-2); max-width:62ch; }
+
+  /* hero asymmetry */
+  .hero {
+    margin-top:28px; background:var(--surface); border:1px solid var(--line);
+    border-top:3px solid var(--hidden); border-radius:3px; padding:22px 22px 18px;
+  }
+  .heroline {
+    display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;
+    font-family:var(--mono);
+  }
+  .heroline .a { font-size:clamp(22px,4vw,34px); font-weight:700; }
+  .heroline .arw { color:var(--ink-3); font-size:20px; }
+  .heroline .b { font-size:clamp(22px,4vw,34px); font-weight:700; color:var(--hidden); }
+  .herocap { margin-top:11px; color:var(--ink-2); font-size:14.5px; max-width:70ch; }
+  .herocap b { color:var(--ink); }
+
+  .stats {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(96px,1fr));
+    gap:1px; background:var(--line); border:1px solid var(--line);
+    margin-top:22px; border-radius:3px; overflow:hidden;
+  }
+  .stat { background:var(--surface); padding:12px 13px; }
+  .stat .n { font-family:var(--mono); font-size:21px; font-weight:700; display:block; line-height:1.1; }
+  .stat .k {
+    font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-3); margin-top:5px; display:block;
+  }
+  .stat.hid .n { color:var(--hidden); }
+  .stat.ver .n { color:var(--verified); }
+
+  .shead { border-top:1px solid var(--line); padding-top:14px; margin-bottom:18px; }
+  .shead h2 {
+    font-family:var(--mono); text-transform:uppercase; letter-spacing:-.01em;
+    font-weight:700; font-size:clamp(17px,2.4vw,21px); margin:7px 0 7px;
+  }
+  .shead p { color:var(--ink-2); font-size:14.5px; max-width:74ch; }
+
+  /* ledger */
+  .ledger { border:1px solid var(--line); border-radius:3px; overflow-x:auto; background:var(--surface); }
+  table { border-collapse:collapse; width:100%; min-width:720px; font-size:13.5px; }
+  th, td { padding:9px 12px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+  th {
+    font-family:var(--mono); font-size:10px; letter-spacing:.11em; text-transform:uppercase;
+    color:var(--ink-3); background:var(--surface-2); font-weight:600; white-space:nowrap;
+  }
+  tbody tr:last-child td { border-bottom:none; }
+  td.num { font-family:var(--mono); text-align:right; white-space:nowrap; }
+  td.hid { color:var(--hidden); font-weight:600; }
+  .ex { font-family:var(--mono); color:var(--accent); font-weight:600; }
+  .ask { font-family:var(--mono); font-size:12px; color:var(--ink-2); }
+  .bar { height:7px; background:var(--surface-2); border-radius:1px; overflow:hidden; min-width:90px; }
+  .bar span { display:block; height:100%; background:var(--hidden); }
+  .bar.shown span { background:var(--accent); }
+  .gone { color:var(--ink-3); font-style:italic; font-size:12.5px; }
+
+  .note {
+    border-left:3px solid var(--hidden); background:var(--surface);
+    border-top:1px solid var(--line); border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line); border-radius:0 3px 3px 0;
+    padding:14px 16px; margin-top:16px; font-size:14px; color:var(--ink-2); max-width:76ch;
+  }
+  .note b { color:var(--ink); }
+  .note.ok { border-left-color:var(--verified); }
+  .note.warn { border-left-color:var(--alert); }
+
+  pre {
+    margin:0; background:var(--surface); border:1px solid var(--line); border-radius:3px;
+    padding:14px 15px; font-family:var(--mono); font-size:12.5px; line-height:1.6;
+    color:var(--ink-2); overflow-x:auto;
+  }
+  .schema { white-space:pre; }
+
+  .grid2 { display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); }
+  .card {
+    background:var(--surface); border:1px solid var(--line); border-radius:3px; padding:15px 16px;
+  }
+  .card h3 {
+    font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--ink-3); margin-bottom:10px;
+  }
+  .kv { display:flex; justify-content:space-between; gap:12px; padding:5px 0; border-bottom:1px solid var(--line); font-size:13.5px; }
+  .kv:last-child { border-bottom:none; }
+  .kv .v { font-family:var(--mono); }
+  .kv .v.hid { color:var(--hidden); }
+  .kv .v.ver { color:var(--verified); }
+  .kv .v.al { color:var(--alert); }
+
+  footer {
+    margin-top:48px; border-top:1px solid var(--line); padding-top:14px;
+    font-family:var(--mono); font-size:10.5px; color:var(--ink-3);
+    letter-spacing:.04em; display:flex; flex-wrap:wrap; gap:7px 16px;
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition:none !important; } }
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="kicker">Session export · forensic record · zone ceiling: confidential</div>
+    <h1>Session Anatomy</h1>
+    <p class="sub">One Claude Code session, measured: 13 things he typed, 261 turns, 121 tool calls, 13 files produced. Built so a third party can analyse it and re-create it — and so the parts that <em>cannot</em> be recovered are stated rather than quietly filled in.</p>
+
+    <div class="hero">
+      <div class="heroline">
+        <span class="a">7 characters</span>
+        <span class="arw">→</span>
+        <span class="b">15,769 tokens of reasoning · 25 tool calls</span>
+      </div>
+      <p class="herocap">Exchange 10 was the word <b>“Do next”</b>. It produced nine reasoning blocks, twenty-five tool calls, two published files and a working ingest pipeline. <b>He saw about 4% of what was generated.</b> That asymmetry — small input, large hidden work, small visible output — is the shape of every productive exchange in this session.</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><span class="n">13</span><span class="k">His messages</span></div>
+      <div class="stat"><span class="n">261</span><span class="k">Turns</span></div>
+      <div class="stat"><span class="n">344</span><span class="k">Blocks</span></div>
+      <div class="stat"><span class="n">121</span><span class="k">Tool calls</span></div>
+      <div class="stat hid"><span class="n">60</span><span class="k">Reasoning blocks</span></div>
+      <div class="stat hid"><span class="n">~94k</span><span class="k">Hidden tokens</span></div>
+      <div class="stat"><span class="n">13</span><span class="k">Files made</span></div>
+      <div class="stat ver"><span class="n">PASS</span><span class="k">Round-trip</span></div>
+    </div>
+  </header>
+
+  <section>
+    <div class="shead">
+      <div class="kicker">The limit, stated first</div>
+      <h2>My reasoning text is not in this export</h2>
+      <p>Not redacted here — never written. All 60 reasoning blocks were stored <strong>signature-only</strong>.</p>
+    </div>
+    <div class="note warn">
+      <b>What survives for each reasoning block:</b> that it happened, where in the conversation, its signature hash and length, and roughly how many tokens it consumed.
+      <b>What does not:</b> a single character of what it said. No amount of re-processing the transcript changes this — the plaintext was never on disk.
+      <br><br>
+      Anyone reconstructing “the model’s thinking” from this data is reconstructing its <b>shape and cost</b>, not its content. A claim otherwise is false, and this export gives you the means to check it: <code>SELECT * FROM blocks WHERE kind='thinking'</code> returns 60 rows with <code>chars = 0</code> and <code>redacted = 1</code>.
+    </div>
+  </section>
+
+  <section>
+    <div class="shead">
+      <div class="kicker">His thinking vs mine · one row per message he typed</div>
+      <h2>The ledger</h2>
+      <p>“Hidden” is reasoning he never saw. “Shown” is the reply he read. Both bars are scaled to the largest exchange, so the row heights are comparable across the session.</p>
+    </div>
+    <div class="ledger">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th><th>What he typed</th>
+            <th class="num">Chars in</th><th class="num">Reasoning</th>
+            <th class="num">Hidden tok</th><th style="width:110px">Hidden</th>
+            <th class="num">Reply chars</th><th class="num">Tools</th><th class="num">Shown</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <div class="note">
+      <b>Exchanges 1–4 show input with no work attached.</b> That is not a parsing failure — the session was compacted, and the assistant records from before the compaction boundary did not survive. The work happened; the evidence of it did not. Stated rather than hidden, because a reader counting rows would otherwise conclude the session began with four ignored messages.
+    </div>
+  </section>
+
+  <section>
+    <div class="shead">
+      <div class="kicker">Where the effort went</div>
+      <h2>Instrument profile</h2>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h3>Tool calls · 121 total, 7 errors</h3>
+        <div class="kv"><span>Bash</span><span class="v">43</span></div>
+        <div class="kv"><span>Edit</span><span class="v">42</span></div>
+        <div class="kv"><span>Write</span><span class="v">12</span></div>
+        <div class="kv"><span>Read</span><span class="v">11</span></div>
+        <div class="kv"><span>Artifact</span><span class="v">8</span></div>
+        <div class="kv"><span>SendUserFile</span><span class="v">3</span></div>
+        <div class="kv"><span>Skill</span><span class="v">2</span></div>
+        <div class="kv"><span>Errors recovered from</span><span class="v al">7</span></div>
+      </div>
+      <div class="card">
+        <h3>Privacy zones · every block tagged</h3>
+        <div class="kv"><span>Confidential — litigation</span><span class="v hid">11</span></div>
+        <div class="kv"><span>Confidential — medical</span><span class="v hid">13</span></div>
+        <div class="kv"><span>Private work — identifier</span><span class="v">10</span></div>
+        <div class="kv"><span>Private work — internal</span><span class="v">310</span></div>
+        <div class="kv"><span>Public</span><span class="v">0</span></div>
+        <div class="kv"><span>Zone ceiling</span><span class="v hid">Confidential</span></div>
+      </div>
+      <div class="card">
+        <h3>Fidelity check</h3>
+        <div class="kv"><span>turns</span><span class="v ver">261 = 261</span></div>
+        <div class="kv"><span>blocks</span><span class="v ver">344 = 344</span></div>
+        <div class="kv"><span>tool_calls</span><span class="v ver">121 = 121</span></div>
+        <div class="kv"><span>usage</span><span class="v ver">117 = 117</span></div>
+        <div class="kv"><span>exchanges</span><span class="v ver">13 = 13</span></div>
+        <div class="kv"><span>artifacts</span><span class="v ver">13 = 13</span></div>
+        <div class="kv"><span>SQL → live DB → JSON</span><span class="v ver">PASS</span></div>
+      </div>
+      <div class="card">
+        <h3>Session facts</h3>
+        <div class="kv"><span>Models</span><span class="v">opus-4-8, opus-5</span></div>
+        <div class="kv"><span>His input</span><span class="v">25,883 chars</span></div>
+        <div class="kv"><span>His replies read</span><span class="v">13,304 chars</span></div>
+        <div class="kv"><span>Reasoning (est)</span><span class="v hid">93,861 tok</span></div>
+        <div class="kv"><span>Tool output returned</span><span class="v">1.4M chars</span></div>
+        <div class="kv"><span>Files produced</span><span class="v">13, checksummed</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="shead">
+      <div class="kicker">Derivations · check these before trusting any number</div>
+      <h2>Two figures are estimates</h2>
+    </div>
+    <pre>hidden_tokens_est = output_tokens − (visible_chars ÷ 4)
+
+  output_tokens   exact, billed. Covers reasoning + reply + tool arguments.
+  visible_chars   exact. Everything actually emitted.
+  ÷ 4             the standard chars-per-token approximation.
+                  NOT a measurement. The only soft term in the calculation.
+
+shown_fraction    = visible tokens ÷ (visible + hidden). Inherits the same
+                    approximation.</pre>
+    <div class="note ok">
+      <b>Everything else is exact</b> — character counts, block counts, tool counts, timestamps, SHA-256 checksums. If you have a real tokeniser, substitute it for the ÷ 4 and both estimates improve. The builder is included so you can.
+    </div>
+  </section>
+
+  <section>
+    <div class="shead">
+      <div class="kicker">Structure</div>
+      <h2>Seven tables, four views</h2>
+      <p><code>turns → blocks</code> is the spine; everything else hangs off it.</p>
+    </div>
+    <pre class="schema">session ──┬── turns ──┬── blocks ──── tool_calls   (joined on tool_use_id)
+          │          └── usage
+          ├── exchanges     one message he typed + everything it caused
+          └── artifacts     files produced, with SHA-256
+
+block      one content unit: text | thinking | tool_use | tool_result | plain
+turn       one logical message. Records sharing a message id are grouped —
+           without that, usage counts once per block instead of per response
+           and every derived figure inflates.
+exchange   the unit of "his thinking vs mine"</pre>
+    <div style="margin-top:14px">
+      <pre>-- The finding this export exists to show
+SELECT exchange_no, ask_chars, hidden_tokens_est, reply_chars, shown_fraction
+FROM   v_his_vs_mine
+ORDER  BY hidden_tokens_per_ask_token DESC;
+
+-- Prove the reasoning is unrecoverable rather than taking my word
+SELECT COUNT(*), SUM(chars), SUM(redacted) FROM blocks WHERE kind='thinking';</pre>
+    </div>
+  </section>
+
+  <section>
+    <div class="shead">
+      <div class="kicker">The folder</div>
+      <h2>What is where</h2>
+    </div>
+    <div class="ledger">
+      <table>
+        <thead><tr><th>File</th><th class="num">Size</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td class="ask">session.json</td><td class="num">2.2 MB</td><td>The full export. Every table, every row, every surviving character. Start here.</td></tr>
+          <tr><td class="ask">session.db</td><td class="num">2.1 MB</td><td>SQL already loaded. Query immediately, no setup.</td></tr>
+          <tr><td class="ask">session.sql</td><td class="num">2.1 MB</td><td>Portable DDL + INSERTs, SQLite dialect.</td></tr>
+          <tr><td class="ask">session.md</td><td class="num">274 KB</td><td>Readable transcript in order, reasoning blocks marked unrecoverable.</td></tr>
+          <tr><td class="ask">README.md</td><td class="num">—</td><td>Schema, derivations, limits, re-creation steps.</td></tr>
+          <tr><td class="ask">MANIFEST.json</td><td class="num">3 KB</td><td>Counts, totals, per-file SHA-256, stated limits.</td></tr>
+          <tr><td class="ask">VERIFY.txt</td><td class="num">—</td><td>The mechanical grade.</td></tr>
+          <tr><td class="ask">build_export.py</td><td class="num">31 KB</td><td>Regenerates all of it from the raw transcript.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <b>To re-create the session:</b> read <code>CLAUDE.md</code> for the rules it ran under, replay the <code>ask</code> column of <code>exchanges</code> in order, then compare output against the 13 checksummed artifacts. Expect the reasoning to differ — you have the inputs and the outputs, not the thinking between them. A faithful re-creation reproduces the <b>artifacts</b>, not the thought process.
+    </div>
+    <div class="note warn">
+      <b>Before sharing this onward:</b> the Confidential blocks hold his own legal filings and clinical history. This page carries structure and measurements only — no verbatim Confidential payload. The full-fidelity files do carry it, and stay local.
+    </div>
+  </section>
+
+  <footer>
+    <span>Derived from the raw transcript by build_export.py. Nothing summarised, inferred, or filled in.</span>
+    <span>Round-trip verified: PASS.</span>
+    <span>Interpretation unverified — by contract, the builder cannot grade itself.</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var EX = [
+    {n:1,  ask:"/model — switch to claude-opus-5",                       c:143,   th:0,  hid:0,     rep:0,    tools:0,  shown:null},
+    {n:2,  ask:"(command output) Set model to claude-opus-5",            c:71,    th:0,  hid:0,     rep:0,    tools:0,  shown:null},
+    {n:3,  ask:"Session continuation + prior-context summary",           c:22780, th:0,  hid:0,     rep:0,    tools:0,  shown:null},
+    {n:4,  ask:"/compact — with standing output preferences",            c:1767,  th:0,  hid:0,     rep:0,    tools:0,  shown:null},
+    {n:5,  ask:"(compacted) — resume work",                              c:55,    th:8,  hid:14703, rep:129,  tools:12, shown:0.002},
+    {n:6,  ask:"[interrupted] continue",                                 c:42,    th:1,  hid:189,   rep:0,    tools:1,  shown:0.000},
+    {n:7,  ask:"[interrupted] continue",                                 c:42,    th:1,  hid:165,   rep:0,    tools:1,  shown:0.000},
+    {n:8,  ask:"[interrupted] continue",                                 c:42,    th:1,  hid:654,   rep:1476, tools:3,  shown:0.361},
+    {n:9,  ask:"5 new files attached — “Re-run and automatically proceed”", c:481, th:12, hid:32463, rep:3153, tools:28, shown:0.024},
+    {n:10, ask:"“Do next”",                                              c:7,     th:9,  hid:15769, rep:2642, tools:25, shown:0.040},
+    {n:11, ask:"“What’s next?”",                                         c:13,    th:2,  hid:1468,  rep:1945, tools:1,  shown:0.249},
+    {n:12, ask:"“Go and write it.”",                                     c:16,    th:6,  hid:4905,  rep:2875, tools:11, shown:0.128},
+    {n:13, ask:"/spine /mega-loop — export everything",                  c:424,   th:19, hid:22741, rep:1084, tools:39, shown:0.012}
+  ];
+  var maxHid = 0, maxRep = 0;
+  EX.forEach(function (e) { if (e.hid > maxHid) { maxHid = e.hid; }
+                            if (e.rep > maxRep) { maxRep = e.rep; } });
+
+  function esc(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+  function n(x) { return x.toLocaleString("en-US"); }
+
+  document.getElementById("rows").innerHTML = EX.map(function (e) {
+    var dead = e.th === 0 && e.tools === 0;
+    return '<tr>' +
+      '<td class="ex">' + e.n + '</td>' +
+      '<td class="ask">' + esc(e.ask) + (dead ? ' <span class="gone">· pre-compaction, work not recorded</span>' : '') + '</td>' +
+      '<td class="num">' + n(e.c) + '</td>' +
+      '<td class="num">' + (e.th || '—') + '</td>' +
+      '<td class="num hid">' + (e.hid ? n(e.hid) : '—') + '</td>' +
+      '<td><div class="bar"><span style="width:' +
+        (maxHid ? (e.hid / maxHid * 100).toFixed(1) : 0) + '%"></span></div></td>' +
+      '<td class="num">' + (e.rep ? n(e.rep) : '—') + '</td>' +
+      '<td class="num">' + (e.tools || '—') + '</td>' +
+      '<td class="num">' + (e.shown === null ? '—' : (e.shown * 100).toFixed(1) + '%') + '</td>' +
+      '</tr>';
+  }).join("");
+})();
+</script>
