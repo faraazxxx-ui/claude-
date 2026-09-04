@@ -1,0 +1,87 @@
+[
+  {
+    "name": "document_id",
+    "type": "STRING",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "title",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "content",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "source_type",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "email | note | pdf | chat | social | browser"
+  },
+  {
+    "name": "life_domain",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "career | finance | health | learning | personal | creative | relationships | home | digital | reference"
+  },
+  {
+    "name": "metadata",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {
+        "name": "source",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "author",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "created_at",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "modified_at",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "tags",
+        "type": "STRING",
+        "mode": "REPEATED"
+      },
+      {
+        "name": "importance_score",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "triage_category",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  {
+    "name": "embeddings",
+    "type": "FLOAT",
+    "mode": "REPEATED",
+    "description": "Vector embeddings array (768-3072 dimensions)"
+  },
+  {
+    "name": "chunk_index",
+    "type": "INTEGER",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ingestion_timestamp",
+    "type": "TIMESTAMP",
+    "mode": "REQUIRED"
+  }
+]

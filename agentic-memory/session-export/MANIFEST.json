@@ -1,0 +1,103 @@
+{
+  "generated_from": "/root/.claude/projects/-home-user-claude-/7f4839a0-2759-5274-a271-16ea4d44156c.jsonl",
+  "session": {
+    "session_id": "7f4839a0-2759-5274-a271-16ea4d44156c",
+    "transcript_sha256": "ef2f167c265fabe858cc0ce800032ad75e732fc3d2ffd20a89fe8b3e9af1682f",
+    "transcript_bytes": 6599403,
+    "records": 561,
+    "turns": 276,
+    "blocks": 365,
+    "tool_calls": 128,
+    "exchanges": 13,
+    "started": "2026-08-02T21:15:36.903Z",
+    "ended": "2026-09-04T08:06:48.154Z",
+    "models": "claude-opus-4-8, claude-opus-5",
+    "cwd": "/home/user/claude-",
+    "git_branch": "claude/agentic-memory-field-test-q6uhce",
+    "max_privacy_zone": "Confidential",
+    "thinking_blocks": 65,
+    "thinking_plaintext_recoverable": 0,
+    "hidden_tokens_est_total": 101766
+  },
+  "block_kinds": {
+    "thinking": 65,
+    "text": 30,
+    "plain": 15,
+    "tool_use": 128,
+    "tool_result": 127
+  },
+  "privacy_zones": {
+    "Private work": 340,
+    "Confidential": 25
+  },
+  "tool_frequency": {
+    "Bash": 46,
+    "Edit": 42,
+    "Write": 15,
+    "Read": 11,
+    "Artifact": 9,
+    "SendUserFile": 3,
+    "Skill": 2
+  },
+  "totals": {
+    "his_input_chars": 25883,
+    "my_reply_chars": 13385,
+    "my_thinking_blocks": 65,
+    "my_thinking_plaintext_chars": 0,
+    "my_hidden_tokens_est": 101766,
+    "tool_result_chars": 1143653
+  },
+  "known_limits": [
+    "Reasoning plaintext is absent from the transcript on disk. All 65 reasoning blocks are signature-only, so this export can prove that reasoning happened, where, and roughly how much - never what it said.",
+    "hidden_tokens_est is an ESTIMATE: exact billed output_tokens minus visible_chars/4. The /4 chars-per-token figure is an approximation.",
+    "Tool results are truncated by the harness before reaching the transcript, so result_chars measures what was returned to the model, not what the tool produced.",
+    "The pre-compaction portion of this session survives only as a summary record; turn-level detail before the compact boundary is not in this file at full fidelity."
+  ],
+  "files": [
+    {
+      "name": "README.md",
+      "bytes": 6568,
+      "sha256": "a16c7e44d509949042047f1ba045205e80bf589e91f4f13fdf3b9272f940822e"
+    },
+    {
+      "name": "VERIFY.txt",
+      "bytes": 529,
+      "sha256": "5644fc9307d4998950a9265defa2ac47e6cb27646624ff91be6f6b6486be2b05"
+    },
+    {
+      "name": "build_export.py",
+      "bytes": 31101,
+      "sha256": "673ebf62e753b5fa74c9c39bcdfe6c0bab67f856a65f2b6d2c3822bd591eb560"
+    },
+    {
+      "name": "session-anatomy.html",
+      "bytes": 21464,
+      "sha256": "69e61362cf46482d2d5ea12af8624392bd0ab254d15662aaf63631d06dc90fee"
+    },
+    {
+      "name": "session-anatomy.pdf",
+      "bytes": 233132,
+      "sha256": "20b148bbfd0aa9d3dbfd334bd39a1747066ad8dd28868f810d235509cb6350a2"
+    },
+    {
+      "name": "session.db",
+      "bytes": 2195456,
+      "sha256": "5a71cc3157f051be1a7ed838effcc0e11b9e2684eb7083f75b29b8c785881594"
+    },
+    {
+      "name": "session.json",
+      "bytes": 2309225,
+      "sha256": "3eb390be556073d689371fde4106693260fb9026baf4f0fc52f6eb521c42a1a4"
+    },
+    {
+      "name": "session.md",
+      "bytes": 294846,
+      "sha256": "b765eb9d2e6cb225da819c0ed4eaee4c0c6f21d28e8ad336768373f3d995f0e0"
+    },
+    {
+      "name": "session.sql",
+      "bytes": 2194202,
+      "sha256": "101ea49c45ff26303e0edc879f3ab1545136eca4f17e5e21439801c2977c0d17"
+    }
+  ]
+}

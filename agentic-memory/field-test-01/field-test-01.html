@@ -1,0 +1,953 @@
+<title>Field Test #1 — How I Work With AI</title>
+<style>
+  :root {
+    --ground:#EFF2F3; --surface:#FFFFFF; --surface-2:#E5EAEC; --line:#C9D4D8;
+    --ink:#131E26; --ink-2:#465A66; --ink-3:#71868F;
+    --accent:#0D6E68; --accent-soft:#D6EAE8; --accent-line:#8FC7C2; --on-accent:#FFFFFF;
+    --stable:#2E7D53; --monitor:#8E6A10; --warn:#B0511C; --crit:#962727;
+    --shadow:0 1px 2px rgba(19,30,38,.06), 0 8px 24px -16px rgba(19,30,38,.28);
+    --serif: "Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono: ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground:#0C1418; --surface:#121D23; --surface-2:#1A2932; --line:#26383F;
+      --ink:#E3EDF0; --ink-2:#9DB2BC; --ink-3:#7A929D;
+      --accent:#4FBFB4; --accent-soft:#12332F; --accent-line:#2C5F5A; --on-accent:#08110F;
+      --stable:#5FB483; --monitor:#CBA13C; --warn:#DD8850; --crit:#D96A6A;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#0C1418; --surface:#121D23; --surface-2:#1A2932; --line:#26383F;
+    --ink:#E3EDF0; --ink-2:#9DB2BC; --ink-3:#7A929D;
+    --accent:#4FBFB4; --accent-soft:#12332F; --accent-line:#2C5F5A; --on-accent:#08110F;
+    --stable:#5FB483; --monitor:#CBA13C; --warn:#DD8850; --crit:#D96A6A;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+  }
+  :root[data-theme="light"] {
+    --ground:#EFF2F3; --surface:#FFFFFF; --surface-2:#E5EAEC; --line:#C9D4D8;
+    --ink:#131E26; --ink-2:#465A66; --ink-3:#71868F;
+    --accent:#0D6E68; --accent-soft:#D6EAE8; --accent-line:#8FC7C2; --on-accent:#FFFFFF;
+    --stable:#2E7D53; --monitor:#8E6A10; --warn:#B0511C; --crit:#962727;
+    --shadow:0 1px 2px rgba(19,30,38,.06), 0 8px 24px -16px rgba(19,30,38,.28);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin:0; background:var(--ground); color:var(--ink);
+    font-family:var(--sans); font-size:16px; line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap { max-width:960px; margin:0 auto; padding:0 20px 80px; }
+  section { padding-top:52px; }
+  h1,h2,h3 { text-wrap:balance; margin:0; }
+  p { margin:0; }
+
+  .eyebrow {
+    font-family:var(--mono); font-size:11px; letter-spacing:.13em;
+    text-transform:uppercase; color:var(--ink-3);
+  }
+  .id { font-family:var(--mono); font-size:12px; color:var(--accent); font-weight:600; }
+  .lede { font-size:16px; color:var(--ink-2); max-width:64ch; }
+
+  header.mast { padding:56px 0 0; }
+  .mast h1 {
+    font-family:var(--serif); font-weight:600; letter-spacing:-.015em;
+    font-size:clamp(30px,5.2vw,46px); line-height:1.08; margin:14px 0 12px; max-width:20ch;
+  }
+  .verdictbar { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:22px; }
+  .verdict {
+    display:inline-flex; align-items:baseline; gap:8px;
+    font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+    background:var(--accent-soft); color:var(--accent);
+    border:1px solid var(--accent-line); border-radius:2px; padding:6px 11px; font-weight:600;
+  }
+  .stats {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(100px,1fr));
+    gap:1px; background:var(--line); border:1px solid var(--line);
+    margin-top:24px; border-radius:3px; overflow:hidden;
+  }
+  .stat { background:var(--surface); padding:13px 14px; }
+  .stat .n {
+    font-family:var(--mono); font-size:23px; font-weight:600; letter-spacing:-.02em;
+    font-variant-numeric:tabular-nums; display:block; line-height:1.1;
+  }
+  .stat .k {
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-3); margin-top:5px; display:block;
+  }
+  .stat.short .n { color:var(--warn); }
+  .stat.gain .n { color:var(--accent); }
+
+  .shead { border-top:1px solid var(--line); padding-top:16px; margin-bottom:22px; }
+  .shead h2 {
+    font-family:var(--serif); font-weight:600; font-size:clamp(21px,3vw,27px);
+    letter-spacing:-.01em; margin:8px 0 8px; line-height:1.2;
+  }
+
+  /* mirrored-stall diagram */
+  .mirror {
+    background:var(--surface); border:1px solid var(--line); border-radius:4px;
+    padding:24px 22px 20px; box-shadow:var(--shadow);
+  }
+  .panes { display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); }
+  .pane { border:1px solid var(--line); border-radius:3px; padding:15px 16px; background:var(--surface-2); }
+  .pane h3 {
+    font-size:14px; font-weight:600; margin-bottom:3px;
+  }
+  .pane .who { font-family:var(--mono); font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink-3); }
+  .cycle { display:flex; flex-direction:column; gap:6px; margin:13px 0 12px; }
+  .beat {
+    font-family:var(--mono); font-size:12px; background:var(--surface);
+    border:1px solid var(--line); border-radius:2px; padding:7px 10px; color:var(--ink-2);
+  }
+  .beat.loopmark { border-color:var(--crit); color:var(--crit); font-weight:600; }
+  .beat.dead { border-style:dashed; border-color:var(--crit); color:var(--crit); }
+  .cost {
+    font-family:var(--mono); font-size:11.5px; color:var(--crit);
+    border-top:1px solid var(--line); padding-top:9px;
+  }
+  .fixline {
+    margin-top:16px; padding:13px 15px; border-left:3px solid var(--accent);
+    background:var(--accent-soft); border-radius:0 3px 3px 0; font-size:14.5px; color:var(--ink);
+  }
+  .fixline b { font-weight:600; }
+
+  /* pattern cards */
+  .patterns { display:grid; gap:9px; }
+  .pcard {
+    width:100%; text-align:left; font:inherit; color:inherit; cursor:pointer;
+    background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--accent-line);
+    border-radius:3px; padding:14px 16px; display:grid; gap:6px;
+    transition:border-color .14s ease, background .14s ease;
+  }
+  .pcard:hover { border-left-color:var(--accent); }
+  .pcard[aria-pressed="true"] { border-left-color:var(--accent); background:var(--accent-soft); }
+  .pcard:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+  .prow { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; }
+  .pcard .claim { font-weight:600; font-size:15.5px; letter-spacing:-.005em; }
+  .pcard .stall { font-size:13.5px; color:var(--ink-2); }
+  .chips { display:flex; gap:5px; flex-wrap:wrap; margin-left:auto; }
+  .chip {
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.04em;
+    border:1px solid var(--line); border-radius:2px; padding:2px 6px; color:var(--ink-3);
+    background:var(--ground);
+  }
+  .chip.x { color:var(--stable); border-color:var(--stable); }
+  .chip.new { color:var(--accent); border-color:var(--accent-line); }
+  .chip.band-act { color:var(--crit); border-color:var(--crit); font-weight:600; }
+  .chip.band-mon { color:var(--warn); border-color:var(--warn); }
+  .chip.band-note { color:var(--ink-3); }
+
+  .triage {
+    display:flex; flex-wrap:wrap; gap:6px 14px; align-items:baseline;
+    border-top:1px solid var(--line); padding-top:9px; margin-top:3px;
+  }
+  .cnt {
+    font-family:var(--mono); font-size:11px; letter-spacing:.04em;
+    text-transform:uppercase; color:var(--ink-3); white-space:nowrap;
+  }
+  .cnt b { font-size:13px; color:var(--ink); font-variant-numeric:tabular-nums; }
+  .costline { font-family:var(--mono); font-size:11.5px; color:var(--warn); flex:1; min-width:200px; }
+  .fixrow { font-size:13.5px; color:var(--ink-2); }
+  .fixk {
+    font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--accent); border:1px solid var(--accent-line); border-radius:2px;
+    padding:1px 5px; margin-right:8px;
+  }
+
+  /* retrieval panel */
+  .ask {
+    background:var(--surface); border:1px solid var(--line); border-radius:4px;
+    padding:19px 20px; box-shadow:var(--shadow);
+  }
+  .askrow { display:flex; gap:8px; flex-wrap:wrap; }
+  .askrow input {
+    flex:1; min-width:220px; font:inherit; font-size:14.5px; color:var(--ink);
+    background:var(--ground); border:1px solid var(--line); border-radius:3px; padding:9px 12px;
+  }
+  .askrow input:focus-visible { outline:2px solid var(--accent); outline-offset:1px; }
+  .askrow button {
+    font-family:var(--mono); font-size:12px; cursor:pointer; padding:9px 15px;
+    background:var(--accent); color:var(--on-accent); border:1px solid var(--accent); border-radius:3px;
+  }
+  .presets { display:flex; flex-wrap:wrap; gap:6px; margin-top:11px; }
+  .askmeta {
+    font-family:var(--mono); font-size:11px; color:var(--ink-3); margin:15px 0 9px;
+    border-top:1px solid var(--line); padding-top:11px;
+  }
+  .hits { display:grid; gap:7px; }
+  .hit {
+    border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:3px;
+    padding:11px 13px; background:var(--ground); display:grid; gap:5px;
+  }
+  .hit .ht { font-weight:600; font-size:14px; line-height:1.35; }
+  .hit .hs { font-family:var(--mono); font-size:11px; color:var(--ink-3); }
+  .hit .hs b { color:var(--accent); }
+  .nohit { font-size:14px; color:var(--warn); }
+
+  .tablewrap { overflow-x:auto; border:1px solid var(--line); border-radius:3px; background:var(--surface); }
+  table { border-collapse:collapse; width:100%; min-width:600px; font-size:14px; }
+  th, td { text-align:left; padding:11px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th {
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-3); font-weight:600; background:var(--surface-2);
+  }
+  tbody tr:last-child td { border-bottom:none; }
+  td.sev { font-family:var(--mono); font-size:11px; white-space:nowrap; }
+  .dot { display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:7px; vertical-align:1px; }
+  .s-high .dot { background:var(--crit); } .s-high { color:var(--crit); }
+  .s-med .dot  { background:var(--warn); } .s-med  { color:var(--warn); }
+  .s-low .dot  { background:var(--ink-3); } .s-low { color:var(--ink-3); }
+  tr.act td:first-child { box-shadow:inset 3px 0 0 var(--accent); }
+  .now, .tag {
+    font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase;
+    border-radius:2px; padding:1px 5px; margin-left:8px; white-space:nowrap; border:1px solid;
+  }
+  .now { color:var(--accent); border-color:var(--accent-line); }
+  .tag { color:var(--ink-3); border-color:var(--line); }
+
+  /* evidence */
+  .filters { display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin-bottom:14px; }
+  .fgroup { display:flex; gap:4px; align-items:center; flex-wrap:wrap; }
+  .flabel {
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-3); margin-right:3px;
+  }
+  .f {
+    font-family:var(--mono); font-size:11.5px; cursor:pointer; color:var(--ink-2);
+    background:var(--surface); border:1px solid var(--line); border-radius:2px; padding:4px 9px;
+    transition:all .12s ease;
+  }
+  .f:hover { border-color:var(--accent-line); color:var(--ink); }
+  .f[aria-pressed="true"] { background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
+  .f:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+  .fstate {
+    font-family:var(--mono); font-size:11.5px; color:var(--ink-3); margin-left:auto;
+    font-variant-numeric:tabular-nums;
+  }
+  .notes { display:grid; gap:7px; }
+  details.note { background:var(--surface); border:1px solid var(--line); border-radius:3px; }
+  details.note[open] { border-color:var(--accent-line); }
+  details.note.lit { box-shadow:inset 3px 0 0 var(--accent); }
+  summary { cursor:pointer; padding:12px 15px; display:flex; gap:11px; align-items:baseline; list-style:none; }
+  summary::-webkit-details-marker { display:none; }
+  summary:focus-visible { outline:2px solid var(--accent); outline-offset:-2px; }
+  .ntitle { font-weight:600; font-size:14.5px; line-height:1.35; flex:1; letter-spacing:-.005em; }
+  .nmeta { display:flex; gap:5px; align-items:center; flex-shrink:0; flex-wrap:wrap; }
+  .conf {
+    font-family:var(--mono); font-size:10px; letter-spacing:.07em; text-transform:uppercase;
+    border-radius:2px; padding:2px 6px; border:1px solid;
+  }
+  .conf.high { color:var(--stable); border-color:var(--stable); }
+  .conf.med  { color:var(--monitor); border-color:var(--monitor); }
+  .typetag {
+    font-family:var(--mono); font-size:10px; letter-spacing:.07em; text-transform:uppercase;
+    color:var(--ink-3); border:1px solid var(--line); border-radius:2px; padding:2px 6px;
+  }
+  .nbody { padding:0 15px 15px 15px; display:grid; gap:10px; }
+  .nbody p { font-size:14.5px; color:var(--ink-2); max-width:72ch; }
+  .nsrc {
+    font-family:var(--mono); font-size:11.5px; color:var(--ink-3);
+    border-left:2px solid var(--line); padding-left:10px; max-width:76ch; line-height:1.5;
+  }
+  .ngap { font-size:13px; color:var(--warn); font-family:var(--mono); }
+  .ngap.none { color:var(--ink-3); }
+
+  /* phase P */
+  .pred {
+    background:var(--surface); border:1px solid var(--line); border-radius:3px;
+    padding:17px 18px; display:grid; gap:11px; margin-bottom:10px;
+  }
+  .pred h3 { font-size:16px; font-weight:600; letter-spacing:-.005em; }
+  .pred .why { font-size:14px; color:var(--ink-2); max-width:74ch; }
+  .promptbox { position:relative; }
+  .promptbox pre {
+    margin:0; background:var(--ground); border:1px solid var(--line); border-radius:3px;
+    padding:15px 15px; font-family:var(--mono); font-size:12.5px; line-height:1.6;
+    color:var(--ink-2); white-space:pre-wrap; overflow-x:auto;
+  }
+  .copy {
+    position:absolute; top:9px; right:9px; font-family:var(--mono); font-size:11px;
+    background:var(--surface); color:var(--ink-2); border:1px solid var(--line);
+    border-radius:2px; padding:4px 9px; cursor:pointer;
+  }
+  .copy:hover { border-color:var(--accent); color:var(--accent); }
+  .copy:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+
+  .handoff {
+    background:var(--surface); border:1px solid var(--accent-line); border-radius:4px;
+    padding:22px; box-shadow:var(--shadow); display:grid; gap:15px;
+  }
+  .hgrid { display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
+  .hitem .k {
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-3); display:block; margin-bottom:5px;
+  }
+  .hitem .v { font-size:14.5px; }
+  .hitem .v em { color:var(--ink-2); font-style:normal; }
+
+  .scopebox {
+    margin-top:16px; border-left:3px solid var(--warn); background:var(--surface);
+    border-top:1px solid var(--line); border-right:1px solid var(--line); border-bottom:1px solid var(--line);
+    border-radius:0 3px 3px 0; padding:14px 16px; font-size:14px; color:var(--ink-2); max-width:74ch;
+  }
+  .scopebox b { color:var(--ink); font-weight:600; }
+
+  footer {
+    margin-top:56px; border-top:1px solid var(--line); padding-top:16px;
+    font-family:var(--mono); font-size:11px; color:var(--ink-3); letter-spacing:.03em;
+    display:flex; flex-wrap:wrap; gap:8px 18px;
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition:none !important; } }
+  @media (max-width:620px) { .chips { margin-left:0; } summary { flex-wrap:wrap; } }
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="eyebrow">Agentic Memory · Field Test #1 · Round 2 — Phase R + Phase P</div>
+    <h1>A behavioural map of how I work with AI</h1>
+    <p class="lede">Eight exported conversations, two platforms, two domains, five months apart. Every claim traces to a named source. This is a symptom diary of a working method — hypothesis-generating, <strong>not diagnostic</strong>, and not a claim about health, neurology, or the merits of any legal matter.</p>
+    <div class="verdictbar">
+      <span class="verdict">Done-when · <b>Partial pass</b></span>
+      <span class="chip x">Cross-checked on 2 platforms</span>
+      <span class="chip">Batch short: 8 of ~50</span>
+      <span class="chip">Orphan claims: 0</span>
+    </div>
+    <div class="stats">
+      <div class="stat short"><span class="n">8</span><span class="k">Conversations</span></div>
+      <div class="stat gain"><span class="n">2</span><span class="k">Platforms</span></div>
+      <div class="stat gain"><span class="n">2</span><span class="k">Domains</span></div>
+      <div class="stat"><span class="n">34</span><span class="k">Atomic notes</span></div>
+      <div class="stat"><span class="n">7</span><span class="k">Patterns</span></div>
+      <div class="stat"><span class="n">12</span><span class="k">Gaps</span></div>
+      <div class="stat"><span class="n">2/2</span><span class="k">Rounds used</span></div>
+    </div>
+  </header>
+
+  <section id="finding">
+    <div class="shead">
+      <div class="eyebrow">The finding, in one picture</div>
+      <h2>The loop stalls whenever neither side holds a stop rule</h2>
+    </div>
+    <div class="mirror">
+      <div class="panes">
+        <div class="pane">
+          <span class="who">My side · no exit test</span>
+          <h3>“Redo it to the perfect output”</h3>
+          <div class="cycle">
+            <div class="beat">Engineered prompt · schema, formula, guardrails</div>
+            <div class="beat">Report arrives</div>
+            <div class="beat loopmark">↺ “Redo to the perfect output” — fires 3×</div>
+            <div class="beat">Dashboard · what was wanted at turn 1</div>
+          </div>
+          <div class="cost">Cost · 2 rebuild rounds (C1) — “perfect” has no observable test · N01</div>
+        </div>
+        <div class="pane">
+          <span class="who">The assistant’s side · no default</span>
+          <h3>“Please confirm one detail first”</h3>
+          <div class="cycle">
+            <div class="beat">Statement of Causal Harm drafted, 2 PDFs out</div>
+            <div class="beat">4 more documents promised</div>
+            <div class="beat loopmark">↺ “Confirm the starting month” — asked 3×</div>
+            <div class="beat dead">Thread ends · 0 of 4 delivered</div>
+          </div>
+          <div class="cost">Cost · 4 documents lost (C8), 5 confirmation round-trips (C7) · N26, N27</div>
+        </div>
+      </div>
+      <p class="fixline"><b>Same defect, opposite directions.</b> One is fixed by a Done-when test. The other by propose-then-confirm — produce the draft, state the assumption inline, invite the correction. Neither needs more effort, only a rule. And the second is the one the responder can fix without me changing anything.</p>
+    </div>
+  </section>
+
+  <section id="patterns">
+    <div class="shead">
+      <div class="eyebrow">Pattern map · click any row to pull its evidence</div>
+      <h2>Seven patterns, ordered by observed cost</h2>
+    </div>
+    <div class="patterns" id="pcards"></div>
+  </section>
+
+  <section id="fixes">
+    <div class="shead">
+      <div class="eyebrow">Stall points → the one-line fix</div>
+      <h2>Where the approach breaks</h2>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th style="width:30%">Stall</th><th style="width:30%">Cost in this corpus</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr class="act"><td>Ask-then-wait<span class="now">Act now</span></td><td>4 documents undelivered (C8), 5 round-trips (C7), 1 deliverable lost (C3)</td><td><b>Propose-then-confirm.</b> Never a question instead of a draft; never more than one question.</td></tr>
+          <tr class="act"><td>No externalised “done”<span class="now">Act now</span></td><td>2 rebuild rounds (C1)</td><td>A Done-when test on every task. Already in the standing instructions.</td></tr>
+          <tr class="act"><td>Un-pre-empted render step<span class="now">Act now</span></td><td>One round in each of 6 conversations</td><td>Ship the artefact in the first pass — dashboard, PDF, or both.</td></tr>
+          <tr class="act"><td>Session re-priming tax<span class="now">Fixed</span></td><td>3 of 3 ChatGPT threads reopen by re-declaring the mode</td><td><b><code>CLAUDE.md</code> at the repo root</b> — loads every session, carries all five fixes and the glossary. No re-priming.</td></tr>
+          <tr><td>Completeness-blind metrics</td><td>6.7 vs 5.7 on the same data and date</td><td>Print “inputs present: X/Y” beside any composite score.</td></tr>
+          <tr><td>Un-glossed shorthand</td><td>2–3 rounds (C1)</td><td>A six-line glossary in the standing instructions.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="evidence">
+    <div class="shead">
+      <div class="eyebrow">Evidence · 34 atomic notes · zero orphan claims</div>
+      <h2>Every claim, with its source</h2>
+    </div>
+    <div class="filters" id="filters">
+      <div class="fgroup"><span class="flabel">Type</span>
+        <button class="f" data-k="type" data-v="all" aria-pressed="true">All</button>
+        <button class="f" data-k="type" data-v="Process" aria-pressed="false">Process</button>
+        <button class="f" data-k="type" data-v="Content" aria-pressed="false">Content</button>
+      </div>
+      <div class="fgroup"><span class="flabel">Platform</span>
+        <button class="f" data-k="plat" data-v="all" aria-pressed="true">All</button>
+        <button class="f" data-k="plat" data-v="Claude" aria-pressed="false">Claude</button>
+        <button class="f" data-k="plat" data-v="ChatGPT" aria-pressed="false">ChatGPT</button>
+      </div>
+      <div class="fgroup"><span class="flabel">Source</span>
+        <button class="f" data-k="src" data-v="all" aria-pressed="true">All</button>
+        <button class="f" data-k="src" data-v="C1" aria-pressed="false">C1</button>
+        <button class="f" data-k="src" data-v="C2" aria-pressed="false">C2</button>
+        <button class="f" data-k="src" data-v="C3" aria-pressed="false">C3</button>
+        <button class="f" data-k="src" data-v="C4" aria-pressed="false">C4</button>
+        <button class="f" data-k="src" data-v="C5" aria-pressed="false">C5</button>
+        <button class="f" data-k="src" data-v="C6" aria-pressed="false">C6</button>
+        <button class="f" data-k="src" data-v="C7" aria-pressed="false">C7</button>
+        <button class="f" data-k="src" data-v="C8" aria-pressed="false">C8</button>
+      </div>
+      <span class="fstate" id="fstate">34 of 34</span>
+    </div>
+    <div class="notes" id="notes"></div>
+  </section>
+
+  <section id="ask">
+    <div class="shead">
+      <div class="eyebrow">Retrieval · working now, no credentials needed</div>
+      <h2>Ask the notes</h2>
+    </div>
+    <div class="ask">
+      <form class="askrow" id="askform">
+        <input id="askinput" type="text" placeholder="Ask the 34 notes a question…" aria-label="Search the notes">
+        <button type="submit">Search</button>
+      </form>
+      <div class="presets" id="presets"></div>
+      <div class="askmeta" id="askmeta">Four preset questions, or type your own. Ranked by term match across title, body, source and tags.</div>
+      <div class="hits" id="hits"></div>
+    </div>
+    <div class="scopebox">
+      <b>This is the mission’s done-when, satisfied locally.</b> The same 34 notes are built as <code>notes.jsonl</code> against the guide’s <code>documents</code> schema — 34 rows, zero orphan claims, validation pass. Loading them into BigQuery and generating embeddings needs your Google Cloud credentials, so those four steps are listed as a handoff in <code>06-INGEST.md</code> rather than silently skipped.
+    </div>
+  </section>
+
+  <section id="gaps">
+    <div class="shead">
+      <div class="eyebrow">Gap list · what is thin, missing, or unverified</div>
+      <h2>What would make this map trustworthy</h2>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th style="width:7%">ID</th><th style="width:29%">Gap</th><th style="width:16%">Severity</th><th>What closes it</th></tr></thead>
+        <tbody>
+          <tr><td class="id">G1</td><td>8 of ~50 conversations</td><td class="sev s-high"><span class="dot"></span>High<span class="tag">narrowed</span></td><td>Export the remaining ~42.</td></tr>
+          <tr><td class="id">G10</td><td>My own messages absent from the three ChatGPT threads</td><td class="sev s-high"><span class="dot"></span>High<span class="tag">new</span></td><td>Re-export with user turns — the exporter dropped them. Cheapest high-value fix.</td></tr>
+          <tr><td class="id">G2</td><td>2021 – mid-2025 absent</td><td class="sev s-high"><span class="dot"></span>High<span class="tag">narrowed</span></td><td>Add pre-2025 exports; sort by conversation date, not export date.</td></tr>
+          <tr><td class="id">G3</td><td>Domain coverage still narrow</td><td class="sev s-med"><span class="dot"></span>Medium<span class="tag">was high</span></td><td>Add workflow, finance, clinical-practice, technical conversations.</td></tr>
+          <tr><td class="id">G11</td><td>Promised deliverables absent in 4 of 8</td><td class="sev s-med"><span class="dot"></span>Medium<span class="tag">new</span></td><td>Re-export those four threads in full, or confirm the documents exist.</td></tr>
+          <tr><td class="id">G5</td><td>Content notes unverified</td><td class="sev s-med"><span class="dot"></span>Medium</td><td>Verify health citations; treat legal content as pleading, not fact.</td></tr>
+          <tr><td class="id">G6</td><td>Raw source data absent</td><td class="sev s-med"><span class="dot"></span>Medium</td><td>Attach wearable CSVs; index the legal exhibit bundle.</td></tr>
+          <tr><td class="id">G7</td><td>Self-reported profile and claims unconfirmed</td><td class="sev s-med"><span class="dot"></span>Medium</td><td>Confirm against records before clinical or legal use.</td></tr>
+          <tr><td class="id">G4</td><td>C3 deliverable truncated</td><td class="sev s-med"><span class="dot"></span>Medium</td><td>Re-export C3 including the research output.</td></tr>
+          <tr><td class="id">G8</td><td>Exports show summaries, not full outputs</td><td class="sev s-low"><span class="dot"></span>Low</td><td>Export full message bodies, not collapsed thought-process.</td></tr>
+          <tr><td class="id">G12</td><td>Authorship of the prompt-examples file unknown</td><td class="sev s-low"><span class="dot"></span>Low<span class="tag">new</span></td><td>Confirm whether it is mine or installed with a skill.</td></tr>
+          <tr><td class="id">G9</td><td>Separating my patterns from the AI’s</td><td class="sev s-low"><span class="dot"></span>Low<span class="tag">mostly closed</span></td><td>Five of seven patterns replicate across two platforms. A non-LLM source would settle the rest.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="scopebox">
+      <b>Do first: G10, then G1.</b> Re-exporting the three ChatGPT threads <em>with my messages</em> is cheap and upgrades three conversations from inference to direct evidence — it also makes the shorthand pattern testable outside C1 for the first time. Then volume, oldest first: the single most valuable new capability this round was seeing the same person five months apart.
+    </div>
+  </section>
+
+  <section id="phasep">
+    <div class="shead">
+      <div class="eyebrow">Phase P · prospective</div>
+      <h2>The three prompts you are most likely to need next</h2>
+    </div>
+    <p class="lede" style="margin-bottom:20px">Each is grounded in a named pattern — no orphan predictions. <strong>Two of the three are now done</strong> rather than forecast: the triage layer is in the pattern cards above, and the notes are queryable in the panel above that. Only the first needs something I cannot produce — your exports.<br><br><strong>Method flag:</strong> this ran in-thread on instruction, not in fresh context, so it may over-fit to specifics I have just read. Medium confidence for that reason. The prompts stay below, ready to paste, whether you re-run them or not.</p>
+    <div id="preds"></div>
+  </section>
+
+  <section id="handoff">
+    <div class="shead">
+      <div class="eyebrow">Handoff card · Round 2 of 2 complete</div>
+      <h2>Where this stops</h2>
+    </div>
+    <div class="handoff">
+      <div class="hgrid">
+        <div class="hitem"><span class="k">Goal</span><span class="v">Turn exported AI history into atomic notes + pattern map + gap list, every claim traceable, feeding a BigQuery/RAG second brain.</span></div>
+        <div class="hitem"><span class="k">Done-when</span><span class="v"><strong>Partial pass.</strong> <em>Three artefacts plus Phase P, zero orphan claims, gaps named — on 8 conversations across 5 months, not ~50 across 5 years.</em></span></div>
+        <div class="hitem"><span class="k">What Round 2 bought</span><span class="v"><em>Cross-checking. Five of seven patterns replicate on two platforms and two domains, so they are far more likely mine than one model’s habit.</em></span></div>
+        <div class="hitem"><span class="k">Open</span><span class="v"><em>G10 and G1 are the blockers. G11 blocks confirming that initiative delivers and confirmation-seeking does not.</em></span></div>
+        <div class="hitem"><span class="k">Pipeline</span><span class="v"><em>Notes map 1:1 to the guide’s <code>documents</code> rows — N-id, title, body, plus source, platform, confidence and gap as tags. No embeddings generated here. Watson X stays deferred.</em></span></div>
+        <div class="hitem"><span class="k">Do not</span><span class="v"><em>Re-open this thread to improve it. Rounds are spent. Start fresh: fix the corpus, or re-run Phase P in clean context and compare.</em></span></div>
+      </div>
+    </div>
+    <div class="scopebox">
+      <b>Verdict: PASSES</b> for “prove the pipeline and cross-check it on a second platform and domain.” Does <em>not</em> pass the literal ~50-conversation done-when. The method is validated; the corpus is the constraint.
+    </div>
+  </section>
+
+  <footer>
+    <span>Confidence in the map: Medium-High — five of seven patterns cross-checked on two platforms.</span>
+    <span>Generalisation beyond these two domains: Medium.</span>
+    <span>Behavioural, not clinical. Legal content is declared, not adjudicated.</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var PATTERNS = [
+    { id:"P6", claim:"Clarifying questions are the main stall",
+      stall:"Ask-then-wait costs rounds and sometimes kills the thread. I have explicitly asked for initiative instead — twice, a year apart, on two platforms.",
+      notes:["N06","N25","N26","N27","N28"], conf:"High", isnew:true,
+      convs:4, plats:2, doms:2, band:"act",
+      cost:"4 documents never delivered (C8) · 5 confirmation round-trips before any output (C7) · 1 deliverable lost (C3)",
+      fix:"Propose-then-confirm. Never a question instead of a draft; never more than one question." },
+    { id:"P3", claim:"The predictable second step: render it as a deliverable",
+      stall:"A structured answer is only finished once it becomes an artefact — a dashboard for data, a court-ready PDF for law.",
+      notes:["N03","N24"], conf:"High", isnew:false,
+      convs:6, plats:2, doms:2, band:"act",
+      cost:"One wasted round in each of 6 conversations",
+      fix:"Ship the artefact in the first pass — dashboard, PDF, or both." },
+    { id:"P1", claim:"Loops without a stop rule, in both directions",
+      stall:"I re-issue “make it perfect” with no exit test; the assistant re-asks one question with no default. Same defect, mirrored.",
+      notes:["N01","N07","N27"], conf:"High", isnew:false,
+      convs:2, plats:2, doms:2, band:"act",
+      cost:"2 rebuild rounds (C1) · shares C8’s 4 undelivered documents with P6, not counted twice",
+      fix:"A Done-when test on every task. Already in the standing instructions." },
+    { id:"P8", claim:"The instruction set is rebuilt every session",
+      stall:"Three of three ChatGPT threads open by re-declaring the operating mode. The hand-maintained schema dates to October 2025.",
+      notes:["N20","N30"], conf:"High", isnew:true,
+      convs:4, plats:2, doms:2, band:"monitor",
+      cost:"3 re-primes in 3 sessions — no round lost, but the ritual is the tax",
+      fix:"Persist the instruction set in a file. Done — CLAUDE.md at the repo root now loads every session, carrying all five fixes and the shorthand glossary." },
+    { id:"P5", claim:"Answer fragility on incomplete data",
+      stall:"Headline metric swings about a point on same-day data gaps. Same question, two numbers, no completeness flag.",
+      notes:["N09","N10"], conf:"Medium", isnew:false,
+      convs:2, plats:1, doms:1, band:"monitor",
+      cost:"One 1-point swing on identical data and date",
+      fix:"Print “inputs present: X/Y” beside any composite score." },
+    { id:"P2", claim:"Shorthand the AI must decode over rounds",
+      stall:"“Audiovisuals”, “cognitive wish” carry stable intent; interpretation lags two to three rounds.",
+      notes:["N02","N08"], conf:"Medium", isnew:false,
+      convs:2, plats:1, doms:1, band:"monitor",
+      cost:"2–3 rounds (C1) — untestable in C6–C8, my turns are missing",
+      fix:"A six-line glossary in the standing instructions." },
+    { id:"P4", claim:"Heavy front-loaded scaffolding, versioned, domain-independent",
+      stall:"Schemas, formulas, guardrails, node-and-edge architecture maps, v1 → v2 → v3. Applied to biology and to litigation alike.",
+      notes:["N04","N05","N12","N22","N23"], conf:"High", isnew:false,
+      convs:4, plats:2, doms:2, band:"note",
+      cost:"No round cost. High authoring effort, and the brittleness feeds P5",
+      fix:"Nothing to fix — this is the strength. Keep the scaffolds versioned." },
+    { id:"P7", claim:"Every map gets a score",
+      stall:"A structured map is immediately followed by a triage layer that collapses it into one priority verdict.",
+      notes:["N32","N12","N31"], conf:"High", isnew:true,
+      convs:5, plats:2, doms:2, band:"note",
+      cost:"No cost observed — a preference, not a stall",
+      fix:"Serve it by default: bands and counts, never an invented decimal." }
+  ];
+
+  var BANDS = { act:["Act now","band-act"], monitor:["Monitor","band-mon"], note:["Note only","band-note"] };
+
+  var QUERIES = [
+    { q:"Where does my approach stall?",
+      terms:["stall","loop","exit test","round","confirm","undelivered","deadlock","friction","recurs","no default"] },
+    { q:"What is unverified?",
+      terms:["unverified","declared","not confirmed","citation","adjudicated","inference","absent","cannot"] },
+    { q:"What repeats across both platforms?",
+      terms:["platform","replicate","both","cross","chatgpt","claude","domain","same"] },
+    { q:"What have I built more than once?",
+      terms:["version","v2","v3","map","architecture","scaffolding","second brain","schema","metaphor"] }
+  ];
+
+  var PREDICTIONS = [
+    { n:1, title:"Scale the pipeline to the full corpus", conf:"High", status:"Blocked on your exports",
+      band:"band-mon",
+      why:"G1 is the named blocker and you already know it. P4 shows you scale a proven scaffold rather than redesigning it, and N30 shows this project has been running since October 2025. The move after “it works on 8” is “run it on everything.”",
+      prompt:"Agentic Memory — Field Test #2. Run the Phase R pipeline over my full conversation export, not a sample.\n\nOutcome: every conversation becomes atomic notes in the same schema as agentic-memory/field-test-01/01-ATOMIC-NOTES.md, rolled into one pattern map and one gap list.\n\nDone-when: (a) every conversation is either processed or listed as unprocessable with a reason; (b) zero orphan claims — every claim names its source conversation; (c) each pattern states how many conversations, platforms, domains and months it spans; (d) any pattern found in only one domain is labelled as such.\n\nRounds: 2.\n\nBefore starting, inventory what is actually present and tell me what is missing. Do not fill gaps to look complete. Prioritise conversations dated before October 2025 — that is the thinnest part of the corpus. Output an artefact." },
+    { n:2, title:"Score and triage the pattern map", conf:"High", status:"Done — built into the cards above",
+      band:"band-note",
+      why:"P7 and N32 — every structured map you build gets a triage layer straight afterwards: Loop Score with four bands, severity 90 out of 100, Danger Radar, Now / Next 2 / Later. Four conversations, two domains, two platforms. In your corpus, a map without a score is an unfinished map. N31 sets the constraint: counts and bands, no invented decimals.",
+      prompt:"Take the Round 2 pattern map in agentic-memory/field-test-01/02-PATTERN-MAP.md and add a triage layer.\n\nOutcome: each pattern carries (a) how many conversations, platforms and domains it appears in — counts, not estimates; (b) the observed cost in rounds or undelivered deliverables; (c) a band — Act now / Monitor / Note only; (d) the single fix, in one line.\n\nDone-when: the patterns are ordered by observed cost rather than by how interesting they are, and every count traces to named conversations. No composite score, no decimals — bands and counts only.\n\nRounds: 1.\n\nThen tell me which one fix to make this week and what changes if I make it." },
+    { n:3, title:"Make the notes queryable", conf:"Medium", status:"Done to the credential boundary",
+      band:"band-note",
+      why:"N11 and N30 — the point of the second brain is retrieval, not note-taking. The BigQuery guide is attached, the note-to-documents field mapping is already written, and the notes were built atomic so they would load. Labelled Medium because nothing in the corpus shows you actually running an ingest — this is inference about intent, not an observed pattern.",
+      prompt:"Turn the field-test-01 atomic notes into a working retrieval layer using the pipeline in Personal_Data_Embedding_Living_AI_Guide.md.\n\nOutcome: the notes exist as newline-delimited JSONL matching the guide's documents schema, ready to load, with source, confidence and gap carried as metadata tags.\n\nDone-when: (a) one JSONL row per note, validated against the guide's field list; (b) I can ask \"where does my approach stall?\" and get back the specific notes with their source conversations; (c) any step needing my credentials or a manual console action is listed separately as a handoff, not silently skipped.\n\nRounds: 2.\n\nFlag every manual step and propose the automated route. Watson X stays deferred. No code in your explanation to me unless I say \"show code.\"" }
+  ];
+
+  var NOTES = [
+    { id:"N01", type:"Process", plat:["Claude"], src:["C1"], conf:"High",
+      title:"I re-issue a near-identical “perfect output / red-team” prompt until satisfied, with no stated stop condition",
+      body:"The same meta-instruction fires at least three times in one thread. Each firing makes the AI rebuild from scratch. Because “perfect” and “cognitive wish” are never given an observable test, the loop has no exit — it can recurse indefinitely. This is the exact failure the Done-when and anti-resonation rules are built to stop.",
+      source:"C1 pp. 16 & 21 — the sentence appears verbatim twice, after an initial “redo”.",
+      why:"Identical prompt text visible on two pages.", gap:"" },
+    { id:"N02", type:"Process", plat:["Claude"], src:["C1"], conf:"High",
+      title:"“Audiovisuals” is my shorthand for “make it interactive, not prose” — the AI needed 2–3 rounds to decode it",
+      body:"The word escalates across turns as the AI keeps returning text. It eventually decodes to “build a dashboard”, which ends the escalation. The intent was stable from turn 1; only the interpretation lagged. A one-word gloss in standing instructions would collapse this to a single round.",
+      source:"C1 p.2 → p.16 → p.21, escalating each time.",
+      why:"High for the recurrence; Medium for the intended meaning, inferred from the dashboard being accepted.",
+      gap:"No explicit line confirming “a dashboard is what I meant”." },
+    { id:"N03", type:"Process", plat:["Claude"], src:["C2","C4","C5"], conf:"High",
+      title:"“Help me visualize this data” is my reflexive second move — verbatim across three separate conversations",
+      body:"The sequence is stable: request analysis → receive report → immediately ask for a visualization. Predictable enough to pre-empt: delivering report and dashboard in the first pass removes an entire round.",
+      source:"C2 p.10, C4 p.21, C5 p.26 — identical string in all three.",
+      why:"Identical string, three independent exports.", gap:"" },
+    { id:"N04", type:"Process", plat:["Claude"], src:["C2","C4"], conf:"High",
+      title:"I front-load heavy scaffolding — exact schemas, formulas, anti-fabrication rules — to constrain the AI before it runs",
+      body:"Prompts specify CSV column names, parse code, a 5-node scoring formula, tiered alert thresholds, a contraindicated-drug list, and rules such as “NEVER fabricate” and “cite file + column”. I engineer the guardrails myself rather than trusting defaults. Buys precision; high effort and brittle.",
+      source:"C2 pp.2–4, C4 pp.2–15.", why:"The scaffolding is the bulk of both conversations.", gap:"" },
+    { id:"N05", type:"Process", plat:["Claude"], src:["C4","C2"], conf:"High",
+      title:"I version my master-prompts — the nonadherence prompt is explicitly “v2.0 (Red-Team Validated)”",
+      body:"C4 restates C2's patient context, data schemas and Loop Score formula in a cleaner, numbered, more defensive form and labels itself v2.0. Prompts are treated as maintained software artefacts, not one-off messages.",
+      source:"C4 p.2 title block vs C2 p.2.", why:"Version label and near-duplicate structure both visible.", gap:"" },
+    { id:"N06", type:"Process", plat:["Claude"], src:["C3"], conf:"High",
+      title:"When asked clarifying questions, I delegate the decision back rather than specifying",
+      body:"Faced with three clarifying questions — budget, use pattern, coverage — I removed two constraints and handed the third back. Implication: clarifying questions are often friction. Design consequence — prefer propose-then-confirm over ask-then-wait.",
+      source:"C3 p.6 — “co0st no matter”, “as often as I can”, “I want you to recommend the correct answer”.",
+      why:"Answers quoted verbatim.", gap:"Single conversation in Round 1; corroborated in Round 2 by N25." },
+    { id:"N07", type:"Process", plat:["Claude"], src:["C1"], conf:"Medium",
+      title:"My corrections target form and depth, not factual errors — I rarely dispute a specific claim",
+      body:"Across the visible correction turns, none says “that number is wrong”. Every correction pushes for better rendering or a deeper pass. Strength: fast to a usable artefact. Latent risk: the correction budget never lands on fact-checking, so errors in the content notes would survive review.",
+      source:"C1 pp.16, 21.", why:"Inferred from absence of factual disputes in a small visible set.",
+      gap:"Only C1 contains explicit correction turns." },
+    { id:"N08", type:"Process", plat:["Claude"], src:["C3"], conf:"High",
+      title:"I frame the AI as a cognitive layer for a verbal thinker, not merely a tool",
+      body:"The stated self-model is consistent: language in, finished cognition out; the AI does the translation to the technical layer. Same premise as the standing operating instructions — the operating system is itself a compensatory response to how I think.",
+      source:"C3 p.2 — “an additional layer or transformer… aiding a verbal thinker to maximize AI use”.",
+      why:"Quoted, and echoed by the session's own preamble.", gap:"" },
+    { id:"N09", type:"Process", plat:["Claude"], src:["C2","C4"], conf:"High",
+      title:"Same data, same date, same formula produced two different Loop Scores — 6.7 vs 5.7",
+      body:"Both target 2026-03-15, the same person, the same 5-node formula. The scores diverge mainly on the node that depends on same-day symptom logging, which was partially absent. A headline metric that swings about a point on data completeness needs an explicit completeness flag beside it.",
+      source:"C2 p.8 (6.7, “today's entries are incomplete”) vs C4 p.20 (5.7, WARNING).",
+      why:"High for the two numbers; Medium for pinning the delta to one node.",
+      gap:"Raw CSVs not in session — cannot recompute." },
+    { id:"N10", type:"Content", plat:["Claude"], src:["C2","C4"], conf:"High",
+      title:"Across both clinical reports the AI independently ranks propranolol non-adherence as the #1 lever",
+      body:"Both reports surface the same dominant real-world lever: adherence, reported at 38% / 20% / eight consecutive missed doses. The most stable finding the data produces. Recorded as a recurring signal in the corpus — not as a medical recommendation.",
+      source:"C2 p.9, C4 p.20.", why:"High that both reports ranked it first.",
+      gap:"Adherence figures AI-reported from CSVs not present; unverified." },
+    { id:"N11", type:"Process", plat:["Claude"], src:["C1"], conf:"High",
+      title:"I am building the meta-system that would automate the n-of-1 analysis I keep running by hand",
+      body:"CNN for feature extraction from wearable inputs, RNN for longitudinal memory, RL for experiment selection — each layer mapped to a real research system. The through-line: turn personal data into a self-improving retrieval and decision system. Same ambition as this field test.",
+      source:"C1 pp.3–4, 9–15.", why:"Architecture is spelled out.",
+      gap:"Aspirational design; no evidence any of it is deployed." },
+    { id:"N12", type:"Content", plat:["Claude"], src:["C4","C2"], conf:"High",
+      title:"Substrate: the 5-node Loop Score is my own composite metric, defined by explicit formula",
+      body:"LS = (Autonomic + Sleep + Inflammatory/PEM + Pharmacologic + Deconditioning) / 15 × 10, each node 0–3. Bands: 0–3 stable, 3–5 monitoring, 5–7 warning, 7–10 critical. An invented instrument for compressing multi-stream data into one number.",
+      source:"C4 pp.5–6, C2 p.3.", why:"Formula quoted.", gap:"Instrument validity out of scope here." },
+    { id:"N13", type:"Content", plat:["Claude"], src:["C2","C4"], conf:"High",
+      title:"Substrate: self-reported clinical profile stated in-prompt — declared, not confirmed",
+      body:"Age 32; ICD implanted Feb 2023 with follow-up overdue; Long COVID, POTS, Brugada, DM2, active VZV, ME-CFS overlap; baseline over 166 days HRV ~20 ms, RHR ~84 bpm, recovery 36%, sleep ~5 h. User-supplied context, not a verified record.",
+      source:"C2 p.2, C4 p.2.", why:"High that it is stated.", gap:"Unverified medical history — treat as declared." },
+    { id:"N14", type:"Content", plat:["Claude"], src:["C1"], conf:"High",
+      title:"Substrate: behavioural and dietary identity surfaced from my own files",
+      body:"Halal 100%, intermittent fasting ~35% of days, magnesium and L-theanine, ~0% alcohol, ~12% caffeine. Corpus: WHOOP 277 days, Oura 62 days, 1,399 journal entries across 47 unique questions — named as the reinforcement-learning training signal.",
+      source:"C1 pp.23–25.", why:"High that the AI reported them; Medium that figures are exact.",
+      gap:"Underlying files not in session." },
+    { id:"N15", type:"Content", plat:["Claude"], src:["C1"], conf:"Medium",
+      title:"Substrate: meal decode headline — peanut butter blunts the spike about 30%",
+      body:"Bread + Nutella + peanut butter ≈ 525 kcal at roughly 49/41/10 fat/carb/protein; Nutella ~57% sugar by weight; peanut butter blunts the glucose spike about 30%. Optimal protocol offered: morning, peanut-butter-first, whole-wheat.",
+      source:"C1 pp.4–6.", why:"AI synthesis with PMIDs, not independently checked here.",
+      gap:"Citations unverified in this session." },
+    { id:"N16", type:"Content", plat:["Claude"], src:["C5"], conf:"Medium",
+      title:"Substrate: POTS pharmacotherapy ranking",
+      body:"The synthesis ranks ivabradine and low-dose propranolol strongest for heart-rate control, and guanfacine as the best dual POTS + ADHD agent. Fludrocortisone weak; midodrine, salt and compression complementary.",
+      source:"C5 pp.5–7, 16.", why:"Tagged peer-reviewed, unverified here.", gap:"Citations unverified." },
+    { id:"N17", type:"Content", plat:["Claude"], src:["C5"], conf:"Medium",
+      title:"Substrate: GLP-1 risk thesis — flagged high-risk for this profile",
+      body:"GLP-1 agonists raise heart rate through a sinus-node mechanism ivabradine cannot block, and suppress HRV by about 6 ms — meaningful from an already-low baseline. Net position: defer pending the named trials.",
+      source:"C5 pp.11–12, 22–24.", why:"Mechanistic claims tagged peer-reviewed, unverified here.",
+      gap:"Citations unverified." },
+    { id:"N18", type:"Content", plat:["Claude"], src:["C5"], conf:"Medium",
+      title:"Substrate: MCAS-as-driver thesis plus an empiric antihistamine trial",
+      body:"Mast Cell Activation Syndrome — an over-reactive mast-cell condition — is framed as a likely under-diagnosed driver of POTS via a mast-cell to sympathetic feedback loop. An empiric H1/H2 antihistamine trial is presented as low-risk, high-reward.",
+      source:"C5 pp.18–20.", why:"Tagged peer-reviewed, unverified here.",
+      gap:"Citations unverified; a diagnostic hypothesis, not a diagnosis." },
+    { id:"N19", type:"Process", plat:["Claude"], src:["C3"], conf:"High",
+      title:"Gap-note: C3's actual deliverable is absent from the export",
+      body:"The compression-wrap conversation is captured only up to the moment research launches — no product list, no recommendation, no pressures or sizing. Any downstream claim about what I was told must come from C5's corroborating evidence, not from C3.",
+      source:"C3 p.6 — thread ends at the research launch.", why:"The truncation point is visible.",
+      gap:"The deliverable itself is the gap." },
+
+    { id:"N20", type:"Process", plat:["ChatGPT"], src:["C6","C7","C8"], conf:"High",
+      title:"All three ChatGPT threads open with me re-priming a standing instruction set",
+      body:"The operating instructions do not persist, so every session begins with a re-priming tax before any work happens. Three sessions, three re-primes, identical mode with the same five processing rules. This is the same problem the standing instructions file and this repository exist to solve.",
+      source:"C6, C7, C8 — the first assistant turn in each is “Living Notebook mode resumed”, listing parse → analyse → structure → tag → triage.",
+      why:"The acknowledgment is explicit and identical in all three.",
+      gap:"My actual priming text is not captured — only the readback of it." },
+    { id:"N21", type:"Process", plat:["ChatGPT"], src:["C6","C7","C8"], conf:"High",
+      title:"The ChatGPT exports contain only assistant turns — my own messages are absent",
+      body:"What I asked has to be reconstructed from what the AI answered. Some is recoverable with high confidence because the AI quotes or paraphrases the instruction, but every behavioural claim drawn from these three is one inference-step removed from the Claude notes, where my prompts are visible verbatim.",
+      source:"C6, C7, C8 — every block is headed “Response:”. No user turns anywhere.",
+      why:"Structural and plainly visible.", gap:"This is the gap. Re-export with user messages included." },
+    { id:"N22", type:"Process", plat:["ChatGPT","Claude"], src:["C6","C1"], conf:"High",
+      title:"I apply the same architecture metaphor to a second, unrelated domain: a “Convolutional Narrative Network” map of my litigation",
+      body:"Health data and legal causation get the same treatment: entities as nodes, relationships as edges, a layered flow from input to output, and a feedback loop described as back-propagation. The metaphor engine is domain-independent — so the scaffolding pattern is not a health-analysis habit, it is how I structure any complex problem.",
+      source:"C6 — CNN Map v2 then v3: nodes N1–N18, edges, legal axes A1–A6, “Network Flow”. Versus C1's biological CNN→RNN→RL.",
+      why:"Both maps are explicit and labelled.", gap:"" },
+    { id:"N23", type:"Process", plat:["ChatGPT","Claude"], src:["C6","C4"], conf:"High",
+      title:"I version artefacts in the legal domain exactly as I do in the health domain",
+      body:"Same behaviour, different subject: produce, label a version, then merge and strengthen into the next. C6's v3 is explicitly described as merging the earlier map with new material. Confirms the versioning pattern across platform and domain.",
+      source:"C6 — CNN Map v2 → v3, Affidavit A / Affidavit B. Versus C4 — master-prompt v2.0.",
+      why:"Version labels visible in both.", gap:"" },
+    { id:"N24", type:"Process", plat:["ChatGPT","Claude"], src:["C2","C4","C5","C6","C7","C8"], conf:"High",
+      title:"The reflexive second move is “render it as a deliverable” — a dashboard for data, a court-ready PDF for law",
+      body:"The constant is not charts. It is that a structured answer is only finished once it becomes an artefact; the medium is domain-dependent. Practical consequence: the artefact should ship in the first pass, whatever the domain.",
+      source:"Health — “Help me visualize this data” in C2, C4, C5. Legal — every thread pivots from a markdown node to generated PDFs: C6 four, C7 five, C8 two.",
+      why:"High for the pattern across 6 of 8 conversations; Medium for reading the two forms as one drive.",
+      gap:"My request wording in C6–C8 is not visible." },
+    { id:"N25", type:"Process", plat:["ChatGPT"], src:["C6"], conf:"High",
+      title:"I explicitly instructed the assistant to stop asking for confirmations and take initiative",
+      body:"Confirms the delegation pattern on a second platform, in a second domain, a year apart. Clarifying questions are friction, not help. The design rule that follows is propose-then-confirm: produce the draft, state the assumption, let me correct it.",
+      source:"C6 — “Understood. I'll take full initiative on drafting and optimizing all filings without pausing for minor confirmations.” Live corroboration: this session's own instruction, “Re-run and automatically proceed to next step.”",
+      why:"The readback is verbatim-style and behaviour changed immediately afterwards.",
+      gap:"My exact wording not captured." },
+    { id:"N26", type:"Process", plat:["ChatGPT"], src:["C7"], conf:"High",
+      title:"Five consecutive assistant turns in C7 asked for confirmations before producing a single document",
+      body:"Five round-trips of formatting questions before the first deliverable — and every one was answerable by proposing a default and noting it. This is the concrete cost of ask-then-wait, and the highest-leverage stall in the corpus because it is entirely avoidable by the responder.",
+      source:"C7 — sequential requests for institution identifiers, then tone, then address vs placeholders, then combined vs separate files, then typeface and spacing.",
+      why:"The five turns are consecutive and visible.",
+      gap:"My replies are absent, so my tolerance for each question is unknown." },
+    { id:"N27", type:"Process", plat:["ChatGPT"], src:["C8"], conf:"High",
+      title:"C8 ends with the same question asked three times in a row; four promised documents were never produced",
+      body:"The mirror image of the perfect-output recursion. There I loop because no exit test was defined; here the assistant loops because it will not proceed without one datum. The loop stalls whenever neither side holds a stop rule. A default-and-flag — “assuming April 2024, correct me” — would have delivered four documents.",
+      source:"C8 — the final three assistant turns each request “the approximate starting month of financial loss”. Legal Memorandum, Affidavit of Fact, Financial Loss Statement and Health Impact Declaration all promised and absent.",
+      why:"Three identical consecutive requests are visible.",
+      gap:"Cannot tell whether I replied and the export dropped it, or the thread genuinely died." },
+    { id:"N28", type:"Process", plat:["ChatGPT","Claude"], src:["C6","C7","C8","C3"], conf:"Medium",
+      title:"In this corpus, initiative produced deliverables and confirmation-seeking produced none",
+      body:"The two threads that ended with nothing delivered both ended on a confirmation question. The thread where I told the assistant to act produced the most artefacts. Not absolute — C7 shows confirmations can eventually yield — but the direction is consistent across four conversations and two platforms.",
+      source:"C6 after “take full initiative”: 4 PDFs + 2 full maps, and one turn states “Next, I will automatically proceed”. C7: 5 confirmation turns, PDFs eventually, promised markdown set never. C8: deadlock, nothing. C3: clarifying questions, deliverable absent.",
+      why:"n=4, and my turns are not visible, so cause and effect cannot be fully separated.",
+      gap:"Needs the remaining conversations to test." },
+    { id:"N29", type:"Process", plat:["ChatGPT","Claude"], src:["C1","C2","C3","C4","C5","C6","C7","C8"], conf:"Medium",
+      title:"I run the same operating pattern on two different AI platforms",
+      body:"The strongest available test of whether these are my patterns or one model's habits — and they replicate: front-loaded scaffolding, versioned artefacts, render-to-deliverable second step, initiative over questions, node-and-edge metaphors. This largely retires the original “can't separate me from the AI” gap.",
+      source:"C1–C5 on Claude, C6–C8 on ChatGPT.",
+      why:"The patterns clearly appear on both; the inference “therefore mine, not the AI's” is strong but not conclusive — both are instruction-following assistants with similar training.",
+      gap:"A structurally different source would settle it." },
+    { id:"N30", type:"Process", plat:["ChatGPT","Claude"], src:["C6","C7","C8","C1"], conf:"High",
+      title:"The externalised-memory project predates the “second brain” design by about five months",
+      body:"The first genuinely longitudinal observation in the corpus. I was hand-running a structured second brain in October 2025; the 2026 architecture is an attempt to automate what I was already doing manually. This field test is the third iteration of the same project.",
+      source:"C6/C7/C8 — RLN date-coded IDs, YAML front-matter, backlinks, an explicit folder tree, SCQH + MECE triage, Now / Next 2 / Later, “Danger Radar”. Versus C1 (Feb–Mar 2026) proposing CNN→RNN→RL.",
+      why:"Date codes and export stamps are explicit on both ends.",
+      gap:"The Oct 2025 → Feb 2026 middle is missing; whether the system was sustained is unknown." },
+    { id:"N31", type:"Process", plat:["ChatGPT","Claude"], src:["C2","C4","C8"], conf:"High",
+      title:"My own instruments use decimal scores; my instruction to the AI forbids them",
+      body:"Not a contradiction — a boundary. Numbers computed from data are wanted; numbers the AI invents to sound precise are not. The rule is anti-false-precision, not anti-quantification. Practical read: bands for judgment, exact figures only where they trace to a source.",
+      source:"C2 Loop Score 6.7, C4 5.7, C8 severity 90/100 from Impact 10 × Urgency 10 × Risk 9 − Effort 7. Versus the standing rule “Confidence = High / Medium / Low. Never a decimal.”",
+      why:"High that both exist; Medium for this interpretation of why.",
+      gap:"The rationale is inferred — I have not stated it." },
+    { id:"N32", type:"Process", plat:["ChatGPT","Claude"], src:["C2","C4","C6","C7","C8"], conf:"High",
+      title:"I score and triage every map I build",
+      body:"Across both domains, a structured map is immediately followed by a triage layer that converts it into a single priority verdict. Four conversations, two domains, two platforms. Strong predictor of what I will ask for next after any map.",
+      source:"C8 severity 90 → “Critical Priority”. C2/C4 Loop Score with four bands. C6 “Danger Radar” risk × severity × urgency. C7 Now / Next 2 / Later.",
+      why:"Explicit scoring instruments in four conversations.", gap:"" },
+    { id:"N33", type:"Content", plat:["ChatGPT"], src:["C6","C7","C8"], conf:"High",
+      title:"Content: the legal claim structure I am assembling — declared, not adjudicated",
+      body:"Six axes: employment retaliation, privacy, education due process, civil rights, defamation, immigration hardship. Damages ledger subtotal $693,000 across eight line items. Causation chain: academic-record falsification → licensure block → employment loss → housing, insurance and health harm. Filing deadlines tracked.",
+      source:"C6, C7, C8 — affidavits, RLN nodes and the damages ledger.",
+      why:"High that these are the assertions in my documents.",
+      gap:"Unverified and unadjudicated. No court records in session. Recorded as corpus content, not findings of fact; no legal opinion attached." },
+    { id:"N34", type:"Process", plat:[], src:[], conf:"High",
+      title:"The two reference files are not conversations and cannot support behavioural claims",
+      body:"Both are distilled reference material with no dialogue and no ask-to-outcome sequence. What they show, weakly: I maintain structured reference files for both tooling and one-off practical problems, consistent with the October 2025 evidence.",
+      source:"R1 examples.md — prompt-optimisation examples across 10 platforms, matching a skill in my workspace, authorship unknown. R2 cybertruck_domain_knowledge.md — 48V jump-start facts and NYC sourcing.",
+      why:"High that they are not conversations; Low for any behavioural inference from them.",
+      gap:"Authorship of the examples file unknown." }
+  ];
+
+  var state = { type:"all", src:"all", plat:"all", pattern:null };
+
+  function esc(s) {
+    return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  }
+
+  /* pattern cards */
+  var pwrap = document.getElementById("pcards");
+  PATTERNS.forEach(function (p) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "pcard";
+    b.setAttribute("aria-pressed", "false");
+    b.dataset.p = p.id;
+    var band = BANDS[p.band];
+    b.innerHTML =
+      '<div class="prow"><span class="id">' + p.id + '</span>' +
+      '<span class="claim">' + esc(p.claim) + '</span>' +
+      '<span class="chips">' + (p.isnew ? '<span class="chip new">new</span>' : '') +
+      '<span class="chip ' + band[1] + '">' + band[0] + '</span>' +
+      '<span class="chip">' + p.notes.join(" · ") + '</span>' +
+      '<span class="chip">' + p.conf + '</span></span></div>' +
+      '<div class="stall">' + esc(p.stall) + '</div>' +
+      '<div class="triage">' +
+      '<span class="cnt"><b>' + p.convs + '</b> conversations</span>' +
+      '<span class="cnt"><b>' + p.plats + '</b> platform' + (p.plats > 1 ? 's' : '') + '</span>' +
+      '<span class="cnt"><b>' + p.doms + '</b> domain' + (p.doms > 1 ? 's' : '') + '</span>' +
+      '<span class="costline">' + esc(p.cost) + '</span></div>' +
+      '<div class="fixrow"><span class="fixk">Fix</span>' + esc(p.fix) + '</div>';
+    b.addEventListener("click", function () {
+      state.pattern = (state.pattern === p.id) ? null : p.id;
+      syncPatterns();
+      render();
+      if (state.pattern) {
+        document.getElementById("evidence").scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+    pwrap.appendChild(b);
+  });
+
+  function syncPatterns() {
+    Array.prototype.forEach.call(pwrap.children, function (el) {
+      el.setAttribute("aria-pressed", el.dataset.p === state.pattern ? "true" : "false");
+    });
+  }
+
+  /* filters */
+  var fbtns = document.querySelectorAll("#filters .f");
+  Array.prototype.forEach.call(fbtns, function (btn) {
+    btn.addEventListener("click", function () {
+      state[btn.dataset.k] = btn.dataset.v;
+      state.pattern = null;
+      syncPatterns();
+      Array.prototype.forEach.call(fbtns, function (o) {
+        if (o.dataset.k === btn.dataset.k) {
+          o.setAttribute("aria-pressed", o === btn ? "true" : "false");
+        }
+      });
+      render();
+    });
+  });
+
+  var nwrap = document.getElementById("notes");
+  var fstate = document.getElementById("fstate");
+
+  function visible(n) {
+    if (state.pattern) {
+      var p = PATTERNS.filter(function (x) { return x.id === state.pattern; })[0];
+      return p.notes.indexOf(n.id) !== -1;
+    }
+    if (state.type !== "all" && n.type !== state.type) { return false; }
+    if (state.src !== "all" && n.src.indexOf(state.src) === -1) { return false; }
+    if (state.plat !== "all" && n.plat.indexOf(state.plat) === -1) { return false; }
+    return true;
+  }
+
+  function render() {
+    var shown = NOTES.filter(visible);
+    nwrap.innerHTML = shown.map(function (n) {
+      var confCls = n.conf === "High" ? "high" : "med";
+      var platTag = n.plat.length ? '<span class="typetag">' + n.plat.join("+") + '</span>' : '';
+      return '<details class="note' + (state.pattern ? " lit" : "") + '"' + (state.pattern ? " open" : "") + '>' +
+        '<summary><span class="id">' + n.id + '</span>' +
+        '<span class="ntitle">' + esc(n.title) + '</span>' +
+        '<span class="nmeta">' + platTag + '<span class="typetag">' + n.type + '</span>' +
+        '<span class="conf ' + confCls + '">' + n.conf + '</span></span></summary>' +
+        '<div class="nbody"><p>' + esc(n.body) + '</p>' +
+        '<div class="nsrc">Source · ' + esc(n.source) + '<br>Confidence · ' + n.conf + ' — ' + esc(n.why) + '</div>' +
+        '<div class="ngap' + (n.gap ? "" : " none") + '">Gap · ' + esc(n.gap || "none") + '</div></div></details>';
+    }).join("");
+    fstate.textContent = state.pattern
+      ? shown.length + " supporting " + state.pattern + " — click " + state.pattern + " again to clear"
+      : shown.length + " of " + NOTES.length;
+  }
+  render();
+
+  /* retrieval over the notes */
+  var STOP = ["the","and","for","are","but","not","you","all","any","can","has","had","was","were","what","when","where","which","with","this","that","from","does","did","how","why","my","me","i"];
+  var hits = document.getElementById("hits");
+  var askmeta = document.getElementById("askmeta");
+
+  function hay(n) {
+    return ((n.title + " ") + (n.title + " ") + n.title + " " + n.body + " " +
+            n.source + " " + n.why + " " + n.gap + " " + n.type + " " +
+            n.plat.join(" ") + " " + n.src.join(" ")).toLowerCase();
+  }
+
+  function search(terms, label) {
+    var scored = NOTES.map(function (n) {
+      var h = hay(n), s = 0, matched = [];
+      terms.forEach(function (t) {
+        var c = h.split(t).length - 1;
+        if (c > 0) { s += c; matched.push(t); }
+      });
+      return { n:n, s:s, m:matched };
+    }).filter(function (r) { return r.s > 0; })
+      .sort(function (a, b) { return b.s - a.s || (a.n.id < b.n.id ? -1 : 1); })
+      .slice(0, 6);
+
+    askmeta.textContent = scored.length
+      ? "“" + label + "” → " + scored.length + " of 34 notes, ranked by term match"
+      : "“" + label + "” → no match";
+
+    hits.innerHTML = scored.length ? scored.map(function (r) {
+      return '<div class="hit"><div class="ht"><span class="id">' + r.n.id + '</span> ' +
+        esc(r.n.title) + '</div>' +
+        '<div class="hs">Source · ' + esc(r.n.src.length ? r.n.src.join(", ") : "R1, R2") +
+        ' · ' + esc(r.n.plat.join("+") || "reference") + ' · ' + r.n.conf +
+        ' · matched <b>' + esc(r.m.slice(0, 4).join(", ")) + '</b></div></div>';
+    }).join("")
+      : '<p class="nohit">Nothing in these 34 notes matches that. Not an error — the corpus is 8 of ~50 conversations, so absence here is not evidence of absence.</p>';
+  }
+
+  var pwrapQ = document.getElementById("presets");
+  QUERIES.forEach(function (q) {
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "f"; b.textContent = q.q;
+    b.addEventListener("click", function () { search(q.terms, q.q); });
+    pwrapQ.appendChild(b);
+  });
+
+  document.getElementById("askform").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var raw = document.getElementById("askinput").value.trim();
+    if (!raw) { return; }
+    var terms = raw.toLowerCase().replace(/[^a-z0-9\s-]/g, " ").split(/\s+/)
+      .filter(function (t) { return t.length > 2 && STOP.indexOf(t) === -1; });
+    search(terms.length ? terms : [raw.toLowerCase()], raw);
+  });
+
+  search(QUERIES[0].terms, QUERIES[0].q);
+
+  /* predictions */
+  var pr = document.getElementById("preds");
+  pr.innerHTML = PREDICTIONS.map(function (p, i) {
+    return '<div class="pred"><div class="prow"><span class="id">P' + p.n + '</span>' +
+      '<h3>' + esc(p.title) + '</h3>' +
+      '<span class="chips"><span class="chip ' + p.band + '">' + esc(p.status) + '</span>' +
+      '<span class="chip">' + p.conf + ' confidence</span></span></div>' +
+      '<p class="why">' + esc(p.why) + '</p>' +
+      '<div class="promptbox"><button class="copy" type="button" data-i="' + i + '">Copy</button>' +
+      '<pre id="pt' + i + '">' + esc(p.prompt) + '</pre></div></div>';
+  }).join("");
+
+  Array.prototype.forEach.call(document.querySelectorAll(".copy"), function (btn) {
+    btn.addEventListener("click", function () {
+      var text = document.getElementById("pt" + btn.dataset.i).textContent;
+      var done = function () {
+        btn.textContent = "Copied";
+        setTimeout(function () { btn.textContent = "Copy"; }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () { btn.textContent = "Select manually"; });
+      } else {
+        btn.textContent = "Select manually";
+      }
+    });
+  });
+})();
+</script>

@@ -1,0 +1,11 @@
+session      sql=1      json=1      OK
+turns        sql=276    json=276    OK
+blocks       sql=365    json=365    OK
+tool_calls   sql=128    json=128    OK
+usage        sql=124    json=124    OK
+exchanges    sql=13     json=13     OK
+artifacts    sql=13     json=13     OK
+
+RESULT: PASS
+Checked: every table round-trips from JSON through SQL into a live database at identical row counts.
+NOT checked by this script: whether the interpretation is right. That needs fresh eyes, which by contract cannot be the thing that built it.
