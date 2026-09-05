@@ -1,0 +1,518 @@
+<title>Care Plan — M F Rahaman</title>
+<!--FONTS-->
+
+<style>
+/* ---------- same paper as the letter; violet is the second pen ---------- */
+:root{
+  --ground:#E5DAC4;
+  --paper:#F7F1E3;
+  --paper-hi:#FAF5EA;
+  --paper-lo:#F0E7D3;
+  --ink:#2B2519;
+  --ink-2:#4F4737;
+  --muted:#8A7E68;
+  --rule:#D2C6AC;
+  --rule-soft:#E2D8C2;
+  --accent:#1E5A47;
+  --accent-soft:#E1EBE2;
+  --violet:#4B3D73;
+  --violet-soft:#EBE6F1;
+  --flag:#8B2F33;
+  --flag-soft:#F3E3DD;
+  --sheet-shadow:0 1px 3px rgba(60,46,20,.10),0 22px 48px -24px rgba(60,46,20,.35);
+}
+html{color-scheme:light}
+*{box-sizing:border-box}
+body{
+  background:var(--ground);color:var(--ink);
+  font-family:Spectral,"Source Serif 4",Georgia,serif;font-size:16.5px;line-height:1.58;
+  -webkit-font-smoothing:antialiased;-webkit-print-color-adjust:exact;print-color-adjust:exact;
+  margin:0;padding:28px 20px 64px;
+}
+p{margin:0 0 10px}
+strong,b{font-weight:600}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+
+/* ---------- screen toolbar ---------- */
+.toolbar{
+  max-width:840px;margin:0 auto 14px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;
+  font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--muted);letter-spacing:.02em;
+}
+.toolbar .tb-right{display:flex;align-items:center;gap:12px}
+.toolbar button{
+  font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--paper-hi);background:var(--accent);border:1px solid var(--accent);padding:7px 14px;cursor:pointer;border-radius:2px;
+}
+.toolbar button:hover{filter:brightness(1.08)}
+.toolbar button:disabled{opacity:.55;cursor:default}
+.tb-status{min-width:6ch}
+
+/* ---------- sheet ---------- */
+.sheet{
+  position:relative;max-width:840px;margin:0 auto;
+  background:radial-gradient(ellipse 130% 110% at 50% 38%, var(--paper-hi) 0%, var(--paper) 52%, var(--paper-lo) 100%);
+  border:1px solid #D7CBB0;box-shadow:var(--sheet-shadow);padding:48px 58px 40px;
+}
+@media (max-width:640px){.sheet{padding:30px 22px 28px}body{padding:16px 10px 40px}}
+
+/* ---------- letterhead ---------- */
+.head{display:flex;flex-wrap:wrap;gap:20px 32px;align-items:flex-end;justify-content:space-between;padding-bottom:14px}
+.mark .name{font-family:Spectral,serif;font-weight:600;font-size:1.06rem;letter-spacing:.155em;text-transform:uppercase;color:var(--accent);line-height:1.2}
+.mark .role{font-family:"IBM Plex Mono",monospace;font-size:.685rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.sender{font-family:"IBM Plex Mono",monospace;font-size:.715rem;line-height:1.75;color:var(--ink-2);text-align:right}
+.sender .who{color:var(--ink);font-weight:500}
+@media (max-width:640px){.sender{text-align:left}}
+.rule-accent{height:2px;background:var(--accent);margin:0 0 4px}
+.rule-thin{height:1px;background:var(--rule);margin:0 0 26px}
+
+/* ---------- document title ---------- */
+.doc-title{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;justify-content:space-between;margin-bottom:6px}
+.doc-title h1{font-family:Spectral,serif;font-weight:600;font-size:1.42rem;line-height:1.15;letter-spacing:-.005em;margin:0;text-wrap:balance}
+.doc-title .date{font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--muted);white-space:nowrap}
+.frame{
+  font-size:.9rem;line-height:1.5;color:var(--ink-2);margin:0 0 22px;padding:10px 14px;
+  border-left:2px solid var(--violet);background:var(--violet-soft);
+}
+.frame b{color:var(--ink)}
+
+/* ---------- patient particulars (OP-sheet box) ---------- */
+.particulars{
+  display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--rule);
+  background:var(--paper-hi);margin-bottom:26px;
+}
+.particulars > div{padding:9px 13px;border-right:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft)}
+.particulars > div:nth-child(4n){border-right:0}
+.particulars > div:nth-last-child(-n+4){border-bottom:0}
+.particulars .k{font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.particulars .v{font-size:.94rem;line-height:1.3;font-variant-numeric:tabular-nums}
+.particulars .v.blank{color:var(--muted);font-style:italic}
+.particulars .v .fill{display:inline-block;min-width:5.5ch;border-bottom:1px solid var(--ink-2);vertical-align:baseline;margin-right:4px}
+@media (max-width:640px){
+  .particulars{grid-template-columns:repeat(2,1fr)}
+  .particulars > div:nth-child(4n){border-right:1px solid var(--rule-soft)}
+  .particulars > div:nth-child(2n){border-right:0}
+  .particulars > div:nth-last-child(-n+4){border-bottom:1px solid var(--rule-soft)}
+  .particulars > div:nth-last-child(-n+2){border-bottom:0}
+}
+
+/* ---------- sections ---------- */
+section{margin:0 0 28px}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 12px;padding-bottom:7px;border-bottom:1px solid var(--rule)}
+.sec-head h2{font-family:Spectral,serif;font-weight:600;font-size:1.05rem;line-height:1.3;margin:0;letter-spacing:.01em}
+.sec-head .eb{font-family:"IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--violet)}
+.secnote{font-size:.88rem;line-height:1.45;color:var(--ink-2);margin:-4px 0 12px}
+.sec-head .rx{
+  font-family:Spectral,serif;font-weight:600;font-size:1.55rem;line-height:1;color:var(--violet);
+  letter-spacing:-.02em;margin-right:2px;
+}
+
+/* diagnosis list */
+ol.dx{margin:0;padding-left:0;list-style:none;counter-reset:dx}
+ol.dx li{
+  counter-increment:dx;display:grid;grid-template-columns:2rem 1fr;gap:0 6px;
+  padding:7px 0;border-bottom:1px solid var(--rule-soft);font-size:.96rem;line-height:1.45;color:var(--ink);
+}
+ol.dx li:last-child{border-bottom:0}
+ol.dx li::before{content:counter(dx) ".";font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--violet);padding-top:.15em}
+ol.dx .ev{display:block;font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--muted);margin-top:2px}
+
+/* ---------- Rx table ---------- */
+.tblwrap{overflow-x:auto}
+table.rx{border-collapse:collapse;width:100%;min-width:620px;table-layout:fixed;font-size:.9rem;line-height:1.42}
+table.rx col.c-n{width:3.5%}
+table.rx col.c-med{width:21%}
+table.rx col.c-dose{width:10.5%}
+table.rx col.c-freq{width:11.5%}
+table.rx col.c-how{width:40%}
+table.rx col.c-status{width:13.5%}
+table.rx th{
+  font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);
+  font-weight:500;text-align:left;padding:6px 8px 8px;border-bottom:1px solid var(--rule);white-space:nowrap;
+}
+table.rx td{padding:9px 7px;border-bottom:1px solid var(--rule-soft);vertical-align:top;overflow-wrap:break-word}
+table.rx tr:last-child td{border-bottom:0}
+table.rx td.n{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--muted);padding-top:11px}
+table.rx td.med b{display:block;font-weight:600;color:var(--ink)}
+table.rx td.med .brand{display:block;font-family:"IBM Plex Mono",monospace;font-size:.7rem;color:var(--muted);margin-top:1px}
+table.rx td.dose{font-family:"IBM Plex Mono",monospace;font-size:.82rem;font-variant-numeric:tabular-nums}
+table.rx td.freqcell{font-family:"IBM Plex Mono",monospace;font-size:.8rem;line-height:1.35;color:var(--ink)}
+table.rx td.how{color:var(--ink-2);font-size:.88rem}
+table.rx td.how b{color:var(--ink)}
+table.rx td.status{text-align:center;overflow-wrap:normal;padding-left:4px;padding-right:4px}
+table.rx tr.grp td{
+  padding:14px 8px 5px;border-bottom:0;font-family:"IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--violet);
+}
+table.rx tr.grp.warn td{color:var(--flag)}
+table.rx tr.grp:first-child td{padding-top:4px}
+
+/* frequency grid: 1 · 0 · 0  with M A N beneath */
+.freq{display:inline-grid;grid-template-columns:repeat(3,1.45rem);gap:0 3px;text-align:center;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+.freq span{font-size:1rem;font-weight:500;color:var(--ink);line-height:1.15}
+.freq span.zero{color:var(--muted);font-weight:400}
+.freq small{font-size:.56rem;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;line-height:1.2}
+
+/* status tags */
+.tag{
+  display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.6rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  padding:3px 5px;border:1px solid currentColor;line-height:1.35;text-align:center;max-width:100%;
+}
+.tag.t-start,.tag.t-key{padding-left:6px;padding-right:6px}
+.t-cont{color:var(--muted)}
+.t-change{color:var(--violet)}
+.t-start{color:var(--violet);background:var(--violet-soft)}
+.t-key{color:var(--paper-hi);background:var(--violet);border-color:var(--violet)}
+.t-cond{color:var(--muted);border-style:dashed}
+.t-stop{color:var(--paper-hi);background:var(--flag);border-color:var(--flag)}
+
+/* do not take */
+.stopbox{
+  background:var(--flag-soft);border:1px solid var(--flag);border-left:4px solid var(--flag);
+  padding:14px 18px;margin:16px 0 0;display:grid;grid-template-columns:1fr auto;gap:8px 24px;align-items:start;
+}
+.stopbox .lbl{font-family:"IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--flag);margin-bottom:6px;font-weight:500}
+.stopbox .drugs{font-family:"IBM Plex Mono",monospace;font-size:.9rem;line-height:1.55;color:var(--ink)}
+.stopbox p{margin:6px 0 0;font-size:.88rem;color:var(--ink-2);line-height:1.45}
+.stopbox .why{font-size:.84rem;color:var(--ink-2);max-width:26ch;line-height:1.45}
+@media (max-width:640px){.stopbox{grid-template-columns:1fr}.stopbox .why{max-width:none}}
+
+/* ---------- investigations checklist ---------- */
+.checks{columns:2;column-gap:36px;margin:0;padding:0;list-style:none;counter-reset:inv}
+.checks li{
+  counter-increment:inv;break-inside:avoid;display:grid;grid-template-columns:1.05rem 1.6rem 1fr;gap:0 6px;
+  padding:6px 0;border-bottom:1px solid var(--rule-soft);font-size:.92rem;line-height:1.42;color:var(--ink);
+}
+.checks li .box{width:.85rem;height:.85rem;border:1.4px solid var(--violet);margin-top:.3em;border-radius:1px}
+.checks li::before{content:counter(inv);grid-column:2;font-family:"IBM Plex Mono",monospace;font-size:.76rem;color:var(--muted);padding-top:.16em}
+.checks li .box{grid-column:1;grid-row:1}
+.checks li .t{grid-column:3}
+.checks li .t small{display:block;font-family:"IBM Plex Mono",monospace;font-size:.68rem;color:var(--violet);margin-top:1px;letter-spacing:.02em}
+.checks li .t small.flag{color:var(--flag)}
+@media (max-width:640px){.checks{columns:1}}
+
+/* ---------- referrals ---------- */
+.refs{display:grid;grid-template-columns:1fr;gap:0}
+.refs > div{display:grid;grid-template-columns:1.2rem 1fr;gap:0 8px;padding:8px 0;border-bottom:1px solid var(--rule-soft);font-size:.93rem;line-height:1.45}
+.refs > div:last-child{border-bottom:0}
+.refs .arr{color:var(--violet);font-family:"IBM Plex Mono",monospace}
+.refs b{color:var(--ink)}
+.refs .why{display:block;color:var(--ink-2);font-size:.88rem}
+
+/* ---------- advice / review ---------- */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
+@media (max-width:640px){.two{grid-template-columns:1fr}}
+ul.adv{margin:0;padding-left:0;list-style:none}
+ul.adv li{position:relative;padding:5px 0 5px 16px;font-size:.92rem;line-height:1.45;color:var(--ink-2);border-bottom:1px solid var(--rule-soft)}
+ul.adv li:last-child{border-bottom:0}
+ul.adv li::before{content:"";position:absolute;left:0;top:.95em;width:6px;height:1.2px;background:var(--violet)}
+ul.adv li b{color:var(--ink)}
+
+/* ---------- sign-off ---------- */
+.signoff{margin-top:26px;padding-top:20px;border-top:1px solid var(--rule-soft);display:grid;grid-template-columns:1fr auto;gap:16px 32px;align-items:end}
+@media (max-width:640px){.signoff{grid-template-columns:1fr}}
+.signoff .note{font-size:.85rem;color:var(--ink-2);line-height:1.5;max-width:52ch}
+.signature{display:block;width:230px;max-width:100%;height:auto;margin:0 0 2px -4px}
+.sig{border-top:1px solid var(--ink);padding-top:8px;min-width:270px;line-height:1.55}
+.sig .nm{font-weight:600;font-size:.96rem}
+.sig .cr{font-family:"IBM Plex Mono",monospace;font-size:.7rem;color:var(--ink-2);letter-spacing:.015em;line-height:1.7}
+
+/* ---------- watermark ---------- */
+.watermark{margin-top:34px;padding-top:22px;border-top:1px solid var(--rule-soft);text-align:center}
+.watermark .wm{font-family:Spectral,serif;font-weight:600;font-size:clamp(1.05rem,3.4vw,1.62rem);letter-spacing:.3em;text-transform:uppercase;color:var(--accent);opacity:.2;line-height:1.25;text-indent:.3em}
+.watermark .sub{font-family:"IBM Plex Mono",monospace;font-size:.645rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);opacity:.8;margin-top:10px}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ---------- print: A4; the paper ground and running footer are added by build.py ---------- */
+@page{size:A4;margin:16mm 17mm 19mm}
+@media print{
+  body{padding:0;background:transparent;font-size:10.8pt;line-height:1.45;orphans:3;widows:3}
+  .toolbar{display:none}
+  .sheet{max-width:none;margin:0;padding:0;border:0;box-shadow:none;background:transparent}
+  section{margin-bottom:16px}
+  .stopbox{padding:11px 16px;margin-top:10px}
+  .checks li{padding:4px 0;line-height:1.38}
+  .refs > div{padding:5px 0;line-height:1.38}
+  ul.adv li{padding:3px 0 3px 16px;line-height:1.38}
+  .two .sec-head{margin-bottom:8px}
+  .signoff{margin-top:10px;padding-top:8px}
+  .signoff .note{font-size:.82rem;line-height:1.4}
+  .sig .cr{line-height:1.5}
+  .watermark{margin-top:6px;padding-top:8px}
+  .watermark .sub{margin-top:5px}
+  .tail,.sec-head,.particulars,.stopbox,.signoff,.refs > div,.checks li,ul.adv li,ol.dx li{break-inside:avoid}
+  .sec-head{break-after:avoid}
+  .tblwrap{overflow:visible}
+  table.rx{font-size:9.3pt;min-width:0}
+  table.rx td{padding:7px 6px}
+  table.rx tr.grp td{padding-top:11px;padding-bottom:4px}
+  table.rx thead{display:table-header-group}
+  table.rx tr{break-inside:avoid}
+  table.rx tr.grp{break-after:avoid}
+  .signature{width:48mm}
+  .watermark .wm{font-size:13pt}
+}
+</style>
+
+<div class="toolbar">
+  <span>Care plan &middot; M F Rahaman &middot; 5 Sep 2026</span>
+  <span class="tb-right">
+    <span id="dl-status" class="tb-status" aria-live="polite"></span>
+    <button id="dl" type="button" hidden>Download PDF</button>
+  </span>
+</div>
+
+<div class="sheet">
+
+  <header class="head">
+    <div class="mark">
+      <div class="name">The Rahman Foundation</div>
+      <div class="role">Clinical correspondence</div>
+    </div>
+    <div class="sender">
+      <div class="who">Mohammed Faraaz Rahman, M.D.</div>
+      <div>DrRahman@therahmanfoundation.com</div>
+    </div>
+  </header>
+  <div class="rule-accent"></div>
+  <div class="rule-thin"></div>
+
+  <div class="doc-title">
+    <h1>Treatment plan and investigations advised</h1>
+    <span class="date">5 September 2026</span>
+  </div>
+  <p class="frame"><b>For Mr M F Rahaman, to carry to every appointment.</b> This plan has been prepared by a physician in the family from your reports of July and August 2026. Each medicine change below is to be confirmed and prescribed by your treating cardiologist &mdash; take this sheet, with the enclosed letter, to Dr Sastry at CARE Banjara Hills.</p>
+
+  <div class="particulars">
+    <div><div class="k">Name</div><div class="v">Mr M F Rahaman</div></div>
+    <div><div class="k">Age / Sex</div><div class="v">63 y / Male</div></div>
+    <div><div class="k">Date of birth</div><div class="v">10 Feb 1963</div></div>
+    <div><div class="k">Place</div><div class="v">Hyderabad</div></div>
+    <div><div class="k">Weight</div><div class="v">81 kg</div></div>
+    <div><div class="k">Height</div><div class="v blank"><span class="fill"></span>cm &mdash; to measure</div></div>
+    <div><div class="k">Last BP</div><div class="v">150 / 100 mmHg</div></div>
+    <div><div class="k">Diabetes</div><div class="v blank">reported none &mdash; HbA1c pending</div></div>
+  </div>
+
+  <section>
+    <div class="sec-head"><span class="eb">Diagnosis</span><h2>What the reports show</h2></div>
+    <ol class="dx">
+      <li><span>Atrial cardiomyopathy with heart failure, preserved ejection fraction (HFpEF)<span class="ev">Cardiac MRI, CARE Banjara Hills, 24 Jul 2026 &middot; EF 64% &middot; thick, stiff left ventricle &middot; enlarged, scarred atria</span></span></li>
+      <li><span>Paroxysmal atrial fibrillation and atrial flutter &mdash; on a blood thinner<span class="ev">Diagnosed July 2026 &middot; admission for flutter &middot; Apollo summary 14 Aug 2026</span></span></li>
+      <li><span>High blood pressure &mdash; not controlled at present<span class="ev">150/100 mmHg on current tablets &middot; was ~120 systolic on the old combination tablet</span></span></li>
+      <li><span>Severe obstructive sleep apnoea &mdash; not yet treated<span class="ev">Sleep study: AHI 42.3 events per hour (severe is above 30)</span></span></li>
+      <li><span>Raised cholesterol &mdash; on a statin<span class="ev">Lipid test to be repeated</span></span></li>
+      <li><span>Family history that matters for your medicines<span class="ev">Brugada syndrome (nephew, confirmed) &middot; brothers with fainting episodes &middot; heart attacks around age 60 (grandfather, uncle)</span></span></li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="rx">Rx</span><h2>Medicines</h2><span class="eb">M &middot; A &middot; N = morning &middot; afternoon &middot; night</span></div>
+    <div class="tblwrap">
+    <table class="rx">
+      <colgroup>
+        <col class="c-n"><col class="c-med"><col class="c-dose"><col class="c-freq"><col class="c-how"><col class="c-status">
+      </colgroup>
+      <thead>
+        <tr><th>#</th><th>Medicine</th><th>Dose</th><th>M &middot; A &middot; N</th><th>How to take</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr class="grp"><td colspan="6">Continue as you are taking now</td></tr>
+        <tr>
+          <td class="n">1</td>
+          <td class="med"><b>Tab. Metoprolol succinate</b><span class="brand">MET-XL</span></td>
+          <td class="dose">25 mg</td>
+          <td><span class="freq"><span>1</span><span class="zero">0</span><span class="zero">0</span><small>M</small><small>A</small><small>N</small></span></td>
+          <td class="how">After breakfast. <b>Do not increase this tablet for blood pressure</b> &mdash; it is for heart rhythm only.</td>
+          <td class="status"><span class="tag t-cont">Continue</span></td>
+        </tr>
+        <tr>
+          <td class="n">2</td>
+          <td class="med"><b>Tab. Apixaban</b><span class="brand">Eliquis</span></td>
+          <td class="dose">5 mg</td>
+          <td><span class="freq"><span>1</span><span class="zero">0</span><span>1</span><small>M</small><small>A</small><small>N</small></span></td>
+          <td class="how">Blood thinner. <b>Never miss a dose.</b> Tell any doctor or dentist you take it.</td>
+          <td class="status"><span class="tag t-cont">Continue</span></td>
+        </tr>
+        <tr>
+          <td class="n">3</td>
+          <td class="med"><b>Tab. Atorvastatin</b><span class="brand">Storvas</span></td>
+          <td class="dose">10 mg</td>
+          <td><span class="freq"><span class="zero">0</span><span class="zero">0</span><span>1</span><small>M</small><small>A</small><small>N</small></span></td>
+          <td class="how">At night. Dose to be reviewed once the lipid test (Investigation 4) is done.</td>
+          <td class="status"><span class="tag t-cont">Continue</span></td>
+        </tr>
+
+        <tr class="grp"><td colspan="6">Ask the cardiologist to change</td></tr>
+        <tr>
+          <td class="n">4</td>
+          <td class="med"><b>Tab. Perindopril</b><span class="brand">Coversyl</span></td>
+          <td class="dose">2 &rarr; 4 mg,<br>then 8 mg</td>
+          <td><span class="freq"><span class="zero">0</span><span class="zero">0</span><span>1</span><small>M</small><small>A</small><small>N</small></span></td>
+          <td class="how">At night, one tablet. The doctor will raise the strength to 4 mg, and after 2&ndash;4 weeks to 8 mg if BP is still high and the kidney test is normal &mdash; always one tablet of the new strength; <b>do not change it yourself.</b> If a dry cough starts, tell the doctor &mdash; Coversyl can be swapped for Telmisartan 40 mg (the &ldquo;40&rdquo; in your old tablet). <b>Never take Coversyl and Telmisartan together</b>, and do not restart the old combination tablet while on Coversyl.</td>
+          <td class="status"><span class="tag t-change">Increase</span></td>
+        </tr>
+        <tr>
+          <td class="n">5</td>
+          <td class="med"><b>Tab. Amlodipine</b><span class="brand">separate 5 mg tablet</span></td>
+          <td class="dose">5 mg</td>
+          <td><span class="freq"><span>1</span><span class="zero">0</span><span class="zero">0</span><small>M</small><small>A</small><small>N</small></span></td>
+          <td class="how">Morning, as a tablet on its own &mdash; <b>not your old combination tablet</b>, which also contains telmisartan. This is the &ldquo;5&rdquo; that kept your BP at 120, and <b>it is safe with atrial fibrillation.</b> If your ankles swell, tell the doctor &mdash; the dose can be halved.</td>
+          <td class="status"><span class="tag t-change">Restart</span></td>
+        </tr>
+
+        <tr class="grp"><td colspan="6">Ask the cardiologist to add &mdash; 2&ndash;4 weeks after the changes above, once the blood tests are back</td></tr>
+        <tr>
+          <td class="n">6</td>
+          <td class="med"><b>Tab. Spironolactone</b></td>
+          <td class="dose">25 mg</td>
+          <td><span class="freq"><span>1</span><span class="zero">0</span><span class="zero">0</span><small>M</small><small>A</small><small>N</small></span></td>
+          <td class="how">For the blood pressure, and to protect the heart&rsquo;s upper chambers. Morning. <b>Start only when Dr Sastry has seen the potassium and kidney results</b> (Investigation 1) and the aldosterone test (Investigation 2) has been drawn &mdash; he will tell you when. Repeat the potassium and kidney test 1 and 4 weeks after starting.</td>
+          <td class="status"><span class="tag t-start">Start after tests</span></td>
+        </tr>
+        <tr>
+          <td class="n">7</td>
+          <td class="med"><b>Tab. Dapagliflozin</b><span class="brand">or Empagliflozin 10 mg</span></td>
+          <td class="dose">10 mg</td>
+          <td><span class="freq"><span>1</span><span class="zero">0</span><span class="zero">0</span><small>M</small><small>A</small><small>N</small></span></td>
+          <td class="how">Morning. For the heart failure &mdash; works whether or not you are diabetic. You will pass more urine at first; drink normally.</td>
+          <td class="status"><span class="tag t-start">Start</span></td>
+        </tr>
+        <tr>
+          <td class="n">8</td>
+          <td class="med"><b>Auto-PAP machine</b><span class="brand">CPAP for sleep apnoea</span></td>
+          <td class="dose">nightly</td>
+          <td class="freqcell">&ge; 4 h<br>aim 6+</td>
+          <td class="how"><b>The most important item on this page.</b> Steadies the heart rhythm, protects the heart, and improves your sleep and breathlessness; the blood pressure benefits too, more slowly. Use it every night. A rental trial (about &#8377;2,000) can start this week. Bring the machine&rsquo;s card to your reviews.</td>
+          <td class="status"><span class="tag t-key">Start now</span></td>
+        </tr>
+
+        <tr class="grp"><td colspan="6">Only if a test shows you qualify</td></tr>
+        <tr>
+          <td class="n">9</td>
+          <td class="med"><b>Tirzepatide</b><span class="brand">weekly injection</span></td>
+          <td class="dose">&mdash;</td>
+          <td class="freqcell">&mdash;</td>
+          <td class="how">Only if your height (Investigation 11) gives a BMI of 30 or more and the HbA1c (Investigation 3) shows you are not diabetic. Treats sleep apnoea, heart failure and weight together. <b>In addition to the machine, never instead of it.</b></td>
+          <td class="status"><span class="tag t-cond">To discuss</span></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="stopbox">
+      <div>
+        <div class="lbl">Do not take &mdash; show this to every doctor</div>
+        <div class="drugs">Flecainide &middot; Propafenone &middot; any &ldquo;pill in the pocket&rdquo; rhythm tablet</div>
+        <p>Because of the Brugada syndrome in our family, these heart-rhythm tablets &mdash; and any other tablet of the same family &mdash; can be dangerous for you until a heart-rhythm specialist (electrophysiologist) has assessed you, starting with the special ECG (Investigation 10).</p>
+      </div>
+      <div class="why"><span class="tag t-stop">Avoid</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="eb">Investigations advised</span><h2>Tests advised</h2></div>
+    <p class="secnote">Blood tests 1&ndash;7 can be done at any laboratory before the visit; Dr Sastry will order the rest. Do not delay the appointment or the machine to finish them.</p>
+    <ol class="checks">
+      <li><span class="box"></span><span class="t">Serum potassium, creatinine, eGFR<small>Before spironolactone &mdash; and again 1 and 4 weeks after starting it</small></span></li>
+      <li><span class="box"></span><span class="t">Aldosterone&ndash;renin ratio<small class="flag">Must be drawn before spironolactone is started</small></span></li>
+      <li><span class="box"></span><span class="t">HbA1c and fasting glucose<small>Confirms you are not diabetic</small></span></li>
+      <li><span class="box"></span><span class="t">Lipid profile, fasting<small>Decides whether 10 mg of atorvastatin is enough</small></span></li>
+      <li><span class="box"></span><span class="t">TSH (thyroid)<small>Thyroid trouble can cause atrial fibrillation</small></span></li>
+      <li><span class="box"></span><span class="t">NT-proBNP<small>Heart-strain blood test</small></span></li>
+      <li><span class="box"></span><span class="t">Serum ferritin and transferrin saturation<small>Iron &mdash; low iron worsens breathlessness and is treatable</small></span></li>
+      <li><span class="box"></span><span class="t">24-hour ambulatory blood pressure monitor<small>Confirms the readings and checks your BP at night</small></span></li>
+      <li><span class="box"></span><span class="t">Holter / extended heart-rhythm monitor<small>Shows how much of the day you are in AF, and whether the rate is controlled when you walk</small></span></li>
+      <li><span class="box"></span><span class="t">12-lead ECG with high leads<small class="flag">Ask for &ldquo;V1&ndash;V2 at the 2nd and 3rd intercostal space&rdquo; &mdash; the Brugada check</small></span></li>
+      <li><span class="box"></span><span class="t">Height, measured on a stadiometer<small>Not in any report &mdash; decides your BMI and whether medicine 9 is an option</small></span></li>
+      <li><span class="box"></span><span class="t">Repeat echocardiogram once the heart rate is steady<small>As the 23 Jul 2026 echo report itself recommended</small></span></li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="eb">Appointments</span><h2>Who to see</h2></div>
+    <div class="refs">
+      <div><span class="arr">&rarr;</span><span><b>Dr B. K. S. Sastry</b> &mdash; Heart Failure, CARE Hospitals, Banjara Hills<span class="why">Take the enclosed letter. He will confirm the medicine changes above.</span></span></div>
+      <div><span class="arr">&rarr;</span><span><b>Dr Soumen Devi Dutta</b> &mdash; Electrophysiology, Apollo Hospitals, Jubilee Hills<span class="why">To discuss a procedure for the flutter (cavotricuspid isthmus ablation), and rhythm control for the AF &mdash; the best window for that closes around July 2027.</span></span></div>
+      <div><span class="arr">&rarr;</span><span><b>Sleep clinic / PAP supplier</b><span class="why">Machine set-up and mask fitting this week; pressure check and usage review at 4 weeks and 12 weeks.</span></span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="two">
+      <div>
+        <div class="sec-head"><span class="eb">Advice</span><h2>Every day</h2></div>
+        <ul class="adv">
+          <li><b>Blood pressure</b> morning and evening, seated, after 5 minutes&rsquo; rest. Write it in a diary and bring the diary.</li>
+          <li><b>Weight</b> every morning. Tell the doctor if it rises by 2 kg or more in a week.</li>
+          <li><b>Ankle swelling</b> &mdash; note it and mention it. Do not stop any tablet on your own.</li>
+          <li><b>Salt</b> low; <b>alcohol</b> none. Keep walking daily &mdash; to the distance that is comfortable, not beyond.</li>
+          <li><b>Go to hospital at once</b> for fainting or near-fainting, palpitations with dizziness, chest pain, or breathlessness at rest.</li>
+          <li>Bring <b>this sheet and all reports</b> to every visit.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="sec-head"><span class="eb">Review</span><h2>When to check</h2></div>
+        <ul class="adv">
+          <li><b>2 weeks</b> after any tablet change &mdash; BP check.</li>
+          <li><b>1&ndash;2 weeks</b> after each perindopril increase &mdash; kidney and potassium test.</li>
+          <li><b>1 week and 4 weeks</b> after starting spironolactone &mdash; kidney and potassium test.</li>
+          <li><b>4 weeks and 12 weeks</b> after starting the machine &mdash; usage and BP review.</li>
+          <li><b>Cardiology follow-up</b> as Dr Sastry advises.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="tail">
+  <div class="signoff">
+    <p class="note">Prepared with love, and with your reports in front of me. Nothing here replaces your cardiologist&rsquo;s judgement &mdash; it is written so that the two of you start the conversation from the same page.</p>
+    <div>
+      <img class="signature" src="{{SIGNATURE}}" alt="Handwritten signature: Dr Mohammed Rahman, M.D.">
+      <div class="sig">
+        <div class="nm">Mohammed Faraaz Rahman, M.D.</div>
+        <div class="cr">The Rahman Foundation<br>DrRahman@therahmanfoundation.com</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="watermark">
+    <div class="wm">The Rahman Foundation</div>
+    <div class="sub">Clinical correspondence &middot; Confidential</div>
+  </div>
+  </div>
+
+</div>
+
+<!--PDF_DATA-->
+<script>
+(async function () {
+  var btn = document.getElementById('dl');
+  var status = document.getElementById('dl-status');
+  var node = document.getElementById('pdf-b64');
+  if (!btn || !node || !node.textContent.trim()) return;
+  if (!window.claude || typeof window.claude.use !== 'function') return;
+  var downloads = await window.claude.use('downloads');
+  if (!downloads) return;
+  btn.hidden = false;
+  btn.addEventListener('click', async function () {
+    btn.disabled = true; status.textContent = '';
+    try {
+      var b64 = node.textContent.trim();
+      var bin = atob(b64);
+      var bytes = new Uint8Array(bin.length);
+      for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      await downloads.save({ filename: 'Rahaman-care-plan-2026-09-05.pdf', data: new Blob([bytes]) });
+      status.textContent = 'Saved';
+    } catch (e) {
+      var code = e && e.code;
+      if (code === 'declined') status.textContent = '';
+      else if (code === 'rate_limited') status.textContent = 'Try again in a moment';
+      else status.textContent = 'Download unavailable here';
+    } finally {
+      btn.disabled = false;
+    }
+  });
+})();
+</script>
