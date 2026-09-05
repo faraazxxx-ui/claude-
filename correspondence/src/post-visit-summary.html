@@ -100,6 +100,7 @@ section{margin:0 0 28px}
 .sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 12px;padding-bottom:7px;border-bottom:1px solid var(--rule)}
 .sec-head h2{font-family:Spectral,serif;font-weight:600;font-size:1.05rem;line-height:1.3;margin:0;letter-spacing:.01em}
 .sec-head .eb{font-family:"IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--violet)}
+.secnote{font-size:.88rem;line-height:1.45;color:var(--ink-2);margin:-4px 0 12px}
 .sec-head .rx{
   font-family:Spectral,serif;font-weight:600;font-size:1.55rem;line-height:1;color:var(--violet);
   letter-spacing:-.02em;margin-right:2px;
@@ -230,20 +231,27 @@ ul.adv li b{color:var(--ink)}
   .toolbar{display:none}
   .sheet{max-width:none;margin:0;padding:0;border:0;box-shadow:none;background:transparent}
   section{margin-bottom:16px}
-  .stopbox{padding:12px 16px;margin-top:12px}
-  .checks li{padding:5px 0}
-  ul.adv li{padding:4px 0 4px 16px}
-  .signoff{margin-top:18px;padding-top:16px}
-  .watermark{margin-top:14px;padding-top:14px}
+  .stopbox{padding:11px 16px;margin-top:10px}
+  .checks li{padding:4px 0;line-height:1.38}
+  .refs > div{padding:5px 0;line-height:1.38}
+  ul.adv li{padding:3px 0 3px 16px;line-height:1.38}
+  .two .sec-head{margin-bottom:8px}
+  .signoff{margin-top:10px;padding-top:8px}
+  .signoff .note{font-size:.82rem;line-height:1.4}
+  .sig .cr{line-height:1.5}
+  .watermark{margin-top:6px;padding-top:8px}
+  .watermark .sub{margin-top:5px}
   .tail,.sec-head,.particulars,.stopbox,.signoff,.refs > div,.checks li,ul.adv li,ol.dx li{break-inside:avoid}
   .sec-head{break-after:avoid}
   .tblwrap{overflow:visible}
-  table.rx{font-size:9.6pt;min-width:0}
+  table.rx{font-size:9.3pt;min-width:0}
+  table.rx td{padding:7px 6px}
+  table.rx tr.grp td{padding-top:11px;padding-bottom:4px}
   table.rx thead{display:table-header-group}
   table.rx tr{break-inside:avoid}
   table.rx tr.grp{break-after:avoid}
-  .signature{width:54mm}
-  .watermark .wm{font-size:14pt}
+  .signature{width:48mm}
+  .watermark .wm{font-size:13pt}
 }
 </style>
 
@@ -342,25 +350,25 @@ ul.adv li b{color:var(--ink)}
           <td class="med"><b>Tab. Perindopril</b><span class="brand">Coversyl</span></td>
           <td class="dose">2 &rarr; 4 mg,<br>then 8 mg</td>
           <td><span class="freq"><span class="zero">0</span><span class="zero">0</span><span>1</span><small>M</small><small>A</small><small>N</small></span></td>
-          <td class="how">At night. Increase to 4 mg; to 8 mg after 2&ndash;4 weeks if BP is still high and the kidney test is normal. <b>If a dry cough starts:</b> change to Telmisartan 40 mg (the &ldquo;40&rdquo; from your old tablet).</td>
+          <td class="how">At night, one tablet. The doctor will raise the strength to 4 mg, and after 2&ndash;4 weeks to 8 mg if BP is still high and the kidney test is normal &mdash; always one tablet of the new strength; <b>do not change it yourself.</b> If a dry cough starts, tell the doctor &mdash; Coversyl can be swapped for Telmisartan 40 mg (the &ldquo;40&rdquo; in your old tablet). <b>Never take Coversyl and Telmisartan together</b>, and do not restart the old combination tablet while on Coversyl.</td>
           <td class="status"><span class="tag t-change">Increase</span></td>
         </tr>
         <tr>
           <td class="n">5</td>
-          <td class="med"><b>Tab. Amlodipine</b><span class="brand">the &ldquo;5&rdquo; from your old combination tablet</span></td>
+          <td class="med"><b>Tab. Amlodipine</b><span class="brand">separate 5 mg tablet</span></td>
           <td class="dose">5 mg</td>
           <td><span class="freq"><span>1</span><span class="zero">0</span><span class="zero">0</span><small>M</small><small>A</small><small>N</small></span></td>
-          <td class="how">Morning. This is the tablet that kept your BP at 120. <b>It is safe with atrial fibrillation.</b> If your ankles swell, tell the doctor &mdash; the dose can be halved.</td>
+          <td class="how">Morning, as a tablet on its own &mdash; <b>not your old combination tablet</b>, which also contains telmisartan. This is the &ldquo;5&rdquo; that kept your BP at 120, and <b>it is safe with atrial fibrillation.</b> If your ankles swell, tell the doctor &mdash; the dose can be halved.</td>
           <td class="status"><span class="tag t-change">Restart</span></td>
         </tr>
 
-        <tr class="grp"><td colspan="6">Ask the cardiologist to start</td></tr>
+        <tr class="grp"><td colspan="6">Ask the cardiologist to add &mdash; 2&ndash;4 weeks after the changes above, once the blood tests are back</td></tr>
         <tr>
           <td class="n">6</td>
           <td class="med"><b>Tab. Spironolactone</b></td>
           <td class="dose">25 mg</td>
           <td><span class="freq"><span>1</span><span class="zero">0</span><span class="zero">0</span><small>M</small><small>A</small><small>N</small></span></td>
-          <td class="how">Morning. <b>Only after Investigations 1 and 2 are done</b> (potassium, kidney, aldosterone). Repeat the potassium and kidney test 1 week and 4 weeks after starting.</td>
+          <td class="how">For the blood pressure, and to protect the heart&rsquo;s upper chambers. Morning. <b>Start only when Dr Sastry has seen the potassium and kidney results</b> (Investigation 1) and the aldosterone test (Investigation 2) has been drawn &mdash; he will tell you when. Repeat the potassium and kidney test 1 and 4 weeks after starting.</td>
           <td class="status"><span class="tag t-start">Start after tests</span></td>
         </tr>
         <tr>
@@ -368,7 +376,7 @@ ul.adv li b{color:var(--ink)}
           <td class="med"><b>Tab. Dapagliflozin</b><span class="brand">or Empagliflozin 10 mg</span></td>
           <td class="dose">10 mg</td>
           <td><span class="freq"><span>1</span><span class="zero">0</span><span class="zero">0</span><small>M</small><small>A</small><small>N</small></span></td>
-          <td class="how">Morning. For the heart failure &mdash; works whether or not you are diabetic. You will pass more urine at first; drink normally. Keep the area clean.</td>
+          <td class="how">Morning. For the heart failure &mdash; works whether or not you are diabetic. You will pass more urine at first; drink normally.</td>
           <td class="status"><span class="tag t-start">Start</span></td>
         </tr>
         <tr>
@@ -376,7 +384,7 @@ ul.adv li b{color:var(--ink)}
           <td class="med"><b>Auto-PAP machine</b><span class="brand">CPAP for sleep apnoea</span></td>
           <td class="dose">nightly</td>
           <td class="freqcell">&ge; 4 h<br>aim 6+</td>
-          <td class="how"><b>The most important item on this page.</b> Treats the blood pressure, the heart rhythm and the heart itself at once. A rental trial (about &#8377;2,000) can start this week. Bring the machine&rsquo;s card to your reviews.</td>
+          <td class="how"><b>The most important item on this page.</b> Steadies the heart rhythm, protects the heart, and improves your sleep and breathlessness; the blood pressure benefits too, more slowly. Use it every night. A rental trial (about &#8377;2,000) can start this week. Bring the machine&rsquo;s card to your reviews.</td>
           <td class="status"><span class="tag t-key">Start now</span></td>
         </tr>
 
@@ -386,7 +394,7 @@ ul.adv li b{color:var(--ink)}
           <td class="med"><b>Tirzepatide</b><span class="brand">weekly injection</span></td>
           <td class="dose">&mdash;</td>
           <td class="freqcell">&mdash;</td>
-          <td class="how">Only if your height (Investigation 11) gives a BMI of 30 or more and the HbA1c (Investigation 3) is known. Treats sleep apnoea, heart failure and weight together. <b>In addition to the machine, never instead of it.</b></td>
+          <td class="how">Only if your height (Investigation 11) gives a BMI of 30 or more and the HbA1c (Investigation 3) shows you are not diabetic. Treats sleep apnoea, heart failure and weight together. <b>In addition to the machine, never instead of it.</b></td>
           <td class="status"><span class="tag t-cond">To discuss</span></td>
         </tr>
       </tbody>
@@ -397,14 +405,15 @@ ul.adv li b{color:var(--ink)}
       <div>
         <div class="lbl">Do not take &mdash; show this to every doctor</div>
         <div class="drugs">Flecainide &middot; Propafenone &middot; any &ldquo;pill in the pocket&rdquo; rhythm tablet</div>
-        <p>Because of the Brugada syndrome in our family, these heart-rhythm tablets can be dangerous for you until a specialist has checked your ECG properly (Investigation 10).</p>
+        <p>Because of the Brugada syndrome in our family, these heart-rhythm tablets &mdash; and any other tablet of the same family &mdash; can be dangerous for you until a heart-rhythm specialist (electrophysiologist) has assessed you, starting with the special ECG (Investigation 10).</p>
       </div>
       <div class="why"><span class="tag t-stop">Avoid</span></div>
     </div>
   </section>
 
   <section>
-    <div class="sec-head"><span class="eb">Investigations advised</span><h2>Tests to get done before the cardiology visit</h2></div>
+    <div class="sec-head"><span class="eb">Investigations advised</span><h2>Tests advised</h2></div>
+    <p class="secnote">Blood tests 1&ndash;7 can be done at any laboratory before the visit; Dr Sastry will order the rest. Do not delay the appointment or the machine to finish them.</p>
     <ol class="checks">
       <li><span class="box"></span><span class="t">Serum potassium, creatinine, eGFR<small>Before spironolactone &mdash; and again 1 and 4 weeks after starting it</small></span></li>
       <li><span class="box"></span><span class="t">Aldosterone&ndash;renin ratio<small class="flag">Must be drawn before spironolactone is started</small></span></li>
@@ -439,7 +448,7 @@ ul.adv li b{color:var(--ink)}
           <li><b>Weight</b> every morning. Tell the doctor if it rises by 2 kg or more in a week.</li>
           <li><b>Ankle swelling</b> &mdash; note it and mention it. Do not stop any tablet on your own.</li>
           <li><b>Salt</b> low; <b>alcohol</b> none. Keep walking daily &mdash; to the distance that is comfortable, not beyond.</li>
-          <li><b>Go to hospital the same day</b> for fainting or near-fainting, palpitations with dizziness, chest pain, or breathlessness at rest.</li>
+          <li><b>Go to hospital at once</b> for fainting or near-fainting, palpitations with dizziness, chest pain, or breathlessness at rest.</li>
           <li>Bring <b>this sheet and all reports</b> to every visit.</li>
         </ul>
       </div>
