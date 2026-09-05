@@ -1,0 +1,520 @@
+<title>Referral — M F Rahaman</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+/* ---------- tokens: light (default) ---------- */
+:root{
+  --ground:#E8E9E5;
+  --paper:#FCFCFA;
+  --ink:#1A1D1C;
+  --ink-2:#454B49;
+  --muted:#7A817E;
+  --rule:#D5D8D5;
+  --rule-soft:#E6E8E4;
+  --accent:#1F4E46;
+  --accent-soft:#EDF2F0;
+  --flag:#8C2A22;
+  --flag-soft:#FAF0EE;
+  --sheet-shadow:0 1px 3px rgba(26,29,28,.07),0 18px 44px -22px rgba(26,29,28,.28);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0F1211;
+    --paper:#181B1A;
+    --ink:#E7EAE7;
+    --ink-2:#B6BDB9;
+    --muted:#88908C;
+    --rule:#2C312F;
+    --rule-soft:#232826;
+    --accent:#79BCAF;
+    --accent-soft:#15241F;
+    --flag:#E08E84;
+    --flag-soft:#241615;
+    --sheet-shadow:0 1px 3px rgba(0,0,0,.5),0 18px 44px -22px rgba(0,0,0,.75);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0F1211;
+  --paper:#181B1A;
+  --ink:#E7EAE7;
+  --ink-2:#B6BDB9;
+  --muted:#88908C;
+  --rule:#2C312F;
+  --rule-soft:#232826;
+  --accent:#79BCAF;
+  --accent-soft:#15241F;
+  --flag:#E08E84;
+  --flag-soft:#241615;
+  --sheet-shadow:0 1px 3px rgba(0,0,0,.5),0 18px 44px -22px rgba(0,0,0,.75);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:Spectral,"Source Serif 4",Georgia,serif;
+  font-size:16px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+  margin:0;
+  padding:32px 20px 64px;
+}
+p{margin:0 0 12px}
+strong,b{font-weight:600}
+
+.sheet{
+  max-width:840px;
+  margin:0 auto;
+  background:var(--paper);
+  border:1px solid var(--rule);
+  box-shadow:var(--sheet-shadow);
+  padding:52px 62px 40px;
+}
+@media (max-width:640px){
+  .sheet{padding:32px 24px 28px}
+  body{padding:16px 10px 40px}
+}
+
+.mono{
+  font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  font-variant-numeric:tabular-nums;
+}
+
+/* ---------- letterhead ---------- */
+.head{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px 32px;
+  align-items:flex-end;
+  justify-content:space-between;
+  padding-bottom:14px;
+}
+.mark .name{
+  font-family:Spectral,serif;
+  font-weight:600;
+  font-size:1.06rem;
+  letter-spacing:.155em;
+  text-transform:uppercase;
+  color:var(--accent);
+  line-height:1.2;
+}
+.mark .role{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.685rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-top:6px;
+}
+.sender{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.715rem;
+  line-height:1.75;
+  color:var(--ink-2);
+  text-align:right;
+}
+.sender .who{color:var(--ink);font-weight:500}
+@media (max-width:640px){.sender{text-align:left}}
+
+.rule-accent{height:2px;background:var(--accent);margin:0 0 4px}
+.rule-thin{height:1px;background:var(--rule);margin:0 0 30px}
+
+/* ---------- addressing ---------- */
+.dateline{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.735rem;
+  color:var(--muted);
+  letter-spacing:.02em;
+  margin-bottom:26px;
+}
+.to{margin-bottom:28px;line-height:1.5}
+.to .n{font-weight:600}
+.to .l{color:var(--ink-2);font-size:.95rem}
+
+/* ---------- subject block ---------- */
+.subject{
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  padding:16px 0;
+  margin-bottom:30px;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:7px 16px;
+  font-size:.87rem;
+  line-height:1.5;
+}
+.subject dt{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.68rem;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+  color:var(--muted);
+  padding-top:.28em;
+  white-space:nowrap;
+}
+.subject dd{margin:0;color:var(--ink)}
+.subject dd b{font-weight:600}
+@media (max-width:560px){
+  .subject{grid-template-columns:1fr;gap:2px 0}
+  .subject dd{margin-bottom:10px}
+}
+
+/* ---------- body sections ---------- */
+h2{
+  font-family:Spectral,serif;
+  font-weight:600;
+  font-size:1rem;
+  line-height:1.3;
+  letter-spacing:.004em;
+  margin:30px 0 9px;
+  text-wrap:balance;
+}
+.body p{color:var(--ink-2)}
+.body > p:first-child{color:var(--ink)}
+
+/* numbered points — hanging numeral */
+.point{
+  display:grid;
+  grid-template-columns:4.15rem 1fr;
+  gap:0 4px;
+  margin:28px 0 0;
+}
+.point .num{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.68rem;
+  font-weight:500;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  color:var(--accent);
+  padding-top:.46em;
+  line-height:1.3;
+  white-space:nowrap;
+}
+.point h3{
+  font-family:Spectral,serif;
+  font-weight:600;
+  font-size:1rem;
+  line-height:1.34;
+  margin:0 0 8px;
+  color:var(--ink);
+  text-wrap:balance;
+}
+.point p{margin:0 0 12px;color:var(--ink-2)}
+.point p:last-child{margin-bottom:0}
+@media (max-width:560px){
+  .point{grid-template-columns:1fr;gap:4px}
+  .point .num{padding-top:0}
+}
+
+/* the one flagged point */
+.point.flag .num{color:var(--flag)}
+.point.flag .col{
+  border-left:2px solid var(--flag);
+  padding-left:16px;
+  margin-left:-4px;
+}
+.drugflag{
+  background:var(--flag-soft);
+  border:1px solid var(--flag);
+  padding:13px 16px;
+  margin:14px 0;
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.79rem;
+  line-height:1.6;
+  color:var(--ink);
+}
+.drugflag .lbl{
+  display:block;
+  font-size:.655rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--flag);
+  margin-bottom:6px;
+}
+
+ul{margin:0 0 12px;padding-left:20px;color:var(--ink-2)}
+li{margin-bottom:9px}
+li:last-child{margin-bottom:0}
+li::marker{color:var(--muted)}
+
+.labs{
+  columns:2;
+  column-gap:34px;
+  margin:2px 0 12px;
+  padding:0;
+  list-style:none;
+}
+.labs li{
+  break-inside:avoid;
+  margin-bottom:6px;
+  padding-left:14px;
+  position:relative;
+  font-size:.9rem;
+  line-height:1.5;
+}
+.labs li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.62em;
+  width:5px;
+  height:1px;
+  background:var(--accent);
+}
+@media (max-width:560px){.labs{columns:1}}
+
+/* ---------- sign-off ---------- */
+.signoff{margin-top:32px;padding-top:22px;border-top:1px solid var(--rule-soft)}
+.signoff .close{margin-bottom:52px;color:var(--ink-2)}
+.sig{
+  border-top:1px solid var(--ink);
+  padding-top:9px;
+  max-width:330px;
+  line-height:1.6;
+}
+.sig .nm{font-weight:600;font-size:.98rem}
+.sig .cr{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.71rem;
+  color:var(--ink-2);
+  letter-spacing:.015em;
+  line-height:1.75;
+}
+
+.encl{
+  margin-top:26px;
+  padding-top:14px;
+  border-top:1px solid var(--rule-soft);
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.705rem;
+  line-height:1.7;
+  color:var(--muted);
+}
+.encl b{
+  color:var(--ink-2);
+  font-weight:500;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  font-size:.655rem;
+  display:block;
+  margin-bottom:5px;
+}
+
+/* ---------- watermark ---------- */
+.watermark{
+  margin-top:38px;
+  padding-top:24px;
+  border-top:1px solid var(--rule-soft);
+  text-align:center;
+}
+.watermark .wm{
+  font-family:Spectral,serif;
+  font-weight:600;
+  font-size:clamp(1.05rem,3.4vw,1.62rem);
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--accent);
+  opacity:.17;
+  line-height:1.25;
+  text-indent:.3em;
+}
+.watermark .sub{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.645rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+  opacity:.75;
+  margin-top:10px;
+}
+
+.runfoot{display:none}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ---------- print: A4, forced paper palette ---------- */
+@page{size:A4;margin:18mm 20mm 20mm}
+@media print{
+  :root:root{
+    --ground:#FFFFFF;
+    --paper:#FFFFFF;
+    --ink:#111413;
+    --ink-2:#333836;
+    --muted:#6B726F;
+    --rule:#BFC4C1;
+    --rule-soft:#DCE0DD;
+    --accent:#1F4E46;
+    --accent-soft:#EDF2F0;
+    --flag:#8C2A22;
+    --flag-soft:#FAF0EE;
+    --sheet-shadow:none;
+  }
+  body{padding:0;background:#fff;font-size:10.6pt;line-height:1.5}
+  .sheet{max-width:none;margin:0;padding:0;border:0;box-shadow:none}
+  .point,.signoff,.drugflag,.encl{break-inside:avoid}
+  h2{break-after:avoid}
+  .point h3{break-after:avoid}
+  .watermark{margin-top:26px}
+  .watermark .wm{font-size:15pt}
+  .runfoot{
+    display:block;
+    position:fixed;
+    bottom:-13mm;
+    left:0;
+    right:0;
+    text-align:center;
+    font-family:"IBM Plex Mono",monospace;
+    font-size:6.6pt;
+    letter-spacing:.17em;
+    text-transform:uppercase;
+    color:#8C918E;
+  }
+}
+</style>
+
+<div class="sheet">
+
+  <header class="head">
+    <div class="mark">
+      <div class="name">The Rahman Foundation</div>
+      <div class="role">Clinical correspondence</div>
+    </div>
+    <div class="sender">
+      <div class="who">Mohammed Faraaz Rahman, M.D.</div>
+      <div>DrRahman@therahmanfoundation.com</div>
+    </div>
+  </header>
+  <div class="rule-accent"></div>
+  <div class="rule-thin"></div>
+
+  <p class="dateline">5 September 2026</p>
+
+  <div class="to">
+    <div class="n">Dr B. K. S. Sastry</div>
+    <div class="l">Consultant Cardiologist &mdash; Heart Failure</div>
+    <div class="l">CARE Hospitals, Banjara Hills</div>
+    <div class="l">Hyderabad, Telangana</div>
+  </div>
+
+  <dl class="subject">
+    <dt>Re</dt>
+    <dd><b>Mr M F Rahaman</b>, M / 63 years, DOB 10 February 1963 &mdash; Hyderabad</dd>
+    <dt>Subject</dt>
+    <dd>Atrial cardiomyopathy with HFpEF; paroxysmal atrial fibrillation and flutter; uncontrolled hypertension; untreated severe obstructive sleep apnoea</dd>
+    <dt>Request</dt>
+    <dd>Heart failure specialist review, and reconsideration of two current prescribing decisions</dd>
+  </dl>
+
+  <div class="body">
+
+    <p>Dear Dr Sastry,</p>
+
+    <p>Thank you for your ongoing care of Mr Rahaman. I am a physician and a family member, writing to consolidate his records and to raise four specific points for your consideration.</p>
+
+    <h2>Summary of established findings</h2>
+    <p>Cardiac MRI (CARE Banjara Hills, 24 July 2026) demonstrates normal LV volumes with EF 64%, concentric LVH (IVS/PW 1.2 cm), no ventricular late gadolinium enhancement, and biatrial dilatation (LAVI 52 ml/m&sup2;) with patchy biatrial free-wall delayed enhancement &mdash; reported as atrial cardiomyopathy. Transthoracic echo the preceding day reported EF 50% with grade I diastolic dysfunction; it was performed during tachycardia with ectopy and carried an explicit recommendation to repeat after rate stabilisation. The sleep study reports an AHI of 42.3. The Apollo problem list of 14 August 2026 records atrial fibrillation, systemic hypertension and obstructive sleep apnoea, with CHA&#8322;DS&#8322;-VASc 1 and prior atrial flutter requiring admission in July 2026.</p>
+
+    <div class="point">
+      <div class="num">Point 1</div>
+      <div class="col">
+        <h3>A haemodynamic observation</h3>
+        <p>His MRI reports a cardiac index of <span class="mono">2.1 L/min/m&sup2;</span> and a stroke volume of <span class="mono">64 ml</span> (SVi approximately <span class="mono">34 ml/m&sup2;</span>), both below normal, despite a normal ejection fraction and at a scan heart rate of approximately 62 bpm. This low-output physiology &mdash; a small, concentrically hypertrophied, poorly compliant ventricle, compounded by loss of the atrial systolic contribution &mdash; appears to me the most likely explanation for his functional decline, which has progressed to breathlessness at under 500 metres in a man who was until recently a competitive cricketer and an active golfer.</p>
+        <p>I would be grateful for your view on whether this warrants formal assessment with cardiopulmonary exercise testing or a diastolic stress study.</p>
+      </div>
+    </div>
+
+    <div class="point">
+      <div class="num">Point 2</div>
+      <div class="col">
+        <h3>The withdrawn calcium channel blocker</h3>
+        <p>The patient reports that his hypertension was previously well controlled to approximately 120 mmHg systolic on a fixed-dose combination of an ARB 40 mg with amlodipine 5 mg, and that control was lost when the amlodipine was withdrawn following his atrial fibrillation diagnosis.</p>
+        <p>I would respectfully suggest that the cautions regarding calcium channel blockers in this setting apply to non-dihydropyridines in the context of reduced ejection fraction, and that neither condition is met here: amlodipine is a dihydropyridine without AV nodal effect, and his ejection fraction is 64% on cardiac MRI. The available evidence indicates that second-generation dihydropyridines do not worsen heart failure and are neutral on mortality in this population, and they are in routine use in anticoagulated AF cohorts.</p>
+        <p>Given that his haemodynamic abnormality is elevated systemic vascular resistance with a preserved-compliance aorta and a narrow pulse pressure of 50 mmHg, an arterial vasodilator appears mechanistically well matched to it. I would ask that reinstatement be considered, ideally alongside rather than instead of RAS blockade.</p>
+      </div>
+    </div>
+
+    <div class="point">
+      <div class="num">Point 3</div>
+      <div class="col">
+        <h3>Untreated severe obstructive sleep apnoea</h3>
+        <p>An AHI of 42.3 is recorded but no therapy appears to have been initiated. Given the established contribution of severe OSA to resistant hypertension, to atrial fibrillation recurrence and to atrial structural remodelling, I would ask that PAP therapy with formal titration and adherence monitoring be prioritised. This may be the most consequential single intervention available to him.</p>
+      </div>
+    </div>
+
+    <div class="point flag">
+      <div class="num">Point 4</div>
+      <div class="col">
+        <h3>An important family history, and a drug safety flag</h3>
+        <p>There is confirmed Brugada syndrome in this family: I am myself the proband, with an implantable defibrillator. Two of the patient's brothers have a history of syncopal episodes. Although his resting ECG of 23 July 2026 shows no Brugada pattern (rate 66, PR 157 ms, QRS 90 ms, QTc 434 ms), a normal resting tracing does not exclude a concealed phenotype.</p>
+
+        <div class="drugflag">
+          <span class="lbl">Please avoid pending electrophysiology assessment</span>
+          Flecainide &middot; Propafenone &middot; any class IC agent,<br>
+          including any &ldquo;pill in the pocket&rdquo; strategy
+        </div>
+
+        <p>I would suggest a 12-lead ECG with V1&ndash;V2 recorded at the second and third intercostal spaces, and would welcome your view on whether cascade genetic testing is warranted. I would also note the recognised overlap in which cardiac sodium-channel loss-of-function produces both Brugada syndrome and familial atrial cardiomyopathy, which may be relevant to the aetiology of his atrial disease.</p>
+      </div>
+    </div>
+
+    <h2>Further suggestions for your consideration</h2>
+    <ul>
+      <li>Up-titration of perindopril from the current 2 mg toward 4&ndash;8 mg, with renal and electrolyte monitoring, before the addition of further agents.</li>
+      <li>Addition of spironolactone 25 mg as fourth-line therapy, subject to baseline potassium and renal function &mdash; noting its particular rationale in coexisting OSA and atrial fibrosis. If primary aldosteronism is to be excluded, the aldosterone&ndash;renin ratio should be drawn first.</li>
+      <li>Addition of an SGLT2 inhibitor for the HFpEF diagnosis, irrespective of diabetes status.</li>
+      <li>Given diagnosis in July 2026 &mdash; within the twelve-month EAST-AFNET 4 window (HR 0.79, 96% CI 0.66&ndash;0.94; heart-failure subanalysis HR 0.74, 0.56&ndash;0.97, in a stratum where HFpEF was the largest group) &mdash; consideration of an early rhythm-control strategy, tempered by the recognition that his biatrial fibrosis burden predicts a lower probability of durable AF ablation success, which should be discussed with him explicitly.</li>
+      <li>Separately, his documented atrial flutter carries a Class 1 Level A indication for cavotricuspid isthmus ablation &mdash; a procedure whose success does not depend on his atrial fibrosis burden, and which may therefore be the more favourable procedural option.</li>
+      <li>Caution against escalating beta-blockade for blood-pressure control, given the low cardiac index and the likelihood of heart-rate-dependent output on exertion.</li>
+      <li><b>Measurement of his height, which does not appear anywhere in his record.</b> His MRI indexes six quantities; reconciled against their rounding bounds, these give a body surface area of <span class="mono">1.92&ndash;1.93 m&sup2;</span>, implying a height of <span class="mono">164&ndash;171 cm</span> and, at 81 kg, a BMI of approximately <span class="mono">28&ndash;30</span> &mdash; on the trial enrolment threshold rather than clearly either side of it. At his weight, a BMI of 30 requires a height at or below <span class="mono">164.3 cm</span>, so a single stadiometer reading settles it. He is of course obese on the Asian-Indian criterion at any of these figures, but the trials used a BMI of 30 and it is that threshold which governs access. Should BMI be confirmed at or above 30, he would meet entry criteria for the tirzepatide trials in both obstructive sleep apnoea (SURMOUNT-OSA: AHI reduction of 20&ndash;24 events/hour versus placebo, with an approved indication) and HFpEF (SUMMIT: cardiovascular death or worsening heart failure, HR 0.62, 95% CI 0.41&ndash;0.95) &mdash; unusually well matched to his particular combination of problems. I raise this for your consideration rather than as a recommendation, and note that it should complement rather than replace PAP therapy.</li>
+    </ul>
+
+    <h2>Two history items volunteered by the patient that do not appear in his records</h2>
+    <p>He reports a family history of myocardial infarction at approximately age 60 in his grandfather and in an uncle, and separately reports disturbed sleep. The former is relevant to his lipid target on atorvastatin 10 mg; the latter is the symptomatic correlate of the AHI of 42.3 above.</p>
+
+    <h2>Investigations not currently in his record</h2>
+    <p>No laboratory data of any kind was available to me. I would suggest:</p>
+    <ul class="labs">
+      <li>Potassium and creatinine &mdash; essential before any mineralocorticoid antagonist</li>
+      <li>HbA1c</li>
+      <li>TSH</li>
+      <li>Lipid panel</li>
+      <li>NT-proBNP, interpreted against an AF-specific threshold</li>
+      <li>Ferritin and transferrin saturation</li>
+      <li>Aldosterone&ndash;renin ratio, drawn before commencing spironolactone</li>
+      <li>24-hour ambulatory blood pressure with nocturnal dipping analysis</li>
+      <li>Ambulatory rhythm monitoring, to quantify AF burden and confirm adequacy of rate control on exertion</li>
+      <li>Height, by stadiometer</li>
+    </ul>
+
+    <div class="signoff">
+      <p class="close">I am glad to provide any of the source imaging or reports, and I am grateful for your time and for your care of him.</p>
+      <p class="close" style="margin-bottom:46px">Yours sincerely,</p>
+      <div class="sig">
+        <div class="nm">Mohammed Faraaz Rahman, M.D.</div>
+        <div class="cr">
+          The Rahman Foundation<br>
+          DrRahman@therahmanfoundation.com
+        </div>
+      </div>
+    </div>
+
+    <div class="encl">
+      <b>Available on request</b>
+      Cardiac MRI report, 24 Jul 2026 (CARE Banjara Hills) &middot; 2D echocardiogram, 23 Jul 2026 &middot;
+      12-lead ECG, 23 Jul 2026 &middot; polysomnography report &middot; Apollo outpatient summary, 14 Aug 2026 &middot;
+      current and prior prescriptions
+    </div>
+
+  </div>
+
+  <div class="watermark">
+    <div class="wm">The Rahman Foundation</div>
+    <div class="sub">Clinical correspondence &middot; Confidential</div>
+  </div>
+
+</div>
+
+<div class="runfoot">The Rahman Foundation &middot; Confidential clinical correspondence &middot; M F Rahaman &middot; 5 September 2026</div>
