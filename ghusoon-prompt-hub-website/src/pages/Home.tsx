@@ -1,7 +1,8 @@
-import { useState, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { prompts, nodalNetwork, redTeamSummary } from "@/lib/promptData";
 import PromptCard from "@/components/PromptCard";
+import { reportObservabilityEvent } from "@/lib/observability-client";
 import { Search, Filter, AlertTriangle, CheckCircle2, ArrowDown } from "lucide-react";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663364046860/XcLnFM2QvGnZZLo6dDqVoZ/hero-botanical-ear9rnEWUBwyPA9rVHST77.webp";
@@ -27,6 +28,25 @@ export default function Home() {
       return matchesSearch && matchesCategory;
     });
   }, [searchQuery, categoryFilter]);
+
+  useEffect(() => {
+    const query = searchQuery.trim();
+    if (query.length === 0) {
+      return;
+    }
+
+    const timer = window.setTimeout(() => {
+      void reportObservabilityEvent({
+        action: "search-prompts",
+        query,
+        resultCount: filteredPrompts.length,
+      });
+    }, 500);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, [searchQuery, filteredPrompts.length]);
 
   const categories: { value: CategoryFilter; label: string }[] = [
     { value: "all", label: "All Platforms" },
