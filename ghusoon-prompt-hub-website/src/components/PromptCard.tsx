@@ -2,7 +2,8 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { motion, AnimatePresence } from "framer-motion";
 import type { PromptData } from "@/lib/promptData";
-import { Check, Copy, ChevronDown, ChevronUp, Shield } from "lucide-react";
+import { reportObservabilityEvent } from "@/lib/observability-client";
+import { Check, Copy, ChevronDown, ChevronUp, Shield, ThumbsDown, ThumbsUp } from "lucide-react";
 
 interface PromptCardProps {
   prompt: PromptData;
@@ -13,6 +14,14 @@ export default function PromptCard({ prompt, index }: PromptCardProps) {
   const [expanded, setExpanded] = useState(false);
   const [copied, setCopied] = useState(false);
   const [showFixes, setShowFixes] = useState(false);
+  const [lastTraceId, setLastTraceId] = useState<string | null>(null);
+  const [rating, setRating] = useState<0 | 1 | null>(null);
+
+  const rememberTrace = (traceId: string | null | undefined) => {
+    if (traceId) {
+      setLastTraceId(traceId);
+    }
+  };
 
   const handleCopy = async () => {
     try {
@@ -22,9 +31,39 @@ export default function PromptCard({ prompt, index }: PromptCardProps) {
         description: "Ready to paste into the platform",
       });
       setTimeout(() => setCopied(false), 2000);
+      const result = await reportObservabilityEvent({
+        action: "copy-prompt",
+        promptId: prompt.id,
+      });
+      rememberTrace(result?.traceId);
     } catch {
       toast.error("Failed to copy");
     }
+  };
+
+  const handleExpand = async () => {
+    const next = !expanded;
+    setExpanded(next);
+    if (!next) {
+      return;
+    }
+    const result = await reportObservabilityEvent({
+      action: "view-prompt",
+      promptId: prompt.id,
+    });
+    rememberTrace(result?.traceId);
+  };
+
+  const handleRate = async (value: 0 | 1) => {
+    setRating(value);
+    const result = await reportObservabilityEvent({
+      action: "rate-prompt",
+      promptId: prompt.id,
+      value,
+      traceId: lastTraceId ?? undefined,
+    });
+    rememberTrace(result?.traceId);
+    toast.success(value === 1 ? "Thanks — marked as useful" : "Thanks — we'll review this prompt");
   };
 
   const categoryColors: Record<string, string> = {
@@ -40,7 +79,10 @@ export default function PromptCard({ prompt, index }: PromptCardProps) {
     medium: { label: "Medium Fix", className: "severity-medium" },
   };
 
-  const sev = severityLabels[prompt.severity];
+  const sev = severityLabels[prompt.severity] ?? {
+    label: "Fix",
+    className: "severity-medium",
+  };
 
   return (
     <motion.article
@@ -95,7 +137,9 @@ export default function PromptCard({ prompt, index }: PromptCardProps) {
           {/* Actions */}
           <div className="flex items-center gap-3 mt-4">
             <button
-              onClick={() => setExpanded(!expanded)}
+              onClick={() => {
+                void handleExpand();
+              }}
               className="flex items-center gap-1.5 text-sm font-medium text-[#556B2F] hover:text-[#D4A017] transition-colors"
               style={{ fontFamily: "var(--font-body)" }}
             >
@@ -120,6 +164,35 @@ export default function PromptCard({ prompt, index }: PromptCardProps) {
               <Shield size={16} />
               Red Team
             </button>
+
+            <div className="flex items-center gap-1 ml-2" aria-label="Rate this prompt">
+              <button
+                type="button"
+                onClick={() => {
+                  void handleRate(1);
+                }}
+                className={`p-1.5 rounded-sm transition-colors ${
+                  rating === 1 ? "text-[#556B2F] bg-[#556B2F]/10" : "text-[#1A1A1A]/40 hover:text-[#556B2F]"
+                }`}
+                aria-pressed={rating === 1}
+                aria-label="Thumbs up"
+              >
+                <ThumbsUp size={15} />
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  void handleRate(0);
+                }}
+                className={`p-1.5 rounded-sm transition-colors ${
+                  rating === 0 ? "text-red-600 bg-red-50" : "text-[#1A1A1A]/40 hover:text-red-600"
+                }`}
+                aria-pressed={rating === 0}
+                aria-label="Thumbs down"
+              >
+                <ThumbsDown size={15} />
+              </button>
+            </div>
           </div>
         </div>
 
