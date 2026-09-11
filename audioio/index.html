@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#000000" />
+  <title>Audioio</title>
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+  <div class="phone">
+    <header class="mast">
+      <p class="kicker">Dār al-shifāʾ · adjunct only</p>
+      <h1>Audioio</h1>
+      <p class="lede">Generated tones, noise, and maqām beds — mapped to the apps you already use, and to ADHD, treatment-resistant depression, anhedonia, and burnout.</p>
+    </header>
+
+    <section class="day" id="day-strip" aria-label="Day map"></section>
+
+    <section class="folder" aria-label="Audioio tools">
+      <div class="grid" id="app-grid"></div>
+    </section>
+
+    <p class="footnote">This is not a treatment for depression, ADHD, or burnout. It does not raise dopamine. If mood darkens, stop. Headphones required for binaural sessions. Key papers: <a href="https://pubmed.ncbi.nlm.nih.gov/38428577/">Nigg 2024 noise/ADHD</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/30073406/">Garcia-Argibay 2019 binaural</a> · <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10198548/">Ingendoh 2023 entrainment</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/42241057/">Awaad 2026 Ottoman makam</a></p>
+  </div>
+
+  <div class="player" id="player" hidden>
+    <div class="player-copy">
+      <strong id="player-title">Idle</strong>
+      <span id="player-meta">—</span>
+    </div>
+    <div class="player-actions">
+      <span id="player-clock">00:00</span>
+      <button type="button" class="ghost" id="stop-btn">Stop</button>
+    </div>
+  </div>
+
+  <div class="sheet" id="sheet" hidden>
+    <div class="sheet-card" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+      <button type="button" class="grab" id="sheet-close" aria-label="Close">Close</button>
+      <div id="sheet-body"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
