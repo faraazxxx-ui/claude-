@@ -263,6 +263,7 @@
       if (spec.maqam) playMaqam(spec.maqam, 0.03, dest);
     }
     startClock(minutes, spec.title, spec.meta || `${minutes} min · stop if mood worsens`);
+    $("sheet").hidden = true;
   }
 
   function recipeBlock(lines) {
@@ -439,6 +440,13 @@
   $("sheet-close").addEventListener("click", () => { $("sheet").hidden = true; });
   $("sheet").addEventListener("click", (e) => {
     if (e.target.id === "sheet") $("sheet").hidden = true;
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") $("sheet").hidden = true;
+    if (e.key === " " && !$("player").hidden && e.target === document.body) {
+      e.preventDefault();
+      stop();
+    }
   });
 
   renderHome();
