@@ -1,0 +1,17 @@
+{
+  "name": "Ghusoon Prompt Hub",
+  "install": "cd ghusoon-prompt-hub-website && npm install",
+  "terminals": [
+    {
+      "name": "vite-dev",
+      "command": "cd ghusoon-prompt-hub-website && npm run dev",
+      "description": "Vite dev server for the Ghusoon Prompt Hub website. Serves on http://localhost:5173."
+    }
+  ],
+  "ports": [
+    {
+      "name": "vite",
+      "port": 5173
+    }
+  ]
+}
