@@ -1,0 +1,7 @@
+# Health data is staged locally by setup.sh and never committed.
+# This repository is PUBLIC.
+data/*.csv
+.venv/
+__pycache__/
+out/
+*.pyc
