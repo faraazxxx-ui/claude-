@@ -12,6 +12,18 @@
 
 If you get stuck, the question is *"what does line 33 do and why is it there"* — never *"fix this for me."* The moment a model hands you a working file, the week is over and you learned nothing. That single constraint is the whole intervention.
 
+**And it is enforced, not requested.** A rule stated once in a README is a rule that gets acknowledged and then quietly dropped ten thousand tokens later — the same way a patient who was told about their medication at discharge is not actually on it. So this one lives in the harness instead of in prose: `.claude/hooks/protect-specimen.py` is a `PreToolUse` gate that **refuses** any write to `specimen.py` or `check.py` from Claude Code, in this and every future `week-*` directory.
+
+| Claude can still | Claude is refused |
+|---|---|
+| read the file, explain any line | `Write` / `Edit` on it |
+| run `specimen.py` and `check.py` | `sed -i`, redirects, `cp`/`mv` onto it |
+| `cat`, `grep`, `diff` it | `git checkout` to revert your edit |
+
+`check.py` is protected for the same reason: a grader a model can rewrite is not a grader. Both are yours to edit, in your own editor — the gate only binds the assistant.
+
+To turn it off, delete `.claude/settings.json`. 28 tests covering it are in `.claude/hooks/test_protect_specimen.py`.
+
 ---
 
 ## Before anything else — this repository is public
