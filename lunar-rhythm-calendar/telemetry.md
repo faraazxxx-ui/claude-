@@ -1,0 +1,3 @@
+# telemetry
+
+2026-10-11 · lunar-rhythm-calendar · outcome:PASS (build + validation) / PENDING (calendar population, tracker sheet) · rounds:1/2 · breakers:none · detours:3 (Google Drive connector unauthenticated → CSV import fallback; worker restart → tool schemas reloaded; target calendar absent from the connected account dr.faraaz.rahman@gmail.com → 3 scheduled re-checks, stopped) · handoffs:0 · diagrams:1(1/1) · note:3,116 verified events ready in build/payloads and build/ics; populate resumes the moment the calendar exists in the connected account. Hub gate: hub.md, goal.md and verify.md were not reachable in this session (not in the repo), so the standing rubric was replaced by build/verification_rubric.md.
