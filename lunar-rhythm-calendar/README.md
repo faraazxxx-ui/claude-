@@ -9,7 +9,7 @@ Gemini Apps Script draft) and populated directly into Google Calendar.
 | Item | Where |
 |---|---|
 | Calendar | Google Calendar → **Lunar Rhythm & Intentional Blocks** (3,116 events, 2026-10-11 → 2027-06-05) |
-| 40-prayer tracker | Google Sheet → [🕌 40-Prayer Habit Tracker & Streak Engine](SHEET_URL_PLACEHOLDER) |
+| 40-prayer tracker | [`build/prayer_log.csv`](build/prayer_log.csv) → open Google Sheets, **File → Import → Upload**, "Replace spreadsheet", then run `setupTrackerSheet` from `LunarRhythm.gs` for the dropdown and colours. (The Drive connector needed re-authorization during the build, so the sheet was not created automatically; the one-shot import above produces it in under a minute.) |
 | Full timetable | [`build/timetable.md`](build/timetable.md) (monthly tables) · [`build/timetable.csv`](build/timetable.csv) · [`build/timetable.json`](build/timetable.json) |
 | Verification | [`build/validation_report.md`](build/validation_report.md) |
 | Portable copy | [`build/ics/`](build/ics/) — one `.ics` per month plus `LRIB_ALL.ics` |

@@ -1,6 +1,6 @@
 # Validation report — Lunar Rhythm & Intentional Blocks
 
-Generated 2026-10-11 18:17 EDT · 238 days (2026-10-11 → 2027-06-05)
+Generated 2026-10-11 18:31 EDT · 238 days (2026-10-11 → 2027-06-05)
 
 ## 1. Prayer times: Aladhan (ISNA, method=2) vs independent local PrayTimes port
 

@@ -61,7 +61,7 @@ BEGIN:VEVENT
 SUMMARY:🌙 30 Rabi' al-Thani 1448 · 🌑 · Ramadan −120d
 DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-11-HDR@lunar-rhythm
 CATEGORIES:HEADER
 COLOR:lavender
@@ -77,7 +77,7 @@ BEGIN:VEVENT
 SUMMARY:🌌 B0 · Pre-Dawn (Tahajjud)
 DTSTART;TZID=America/New_York:20261011T050300
 DTEND;TZID=America/New_York:20261011T054800
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-11-B0@lunar-rhythm
 CATEGORIES:B0
 COLOR:purple
@@ -101,7 +101,7 @@ BEGIN:VEVENT
 SUMMARY:🌅 B1 · Dawn / First Light
 DTSTART;TZID=America/New_York:20261011T054800
 DTEND;TZID=America/New_York:20261011T065300
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-11-B1@lunar-rhythm
 CATEGORIES:B1
 COLOR:turquoise
@@ -122,7 +122,7 @@ BEGIN:VEVENT
 SUMMARY:☀️ B2 · High Dopamine Core Work
 DTSTART;TZID=America/New_York:20261011T071800
 DTEND;TZID=America/New_York:20261011T124300
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-11-B2@lunar-rhythm
 CATEGORIES:B2
 COLOR:yellow
@@ -152,7 +152,7 @@ BEGIN:VEVENT
 SUMMARY:🟧 B3 · Core Wrap-Up
 DTSTART;TZID=America/New_York:20261011T124300
 DTEND;TZID=America/New_York:20261011T155200
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-11-B3@lunar-rhythm
 CATEGORIES:B3
 COLOR:darkorange
@@ -176,7 +176,7 @@ BEGIN:VEVENT
 SUMMARY:🌇 B4 · Afternoon & Sunset Prep
 DTSTART;TZID=America/New_York:20261011T155200
 DTEND;TZID=America/New_York:20261011T180700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-11-B4@lunar-rhythm
 CATEGORIES:B4
 COLOR:red
@@ -201,7 +201,7 @@ BEGIN:VEVENT
 SUMMARY:🔵 B5 · Evening Reset
 DTSTART;TZID=America/New_York:20261011T182200
 DTEND;TZID=America/New_York:20261011T193700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-11-B5@lunar-rhythm
 CATEGORIES:B5
 COLOR:darkblue
@@ -226,7 +226,7 @@ BEGIN:VEVENT
 SUMMARY:⚫ B6 · Wind Down to Sleep
 DTSTART;TZID=America/New_York:20261011T193700
 DTEND;TZID=America/New_York:20261012T000000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-11-B6@lunar-rhythm
 CATEGORIES:B6
 COLOR:dimgray
@@ -251,7 +251,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Fajr · by 06:53
 DTSTART;TZID=America/New_York:20261011T054800
 DTEND;TZID=America/New_York:20261011T061300
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-11-P-FAJR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -260,8 +260,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · FAJR · 30 Rabi' al-Thani 1448 AH\nAd
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 0
  6:53) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-11-P-FA
- JR
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-11-P-FAJR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -273,7 +273,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Dhuhr · by 15:52
 DTSTART;TZID=America/New_York:20261011T124300
 DTEND;TZID=America/New_York:20261011T130800
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-11-P-DHUHR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -282,7 +282,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · DHUHR · 30 Rabi' al-Thani 1448 AH\nA
  k off: when prayed inside the window\, edit this title from "[ ]" to "[x]"
   and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 15:52) o
  r Missed → the 40-streak resets to 0. History stays in the log.\n📊 Tr
- acker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-11-P-DHUHR
+ acker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into 
+ Google Sheets (see README §3)\nLRIB-ID: 2026-10-11-P-DHUHR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -294,7 +295,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Asr · by 18:07
 DTSTART;TZID=America/New_York:20261011T155200
 DTEND;TZID=America/New_York:20261011T161700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-11-P-ASR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -303,8 +304,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ASR · 30 Rabi' al-Thani 1448 AH\nAdh
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 1
  8:07) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-11-P-AS
- R
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-11-P-ASR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -316,7 +317,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Maghrib · by 19:37
 DTSTART;TZID=America/New_York:20261011T182200
 DTEND;TZID=America/New_York:20261011T184700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-11-P-MAGHRIB@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -325,8 +326,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · MAGHRIB · 30 Rabi' al-Thani 1448 AH
   Tick off: when prayed inside the window\, edit this title from "[ ]" to "
  [x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 19:3
  7) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-11-P-MA
- GHRIB
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-11-P-MAGHRIB
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -338,7 +339,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Isha · by 00:00
 DTSTART;TZID=America/New_York:20261011T193700
 DTEND;TZID=America/New_York:20261011T200200
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-11-P-ISHA@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -347,7 +348,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ISHA · 30 Rabi' al-Thani 1448 AH\nAd
  ff: when prayed inside the window\, edit this title from "[ ]" to "[x]" an
  d mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 00:00) or M
  issed → the 40-streak resets to 0. History stays in the log.\n📊 Track
- er: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-11-P-ISHA
+ er: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Goo
+ gle Sheets (see README §3)\nLRIB-ID: 2026-10-11-P-ISHA
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -359,7 +361,7 @@ BEGIN:VEVENT
 SUMMARY:🌙 1 Jumada al-Ula 1448 · 🌑 · Ramadan −119d
 DTSTART;VALUE=DATE:20261012
 DTEND;VALUE=DATE:20261013
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-12-HDR@lunar-rhythm
 CATEGORIES:HEADER
 COLOR:lavender
@@ -375,7 +377,7 @@ BEGIN:VEVENT
 SUMMARY:🌌 B0 · Pre-Dawn (Tahajjud)
 DTSTART;TZID=America/New_York:20261012T050400
 DTEND;TZID=America/New_York:20261012T054900
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-12-B0@lunar-rhythm
 CATEGORIES:B0
 COLOR:purple
@@ -399,7 +401,7 @@ BEGIN:VEVENT
 SUMMARY:🌅 B1 · Dawn / First Light
 DTSTART;TZID=America/New_York:20261012T054900
 DTEND;TZID=America/New_York:20261012T065400
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-12-B1@lunar-rhythm
 CATEGORIES:B1
 COLOR:turquoise
@@ -420,7 +422,7 @@ BEGIN:VEVENT
 SUMMARY:☀️ B2 · High Dopamine Core Work
 DTSTART;TZID=America/New_York:20261012T071900
 DTEND;TZID=America/New_York:20261012T124200
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-12-B2@lunar-rhythm
 CATEGORIES:B2
 COLOR:yellow
@@ -450,7 +452,7 @@ BEGIN:VEVENT
 SUMMARY:🟧 B3 · Core Wrap-Up
 DTSTART;TZID=America/New_York:20261012T124200
 DTEND;TZID=America/New_York:20261012T155100
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-12-B3@lunar-rhythm
 CATEGORIES:B3
 COLOR:darkorange
@@ -474,7 +476,7 @@ BEGIN:VEVENT
 SUMMARY:🌇 B4 · Afternoon & Sunset Prep
 DTSTART;TZID=America/New_York:20261012T155100
 DTEND;TZID=America/New_York:20261012T180500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-12-B4@lunar-rhythm
 CATEGORIES:B4
 COLOR:red
@@ -499,7 +501,7 @@ BEGIN:VEVENT
 SUMMARY:🔵 B5 · Evening Reset
 DTSTART;TZID=America/New_York:20261012T182000
 DTEND;TZID=America/New_York:20261012T193500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-12-B5@lunar-rhythm
 CATEGORIES:B5
 COLOR:darkblue
@@ -524,7 +526,7 @@ BEGIN:VEVENT
 SUMMARY:⚫ B6 · Wind Down to Sleep
 DTSTART;TZID=America/New_York:20261012T193500
 DTEND;TZID=America/New_York:20261013T000000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-12-B6@lunar-rhythm
 CATEGORIES:B6
 COLOR:dimgray
@@ -549,7 +551,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Fajr · by 06:54
 DTSTART;TZID=America/New_York:20261012T054900
 DTEND;TZID=America/New_York:20261012T061400
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-12-P-FAJR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -558,8 +560,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · FAJR · 1 Jumada al-Ula 1448 AH\nAdha
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 0
  6:54) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-12-P-FA
- JR
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-12-P-FAJR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -571,7 +573,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Dhuhr · by 15:51
 DTSTART;TZID=America/New_York:20261012T124200
 DTEND;TZID=America/New_York:20261012T130700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-12-P-DHUHR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -580,7 +582,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · DHUHR · 1 Jumada al-Ula 1448 AH\nAdh
  off: when prayed inside the window\, edit this title from "[ ]" to "[x]" a
  nd mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 15:51) or 
  Missed → the 40-streak resets to 0. History stays in the log.\n📊 Trac
- ker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-12-P-DHUHR
+ ker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Go
+ ogle Sheets (see README §3)\nLRIB-ID: 2026-10-12-P-DHUHR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -592,7 +595,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Asr · by 18:05
 DTSTART;TZID=America/New_York:20261012T155100
 DTEND;TZID=America/New_York:20261012T161600
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-12-P-ASR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -601,8 +604,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ASR · 1 Jumada al-Ula 1448 AH\nAdhan
   Tick off: when prayed inside the window\, edit this title from "[ ]" to "
  [x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 18:0
  5) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-12-P-AS
- R
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-12-P-ASR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -614,7 +617,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Maghrib · by 19:35
 DTSTART;TZID=America/New_York:20261012T182000
 DTEND;TZID=America/New_York:20261012T184500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-12-P-MAGHRIB@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -623,7 +626,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · MAGHRIB · 1 Jumada al-Ula 1448 AH\nA
  ck off: when prayed inside the window\, edit this title from "[ ]" to "[x]
  " and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 19:35) 
  or Missed → the 40-streak resets to 0. History stays in the log.\n📊 T
- racker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-12-P-MAGHRIB
+ racker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into
+  Google Sheets (see README §3)\nLRIB-ID: 2026-10-12-P-MAGHRIB
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -635,7 +639,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Isha · by 00:00
 DTSTART;TZID=America/New_York:20261012T193500
 DTEND;TZID=America/New_York:20261012T200000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-12-P-ISHA@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -644,7 +648,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ISHA · 1 Jumada al-Ula 1448 AH\nAdha
  : when prayed inside the window\, edit this title from "[ ]" to "[x]" and 
  mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 00:00) or Mis
  sed → the 40-streak resets to 0. History stays in the log.\n📊 Tracker
- : (tracker sheet URL — see README)\nLRIB-ID: 2026-10-12-P-ISHA
+ : 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Googl
+ e Sheets (see README §3)\nLRIB-ID: 2026-10-12-P-ISHA
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -656,7 +661,7 @@ BEGIN:VEVENT
 SUMMARY:🌙 1 Jumada al-Ula 1448 — Solidification & Crystallization
 DTSTART;VALUE=DATE:20261012
 DTEND;VALUE=DATE:20261013
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-12-ANCHOR@lunar-rhythm
 CATEGORIES:ANCHOR
 COLOR:darkseagreen
@@ -676,7 +681,7 @@ BEGIN:VEVENT
 SUMMARY:🌙 2 Jumada al-Ula 1448 · 🌒 · Ramadan −118d
 DTSTART;VALUE=DATE:20261013
 DTEND;VALUE=DATE:20261014
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-13-HDR@lunar-rhythm
 CATEGORIES:HEADER
 COLOR:lavender
@@ -692,7 +697,7 @@ BEGIN:VEVENT
 SUMMARY:🌌 B0 · Pre-Dawn (Tahajjud)
 DTSTART;TZID=America/New_York:20261013T050500
 DTEND;TZID=America/New_York:20261013T055000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-13-B0@lunar-rhythm
 CATEGORIES:B0
 COLOR:purple
@@ -716,7 +721,7 @@ BEGIN:VEVENT
 SUMMARY:🌅 B1 · Dawn / First Light
 DTSTART;TZID=America/New_York:20261013T055000
 DTEND;TZID=America/New_York:20261013T065500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-13-B1@lunar-rhythm
 CATEGORIES:B1
 COLOR:turquoise
@@ -737,7 +742,7 @@ BEGIN:VEVENT
 SUMMARY:☀️ B2 · High Dopamine Core Work
 DTSTART;TZID=America/New_York:20261013T072000
 DTEND;TZID=America/New_York:20261013T124200
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-13-B2@lunar-rhythm
 CATEGORIES:B2
 COLOR:yellow
@@ -767,7 +772,7 @@ BEGIN:VEVENT
 SUMMARY:🟧 B3 · Core Wrap-Up
 DTSTART;TZID=America/New_York:20261013T124200
 DTEND;TZID=America/New_York:20261013T155000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-13-B3@lunar-rhythm
 CATEGORIES:B3
 COLOR:darkorange
@@ -791,7 +796,7 @@ BEGIN:VEVENT
 SUMMARY:🌇 B4 · Afternoon & Sunset Prep
 DTSTART;TZID=America/New_York:20261013T155000
 DTEND;TZID=America/New_York:20261013T180300
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-13-B4@lunar-rhythm
 CATEGORIES:B4
 COLOR:red
@@ -816,7 +821,7 @@ BEGIN:VEVENT
 SUMMARY:🔵 B5 · Evening Reset
 DTSTART;TZID=America/New_York:20261013T181800
 DTEND;TZID=America/New_York:20261013T193400
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-13-B5@lunar-rhythm
 CATEGORIES:B5
 COLOR:darkblue
@@ -841,7 +846,7 @@ BEGIN:VEVENT
 SUMMARY:⚫ B6 · Wind Down to Sleep
 DTSTART;TZID=America/New_York:20261013T193400
 DTEND;TZID=America/New_York:20261014T000000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-13-B6@lunar-rhythm
 CATEGORIES:B6
 COLOR:dimgray
@@ -866,7 +871,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Fajr · by 06:55
 DTSTART;TZID=America/New_York:20261013T055000
 DTEND;TZID=America/New_York:20261013T061500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-13-P-FAJR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -875,8 +880,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · FAJR · 2 Jumada al-Ula 1448 AH\nAdha
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 0
  6:55) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-13-P-FA
- JR
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-13-P-FAJR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -888,7 +893,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Dhuhr · by 15:50
 DTSTART;TZID=America/New_York:20261013T124200
 DTEND;TZID=America/New_York:20261013T130700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-13-P-DHUHR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -897,7 +902,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · DHUHR · 2 Jumada al-Ula 1448 AH\nAdh
  off: when prayed inside the window\, edit this title from "[ ]" to "[x]" a
  nd mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 15:50) or 
  Missed → the 40-streak resets to 0. History stays in the log.\n📊 Trac
- ker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-13-P-DHUHR
+ ker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Go
+ ogle Sheets (see README §3)\nLRIB-ID: 2026-10-13-P-DHUHR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -909,7 +915,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Asr · by 18:03
 DTSTART;TZID=America/New_York:20261013T155000
 DTEND;TZID=America/New_York:20261013T161500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-13-P-ASR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -918,8 +924,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ASR · 2 Jumada al-Ula 1448 AH\nAdhan
   Tick off: when prayed inside the window\, edit this title from "[ ]" to "
  [x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 18:0
  3) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-13-P-AS
- R
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-13-P-ASR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -931,7 +937,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Maghrib · by 19:34
 DTSTART;TZID=America/New_York:20261013T181800
 DTEND;TZID=America/New_York:20261013T184300
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-13-P-MAGHRIB@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -940,7 +946,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · MAGHRIB · 2 Jumada al-Ula 1448 AH\nA
  ck off: when prayed inside the window\, edit this title from "[ ]" to "[x]
  " and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 19:34) 
  or Missed → the 40-streak resets to 0. History stays in the log.\n📊 T
- racker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-13-P-MAGHRIB
+ racker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into
+  Google Sheets (see README §3)\nLRIB-ID: 2026-10-13-P-MAGHRIB
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -952,7 +959,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Isha · by 00:00
 DTSTART;TZID=America/New_York:20261013T193400
 DTEND;TZID=America/New_York:20261013T195900
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-13-P-ISHA@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -961,7 +968,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ISHA · 2 Jumada al-Ula 1448 AH\nAdha
  : when prayed inside the window\, edit this title from "[ ]" to "[x]" and 
  mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 00:00) or Mis
  sed → the 40-streak resets to 0. History stays in the log.\n📊 Tracker
- : (tracker sheet URL — see README)\nLRIB-ID: 2026-10-13-P-ISHA
+ : 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Googl
+ e Sheets (see README §3)\nLRIB-ID: 2026-10-13-P-ISHA
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -973,7 +981,7 @@ BEGIN:VEVENT
 SUMMARY:🌙 3 Jumada al-Ula 1448 · 🌒 · Ramadan −117d
 DTSTART;VALUE=DATE:20261014
 DTEND;VALUE=DATE:20261015
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-14-HDR@lunar-rhythm
 CATEGORIES:HEADER
 COLOR:lavender
@@ -989,7 +997,7 @@ BEGIN:VEVENT
 SUMMARY:🌌 B0 · Pre-Dawn (Tahajjud)
 DTSTART;TZID=America/New_York:20261014T050600
 DTEND;TZID=America/New_York:20261014T055100
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-14-B0@lunar-rhythm
 CATEGORIES:B0
 COLOR:purple
@@ -1013,7 +1021,7 @@ BEGIN:VEVENT
 SUMMARY:🌅 B1 · Dawn / First Light
 DTSTART;TZID=America/New_York:20261014T055100
 DTEND;TZID=America/New_York:20261014T065600
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-14-B1@lunar-rhythm
 CATEGORIES:B1
 COLOR:turquoise
@@ -1034,7 +1042,7 @@ BEGIN:VEVENT
 SUMMARY:☀️ B2 · High Dopamine Core Work
 DTSTART;TZID=America/New_York:20261014T072100
 DTEND;TZID=America/New_York:20261014T124200
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-14-B2@lunar-rhythm
 CATEGORIES:B2
 COLOR:yellow
@@ -1064,7 +1072,7 @@ BEGIN:VEVENT
 SUMMARY:🟧 B3 · Core Wrap-Up
 DTSTART;TZID=America/New_York:20261014T124200
 DTEND;TZID=America/New_York:20261014T154900
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-14-B3@lunar-rhythm
 CATEGORIES:B3
 COLOR:darkorange
@@ -1088,7 +1096,7 @@ BEGIN:VEVENT
 SUMMARY:🌇 B4 · Afternoon & Sunset Prep
 DTSTART;TZID=America/New_York:20261014T154900
 DTEND;TZID=America/New_York:20261014T180200
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-14-B4@lunar-rhythm
 CATEGORIES:B4
 COLOR:red
@@ -1113,7 +1121,7 @@ BEGIN:VEVENT
 SUMMARY:🔵 B5 · Evening Reset
 DTSTART;TZID=America/New_York:20261014T181700
 DTEND;TZID=America/New_York:20261014T193200
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-14-B5@lunar-rhythm
 CATEGORIES:B5
 COLOR:darkblue
@@ -1138,7 +1146,7 @@ BEGIN:VEVENT
 SUMMARY:⚫ B6 · Wind Down to Sleep
 DTSTART;TZID=America/New_York:20261014T193200
 DTEND;TZID=America/New_York:20261015T000000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-14-B6@lunar-rhythm
 CATEGORIES:B6
 COLOR:dimgray
@@ -1163,7 +1171,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Fajr · by 06:56
 DTSTART;TZID=America/New_York:20261014T055100
 DTEND;TZID=America/New_York:20261014T061600
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-14-P-FAJR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -1172,8 +1180,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · FAJR · 3 Jumada al-Ula 1448 AH\nAdha
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 0
  6:56) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-14-P-FA
- JR
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-14-P-FAJR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1185,7 +1193,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Dhuhr · by 15:49
 DTSTART;TZID=America/New_York:20261014T124200
 DTEND;TZID=America/New_York:20261014T130700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-14-P-DHUHR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -1194,7 +1202,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · DHUHR · 3 Jumada al-Ula 1448 AH\nAdh
  off: when prayed inside the window\, edit this title from "[ ]" to "[x]" a
  nd mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 15:49) or 
  Missed → the 40-streak resets to 0. History stays in the log.\n📊 Trac
- ker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-14-P-DHUHR
+ ker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Go
+ ogle Sheets (see README §3)\nLRIB-ID: 2026-10-14-P-DHUHR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1206,7 +1215,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Asr · by 18:02
 DTSTART;TZID=America/New_York:20261014T154900
 DTEND;TZID=America/New_York:20261014T161400
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-14-P-ASR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -1215,8 +1224,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ASR · 3 Jumada al-Ula 1448 AH\nAdhan
   Tick off: when prayed inside the window\, edit this title from "[ ]" to "
  [x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 18:0
  2) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-14-P-AS
- R
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-14-P-ASR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1228,7 +1237,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Maghrib · by 19:32
 DTSTART;TZID=America/New_York:20261014T181700
 DTEND;TZID=America/New_York:20261014T184200
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-14-P-MAGHRIB@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -1237,7 +1246,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · MAGHRIB · 3 Jumada al-Ula 1448 AH\nA
  ck off: when prayed inside the window\, edit this title from "[ ]" to "[x]
  " and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 19:32) 
  or Missed → the 40-streak resets to 0. History stays in the log.\n📊 T
- racker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-14-P-MAGHRIB
+ racker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into
+  Google Sheets (see README §3)\nLRIB-ID: 2026-10-14-P-MAGHRIB
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1249,7 +1259,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Isha · by 00:00
 DTSTART;TZID=America/New_York:20261014T193200
 DTEND;TZID=America/New_York:20261014T195700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-14-P-ISHA@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -1258,7 +1268,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ISHA · 3 Jumada al-Ula 1448 AH\nAdha
  : when prayed inside the window\, edit this title from "[ ]" to "[x]" and 
  mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 00:00) or Mis
  sed → the 40-streak resets to 0. History stays in the log.\n📊 Tracker
- : (tracker sheet URL — see README)\nLRIB-ID: 2026-10-14-P-ISHA
+ : 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Googl
+ e Sheets (see README §3)\nLRIB-ID: 2026-10-14-P-ISHA
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1270,7 +1281,7 @@ BEGIN:VEVENT
 SUMMARY:🌙 4 Jumada al-Ula 1448 · 🌒 · Ramadan −116d
 DTSTART;VALUE=DATE:20261015
 DTEND;VALUE=DATE:20261016
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-15-HDR@lunar-rhythm
 CATEGORIES:HEADER
 COLOR:lavender
@@ -1286,7 +1297,7 @@ BEGIN:VEVENT
 SUMMARY:🌌 B0 · Pre-Dawn (Tahajjud)
 DTSTART;TZID=America/New_York:20261015T050700
 DTEND;TZID=America/New_York:20261015T055200
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-15-B0@lunar-rhythm
 CATEGORIES:B0
 COLOR:purple
@@ -1310,7 +1321,7 @@ BEGIN:VEVENT
 SUMMARY:🌅 B1 · Dawn / First Light
 DTSTART;TZID=America/New_York:20261015T055200
 DTEND;TZID=America/New_York:20261015T065700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-15-B1@lunar-rhythm
 CATEGORIES:B1
 COLOR:turquoise
@@ -1331,7 +1342,7 @@ BEGIN:VEVENT
 SUMMARY:☀️ B2 · High Dopamine Core Work
 DTSTART;TZID=America/New_York:20261015T072200
 DTEND;TZID=America/New_York:20261015T124200
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-15-B2@lunar-rhythm
 CATEGORIES:B2
 COLOR:yellow
@@ -1361,7 +1372,7 @@ BEGIN:VEVENT
 SUMMARY:🟧 B3 · Core Wrap-Up
 DTSTART;TZID=America/New_York:20261015T124200
 DTEND;TZID=America/New_York:20261015T154700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-15-B3@lunar-rhythm
 CATEGORIES:B3
 COLOR:darkorange
@@ -1385,7 +1396,7 @@ BEGIN:VEVENT
 SUMMARY:🌇 B4 · Afternoon & Sunset Prep
 DTSTART;TZID=America/New_York:20261015T154700
 DTEND;TZID=America/New_York:20261015T180000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-15-B4@lunar-rhythm
 CATEGORIES:B4
 COLOR:red
@@ -1410,7 +1421,7 @@ BEGIN:VEVENT
 SUMMARY:🔵 B5 · Evening Reset
 DTSTART;TZID=America/New_York:20261015T181500
 DTEND;TZID=America/New_York:20261015T193100
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-15-B5@lunar-rhythm
 CATEGORIES:B5
 COLOR:darkblue
@@ -1435,7 +1446,7 @@ BEGIN:VEVENT
 SUMMARY:⚫ B6 · Wind Down to Sleep
 DTSTART;TZID=America/New_York:20261015T193100
 DTEND;TZID=America/New_York:20261016T000000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-15-B6@lunar-rhythm
 CATEGORIES:B6
 COLOR:dimgray
@@ -1460,7 +1471,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Fajr · by 06:57
 DTSTART;TZID=America/New_York:20261015T055200
 DTEND;TZID=America/New_York:20261015T061700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-15-P-FAJR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -1469,8 +1480,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · FAJR · 4 Jumada al-Ula 1448 AH\nAdha
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 0
  6:57) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-15-P-FA
- JR
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-15-P-FAJR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1482,7 +1493,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Dhuhr · by 15:47
 DTSTART;TZID=America/New_York:20261015T124200
 DTEND;TZID=America/New_York:20261015T130700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-15-P-DHUHR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -1491,7 +1502,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · DHUHR · 4 Jumada al-Ula 1448 AH\nAdh
  off: when prayed inside the window\, edit this title from "[ ]" to "[x]" a
  nd mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 15:47) or 
  Missed → the 40-streak resets to 0. History stays in the log.\n📊 Trac
- ker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-15-P-DHUHR
+ ker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Go
+ ogle Sheets (see README §3)\nLRIB-ID: 2026-10-15-P-DHUHR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1503,7 +1515,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Asr · by 18:00
 DTSTART;TZID=America/New_York:20261015T154700
 DTEND;TZID=America/New_York:20261015T161200
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-15-P-ASR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -1512,8 +1524,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ASR · 4 Jumada al-Ula 1448 AH\nAdhan
   Tick off: when prayed inside the window\, edit this title from "[ ]" to "
  [x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 18:0
  0) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-15-P-AS
- R
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-15-P-ASR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1525,7 +1537,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Maghrib · by 19:31
 DTSTART;TZID=America/New_York:20261015T181500
 DTEND;TZID=America/New_York:20261015T184000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-15-P-MAGHRIB@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -1534,7 +1546,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · MAGHRIB · 4 Jumada al-Ula 1448 AH\nA
  ck off: when prayed inside the window\, edit this title from "[ ]" to "[x]
  " and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 19:31) 
  or Missed → the 40-streak resets to 0. History stays in the log.\n📊 T
- racker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-15-P-MAGHRIB
+ racker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into
+  Google Sheets (see README §3)\nLRIB-ID: 2026-10-15-P-MAGHRIB
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1546,7 +1559,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Isha · by 00:00
 DTSTART;TZID=America/New_York:20261015T193100
 DTEND;TZID=America/New_York:20261015T195600
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-15-P-ISHA@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -1555,7 +1568,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ISHA · 4 Jumada al-Ula 1448 AH\nAdha
  : when prayed inside the window\, edit this title from "[ ]" to "[x]" and 
  mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 00:00) or Mis
  sed → the 40-streak resets to 0. History stays in the log.\n📊 Tracker
- : (tracker sheet URL — see README)\nLRIB-ID: 2026-10-15-P-ISHA
+ : 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Googl
+ e Sheets (see README §3)\nLRIB-ID: 2026-10-15-P-ISHA
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1567,7 +1581,7 @@ BEGIN:VEVENT
 SUMMARY:🌙 5 Jumada al-Ula 1448 · 🌒 · Ramadan −115d
 DTSTART;VALUE=DATE:20261016
 DTEND;VALUE=DATE:20261017
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-16-HDR@lunar-rhythm
 CATEGORIES:HEADER
 COLOR:lavender
@@ -1583,7 +1597,7 @@ BEGIN:VEVENT
 SUMMARY:🌌 B0 · Pre-Dawn (Tahajjud)
 DTSTART;TZID=America/New_York:20261016T050800
 DTEND;TZID=America/New_York:20261016T055300
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-16-B0@lunar-rhythm
 CATEGORIES:B0
 COLOR:purple
@@ -1607,7 +1621,7 @@ BEGIN:VEVENT
 SUMMARY:🌅 B1 · Dawn / First Light
 DTSTART;TZID=America/New_York:20261016T055300
 DTEND;TZID=America/New_York:20261016T065800
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-16-B1@lunar-rhythm
 CATEGORIES:B1
 COLOR:turquoise
@@ -1628,7 +1642,7 @@ BEGIN:VEVENT
 SUMMARY:☀️ B2 · High Dopamine Core Work
 DTSTART;TZID=America/New_York:20261016T072300
 DTEND;TZID=America/New_York:20261016T124100
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-16-B2@lunar-rhythm
 CATEGORIES:B2
 COLOR:yellow
@@ -1658,7 +1672,7 @@ BEGIN:VEVENT
 SUMMARY:🟧 B3 · Core Wrap-Up
 DTSTART;TZID=America/New_York:20261016T124100
 DTEND;TZID=America/New_York:20261016T154600
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-16-B3@lunar-rhythm
 CATEGORIES:B3
 COLOR:darkorange
@@ -1682,7 +1696,7 @@ BEGIN:VEVENT
 SUMMARY:🌇 B4 · Afternoon & Sunset Prep
 DTSTART;TZID=America/New_York:20261016T154600
 DTEND;TZID=America/New_York:20261016T175900
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-16-B4@lunar-rhythm
 CATEGORIES:B4
 COLOR:red
@@ -1707,7 +1721,7 @@ BEGIN:VEVENT
 SUMMARY:🔵 B5 · Evening Reset
 DTSTART;TZID=America/New_York:20261016T181400
 DTEND;TZID=America/New_York:20261016T192900
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-16-B5@lunar-rhythm
 CATEGORIES:B5
 COLOR:darkblue
@@ -1732,7 +1746,7 @@ BEGIN:VEVENT
 SUMMARY:⚫ B6 · Wind Down to Sleep
 DTSTART;TZID=America/New_York:20261016T192900
 DTEND;TZID=America/New_York:20261017T000000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-16-B6@lunar-rhythm
 CATEGORIES:B6
 COLOR:dimgray
@@ -1757,7 +1771,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Fajr · by 06:58
 DTSTART;TZID=America/New_York:20261016T055300
 DTEND;TZID=America/New_York:20261016T061800
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-16-P-FAJR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -1766,8 +1780,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · FAJR · 5 Jumada al-Ula 1448 AH\nAdha
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 0
  6:58) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-16-P-FA
- JR
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-16-P-FAJR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1779,7 +1793,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Dhuhr · by 15:46
 DTSTART;TZID=America/New_York:20261016T124100
 DTEND;TZID=America/New_York:20261016T130600
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-16-P-DHUHR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -1788,7 +1802,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · DHUHR · 5 Jumada al-Ula 1448 AH\nAdh
  off: when prayed inside the window\, edit this title from "[ ]" to "[x]" a
  nd mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 15:46) or 
  Missed → the 40-streak resets to 0. History stays in the log.\n📊 Trac
- ker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-16-P-DHUHR
+ ker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Go
+ ogle Sheets (see README §3)\nLRIB-ID: 2026-10-16-P-DHUHR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1800,7 +1815,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Asr · by 17:59
 DTSTART;TZID=America/New_York:20261016T154600
 DTEND;TZID=America/New_York:20261016T161100
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-16-P-ASR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -1809,8 +1824,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ASR · 5 Jumada al-Ula 1448 AH\nAdhan
   Tick off: when prayed inside the window\, edit this title from "[ ]" to "
  [x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 17:5
  9) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-16-P-AS
- R
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-16-P-ASR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1822,7 +1837,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Maghrib · by 19:29
 DTSTART;TZID=America/New_York:20261016T181400
 DTEND;TZID=America/New_York:20261016T183900
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-16-P-MAGHRIB@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -1831,7 +1846,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · MAGHRIB · 5 Jumada al-Ula 1448 AH\nA
  ck off: when prayed inside the window\, edit this title from "[ ]" to "[x]
  " and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 19:29) 
  or Missed → the 40-streak resets to 0. History stays in the log.\n📊 T
- racker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-16-P-MAGHRIB
+ racker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into
+  Google Sheets (see README §3)\nLRIB-ID: 2026-10-16-P-MAGHRIB
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1843,7 +1859,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Isha · by 00:00
 DTSTART;TZID=America/New_York:20261016T192900
 DTEND;TZID=America/New_York:20261016T195400
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-16-P-ISHA@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -1852,7 +1868,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ISHA · 5 Jumada al-Ula 1448 AH\nAdha
  : when prayed inside the window\, edit this title from "[ ]" to "[x]" and 
  mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 00:00) or Mis
  sed → the 40-streak resets to 0. History stays in the log.\n📊 Tracker
- : (tracker sheet URL — see README)\nLRIB-ID: 2026-10-16-P-ISHA
+ : 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Googl
+ e Sheets (see README §3)\nLRIB-ID: 2026-10-16-P-ISHA
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -1864,7 +1881,7 @@ BEGIN:VEVENT
 SUMMARY:🌙 6 Jumada al-Ula 1448 · 🌓 · Ramadan −114d
 DTSTART;VALUE=DATE:20261017
 DTEND;VALUE=DATE:20261018
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-17-HDR@lunar-rhythm
 CATEGORIES:HEADER
 COLOR:lavender
@@ -1880,7 +1897,7 @@ BEGIN:VEVENT
 SUMMARY:🌌 B0 · Pre-Dawn (Tahajjud)
 DTSTART;TZID=America/New_York:20261017T050900
 DTEND;TZID=America/New_York:20261017T055400
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-17-B0@lunar-rhythm
 CATEGORIES:B0
 COLOR:purple
@@ -1904,7 +1921,7 @@ BEGIN:VEVENT
 SUMMARY:🌅 B1 · Dawn / First Light
 DTSTART;TZID=America/New_York:20261017T055400
 DTEND;TZID=America/New_York:20261017T065900
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-17-B1@lunar-rhythm
 CATEGORIES:B1
 COLOR:turquoise
@@ -1925,7 +1942,7 @@ BEGIN:VEVENT
 SUMMARY:☀️ B2 · High Dopamine Core Work
 DTSTART;TZID=America/New_York:20261017T072400
 DTEND;TZID=America/New_York:20261017T124100
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-17-B2@lunar-rhythm
 CATEGORIES:B2
 COLOR:yellow
@@ -1955,7 +1972,7 @@ BEGIN:VEVENT
 SUMMARY:🟧 B3 · Core Wrap-Up
 DTSTART;TZID=America/New_York:20261017T124100
 DTEND;TZID=America/New_York:20261017T154500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-17-B3@lunar-rhythm
 CATEGORIES:B3
 COLOR:darkorange
@@ -1979,7 +1996,7 @@ BEGIN:VEVENT
 SUMMARY:🌇 B4 · Afternoon & Sunset Prep
 DTSTART;TZID=America/New_York:20261017T154500
 DTEND;TZID=America/New_York:20261017T175700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-17-B4@lunar-rhythm
 CATEGORIES:B4
 COLOR:red
@@ -2004,7 +2021,7 @@ BEGIN:VEVENT
 SUMMARY:🔵 B5 · Evening Reset
 DTSTART;TZID=America/New_York:20261017T181200
 DTEND;TZID=America/New_York:20261017T192800
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-17-B5@lunar-rhythm
 CATEGORIES:B5
 COLOR:darkblue
@@ -2029,7 +2046,7 @@ BEGIN:VEVENT
 SUMMARY:⚫ B6 · Wind Down to Sleep
 DTSTART;TZID=America/New_York:20261017T192800
 DTEND;TZID=America/New_York:20261018T000000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-17-B6@lunar-rhythm
 CATEGORIES:B6
 COLOR:dimgray
@@ -2054,7 +2071,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Fajr · by 06:59
 DTSTART;TZID=America/New_York:20261017T055400
 DTEND;TZID=America/New_York:20261017T061900
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-17-P-FAJR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -2063,8 +2080,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · FAJR · 6 Jumada al-Ula 1448 AH\nAdha
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 0
  6:59) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-17-P-FA
- JR
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-17-P-FAJR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -2076,7 +2093,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Dhuhr · by 15:45
 DTSTART;TZID=America/New_York:20261017T124100
 DTEND;TZID=America/New_York:20261017T130600
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-17-P-DHUHR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -2085,7 +2102,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · DHUHR · 6 Jumada al-Ula 1448 AH\nAdh
  off: when prayed inside the window\, edit this title from "[ ]" to "[x]" a
  nd mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 15:45) or 
  Missed → the 40-streak resets to 0. History stays in the log.\n📊 Trac
- ker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-17-P-DHUHR
+ ker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Go
+ ogle Sheets (see README §3)\nLRIB-ID: 2026-10-17-P-DHUHR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -2097,7 +2115,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Asr · by 17:57
 DTSTART;TZID=America/New_York:20261017T154500
 DTEND;TZID=America/New_York:20261017T161000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-17-P-ASR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -2106,8 +2124,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ASR · 6 Jumada al-Ula 1448 AH\nAdhan
   Tick off: when prayed inside the window\, edit this title from "[ ]" to "
  [x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 17:5
  7) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-17-P-AS
- R
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-17-P-ASR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -2119,7 +2137,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Maghrib · by 19:28
 DTSTART;TZID=America/New_York:20261017T181200
 DTEND;TZID=America/New_York:20261017T183700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-17-P-MAGHRIB@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -2128,7 +2146,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · MAGHRIB · 6 Jumada al-Ula 1448 AH\nA
  ck off: when prayed inside the window\, edit this title from "[ ]" to "[x]
  " and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 19:28) 
  or Missed → the 40-streak resets to 0. History stays in the log.\n📊 T
- racker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-17-P-MAGHRIB
+ racker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into
+  Google Sheets (see README §3)\nLRIB-ID: 2026-10-17-P-MAGHRIB
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -2140,7 +2159,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Isha · by 00:00
 DTSTART;TZID=America/New_York:20261017T192800
 DTEND;TZID=America/New_York:20261017T195300
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-17-P-ISHA@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -2149,7 +2168,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ISHA · 6 Jumada al-Ula 1448 AH\nAdha
  : when prayed inside the window\, edit this title from "[ ]" to "[x]" and 
  mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 00:00) or Mis
  sed → the 40-streak resets to 0. History stays in the log.\n📊 Tracker
- : (tracker sheet URL — see README)\nLRIB-ID: 2026-10-17-P-ISHA
+ : 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Googl
+ e Sheets (see README §3)\nLRIB-ID: 2026-10-17-P-ISHA
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -2161,7 +2181,7 @@ BEGIN:VEVENT
 SUMMARY:🌙 7 Jumada al-Ula 1448 · 🌓 · Ramadan −113d
 DTSTART;VALUE=DATE:20261018
 DTEND;VALUE=DATE:20261019
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-18-HDR@lunar-rhythm
 CATEGORIES:HEADER
 COLOR:lavender
@@ -2177,7 +2197,7 @@ BEGIN:VEVENT
 SUMMARY:🌌 B0 · Pre-Dawn (Tahajjud)
 DTSTART;TZID=America/New_York:20261018T051000
 DTEND;TZID=America/New_York:20261018T055500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-18-B0@lunar-rhythm
 CATEGORIES:B0
 COLOR:purple
@@ -2201,7 +2221,7 @@ BEGIN:VEVENT
 SUMMARY:🌅 B1 · Dawn / First Light
 DTSTART;TZID=America/New_York:20261018T055500
 DTEND;TZID=America/New_York:20261018T070000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-18-B1@lunar-rhythm
 CATEGORIES:B1
 COLOR:turquoise
@@ -2222,7 +2242,7 @@ BEGIN:VEVENT
 SUMMARY:☀️ B2 · High Dopamine Core Work
 DTSTART;TZID=America/New_York:20261018T072500
 DTEND;TZID=America/New_York:20261018T124100
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-18-B2@lunar-rhythm
 CATEGORIES:B2
 COLOR:yellow
@@ -2252,7 +2272,7 @@ BEGIN:VEVENT
 SUMMARY:🟧 B3 · Core Wrap-Up
 DTSTART;TZID=America/New_York:20261018T124100
 DTEND;TZID=America/New_York:20261018T154400
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-18-B3@lunar-rhythm
 CATEGORIES:B3
 COLOR:darkorange
@@ -2276,7 +2296,7 @@ BEGIN:VEVENT
 SUMMARY:🌇 B4 · Afternoon & Sunset Prep
 DTSTART;TZID=America/New_York:20261018T154400
 DTEND;TZID=America/New_York:20261018T175600
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-18-B4@lunar-rhythm
 CATEGORIES:B4
 COLOR:red
@@ -2301,7 +2321,7 @@ BEGIN:VEVENT
 SUMMARY:🔵 B5 · Evening Reset
 DTSTART;TZID=America/New_York:20261018T181100
 DTEND;TZID=America/New_York:20261018T192600
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-18-B5@lunar-rhythm
 CATEGORIES:B5
 COLOR:darkblue
@@ -2326,7 +2346,7 @@ BEGIN:VEVENT
 SUMMARY:⚫ B6 · Wind Down to Sleep
 DTSTART;TZID=America/New_York:20261018T192600
 DTEND;TZID=America/New_York:20261019T000000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-18-B6@lunar-rhythm
 CATEGORIES:B6
 COLOR:dimgray
@@ -2351,7 +2371,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Fajr · by 07:00
 DTSTART;TZID=America/New_York:20261018T055500
 DTEND;TZID=America/New_York:20261018T062000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-18-P-FAJR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -2360,8 +2380,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · FAJR · 7 Jumada al-Ula 1448 AH\nAdha
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 0
  7:00) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-18-P-FA
- JR
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-18-P-FAJR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -2373,7 +2393,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Dhuhr · by 15:44
 DTSTART;TZID=America/New_York:20261018T124100
 DTEND;TZID=America/New_York:20261018T130600
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-18-P-DHUHR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -2382,7 +2402,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · DHUHR · 7 Jumada al-Ula 1448 AH\nAdh
  off: when prayed inside the window\, edit this title from "[ ]" to "[x]" a
  nd mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 15:44) or 
  Missed → the 40-streak resets to 0. History stays in the log.\n📊 Trac
- ker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-18-P-DHUHR
+ ker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Go
+ ogle Sheets (see README §3)\nLRIB-ID: 2026-10-18-P-DHUHR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -2394,7 +2415,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Asr · by 17:56
 DTSTART;TZID=America/New_York:20261018T154400
 DTEND;TZID=America/New_York:20261018T160900
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-18-P-ASR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -2403,8 +2424,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ASR · 7 Jumada al-Ula 1448 AH\nAdhan
   Tick off: when prayed inside the window\, edit this title from "[ ]" to "
  [x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 17:5
  6) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-18-P-AS
- R
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-18-P-ASR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -2416,7 +2437,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Maghrib · by 19:26
 DTSTART;TZID=America/New_York:20261018T181100
 DTEND;TZID=America/New_York:20261018T183600
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-18-P-MAGHRIB@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -2425,7 +2446,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · MAGHRIB · 7 Jumada al-Ula 1448 AH\nA
  ck off: when prayed inside the window\, edit this title from "[ ]" to "[x]
  " and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 19:26) 
  or Missed → the 40-streak resets to 0. History stays in the log.\n📊 T
- racker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-18-P-MAGHRIB
+ racker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into
+  Google Sheets (see README §3)\nLRIB-ID: 2026-10-18-P-MAGHRIB
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -2437,7 +2459,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Isha · by 00:00
 DTSTART;TZID=America/New_York:20261018T192600
 DTEND;TZID=America/New_York:20261018T195100
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-18-P-ISHA@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -2446,7 +2468,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ISHA · 7 Jumada al-Ula 1448 AH\nAdha
  : when prayed inside the window\, edit this title from "[ ]" to "[x]" and 
  mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 00:00) or Mis
  sed → the 40-streak resets to 0. History stays in the log.\n📊 Tracker
- : (tracker sheet URL — see README)\nLRIB-ID: 2026-10-18-P-ISHA
+ : 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Googl
+ e Sheets (see README §3)\nLRIB-ID: 2026-10-18-P-ISHA
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -2458,7 +2481,7 @@ BEGIN:VEVENT
 SUMMARY:🌙 8 Jumada al-Ula 1448 · 🌓 · Ramadan −112d
 DTSTART;VALUE=DATE:20261019
 DTEND;VALUE=DATE:20261020
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-19-HDR@lunar-rhythm
 CATEGORIES:HEADER
 COLOR:lavender
@@ -2474,7 +2497,7 @@ BEGIN:VEVENT
 SUMMARY:🌌 B0 · Pre-Dawn (Tahajjud)
 DTSTART;TZID=America/New_York:20261019T051100
 DTEND;TZID=America/New_York:20261019T055600
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-19-B0@lunar-rhythm
 CATEGORIES:B0
 COLOR:purple
@@ -2498,7 +2521,7 @@ BEGIN:VEVENT
 SUMMARY:🌅 B1 · Dawn / First Light
 DTSTART;TZID=America/New_York:20261019T055600
 DTEND;TZID=America/New_York:20261019T070100
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-19-B1@lunar-rhythm
 CATEGORIES:B1
 COLOR:turquoise
@@ -2519,7 +2542,7 @@ BEGIN:VEVENT
 SUMMARY:☀️ B2 · High Dopamine Core Work
 DTSTART;TZID=America/New_York:20261019T072600
 DTEND;TZID=America/New_York:20261019T124100
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-19-B2@lunar-rhythm
 CATEGORIES:B2
 COLOR:yellow
@@ -2549,7 +2572,7 @@ BEGIN:VEVENT
 SUMMARY:🟧 B3 · Core Wrap-Up
 DTSTART;TZID=America/New_York:20261019T124100
 DTEND;TZID=America/New_York:20261019T154300
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-19-B3@lunar-rhythm
 CATEGORIES:B3
 COLOR:darkorange
@@ -2573,7 +2596,7 @@ BEGIN:VEVENT
 SUMMARY:🌇 B4 · Afternoon & Sunset Prep
 DTSTART;TZID=America/New_York:20261019T154300
 DTEND;TZID=America/New_York:20261019T175400
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-19-B4@lunar-rhythm
 CATEGORIES:B4
 COLOR:red
@@ -2598,7 +2621,7 @@ BEGIN:VEVENT
 SUMMARY:🔵 B5 · Evening Reset
 DTSTART;TZID=America/New_York:20261019T180900
 DTEND;TZID=America/New_York:20261019T192500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-19-B5@lunar-rhythm
 CATEGORIES:B5
 COLOR:darkblue
@@ -2623,7 +2646,7 @@ BEGIN:VEVENT
 SUMMARY:⚫ B6 · Wind Down to Sleep
 DTSTART;TZID=America/New_York:20261019T192500
 DTEND;TZID=America/New_York:20261020T000000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-19-B6@lunar-rhythm
 CATEGORIES:B6
 COLOR:dimgray
@@ -2648,7 +2671,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Fajr · by 07:01
 DTSTART;TZID=America/New_York:20261019T055600
 DTEND;TZID=America/New_York:20261019T062100
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-19-P-FAJR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -2657,8 +2680,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · FAJR · 8 Jumada al-Ula 1448 AH\nAdha
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 0
  7:01) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-19-P-FA
- JR
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-19-P-FAJR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -2670,7 +2693,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Dhuhr · by 15:43
 DTSTART;TZID=America/New_York:20261019T124100
 DTEND;TZID=America/New_York:20261019T130600
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-19-P-DHUHR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -2679,7 +2702,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · DHUHR · 8 Jumada al-Ula 1448 AH\nAdh
  off: when prayed inside the window\, edit this title from "[ ]" to "[x]" a
  nd mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 15:43) or 
  Missed → the 40-streak resets to 0. History stays in the log.\n📊 Trac
- ker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-19-P-DHUHR
+ ker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Go
+ ogle Sheets (see README §3)\nLRIB-ID: 2026-10-19-P-DHUHR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -2691,7 +2715,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Asr · by 17:54
 DTSTART;TZID=America/New_York:20261019T154300
 DTEND;TZID=America/New_York:20261019T160800
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-19-P-ASR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -2700,8 +2724,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ASR · 8 Jumada al-Ula 1448 AH\nAdhan
   Tick off: when prayed inside the window\, edit this title from "[ ]" to "
  [x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 17:5
  4) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-19-P-AS
- R
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-19-P-ASR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -2713,7 +2737,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Maghrib · by 19:25
 DTSTART;TZID=America/New_York:20261019T180900
 DTEND;TZID=America/New_York:20261019T183400
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-19-P-MAGHRIB@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -2722,7 +2746,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · MAGHRIB · 8 Jumada al-Ula 1448 AH\nA
  ck off: when prayed inside the window\, edit this title from "[ ]" to "[x]
  " and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 19:25) 
  or Missed → the 40-streak resets to 0. History stays in the log.\n📊 T
- racker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-19-P-MAGHRIB
+ racker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into
+  Google Sheets (see README §3)\nLRIB-ID: 2026-10-19-P-MAGHRIB
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -2734,7 +2759,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Isha · by 00:00
 DTSTART;TZID=America/New_York:20261019T192500
 DTEND;TZID=America/New_York:20261019T195000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-19-P-ISHA@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -2743,7 +2768,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ISHA · 8 Jumada al-Ula 1448 AH\nAdha
  : when prayed inside the window\, edit this title from "[ ]" to "[x]" and 
  mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 00:00) or Mis
  sed → the 40-streak resets to 0. History stays in the log.\n📊 Tracker
- : (tracker sheet URL — see README)\nLRIB-ID: 2026-10-19-P-ISHA
+ : 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Googl
+ e Sheets (see README §3)\nLRIB-ID: 2026-10-19-P-ISHA
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -2755,7 +2781,7 @@ BEGIN:VEVENT
 SUMMARY:🌙 9 Jumada al-Ula 1448 · 🌔 · Ramadan −111d
 DTSTART;VALUE=DATE:20261020
 DTEND;VALUE=DATE:20261021
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-20-HDR@lunar-rhythm
 CATEGORIES:HEADER
 COLOR:lavender
@@ -2771,7 +2797,7 @@ BEGIN:VEVENT
 SUMMARY:🌌 B0 · Pre-Dawn (Tahajjud)
 DTSTART;TZID=America/New_York:20261020T051200
 DTEND;TZID=America/New_York:20261020T055700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-20-B0@lunar-rhythm
 CATEGORIES:B0
 COLOR:purple
@@ -2795,7 +2821,7 @@ BEGIN:VEVENT
 SUMMARY:🌅 B1 · Dawn / First Light
 DTSTART;TZID=America/New_York:20261020T055700
 DTEND;TZID=America/New_York:20261020T070300
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-20-B1@lunar-rhythm
 CATEGORIES:B1
 COLOR:turquoise
@@ -2816,7 +2842,7 @@ BEGIN:VEVENT
 SUMMARY:☀️ B2 · High Dopamine Core Work
 DTSTART;TZID=America/New_York:20261020T072800
 DTEND;TZID=America/New_York:20261020T124100
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-20-B2@lunar-rhythm
 CATEGORIES:B2
 COLOR:yellow
@@ -2846,7 +2872,7 @@ BEGIN:VEVENT
 SUMMARY:🟧 B3 · Core Wrap-Up
 DTSTART;TZID=America/New_York:20261020T124100
 DTEND;TZID=America/New_York:20261020T154200
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-20-B3@lunar-rhythm
 CATEGORIES:B3
 COLOR:darkorange
@@ -2870,7 +2896,7 @@ BEGIN:VEVENT
 SUMMARY:🌇 B4 · Afternoon & Sunset Prep
 DTSTART;TZID=America/New_York:20261020T154200
 DTEND;TZID=America/New_York:20261020T175300
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-20-B4@lunar-rhythm
 CATEGORIES:B4
 COLOR:red
@@ -2895,7 +2921,7 @@ BEGIN:VEVENT
 SUMMARY:🔵 B5 · Evening Reset
 DTSTART;TZID=America/New_York:20261020T180800
 DTEND;TZID=America/New_York:20261020T192300
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-20-B5@lunar-rhythm
 CATEGORIES:B5
 COLOR:darkblue
@@ -2920,7 +2946,7 @@ BEGIN:VEVENT
 SUMMARY:⚫ B6 · Wind Down to Sleep
 DTSTART;TZID=America/New_York:20261020T192300
 DTEND;TZID=America/New_York:20261021T000000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-20-B6@lunar-rhythm
 CATEGORIES:B6
 COLOR:dimgray
@@ -2945,7 +2971,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Fajr · by 07:03
 DTSTART;TZID=America/New_York:20261020T055700
 DTEND;TZID=America/New_York:20261020T062200
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-20-P-FAJR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -2954,8 +2980,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · FAJR · 9 Jumada al-Ula 1448 AH\nAdha
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 0
  7:03) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-20-P-FA
- JR
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-20-P-FAJR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -2967,7 +2993,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Dhuhr · by 15:42
 DTSTART;TZID=America/New_York:20261020T124100
 DTEND;TZID=America/New_York:20261020T130600
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-20-P-DHUHR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -2976,7 +3002,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · DHUHR · 9 Jumada al-Ula 1448 AH\nAdh
  off: when prayed inside the window\, edit this title from "[ ]" to "[x]" a
  nd mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 15:42) or 
  Missed → the 40-streak resets to 0. History stays in the log.\n📊 Trac
- ker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-20-P-DHUHR
+ ker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Go
+ ogle Sheets (see README §3)\nLRIB-ID: 2026-10-20-P-DHUHR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -2988,7 +3015,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Asr · by 17:53
 DTSTART;TZID=America/New_York:20261020T154200
 DTEND;TZID=America/New_York:20261020T160700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-20-P-ASR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -2997,8 +3024,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ASR · 9 Jumada al-Ula 1448 AH\nAdhan
   Tick off: when prayed inside the window\, edit this title from "[ ]" to "
  [x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 17:5
  3) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-20-P-AS
- R
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-20-P-ASR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -3010,7 +3037,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Maghrib · by 19:23
 DTSTART;TZID=America/New_York:20261020T180800
 DTEND;TZID=America/New_York:20261020T183300
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-20-P-MAGHRIB@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -3019,7 +3046,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · MAGHRIB · 9 Jumada al-Ula 1448 AH\nA
  ck off: when prayed inside the window\, edit this title from "[ ]" to "[x]
  " and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 19:23) 
  or Missed → the 40-streak resets to 0. History stays in the log.\n📊 T
- racker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-20-P-MAGHRIB
+ racker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into
+  Google Sheets (see README §3)\nLRIB-ID: 2026-10-20-P-MAGHRIB
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -3031,7 +3059,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Isha · by 00:00
 DTSTART;TZID=America/New_York:20261020T192300
 DTEND;TZID=America/New_York:20261020T194800
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-20-P-ISHA@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -3040,7 +3068,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ISHA · 9 Jumada al-Ula 1448 AH\nAdha
  : when prayed inside the window\, edit this title from "[ ]" to "[x]" and 
  mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 00:00) or Mis
  sed → the 40-streak resets to 0. History stays in the log.\n📊 Tracker
- : (tracker sheet URL — see README)\nLRIB-ID: 2026-10-20-P-ISHA
+ : 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Googl
+ e Sheets (see README §3)\nLRIB-ID: 2026-10-20-P-ISHA
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -3052,7 +3081,7 @@ BEGIN:VEVENT
 SUMMARY:🌙 10 Jumada al-Ula 1448 · 🌔 · Ramadan −110d
 DTSTART;VALUE=DATE:20261021
 DTEND;VALUE=DATE:20261022
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-21-HDR@lunar-rhythm
 CATEGORIES:HEADER
 COLOR:lavender
@@ -3068,7 +3097,7 @@ BEGIN:VEVENT
 SUMMARY:🌌 B0 · Pre-Dawn (Tahajjud)
 DTSTART;TZID=America/New_York:20261021T051300
 DTEND;TZID=America/New_York:20261021T055800
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-21-B0@lunar-rhythm
 CATEGORIES:B0
 COLOR:purple
@@ -3092,7 +3121,7 @@ BEGIN:VEVENT
 SUMMARY:🌅 B1 · Dawn / First Light
 DTSTART;TZID=America/New_York:20261021T055800
 DTEND;TZID=America/New_York:20261021T070400
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-21-B1@lunar-rhythm
 CATEGORIES:B1
 COLOR:turquoise
@@ -3113,7 +3142,7 @@ BEGIN:VEVENT
 SUMMARY:☀️ B2 · High Dopamine Core Work
 DTSTART;TZID=America/New_York:20261021T072900
 DTEND;TZID=America/New_York:20261021T124000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-21-B2@lunar-rhythm
 CATEGORIES:B2
 COLOR:yellow
@@ -3143,7 +3172,7 @@ BEGIN:VEVENT
 SUMMARY:🟧 B3 · Core Wrap-Up
 DTSTART;TZID=America/New_York:20261021T124000
 DTEND;TZID=America/New_York:20261021T154100
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-21-B3@lunar-rhythm
 CATEGORIES:B3
 COLOR:darkorange
@@ -3167,7 +3196,7 @@ BEGIN:VEVENT
 SUMMARY:🌇 B4 · Afternoon & Sunset Prep
 DTSTART;TZID=America/New_York:20261021T154100
 DTEND;TZID=America/New_York:20261021T175100
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-21-B4@lunar-rhythm
 CATEGORIES:B4
 COLOR:red
@@ -3192,7 +3221,7 @@ BEGIN:VEVENT
 SUMMARY:🔵 B5 · Evening Reset
 DTSTART;TZID=America/New_York:20261021T180600
 DTEND;TZID=America/New_York:20261021T192200
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-21-B5@lunar-rhythm
 CATEGORIES:B5
 COLOR:darkblue
@@ -3217,7 +3246,7 @@ BEGIN:VEVENT
 SUMMARY:⚫ B6 · Wind Down to Sleep
 DTSTART;TZID=America/New_York:20261021T192200
 DTEND;TZID=America/New_York:20261022T000000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-21-B6@lunar-rhythm
 CATEGORIES:B6
 COLOR:dimgray
@@ -3242,7 +3271,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Fajr · by 07:04
 DTSTART;TZID=America/New_York:20261021T055800
 DTEND;TZID=America/New_York:20261021T062300
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-21-P-FAJR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -3251,8 +3280,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · FAJR · 10 Jumada al-Ula 1448 AH\nAdh
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 0
  7:04) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-21-P-FA
- JR
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-21-P-FAJR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -3264,7 +3293,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Dhuhr · by 15:41
 DTSTART;TZID=America/New_York:20261021T124000
 DTEND;TZID=America/New_York:20261021T130500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-21-P-DHUHR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -3273,7 +3302,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · DHUHR · 10 Jumada al-Ula 1448 AH\nAd
   off: when prayed inside the window\, edit this title from "[ ]" to "[x]" 
  and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 15:41) or
   Missed → the 40-streak resets to 0. History stays in the log.\n📊 Tra
- cker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-21-P-DHUHR
+ cker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into G
+ oogle Sheets (see README §3)\nLRIB-ID: 2026-10-21-P-DHUHR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -3285,7 +3315,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Asr · by 17:51
 DTSTART;TZID=America/New_York:20261021T154100
 DTEND;TZID=America/New_York:20261021T160600
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-21-P-ASR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -3294,8 +3324,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ASR · 10 Jumada al-Ula 1448 AH\nAdha
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 1
  7:51) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-21-P-AS
- R
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-21-P-ASR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -3307,7 +3337,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Maghrib · by 19:22
 DTSTART;TZID=America/New_York:20261021T180600
 DTEND;TZID=America/New_York:20261021T183100
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-21-P-MAGHRIB@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -3316,7 +3346,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · MAGHRIB · 10 Jumada al-Ula 1448 AH\n
  ick off: when prayed inside the window\, edit this title from "[ ]" to "[x
  ]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 19:22)
   or Missed → the 40-streak resets to 0. History stays in the log.\n📊 
- Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-21-P-MAGHRIB
+ Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv int
+ o Google Sheets (see README §3)\nLRIB-ID: 2026-10-21-P-MAGHRIB
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -3328,7 +3359,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Isha · by 00:00
 DTSTART;TZID=America/New_York:20261021T192200
 DTEND;TZID=America/New_York:20261021T194700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-21-P-ISHA@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -3337,7 +3368,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ISHA · 10 Jumada al-Ula 1448 AH\nAdh
  f: when prayed inside the window\, edit this title from "[ ]" to "[x]" and
   mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 00:00) or Mi
  ssed → the 40-streak resets to 0. History stays in the log.\n📊 Tracke
- r: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-21-P-ISHA
+ r: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Goog
+ le Sheets (see README §3)\nLRIB-ID: 2026-10-21-P-ISHA
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -3349,7 +3381,7 @@ BEGIN:VEVENT
 SUMMARY:🌙 11 Jumada al-Ula 1448 · 🌔 · Ramadan −109d
 DTSTART;VALUE=DATE:20261022
 DTEND;VALUE=DATE:20261023
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-22-HDR@lunar-rhythm
 CATEGORIES:HEADER
 COLOR:lavender
@@ -3365,7 +3397,7 @@ BEGIN:VEVENT
 SUMMARY:🌌 B0 · Pre-Dawn (Tahajjud)
 DTSTART;TZID=America/New_York:20261022T051400
 DTEND;TZID=America/New_York:20261022T055900
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-22-B0@lunar-rhythm
 CATEGORIES:B0
 COLOR:purple
@@ -3389,7 +3421,7 @@ BEGIN:VEVENT
 SUMMARY:🌅 B1 · Dawn / First Light
 DTSTART;TZID=America/New_York:20261022T055900
 DTEND;TZID=America/New_York:20261022T070500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-22-B1@lunar-rhythm
 CATEGORIES:B1
 COLOR:turquoise
@@ -3410,7 +3442,7 @@ BEGIN:VEVENT
 SUMMARY:☀️ B2 · High Dopamine Core Work
 DTSTART;TZID=America/New_York:20261022T073000
 DTEND;TZID=America/New_York:20261022T124000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-22-B2@lunar-rhythm
 CATEGORIES:B2
 COLOR:yellow
@@ -3440,7 +3472,7 @@ BEGIN:VEVENT
 SUMMARY:🟧 B3 · Core Wrap-Up
 DTSTART;TZID=America/New_York:20261022T124000
 DTEND;TZID=America/New_York:20261022T153900
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-22-B3@lunar-rhythm
 CATEGORIES:B3
 COLOR:darkorange
@@ -3464,7 +3496,7 @@ BEGIN:VEVENT
 SUMMARY:🌇 B4 · Afternoon & Sunset Prep
 DTSTART;TZID=America/New_York:20261022T153900
 DTEND;TZID=America/New_York:20261022T175000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-22-B4@lunar-rhythm
 CATEGORIES:B4
 COLOR:red
@@ -3489,7 +3521,7 @@ BEGIN:VEVENT
 SUMMARY:🔵 B5 · Evening Reset
 DTSTART;TZID=America/New_York:20261022T180500
 DTEND;TZID=America/New_York:20261022T192100
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-22-B5@lunar-rhythm
 CATEGORIES:B5
 COLOR:darkblue
@@ -3514,7 +3546,7 @@ BEGIN:VEVENT
 SUMMARY:⚫ B6 · Wind Down to Sleep
 DTSTART;TZID=America/New_York:20261022T192100
 DTEND;TZID=America/New_York:20261023T000000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-22-B6@lunar-rhythm
 CATEGORIES:B6
 COLOR:dimgray
@@ -3539,7 +3571,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Fajr · by 07:05
 DTSTART;TZID=America/New_York:20261022T055900
 DTEND;TZID=America/New_York:20261022T062400
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-22-P-FAJR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -3548,8 +3580,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · FAJR · 11 Jumada al-Ula 1448 AH\nAdh
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 0
  7:05) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-22-P-FA
- JR
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-22-P-FAJR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -3561,7 +3593,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Dhuhr · by 15:39
 DTSTART;TZID=America/New_York:20261022T124000
 DTEND;TZID=America/New_York:20261022T130500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-22-P-DHUHR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -3570,7 +3602,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · DHUHR · 11 Jumada al-Ula 1448 AH\nAd
   off: when prayed inside the window\, edit this title from "[ ]" to "[x]" 
  and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 15:39) or
   Missed → the 40-streak resets to 0. History stays in the log.\n📊 Tra
- cker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-22-P-DHUHR
+ cker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into G
+ oogle Sheets (see README §3)\nLRIB-ID: 2026-10-22-P-DHUHR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -3582,7 +3615,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Asr · by 17:50
 DTSTART;TZID=America/New_York:20261022T153900
 DTEND;TZID=America/New_York:20261022T160400
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-22-P-ASR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -3591,8 +3624,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ASR · 11 Jumada al-Ula 1448 AH\nAdha
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 1
  7:50) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-22-P-AS
- R
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-22-P-ASR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -3604,7 +3637,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Maghrib · by 19:21
 DTSTART;TZID=America/New_York:20261022T180500
 DTEND;TZID=America/New_York:20261022T183000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-22-P-MAGHRIB@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -3613,7 +3646,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · MAGHRIB · 11 Jumada al-Ula 1448 AH\n
  ick off: when prayed inside the window\, edit this title from "[ ]" to "[x
  ]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 19:21)
   or Missed → the 40-streak resets to 0. History stays in the log.\n📊 
- Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-22-P-MAGHRIB
+ Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv int
+ o Google Sheets (see README §3)\nLRIB-ID: 2026-10-22-P-MAGHRIB
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -3625,7 +3659,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Isha · by 00:00
 DTSTART;TZID=America/New_York:20261022T192100
 DTEND;TZID=America/New_York:20261022T194600
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-22-P-ISHA@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -3634,7 +3668,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ISHA · 11 Jumada al-Ula 1448 AH\nAdh
  f: when prayed inside the window\, edit this title from "[ ]" to "[x]" and
   mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 00:00) or Mi
  ssed → the 40-streak resets to 0. History stays in the log.\n📊 Tracke
- r: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-22-P-ISHA
+ r: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Goog
+ le Sheets (see README §3)\nLRIB-ID: 2026-10-22-P-ISHA
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -3646,7 +3681,7 @@ BEGIN:VEVENT
 SUMMARY:🌙 12 Jumada al-Ula 1448 · 🌔 · Ramadan −108d
 DTSTART;VALUE=DATE:20261023
 DTEND;VALUE=DATE:20261024
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-23-HDR@lunar-rhythm
 CATEGORIES:HEADER
 COLOR:lavender
@@ -3662,7 +3697,7 @@ BEGIN:VEVENT
 SUMMARY:🌌 B0 · Pre-Dawn (Tahajjud)
 DTSTART;TZID=America/New_York:20261023T051500
 DTEND;TZID=America/New_York:20261023T060000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-23-B0@lunar-rhythm
 CATEGORIES:B0
 COLOR:purple
@@ -3686,7 +3721,7 @@ BEGIN:VEVENT
 SUMMARY:🌅 B1 · Dawn / First Light
 DTSTART;TZID=America/New_York:20261023T060000
 DTEND;TZID=America/New_York:20261023T070600
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-23-B1@lunar-rhythm
 CATEGORIES:B1
 COLOR:turquoise
@@ -3707,7 +3742,7 @@ BEGIN:VEVENT
 SUMMARY:☀️ B2 · High Dopamine Core Work
 DTSTART;TZID=America/New_York:20261023T073100
 DTEND;TZID=America/New_York:20261023T124000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-23-B2@lunar-rhythm
 CATEGORIES:B2
 COLOR:yellow
@@ -3737,7 +3772,7 @@ BEGIN:VEVENT
 SUMMARY:🟧 B3 · Core Wrap-Up
 DTSTART;TZID=America/New_York:20261023T124000
 DTEND;TZID=America/New_York:20261023T153800
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-23-B3@lunar-rhythm
 CATEGORIES:B3
 COLOR:darkorange
@@ -3761,7 +3796,7 @@ BEGIN:VEVENT
 SUMMARY:🌇 B4 · Afternoon & Sunset Prep
 DTSTART;TZID=America/New_York:20261023T153800
 DTEND;TZID=America/New_York:20261023T174900
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-23-B4@lunar-rhythm
 CATEGORIES:B4
 COLOR:red
@@ -3786,7 +3821,7 @@ BEGIN:VEVENT
 SUMMARY:🔵 B5 · Evening Reset
 DTSTART;TZID=America/New_York:20261023T180400
 DTEND;TZID=America/New_York:20261023T191900
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-23-B5@lunar-rhythm
 CATEGORIES:B5
 COLOR:darkblue
@@ -3811,7 +3846,7 @@ BEGIN:VEVENT
 SUMMARY:⚫ B6 · Wind Down to Sleep
 DTSTART;TZID=America/New_York:20261023T191900
 DTEND;TZID=America/New_York:20261024T000000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-23-B6@lunar-rhythm
 CATEGORIES:B6
 COLOR:dimgray
@@ -3836,7 +3871,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Fajr · by 07:06
 DTSTART;TZID=America/New_York:20261023T060000
 DTEND;TZID=America/New_York:20261023T062500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-23-P-FAJR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -3845,8 +3880,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · FAJR · 12 Jumada al-Ula 1448 AH\nAdh
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 0
  7:06) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-23-P-FA
- JR
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-23-P-FAJR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -3858,7 +3893,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Dhuhr · by 15:38
 DTSTART;TZID=America/New_York:20261023T124000
 DTEND;TZID=America/New_York:20261023T130500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-23-P-DHUHR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -3867,7 +3902,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · DHUHR · 12 Jumada al-Ula 1448 AH\nAd
   off: when prayed inside the window\, edit this title from "[ ]" to "[x]" 
  and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 15:38) or
   Missed → the 40-streak resets to 0. History stays in the log.\n📊 Tra
- cker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-23-P-DHUHR
+ cker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into G
+ oogle Sheets (see README §3)\nLRIB-ID: 2026-10-23-P-DHUHR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -3879,7 +3915,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Asr · by 17:49
 DTSTART;TZID=America/New_York:20261023T153800
 DTEND;TZID=America/New_York:20261023T160300
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-23-P-ASR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -3888,8 +3924,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ASR · 12 Jumada al-Ula 1448 AH\nAdha
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 1
  7:49) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-23-P-AS
- R
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-23-P-ASR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -3901,7 +3937,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Maghrib · by 19:19
 DTSTART;TZID=America/New_York:20261023T180400
 DTEND;TZID=America/New_York:20261023T182900
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-23-P-MAGHRIB@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -3910,7 +3946,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · MAGHRIB · 12 Jumada al-Ula 1448 AH\n
  ick off: when prayed inside the window\, edit this title from "[ ]" to "[x
  ]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 19:19)
   or Missed → the 40-streak resets to 0. History stays in the log.\n📊 
- Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-23-P-MAGHRIB
+ Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv int
+ o Google Sheets (see README §3)\nLRIB-ID: 2026-10-23-P-MAGHRIB
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -3922,7 +3959,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Isha · by 00:00
 DTSTART;TZID=America/New_York:20261023T191900
 DTEND;TZID=America/New_York:20261023T194400
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-23-P-ISHA@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -3931,7 +3968,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ISHA · 12 Jumada al-Ula 1448 AH\nAdh
  f: when prayed inside the window\, edit this title from "[ ]" to "[x]" and
   mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 00:00) or Mi
  ssed → the 40-streak resets to 0. History stays in the log.\n📊 Tracke
- r: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-23-P-ISHA
+ r: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Goog
+ le Sheets (see README §3)\nLRIB-ID: 2026-10-23-P-ISHA
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -3943,7 +3981,7 @@ BEGIN:VEVENT
 SUMMARY:🌙 13 Jumada al-Ula 1448 · 🌕 · Ramadan −107d
 DTSTART;VALUE=DATE:20261024
 DTEND;VALUE=DATE:20261025
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-24-HDR@lunar-rhythm
 CATEGORIES:HEADER
 COLOR:lavender
@@ -3959,7 +3997,7 @@ BEGIN:VEVENT
 SUMMARY:🌌 B0 · Pre-Dawn (Tahajjud)
 DTSTART;TZID=America/New_York:20261024T051600
 DTEND;TZID=America/New_York:20261024T060100
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-24-B0@lunar-rhythm
 CATEGORIES:B0
 COLOR:purple
@@ -3983,7 +4021,7 @@ BEGIN:VEVENT
 SUMMARY:🌅 B1 · Dawn / First Light
 DTSTART;TZID=America/New_York:20261024T060100
 DTEND;TZID=America/New_York:20261024T070700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-24-B1@lunar-rhythm
 CATEGORIES:B1
 COLOR:turquoise
@@ -4004,7 +4042,7 @@ BEGIN:VEVENT
 SUMMARY:☀️ B2 · High Dopamine Core Work
 DTSTART;TZID=America/New_York:20261024T073200
 DTEND;TZID=America/New_York:20261024T124000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-24-B2@lunar-rhythm
 CATEGORIES:B2
 COLOR:yellow
@@ -4034,7 +4072,7 @@ BEGIN:VEVENT
 SUMMARY:🟧 B3 · Core Wrap-Up
 DTSTART;TZID=America/New_York:20261024T124000
 DTEND;TZID=America/New_York:20261024T153700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-24-B3@lunar-rhythm
 CATEGORIES:B3
 COLOR:darkorange
@@ -4058,7 +4096,7 @@ BEGIN:VEVENT
 SUMMARY:🌇 B4 · Afternoon & Sunset Prep
 DTSTART;TZID=America/New_York:20261024T153700
 DTEND;TZID=America/New_York:20261024T174700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-24-B4@lunar-rhythm
 CATEGORIES:B4
 COLOR:red
@@ -4083,7 +4121,7 @@ BEGIN:VEVENT
 SUMMARY:🔵 B5 · Evening Reset
 DTSTART;TZID=America/New_York:20261024T180200
 DTEND;TZID=America/New_York:20261024T191800
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-24-B5@lunar-rhythm
 CATEGORIES:B5
 COLOR:darkblue
@@ -4108,7 +4146,7 @@ BEGIN:VEVENT
 SUMMARY:⚫ B6 · Wind Down to Sleep
 DTSTART;TZID=America/New_York:20261024T191800
 DTEND;TZID=America/New_York:20261025T000000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-24-B6@lunar-rhythm
 CATEGORIES:B6
 COLOR:dimgray
@@ -4133,7 +4171,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Fajr · by 07:07
 DTSTART;TZID=America/New_York:20261024T060100
 DTEND;TZID=America/New_York:20261024T062600
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-24-P-FAJR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -4142,8 +4180,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · FAJR · 13 Jumada al-Ula 1448 AH\nAdh
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 0
  7:07) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-24-P-FA
- JR
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-24-P-FAJR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -4155,7 +4193,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Dhuhr · by 15:37
 DTSTART;TZID=America/New_York:20261024T124000
 DTEND;TZID=America/New_York:20261024T130500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-24-P-DHUHR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -4164,7 +4202,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · DHUHR · 13 Jumada al-Ula 1448 AH\nAd
   off: when prayed inside the window\, edit this title from "[ ]" to "[x]" 
  and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 15:37) or
   Missed → the 40-streak resets to 0. History stays in the log.\n📊 Tra
- cker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-24-P-DHUHR
+ cker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into G
+ oogle Sheets (see README §3)\nLRIB-ID: 2026-10-24-P-DHUHR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -4176,7 +4215,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Asr · by 17:47
 DTSTART;TZID=America/New_York:20261024T153700
 DTEND;TZID=America/New_York:20261024T160200
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-24-P-ASR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -4185,8 +4224,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ASR · 13 Jumada al-Ula 1448 AH\nAdha
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 1
  7:47) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-24-P-AS
- R
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-24-P-ASR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -4198,7 +4237,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Maghrib · by 19:18
 DTSTART;TZID=America/New_York:20261024T180200
 DTEND;TZID=America/New_York:20261024T182700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-24-P-MAGHRIB@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -4207,7 +4246,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · MAGHRIB · 13 Jumada al-Ula 1448 AH\n
  ick off: when prayed inside the window\, edit this title from "[ ]" to "[x
  ]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 19:18)
   or Missed → the 40-streak resets to 0. History stays in the log.\n📊 
- Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-24-P-MAGHRIB
+ Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv int
+ o Google Sheets (see README §3)\nLRIB-ID: 2026-10-24-P-MAGHRIB
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -4219,7 +4259,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Isha · by 00:00
 DTSTART;TZID=America/New_York:20261024T191800
 DTEND;TZID=America/New_York:20261024T194300
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-24-P-ISHA@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -4228,7 +4268,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ISHA · 13 Jumada al-Ula 1448 AH\nAdh
  f: when prayed inside the window\, edit this title from "[ ]" to "[x]" and
   mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 00:00) or Mi
  ssed → the 40-streak resets to 0. History stays in the log.\n📊 Tracke
- r: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-24-P-ISHA
+ r: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Goog
+ le Sheets (see README §3)\nLRIB-ID: 2026-10-24-P-ISHA
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -4240,7 +4281,7 @@ BEGIN:VEVENT
 SUMMARY:🌙 14 Jumada al-Ula 1448 · 🌕 · Ramadan −106d
 DTSTART;VALUE=DATE:20261025
 DTEND;VALUE=DATE:20261026
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-25-HDR@lunar-rhythm
 CATEGORIES:HEADER
 COLOR:lavender
@@ -4256,7 +4297,7 @@ BEGIN:VEVENT
 SUMMARY:🌌 B0 · Pre-Dawn (Tahajjud)
 DTSTART;TZID=America/New_York:20261025T051700
 DTEND;TZID=America/New_York:20261025T060200
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-25-B0@lunar-rhythm
 CATEGORIES:B0
 COLOR:purple
@@ -4280,7 +4321,7 @@ BEGIN:VEVENT
 SUMMARY:🌅 B1 · Dawn / First Light
 DTSTART;TZID=America/New_York:20261025T060200
 DTEND;TZID=America/New_York:20261025T070800
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-25-B1@lunar-rhythm
 CATEGORIES:B1
 COLOR:turquoise
@@ -4301,7 +4342,7 @@ BEGIN:VEVENT
 SUMMARY:☀️ B2 · High Dopamine Core Work
 DTSTART;TZID=America/New_York:20261025T073300
 DTEND;TZID=America/New_York:20261025T124000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-25-B2@lunar-rhythm
 CATEGORIES:B2
 COLOR:yellow
@@ -4331,7 +4372,7 @@ BEGIN:VEVENT
 SUMMARY:🟧 B3 · Core Wrap-Up
 DTSTART;TZID=America/New_York:20261025T124000
 DTEND;TZID=America/New_York:20261025T153600
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-25-B3@lunar-rhythm
 CATEGORIES:B3
 COLOR:darkorange
@@ -4355,7 +4396,7 @@ BEGIN:VEVENT
 SUMMARY:🌇 B4 · Afternoon & Sunset Prep
 DTSTART;TZID=America/New_York:20261025T153600
 DTEND;TZID=America/New_York:20261025T174600
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-25-B4@lunar-rhythm
 CATEGORIES:B4
 COLOR:red
@@ -4380,7 +4421,7 @@ BEGIN:VEVENT
 SUMMARY:🔵 B5 · Evening Reset
 DTSTART;TZID=America/New_York:20261025T180100
 DTEND;TZID=America/New_York:20261025T191700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-25-B5@lunar-rhythm
 CATEGORIES:B5
 COLOR:darkblue
@@ -4405,7 +4446,7 @@ BEGIN:VEVENT
 SUMMARY:⚫ B6 · Wind Down to Sleep
 DTSTART;TZID=America/New_York:20261025T191700
 DTEND;TZID=America/New_York:20261026T000000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-25-B6@lunar-rhythm
 CATEGORIES:B6
 COLOR:dimgray
@@ -4430,7 +4471,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Fajr · by 07:08
 DTSTART;TZID=America/New_York:20261025T060200
 DTEND;TZID=America/New_York:20261025T062700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-25-P-FAJR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -4439,8 +4480,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · FAJR · 14 Jumada al-Ula 1448 AH\nAdh
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 0
  7:08) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-25-P-FA
- JR
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-25-P-FAJR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -4452,7 +4493,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Dhuhr · by 15:36
 DTSTART;TZID=America/New_York:20261025T124000
 DTEND;TZID=America/New_York:20261025T130500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-25-P-DHUHR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -4461,7 +4502,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · DHUHR · 14 Jumada al-Ula 1448 AH\nAd
   off: when prayed inside the window\, edit this title from "[ ]" to "[x]" 
  and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 15:36) or
   Missed → the 40-streak resets to 0. History stays in the log.\n📊 Tra
- cker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-25-P-DHUHR
+ cker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into G
+ oogle Sheets (see README §3)\nLRIB-ID: 2026-10-25-P-DHUHR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -4473,7 +4515,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Asr · by 17:46
 DTSTART;TZID=America/New_York:20261025T153600
 DTEND;TZID=America/New_York:20261025T160100
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-25-P-ASR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -4482,8 +4524,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ASR · 14 Jumada al-Ula 1448 AH\nAdha
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 1
  7:46) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-25-P-AS
- R
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-25-P-ASR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -4495,7 +4537,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Maghrib · by 19:17
 DTSTART;TZID=America/New_York:20261025T180100
 DTEND;TZID=America/New_York:20261025T182600
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-25-P-MAGHRIB@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -4504,7 +4546,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · MAGHRIB · 14 Jumada al-Ula 1448 AH\n
  ick off: when prayed inside the window\, edit this title from "[ ]" to "[x
  ]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 19:17)
   or Missed → the 40-streak resets to 0. History stays in the log.\n📊 
- Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-25-P-MAGHRIB
+ Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv int
+ o Google Sheets (see README §3)\nLRIB-ID: 2026-10-25-P-MAGHRIB
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -4516,7 +4559,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Isha · by 00:00
 DTSTART;TZID=America/New_York:20261025T191700
 DTEND;TZID=America/New_York:20261025T194200
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-25-P-ISHA@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -4525,7 +4568,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ISHA · 14 Jumada al-Ula 1448 AH\nAdh
  f: when prayed inside the window\, edit this title from "[ ]" to "[x]" and
   mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 00:00) or Mi
  ssed → the 40-streak resets to 0. History stays in the log.\n📊 Tracke
- r: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-25-P-ISHA
+ r: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Goog
+ le Sheets (see README §3)\nLRIB-ID: 2026-10-25-P-ISHA
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -4537,7 +4581,7 @@ BEGIN:VEVENT
 SUMMARY:🌙 15 Jumada al-Ula 1448 · 🌕 · Ramadan −105d
 DTSTART;VALUE=DATE:20261026
 DTEND;VALUE=DATE:20261027
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-26-HDR@lunar-rhythm
 CATEGORIES:HEADER
 COLOR:lavender
@@ -4553,7 +4597,7 @@ BEGIN:VEVENT
 SUMMARY:🌌 B0 · Pre-Dawn (Tahajjud)
 DTSTART;TZID=America/New_York:20261026T051800
 DTEND;TZID=America/New_York:20261026T060300
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-26-B0@lunar-rhythm
 CATEGORIES:B0
 COLOR:purple
@@ -4577,7 +4621,7 @@ BEGIN:VEVENT
 SUMMARY:🌅 B1 · Dawn / First Light
 DTSTART;TZID=America/New_York:20261026T060300
 DTEND;TZID=America/New_York:20261026T070900
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-26-B1@lunar-rhythm
 CATEGORIES:B1
 COLOR:turquoise
@@ -4598,7 +4642,7 @@ BEGIN:VEVENT
 SUMMARY:☀️ B2 · High Dopamine Core Work
 DTSTART;TZID=America/New_York:20261026T073400
 DTEND;TZID=America/New_York:20261026T124000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-26-B2@lunar-rhythm
 CATEGORIES:B2
 COLOR:yellow
@@ -4628,7 +4672,7 @@ BEGIN:VEVENT
 SUMMARY:🟧 B3 · Core Wrap-Up
 DTSTART;TZID=America/New_York:20261026T124000
 DTEND;TZID=America/New_York:20261026T153500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-26-B3@lunar-rhythm
 CATEGORIES:B3
 COLOR:darkorange
@@ -4652,7 +4696,7 @@ BEGIN:VEVENT
 SUMMARY:🌇 B4 · Afternoon & Sunset Prep
 DTSTART;TZID=America/New_York:20261026T153500
 DTEND;TZID=America/New_York:20261026T174500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-26-B4@lunar-rhythm
 CATEGORIES:B4
 COLOR:red
@@ -4677,7 +4721,7 @@ BEGIN:VEVENT
 SUMMARY:🔵 B5 · Evening Reset
 DTSTART;TZID=America/New_York:20261026T180000
 DTEND;TZID=America/New_York:20261026T191600
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-26-B5@lunar-rhythm
 CATEGORIES:B5
 COLOR:darkblue
@@ -4702,7 +4746,7 @@ BEGIN:VEVENT
 SUMMARY:⚫ B6 · Wind Down to Sleep
 DTSTART;TZID=America/New_York:20261026T191600
 DTEND;TZID=America/New_York:20261027T000000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-26-B6@lunar-rhythm
 CATEGORIES:B6
 COLOR:dimgray
@@ -4727,7 +4771,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Fajr · by 07:09
 DTSTART;TZID=America/New_York:20261026T060300
 DTEND;TZID=America/New_York:20261026T062800
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-26-P-FAJR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -4736,8 +4780,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · FAJR · 15 Jumada al-Ula 1448 AH\nAdh
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 0
  7:09) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-26-P-FA
- JR
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-26-P-FAJR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -4749,7 +4793,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Dhuhr · by 15:35
 DTSTART;TZID=America/New_York:20261026T124000
 DTEND;TZID=America/New_York:20261026T130500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-26-P-DHUHR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -4758,7 +4802,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · DHUHR · 15 Jumada al-Ula 1448 AH\nAd
   off: when prayed inside the window\, edit this title from "[ ]" to "[x]" 
  and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 15:35) or
   Missed → the 40-streak resets to 0. History stays in the log.\n📊 Tra
- cker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-26-P-DHUHR
+ cker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into G
+ oogle Sheets (see README §3)\nLRIB-ID: 2026-10-26-P-DHUHR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -4770,7 +4815,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Asr · by 17:45
 DTSTART;TZID=America/New_York:20261026T153500
 DTEND;TZID=America/New_York:20261026T160000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-26-P-ASR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -4779,8 +4824,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ASR · 15 Jumada al-Ula 1448 AH\nAdha
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 1
  7:45) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-26-P-AS
- R
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-26-P-ASR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -4792,7 +4837,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Maghrib · by 19:16
 DTSTART;TZID=America/New_York:20261026T180000
 DTEND;TZID=America/New_York:20261026T182500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-26-P-MAGHRIB@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -4801,7 +4846,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · MAGHRIB · 15 Jumada al-Ula 1448 AH\n
  ick off: when prayed inside the window\, edit this title from "[ ]" to "[x
  ]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 19:16)
   or Missed → the 40-streak resets to 0. History stays in the log.\n📊 
- Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-26-P-MAGHRIB
+ Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv int
+ o Google Sheets (see README §3)\nLRIB-ID: 2026-10-26-P-MAGHRIB
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -4813,7 +4859,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Isha · by 00:00
 DTSTART;TZID=America/New_York:20261026T191600
 DTEND;TZID=America/New_York:20261026T194100
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-26-P-ISHA@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -4822,7 +4868,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ISHA · 15 Jumada al-Ula 1448 AH\nAdh
  f: when prayed inside the window\, edit this title from "[ ]" to "[x]" and
   mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 00:00) or Mi
  ssed → the 40-streak resets to 0. History stays in the log.\n📊 Tracke
- r: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-26-P-ISHA
+ r: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Goog
+ le Sheets (see README §3)\nLRIB-ID: 2026-10-26-P-ISHA
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -4834,7 +4881,7 @@ BEGIN:VEVENT
 SUMMARY:🌙 16 Jumada al-Ula 1448 · 🌕 · Ramadan −104d
 DTSTART;VALUE=DATE:20261027
 DTEND;VALUE=DATE:20261028
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-27-HDR@lunar-rhythm
 CATEGORIES:HEADER
 COLOR:lavender
@@ -4850,7 +4897,7 @@ BEGIN:VEVENT
 SUMMARY:🌌 B0 · Pre-Dawn (Tahajjud)
 DTSTART;TZID=America/New_York:20261027T051900
 DTEND;TZID=America/New_York:20261027T060400
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-27-B0@lunar-rhythm
 CATEGORIES:B0
 COLOR:purple
@@ -4874,7 +4921,7 @@ BEGIN:VEVENT
 SUMMARY:🌅 B1 · Dawn / First Light
 DTSTART;TZID=America/New_York:20261027T060400
 DTEND;TZID=America/New_York:20261027T071100
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-27-B1@lunar-rhythm
 CATEGORIES:B1
 COLOR:turquoise
@@ -4895,7 +4942,7 @@ BEGIN:VEVENT
 SUMMARY:☀️ B2 · High Dopamine Core Work
 DTSTART;TZID=America/New_York:20261027T073600
 DTEND;TZID=America/New_York:20261027T124000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-27-B2@lunar-rhythm
 CATEGORIES:B2
 COLOR:yellow
@@ -4925,7 +4972,7 @@ BEGIN:VEVENT
 SUMMARY:🟧 B3 · Core Wrap-Up
 DTSTART;TZID=America/New_York:20261027T124000
 DTEND;TZID=America/New_York:20261027T153400
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-27-B3@lunar-rhythm
 CATEGORIES:B3
 COLOR:darkorange
@@ -4949,7 +4996,7 @@ BEGIN:VEVENT
 SUMMARY:🌇 B4 · Afternoon & Sunset Prep
 DTSTART;TZID=America/New_York:20261027T153400
 DTEND;TZID=America/New_York:20261027T174300
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-27-B4@lunar-rhythm
 CATEGORIES:B4
 COLOR:red
@@ -4974,7 +5021,7 @@ BEGIN:VEVENT
 SUMMARY:🔵 B5 · Evening Reset
 DTSTART;TZID=America/New_York:20261027T175800
 DTEND;TZID=America/New_York:20261027T191400
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-27-B5@lunar-rhythm
 CATEGORIES:B5
 COLOR:darkblue
@@ -4999,7 +5046,7 @@ BEGIN:VEVENT
 SUMMARY:⚫ B6 · Wind Down to Sleep
 DTSTART;TZID=America/New_York:20261027T191400
 DTEND;TZID=America/New_York:20261028T000000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-27-B6@lunar-rhythm
 CATEGORIES:B6
 COLOR:dimgray
@@ -5024,7 +5071,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Fajr · by 07:11
 DTSTART;TZID=America/New_York:20261027T060400
 DTEND;TZID=America/New_York:20261027T062900
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-27-P-FAJR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -5033,8 +5080,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · FAJR · 16 Jumada al-Ula 1448 AH\nAdh
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 0
  7:11) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-27-P-FA
- JR
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-27-P-FAJR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -5046,7 +5093,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Dhuhr · by 15:34
 DTSTART;TZID=America/New_York:20261027T124000
 DTEND;TZID=America/New_York:20261027T130500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-27-P-DHUHR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -5055,7 +5102,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · DHUHR · 16 Jumada al-Ula 1448 AH\nAd
   off: when prayed inside the window\, edit this title from "[ ]" to "[x]" 
  and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 15:34) or
   Missed → the 40-streak resets to 0. History stays in the log.\n📊 Tra
- cker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-27-P-DHUHR
+ cker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into G
+ oogle Sheets (see README §3)\nLRIB-ID: 2026-10-27-P-DHUHR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -5067,7 +5115,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Asr · by 17:43
 DTSTART;TZID=America/New_York:20261027T153400
 DTEND;TZID=America/New_York:20261027T155900
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-27-P-ASR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -5076,8 +5124,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ASR · 16 Jumada al-Ula 1448 AH\nAdha
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 1
  7:43) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-27-P-AS
- R
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-27-P-ASR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -5089,7 +5137,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Maghrib · by 19:14
 DTSTART;TZID=America/New_York:20261027T175800
 DTEND;TZID=America/New_York:20261027T182300
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-27-P-MAGHRIB@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -5098,7 +5146,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · MAGHRIB · 16 Jumada al-Ula 1448 AH\n
  ick off: when prayed inside the window\, edit this title from "[ ]" to "[x
  ]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 19:14)
   or Missed → the 40-streak resets to 0. History stays in the log.\n📊 
- Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-27-P-MAGHRIB
+ Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv int
+ o Google Sheets (see README §3)\nLRIB-ID: 2026-10-27-P-MAGHRIB
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -5110,7 +5159,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Isha · by 00:00
 DTSTART;TZID=America/New_York:20261027T191400
 DTEND;TZID=America/New_York:20261027T193900
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-27-P-ISHA@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -5119,7 +5168,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ISHA · 16 Jumada al-Ula 1448 AH\nAdh
  f: when prayed inside the window\, edit this title from "[ ]" to "[x]" and
   mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 00:00) or Mi
  ssed → the 40-streak resets to 0. History stays in the log.\n📊 Tracke
- r: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-27-P-ISHA
+ r: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Goog
+ le Sheets (see README §3)\nLRIB-ID: 2026-10-27-P-ISHA
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -5131,7 +5181,7 @@ BEGIN:VEVENT
 SUMMARY:🌙 17 Jumada al-Ula 1448 · 🌖 · Ramadan −103d
 DTSTART;VALUE=DATE:20261028
 DTEND;VALUE=DATE:20261029
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-28-HDR@lunar-rhythm
 CATEGORIES:HEADER
 COLOR:lavender
@@ -5147,7 +5197,7 @@ BEGIN:VEVENT
 SUMMARY:🌌 B0 · Pre-Dawn (Tahajjud)
 DTSTART;TZID=America/New_York:20261028T052000
 DTEND;TZID=America/New_York:20261028T060500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-28-B0@lunar-rhythm
 CATEGORIES:B0
 COLOR:purple
@@ -5171,7 +5221,7 @@ BEGIN:VEVENT
 SUMMARY:🌅 B1 · Dawn / First Light
 DTSTART;TZID=America/New_York:20261028T060500
 DTEND;TZID=America/New_York:20261028T071200
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-28-B1@lunar-rhythm
 CATEGORIES:B1
 COLOR:turquoise
@@ -5192,7 +5242,7 @@ BEGIN:VEVENT
 SUMMARY:☀️ B2 · High Dopamine Core Work
 DTSTART;TZID=America/New_York:20261028T073700
 DTEND;TZID=America/New_York:20261028T124000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-28-B2@lunar-rhythm
 CATEGORIES:B2
 COLOR:yellow
@@ -5222,7 +5272,7 @@ BEGIN:VEVENT
 SUMMARY:🟧 B3 · Core Wrap-Up
 DTSTART;TZID=America/New_York:20261028T124000
 DTEND;TZID=America/New_York:20261028T153300
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-28-B3@lunar-rhythm
 CATEGORIES:B3
 COLOR:darkorange
@@ -5246,7 +5296,7 @@ BEGIN:VEVENT
 SUMMARY:🌇 B4 · Afternoon & Sunset Prep
 DTSTART;TZID=America/New_York:20261028T153300
 DTEND;TZID=America/New_York:20261028T174200
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-28-B4@lunar-rhythm
 CATEGORIES:B4
 COLOR:red
@@ -5271,7 +5321,7 @@ BEGIN:VEVENT
 SUMMARY:🔵 B5 · Evening Reset
 DTSTART;TZID=America/New_York:20261028T175700
 DTEND;TZID=America/New_York:20261028T191300
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-28-B5@lunar-rhythm
 CATEGORIES:B5
 COLOR:darkblue
@@ -5296,7 +5346,7 @@ BEGIN:VEVENT
 SUMMARY:⚫ B6 · Wind Down to Sleep
 DTSTART;TZID=America/New_York:20261028T191300
 DTEND;TZID=America/New_York:20261029T000000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-28-B6@lunar-rhythm
 CATEGORIES:B6
 COLOR:dimgray
@@ -5321,7 +5371,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Fajr · by 07:12
 DTSTART;TZID=America/New_York:20261028T060500
 DTEND;TZID=America/New_York:20261028T063000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-28-P-FAJR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -5330,8 +5380,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · FAJR · 17 Jumada al-Ula 1448 AH\nAdh
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 0
  7:12) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-28-P-FA
- JR
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-28-P-FAJR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -5343,7 +5393,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Dhuhr · by 15:33
 DTSTART;TZID=America/New_York:20261028T124000
 DTEND;TZID=America/New_York:20261028T130500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-28-P-DHUHR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -5352,7 +5402,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · DHUHR · 17 Jumada al-Ula 1448 AH\nAd
   off: when prayed inside the window\, edit this title from "[ ]" to "[x]" 
  and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 15:33) or
   Missed → the 40-streak resets to 0. History stays in the log.\n📊 Tra
- cker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-28-P-DHUHR
+ cker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into G
+ oogle Sheets (see README §3)\nLRIB-ID: 2026-10-28-P-DHUHR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -5364,7 +5415,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Asr · by 17:42
 DTSTART;TZID=America/New_York:20261028T153300
 DTEND;TZID=America/New_York:20261028T155800
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-28-P-ASR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -5373,8 +5424,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ASR · 17 Jumada al-Ula 1448 AH\nAdha
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 1
  7:42) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-28-P-AS
- R
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-28-P-ASR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -5386,7 +5437,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Maghrib · by 19:13
 DTSTART;TZID=America/New_York:20261028T175700
 DTEND;TZID=America/New_York:20261028T182200
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-28-P-MAGHRIB@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -5395,7 +5446,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · MAGHRIB · 17 Jumada al-Ula 1448 AH\n
  ick off: when prayed inside the window\, edit this title from "[ ]" to "[x
  ]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 19:13)
   or Missed → the 40-streak resets to 0. History stays in the log.\n📊 
- Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-28-P-MAGHRIB
+ Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv int
+ o Google Sheets (see README §3)\nLRIB-ID: 2026-10-28-P-MAGHRIB
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -5407,7 +5459,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Isha · by 00:00
 DTSTART;TZID=America/New_York:20261028T191300
 DTEND;TZID=America/New_York:20261028T193800
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-28-P-ISHA@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -5416,7 +5468,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ISHA · 17 Jumada al-Ula 1448 AH\nAdh
  f: when prayed inside the window\, edit this title from "[ ]" to "[x]" and
   mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 00:00) or Mi
  ssed → the 40-streak resets to 0. History stays in the log.\n📊 Tracke
- r: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-28-P-ISHA
+ r: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Goog
+ le Sheets (see README §3)\nLRIB-ID: 2026-10-28-P-ISHA
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -5428,7 +5481,7 @@ BEGIN:VEVENT
 SUMMARY:🌙 18 Jumada al-Ula 1448 · 🌖 · Ramadan −102d
 DTSTART;VALUE=DATE:20261029
 DTEND;VALUE=DATE:20261030
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-29-HDR@lunar-rhythm
 CATEGORIES:HEADER
 COLOR:lavender
@@ -5444,7 +5497,7 @@ BEGIN:VEVENT
 SUMMARY:🌌 B0 · Pre-Dawn (Tahajjud)
 DTSTART;TZID=America/New_York:20261029T052100
 DTEND;TZID=America/New_York:20261029T060600
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-29-B0@lunar-rhythm
 CATEGORIES:B0
 COLOR:purple
@@ -5468,7 +5521,7 @@ BEGIN:VEVENT
 SUMMARY:🌅 B1 · Dawn / First Light
 DTSTART;TZID=America/New_York:20261029T060600
 DTEND;TZID=America/New_York:20261029T071300
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-29-B1@lunar-rhythm
 CATEGORIES:B1
 COLOR:turquoise
@@ -5489,7 +5542,7 @@ BEGIN:VEVENT
 SUMMARY:☀️ B2 · High Dopamine Core Work
 DTSTART;TZID=America/New_York:20261029T073800
 DTEND;TZID=America/New_York:20261029T124000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-29-B2@lunar-rhythm
 CATEGORIES:B2
 COLOR:yellow
@@ -5519,7 +5572,7 @@ BEGIN:VEVENT
 SUMMARY:🟧 B3 · Core Wrap-Up
 DTSTART;TZID=America/New_York:20261029T124000
 DTEND;TZID=America/New_York:20261029T153200
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-29-B3@lunar-rhythm
 CATEGORIES:B3
 COLOR:darkorange
@@ -5543,7 +5596,7 @@ BEGIN:VEVENT
 SUMMARY:🌇 B4 · Afternoon & Sunset Prep
 DTSTART;TZID=America/New_York:20261029T153200
 DTEND;TZID=America/New_York:20261029T174100
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-29-B4@lunar-rhythm
 CATEGORIES:B4
 COLOR:red
@@ -5568,7 +5621,7 @@ BEGIN:VEVENT
 SUMMARY:🔵 B5 · Evening Reset
 DTSTART;TZID=America/New_York:20261029T175600
 DTEND;TZID=America/New_York:20261029T191200
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-29-B5@lunar-rhythm
 CATEGORIES:B5
 COLOR:darkblue
@@ -5593,7 +5646,7 @@ BEGIN:VEVENT
 SUMMARY:⚫ B6 · Wind Down to Sleep
 DTSTART;TZID=America/New_York:20261029T191200
 DTEND;TZID=America/New_York:20261030T000000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-29-B6@lunar-rhythm
 CATEGORIES:B6
 COLOR:dimgray
@@ -5618,7 +5671,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Fajr · by 07:13
 DTSTART;TZID=America/New_York:20261029T060600
 DTEND;TZID=America/New_York:20261029T063100
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-29-P-FAJR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -5627,8 +5680,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · FAJR · 18 Jumada al-Ula 1448 AH\nAdh
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 0
  7:13) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-29-P-FA
- JR
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-29-P-FAJR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -5640,7 +5693,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Dhuhr · by 15:32
 DTSTART;TZID=America/New_York:20261029T124000
 DTEND;TZID=America/New_York:20261029T130500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-29-P-DHUHR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -5649,7 +5702,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · DHUHR · 18 Jumada al-Ula 1448 AH\nAd
   off: when prayed inside the window\, edit this title from "[ ]" to "[x]" 
  and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 15:32) or
   Missed → the 40-streak resets to 0. History stays in the log.\n📊 Tra
- cker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-29-P-DHUHR
+ cker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into G
+ oogle Sheets (see README §3)\nLRIB-ID: 2026-10-29-P-DHUHR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -5661,7 +5715,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Asr · by 17:41
 DTSTART;TZID=America/New_York:20261029T153200
 DTEND;TZID=America/New_York:20261029T155700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-29-P-ASR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -5670,8 +5724,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ASR · 18 Jumada al-Ula 1448 AH\nAdha
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 1
  7:41) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-29-P-AS
- R
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-29-P-ASR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -5683,7 +5737,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Maghrib · by 19:12
 DTSTART;TZID=America/New_York:20261029T175600
 DTEND;TZID=America/New_York:20261029T182100
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-29-P-MAGHRIB@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -5692,7 +5746,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · MAGHRIB · 18 Jumada al-Ula 1448 AH\n
  ick off: when prayed inside the window\, edit this title from "[ ]" to "[x
  ]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 19:12)
   or Missed → the 40-streak resets to 0. History stays in the log.\n📊 
- Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-29-P-MAGHRIB
+ Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv int
+ o Google Sheets (see README §3)\nLRIB-ID: 2026-10-29-P-MAGHRIB
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -5704,7 +5759,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Isha · by 00:00
 DTSTART;TZID=America/New_York:20261029T191200
 DTEND;TZID=America/New_York:20261029T193700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-29-P-ISHA@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -5713,7 +5768,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ISHA · 18 Jumada al-Ula 1448 AH\nAdh
  f: when prayed inside the window\, edit this title from "[ ]" to "[x]" and
   mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 00:00) or Mi
  ssed → the 40-streak resets to 0. History stays in the log.\n📊 Tracke
- r: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-29-P-ISHA
+ r: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Goog
+ le Sheets (see README §3)\nLRIB-ID: 2026-10-29-P-ISHA
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -5725,7 +5781,7 @@ BEGIN:VEVENT
 SUMMARY:🌙 19 Jumada al-Ula 1448 · 🌖 · Ramadan −101d
 DTSTART;VALUE=DATE:20261030
 DTEND;VALUE=DATE:20261031
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-30-HDR@lunar-rhythm
 CATEGORIES:HEADER
 COLOR:lavender
@@ -5741,7 +5797,7 @@ BEGIN:VEVENT
 SUMMARY:🌌 B0 · Pre-Dawn (Tahajjud)
 DTSTART;TZID=America/New_York:20261030T052200
 DTEND;TZID=America/New_York:20261030T060700
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-30-B0@lunar-rhythm
 CATEGORIES:B0
 COLOR:purple
@@ -5765,7 +5821,7 @@ BEGIN:VEVENT
 SUMMARY:🌅 B1 · Dawn / First Light
 DTSTART;TZID=America/New_York:20261030T060700
 DTEND;TZID=America/New_York:20261030T071400
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-30-B1@lunar-rhythm
 CATEGORIES:B1
 COLOR:turquoise
@@ -5786,7 +5842,7 @@ BEGIN:VEVENT
 SUMMARY:☀️ B2 · High Dopamine Core Work
 DTSTART;TZID=America/New_York:20261030T073900
 DTEND;TZID=America/New_York:20261030T123900
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-30-B2@lunar-rhythm
 CATEGORIES:B2
 COLOR:yellow
@@ -5816,7 +5872,7 @@ BEGIN:VEVENT
 SUMMARY:🟧 B3 · Core Wrap-Up
 DTSTART;TZID=America/New_York:20261030T123900
 DTEND;TZID=America/New_York:20261030T153100
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-30-B3@lunar-rhythm
 CATEGORIES:B3
 COLOR:darkorange
@@ -5840,7 +5896,7 @@ BEGIN:VEVENT
 SUMMARY:🌇 B4 · Afternoon & Sunset Prep
 DTSTART;TZID=America/New_York:20261030T153100
 DTEND;TZID=America/New_York:20261030T173900
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-30-B4@lunar-rhythm
 CATEGORIES:B4
 COLOR:red
@@ -5865,7 +5921,7 @@ BEGIN:VEVENT
 SUMMARY:🔵 B5 · Evening Reset
 DTSTART;TZID=America/New_York:20261030T175400
 DTEND;TZID=America/New_York:20261030T191100
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-30-B5@lunar-rhythm
 CATEGORIES:B5
 COLOR:darkblue
@@ -5890,7 +5946,7 @@ BEGIN:VEVENT
 SUMMARY:⚫ B6 · Wind Down to Sleep
 DTSTART;TZID=America/New_York:20261030T191100
 DTEND;TZID=America/New_York:20261031T000000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-30-B6@lunar-rhythm
 CATEGORIES:B6
 COLOR:dimgray
@@ -5915,7 +5971,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Fajr · by 07:14
 DTSTART;TZID=America/New_York:20261030T060700
 DTEND;TZID=America/New_York:20261030T063200
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-30-P-FAJR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -5924,8 +5980,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · FAJR · 19 Jumada al-Ula 1448 AH\nAdh
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 0
  7:14) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-30-P-FA
- JR
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-30-P-FAJR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -5937,7 +5993,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Dhuhr · by 15:31
 DTSTART;TZID=America/New_York:20261030T123900
 DTEND;TZID=America/New_York:20261030T130400
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-30-P-DHUHR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -5946,7 +6002,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · DHUHR · 19 Jumada al-Ula 1448 AH\nAd
   off: when prayed inside the window\, edit this title from "[ ]" to "[x]" 
  and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 15:31) or
   Missed → the 40-streak resets to 0. History stays in the log.\n📊 Tra
- cker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-30-P-DHUHR
+ cker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into G
+ oogle Sheets (see README §3)\nLRIB-ID: 2026-10-30-P-DHUHR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -5958,7 +6015,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Asr · by 17:39
 DTSTART;TZID=America/New_York:20261030T153100
 DTEND;TZID=America/New_York:20261030T155600
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-30-P-ASR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -5967,8 +6024,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ASR · 19 Jumada al-Ula 1448 AH\nAdha
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 1
  7:39) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-30-P-AS
- R
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-30-P-ASR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -5980,7 +6037,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Maghrib · by 19:11
 DTSTART;TZID=America/New_York:20261030T175400
 DTEND;TZID=America/New_York:20261030T181900
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-30-P-MAGHRIB@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -5989,7 +6046,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · MAGHRIB · 19 Jumada al-Ula 1448 AH\n
  ick off: when prayed inside the window\, edit this title from "[ ]" to "[x
  ]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 19:11)
   or Missed → the 40-streak resets to 0. History stays in the log.\n📊 
- Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-30-P-MAGHRIB
+ Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv int
+ o Google Sheets (see README §3)\nLRIB-ID: 2026-10-30-P-MAGHRIB
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -6001,7 +6059,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Isha · by 00:00
 DTSTART;TZID=America/New_York:20261030T191100
 DTEND;TZID=America/New_York:20261030T193600
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-30-P-ISHA@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -6010,7 +6068,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ISHA · 19 Jumada al-Ula 1448 AH\nAdh
  f: when prayed inside the window\, edit this title from "[ ]" to "[x]" and
   mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 00:00) or Mi
  ssed → the 40-streak resets to 0. History stays in the log.\n📊 Tracke
- r: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-30-P-ISHA
+ r: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Goog
+ le Sheets (see README §3)\nLRIB-ID: 2026-10-30-P-ISHA
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -6022,7 +6081,7 @@ BEGIN:VEVENT
 SUMMARY:🌙 20 Jumada al-Ula 1448 · 🌖 · Ramadan −100d
 DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-31-HDR@lunar-rhythm
 CATEGORIES:HEADER
 COLOR:lavender
@@ -6038,7 +6097,7 @@ BEGIN:VEVENT
 SUMMARY:🌌 B0 · Pre-Dawn (Tahajjud)
 DTSTART;TZID=America/New_York:20261031T052300
 DTEND;TZID=America/New_York:20261031T060800
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-31-B0@lunar-rhythm
 CATEGORIES:B0
 COLOR:purple
@@ -6062,7 +6121,7 @@ BEGIN:VEVENT
 SUMMARY:🌅 B1 · Dawn / First Light
 DTSTART;TZID=America/New_York:20261031T060800
 DTEND;TZID=America/New_York:20261031T071500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-31-B1@lunar-rhythm
 CATEGORIES:B1
 COLOR:turquoise
@@ -6083,7 +6142,7 @@ BEGIN:VEVENT
 SUMMARY:☀️ B2 · High Dopamine Core Work
 DTSTART;TZID=America/New_York:20261031T074000
 DTEND;TZID=America/New_York:20261031T123900
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-31-B2@lunar-rhythm
 CATEGORIES:B2
 COLOR:yellow
@@ -6113,7 +6172,7 @@ BEGIN:VEVENT
 SUMMARY:🟧 B3 · Core Wrap-Up
 DTSTART;TZID=America/New_York:20261031T123900
 DTEND;TZID=America/New_York:20261031T153000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-31-B3@lunar-rhythm
 CATEGORIES:B3
 COLOR:darkorange
@@ -6137,7 +6196,7 @@ BEGIN:VEVENT
 SUMMARY:🌇 B4 · Afternoon & Sunset Prep
 DTSTART;TZID=America/New_York:20261031T153000
 DTEND;TZID=America/New_York:20261031T173800
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-31-B4@lunar-rhythm
 CATEGORIES:B4
 COLOR:red
@@ -6162,7 +6221,7 @@ BEGIN:VEVENT
 SUMMARY:🔵 B5 · Evening Reset
 DTSTART;TZID=America/New_York:20261031T175300
 DTEND;TZID=America/New_York:20261031T191000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-31-B5@lunar-rhythm
 CATEGORIES:B5
 COLOR:darkblue
@@ -6187,7 +6246,7 @@ BEGIN:VEVENT
 SUMMARY:⚫ B6 · Wind Down to Sleep
 DTSTART;TZID=America/New_York:20261031T191000
 DTEND;TZID=America/New_York:20261101T000000
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-31-B6@lunar-rhythm
 CATEGORIES:B6
 COLOR:dimgray
@@ -6212,7 +6271,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Fajr · by 07:15
 DTSTART;TZID=America/New_York:20261031T060800
 DTEND;TZID=America/New_York:20261031T063300
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-31-P-FAJR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -6221,8 +6280,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · FAJR · 20 Jumada al-Ula 1448 AH\nAdh
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 0
  7:15) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-31-P-FA
- JR
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-31-P-FAJR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -6234,7 +6293,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Dhuhr · by 15:30
 DTSTART;TZID=America/New_York:20261031T123900
 DTEND;TZID=America/New_York:20261031T130400
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-31-P-DHUHR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -6243,7 +6302,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · DHUHR · 20 Jumada al-Ula 1448 AH\nAd
   off: when prayed inside the window\, edit this title from "[ ]" to "[x]" 
  and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 15:30) or
   Missed → the 40-streak resets to 0. History stays in the log.\n📊 Tra
- cker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-31-P-DHUHR
+ cker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into G
+ oogle Sheets (see README §3)\nLRIB-ID: 2026-10-31-P-DHUHR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -6255,7 +6315,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Asr · by 17:38
 DTSTART;TZID=America/New_York:20261031T153000
 DTEND;TZID=America/New_York:20261031T155500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-31-P-ASR@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -6264,8 +6324,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ASR · 20 Jumada al-Ula 1448 AH\nAdha
  ✅ Tick off: when prayed inside the window\, edit this title from "[ ]" t
  o "[x]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 1
  7:38) or Missed → the 40-streak resets to 0. History stays in the log.\n
- 📊 Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-31-P-AS
- R
+ 📊 Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.cs
+ v into Google Sheets (see README §3)\nLRIB-ID: 2026-10-31-P-ASR
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -6277,7 +6337,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Maghrib · by 19:10
 DTSTART;TZID=America/New_York:20261031T175300
 DTEND;TZID=America/New_York:20261031T181800
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-31-P-MAGHRIB@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -6286,7 +6346,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · MAGHRIB · 20 Jumada al-Ula 1448 AH\n
  ick off: when prayed inside the window\, edit this title from "[ ]" to "[x
  ]" and mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 19:10)
   or Missed → the 40-streak resets to 0. History stays in the log.\n📊 
- Tracker: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-31-P-MAGHRIB
+ Tracker: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv int
+ o Google Sheets (see README §3)\nLRIB-ID: 2026-10-31-P-MAGHRIB
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -6298,7 +6359,7 @@ BEGIN:VEVENT
 SUMMARY:[ ] 🕌 Isha · by 00:00
 DTSTART;TZID=America/New_York:20261031T191000
 DTEND;TZID=America/New_York:20261031T193500
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:2026-10-31-P-ISHA@lunar-rhythm
 CATEGORIES:PRAYER
 COLOR:green
@@ -6307,7 +6368,8 @@ DESCRIPTION:🕌 40-PRAYER STREAK · ISHA · 20 Jumada al-Ula 1448 AH\nAdh
  f: when prayed inside the window\, edit this title from "[ ]" to "[x]" and
   mark On-Time in the tracker.\n⚠️ Reset rule: Late (after 00:00) or Mi
  ssed → the 40-streak resets to 0. History stays in the log.\n📊 Tracke
- r: (tracker sheet URL — see README)\nLRIB-ID: 2026-10-31-P-ISHA
+ r: 40-Prayer Habit Tracker sheet — import build/prayer_log.csv into Goog
+ le Sheets (see README §3)\nLRIB-ID: 2026-10-31-P-ISHA
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
@@ -6319,7 +6381,7 @@ BEGIN:VEVENT
 SUMMARY:🚀 LUNAR RHYTHM BEGINS · 30 Rabi' al-Thani 1448
 DTSTART;VALUE=DATE:20261011
 DTEND;VALUE=DATE:20261012
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:MS-START@lunar-rhythm
 CATEGORIES:MILESTONE
 COLOR:hotpink
@@ -6332,7 +6394,7 @@ BEGIN:VEVENT
 SUMMARY:🕰 Clocks fall back tonight (DST ends 2 AM Sun)
 DTSTART;VALUE=DATE:20261031
 DTEND;VALUE=DATE:20261101
-DTSTAMP:20261011T221725Z
+DTSTAMP:20261011T223109Z
 UID:MS-DST-FALL@lunar-rhythm
 CATEGORIES:MILESTONE
 COLOR:dimgray
