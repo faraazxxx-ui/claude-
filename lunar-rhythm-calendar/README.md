@@ -20,6 +20,21 @@ Location 40.7610 N, −73.9590 W (E 61st St & York Ave) · Method ISNA (Fajr 15�
 Asr standard) · Time zone America/New_York with DST applied · Hijri dates: Saudi High Judiciary Council
 (Aladhan HJCoSA), cross-checked against Umm al-Qura.
 
+## Status (2026-10-11, 23:55 UTC)
+
+| Step | State |
+|---|---|
+| Timetable, validation, ICS, payloads, Apps Script, README | ✅ done, committed on this branch (PR #37) |
+| Google Calendar population (3,116 events) | ⏳ **pending** — the Calendar connector is authorized for `dr.faraaz.rahman@gmail.com`, and no calendar named "Lunar Rhythm & Intentional Blocks" existed in that account at the last check. |
+| 40-prayer tracker Google Sheet | ⏳ **pending** — the Drive connector was not authorized; import `build/prayer_log.csv` as described in the table above. |
+
+**To resume the population:** in Google Calendar signed in as `dr.faraaz.rahman@gmail.com`, Settings → *Add calendar* →
+*Create new calendar* → name **Lunar Rhythm & Intentional Blocks** → time zone Eastern Time → *Create calendar*,
+then tell the Claude session "calendar created". It will smoke-test one event, upload all 12 payload batches in
+parallel and run the verification rubric in `build/verification_rubric.md`.
+**Without the session:** import `build/ics/LRIB_<YYYY-MM>.ics` month by month into that calendar (§7); per-event
+colours are the one thing an `.ics` import cannot carry.
+
 ---
 
 ## 1. The day
