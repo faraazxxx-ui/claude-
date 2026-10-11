@@ -1,0 +1,98 @@
+[
+ {
+  "batch": 1,
+  "first_day": "2026-10-11",
+  "last_day": "2026-10-30",
+  "days": 20,
+  "event_count": 262,
+  "file": "batch_01.json"
+ },
+ {
+  "batch": 2,
+  "first_day": "2026-10-31",
+  "last_day": "2026-11-19",
+  "days": 20,
+  "event_count": 262,
+  "file": "batch_02.json"
+ },
+ {
+  "batch": 3,
+  "first_day": "2026-11-20",
+  "last_day": "2026-12-09",
+  "days": 20,
+  "event_count": 260,
+  "file": "batch_03.json"
+ },
+ {
+  "batch": 4,
+  "first_day": "2026-12-10",
+  "last_day": "2026-12-29",
+  "days": 20,
+  "event_count": 261,
+  "file": "batch_04.json"
+ },
+ {
+  "batch": 5,
+  "first_day": "2026-12-30",
+  "last_day": "2027-01-18",
+  "days": 20,
+  "event_count": 262,
+  "file": "batch_05.json"
+ },
+ {
+  "batch": 6,
+  "first_day": "2027-01-19",
+  "last_day": "2027-02-07",
+  "days": 20,
+  "event_count": 261,
+  "file": "batch_06.json"
+ },
+ {
+  "batch": 7,
+  "first_day": "2027-02-08",
+  "last_day": "2027-02-27",
+  "days": 20,
+  "event_count": 262,
+  "file": "batch_07.json"
+ },
+ {
+  "batch": 8,
+  "first_day": "2027-02-28",
+  "last_day": "2027-03-19",
+  "days": 20,
+  "event_count": 266,
+  "file": "batch_08.json"
+ },
+ {
+  "batch": 9,
+  "first_day": "2027-03-20",
+  "last_day": "2027-04-08",
+  "days": 20,
+  "event_count": 261,
+  "file": "batch_09.json"
+ },
+ {
+  "batch": 10,
+  "first_day": "2027-04-09",
+  "last_day": "2027-04-28",
+  "days": 20,
+  "event_count": 260,
+  "file": "batch_10.json"
+ },
+ {
+  "batch": 11,
+  "first_day": "2027-04-29",
+  "last_day": "2027-05-18",
+  "days": 20,
+  "event_count": 264,
+  "file": "batch_11.json"
+ },
+ {
+  "batch": 12,
+  "first_day": "2027-05-19",
+  "last_day": "2027-06-05",
+  "days": 18,
+  "event_count": 235,
+  "file": "batch_12.json"
+ }
+]
