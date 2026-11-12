@@ -17,3 +17,4 @@ The value is the pattern across lines, not any single entry — repeated detours
 2026-08-29 · build-voice-capture-skill-and-spine · outcome:PASS · rounds:1/2 · breakers:none · detours:0 · handoffs:0 · note:skill written from re-verified README not recall; goal.md left UNSET rather than guessed
 2026-08-30 · independent-verify-voice-capture-skill · outcome:PASS · rounds:1/2 · breakers:none · detours:0 · handoffs:1(Opus5→Sonnet5) · note:fresh-model re-fetch of source confirms zero drift from SKILL.md; Gate 4 now satisfied for this artifact
 ```
+2026-11-12 · build-canonical-memory-pack · outcome:PASS · rounds:1/2 · breakers:none · detours:1(external grok/claude project URLs + Drive unreachable from build env; seeded from local repos + vendor docs) · handoffs:0 · note:pack written to standing ten lines; Gate 4 NOT satisfied — no separate verifier yet; Grok/Le Chat/Mistral UI tagged Medium

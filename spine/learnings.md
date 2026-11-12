@@ -37,3 +37,15 @@ Gate 0 ran twice against files that did not exist and never announced it. Nothin
 This is the failure mode of every check defined as "read X and consider it" — absence and satisfaction produce identical behaviour. A check needs a defined response to its own inputs being missing, or it is decorative under exactly the conditions where it matters most.
 
 Hence `goal.md` now announces `STATUS: UNSET` in its own body rather than sitting empty. A file that declares its emptiness is a live gate; an absent file is not.
+
+---
+
+## 2026-11-12 — No AI platform syncs memory with another; "same memory everywhere" must be built, not found
+
+Verified in ChatGPT's and Gemini's own 2026 documentation: each platform's memory stays inside that product. So the request "the same instructions and memories in Le Chat, Mistral, Grok, ChatGPT, Gemini, M365, Hermes and Anti Gravity" cannot be delegated to any single vendor's memory feature. The working architecture is: one canonical pack in a repo the user controls (source of truth) + a bootstrap pasted into each platform (its cache) + an append-only write-back loop into the repo (perpetual learning). This is now implemented in `angelic-orchestrator/`.
+
+---
+
+## 2026-11-12 — Platform memory boxes have hard limits and drift; durable context belongs in files you control
+
+Checked 2026-11-12: Grok custom instructions capped ~4,000 chars; ChatGPT memory truncates/summarizes long entries and auto-curates (drift); Gemini Gems become read-only 2026-11-17 (replaced by Skills); Copilot memory/custom instructions don't apply to Agents; Anti Gravity and Hermes read files (AGENTS.md / MEMORY.md) natively; the Mistral API is stateless. Consequence baked into the pack: the full canonical memory lives in repo files, platform text boxes carry only the short bootstrap, and platform memories are audited monthly against the repo, which always wins on conflict.

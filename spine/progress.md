@@ -46,3 +46,31 @@ A fresh session (Sonnet 5, not the Opus 5 pass that built the artifact) re-fetch
 This is the separate-verifier pass `progress.md` flagged as missing on 2026-08-29. Gate 4 is now satisfied for this artifact's factual accuracy.
 
 **Still open, unchanged.** `goal.md` remains UNSET. `sony_sync.sh` and its plist remain unread. PR #30 unchanged — clean, draft, no comments.
+
+---
+
+## 2026-11-12 — Canonical cross-platform memory pack built for the angelic-orchestrator push
+
+**State now.** `angelic-orchestrator/` exists: `CANONICAL_MEMORY.md` (v1.0.0, the single source of truth), `LEARNING_LOOP.md` (perpetual write-back mechanism), `platforms/_BOOTSTRAP.md` plus one install file per platform — ChatGPT, Gemini, Grok, Le Chat, Mistral API, M365 Copilot, Hermes Agent, Anti Gravity. Platform mechanisms verified 2026-11-12 against each vendor's own docs where possible (ChatGPT, Gemini, Anti Gravity, Hermes, M365 = High); Grok, Le Chat, Mistral consumer UI tagged Medium, verify on first use.
+
+**What moved.**
+
+| | |
+|---|---|
+| Built | `angelic-orchestrator/` — README, CANONICAL_MEMORY, LEARNING_LOOP, _BOOTSTRAP, 8 platform files |
+| Verified | No platform syncs memory with another (ChatGPT/Gemini docs state it); per-platform memory mechanisms + limits (Grok 4,000-char cap; Gemini Gems read-only 2026-11-17 → Skills; Anti Gravity AGENTS.md/.agents/rules; Hermes MEMORY.md + skills loop; Copilot Memory + Custom Instructions, not for Agents) |
+| Seeded from | local repos only (`claude-`, `perplexity-chat-export`) + public vendor docs |
+| Recorded | 1 telemetry line, 2 learnings |
+
+**Open — blocking.**
+
+`goal.md` is still UNSET. Gate 0 is standing but not loaded. Dr. Rahman fills it.
+
+**Open — not blocking.**
+
+- The grok.com project (ef2c7a89…) and claude.ai project (01a00d0e…) URLs, Google Drive, and "super memory" were **not reachable from this build environment**. The pack was seeded from the local repos; anything living only in those external projects must be pasted in manually (the platforms files say how).
+- Gate 4 NOT satisfied for this pack: the same pass built it and wrote this summary; no independent verifier graded it against `verify.md` line-by-line. Next session should do that pass before the pack is relied on.
+- Grok / Le Chat / Mistral consumer files are Medium confidence — first real paste is the test.
+- `spine/hub.md` standing-skills table does not list `angelic-orchestrator/` yet — hub.md is Dr. Rahman only, so left untouched.
+
+**Next.** Dr. Rahman pastes `_BOOTSTRAP.md` + `CANONICAL_MEMORY.md` into ChatGPT first (Custom Instructions + angelic-orchestrator Project), then works down the README install map, then fills `goal.md`.
