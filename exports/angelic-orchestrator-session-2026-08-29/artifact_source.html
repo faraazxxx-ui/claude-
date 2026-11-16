@@ -1,0 +1,311 @@
+<title>Voice-Capture Session Audit</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* layout: fixed left rail of sections + scrolling main pane; one section visible at a time via #hash */
+:root{
+  --bg:#f3f1ec; --surface:#ffffff; --ink:#1c1b19; --ink-dim:#6b665d;
+  --accent:#2d5c54; --accent-soft:#e4ece9; --rule:#ddd8cd;
+  --ok:#2f7a3d; --ok-soft:#e5f2e6; --bad:#a3312a; --bad-soft:#f7e6e4; --na:#8a8477; --na-soft:#eeece5;
+  color-scheme: light;
+  --font-display:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-body:"Inter", -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15140f; --surface:#1d1c16; --ink:#efece2; --ink-dim:#9c9686;
+    --accent:#7fb8aa; --accent-soft:#213531; --rule:#33311f;
+    --ok:#7cc98a; --ok-soft:#1d3320; --bad:#e88a84; --bad-soft:#3a1f1d; --na:#9a9484; --na-soft:#2a271c;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15140f; --surface:#1d1c16; --ink:#efece2; --ink-dim:#9c9686;
+  --accent:#7fb8aa; --accent-soft:#213531; --rule:#33311f;
+  --ok:#7cc98a; --ok-soft:#1d3320; --bad:#e88a84; --bad-soft:#3a1f1d; --na:#9a9484; --na-soft:#2a271c;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg); color:var(--ink); font-family:var(--font-body); font-size:14px; line-height:1.55;
+  padding-left:max(0px, env(safe-area-inset-left,0px)); padding-right:max(0px, env(safe-area-inset-right,0px));}
+h1,h2,h3,.mono{font-family:var(--font-display);}
+h1{font-size:17px; letter-spacing:.02em; text-transform:uppercase; margin:0;}
+h2{font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-dim); margin:0 0 14px;}
+h3{font-size:13px; margin:0 0 6px; color:var(--ink);}
+p{margin:0 0 10px; max-width:66ch;}
+a{color:var(--accent)}
+code,pre{font-family:var(--font-display); font-size:12px;}
+pre{background:var(--accent-soft); border:1px solid var(--rule); border-radius:6px; padding:10px 12px; overflow-x:auto; white-space:pre-wrap; word-wrap:break-word; margin:8px 0;}
+
+.shell{display:flex; min-height:100%;}
+nav.rail{width:220px; flex:none; border-right:1px solid var(--rule); background:var(--surface);
+  padding:18px 14px; position:sticky; top:env(safe-area-inset-top,0px); align-self:flex-start; height:100vh; overflow-y:auto;}
+nav.rail .brand{display:flex; align-items:center; gap:8px; margin-bottom:18px;}
+nav.rail .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);flex:none;}
+nav.rail a{display:block; padding:7px 10px; border-radius:5px; color:var(--ink-dim); text-decoration:none; font-size:12.5px; letter-spacing:.02em; margin-bottom:2px;}
+nav.rail a:hover{background:var(--accent-soft); color:var(--ink);}
+nav.rail a.active{background:var(--accent); color:var(--bg); font-weight:600;}
+nav.rail .meta{margin-top:20px; padding-top:14px; border-top:1px solid var(--rule); font-size:11px; color:var(--ink-dim); line-height:1.6;}
+
+main{flex:1; min-width:0; padding:28px max(28px, env(safe-area-inset-right,0px)) 60px 28px;}
+section{display:none; max-width:920px;}
+section.active{display:block;}
+.panel{background:var(--surface); border:1px solid var(--rule); border-radius:8px; padding:18px 20px; margin-bottom:16px;}
+.hd{display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:14px; flex-wrap:wrap;}
+.tag{display:inline-block; font-family:var(--font-display); font-size:10.5px; letter-spacing:.04em; text-transform:uppercase;
+  padding:2px 7px; border-radius:4px; background:var(--accent-soft); color:var(--accent); white-space:nowrap;}
+.pill{display:inline-block; font-family:var(--font-display); font-size:10.5px; letter-spacing:.04em; text-transform:uppercase;
+  padding:2px 8px; border-radius:20px; font-weight:600;}
+.pill.pass{background:var(--ok-soft); color:var(--ok);}
+.pill.fail{background:var(--bad-soft); color:var(--bad);}
+.pill.na{background:var(--na-soft); color:var(--na);}
+
+table{border-collapse:collapse; width:100%; font-size:12.5px;}
+th,td{text-align:left; vertical-align:top; padding:8px 10px; border-bottom:1px solid var(--rule);}
+th{font-family:var(--font-display); font-size:10.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--ink-dim); font-weight:600;}
+tr:last-child td{border-bottom:none;}
+
+details{border:1px solid var(--rule); border-radius:6px; margin-bottom:10px; background:var(--surface);}
+details summary{cursor:pointer; padding:10px 14px; font-family:var(--font-display); font-size:12.5px; list-style:none; display:flex; justify-content:space-between; gap:10px; align-items:baseline;}
+details summary::-webkit-details-marker{display:none;}
+details summary .arrow{color:var(--ink-dim); transition:transform .15s;}
+details[open] summary .arrow{transform:rotate(90deg);}
+details .body{padding:0 14px 14px;}
+details .sub{color:var(--ink-dim); font-size:11.5px;}
+
+.quote{border-left:3px solid var(--accent); padding:8px 14px; background:var(--accent-soft); border-radius:0 5px 5px 0; margin:10px 0; font-size:12.5px;}
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+@media(max-width:720px){.grid2{grid-template-columns:1fr;}}
+.copybtn{font-family:var(--font-display); font-size:10.5px; border:1px solid var(--rule); background:var(--surface); color:var(--ink-dim); padding:3px 8px; border-radius:4px; cursor:pointer;}
+.copybtn:hover{color:var(--ink); border-color:var(--accent);}
+.stat{text-align:center;}
+.stat .n{font-family:var(--font-display); font-size:26px; color:var(--accent); display:block;}
+.stat .l{font-size:10.5px; color:var(--ink-dim); text-transform:uppercase; letter-spacing:.04em;}
+.statrow{display:flex; gap:0; border:1px solid var(--rule); border-radius:8px; overflow:hidden; margin-bottom:16px;}
+.statrow .stat{flex:1; padding:14px 8px; border-right:1px solid var(--rule); background:var(--surface);}
+.statrow .stat:last-child{border-right:none;}
+
+@media(max-width:720px){
+  .shell{flex-direction:column;}
+  nav.rail{width:100%; height:auto; position:sticky; top:0; z-index:5; display:flex; overflow-x:auto; padding:10px 14px; gap:4px;}
+  nav.rail .brand,nav.rail .meta{display:none;}
+  nav.rail a{white-space:nowrap; margin-bottom:0;}
+  main{padding:18px max(16px, env(safe-area-inset-right,0px)) 50px max(16px, env(safe-area-inset-left,0px));}
+}
+#loading{padding:40px; font-family:var(--font-display); color:var(--ink-dim); font-size:12.5px;}
+</style>
+
+<div id="loading">Loading transcript.json…</div>
+<div class="shell" id="shell" hidden>
+  <nav class="rail" id="navrail">
+    <div class="brand"><span class="dot"></span><h1>Session Audit</h1></div>
+    <a href="#overview" data-sec="overview">Overview</a>
+    <a href="#turns" data-sec="turns">Turns</a>
+    <a href="#deltas" data-sec="deltas">Deltas</a>
+    <a href="#thinking" data-sec="thinking">Thinking vs. thinking</a>
+    <a href="#gates" data-sec="gates">Gate grades</a>
+    <a href="#open" data-sec="open">Open items</a>
+    <a href="#commits" data-sec="commits">Commits</a>
+    <a href="#artifacts" data-sec="artifacts">Artifacts</a>
+    <a href="#sources" data-sec="sources">Source docs</a>
+    <div class="meta" id="railmeta"></div>
+  </nav>
+  <main>
+    <section id="sec-overview"></section>
+    <section id="sec-turns"></section>
+    <section id="sec-deltas"></section>
+    <section id="sec-thinking"></section>
+    <section id="sec-gates"></section>
+    <section id="sec-open"></section>
+    <section id="sec-commits"></section>
+    <section id="sec-artifacts"></section>
+    <section id="sec-sources"></section>
+  </main>
+</div>
+
+<script>
+const SECTIONS = ["overview","turns","deltas","thinking","gates","open","commits","artifacts","sources"];
+let DATA = null;
+
+function esc(s){ return String(s==null?"":s).replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c])); }
+function nl2br(s){ return esc(s).replace(/\n/g,"<br>"); }
+
+function copyBtn(text){
+  const id = "c"+Math.random().toString(36).slice(2);
+  return `<button class="copybtn" data-copy="${id}">copy</button><span class="copytarget" id="${id}" hidden>${esc(text)}</span>`;
+}
+
+function renderOverview(d){
+  const m = d.meta;
+  return `
+  <div class="panel">
+    <div class="hd"><h2>What this is</h2><span class="tag">${esc(m.generated_at)}</span></div>
+    <h3 style="font-size:15px">${esc(m.title)}</h3>
+    <p>Repo <code>${esc(m.repo)}</code> · branch <code>${esc(m.branch)}</code> · PR <a href="${esc(m.pr_url)}">${esc(m.pr)}</a></p>
+    <p>Session span: <strong>${esc(m.session_span)}</strong></p>
+    <p>${m.models_involved.map(x=>`<span class="tag" style="margin-right:6px">${esc(x)}</span>`).join("")}</p>
+  </div>
+  <div class="statrow">
+    <div class="stat"><span class="n">${d.turns.length}</span><span class="l">Turns</span></div>
+    <div class="stat"><span class="n">${d.deltas.length}</span><span class="l">Deltas</span></div>
+    <div class="stat"><span class="n">${d.gate_grades.filter(g=>g.verdict==="PASS").length}/${d.gate_grades.length}</span><span class="l">Gate lines passed</span></div>
+    <div class="stat"><span class="n">${d.open_items.length}</span><span class="l">Open items</span></div>
+    <div class="stat"><span class="n">${d.artifacts.length}</span><span class="l">Artifacts</span></div>
+  </div>
+  <div class="panel">
+    <h2>Why this export exists — the request, verbatim</h2>
+    <div class="quote">${nl2br(m.purpose_as_stated_by_user)}</div>
+  </div>
+  <div class="panel">
+    <h2>Privacy note</h2>
+    <p>${nl2br(m.privacy_note)}</p>
+  </div>
+  <div class="panel">
+    <h2>How to read the rest of this page</h2>
+    <p><strong>Turns</strong> — the full input/output record, in order. <strong>Deltas</strong> — every correction made, with its source. <strong>Thinking vs. thinking</strong> — where the user's intent and the assistant's interpretation could have diverged, and how each case was actually handled. <strong>Gate grades</strong> — the independent-verifier pass graded against the project's own 10-line rubric. <strong>Open items</strong> — unresolved, with an owner. <strong>Artifacts</strong> — full current contents of every file this session wrote, read live from the repo. All of the above is also in <code>transcript.json</code>, <code>transcript.sql</code>, <code>transcript.md</code> and <code>transcript.pdf</code> alongside this page, generated from one shared source so the five formats cannot drift from each other.</p>
+  </div>`;
+}
+
+function renderTurns(d){
+  return `<div class="hd"><h2>Turn-by-turn transcript</h2></div>` + d.turns.map(t => `
+    <div class="panel">
+      <div class="hd">
+        <h3>Turn ${t.turn} · ${esc(t.speaker)} · ${esc(t.model)}</h3>
+        <span class="tag">${esc(t.date)}</span>
+      </div>
+      <p class="sub" style="color:var(--ink-dim); font-size:11.5px; margin-top:-8px">${esc(t.channel)}</p>
+      <details>
+        <summary><span>Input ${copyBtn(t.raw_text)}</span><span class="arrow">▸</span></summary>
+        <div class="body"><pre>${esc(t.raw_text)}</pre></div>
+      </details>
+      ${t.harness_side_effect ? `<div class="quote"><strong>Harness side-effect:</strong> ${esc(t.harness_side_effect)}</div>` : ""}
+      <details open>
+        <summary><span>Output / action taken</span><span class="arrow">▸</span></summary>
+        <div class="body">${nl2br(t.assistant_text)}</div>
+      </details>
+      ${t.notes ? `<p class="sub" style="color:var(--ink-dim); font-size:11.5px"><em>Note: ${esc(t.notes)}</em></p>` : ""}
+    </div>`).join("");
+}
+
+function renderDeltas(d){
+  return `<div class="panel"><div class="hd"><h2>Deltas — every correction made</h2><span class="tag">${d.deltas.length} total</span></div>
+  <table><tr><th>Category</th><th>Was claimed</th><th>Actually</th><th>Source</th></tr>
+  ${d.deltas.map(x=>`<tr><td>${esc(x.category)}</td><td>${esc(x.was_claimed)}</td><td>${esc(x.actually)}</td><td>${esc(x.source)}</td></tr>`).join("")}
+  </table></div>`;
+}
+
+function renderThinking(d){
+  return `<div class="hd"><h2>Your thinking vs. my thinking</h2></div>
+  <p style="margin-bottom:16px">Where the user's stated or implied intent and the assistant's actual interpretation could diverge, turn by turn.</p>
+  ${d.thinking_comparison.map(tc=>`
+    <div class="panel">
+      <div class="hd"><h3>Turn ${tc.turn}</h3></div>
+      <div class="grid2">
+        <div><p class="sub" style="color:var(--ink-dim); font-size:10.5px; text-transform:uppercase; letter-spacing:.04em; margin-bottom:3px">User intent as stated</p><p>${esc(tc.user_intent_as_stated)}</p></div>
+        <div><p class="sub" style="color:var(--ink-dim); font-size:10.5px; text-transform:uppercase; letter-spacing:.04em; margin-bottom:3px">Assistant interpretation</p><p>${esc(tc.assistant_interpretation)}</p></div>
+      </div>
+      <div class="quote"><strong>Divergence:</strong> ${esc(tc.divergence)}</div>
+      <p><strong>How handled:</strong> ${esc(tc.how_handled)}</p>
+    </div>`).join("")}`;
+}
+
+function renderGates(d){
+  return `<div class="panel"><div class="hd"><h2>Gate grades</h2><span class="tag">spine/verify.md</span></div>
+  <p style="margin-bottom:14px">The turn-5 independent-verifier pass (Sonnet 5 grading Opus 5's artifact), reproduced exactly.</p>
+  <table><tr><th>#</th><th>Line</th><th>Verdict</th><th>Basis</th></tr>
+  ${d.gate_grades.map(g=>`<tr><td class="mono">${g.line}</td><td>${esc(g.name)}</td><td><span class="pill ${g.verdict==='PASS'?'pass':g.verdict==='FAIL'?'fail':'na'}">${esc(g.verdict)}</span></td><td>${esc(g.basis)}</td></tr>`).join("")}
+  </table></div>`;
+}
+
+function renderOpen(d){
+  return `<div class="panel"><div class="hd"><h2>Open items</h2><span class="tag">${d.open_items.length} unresolved</span></div>
+  <table><tr><th>Item</th><th>Owner</th><th>Age</th><th>Blocking</th></tr>
+  ${d.open_items.map(o=>`<tr><td>${esc(o.item)}</td><td>${esc(o.owner)}</td><td>${esc(o.age)}</td><td>${esc(o.blocking)}</td></tr>`).join("")}
+  </table></div>`;
+}
+
+function renderCommits(d){
+  return `<div class="panel"><div class="hd"><h2>Commits</h2></div>
+  <table><tr><th>SHA</th><th>Date</th><th>Author</th><th>Message</th></tr>
+  ${d.commits.map(c=>`<tr><td class="mono">${esc(c.sha)}</td><td>${esc(c.date)}</td><td>${esc(c.author)}</td><td>${esc(c.message)}</td></tr>`).join("")}
+  </table></div>`;
+}
+
+function renderArtifacts(d){
+  return `<div class="hd"><h2>Artifacts — full current contents, read live from the repo</h2></div>
+  ${d.artifacts.map(a=>`
+    <details>
+      <summary><span><code>${esc(a.path)}</code> <span class="sub">— ${a.lines} lines, ${a.bytes}B, last commit ${esc((a.last_commit||'').slice(0,7))} (${esc(a.last_commit_date||'')})</span></span><span class="arrow">▸</span></summary>
+      <div class="body">
+        <p class="sub" style="color:var(--ink-dim)">${esc(a.description)}</p>
+        <pre>${esc(a.content)}</pre>
+      </div>
+    </details>`).join("")}`;
+}
+
+function renderSources(d){
+  return `<div class="hd"><h2>Source documents — full text, as received</h2></div>
+  ${d.source_documents.map(sd=>`
+    <details>
+      <summary><span><code>${esc(sd.name)}</code></span><span class="arrow">▸</span></summary>
+      <div class="body">
+        <p class="sub" style="color:var(--ink-dim)">${esc(sd.origin)}</p>
+        <pre>${esc(sd.content)}</pre>
+      </div>
+    </details>`).join("")}`;
+}
+
+function showSection(name){
+  if(!SECTIONS.includes(name)) name = "overview";
+  document.querySelectorAll("main section").forEach(s=>s.classList.remove("active"));
+  document.querySelectorAll("nav.rail a").forEach(a=>a.classList.remove("active"));
+  const sec = document.getElementById("sec-"+name);
+  if(sec) sec.classList.add("active");
+  const link = document.querySelector(`nav.rail a[data-sec="${name}"]`);
+  if(link) link.classList.add("active");
+  try{ localStorage.setItem("voiceaudit-last-section", name); }catch(e){}
+}
+
+function render(d){
+  document.getElementById("sec-overview").innerHTML = renderOverview(d);
+  document.getElementById("sec-turns").innerHTML = renderTurns(d);
+  document.getElementById("sec-deltas").innerHTML = renderDeltas(d);
+  document.getElementById("sec-thinking").innerHTML = renderThinking(d);
+  document.getElementById("sec-gates").innerHTML = renderGates(d);
+  document.getElementById("sec-open").innerHTML = renderOpen(d);
+  document.getElementById("sec-commits").innerHTML = renderCommits(d);
+  document.getElementById("sec-artifacts").innerHTML = renderArtifacts(d);
+  document.getElementById("sec-sources").innerHTML = renderSources(d);
+  document.getElementById("railmeta").innerHTML =
+    `Branch<br><strong style="color:var(--ink)">${esc(d.meta.branch)}</strong><br><br>Formats<br>JSON · SQL · MD · PDF · this page`;
+
+  document.body.addEventListener("click", (e)=>{
+    const btn = e.target.closest(".copybtn");
+    if(!btn) return;
+    const target = document.getElementById(btn.dataset.copy);
+    const text = target ? target.textContent : "";
+    const done = ()=>{ const orig = btn.textContent; btn.textContent = "copied"; setTimeout(()=>btn.textContent = orig, 1200); };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(()=>{
+        const r = document.createRange(); r.selectNode(target);
+        const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r); done();
+      });
+    }
+  });
+
+  window.addEventListener("hashchange", ()=> showSection(location.hash.slice(1)));
+  let initial = location.hash.slice(1);
+  if(!initial){
+    try{ initial = localStorage.getItem("voiceaudit-last-section") || "overview"; }catch(e){ initial = "overview"; }
+  }
+  showSection(initial);
+}
+
+fetch("transcript.json").then(r=>r.json()).then(d=>{
+  DATA = d;
+  document.getElementById("loading").hidden = true;
+  document.getElementById("shell").hidden = false;
+  render(d);
+}).catch(err=>{
+  document.getElementById("loading").textContent = "Could not load transcript.json: " + err;
+});
+</script>

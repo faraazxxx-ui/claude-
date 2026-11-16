@@ -1,0 +1,21 @@
+# Telemetry
+
+One line per session. Minimum one per day, even mid-task. Append only.
+
+## Format
+
+```
+YYYY-MM-DD · task-slug · outcome:PASS/FAIL · rounds:n/2 · breakers:none/named · detours:n(what,why) · handoffs:n · note:one line
+```
+
+The value is the pattern across lines, not any single entry — repeated detours to the same cause, or a slug that keeps reappearing, is the signal. So keep entries terse and never retroactively tidy one.
+
+## Log
+
+```
+2026-08-29 · verify-whisper-dictation-doc · outcome:PASS · rounds:1/2 · breakers:none · detours:1(spine-absent,Gate-0-found-no-hub/goal/verify-so-ran-ungated) · handoffs:0 · note:8 of 13 doc claims wrong incl. install method and hotkey; token-saving premise itself was false
+2026-08-29 · build-voice-capture-skill-and-spine · outcome:PASS · rounds:1/2 · breakers:none · detours:0 · handoffs:0 · note:skill written from re-verified README not recall; goal.md left UNSET rather than guessed
+2026-08-30 · independent-verify-voice-capture-skill · outcome:PASS · rounds:1/2 · breakers:none · detours:0 · handoffs:1(Opus5→Sonnet5) · note:fresh-model re-fetch of source confirms zero drift from SKILL.md; Gate 4 now satisfied for this artifact
+```
+2026-11-12 · build-canonical-memory-pack · outcome:PASS · rounds:1/2 · breakers:none · detours:1(external grok/claude project URLs + Drive unreachable from build env; seeded from local repos + vendor docs) · handoffs:0 · note:pack written to standing ten lines; Gate 4 NOT satisfied — no separate verifier yet; Grok/Le Chat/Mistral UI tagged Medium
+2026-11-12/16 · export-session-md-json-sql-pdf-artifact · outcome:PASS · rounds:1/2 · breakers:1(worker restart mid-build; scratchpad survived, resumed without redoing work) · detours:0 · handoffs:0 · note:5 formats from one source (data.py+live repo read); JSON/SQL/PDF validated not just eyeballed; PII-before-sharing flagged in export, not redacted by it
