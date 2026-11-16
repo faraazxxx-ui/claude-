@@ -74,3 +74,24 @@ This is the separate-verifier pass `progress.md` flagged as missing on 2026-08-2
 - `spine/hub.md` standing-skills table does not list `angelic-orchestrator/` yet — hub.md is Dr. Rahman only, so left untouched.
 
 **Next.** Dr. Rahman pastes `_BOOTSTRAP.md` + `CANONICAL_MEMORY.md` into ChatGPT first (Custom Instructions + angelic-orchestrator Project), then works down the README install map, then fills `goal.md`.
+
+---
+
+## 2026-11-12/16 — Full session export built: MD, JSON, SQL, PDF, Artifact
+
+**State now.** `exports/angelic-orchestrator-session-2026-08-29/` holds a complete turn-by-turn export of the 2026-08-29→11-12 session (doc verification, skill build, independent verifier pass) in five formats, generated from one source (`data.py` + a live read of the repo's own artifact files) so the formats can't drift apart. Published Artifact: https://claude.ai/artifact/4vbLr9ktznCz4knMNARqjk.
+
+**What moved.**
+
+| | |
+|---|---|
+| Built | `exports/angelic-orchestrator-session-2026-08-29/` — transcript.{md,json,sql,pdf}, artifact_source.html, data.py, build.py, README.md |
+| Validated | JSON parses; SQL loads cleanly into a real sqlite3 database (not just well-formed text); PDF is a genuine multi-page %PDF-1.4 file; artifact's embedded JS passes `node -c` |
+| Rendered locally | pandoc (MD→HTML) → pre-installed headless Chromium (HTML→PDF) — no external conversion service touched, consistent with this session's own local-only stance |
+| Recorded | 1 telemetry line |
+
+**Open — flagged in the export itself, not resolved by it.** Dr. Rahman's work email appears in commit trailers and session metadata reproduced in the export. Not sensitive on its own, but the export's stated destination is "to be analyzed by others" — redact before this folder leaves Dr. Rahman's own control. The export documents this; it doesn't decide it.
+
+**Still open, unchanged.** `goal.md` still UNSET. `sony_sync.sh`/plist still unread. `angelic-orchestrator/` pack (fb3bb92) still has no independent-verifier pass.
+
+**Next.** Dr. Rahman decides whether/how this export folder gets shared, and handles the email-redaction call first if so.
